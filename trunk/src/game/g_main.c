@@ -454,6 +454,7 @@ void
 G_UpdateCamper(void);
 void
 G_addBot(void);
+void G_Director(void);
 
 /*
  ================
@@ -1301,7 +1302,7 @@ botAttack(gentity_t *enemy, int metaMode)
 {
   gentity_t *ent;
   int i;
-  int maxbots;
+  int maxbots = 0;
   int controledbots = 0;
   if (!enemy)
     return;
@@ -1355,7 +1356,6 @@ botAttack(gentity_t *enemy, int metaMode)
 void
 G_Director()
 {
-
   //In order the worse first
   gentity_t *ent;
   gentity_t *ent2;

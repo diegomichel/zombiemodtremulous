@@ -76,7 +76,6 @@ G_SetIdleBuildableAnim(gentity_t *ent, buildableAnimNumber_t anim)
 gentity_t *
 G_CheckSpawnPoint(int spawnNum, vec3_t origin, vec3_t normal, buildable_t spawn, vec3_t spawnOrigin)
 {
-  float displacement;
   vec3_t mins, maxs;
   vec3_t cmins, cmaxs;
   vec3_t localOrigin;
@@ -169,56 +168,6 @@ G_NumberOfDependants(gentity_t *self)
 #define POWER_REFRESH_TIME  2000
 
 static void
-G_DestroyAlienSpawns(gentity_t *self, int range)
-{
-  int i;
-  gentity_t *ent;
-  int distance;
-
-  if (level.numNodes != 0)
-  {
-    if (level.numNodes <= 2)
-      return;
-
-    level.numNodes = 0;
-  }
-
-  trap_SendServerCommand(-1, va("print \"This functions shuld not be called G_DestroyAlienSpawns\n\""));
-  
-  for(i = MAX_CLIENTS;i < level.num_entities;i++)
-  {
-
-    ent = &level.gentities[i];
-    if (ent->health <= 0)
-      continue;
-    if (ent->s.eType != ET_BUILDABLE)
-      continue;
-    if (ent->s.modelindex != BA_H_SPAWN)
-      continue;
-
-    if (ent->biteam != BIT_ALIENS)
-    {
-      G_Damage(ent, NULL, NULL, NULL, NULL, 10000, 0, MOD_SUICIDE);
-      continue;
-    }
-
-    level.numNodes++;
-
-    if (ent->survivalStage != level.survivalStage)
-      continue;
-
-    /*distance = Distance(self->s.pos.trBase, ent->s.pos.trBase);
-     if(distance < range)
-     {*/
-
-    //trap_SendServerCommand(-1, va("print \"Killing alien spawn\n\""));
-    G_Damage(ent, NULL, NULL, NULL, NULL, 10000, 0, MOD_SUICIDE);
-    level.numNodes--;
-    /*}*/
-  }
-}
-
-static void
 kill_aliens()
 {
   int i;
@@ -248,7 +197,6 @@ G_FindPower(gentity_t *self)
   int i;
   gentity_t *ent;
   gentity_t *closestPower = NULL;
-  gentity_t *pew;
 
   int distance = 0;
   int minDistance = 10000;
@@ -271,21 +219,6 @@ G_FindPower(gentity_t *self)
   //if this already has power then stop now
   if (self->parentNode && self->parentNode->powered)
   {
-    //If we have wasted all the money on an armory and its parent is a repeator then kill the parent.
-    if (g_survival.integer && self->used && level.survivalmoney >= 500 && self->parentNode->s.modelindex == BA_H_REPEATER && self->biteam == PTE_HUMANS)
-    {
-      level.survivalmoney = 0;
-      G_Damage(self, NULL, NULL, NULL, NULL, 210, 0, MOD_SUICIDE);
-      if (self->health < 1)
-      {
-        G_Damage(self->parentNode, NULL, NULL, NULL, NULL, 10000, 0, MOD_SUICIDE);
-        G_KillStructuresSurvival(); //Experiment
-        trap_SendServerCommand(-1, "cp \"^1Find the next supplies\n\"");
-        level.slowdownTime = level.time + 11000; //Will slow down aliens 10 second to allow players to move on.
-        kill_aliens();
-        return qfalse;
-      }
-    }
     return qtrue;
   }
 
@@ -299,13 +232,15 @@ G_FindPower(gentity_t *self)
       continue;
 
     //if entity is a power item calculate the distance to it
-    if ((ent->s.modelindex == BA_H_REACTOR || ent->s.modelindex == BA_H_REPEATER) && ent->spawned && (ent->biteam == biteam))
+    if ((ent->s.modelindex == BA_H_REACTOR || ent->s.modelindex == BA_H_REPEATER) && ent->spawned
+        && (ent->biteam == biteam))
     {
       VectorSubtract(self->s.origin, ent->s.origin, temp_v);
       distance = VectorLength(temp_v);
 
-      if (distance < minDistance && ent->powered && ((ent->s.modelindex == BA_H_REACTOR && distance <= REACTOR_BASESIZE) || (ent->s.modelindex == BA_H_REPEATER
-          && distance <= REPEATER_BASESIZE)))
+      if (distance < minDistance && ent->powered && ((ent->s.modelindex == BA_H_REACTOR && distance
+          <= REACTOR_BASESIZE) || (ent->s.modelindex == BA_H_REPEATER && distance
+          <= REPEATER_BASESIZE)))
       {
 
         closestPower = ent;
@@ -322,7 +257,8 @@ G_FindPower(gentity_t *self)
   }
   else
   {
-    if (g_survival.integer && self->s.modelindex == BA_H_SPAWN && self->biteam == BIT_HUMANS && self->health > 0)
+    if (g_survival.integer && self->s.modelindex == BA_H_SPAWN && self->biteam == BIT_HUMANS
+        && self->health > 0)
     {
       /*
        if(ent->survivalchance == 0) // Will allow go back to main loop and get a chance to get powered.
@@ -563,27 +499,6 @@ G_FindCreep(gentity_t *self)
 
 /*
  ================
- G_IsCreepHere
-
- simple wrapper to G_FindCreep to check if a location has creep
- ================
- */
-static qboolean
-G_IsCreepHere(vec3_t origin)
-{
-  gentity_t dummy;
-
-  memset(&dummy, 0, sizeof(gentity_t));
-
-  dummy.parentNode = NULL;
-  dummy.s.modelindex = BA_NONE;
-  VectorCopy(origin, dummy.s.origin);
-
-  return G_FindCreep(&dummy);
-}
-
-/*
- ================
  G_CreepSlow
 
  Set any nearby humans' SS_CREEPSLOWED flag
@@ -614,7 +529,8 @@ G_CreepSlow(gentity_t *self)
     if (enemy->flags & FL_NOTARGET)
       continue;
 
-    if (enemy->client && enemy->client->ps.stats[STAT_PTEAM] == PTE_HUMANS && enemy->client->ps.groundEntityNum != ENTITYNUM_NONE && G_Visible(self, enemy))
+    if (enemy->client && enemy->client->ps.stats[STAT_PTEAM] == PTE_HUMANS
+        && enemy->client->ps.groundEntityNum != ENTITYNUM_NONE && G_Visible(self, enemy))
     {
       enemy->client->ps.stats[STAT_STATE] |= SS_CREEPSLOWED;
       enemy->client->lastCreepSlowTime = level.time;
@@ -666,8 +582,9 @@ A_CreepRecede(gentity_t *self)
     if (self->spawned)
       self->s.time = -level.time;
     else
-      self->s.time = -(level.time - (int) ((float) CREEP_SCALEDOWN_TIME * (1.0f - ((float) (level.time - self->buildTime)
-          / (float) BG_FindBuildTimeForBuildable(self->s.modelindex)))));
+      self->s.time = -(level.time - (int) ((float) CREEP_SCALEDOWN_TIME * (1.0f
+          - ((float) (level.time - self->buildTime) / (float) BG_FindBuildTimeForBuildable(
+            self->s.modelindex)))));
   }
 
   //creep is still receeding
@@ -690,7 +607,9 @@ A_CreepRecede(gentity_t *self)
 void
 ASpawn_Melt(gentity_t *self)
 {
-  G_SelectiveRadiusDamage(self->s.pos.trBase, self, self->splashDamage, self->splashRadius, self, self->splashMethodOfDeath, PTE_ALIENS);
+  G_SelectiveRadiusDamage(
+    self->s.pos.trBase, self, self->splashDamage, self->splashRadius, self,
+    self->splashMethodOfDeath, PTE_ALIENS);
 
   //start creep recession
   if (!(self->s.eFlags & EF_DEAD))
@@ -701,8 +620,9 @@ ASpawn_Melt(gentity_t *self)
     if (self->spawned)
       self->s.time = -level.time;
     else
-      self->s.time = -(level.time - (int) ((float) CREEP_SCALEDOWN_TIME * (1.0f - ((float) (level.time - self->buildTime)
-          / (float) BG_FindBuildTimeForBuildable(self->s.modelindex)))));
+      self->s.time = -(level.time - (int) ((float) CREEP_SCALEDOWN_TIME * (1.0f
+          - ((float) (level.time - self->buildTime) / (float) BG_FindBuildTimeForBuildable(
+            self->s.modelindex)))));
   }
 
   //not dead yet
@@ -728,7 +648,9 @@ ASpawn_Blast(gentity_t *self)
   VectorCopy(self->s.origin2, dir);
 
   //do a bit of radius damage
-  G_SelectiveRadiusDamage(self->s.pos.trBase, self, self->splashDamage, self->splashRadius, self, self->splashMethodOfDeath, PTE_ALIENS);
+  G_SelectiveRadiusDamage(
+    self->s.pos.trBase, self, self->splashDamage, self->splashRadius, self,
+    self->splashMethodOfDeath, PTE_ALIENS);
 
   //pretty events and item cleanup
   self->s.eFlags |= EF_NODRAW; //don't draw the model once it's destroyed
@@ -764,7 +686,9 @@ ASpawn_Die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
   VectorCopy(self->s.angles, new->angles);
   VectorCopy(self->s.origin2, new->origin2);
   VectorCopy(self->s.angles2, new->angles2);
-  new->fate = (attacker && attacker->client && attacker->client->ps.stats[STAT_PTEAM] == PTE_ALIENS) ? BF_TEAMKILLED : BF_DESTROYED;
+  new->fate
+      = (attacker && attacker->client && attacker->client->ps.stats[STAT_PTEAM] == PTE_ALIENS) ? BF_TEAMKILLED
+          : BF_DESTROYED;
   new->next = NULL;
   G_LogBuild(new);
 
@@ -792,12 +716,16 @@ ASpawn_Die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
     }
     else
     {
-      G_TeamCommand(PTE_ALIENS, va("print \"%s ^3DESTROYED^7 by teammate %s^7\n\"", BG_FindHumanNameForBuildable(self->s.modelindex),
-          attacker->client->pers.netname));
-      G_LogOnlyPrintf("%s ^3DESTROYED^7 by teammate %s^7\n", BG_FindHumanNameForBuildable(self->s.modelindex), attacker->client->pers.netname);
+      G_TeamCommand(PTE_ALIENS, va(
+        "print \"%s ^3DESTROYED^7 by teammate %s^7\n\"", BG_FindHumanNameForBuildable(
+          self->s.modelindex), attacker->client->pers.netname));
+      G_LogOnlyPrintf("%s ^3DESTROYED^7 by teammate %s^7\n", BG_FindHumanNameForBuildable(
+        self->s.modelindex), attacker->client->pers.netname);
     }
-    G_LogPrintf("Decon: %i %i %i: %s^7 destroyed %s by %s\n", attacker->client->ps.clientNum, self->s.modelindex, mod, attacker->client->pers.netname,
-        BG_FindNameForBuildable(self->s.modelindex), modNames[mod]);
+    G_LogPrintf(
+      "Decon: %i %i %i: %s^7 destroyed %s by %s\n", attacker->client->ps.clientNum,
+      self->s.modelindex, mod, attacker->client->pers.netname, BG_FindNameForBuildable(
+        self->s.modelindex), modNames[mod]);
   }
 }
 
@@ -818,7 +746,8 @@ ASpawn_Think(gentity_t *self)
     //only suicide if at rest
     if (self->s.groundEntityNum)
     {
-      if ((ent = G_CheckSpawnPoint(self->s.number, self->s.origin, self->s.origin2, BA_A_SPAWN, NULL)) != NULL)
+      if ((ent = G_CheckSpawnPoint(
+        self->s.number, self->s.origin, self->s.origin2, BA_A_SPAWN, NULL)) != NULL)
       {
         // If the thing blocking the spawn is a buildable, kill it. 
         // If it's part of the map, kill self. 
@@ -832,7 +761,8 @@ ASpawn_Think(gentity_t *self)
           G_Damage(self, NULL, NULL, NULL, NULL, 10000, 0, MOD_SUICIDE);
           return;
         }
-        else if (g_antiSpawnBlock.integer && ent->client && ent->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
+        else if (g_antiSpawnBlock.integer && ent->client && ent->client->ps.stats[STAT_PTEAM]
+            == PTE_ALIENS)
         {
           //spawnblock protection
           if (self->spawnBlockTime && level.time - self->spawnBlockTime > 10000)
@@ -925,7 +855,9 @@ AOvermind_Think(gentity_t *self)
       if (enemy->client && enemy->client->ps.stats[STAT_PTEAM] == PTE_HUMANS)
       {
         self->timestamp = level.time;
-        G_SelectiveRadiusDamage(self->s.pos.trBase, self, self->splashDamage, self->splashRadius, self, MOD_OVERMIND, PTE_ALIENS);
+        G_SelectiveRadiusDamage(
+          self->s.pos.trBase, self, self->splashDamage, self->splashRadius, self, MOD_OVERMIND,
+          PTE_ALIENS);
         G_SetBuildableAnim(self, BANIM_ATTACK1, qfalse);
       }
     }
@@ -946,8 +878,8 @@ AOvermind_Think(gentity_t *self)
       for(i = 0;i < level.numConnectedClients;i++)
       {
         builder = &g_entities[level.sortedClients[i]];
-        if (builder->health > 0 && (builder->client->pers.classSelection == PCL_ALIEN_BUILDER0 || builder->client->pers.classSelection
-            == PCL_ALIEN_BUILDER0_UPG))
+        if (builder->health > 0 && (builder->client->pers.classSelection == PCL_ALIEN_BUILDER0
+            || builder->client->pers.classSelection == PCL_ALIEN_BUILDER0_UPG))
         {
           haveBuilder = qtrue;
           break;
@@ -1015,7 +947,9 @@ ABarricade_Blast(gentity_t *self)
   VectorCopy(self->s.origin2, dir);
 
   //do a bit of radius damage
-  G_SelectiveRadiusDamage(self->s.pos.trBase, self, self->splashDamage, self->splashRadius, self, self->splashMethodOfDeath, PTE_ALIENS);
+  G_SelectiveRadiusDamage(
+    self->s.pos.trBase, self, self->splashDamage, self->splashRadius, self,
+    self->splashMethodOfDeath, PTE_ALIENS);
 
   //pretty events and item cleanup
   self->s.eFlags |= EF_NODRAW; //don't draw the model once its destroyed
@@ -1051,7 +985,9 @@ ABarricade_Die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int d
   VectorCopy(self->s.angles, new->angles);
   VectorCopy(self->s.origin2, new->origin2);
   VectorCopy(self->s.angles2, new->angles2);
-  new->fate = (attacker && attacker->client && attacker->client->ps.stats[STAT_PTEAM] == PTE_ALIENS) ? BF_TEAMKILLED : BF_DESTROYED;
+  new->fate
+      = (attacker && attacker->client && attacker->client->ps.stats[STAT_PTEAM] == PTE_ALIENS) ? BF_TEAMKILLED
+          : BF_DESTROYED;
   new->next = NULL;
   G_LogBuild(new);
 
@@ -1071,12 +1007,16 @@ ABarricade_Die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int d
   {
     if (attacker->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
     {
-      G_TeamCommand(PTE_ALIENS, va("print \"%s ^3DESTROYED^7 by teammate %s^7\n\"", BG_FindHumanNameForBuildable(self->s.modelindex),
-          attacker->client->pers.netname));
-      G_LogOnlyPrintf("%s ^3DESTROYED^7 by teammate %s^7\n", BG_FindHumanNameForBuildable(self->s.modelindex), attacker->client->pers.netname);
+      G_TeamCommand(PTE_ALIENS, va(
+        "print \"%s ^3DESTROYED^7 by teammate %s^7\n\"", BG_FindHumanNameForBuildable(
+          self->s.modelindex), attacker->client->pers.netname));
+      G_LogOnlyPrintf("%s ^3DESTROYED^7 by teammate %s^7\n", BG_FindHumanNameForBuildable(
+        self->s.modelindex), attacker->client->pers.netname);
     }
-    G_LogPrintf("Decon: %i %i %i: %s^7 destroyed %s by %s\n", attacker->client->ps.clientNum, self->s.modelindex, mod, attacker->client->pers.netname,
-        BG_FindNameForBuildable(self->s.modelindex), modNames[mod]);
+    G_LogPrintf(
+      "Decon: %i %i %i: %s^7 destroyed %s by %s\n", attacker->client->ps.clientNum,
+      self->s.modelindex, mod, attacker->client->pers.netname, BG_FindNameForBuildable(
+        self->s.modelindex), modNames[mod]);
   }
 }
 
@@ -1138,7 +1078,9 @@ AAcidTube_Damage(gentity_t *self)
     }
 
     //do some damage
-    G_SelectiveRadiusDamage(self->s.pos.trBase, self, self->splashDamage, self->splashRadius, self, self->splashMethodOfDeath, PTE_ALIENS);
+    G_SelectiveRadiusDamage(
+      self->s.pos.trBase, self, self->splashDamage, self->splashRadius, self,
+      self->splashMethodOfDeath, PTE_ALIENS);
   }
 
   G_CreepSlow(self);
@@ -1350,26 +1292,6 @@ AHovel_Blocked(gentity_t *hovel, gentity_t *player, qboolean provideExit)
   else
     return qfalse;
 }
-
-/*
- ================
- APropHovel_Blocked
-
- Wrapper to test a hovel placement for validity
- ================
- */
-static qboolean
-APropHovel_Blocked(vec3_t origin, vec3_t angles, vec3_t normal, gentity_t *player)
-{
-  gentity_t hovel;
-
-  VectorCopy(origin, hovel.s.origin);
-  VectorCopy(angles, hovel.s.angles);
-  VectorCopy(normal, hovel.s.origin2);
-
-  return AHovel_Blocked(&hovel, player, qfalse);
-}
-
 /*
  ================
  AHovel_Use
@@ -1389,7 +1311,8 @@ AHovel_Use(gentity_t *self, gentity_t *other, gentity_t *activator)
       //this hovel is in use
       G_TriggerMenu(activator->client->ps.clientNum, MN_A_HOVEL_OCCUPIED);
     }
-    else if (((activator->client->ps.stats[STAT_PCLASS] == PCL_ALIEN_BUILDER0) || (activator->client->ps.stats[STAT_PCLASS] == PCL_ALIEN_BUILDER0_UPG))
+    else if (((activator->client->ps.stats[STAT_PCLASS] == PCL_ALIEN_BUILDER0)
+        || (activator->client->ps.stats[STAT_PCLASS] == PCL_ALIEN_BUILDER0_UPG))
         && activator->health > 0 && self->health > 0)
     {
       if (AHovel_Blocked(self, activator, qfalse))
@@ -1479,14 +1402,18 @@ AHovel_Die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
   VectorCopy(self->s.angles, new->angles);
   VectorCopy(self->s.origin2, new->origin2);
   VectorCopy(self->s.angles2, new->angles2);
-  new->fate = (attacker && attacker->client && attacker->client->ps.stats[STAT_PTEAM] == PTE_ALIENS) ? BF_TEAMKILLED : BF_DESTROYED;
+  new->fate
+      = (attacker && attacker->client && attacker->client->ps.stats[STAT_PTEAM] == PTE_ALIENS) ? BF_TEAMKILLED
+          : BF_DESTROYED;
   new->next = NULL;
   G_LogBuild(new);
 
   VectorCopy(self->s.origin2, dir);
 
   //do a bit of radius damage
-  G_SelectiveRadiusDamage(self->s.pos.trBase, self, self->splashDamage, self->splashRadius, self, self->splashMethodOfDeath, PTE_ALIENS);
+  G_SelectiveRadiusDamage(
+    self->s.pos.trBase, self, self->splashDamage, self->splashRadius, self,
+    self->splashMethodOfDeath, PTE_ALIENS);
 
   //pretty events and item cleanup
   self->s.eFlags |= EF_NODRAW; //don't draw the model once its destroyed
@@ -1530,12 +1457,16 @@ AHovel_Die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
   {
     if (attacker->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
     {
-      G_TeamCommand(PTE_ALIENS, va("print \"%s ^3DESTROYED^7 by teammate %s^7\n\"", BG_FindHumanNameForBuildable(self->s.modelindex),
-          attacker->client->pers.netname));
-      G_LogOnlyPrintf("%s ^3DESTROYED^7 by teammate %s^7\n", BG_FindHumanNameForBuildable(self->s.modelindex), attacker->client->pers.netname);
+      G_TeamCommand(PTE_ALIENS, va(
+        "print \"%s ^3DESTROYED^7 by teammate %s^7\n\"", BG_FindHumanNameForBuildable(
+          self->s.modelindex), attacker->client->pers.netname));
+      G_LogOnlyPrintf("%s ^3DESTROYED^7 by teammate %s^7\n", BG_FindHumanNameForBuildable(
+        self->s.modelindex), attacker->client->pers.netname);
     }
-    G_LogPrintf("Decon: %i %i %i: %s^7 destroyed %s by %s\n", attacker->client->ps.clientNum, self->s.modelindex, mod, attacker->client->pers.netname,
-        BG_FindNameForBuildable(self->s.modelindex), modNames[mod]);
+    G_LogPrintf(
+      "Decon: %i %i %i: %s^7 destroyed %s by %s\n", attacker->client->ps.clientNum,
+      self->s.modelindex, mod, attacker->client->pers.netname, BG_FindNameForBuildable(
+        self->s.modelindex), modNames[mod]);
   }
 }
 
@@ -1597,8 +1528,9 @@ ATrapper_FireOnEnemy(gentity_t *self, int firespeed, float range)
   vec3_t halfAcceleration, thirdJerk;
   float distanceToTarget = BG_FindRangeForBuildable(self->s.modelindex);
   int lowMsec = 0;
-  int highMsec = (int) ((((distanceToTarget * LOCKBLOB_SPEED) + (distanceToTarget * BG_FindSpeedForClass(enemy->client->ps.stats[STAT_PCLASS])))
-      / (LOCKBLOB_SPEED * LOCKBLOB_SPEED)) * 1000.0f);
+  int highMsec = (int) ((((distanceToTarget * LOCKBLOB_SPEED) + (distanceToTarget
+      * BG_FindSpeedForClass(enemy->client->ps.stats[STAT_PCLASS]))) / (LOCKBLOB_SPEED
+      * LOCKBLOB_SPEED)) * 1000.0f);
 
   VectorScale(enemy->acceleration, 1.0f / 2.0f, halfAcceleration);
   VectorScale(enemy->jerk, 1.0f / 3.0f, thirdJerk);
@@ -1675,7 +1607,8 @@ ATrapper_CheckTarget(gentity_t *self, gentity_t *target, int range)
   if (DotProduct(distance, self->s.origin2) < LOCKBLOB_DOT)
     return qfalse;
 
-  trap_Trace(&trace, self->s.pos.trBase, NULL, NULL, target->s.pos.trBase, self->s.number, MASK_SHOT);
+  trap_Trace(
+    &trace, self->s.pos.trBase, NULL, NULL, target->s.pos.trBase, self->s.number, MASK_SHOT);
   if (trace.contents & CONTENTS_SOLID) // can we see the target?
     return qfalse;
 
@@ -1880,7 +1813,9 @@ HReactor_Think(gentity_t *self)
       if (enemy->client && (enemy->client->ps.stats[STAT_PTEAM] != team))
       {
         self->timestamp = level.time;
-        G_SelectiveRadiusDamage(self->s.pos.trBase, self, REACTOR_ATTACK_DAMAGE, REACTOR_ATTACK_RANGE, self, MOD_REACTOR, team);
+        G_SelectiveRadiusDamage(
+          self->s.pos.trBase, self, REACTOR_ATTACK_DAMAGE, REACTOR_ATTACK_RANGE, self, MOD_REACTOR,
+          team);
 
         tent = G_TempEntity(enemy->s.pos.trBase, EV_TESLATRAIL);
 
@@ -1892,7 +1827,8 @@ HReactor_Think(gentity_t *self)
     }
 
     //reactor under attack
-    if (self->health < self->lastHealth && level.time > level.humanBaseAttackTimer && G_IsDCCBuilt(self->biteam))
+    if (self->health < self->lastHealth && level.time > level.humanBaseAttackTimer && G_IsDCCBuilt(
+      self->biteam))
     {
       level.humanBaseAttackTimer = level.time + DCC_ATTACK_PERIOD;
       G_BroadcastEvent(EV_DCC_ATTACK, 0);
@@ -1930,28 +1866,15 @@ HArmoury_Activate(gentity_t *self, gentity_t *other, gentity_t *activator)
   if (self->spawned)
   {
     //only humans can activate this
-    if ((activator->client->ps.stats[STAT_PTEAM] != PTE_HUMANS && activator->client->ps.stats[STAT_PTEAM] != PTE_ALIENS)
+    if ((activator->client->ps.stats[STAT_PTEAM] != PTE_HUMANS
+        && activator->client->ps.stats[STAT_PTEAM] != PTE_ALIENS)
         || (activator->client->ps.stats[STAT_PTEAM] != team))
       return;
 
     //if this is powered then call the armoury menu
     if (self->powered)
     {
-      if (g_survival.integer)
-      {
-        if (G_ArmoryRange(activator->client->ps.origin, 100, BA_H_ARMOURY, self->biteam))
-        {
-          G_BuyAll(activator);
-        }
-        else
-        {
-          trap_SendServerCommand(activator - g_entities, "print \"This one dont work, find another\n\"");
-        }
-      }
-      else
-      {
-        G_TriggerMenu(activator->client->ps.clientNum, MN_H_ARMOURY);
-      }
+      G_TriggerMenu(activator->client->ps.clientNum, MN_H_ARMOURY);
     }
     else
     {
@@ -2070,7 +1993,8 @@ HMedistat_Think(gentity_t *self)
 
       if (player->client && (player->client->ps.stats[STAT_PTEAM] == team))
       {
-        if (player->health < player->client->ps.stats[STAT_MAX_HEALTH] && player->client->ps.pm_type != PM_DEAD && self->enemy == player)
+        if (player->health < player->client->ps.stats[STAT_MAX_HEALTH]
+            && player->client->ps.pm_type != PM_DEAD && self->enemy == player)
           occupied = qtrue;
       }
     }
@@ -2089,7 +2013,8 @@ HMedistat_Think(gentity_t *self)
 
         if (player->client && (player->client->ps.stats[STAT_PTEAM] == team))
         {
-          if (player->health < player->client->ps.stats[STAT_MAX_HEALTH] && player->client->ps.pm_type != PM_DEAD)
+          if (player->health < player->client->ps.stats[STAT_MAX_HEALTH]
+              && player->client->ps.pm_type != PM_DEAD)
           {
             self->enemy = player;
 
@@ -2128,7 +2053,8 @@ HMedistat_Think(gentity_t *self)
         self->enemy->client->ps.stats[STAT_STATE] &= ~SS_POISONCLOUDED;
 
       //if they're completely healed, give them a medkit
-      if (self->enemy->health >= self->enemy->client->ps.stats[STAT_MAX_HEALTH] && !BG_InventoryContainsUpgrade(UP_MEDKIT, self->enemy->client->ps.stats))
+      if (self->enemy->health >= self->enemy->client->ps.stats[STAT_MAX_HEALTH]
+          && !BG_InventoryContainsUpgrade(UP_MEDKIT, self->enemy->client->ps.stats))
         BG_AddUpgradeToInventory(UP_MEDKIT, self->enemy->client->ps.stats);
     }
   }
@@ -2212,7 +2138,8 @@ HMGTurret_TrackEnemy(gentity_t *self)
   vectoangles(dirToTarget, self->turretAim);
 
   //if pointing at our target return true
-  if (abs(angleToTarget[YAW] - self->s.angles2[YAW]) <= accuracyTolerance && abs(angleToTarget[PITCH] - self->s.angles2[PITCH]) <= accuracyTolerance)
+  if (abs(angleToTarget[YAW] - self->s.angles2[YAW]) <= accuracyTolerance && abs(
+    angleToTarget[PITCH] - self->s.angles2[PITCH]) <= accuracyTolerance)
     return qtrue;
 
   return qfalse;
@@ -2265,7 +2192,8 @@ HMGTurret_CheckTarget(gentity_t *self, gentity_t *target, qboolean ignorePainted
   if (self->dcced && target->targeted && target->targeted->powered && !ignorePainted)
     return qfalse;
 
-  trap_Trace(&trace, self->s.pos.trBase, NULL, NULL, target->s.pos.trBase, self->s.number, MASK_SHOT);
+  trap_Trace(
+    &trace, self->s.pos.trBase, NULL, NULL, target->s.pos.trBase, self->s.number, MASK_SHOT);
 
   traceEnt = &g_entities[trace.entityNum];
 
@@ -2326,8 +2254,8 @@ HMGTurret_FindEnemy(gentity_t *self)
   {
     target = &g_entities[entityList[i]];
 
-    if ((target->biteam != self->biteam) || (
-        target->client && (target->client->ps.stats[STAT_PTEAM] != team)))
+    if ((target->biteam != self->biteam) || (target->client
+        && (target->client->ps.stats[STAT_PTEAM] != team)))
     {
       //if target is not valid keep searching
       if (!HMGTurret_CheckTarget(self, target, qfalse))
@@ -2567,7 +2495,9 @@ HSpawn_Blast(gentity_t *self)
   self->timestamp = level.time;
 
   //do some radius damage
-  G_RadiusDamage(self->s.pos.trBase, self, self->splashDamage, self->splashRadius, self, self->splashMethodOfDeath);
+  G_RadiusDamage(
+    self->s.pos.trBase, self, self->splashDamage, self->splashRadius, self,
+    self->splashMethodOfDeath);
 
   self->think = freeBuildable;
   self->nextthink = level.time + 100;
@@ -2609,7 +2539,9 @@ HSpawn_Die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
   VectorCopy(self->s.angles, new->angles);
   VectorCopy(self->s.origin2, new->origin2);
   VectorCopy(self->s.angles2, new->angles2);
-  new->fate = (attacker && attacker->client && (attacker->client->ps.stats[STAT_PTEAM] == team)) ? BF_TEAMKILLED : BF_DESTROYED;
+  new->fate
+      = (attacker && attacker->client && (attacker->client->ps.stats[STAT_PTEAM] == team)) ? BF_TEAMKILLED
+          : BF_DESTROYED;
   new->next = NULL;
   G_LogBuild(new);
 
@@ -2644,12 +2576,16 @@ HSpawn_Die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
     }
     else
     {
-      G_TeamCommand(PTE_HUMANS, va("print \"%s ^3DESTROYED^7 by teammate %s^7\n\"", BG_FindHumanNameForBuildable(self->s.modelindex),
-          attacker->client->pers.netname));
-      G_LogOnlyPrintf("%s ^3DESTROYED^7 by teammate %s^7\n", BG_FindHumanNameForBuildable(self->s.modelindex), attacker->client->pers.netname);
+      G_TeamCommand(PTE_HUMANS, va(
+        "print \"%s ^3DESTROYED^7 by teammate %s^7\n\"", BG_FindHumanNameForBuildable(
+          self->s.modelindex), attacker->client->pers.netname));
+      G_LogOnlyPrintf("%s ^3DESTROYED^7 by teammate %s^7\n", BG_FindHumanNameForBuildable(
+        self->s.modelindex), attacker->client->pers.netname);
     }
-    G_LogPrintf("Decon: %i %i %i: %s^7 destroyed %s by %s\n", attacker->client->ps.clientNum, self->s.modelindex, mod, attacker->client->pers.netname,
-        BG_FindNameForBuildable(self->s.modelindex), modNames[mod]);
+    G_LogPrintf(
+      "Decon: %i %i %i: %s^7 destroyed %s by %s\n", attacker->client->ps.clientNum,
+      self->s.modelindex, mod, attacker->client->pers.netname, BG_FindNameForBuildable(
+        self->s.modelindex), modNames[mod]);
   }
 }
 
@@ -2673,8 +2609,8 @@ HSpawn_Think(gentity_t *self)
     //only suicide if at rest
     if (self->s.groundEntityNum && level.time % 1000 == 0) // Check spawnpoint is expensive
     {
-      if (
-          (ent = G_CheckSpawnPoint(self->s.number, self->s.origin, self->s.origin2, BA_H_SPAWN, NULL)) != NULL)
+      if ((ent = G_CheckSpawnPoint(
+        self->s.number, self->s.origin, self->s.origin2, BA_H_SPAWN, NULL)) != NULL)
       {
         // If the thing blocking the spawn is a buildable, kill it. 
         // If it's part of the map, kill self. 
@@ -2688,11 +2624,13 @@ HSpawn_Think(gentity_t *self)
           G_Damage(self, NULL, NULL, NULL, NULL, 10000, 0, MOD_SUICIDE);
           return;
         }
-        else if (g_ctn.integer > 0 && ent->client && ent->health > 0 && self->biteam != ent->client->ps.stats[STAT_PTEAM])
+        else if (g_ctn.integer > 0 && ent->client && ent->health > 0 && self->biteam
+            != ent->client->ps.stats[STAT_PTEAM])
         {
           if (level.time - self->antispawncamp > g_ctncapturetime.integer)
           {
-            trap_SendServerCommand(-1, va("print \"^7%s^2 captured a telenode!\n\"", ent->client->pers.netname));
+            trap_SendServerCommand(-1, va(
+              "print \"^7%s^2 captured a telenode!\n\"", ent->client->pers.netname));
             self->spawnBlockTime = level.time;
             self->s.modelindex2 = self->biteam = ent->client->ps.stats[STAT_PTEAM];
             self->antispawncamp = level.time;
@@ -2734,7 +2672,8 @@ HSpawn_Think(gentity_t *self)
     }
 
     //spawn under attack
-    if (self->health < self->lastHealth && level.time > level.humanBaseAttackTimer && G_IsDCCBuilt(self->biteam))
+    if (self->health < self->lastHealth && level.time > level.humanBaseAttackTimer && G_IsDCCBuilt(
+      self->biteam))
     {
       level.humanBaseAttackTimer = level.time + DCC_ATTACK_PERIOD;
       G_BroadcastEvent(EV_DCC_ATTACK, 0);
@@ -2856,7 +2795,8 @@ G_BuildableThink(gentity_t *ent, int msec)
 
     if (!ent->spawned && ent->health > 0)
       ent->health += (int) (ceil((float) bHealth / (float) (bTime * 0.001)));
-    else if (ent->biteam == BIT_ALIENS && ent->health > 0 && ent->health < bHealth && bRegen && (ent->lastDamageTime + ALIEN_REGEN_DAMAGE_TIME) < level.time)
+    else if (ent->biteam == BIT_ALIENS && ent->health > 0 && ent->health < bHealth && bRegen
+        && (ent->lastDamageTime + ALIEN_REGEN_DAMAGE_TIME) < level.time)
       ent->health += bRegen;
 
     if (ent->health > bHealth)
@@ -2918,31 +2858,6 @@ G_BuildableRange(vec3_t origin, float r, buildable_t buildable)
   return qfalse;
 }
 
-static qboolean
-spawnsSurvivalStage()
-{
-  int i;
-  gentity_t *ent;
-
-  for(i = MAX_CLIENTS;i < level.num_entities;i++)
-  {
-
-    ent = &level.gentities[i];
-    if (ent->health <= 0)
-      continue;
-    if (ent->s.eType != ET_BUILDABLE)
-      continue;
-    if (ent->biteam != BIT_ALIENS)
-      continue;
-    if (ent->s.modelindex != BA_H_SPAWN)
-      continue;
-
-    if (ent->survivalStage == level.survivalStage)
-      return qtrue;
-  }
-  return qfalse;
-}
-
 qboolean
 G_ArmoryRange(vec3_t origin, float r, buildable_t buildable, int biteam)
 {
@@ -2969,21 +2884,6 @@ G_ArmoryRange(vec3_t origin, float r, buildable_t buildable, int biteam)
 
     if (ent->s.modelindex == buildable && ent->spawned && (ent->biteam == biteam))
     {
-      if (g_survival.integer)
-      {
-
-        if (ent->survivalStage != level.survivalStage && spawnsSurvivalStage())
-        {
-          //trap_SendServerCommand(-1, va("print \"^1This dont work, find another.\n\""));
-          return qfalse;
-        }
-        else
-        {
-          level.slowdownTime = 0;
-          ent->used = 1;
-          level.survivalStage = ent->survivalStage;
-        }
-      }
       return qtrue;
     }
   }
@@ -2994,7 +2894,8 @@ G_ArmoryRange(vec3_t origin, float r, buildable_t buildable, int biteam)
 static qboolean
 G_BoundsIntersect(const vec3_t mins, const vec3_t maxs, const vec3_t mins2, const vec3_t maxs2)
 {
-  if (maxs[0] < mins2[0] || maxs[1] < mins2[1] || maxs[2] < mins2[2] || mins[0] > maxs2[0] || mins[1] > maxs2[1] || mins[2] > maxs2[2])
+  if (maxs[0] < mins2[0] || maxs[1] < mins2[1] || maxs[2] < mins2[2] || mins[0] > maxs2[0]
+      || mins[1] > maxs2[1] || mins[2] > maxs2[2])
   {
     return qfalse;
   }
@@ -3042,9 +2943,11 @@ G_CompareBuildablesForRemoval(const void *a, const void *b)
   int precedence[] =
   { BA_NONE,
 
-  BA_A_BARRICADE, BA_A_ACIDTUBE, BA_A_TRAPPER, BA_A_HIVE, BA_A_BOOSTER, BA_A_HOVEL, BA_A_SPAWN, BA_A_OVERMIND,
+  BA_A_BARRICADE, BA_A_ACIDTUBE, BA_A_TRAPPER, BA_A_HIVE, BA_A_BOOSTER, BA_A_HOVEL, BA_A_SPAWN,
+      BA_A_OVERMIND,
 
-  BA_H_MGTURRET, BA_H_TESLAGEN, BA_H_DCC, BA_H_MEDISTAT, BA_H_ARMOURY, BA_H_SPAWN, BA_H_REPEATER, BA_H_REACTOR };
+      BA_H_MGTURRET, BA_H_TESLAGEN, BA_H_DCC, BA_H_MEDISTAT, BA_H_ARMOURY, BA_H_SPAWN,
+      BA_H_REPEATER, BA_H_REACTOR };
 
   gentity_t *buildableA, *buildableB;
   int i;
@@ -3055,8 +2958,10 @@ G_CompareBuildablesForRemoval(const void *a, const void *b)
   buildableB = *(gentity_t **) b;
 
   // Prefer the one that collides with the thing we're building
-  aMatches = G_BuildablesIntersect(cmpBuildable, cmpOrigin, buildableA->s.modelindex, buildableA->s.origin);
-  bMatches = G_BuildablesIntersect(cmpBuildable, cmpOrigin, buildableB->s.modelindex, buildableB->s.origin);
+  aMatches = G_BuildablesIntersect(
+    cmpBuildable, cmpOrigin, buildableA->s.modelindex, buildableA->s.origin);
+  bMatches = G_BuildablesIntersect(
+    cmpBuildable, cmpOrigin, buildableB->s.modelindex, buildableB->s.origin);
   if (aMatches && !bMatches)
     return -1;
   if (!aMatches && bMatches)
@@ -3212,7 +3117,8 @@ G_SufficientBPAvailable(buildable_t buildable, vec3_t origin, int biteam)
       collisionCount++;
 
     // Check if this is a repeater and it's in range
-    if (buildable == BA_H_REPEATER && buildable == ent->s.modelindex && Distance(ent->s.origin, origin) < REPEATER_BASESIZE)
+    if (buildable == BA_H_REPEATER && buildable == ent->s.modelindex && Distance(
+      ent->s.origin, origin) < REPEATER_BASESIZE)
     {
       repeaterInRange = qtrue;
       repeaterInRangeCount++;
@@ -3277,7 +3183,9 @@ G_SufficientBPAvailable(buildable_t buildable, vec3_t origin, int biteam)
   // Sort the list
   cmpBuildable = buildable;
   VectorCopy(origin, cmpOrigin);
-  qsort(level.markedBuildables, numBuildables, sizeof(level.markedBuildables[0]), G_CompareBuildablesForRemoval);
+  qsort(
+    level.markedBuildables, numBuildables, sizeof(level.markedBuildables[0]),
+    G_CompareBuildablesForRemoval);
 
   // Determine if there are enough markees to yield the required BP
   for(;pointsYielded < buildPoints && level.numBuildablesForRemoval < numBuildables;level.numBuildablesForRemoval++)
@@ -3431,7 +3339,8 @@ G_CanBuild(gentity_t *ent, buildable_t buildable, int distance, vec3_t origin)
   contents = trap_PointContents(entity_origin, -1);
   buildPoints = BG_FindBuildPointsForBuildable(buildable);
 
-  if (ent->client->ps.stats[STAT_PTEAM] == PTE_HUMANS || ent->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
+  if (ent->client->ps.stats[STAT_PTEAM] == PTE_HUMANS || ent->client->ps.stats[STAT_PTEAM]
+      == PTE_ALIENS)
   {
     //human criteria
     if (!G_IsPowered(entity_origin, biteam))
@@ -3467,7 +3376,8 @@ G_CanBuild(gentity_t *ent, buildable_t buildable, int distance, vec3_t origin)
           if (tempent->s.eType != ET_BUILDABLE)
             continue;
 
-          if (tempent->s.modelindex == BA_H_REPEATER && Distance(tempent->s.origin, entity_origin) < REPEATER_BASESIZE)
+          if (tempent->s.modelindex == BA_H_REPEATER && Distance(tempent->s.origin, entity_origin)
+              < REPEATER_BASESIZE)
           {
             reason = IBE_RPTWARN2;
             break;
@@ -3482,7 +3392,8 @@ G_CanBuild(gentity_t *ent, buildable_t buildable, int distance, vec3_t origin)
     }
 
     //check permission to build here
-    if (tr1.surfaceFlags & SURF_NOHUMANBUILD || tr1.surfaceFlags & SURF_NOBUILD || contents & CONTENTS_NOHUMANBUILD || contents & CONTENTS_NOBUILD)
+    if (tr1.surfaceFlags & SURF_NOHUMANBUILD || tr1.surfaceFlags & SURF_NOBUILD || contents
+        & CONTENTS_NOHUMANBUILD || contents & CONTENTS_NOBUILD)
       reason = IBE_PERMISSION;
 
     //can we only build one of these?
@@ -3493,7 +3404,8 @@ G_CanBuild(gentity_t *ent, buildable_t buildable, int distance, vec3_t origin)
         if (tempent->s.eType != ET_BUILDABLE)
           continue;
 
-        if (tempent->s.modelindex == BA_H_REACTOR && !tempent->deconstruct && (tempent->biteam == biteam))
+        if (tempent->s.modelindex == BA_H_REACTOR && !tempent->deconstruct && (tempent->biteam
+            == biteam))
         {
           reason = IBE_REACTOR;
           break;
@@ -4027,11 +3939,14 @@ G_FinishSpawningBuildable(gentity_t *ent)
   VectorScale(built->s.origin2, -4096.0f, dest);
   VectorAdd(dest, built->s.origin, dest);
 
-  trap_Trace(&tr, built->s.origin, built->r.mins, built->r.maxs, dest, built->s.number, built->clipmask);
+  trap_Trace(
+    &tr, built->s.origin, built->r.mins, built->r.maxs, dest, built->s.number, built->clipmask);
 
   if (tr.startsolid)
   {
-    G_Printf(S_COLOR_YELLOW "G_FinishSpawningBuildable: %s startsolid at %s\n", built->classname, vtos(built->s.origin));
+    G_Printf(
+      S_COLOR_YELLOW "G_FinishSpawningBuildable: %s startsolid at %s\n", built->classname, vtos(
+        built->s.origin));
     G_FreeEntity(built);
     return;
   }
@@ -4205,9 +4120,11 @@ G_LayoutSave(char *name)
     {
       ent->biteam = 2;
     }
-    s = va("%i %f %f %f %f %f %f %f %f %f %f %f %f %d %d\n", ent->s.modelindex, ent->s.pos.trBase[0], ent->s.pos.trBase[1], ent->s.pos.trBase[2],
-        ent->s.angles[0], ent->s.angles[1], ent->s.angles[2], ent->s.origin2[0], ent->s.origin2[1], ent->s.origin2[2], ent->s.angles2[0], ent->s.angles2[1],
-        ent->s.angles2[2], ent->biteam, ent->survivalStage);
+    s = va(
+      "%i %f %f %f %f %f %f %f %f %f %f %f %f %d %d\n", ent->s.modelindex, ent->s.pos.trBase[0],
+      ent->s.pos.trBase[1], ent->s.pos.trBase[2], ent->s.angles[0], ent->s.angles[1],
+      ent->s.angles[2], ent->s.origin2[0], ent->s.origin2[1], ent->s.origin2[2], ent->s.angles2[0],
+      ent->s.angles2[1], ent->s.angles2[2], ent->biteam, ent->survivalStage);
     trap_FS_Write(s, strlen(s), f);
   }
   trap_FS_FCloseFile(f);
@@ -4340,7 +4257,8 @@ G_LayoutSelect(void)
 }
 
 static void
-G_LayoutBuildItem(buildable_t buildable, vec3_t origin, vec3_t angles, vec3_t origin2, vec3_t angles2, int biteam, int survivalStage)
+G_LayoutBuildItem(buildable_t buildable, vec3_t origin, vec3_t angles, vec3_t origin2,
+  vec3_t angles2, int biteam, int survivalStage)
 {
   gentity_t *builder;
 
@@ -4394,10 +4312,13 @@ G_InstantBuild(buildable_t buildable, vec3_t origin, vec3_t angles, vec3_t origi
   VectorScale(built->s.origin2, -4096.0f, dest);
   VectorAdd(dest, built->s.origin, dest);
 
-  trap_Trace(&tr, built->s.origin, built->r.mins, built->r.maxs, dest, built->s.number, built->clipmask);
+  trap_Trace(
+    &tr, built->s.origin, built->r.mins, built->r.maxs, dest, built->s.number, built->clipmask);
   if (tr.startsolid)
   {
-    G_Printf(S_COLOR_YELLOW "G_FinishSpawningBuildable: %s startsolid at %s\n", built->classname, vtos(built->s.origin));
+    G_Printf(
+      S_COLOR_YELLOW "G_FinishSpawningBuildable: %s startsolid at %s\n", built->classname, vtos(
+        built->s.origin));
     G_FreeEntity(built);
     return NULL;
   }
@@ -4633,7 +4554,8 @@ G_LayoutLoad(void)
   {
     if (i >= sizeof(line) - 1)
     {
-      G_Printf(S_COLOR_RED "ERROR: line overflow in %s before \"%s\"\n", va("layouts/%s/%s.dat", map, level.layout), line);
+      G_Printf(S_COLOR_RED "ERROR: line overflow in %s before \"%s\"\n", va(
+        "layouts/%s/%s.dat", map, level.layout), line);
       return;
     }
     line[i++] = *layout;
@@ -4641,8 +4563,10 @@ G_LayoutLoad(void)
     if (*layout == '\n')
     {
       i = 0;
-      sscanf(line, "%d %f %f %f %f %f %f %f %f %f %f %f %f %d %d\n", &buildable, &origin[0], &origin[1], &origin[2], &angles[0], &angles[1], &angles[2],
-          &origin2[0], &origin2[1], &origin2[2], &angles2[0], &angles2[1], &angles2[2], &biteam, &survivalStage);
+      sscanf(
+        line, "%d %f %f %f %f %f %f %f %f %f %f %f %f %d %d\n", &buildable, &origin[0], &origin[1],
+        &origin[2], &angles[0], &angles[1], &angles[2], &origin2[0], &origin2[1], &origin2[2],
+        &angles2[0], &angles2[1], &angles2[2], &biteam, &survivalStage);
 
       if (buildable > BA_NONE && buildable < BA_NUM_BUILDABLES)
         G_LayoutBuildItem(buildable, origin, angles, origin2, angles2, biteam, survivalStage);

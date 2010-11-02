@@ -539,13 +539,8 @@ void
 ClientTimerActions(gentity_t *ent, int msec)
 {
   gclient_t *client;
-  gentity_t *ent2;
   usercmd_t *ucmd;
   int aForward, aRight;
-  int x, y;
-  int secToSpawn;
-  int newSurvivalStage = -1;
-  int i;
 
   ucmd = &ent->client->pers.cmd;
 
@@ -1702,9 +1697,7 @@ ClientThink_real(gentity_t *ent)
   // touch other objects
   ClientImpacts(ent, &pm);
 
-#if defined(ACEBOT)
   ACEND_PathMap(ent);
-#endif
 
   // execute client events
   ClientEvents(ent, oldEventSequence);

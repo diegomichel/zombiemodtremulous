@@ -342,12 +342,6 @@ G_SelectAlienSpawnPoint(vec3_t preference, gentity_t * ent)
   gentity_t *spot;
   int count;
   gentity_t * spots[MAX_SPAWN_POINTS];
-  int i;
-  gentity_t *node;
-  gentity_t *pew;
-  gentity_t *sob = NULL;
-  gentity_t *enemyNode;
-  int seed, random_integer;
 
   if (level.numAlienSpawns <= 0)
     return NULL;
@@ -1707,8 +1701,6 @@ ClientSpawn(gentity_t *ent, gentity_t *spawn, vec3_t origin, vec3_t angles)
   int teamLocal;
   int eventSequence;
   char userinfo[MAX_INFO_STRING];
-  vec3_t up =
-  { 0.0f, 0.0f, 1.0f };
   int maxAmmo, maxClips;
   weapon_t weapon;
 

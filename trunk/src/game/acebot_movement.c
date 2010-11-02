@@ -267,8 +267,6 @@ ACEMV_ChangeBotAngle(gentity_t * ent)
   float ideal_pitch;
   float current_yaw;
   float current_pitch;
-  float move;
-  float speed;
 
   // Normalize the move angle first
   VectorNormalize(ent->bs.moveVector);
@@ -391,18 +389,9 @@ ACEMV_MoveToGoal(gentity_t * self)
 void
 ACEMV_Move(gentity_t * self)
 {
-  vec3_t forward, end;
-  trace_t trace;
   int currentNodeType = -1;
   int nextNodeType = -1;
   int lastNodeType = -1;
-  int jumpDistance;
-  int newSpeed;
-  int node;
-  //To aim on ladders
-  vec3_t dirToTarget, angleToTarget, distance;
-  vec3_t top =
-  { 0, 0, 0 };
 
   // get current and next node back from nav code.
   if (!ACEND_FollowPath(self))

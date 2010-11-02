@@ -276,13 +276,12 @@ Bot_Stuck(gentity_t * self, int zone)
 qboolean
 WallBlockingNode(gentity_t * self)
 {
-  vec3_t dirToTarget, angleToTarget, forward, right, up, muzzle, end;
-  vec3_t spawn_angles, nextnode;
+  vec3_t forward, right, up, muzzle, end;
+  vec3_t nextnode;
   vec3_t top =
   { 0, 0, 0 };
   int vh = 0;
   trace_t tr;
-  int i;
   int distanceNode;
   int distance;
 
@@ -426,22 +425,10 @@ WallBlockingNode(gentity_t * self)
 void
 G_BotThink(gentity_t * self)
 {
-  gentity_t *bot;
   int distance = 0;
   int clicksToStopChase = 30; //5 seconds
-  int tooCloseDistance = 100; // about 1/3 of turret range
   int forwardMove = 127; // max speed
   int tempEntityIndex = -1;
-  qboolean followFriend = qfalse;
-  vec3_t dirToTarget, angleToTarget, forward, right, up, muzzle, end;
-  vec3_t top =
-  { 0, 0, 0 };
-  vec3_t spawn_angles;
-  int vh = 0;
-  trace_t tr;
-  int i;
-
-  //self->s.angles[PITCH] = 0;
 
   self->client->pers.cmd.buttons = 0;
   botWalk(self, 0);
@@ -608,7 +595,6 @@ G_BotThink(gentity_t * self)
 void
 G_BotSpectatorThink(gentity_t * self)
 {
-  int secToSpawn;
   if (self->client->ps.pm_flags & PMF_QUEUED)
   {
     //we're queued to spawn, all good
@@ -806,13 +792,11 @@ botTargetInRange(gentity_t * self, gentity_t * target)
 qboolean
 WallInFront(gentity_t * self)
 {
-  vec3_t dirToTarget, angleToTarget, forward, right, up, muzzle, end;
-  vec3_t spawn_angles;
+  vec3_t forward, right, up, muzzle, end;
   vec3_t top =
   { 0, 0, 0 };
   int vh = 0;
   trace_t tr;
-  int i;
   int distance;
 
   BG_FindViewheightForClass(self->client->ps.stats[STAT_PCLASS], &vh, NULL);
@@ -844,12 +828,11 @@ WallInFront(gentity_t * self)
 void
 selectBetterWay(gentity_t * self)
 {
-  vec3_t dirToTarget, angleToTarget, forward, right, up, muzzle, end, tempangle;
+  vec3_t forward, right, up, muzzle, end, tempangle;
   vec3_t top =
   { 0, 0, 0 };
   int vh = 0;
   trace_t tr;
-  int i;
   int distance1, distance2, distance3;
 
   BG_FindViewheightForClass(self->client->ps.stats[STAT_PCLASS], &vh, NULL);

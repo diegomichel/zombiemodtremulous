@@ -2119,7 +2119,6 @@ void Cmd_Class_f(gentity_t *ent) {
   char s[ MAX_TOKEN_CHARS ];
   int clientNum;
   int i;
-  vec3_t infestOrigin;
   pClass_t currentClass = ent->client->pers.classSelection;
   pClass_t newClass;
   int numLevels;

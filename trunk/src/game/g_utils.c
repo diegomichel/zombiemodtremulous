@@ -897,8 +897,6 @@ G_KillStructuresSurvival()
       continue;
     if (ent->health < 0)
       continue;
-    //if (ent->survivalStage != level.survivalStage)
-    //  continue;
     if(ent->biteam == BIT_ALIENS)
       continue;
 
@@ -987,104 +985,6 @@ convertWorldToGrid(float worldpos)
 }
 
 int
-min(int value1, int value2)
-{
-  if (value1 > value2)
-    return value2;
-  return value1;
-}
-void
-cleanvis()
-{
-  int x, y;
-  for(x = 0;x < 100;x++)
-    for(y = 0;y < 100;y++)
-      level.vis[x][y] = 1;
-}
-void
-cleanpath()
-{
-  int x, y;
-  for(x = 0;x < 100;x++)
-  {
-    for(y = 0;y < 100;y++)
-    {
-      level.path[x][y] = 0;
-    }
-
-    level.pathx[x] = -1;
-    level.pathy[x] = -1;
-  }
-}
-int
-findway(int pasos, int x, int y, int fx, int fy)
-{
-  int bestPath;
-
-  if (x > GRIDSIZE || y > GRIDSIZE || x < 0 || y < 0)
-    return MAX_VALUE;
-  if ((x == fx && y == fy) || pasos > level.maxpasos)
-  {
-    return pasos;
-  }
-
-  if (pasos >= 1)
-  {
-    if (level.vis[x][y] == 0 || level.grid[x][y] == 0 || level.path[x][y] == 1)
-    {
-      //G_LogPrintf(va("%d",level.path[x][y]));
-      return MAX_VALUE;
-    }
-    level.vis[x][y] = 0;
-
-    bestPath = findway(pasos + 1, x + 1, y, fx, fy);
-    bestPath = min(bestPath, findway(pasos + 1, x - 1, y, fx, fy));
-    bestPath = min(bestPath, findway(pasos + 1, x, y - 1, fx, fy));
-    bestPath = min(bestPath, findway(pasos + 1, x, y + 1, fx, fy));
-
-    //    //4 Esquinas
-    //    bestPath = min(bestPath, findway(pasos + 1, x - 1, y - 1, fx, fy));
-    //    bestPath = min(bestPath, findway(pasos + 1, x + 1, y - 1, fx, fy));
-    //
-    //    bestPath = min(bestPath, findway(pasos + 1, x + 1, y + 1, fx, fy));
-    //    bestPath = min(bestPath, findway(pasos + 1, x - 1, y + 1, fx, fy));
-    //G_LogPrintf(va("bestpath: %d", bestPath));
-
-    return bestPath;
-  }
-
-  if (pasos == 0)
-  {
-    level.RIGHT = findway(pasos + 1, x + 1, y, fx, fy);
-    cleanvis();
-    level.LEFT = findway(pasos + 1, x - 1, y, fx, fy);
-    cleanvis();
-    level.UP = findway(pasos + 1, x, y - 1, fx, fy);
-    cleanvis();
-    level.DOWN = findway(pasos + 1, x, y + 1, fx, fy);
-    cleanvis();
-
-    //    level.UPRIGHT = findway(pasos + 1, x + 1, y - 1, fx, fy);
-    //    cleanvis();
-    //    level.DOWNRIGHT = findway(pasos + 1, x + 1, y + 1, fx, fy);
-    //    cleanvis();
-    //
-    //    level.UPLEFT = findway(pasos + 1, x - 1, y - 1, fx, fy);
-    //    cleanvis();
-    //    level.DOWNLEFT = findway(pasos + 1, x - 1, y + 1, fx, fy);
-    //    cleanvis();
-    level.UPRIGHT = level.UPLEFT = level.DOWNLEFT = level.DOWNRIGHT = MAX_VALUE;
-  }
-  if (level.LEFT < MAX_VALUE || level.RIGHT < MAX_VALUE || level.UP < MAX_VALUE || level.DOWN < MAX_VALUE || level.UPRIGHT < MAX_VALUE || level.DOWNRIGHT
-      < MAX_VALUE || level.UPLEFT < MAX_VALUE || level.DOWNLEFT < MAX_VALUE)
-    return qtrue;
-
-  //G_LogPrintf("fuck lolz");
-  return qfalse;
-
-}
-
-int
 Distance2d(vec3_t from, vec3_t to)
 {
   vec3_t shit1, shit2; // If calling using ps.origin param it get modified how gay
@@ -1093,40 +993,6 @@ Distance2d(vec3_t from, vec3_t to)
   //from[2] = to[2] = 0; QVM BUG: try call this using ->ps.origin ps origin gets modified.
   shit1[2] = shit2[2];
   return Distance(shit1, shit2);
-}
-
-void
-kill_aliens_withoutenemy()
-{
-  int i;
-  gentity_t *ent;
-  int counter;
-
-  for(i = 0;i < level.numConnectedClients;i++)
-  {
-
-    //FIX ME:PRODUCTION
-    //if(counter > 15 && !level.theCamper) return;
-
-    ent = &g_entities[level.sortedClients[i]];
-
-    if (ent->health > 0 && ent->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
-    {
-      if (1)//!ent->botEnemy)
-      {
-        counter++;
-        //ent->health = 0;
-        G_Damage(ent, NULL, NULL, NULL, NULL, 10000, 0, MOD_SUICIDE);
-        ent->botpathmode = qtrue;
-        ent->botlostpath = qfalse;
-      }
-    }
-  }
-}
-
-void
-find_path(gentity_t * ent)
-{
 }
 
 qboolean
@@ -1164,7 +1030,6 @@ canSeeNextNode(vec3_t playerpos, vec3_t nodepos, gentity_t *ent)
 qboolean
 canSeeNextNodeSpecialCase(vec3_t playerpos, vec3_t nodepos, gentity_t *ent)
 {
-  trace_t tr, traceMoved;
   if (canSeeNextNode(playerpos, nodepos, ent))
   {
     return qtrue;
@@ -1208,52 +1073,6 @@ nodeOutOfRange(vec3_t node)
   {
     return qtrue;
   }
-  return qfalse;
-}
-
-qboolean
-nextNode(gentity_t *self)
-{
-  vec3_t dirToTarget, angleToTarget, nextnode, goodnode;
-  vec3_t top =
-  { 0, 0, 0 };
-  int vh = 0;
-  int x, y;
-  int moved = 0;
-
-  x = ((BLOCKSIZE / 2) + (self->s.origin[0] / BLOCKSIZE));
-  y = ((BLOCKSIZE / 2) + (self->s.origin[1] / BLOCKSIZE));
-
-  self->timedropnodepath = level.time;
-  if (self->botnextpath + 1 >= GRIDSIZE)
-    return qfalse;
-
-  if (level.pathx[self->botnextpath + 1] <= -1 || level.pathx[self->botnextpath + 1] <= -1)
-    return qfalse;
-
-  while((canSeeNextNode(self->s.pos.trBase, self->nextnode, self) || self->botnextpath == 0) && self->botnextpath < GRIDSIZE) //uf botnextpath = 0 then we are on the start.
-  {
-    nextnode[0] = convertGridToWorld(level.pathx[self->botnextpath + 1]);
-    nextnode[1] = convertGridToWorld(level.pathx[self->botnextpath + 1]);
-    nextnode[2] = self->s.pos.trBase[2];
-    VectorCopy(self->nextnode, goodnode);
-    VectorCopy(nextnode, self->nextnode);
-
-    self->botnextpath++;
-    trap_SendServerCommand(-1, va("print \"Incrasing botnextpath: %d\n\"", Distance2d(self->s.origin, self->nextnode)));
-
-    moved++;
-    self->timedropnodepath += 1000;
-  }
-  if (moved > 0)
-  {
-    if (nodeOutOfRange(self->nextnode))
-    {
-      VectorCopy(goodnode, self->nextnode);
-    }
-    return qtrue;
-  }
-
   return qfalse;
 }
 
@@ -1366,7 +1185,7 @@ pointIsSolid(vec3_t point)
 
   if (tr.fraction < 1.0)
   {
-    trap_SendServerCommand(-1, va("print \"This point is inside of a wall: %d\n\""));
+    trap_SendServerCommand(-1, va("print \"This point is inside of a wall\n\""));
     return qtrue;
   }
   return qfalse;
@@ -1437,232 +1256,6 @@ nextNodeVisible(gentity_t *ent)
   realPoint[2] = convertGridToWorld(convertWorldToGrid(ent->client->ps.origin[2]));
   return canSeeNextNode(realPoint, ent->nextnode, ent);
 }
-int
-findNextNode(int pasos, int x, int y, int fx, int fy, gentity_t *ent)
-{
-  int bestPath;
-  vec3_t currentNode;
-  vec3_t posibleNode;
-
-  if (x > GRIDSIZE || y > GRIDSIZE || x < 0 || y < 0)
-  {
-    G_LogPrintf(va("RETURN IN OUT OF GRID\n"));
-    return MAX_VALUE;
-  }
-
-  if ((x == fx && y == fy) || pasos >= level.maxpasos)
-  {
-    G_LogPrintf(va("RETURN IN PASOS: %d xs %d %d  ys%d %d\n", pasos, x, fx, y, fy));
-    return pasos;
-  }
-
-  if (pasos >= 1)
-  {
-    if (level.vis[x][y] == 0 || level.grid[x][y] == 0 || level.path[x][y] == 1)
-    {
-      G_LogPrintf(va("X: %d - %d Y: %d - %d GRID:%d VIS:%d PATH:%d \n", convertGridToWorld(x), x, convertGridToWorld(y), y, level.grid[x][y], level.vis[x][y],
-          level.path[x][y]));
-      return MAX_VALUE;
-    }
-    level.vis[x][y] = 0;
-
-    currentNode[0] = convertGridToWorld(x);
-    currentNode[1] = convertGridToWorld(y);
-
-    currentNode[2] = ent->lastnode[2] = ent->client->ps.origin[2];
-
-    if (!canSeeNextNodeSpecialCase(ent->lastnode, currentNode, ent))
-    {
-      G_LogPrintf(va("^4Cant See %f %f %f %f \n", currentNode[0], currentNode[1], ent->lastnode[0], ent->lastnode[1]));
-      return MAX_VALUE;
-    }
-
-    ent->lastnode[0] = convertGridToWorld(x);
-    ent->lastnode[1] = convertGridToWorld(y);
-    bestPath = findNextNode(pasos + 1, x + 1, y, fx, fy, ent);
-    ent->lastnode[0] = convertGridToWorld(x);
-    ent->lastnode[1] = convertGridToWorld(y);
-    bestPath = min(bestPath, findNextNode(pasos + 1, x - 1, y, fx, fy, ent));
-    ent->lastnode[0] = convertGridToWorld(x);
-    ent->lastnode[1] = convertGridToWorld(y);
-    bestPath = min(bestPath, findNextNode(pasos + 1, x, y - 1, fx, fy, ent));
-    ent->lastnode[0] = convertGridToWorld(x);
-    ent->lastnode[1] = convertGridToWorld(y);
-    bestPath = min(bestPath, findNextNode(pasos + 1, x, y + 1, fx, fy, ent));
-    ent->lastnode[0] = convertGridToWorld(x);
-    ent->lastnode[1] = convertGridToWorld(y);
-
-    //4 Esquinas
-
-    bestPath = min(bestPath, findNextNode(pasos + 1, x - 1, y - 1, fx, fy, ent));
-    ent->lastnode[0] = convertGridToWorld(x);
-    ent->lastnode[1] = convertGridToWorld(y);
-    bestPath = min(bestPath, findNextNode(pasos + 1, x + 1, y - 1, fx, fy, ent));
-    ent->lastnode[0] = convertGridToWorld(x);
-    ent->lastnode[1] = convertGridToWorld(y);
-    bestPath = min(bestPath, findNextNode(pasos + 1, x + 1, y + 1, fx, fy, ent));
-    ent->lastnode[0] = convertGridToWorld(x);
-    ent->lastnode[1] = convertGridToWorld(y);
-    bestPath = min(bestPath, findNextNode(pasos + 1, x - 1, y + 1, fx, fy, ent));
-    ent->lastnode[0] = convertGridToWorld(x);
-    ent->lastnode[1] = convertGridToWorld(y);
-
-    G_LogPrintf(va("bestpath: %d\n", bestPath));
-
-    return bestPath;
-  }
-
-  if (pasos == 0)
-  {
-    ent->lastnode[0] = convertGridToWorld(x);
-    ent->lastnode[1] = convertGridToWorld(y);
-
-    G_LogPrintf(va("^4!!!Set LAST NODE %f %f \n", ent->lastnode[0], ent->lastnode[1]));
-    cleanvis();
-    level.RIGHT = findNextNode(pasos + 1, x + 1, y, fx, fy, ent);
-    ent->lastnode[0] = convertGridToWorld(x);
-    ent->lastnode[1] = convertGridToWorld(y);
-
-    G_LogPrintf(va("^4!!!Set LAST NODE %f %f \n", ent->lastnode[0], ent->lastnode[1]));
-    cleanvis();
-    level.LEFT = findNextNode(pasos + 1, x - 1, y, fx, fy, ent);
-    ent->lastnode[0] = convertGridToWorld(x);
-    ent->lastnode[1] = convertGridToWorld(y);
-
-    G_LogPrintf(va("^4!!!Set LAST NODE %f %f \n", ent->lastnode[0], ent->lastnode[1]));
-    cleanvis();
-    level.UP = findNextNode(pasos + 1, x, y - 1, fx, fy, ent);
-    ent->lastnode[0] = convertGridToWorld(x);
-    ent->lastnode[1] = convertGridToWorld(y);
-
-    G_LogPrintf(va("^4!!!Set LAST NODE %f %f \n", ent->lastnode[0], ent->lastnode[1]));
-    cleanvis();
-    level.DOWN = findNextNode(pasos + 1, x, y + 1, fx, fy, ent);
-    ent->lastnode[0] = convertGridToWorld(x);
-    ent->lastnode[1] = convertGridToWorld(y);
-
-    G_LogPrintf(va("^4!!!Set LAST NODE %f %f \n", ent->lastnode[0], ent->lastnode[1]));
-    cleanvis();
-
-    level.UPRIGHT = findNextNode(pasos + 1, x + 1, y - 1, fx, fy, ent);
-    ent->lastnode[0] = convertGridToWorld(x);
-    ent->lastnode[1] = convertGridToWorld(y);
-
-    G_LogPrintf(va("^4!!!Set LAST NODE %f %f \n", ent->lastnode[0], ent->lastnode[1]));
-    cleanvis();
-    level.DOWNRIGHT = findNextNode(pasos + 1, x + 1, y + 1, fx, fy, ent);
-    ent->lastnode[0] = convertGridToWorld(x);
-    ent->lastnode[1] = convertGridToWorld(y);
-
-    G_LogPrintf(va("^4!!!Set LAST NODE %f %f \n", ent->lastnode[0], ent->lastnode[1]));
-    cleanvis();
-
-    level.UPLEFT = findNextNode(pasos + 1, x - 1, y - 1, fx, fy, ent);
-    ent->lastnode[0] = convertGridToWorld(x);
-    ent->lastnode[1] = convertGridToWorld(y);
-
-    G_LogPrintf(va("^4!!!Set LAST NODE %f %f \n", ent->lastnode[0], ent->lastnode[1]));
-    cleanvis();
-    level.DOWNLEFT = findNextNode(pasos + 1, x - 1, y + 1, fx, fy, ent);
-    ent->lastnode[0] = convertGridToWorld(x);
-    ent->lastnode[1] = convertGridToWorld(y);
-
-    G_LogPrintf(va("^4!!!Set LAST NODE %f %f \n", ent->lastnode[0], ent->lastnode[1]));
-    cleanvis();
-  }
-  if (level.LEFT < MAX_VALUE || level.RIGHT < MAX_VALUE || level.UP < MAX_VALUE || level.DOWN < MAX_VALUE || level.UPRIGHT < MAX_VALUE || level.DOWNRIGHT
-      < MAX_VALUE || level.UPLEFT < MAX_VALUE || level.DOWNLEFT < MAX_VALUE)
-    return qtrue;
-
-  G_LogPrintf(va("RETURN ALL VALUES ARE MAX VALUE."));
-  return qfalse;
-
-}
-
-qboolean
-findNextNodeInPath(gentity_t *ent)
-{
-  int xbotpos, ybotpos;
-  int xplayerpos, yplayerpos;
-
-  xbotpos = convertWorldToGrid(ent->client->ps.origin[0]);
-  ybotpos = convertWorldToGrid(ent->client->ps.origin[1]);
-
-  if (xbotpos >= GRIDSIZE || ybotpos >= GRIDSIZE || xbotpos < 0 || ybotpos < 0)
-  {
-    G_LogPrintf(va("print \"%s: ^1Im outside of grid.\n\"", ent->client->pers.netname));
-    return qfalse;
-  }
-
-  xplayerpos = convertWorldToGrid(ent->pathTarget->client->ps.origin[0]);
-  yplayerpos = convertWorldToGrid(ent->pathTarget->client->ps.origin[1]);
-
-  if (xplayerpos >= GRIDSIZE || yplayerpos >= GRIDSIZE || xplayerpos < 0 || yplayerpos < 0)
-  {
-    G_LogPrintf(va("print \"%s: ^1Target out of grid\n\"", ent->client->pers.netname));
-    return qfalse;
-  }
-  level.path[xbotpos][ybotpos] = 1; //Prevent dial to self
-  G_LogPrintf(va("print \"%s: ^5 Bot: %d %d |Target: %d %d\n\"", ent->client->pers.netname, xbotpos, ybotpos, xplayerpos, yplayerpos));
-
-  cleanvis();
-
-  if (findNextNode(0, xbotpos, ybotpos, xplayerpos, yplayerpos, ent)) //Reversed from alien spawn to human
-  {
-    level.path[xbotpos][ybotpos] = 1;
-    if (level.LEFT == min(min(min(level.LEFT, level.RIGHT), min(level.DOWNRIGHT, level.DOWNLEFT)), min(min(level.UP, level.DOWN), min(level.UPRIGHT,
-        level.UPLEFT))))
-    {
-      xbotpos = xbotpos - 1;
-    }
-    else if (level.RIGHT == min(min(min(level.LEFT, level.RIGHT), min(level.DOWNRIGHT, level.DOWNLEFT)), min(min(level.UP, level.DOWN), min(level.UPRIGHT,
-        level.UPLEFT))))
-    {
-      xbotpos = xbotpos + 1;
-    }
-    else if (level.UP == min(min(min(level.LEFT, level.RIGHT), min(level.DOWNRIGHT, level.DOWNLEFT)), min(min(level.UP, level.DOWN), min(level.UPRIGHT,
-        level.UPLEFT))))
-    {
-      ybotpos = ybotpos - 1;
-    }
-    else if (level.DOWN == min(min(min(level.LEFT, level.RIGHT), min(level.DOWNRIGHT, level.DOWNLEFT)), min(min(level.UP, level.DOWN), min(level.UPRIGHT,
-        level.UPLEFT))))
-    {
-      ybotpos = ybotpos + 1;
-    }//////////////////////////////////////////////////////////////////////////Better pathfinding.
-    else if (level.DOWNRIGHT == min(min(min(level.LEFT, level.RIGHT), min(level.DOWNRIGHT, level.DOWNLEFT)), min(min(level.UP, level.DOWN), min(level.UPRIGHT,
-        level.UPLEFT))))
-    {
-      ybotpos = ybotpos + 1;
-      xbotpos = xbotpos + 1;
-    }
-    else if (level.DOWNLEFT == min(min(min(level.LEFT, level.RIGHT), min(level.DOWNRIGHT, level.DOWNLEFT)), min(min(level.UP, level.DOWN), min(level.UPRIGHT,
-        level.UPLEFT))))
-    {
-      ybotpos = ybotpos + 1;
-      xbotpos = xbotpos - 1;
-    }
-    else if (level.UPRIGHT == min(min(min(level.LEFT, level.RIGHT), min(level.DOWNRIGHT, level.DOWNLEFT)), min(min(level.UP, level.DOWN), min(level.UPRIGHT,
-        level.UPLEFT))))
-    {
-      xbotpos = xbotpos + 1;
-      ybotpos = ybotpos - 1;
-    }
-    else if (level.UPLEFT == min(min(min(level.LEFT, level.RIGHT), min(level.DOWNRIGHT, level.DOWNLEFT)), min(min(level.UP, level.DOWN), min(level.UPRIGHT,
-        level.UPLEFT))))
-    {
-      xbotpos = xbotpos - 1;
-      ybotpos = ybotpos - 1;
-    }
-    ent->nextnode[0] = convertGridToWorld(xbotpos);
-    ent->nextnode[1] = convertGridToWorld(ybotpos);
-    G_LogPrintf(va("print \"^1Found node %d %d |Self Position %d %d\n\"", xbotpos, ybotpos, convertWorldToGrid(ent->client->ps.origin[0]), convertWorldToGrid(
-        ent->client->ps.origin[0])));
-    return qtrue;
-  }
-  return qfalse;
-}
-
 //SYRINX
 gentity_t *syrinxSpawn(gentity_t *ent) {
 
@@ -1702,4 +1295,26 @@ gentity_t *syrinxSpawn(gentity_t *ent) {
 
         return bolt;
 }
+/*
+=================
+AngleBetweenVectors
 
+returns the angle between two vectors normalized to the range [0 <= angle <= 180]
+=================
+*/
+float AngleBetweenVectors(const vec3_t a, const vec3_t b)
+{
+        vec_t           alen, blen;
+
+        alen = VectorLength(a);
+        blen = VectorLength(b);
+
+        if(!alen || !blen)
+                return 0;
+
+        // complete dot product of two vectors a, b is |a| * |b| * cos(angle)
+        // this results in:
+        //
+        // angle = acos( (a * b) / (|a| * |b|) )
+        return RAD2DEG(Q_acos(DotProduct(a, b) / (alen * blen)));
+}

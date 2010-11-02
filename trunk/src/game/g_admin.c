@@ -32,6 +32,7 @@
 
 #include "g_local.h"
 #include "tremulous.h"
+#include "acebot.h"
 
 // big ugly global buffer for use with buffered printing of long outputs
 static char g_bfb[32000];
@@ -3521,10 +3522,6 @@ G_set_survival_stage(gentity_t *ent, int skiparg)
 qboolean
 G_admin_switch(gentity_t *ent, int skiparg)
 {
-  int i, l = 0;
-  qboolean found = qfalse;
-  qboolean lname = qfalse;
-
   if (!ent)
   {
     ADMP("^3!admintest: ^7you are on the console.\n");
@@ -3575,8 +3572,8 @@ G_admin_allready(gentity_t *ent, int skiparg)
 qboolean
 G_admin_printgrid(gentity_t *ent, int skiparg)
 {
+  gentity_t *node = NULL;
   int x, y;
-  gentity_t *node;
   int xp, yp;
   int xnode, ynode;
   int i;
@@ -3714,35 +3711,6 @@ G_switchnodes(gentity_t *ent, int skiparg)
 qboolean
 G_setnextnode(gentity_t *ent, int skiparg)
 {
-  int i;
-  gentity_t *bot;
-  for(i=0;i<level.numConnectedClients;i++)
-  {
-    bot = &g_entities[level.sortedClients[i]];
-    if(!(bot->r.svFlags & SVF_BOT)) continue; //Dont set clients..
-
-//    VectorCopy(bot->pathTarget->client->ps.origin, bot->nextnode);
-//    bot->nextnodeset = true;
-//    ADMP(va("%s: ^2Node Set to [%s] in position %f %f | %f %f\n",
-//        bot->client->pers.netname,
-//        bot->pathTarget->client->pers.netname,
-//        bot->nextnode[0],
-//        bot->nextnode[1],
-//        bot->pathTarget->client->ps.origin[0],
-//        bot->pathTarget->client->ps.origin[1]));
-    bot->levelz = 0;
-    if(findNextNodeInPath(bot))
-    {
-      ADMP(va("%s: ^2Node Set\n", bot->client->pers.netname));
-      bot->nextnodeset = qtrue;
-    }
-    else
-    {
-      cleanpath();
-      ADMP(va("%s: ^1Node Set FAILED Cleaning path :D\n", bot->client->pers.netname));
-      bot->nextnodeset = qfalse;
-    }
-  }
   return qtrue;
 }
 
