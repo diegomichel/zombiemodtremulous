@@ -144,7 +144,7 @@ extern vmCvar_t  ui_bank;
 #define  MAX_EDIT_LINE      256
 
 #define MAX_MENUDEPTH      8
-#define MAX_MENUITEMS      128
+#define MAX_MENUITEMS      96
 
 #define MTYPE_NULL        0
 #define MTYPE_SLIDER      1
@@ -360,7 +360,6 @@ int UI_AdjustTimeByGame(int time);
 void UI_ShowPostGame(qboolean newHigh);
 void UI_ClearScores( void );
 void UI_LoadArenas(void);
-void UI_ServerInfo(void);
 
 //
 // ui_menu.c
@@ -699,7 +698,6 @@ typedef struct serverStatus_s {
   int    numServers;
   int    sortKey;
   int    sortDir;
-  qboolean sorted;
   int    lastCount;
   qboolean refreshActive;
   int    currentServer;
@@ -819,16 +817,10 @@ typedef struct {
   int playerRefresh;
   int playerIndex;
   int playerNumber;
-  int myPlayerIndex;
-  int ignoreIndex;
   qboolean teamLeader;
   char playerNames[MAX_CLIENTS][MAX_NAME_LENGTH];
-  char rawPlayerNames[MAX_CLIENTS][MAX_NAME_LENGTH];
   char teamNames[MAX_CLIENTS][MAX_NAME_LENGTH];
-  char rawTeamNames[MAX_CLIENTS][MAX_NAME_LENGTH];
-  int clientNums[MAX_CLIENTS];
   int teamClientNums[MAX_CLIENTS];
-  clientList_t ignoreList[MAX_CLIENTS];
 
   int mapCount;
   mapInfo mapList[MAX_MAPS];

@@ -271,7 +271,7 @@ void PC_SourceWarning(int handle, char *format, ...) {
 
   filename[0] = '\0';
   line = 0;
-  trap_Parse_SourceFileAndLine(handle, filename, &line);
+  trap_PC_SourceFileAndLine(handle, filename, &line);
 
   Com_Printf(S_COLOR_YELLOW "WARNING: %s, line %d: %s\n", filename, line, string);
 }
@@ -293,7 +293,7 @@ void PC_SourceError(int handle, char *format, ...) {
 
   filename[0] = '\0';
   line = 0;
-  trap_Parse_SourceFileAndLine(handle, filename, &line);
+  trap_PC_SourceFileAndLine(handle, filename, &line);
 
   Com_Printf(S_COLOR_RED "ERROR: %s, line %d: %s\n", filename, line, string);
 }
@@ -343,10 +343,10 @@ qboolean PC_Float_Parse(int handle, float *f) {
   pc_token_t token;
   int negative = qfalse;
 
-  if (!trap_Parse_ReadToken(handle, &token))
+  if (!trap_PC_ReadToken(handle, &token))
     return qfalse;
   if (token.string[0] == '-') {
-    if (!trap_Parse_ReadToken(handle, &token))
+    if (!trap_PC_ReadToken(handle, &token))
       return qfalse;
     negative = qtrue;
   }
@@ -423,10 +423,10 @@ qboolean PC_Int_Parse(int handle, int *i) {
   pc_token_t token;
   int negative = qfalse;
 
-  if (!trap_Parse_ReadToken(handle, &token))
+  if (!trap_PC_ReadToken(handle, &token))
     return qfalse;
   if (token.string[0] == '-') {
-    if (!trap_Parse_ReadToken(handle, &token))
+    if (!trap_PC_ReadToken(handle, &token))
       return qfalse;
     negative = qtrue;
   }
@@ -500,7 +500,7 @@ PC_String_Parse
 qboolean PC_String_Parse(int handle, const char **out) {
   pc_token_t token;
 
-  if (!trap_Parse_ReadToken(handle, &token))
+  if (!trap_PC_ReadToken(handle, &token))
     return qfalse;
 
   *(out) = String_Alloc(token.string);
@@ -520,14 +520,14 @@ qboolean PC_Script_Parse(int handle, const char **out) {
   // scripts start with { and have ; separated command lists.. commands are command, arg..
   // basically we want everything between the { } as it will be interpreted at run time
 
-  if (!trap_Parse_ReadToken(handle, &token))
+  if (!trap_PC_ReadToken(handle, &token))
     return qfalse;
   if (Q_stricmp(token.string, "{") != 0) {
       return qfalse;
   }
 
   while ( 1 ) {
-    if (!trap_Parse_ReadToken(handle, &token))
+    if (!trap_PC_ReadToken(handle, &token))
       return qfalse;
 
     if (Q_stricmp(token.string, "}") == 0) {
@@ -1874,23 +1874,7 @@ qboolean Item_ListBox_HandleKey(itemDef_t *item, int key, qboolean down, qboolea
       return qtrue;
     }
 
-    // Scroll wheel
-    if (key == K_MWHEELUP) {
-      listPtr->startPos--;
-      if (listPtr->startPos < 0) {
-        listPtr->startPos = 0;
-      }
-      return qtrue;
-    }
-    if (key == K_MWHEELDOWN) {
-      listPtr->startPos++;
-      if (listPtr->startPos > max) {
-        listPtr->startPos = max;
-      }
-      return qtrue;
-    }
-
-    // Invoke the doubleClick handler when enter is pressed
+    //TA: invoke the doubleClick handler when enter is pressed
     if( key == K_ENTER )
     {
       if( listPtr->doubleClick )
@@ -2364,6 +2348,7 @@ void Item_StopCapture(itemDef_t *item) {
 qboolean Item_Slider_HandleKey(itemDef_t *item, int key, qboolean down) {
   float x, value, width, work;
 
+  //DC->Print("slider handle key\n");
   if (item->window.flags & WINDOW_HASFOCUS && item->cvar && Rect_ContainsPoint(&item->window.rect, DC->cursorx, DC->cursory)) {
     if (key == K_MOUSE1 || key == K_ENTER || key == K_MOUSE2 || key == K_MOUSE3) {
       editFieldDef_t *editDef = item->typeData;
@@ -2380,7 +2365,9 @@ qboolean Item_Slider_HandleKey(itemDef_t *item, int key, qboolean down) {
         testRect.x = x;
         value = (float)SLIDER_THUMB_WIDTH / 2;
         testRect.x -= value;
+        //DC->Print("slider x: %f\n", testRect.x);
         testRect.w = (SLIDER_WIDTH + (float)SLIDER_THUMB_WIDTH / 2);
+        //DC->Print("slider w: %f\n", testRect.w);
         if (Rect_ContainsPoint(&testRect, DC->cursorx, DC->cursory)) {
           work = DC->cursorx - x;
           value = work / width;
@@ -2394,6 +2381,7 @@ qboolean Item_Slider_HandleKey(itemDef_t *item, int key, qboolean down) {
       }
     }
   }
+  DC->Print("slider handle key exit\n");
   return qfalse;
 }
 
@@ -3436,10 +3424,25 @@ static bind_t g_bindings[] =
   { "weapnext",     ']',           -1, -1, -1 },
   { "+button3",     K_MOUSE3,      -1, -1, -1 },
   { "+button4",     K_MOUSE4,      -1, -1, -1 },
-  { "vote yes",     K_F1,          -1, -1, -1 },
-  { "vote no",      K_F2,          -1, -1, -1 },
-  { "teamvote yes", K_F3,          -1, -1, -1 },
-  { "teamvote no",  K_F4,          -1, -1, -1 },
+  { "prevTeamMember", 'w',         -1, -1, -1 },
+  { "nextTeamMember", 'r',         -1, -1, -1 },
+  { "nextOrder",    't',           -1, -1, -1 },
+  { "confirmOrder", 'y',           -1, -1, -1 },
+  { "denyOrder",    'n',           -1, -1, -1 },
+  { "taskOffense",  'o',           -1, -1, -1 },
+  { "taskDefense",  'd',           -1, -1, -1 },
+  { "taskPatrol",   'p',           -1, -1, -1 },
+  { "taskCamp",     'c',           -1, -1, -1 },
+  { "taskFollow",   'f',           -1, -1, -1 },
+  { "taskRetrieve", 'v',           -1, -1, -1 },
+  { "taskEscort",   'l',           -1, -1, -1 },
+  { "taskOwnFlag",  'i',           -1, -1, -1 },
+  { "taskSuicide",  'k',           -1, -1, -1 },
+  { "tauntKillInsult", K_F1,       -1, -1, -1 },
+  { "tauntPraise",   K_F2,         -1, -1, -1 },
+  { "tauntTaunt",    K_F3,         -1, -1, -1 },
+  { "tauntDeathInsult", K_F4,      -1, -1, -1 },
+  { "tauntGauntlet", K_F5,         -1, -1, -1 },
   { "scoresUp",      K_KP_PGUP,    -1, -1, -1 },
   { "scoresDown",    K_KP_PGDN,    -1, -1, -1 },
   // bk001205 - this one below was:  '-1'
@@ -5222,7 +5225,7 @@ qboolean ItemParse_cvarStrList( itemDef_t *item, int handle ) {
   multiPtr->count = 0;
   multiPtr->strDef = qtrue;
 
-  if (!trap_Parse_ReadToken(handle, &token))
+  if (!trap_PC_ReadToken(handle, &token))
     return qfalse;
   if (*token.string != '{') {
     return qfalse;
@@ -5230,7 +5233,7 @@ qboolean ItemParse_cvarStrList( itemDef_t *item, int handle ) {
 
   pass = 0;
   while ( 1 ) {
-    if (!trap_Parse_ReadToken(handle, &token)) {
+    if (!trap_PC_ReadToken(handle, &token)) {
       PC_SourceError(handle, "end of file inside menu item\n");
       return qfalse;
     }
@@ -5270,14 +5273,14 @@ qboolean ItemParse_cvarFloatList( itemDef_t *item, int handle ) {
   multiPtr->count = 0;
   multiPtr->strDef = qfalse;
 
-  if (!trap_Parse_ReadToken(handle, &token))
+  if (!trap_PC_ReadToken(handle, &token))
     return qfalse;
   if (*token.string != '{') {
     return qfalse;
   }
 
   while ( 1 ) {
-    if (!trap_Parse_ReadToken(handle, &token)) {
+    if (!trap_PC_ReadToken(handle, &token)) {
       PC_SourceError(handle, "end of file inside menu item\n");
       return qfalse;
     }
@@ -5456,13 +5459,13 @@ qboolean Item_Parse(int handle, itemDef_t *item) {
   keywordHash_t *key;
 
 
-  if (!trap_Parse_ReadToken(handle, &token))
+  if (!trap_PC_ReadToken(handle, &token))
     return qfalse;
   if (*token.string != '{') {
     return qfalse;
   }
   while ( 1 ) {
-    if (!trap_Parse_ReadToken(handle, &token)) {
+    if (!trap_PC_ReadToken(handle, &token)) {
       PC_SourceError(handle, "end of file inside menu item\n");
       return qfalse;
     }
@@ -5857,7 +5860,7 @@ qboolean Menu_Parse(int handle, menuDef_t *menu) {
   pc_token_t token;
   keywordHash_t *key;
 
-  if (!trap_Parse_ReadToken(handle, &token))
+  if (!trap_PC_ReadToken(handle, &token))
     return qfalse;
   if (*token.string != '{') {
     return qfalse;
@@ -5866,7 +5869,7 @@ qboolean Menu_Parse(int handle, menuDef_t *menu) {
   while ( 1 ) {
 
     memset(&token, 0, sizeof(pc_token_t));
-    if (!trap_Parse_ReadToken(handle, &token)) {
+    if (!trap_PC_ReadToken(handle, &token)) {
       PC_SourceError(handle, "end of file inside menu\n");
       return qfalse;
     }
