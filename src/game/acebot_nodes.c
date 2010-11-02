@@ -111,7 +111,6 @@ ACEND_FindClosestReachableNode(gentity_t * self, float range, int type)
   float closest = 99999;
   float dist;
   int node = INVALID;
-  int nextTempNode;
   vec3_t v;
   trace_t tr;
   //float           rng;
@@ -184,8 +183,8 @@ ACEND_SetGoal(gentity_t * self, int goalNode)
     G_Printf("print \"%s: new start node selected %d\n\"", self->client->pers.netname, node);
 
   ACEND_setCurrentNode(self, node);
+
   ACEND_setNextNode(self, self->bs.currentNode);
-  //self->bs.nextNode = self->bs.currentNode; // make sure we get to the nearest node first
   self->bs.node_timeout = 0;
 
   if (ace_showPath.integer)
@@ -284,6 +283,15 @@ ACEND_CheckForDucking(gentity_t *self)
       else if (closestNode == INVALID)
       {
         closestNode = ACEND_AddNode(self, NODE_DUCK);
+        G_Printf("NODE DUCK ADDED BY %s\n",self->client->pers.netname);
+        if(self->r.svFlags & SVF_BOT)
+        {
+          G_Printf("WTFFFFF BOT ADDING NODES\n\n\n");
+        }
+        if(self->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
+        {
+          G_Printf("WTFFFFF ALIEENNNN ADDING NODES\n\n\n");
+        }
         // now add link
         if (self->bs.lastNode != INVALID)
         {
@@ -662,6 +670,11 @@ ACEND_AddNode(gentity_t * self, int type)
   if (numNodes >= MAX_NODES)
     return INVALID;
 
+  if(type != NODE_MOVE)
+  {
+    G_Printf("NON WALK NODE ADDED BY %s\n", self->client->pers.netname);
+  }
+
   entityName = self->classname;
 
   ////////////////////////////////////////////////////////////////////////////
@@ -772,33 +785,10 @@ void
 ACEND_UpdateNodeEdge(int from, int to, gentity_t *self)
 {
   int i;
-  int failcounter = 0;
 
   if (from == -1 || to == -1 || from == to)
     return; // safety
 
-  if ((nodes[from].type == NODE_JUMP || nodes[to].type == NODE_JUMP))
-  {
-    while(!ACEND_nodesVisible(nodes[from].origin, nodes[to].origin))
-    {
-      if (failcounter % 2 == 0)
-      {
-        nodes[from].origin[2] += 5;
-      }
-      failcounter++;
-      if (failcounter >= 40)
-      {
-        return;
-      }
-    }
-    if (failcounter > 0)
-    {
-      if (level.num_entities < 800 && ace_debug.integer)
-      {
-        ACEND_ShowNode(from, nodes[from].type);
-      }
-    }
-  }
   if ((self->r.svFlags & SVF_BOT)
       && (nodes[from].type == NODE_JUMP || nodes[from].type == NODE_JUMP || nodes[from].type == NODE_DUCK))
   {

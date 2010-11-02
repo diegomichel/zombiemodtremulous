@@ -1171,8 +1171,8 @@ ClientUserinfoChanged(int clientNum)
   char model[MAX_QPATH];
   char buffer[MAX_QPATH];
   char filename[MAX_QPATH];
-  char oldname[MAX_NAME_LENGTH];
-  char newname[MAX_NAME_LENGTH];
+  char oldname[MAX_INFO_STRING];
+  char newname[MAX_INFO_STRING];
   char err[MAX_STRING_CHARS];
   qboolean revertName = qfalse;
   qboolean showRenameMsg = qtrue;
@@ -1717,7 +1717,17 @@ ClientSpawn(gentity_t *ent, gentity_t *spawn, vec3_t origin, vec3_t angles)
 
   teamLocal = client->pers.teamSelection;
 
+
+  //Reset Everything For path Finding
+  ent->bs.currentNode = INVALID;
+  ent->bs.goalNode = INVALID;
   ent->bs.lastNode = INVALID;
+  ent->bs.nextNode = INVALID;
+  ent->bs.isCrouchJumping = qfalse;
+  ent->bs.isJumping = qfalse;
+  ent->bs.isLongJumping = qfalse;
+  ent->bs.isUsingLadder = qfalse;
+
 
   //TA: only start client if chosen a class and joined a team
   if (client->pers.classSelection == PCL_NONE && teamLocal == PTE_NONE)
