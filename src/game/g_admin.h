@@ -18,7 +18,7 @@ You should have received a copy of the GNU General Public License
 along with Tremulous; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 ===========================================================================
-*/
+ */
 
 #ifndef _G_ADMIN_H
 #define _G_ADMIN_H
@@ -91,26 +91,24 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 // important note: QVM does not seem to allow a single char to be a
 // member of a struct at init time.  flag has been converted to char*
-typedef struct
-{
+
+typedef struct {
   char *keyword;
-  qboolean ( * handler ) ( gentity_t *ent, int skiparg );
+  qboolean(* handler) (gentity_t *ent, int skiparg);
   char *flag;
-  char *function;  // used for !help
-  char *syntax;  // used for !help
+  char *function; // used for !help
+  char *syntax; // used for !help
 }
 g_admin_cmd_t;
 
-typedef struct g_admin_level
-{
+typedef struct g_admin_level {
   int level;
   char name[ MAX_NAME_LENGTH ];
   char flags[ MAX_ADMIN_FLAGS ];
 }
 g_admin_level_t;
 
-typedef struct g_admin_admin
-{
+typedef struct g_admin_admin {
   char guid[ 33 ];
   char name[ MAX_NAME_LENGTH ];
   int level;
@@ -118,8 +116,7 @@ typedef struct g_admin_admin
 }
 g_admin_admin_t;
 
-typedef struct g_admin_ban
-{
+typedef struct g_admin_ban {
   char name[ MAX_NAME_LENGTH ];
   char guid[ 33 ];
   char ip[ 20 ];
@@ -130,8 +127,7 @@ typedef struct g_admin_ban
 }
 g_admin_ban_t;
 
-typedef struct g_admin_command
-{
+typedef struct g_admin_command {
   char command[ MAX_ADMIN_CMD_LEN ];
   char exec[ MAX_QPATH ];
   char desc[ 50 ];
@@ -139,89 +135,91 @@ typedef struct g_admin_command
 }
 g_admin_command_t;
 
-typedef struct g_admin_namelog
-{
-  char      name[ MAX_ADMIN_NAMELOG_NAMES ][MAX_NAME_LENGTH ];
-  char      ip[ 16 ];
-  char      guid[ 33 ];
-  int       slot;
-  qboolean  banned;
+typedef struct g_admin_namelog {
+  char name[ MAX_ADMIN_NAMELOG_NAMES ][MAX_NAME_LENGTH ];
+  char ip[ 16 ];
+  char guid[ 33 ];
+  int slot;
+  qboolean banned;
 }
 g_admin_namelog_t;
 
-qboolean G_admin_ban_check( char *userinfo, char *reason, int rlen );
-qboolean G_admin_cmd_check( gentity_t *ent, qboolean say );
-qboolean G_admin_readconfig( gentity_t *ent, int skiparg );
-qboolean G_admin_permission( gentity_t *ent, const char *flag );
-qboolean G_admin_name_check( gentity_t *ent, char *name, char *err, int len );
-void G_admin_namelog_update( gclient_t *ent, qboolean disconnect );
-void G_admin_maplog_result( char *flag );
-int G_admin_level( gentity_t *ent );
-void G_admin_set_adminname( gentity_t *ent );
-char* G_admin_adminPrintName( gentity_t *ent );
+qboolean G_admin_ban_check(char *userinfo, char *reason, int rlen);
+qboolean G_admin_cmd_check(gentity_t *ent, qboolean say);
+qboolean G_admin_readconfig(gentity_t *ent, int skiparg);
+qboolean G_admin_permission(gentity_t *ent, const char *flag);
+qboolean G_admin_name_check(gentity_t *ent, char *name, char *err, int len);
+void G_admin_namelog_update(gclient_t *ent, qboolean disconnect);
+void G_admin_maplog_result(char *flag);
+int G_admin_level(gentity_t *ent);
+void G_admin_set_adminname(gentity_t *ent);
+char* G_admin_adminPrintName(gentity_t *ent);
 
 // ! command functions
-qboolean G_admin_time( gentity_t *ent, int skiparg );
-qboolean G_admin_setlevel( gentity_t *ent, int skiparg );
-qboolean G_admin_kick( gentity_t *ent, int skiparg );
-qboolean G_admin_adjustban( gentity_t *ent, int skiparg );
-qboolean G_admin_subnetban( gentity_t *ent, int skiparg );
-qboolean G_admin_ban( gentity_t *ent, int skiparg );
-qboolean G_admin_unban( gentity_t *ent, int skiparg );
-qboolean G_admin_putteam( gentity_t *ent, int skiparg );
-qboolean G_admin_listadmins( gentity_t *ent, int skiparg );
-qboolean G_admin_listlayouts( gentity_t *ent, int skiparg );
-qboolean G_admin_listplayers( gentity_t *ent, int skiparg );
-qboolean G_admin_listmaps( gentity_t *ent, int skiparg );
-qboolean G_admin_listrotation( gentity_t *ent, int skiparg );
-qboolean G_admin_map( gentity_t *ent, int skiparg );
-qboolean G_admin_devmap( gentity_t *ent, int skiparg );
-void G_admin_maplog_update( void );
-qboolean G_admin_maplog( gentity_t *ent, int skiparg );
-qboolean G_admin_layoutsave( gentity_t *ent, int skiparg );
-qboolean G_admin_mute( gentity_t *ent, int skiparg );
-qboolean G_admin_denybuild( gentity_t *ent, int skiparg );
-qboolean G_admin_showbans( gentity_t *ent, int skiparg );
-qboolean G_admin_help( gentity_t *ent, int skiparg );
-qboolean G_admin_admintest( gentity_t *ent, int skiparg );
-qboolean G_admin_allready( gentity_t *ent, int skiparg );
-qboolean G_admin_cancelvote( gentity_t *ent, int skiparg );
-qboolean G_admin_passvote( gentity_t *ent, int skiparg );
-qboolean G_admin_spec999( gentity_t *ent, int skiparg );
-qboolean G_admin_register( gentity_t *ent, int skiparg );
-qboolean G_admin_rename( gentity_t *ent, int skiparg );
-qboolean G_admin_restart( gentity_t *ent, int skiparg );
-qboolean G_admin_nextmap( gentity_t *ent, int skiparg );
-qboolean G_admin_namelog( gentity_t *ent, int skiparg );
-qboolean G_admin_lock( gentity_t *ent, int skiparg );
-qboolean G_admin_unlock( gentity_t *ent, int skiparg );
-qboolean G_admin_info( gentity_t *ent, int skiparg );
-qboolean G_admin_buildlog( gentity_t *ent, int skiparg );
-qboolean G_admin_revert( gentity_t *ent, int skiparg );
-qboolean G_admin_pause( gentity_t *ent, int skiparg );
-qboolean G_admin_L0( gentity_t *ent, int skiparg );
-qboolean G_admin_L1( gentity_t *ent, int skiparg );
-qboolean G_admin_putmespec( gentity_t *ent, int skiparg );
-qboolean G_admin_warn( gentity_t *ent, int skiparg );
-qboolean G_admin_designate( gentity_t *ent, int skiparg );
-qboolean G_admin_cp( gentity_t *ent, int skiparg );
-qboolean G_admin_switch( gentity_t *ent, int skiparg );
+qboolean G_admin_time(gentity_t *ent, int skiparg);
+qboolean G_admin_setlevel(gentity_t *ent, int skiparg);
+qboolean G_admin_kick(gentity_t *ent, int skiparg);
+qboolean G_admin_adjustban(gentity_t *ent, int skiparg);
+qboolean G_admin_subnetban(gentity_t *ent, int skiparg);
+qboolean G_admin_ban(gentity_t *ent, int skiparg);
+qboolean G_admin_unban(gentity_t *ent, int skiparg);
+qboolean G_admin_putteam(gentity_t *ent, int skiparg);
+qboolean G_admin_listadmins(gentity_t *ent, int skiparg);
+qboolean G_admin_listlayouts(gentity_t *ent, int skiparg);
+qboolean G_admin_listplayers(gentity_t *ent, int skiparg);
+qboolean G_admin_listmaps(gentity_t *ent, int skiparg);
+qboolean G_admin_listrotation(gentity_t *ent, int skiparg);
+qboolean G_admin_map(gentity_t *ent, int skiparg);
+qboolean G_admin_devmap(gentity_t *ent, int skiparg);
+void G_admin_maplog_update(void);
+qboolean G_admin_maplog(gentity_t *ent, int skiparg);
+qboolean G_admin_layoutsave(gentity_t *ent, int skiparg);
+qboolean G_admin_mute(gentity_t *ent, int skiparg);
+qboolean G_admin_denybuild(gentity_t *ent, int skiparg);
+qboolean G_admin_showbans(gentity_t *ent, int skiparg);
+qboolean G_admin_help(gentity_t *ent, int skiparg);
+qboolean G_admin_admintest(gentity_t *ent, int skiparg);
+qboolean G_admin_allready(gentity_t *ent, int skiparg);
+qboolean G_admin_cancelvote(gentity_t *ent, int skiparg);
+qboolean G_admin_passvote(gentity_t *ent, int skiparg);
+qboolean G_admin_spec999(gentity_t *ent, int skiparg);
+qboolean G_admin_register(gentity_t *ent, int skiparg);
+qboolean G_admin_rename(gentity_t *ent, int skiparg);
+qboolean G_admin_restart(gentity_t *ent, int skiparg);
+qboolean G_admin_nextmap(gentity_t *ent, int skiparg);
+qboolean G_admin_namelog(gentity_t *ent, int skiparg);
+qboolean G_admin_lock(gentity_t *ent, int skiparg);
+qboolean G_admin_unlock(gentity_t *ent, int skiparg);
+qboolean G_admin_info(gentity_t *ent, int skiparg);
+qboolean G_admin_buildlog(gentity_t *ent, int skiparg);
+qboolean G_admin_revert(gentity_t *ent, int skiparg);
+qboolean G_admin_pause(gentity_t *ent, int skiparg);
+qboolean G_admin_L0(gentity_t *ent, int skiparg);
+qboolean G_admin_L1(gentity_t *ent, int skiparg);
+qboolean G_admin_putmespec(gentity_t *ent, int skiparg);
+qboolean G_admin_warn(gentity_t *ent, int skiparg);
+qboolean G_admin_designate(gentity_t *ent, int skiparg);
+qboolean G_admin_cp(gentity_t *ent, int skiparg);
+qboolean G_admin_switch(gentity_t *ent, int skiparg);
+qboolean G_admin_printgrid(gentity_t *ent, int skiparg);
+qboolean G_admin_printpath(gentity_t *ent, int skiparg);
+qboolean G_admin_findpath(gentity_t *ent, int skiparg);
 
-qboolean G_set_survival_stage( gentity_t *ent, int skiparg );
+qboolean G_set_survival_stage(gentity_t *ent, int skiparg);
 
-qboolean G_admin_bot( gentity_t *ent, int skiparg );
-qboolean G_admin_botcmd( gentity_t *ent, int skiparg );
+qboolean G_admin_bot(gentity_t *ent, int skiparg);
+qboolean G_admin_botcmd(gentity_t *ent, int skiparg);
 
-qboolean G_switchnodes( gentity_t *ent, int skiparg );
+qboolean G_switchnodes(gentity_t *ent, int skiparg);
+qboolean G_reconnectdb( gentity_t *ent, int skiparg );
 
+void G_admin_print(gentity_t *ent, char *m);
+void G_admin_buffer_print(gentity_t *ent, char *m);
+void G_admin_buffer_begin(void);
+void G_admin_buffer_end(gentity_t *ent);
 
-void G_admin_print( gentity_t *ent, char *m );
-void G_admin_buffer_print( gentity_t *ent, char *m );
-void G_admin_buffer_begin( void );
-void G_admin_buffer_end( gentity_t *ent );
-
-void G_admin_duration( int secs, char *duration, int dursize );
-void G_admin_cleanup( void );
-void G_admin_namelog_cleanup( void );
+void G_admin_duration(int secs, char *duration, int dursize);
+void G_admin_cleanup(void);
+void G_admin_namelog_cleanup(void);
 
 #endif /* ifndef _G_ADMIN_H */

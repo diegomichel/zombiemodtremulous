@@ -7,7 +7,7 @@ INDIRP4
 ASGNP4
 ADDRFP4 0
 INDIRP4
-CNSTI4 900
+CNSTI4 908
 ADDP4
 ARGP4
 ADDRLP4 8
@@ -16,18 +16,6 @@ CALLP4
 ASGNP4
 ADDRGP4 $81
 ARGP4
-ADDRFP4 0
-INDIRP4
-CNSTI4 868
-ADDP4
-INDIRI4
-ARGI4
-ADDRFP4 0
-INDIRP4
-CNSTI4 872
-ADDP4
-INDIRI4
-ARGI4
 ADDRFP4 0
 INDIRP4
 CNSTI4 876
@@ -64,6 +52,18 @@ CNSTI4 896
 ADDP4
 INDIRI4
 ARGI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 900
+ADDP4
+INDIRI4
+ARGI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 904
+ADDP4
+INDIRI4
+ARGI4
 ADDRLP4 8
 INDIRP4
 ARGP4
@@ -85,7 +85,7 @@ INDIRP4
 CVPU4 4
 SUBU4
 CVUI4 4
-CNSTI4 1872
+CNSTI4 1880
 DIVI4
 ARGI4
 ADDRLP4 20
@@ -123,7 +123,7 @@ INDIRP4
 CVPU4 4
 SUBU4
 CVUI4 4
-CNSTI4 1872
+CNSTI4 1880
 DIVI4
 ARGI4
 ADDRLP4 1044
@@ -154,36 +154,36 @@ ADDRLP4 1040
 ARGP4
 ADDRFP4 0
 INDIRP4
-CNSTI4 876
+CNSTI4 884
 ADDP4
 ARGP4
 ADDRLP4 1032
 ARGP4
 ADDRFP4 0
 INDIRP4
-CNSTI4 884
-ADDP4
-ARGP4
-ADDRFP4 0
-INDIRP4
-CNSTI4 888
-ADDP4
-ARGP4
-ADDRFP4 0
-INDIRP4
 CNSTI4 892
 ADDP4
 ARGP4
-ADDRLP4 1028
+ADDRFP4 0
+INDIRP4
+CNSTI4 896
+ADDP4
 ARGP4
 ADDRFP4 0
 INDIRP4
 CNSTI4 900
 ADDP4
 ARGP4
+ADDRLP4 1028
+ARGP4
 ADDRFP4 0
 INDIRP4
-CNSTI4 904
+CNSTI4 908
+ADDP4
+ARGP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 912
 ADDP4
 ARGP4
 ADDRGP4 sscanf
@@ -191,28 +191,28 @@ CALLI4
 pop
 ADDRFP4 0
 INDIRP4
-CNSTI4 868
+CNSTI4 876
 ADDP4
 ADDRLP4 1036
 INDIRI4
 ASGNI4
 ADDRFP4 0
 INDIRP4
-CNSTI4 872
+CNSTI4 880
 ADDP4
 ADDRLP4 1040
 INDIRI4
 ASGNI4
 ADDRFP4 0
 INDIRP4
-CNSTI4 880
+CNSTI4 888
 ADDP4
 ADDRLP4 1032
 INDIRI4
 ASGNI4
 ADDRFP4 0
 INDIRP4
-CNSTI4 896
+CNSTI4 904
 ADDP4
 ADDRLP4 1028
 INDIRI4
@@ -224,7 +224,7 @@ proc G_InitSessionData 12 12
 ADDRLP4 0
 ADDRFP4 0
 INDIRP4
-CNSTI4 868
+CNSTI4 876
 ADDP4
 ASGNP4
 ADDRFP4 4
@@ -257,7 +257,7 @@ ADDRGP4 g_maxGameClients+12
 INDIRI4
 CNSTI4 0
 LEI4 $89
-ADDRGP4 level+88
+ADDRGP4 level+120948
 INDIRI4
 ADDRGP4 g_maxGameClients+12
 INDIRI4
@@ -321,30 +321,134 @@ pop
 LABELV $85
 endproc G_InitSessionData 12 12
 export G_WriteSessionData
-proc G_WriteSessionData 8 8
-ADDRGP4 $97
+proc G_WriteSessionData 1320 16
+ADDRLP4 4
+CNSTI4 0
+ASGNI4
+ADDRGP4 $96
+ARGP4
+ADDRLP4 8
+ARGP4
+CNSTI4 1024
+ARGI4
+ADDRGP4 trap_Cvar_VariableStringBuffer
+CALLV
+pop
+ADDRGP4 $98
 ARGP4
 CNSTI4 0
 ARGI4
-ADDRLP4 4
+ADDRLP4 1288
 ADDRGP4 va
 CALLP4
 ASGNP4
-ADDRGP4 $96
+ADDRGP4 $97
 ARGP4
-ADDRLP4 4
+ADDRLP4 1288
 INDIRP4
 ARGP4
 ADDRGP4 trap_Cvar_Set
 CALLV
 pop
+ADDRLP4 1292
+CNSTI4 0
+ASGNI4
+ADDRGP4 g_survival+12
+INDIRI4
+ADDRLP4 1292
+INDIRI4
+EQI4 $99
+ADDRGP4 level+56
+INDIRI4
+ADDRLP4 1292
+INDIRI4
+LEI4 $99
+ADDRGP4 level+68
+INDIRI4
+ADDRLP4 1292
+INDIRI4
+LEI4 $99
+ADDRGP4 level+72
+INDIRI4
+ADDRLP4 1292
+INDIRI4
+NEI4 $99
+ADDRGP4 $107
+ARGP4
+ADDRLP4 8
+ARGP4
+ADDRGP4 level+68
+INDIRI4
+ARGI4
+ADDRLP4 1296
+ADDRGP4 va
+CALLP4
+ASGNP4
+ADDRLP4 1296
+INDIRP4
+ARGP4
+ADDRLP4 1300
+ADDRGP4 trap_mysql_runquery
+CALLI4
+ASGNI4
+ADDRLP4 1300
+INDIRI4
+CNSTI4 1
+NEI4 $105
+ADDRGP4 trap_mysql_finishquery
+CALLV
+pop
+ADDRGP4 $111
+ARGP4
+ADDRLP4 1304
+ADDRGP4 trap_mysql_runquery
+CALLI4
+ASGNI4
+ADDRLP4 1304
+INDIRI4
+CNSTI4 1
+NEI4 $109
+ADDRLP4 1308
+ADDRGP4 trap_mysql_fetchrow
+CALLI4
+ASGNI4
+ADDRLP4 1308
+INDIRI4
+CNSTI4 1
+NEI4 $112
+ADDRGP4 $114
+ARGP4
+ADDRLP4 1032
+ARGP4
+CNSTI4 255
+ARGI4
+ADDRGP4 trap_mysql_fetchfieldbyName
+CALLV
+pop
+ADDRLP4 1032
+ARGP4
+ADDRLP4 1312
+ADDRGP4 atoi
+CALLI4
+ASGNI4
+ADDRLP4 4
+ADDRLP4 1312
+INDIRI4
+ASGNI4
+LABELV $112
+LABELV $109
+LABELV $105
+ADDRGP4 trap_mysql_finishquery
+CALLV
+pop
+LABELV $99
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $101
+ADDRGP4 $118
 JUMPV
-LABELV $98
-CNSTI4 1872
+LABELV $115
+CNSTI4 1880
 ADDRLP4 0
 INDIRI4
 MULI4
@@ -355,8 +459,8 @@ CNSTI4 472
 ADDP4
 INDIRI4
 CNSTI4 2
-NEI4 $103
-CNSTI4 1872
+NEI4 $120
+CNSTI4 1880
 ADDRLP4 0
 INDIRI4
 MULI4
@@ -367,29 +471,166 @@ ARGP4
 ADDRGP4 G_WriteClientSessionData
 CALLV
 pop
-LABELV $103
-LABELV $99
+LABELV $120
+ADDRGP4 g_survival+12
+INDIRI4
+CNSTI4 0
+EQI4 $122
+ADDRGP4 $116
+JUMPV
+LABELV $122
+ADDRLP4 1296
+CNSTI4 0
+ASGNI4
+CNSTI4 1880
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 level
+INDIRP4
+ADDP4
+CNSTI4 680
+ADDP4
+INDIRI4
+ADDRLP4 1296
+INDIRI4
+LEI4 $125
+ADDRLP4 4
+INDIRI4
+ADDRLP4 1296
+INDIRI4
+LEI4 $125
+ADDRGP4 level+72
+INDIRI4
+ADDRLP4 1296
+INDIRI4
+NEI4 $125
+ADDRGP4 $130
+ARGP4
+CNSTI4 1880
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 level
+INDIRP4
+ADDP4
+CNSTI4 680
+ADDP4
+INDIRI4
+ARGI4
+ADDRLP4 1300
+ADDRGP4 va
+CALLP4
+ASGNP4
+ADDRLP4 1300
+INDIRP4
+ARGP4
+ADDRLP4 1304
+ADDRGP4 trap_mysql_runquery
+CALLI4
+ASGNI4
+ADDRLP4 1304
+INDIRI4
+CNSTI4 1
+NEI4 $128
+ADDRGP4 trap_mysql_finishquery
+CALLV
+pop
+LABELV $128
+ADDRGP4 $133
+ARGP4
+ADDRLP4 4
+INDIRI4
+ARGI4
+ADDRLP4 1308
+CNSTI4 1880
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 level
+INDIRP4
+ADDP4
+ASGNP4
+ADDRLP4 1308
+INDIRP4
+CNSTI4 680
+ADDP4
+INDIRI4
+ARGI4
+ADDRLP4 1308
+INDIRP4
+CNSTI4 664
+ADDP4
+INDIRI4
+ARGI4
+ADDRLP4 1312
+ADDRGP4 va
+CALLP4
+ASGNP4
+ADDRLP4 1312
+INDIRP4
+ARGP4
+ADDRLP4 1316
+ADDRGP4 trap_mysql_runquery
+CALLI4
+ASGNI4
+ADDRLP4 1316
+INDIRI4
+CNSTI4 1
+NEI4 $131
+ADDRGP4 trap_mysql_finishquery
+CALLV
+pop
+LABELV $131
+LABELV $125
+LABELV $116
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $101
+LABELV $118
 ADDRLP4 0
 INDIRI4
 ADDRGP4 level+20
 INDIRI4
-LTI4 $98
+LTI4 $115
+ADDRLP4 1296
+CNSTI4 0
+ASGNI4
+ADDRGP4 g_survival+12
+INDIRI4
+ADDRLP4 1296
+INDIRI4
+EQI4 $134
+ADDRGP4 level+68
+INDIRI4
+ADDRLP4 1296
+INDIRI4
+LEI4 $134
+ADDRGP4 level+72
+INDIRI4
+ADDRLP4 1296
+INDIRI4
+NEI4 $134
+CNSTI4 -1
+ARGI4
+ADDRGP4 $139
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+LABELV $134
+ADDRGP4 level+72
+CNSTI4 1
+ASGNI4
 LABELV $95
-endproc G_WriteSessionData 8 8
-import trap_mysql_fieldcount
+endproc G_WriteSessionData 1320 16
+import trap_mysql_reconnect
 import trap_mysql_fetchfieldbyName
 import trap_mysql_fetchfieldbyID
-import trap_mysql_affectedrows
-import trap_mysql_rowcount
 import trap_mysql_fetchrow
-import trap_mysql_cleanstring
 import trap_mysql_finishquery
 import trap_mysql_runquery
 import trap_SendGameStat
@@ -681,6 +922,7 @@ import G_GiveClientMaxAmmo
 import G_ForceWeaponChange
 import ShineTorch
 import TeleportPlayer
+import TeleportZombie
 import G_Checktrigger_stages
 import trigger_teleporter_touch
 import manualTriggerSpectator
@@ -822,10 +1064,14 @@ import G_admin_buffer_end
 import G_admin_buffer_begin
 import G_admin_buffer_print
 import G_admin_print
+import G_reconnectdb
 import G_switchnodes
 import G_admin_botcmd
 import G_admin_bot
 import G_set_survival_stage
+import G_admin_findpath
+import G_admin_printpath
+import G_admin_printgrid
 import G_admin_switch
 import G_admin_cp
 import G_admin_designate
@@ -1196,12 +1442,319 @@ import srand
 import qsort
 lit
 align 1
-LABELV $97
+LABELV $139
+byte 1 112
+byte 1 114
+byte 1 105
+byte 1 110
+byte 1 116
+byte 1 32
+byte 1 34
+byte 1 94
+byte 1 53
+byte 1 82
+byte 1 101
+byte 1 99
+byte 1 111
+byte 1 114
+byte 1 100
+byte 1 115
+byte 1 32
+byte 1 115
+byte 1 116
+byte 1 111
+byte 1 114
+byte 1 101
+byte 1 100
+byte 1 32
+byte 1 111
+byte 1 110
+byte 1 32
+byte 1 116
+byte 1 104
+byte 1 101
+byte 1 32
+byte 1 115
+byte 1 101
+byte 1 114
+byte 1 118
+byte 1 101
+byte 1 114
+byte 1 46
+byte 1 10
+byte 1 34
+byte 1 0
+align 1
+LABELV $133
+byte 1 73
+byte 1 78
+byte 1 83
+byte 1 69
+byte 1 82
+byte 1 84
+byte 1 32
+byte 1 72
+byte 1 73
+byte 1 71
+byte 1 72
+byte 1 95
+byte 1 80
+byte 1 82
+byte 1 73
+byte 1 79
+byte 1 82
+byte 1 73
+byte 1 84
+byte 1 89
+byte 1 32
+byte 1 73
+byte 1 78
+byte 1 84
+byte 1 79
+byte 1 32
+byte 1 112
+byte 1 108
+byte 1 97
+byte 1 121
+byte 1 101
+byte 1 114
+byte 1 115
+byte 1 95
+byte 1 103
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 32
+byte 1 40
+byte 1 105
+byte 1 100
+byte 1 103
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 44
+byte 1 105
+byte 1 100
+byte 1 112
+byte 1 108
+byte 1 97
+byte 1 121
+byte 1 101
+byte 1 114
+byte 1 44
+byte 1 116
+byte 1 105
+byte 1 109
+byte 1 101
+byte 1 97
+byte 1 108
+byte 1 105
+byte 1 118
+byte 1 101
+byte 1 41
+byte 1 32
+byte 1 86
+byte 1 65
+byte 1 76
+byte 1 85
+byte 1 69
+byte 1 83
+byte 1 32
+byte 1 40
+byte 1 37
+byte 1 100
+byte 1 44
+byte 1 37
+byte 1 100
+byte 1 44
+byte 1 37
+byte 1 100
+byte 1 41
+byte 1 0
+align 1
+LABELV $130
+byte 1 85
+byte 1 80
+byte 1 68
+byte 1 65
+byte 1 84
+byte 1 69
+byte 1 32
+byte 1 112
+byte 1 108
+byte 1 97
+byte 1 121
+byte 1 101
+byte 1 114
+byte 1 115
+byte 1 32
+byte 1 115
+byte 1 101
+byte 1 116
+byte 1 32
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 116
+byte 1 116
+byte 1 105
+byte 1 109
+byte 1 101
+byte 1 61
+byte 1 78
+byte 1 79
+byte 1 87
+byte 1 40
+byte 1 41
+byte 1 32
+byte 1 87
+byte 1 72
+byte 1 69
+byte 1 82
+byte 1 69
+byte 1 32
+byte 1 105
+byte 1 100
+byte 1 32
+byte 1 61
+byte 1 32
+byte 1 34
+byte 1 37
+byte 1 100
+byte 1 34
+byte 1 32
+byte 1 76
+byte 1 73
+byte 1 77
+byte 1 73
+byte 1 84
+byte 1 32
+byte 1 49
+byte 1 0
+align 1
+LABELV $114
+byte 1 105
+byte 1 100
+byte 1 0
+align 1
+LABELV $111
+byte 1 83
+byte 1 69
+byte 1 76
+byte 1 69
+byte 1 67
+byte 1 84
+byte 1 32
+byte 1 105
+byte 1 100
+byte 1 32
+byte 1 70
+byte 1 82
+byte 1 79
+byte 1 77
+byte 1 32
+byte 1 103
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 115
+byte 1 32
+byte 1 79
+byte 1 82
+byte 1 68
+byte 1 69
+byte 1 82
+byte 1 32
+byte 1 66
+byte 1 89
+byte 1 32
+byte 1 105
+byte 1 100
+byte 1 32
+byte 1 100
+byte 1 101
+byte 1 115
+byte 1 99
+byte 1 32
+byte 1 76
+byte 1 73
+byte 1 77
+byte 1 73
+byte 1 84
+byte 1 32
+byte 1 49
+byte 1 0
+align 1
+LABELV $107
+byte 1 73
+byte 1 78
+byte 1 83
+byte 1 69
+byte 1 82
+byte 1 84
+byte 1 32
+byte 1 72
+byte 1 73
+byte 1 71
+byte 1 72
+byte 1 95
+byte 1 80
+byte 1 82
+byte 1 73
+byte 1 79
+byte 1 82
+byte 1 73
+byte 1 84
+byte 1 89
+byte 1 32
+byte 1 73
+byte 1 78
+byte 1 84
+byte 1 79
+byte 1 32
+byte 1 103
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 115
+byte 1 32
+byte 1 40
+byte 1 109
+byte 1 97
+byte 1 112
+byte 1 44
+byte 1 116
+byte 1 105
+byte 1 109
+byte 1 101
+byte 1 41
+byte 1 32
+byte 1 86
+byte 1 65
+byte 1 76
+byte 1 85
+byte 1 69
+byte 1 83
+byte 1 32
+byte 1 40
+byte 1 34
+byte 1 37
+byte 1 115
+byte 1 34
+byte 1 44
+byte 1 34
+byte 1 37
+byte 1 100
+byte 1 34
+byte 1 41
+byte 1 0
+align 1
+LABELV $98
 byte 1 37
 byte 1 105
 byte 1 0
 align 1
-LABELV $96
+LABELV $97
 byte 1 115
 byte 1 101
 byte 1 115
@@ -1209,6 +1762,16 @@ byte 1 115
 byte 1 105
 byte 1 111
 byte 1 110
+byte 1 0
+align 1
+LABELV $96
+byte 1 109
+byte 1 97
+byte 1 112
+byte 1 110
+byte 1 97
+byte 1 109
+byte 1 101
 byte 1 0
 align 1
 LABELV $86

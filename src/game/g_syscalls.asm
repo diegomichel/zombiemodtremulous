@@ -53,13 +53,13 @@ equ trap_SendGameStat               -48
 
 equ trap_mysql_runquery             -50
 equ trap_mysql_finishquery          -51
-equ trap_mysql_cleanstring          -52
-equ trap_mysql_fetchrow             -53
-equ trap_mysql_rowcount             -54
-equ trap_mysql_affectedrows         -55
-equ trap_mysql_fetchfieldbyID       -56
-equ trap_mysql_fetchfieldbyName     -57
-equ trap_mysql_fieldcount           -58
+equ trap_mysql_fetchrow             -52
+equ trap_mysql_fetchfieldbyID       -53
+equ trap_mysql_fetchfieldbyName     -54
+equ trap_mysql_reconnect            -55
+
+equ trap_xglobal_load_c             -56
+equ trap_xglobal_flags              -57
 
 equ memset                          -101
 equ memcpy                          -102

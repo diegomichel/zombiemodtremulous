@@ -4,4 +4,35 @@
         <code-model-enabled>true</code-model-enabled>
     </code-assistance-data>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/g_svcmds.c</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/g_spawn.c</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/g_session.c</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/g_public.h</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/g_ptr.c</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/g_physics.c</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/g_mover.c</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/g_missile.c</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/g_misc.c</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/g_mem.c</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/g_maprotation.c</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/g_main.c</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/g_local.h</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/g_combat.c</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/g_cmds.c</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/g_client.c</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/g_buildable.c</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/g_bot.c</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/g_admin.h</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/g_admin.c</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/g_active.c</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/bg_slidemove.c</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/bg_public.h</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/bg_pmove.c</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/bg_misc.c</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/bg_local.h</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/bg_lib.h</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/bg_lib.c</file>
+        <file>file:/root/Desktop/3.Proyectos_Actuales/blogwtf/code/zvh/SEXQVM/src/game/tremulous.h</file>
+    </open-files>
 </project-private>
