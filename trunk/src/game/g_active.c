@@ -805,13 +805,14 @@ ClientTimerActions(gentity_t *ent, int msec)
     }
 
     //Forget the sob
-    if (ent->r.svFlags & SVF_BOT)
+    //FIXME: Uncomment Release.
+    /*if (ent->r.svFlags & SVF_BOT)
     {
       if (!g_survival.integer)
       {
         ent->botEnemy = NULL;
       }
-    }
+    }*/
 
     //client is poison clouded
     if (client->ps.stats[STAT_STATE] & SS_POISONCLOUDED)
@@ -1689,7 +1690,7 @@ ClientThink_real(gentity_t *ent)
 
 #if defined(ACEBOT)
   //FIXME: PRODUCTION
-  //ACEND_PathMap(ent);
+  ACEND_PathMap(ent);
 #endif
 
   // execute client events

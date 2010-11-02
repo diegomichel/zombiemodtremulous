@@ -105,7 +105,6 @@ ACEAI_Think(gentity_t * self)
   //Remove this stuff on trem code.
   if (self->client->sess.sessionTeam == TEAM_SPECTATOR)
   {
-    trap_SendServerCommand(-1, va("print \"%s: This shuld never happend on trem...\n\"", self->client->pers.netname));
     if (ace_debug.integer)
       trap_SendServerCommand(-1, va("print \"%s: I am a spectator, choosing a team...\n\"", self->client->pers.netname));
 
@@ -178,16 +177,16 @@ ACEAI_Think(gentity_t * self)
     }
   }
 
-//#if 0
-//  if(ace_debug.integer)
-//  trap_SendServerCommand(-1, va("print \"%s: state %dl!\n\"", self->client->pers.netname, self->bs.state));
-//#endif
+  //#if 0
+  //  if(ace_debug.integer)
+  //  trap_SendServerCommand(-1, va("print \"%s: state %dl!\n\"", self->client->pers.netname, self->bs.state));
+  //#endif
 
   // set approximate ping
-//  if (!g_synchronousClients.integer)
-//    self->client->pers.cmd.serverTime = level.time - (10 + floor(random() * 25) + 1);
-//  else
-//    self->client->ps.commandTime = level.time;
+  //  if (!g_synchronousClients.integer)
+  //    self->client->pers.cmd.serverTime = level.time - (10 + floor(random() * 25) + 1);
+  //  else
+  //    self->client->ps.commandTime = level.time;
 
   // show random ping values in scoreboard
   //self->client->ping = ucmd.msec;
@@ -286,18 +285,34 @@ ACEAI_PickLongRangeGoal(gentity_t * self)
   goalNode = INVALID;
   goalEnt = NULL;
 
-  // look for a target
+  //////////////////////////////////////////////////////////////////
+  // LOOK FOR A TARGET
+  //////////////////////////////////////////////////////////////////
+
+  //Free currentNode
   currentNode = ACEND_FindClosestReachableNode(self, NODE_DENSITY, NODE_ALL);
-
-  self->bs.currentNode = currentNode;
-
+  ACEND_setCurrentNode(self, currentNode);
+  ////////////////////////////////////////////////////////////
+  // INVALID TARGET
+  ///////////////////////////////////////////////////////////
   if (!ace_pickLongRangeGoal.integer || currentNode == INVALID)
   {
     self->bs.state = STATE_WANDER;
     self->bs.wander_timeout = level.time + 1000;
     self->bs.goalNode = -1;
+    G_Printf("There are not good nodes to follow\n");
     return;
   }
+
+  /*if (!ACEND_pointVisibleFromEntity(nodes[currentNode].origin, self))
+   {
+   G_Printf("\n\nJACK POINT\n\n");
+   self->bs.state = STATE_WANDER;
+   self->bs.wander_timeout = level.time + 1000;
+   self->bs.goalNode = -1;
+   G_Printf("There are not good nodes to follow\n");
+   return;
+   }*/
   // this should be its own function and is for now just
   // finds a player to set as the goal
   for(i = 0;i < g_maxclients.integer;i++)
@@ -342,9 +357,10 @@ ACEAI_PickLongRangeGoal(gentity_t * self)
     self->bs.goalNode = INVALID;
     self->bs.state = STATE_WANDER;
     self->bs.wander_timeout = level.time + 1000;
+    ACEND_setCurrentNode(self, INVALID);
 
     if (ace_debug.integer)
-      G_Printf("print \"%s: wandering..\n\"", self->client->pers.netname);
+      G_Printf("print \"%s: wandering..n\"", self->client->pers.netname);
     return; // no path?
   }
 
