@@ -207,12 +207,6 @@ CG_Obituary(entityState_t *ent)
   {
     switch(mod)
     {
-      case MOD_PAINSAW:
-        message = "was sawn by";
-        break;
-      case MOD_BLASTER:
-        message = "was blasted by";
-        break;
       case MOD_MACHINEGUN:
         message = "was machinegunned by";
         break;

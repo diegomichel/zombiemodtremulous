@@ -343,9 +343,7 @@ typedef enum {
 typedef enum {
   WP_NONE,
 
-  WP_BLASTER,
   WP_MACHINEGUN,
-  WP_PAIN_SAW,
   WP_SHOTGUN,
   WP_LAS_GUN,
   WP_MASS_DRIVER,
@@ -463,7 +461,6 @@ typedef enum {
   BA_I_CHAINGUN,
   BA_I_FLAMER,
   BA_I_LCANNON,
-  BA_I_PSAW,
   BA_I_LAUNCHER,
   BA_I_MINE,
 
@@ -868,8 +865,6 @@ typedef enum {
 typedef enum {
   MOD_UNKNOWN,
   MOD_SHOTGUN,
-  MOD_BLASTER,
-  MOD_PAINSAW,
   MOD_MACHINEGUN,
   MOD_CHAINGUN,
   MOD_PRIFLE,
