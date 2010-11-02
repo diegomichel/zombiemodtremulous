@@ -61,14 +61,8 @@ G_itemUse(gentity_t *self, gentity_t *other, gentity_t *activator)
     case BA_I_CHAINGUN:
       G_switchWeapon(activator, WP_CHAINGUN);
       break;
-    case BA_I_FLAMER:
-      G_switchWeapon(activator, WP_FLAMER);
-      break;
     case BA_I_LASGUN:
       G_switchWeapon(activator, WP_LAS_GUN);
-      break;
-    case BA_I_LCANNON:
-      G_switchWeapon(activator, WP_LUCIFER_CANNON);
       break;
     case BA_I_MACHINEGUN:
       G_switchWeapon(activator, WP_MACHINEGUN);

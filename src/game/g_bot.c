@@ -1140,19 +1140,7 @@ botShootIfTargetInRange(gentity_t * self, gentity_t * target)
   self->client->pers.cmd.buttons = 0;
   if (self->client->ps.stats[STAT_PTEAM] == PTE_HUMANS) //Human target buildable
   {
-    if (self->client->ps.weapon == WP_FLAMER)
-    {
-      if (Distance(self->s.pos.trBase, target->s.pos.trBase) < 200)
-        self->client->pers.cmd.buttons |= BUTTON_ATTACK;
-    }
-    else if (self->client->ps.weapon == WP_LUCIFER_CANNON)
-    {
-      self->client->pers.cmd.buttons |= BUTTON_ATTACK2;
-    }
-    else
-    {
       self->client->pers.cmd.buttons |= BUTTON_ATTACK;
-    }
   }
   else
   {

@@ -3523,30 +3523,6 @@ weaponAttributes_t bg_weapons[] =
         0, //int       buildDelay;
         WUT_HUMANS //WUTeam_t  team;
     },
-    { WP_FLAMER, //int       weaponNum;
-        FLAMER_PRICE, //int       price;
-        (1 << S1) | (1 << S2) | (1 << S3), //int  stages
-        SLOT_WEAPON, //int       slots;
-        "flamer", //char      *weaponName;
-        "Flame Thrower", //char      *weaponHumanName;
-        FLAMER_GAS, //int       maxAmmo;
-        0, //int       maxClips;
-        qfalse, //int       infiniteAmmo;
-        qfalse, //int       usesEnergy;
-        FLAMER_REPEAT, //int       repeatRate1;
-        0, //int       repeatRate2;
-        0, //int       repeatRate3;
-        0, //int       reloadTime;
-        FLAMER_K_SCALE, //float     knockbackScale;
-        qfalse, //qboolean  hasAltMode;
-        qfalse, //qboolean  hasThirdMode;
-        qtrue, //qboolean  canZoom;
-        20.0f, //float     zoomFov;
-        qtrue, //qboolean  purchasable;
-        qtrue, //qboolean  longRanged;
-        0, //int       buildDelay;
-        WUT_HUMANS //WUTeam_t  team;
-    },
     { WP_CHAINGUN, //int       weaponNum;
         CHAINGUN_PRICE, //int       price;
         (1 << S1) | (1 << S2) | (1 << S3), //int  stages
@@ -3590,30 +3566,6 @@ weaponAttributes_t bg_weapons[] =
         qfalse, //qboolean  hasThirdMode;
         qtrue, //qboolean  canZoom;
         15.0f, //float     zoomFov;
-        qtrue, //qboolean  purchasable;
-        qtrue, //qboolean  longRanged;
-        0, //int       buildDelay;
-        WUT_HUMANS //WUTeam_t  team;
-    },
-    { WP_LUCIFER_CANNON, //int       weaponNum;
-        LCANNON_PRICE, //int       price;
-        (1 << S1) | (1 << S2) | (1 << S3), //int  stages
-        SLOT_WEAPON, //int       slots;
-        "lcannon", //char      *weaponName;
-        "Lucifer Cannon", //char      *weaponHumanName;
-        LCANNON_AMMO, //int       maxAmmo;
-        0, //int       maxClips;
-        qfalse, //int       infiniteAmmo;
-        qtrue, //int       usesEnergy;
-        LCANNON_REPEAT, //int       repeatRate1;
-        LCANNON_CHARGEREPEAT, //int       repeatRate2;
-        0, //int       repeatRate3;
-        LCANNON_RELOAD, //int       reloadTime;
-        LCANNON_K_SCALE, //float     knockbackScale;
-        qtrue, //qboolean  hasAltMode;
-        qfalse, //qboolean  hasThirdMode;
-        qfalse, //qboolean  canZoom;
-        90.0f, //float     zoomFov;
         qtrue, //qboolean  purchasable;
         qtrue, //qboolean  longRanged;
         0, //int       buildDelay;

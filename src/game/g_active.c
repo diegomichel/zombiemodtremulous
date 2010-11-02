@@ -691,24 +691,6 @@ ClientTimerActions(gentity_t *ent, int msec)
         }
       }
     }
-
-    //client is charging up an lcannon
-    if (client->ps.weapon == WP_LUCIFER_CANNON)
-    {
-      int ammo;
-
-      BG_UnpackAmmoArray(WP_LUCIFER_CANNON, &client->ps.ammo, client->ps.powerups, &ammo, NULL);
-
-      if (client->ps.stats[STAT_MISC] < LCANNON_TOTAL_CHARGE && ucmd->buttons & BUTTON_ATTACK)
-        client->ps.stats[STAT_MISC] += (100.0f / LCANNON_CHARGE_TIME) * LCANNON_TOTAL_CHARGE;
-
-      if (client->ps.stats[STAT_MISC] > LCANNON_TOTAL_CHARGE)
-        client->ps.stats[STAT_MISC] = LCANNON_TOTAL_CHARGE;
-
-      if (client->ps.stats[STAT_MISC] > (ammo * LCANNON_TOTAL_CHARGE) / 10)
-        client->ps.stats[STAT_MISC] = ammo * LCANNON_TOTAL_CHARGE / 10;
-    }
-
     switch(client->ps.weapon)
     {
       case WP_ABUILD:

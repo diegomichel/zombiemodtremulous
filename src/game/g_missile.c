@@ -171,7 +171,7 @@ G_ExplodeMissile(gentity_t *ent)
   ent->s.eType = ET_GENERAL;
 
   //TA: tired... can't be fucked... hack
-  if (ent->s.weapon != WP_LOCKBLOB_LAUNCHER && ent->s.weapon != WP_FLAMER)
+  if (ent->s.weapon != WP_LOCKBLOB_LAUNCHER)
     G_AddEvent(ent, EV_MISSILE_MISS, DirToByte(dir));
 
   /*	if( ent->s.weapon == WP_BOMB )
@@ -414,7 +414,7 @@ fire_flamer(gentity_t *self, vec3_t start, vec3_t dir)
   bolt->think = G_ExplodeMissile;
   bolt->s.eType = ET_MISSILE;
   bolt->r.svFlags = SVF_USE_CURRENT_ORIGIN;
-  bolt->s.weapon = WP_FLAMER;
+//  bolt->s.weapon = WP_FLAMER;
   bolt->s.generic1 = self->s.generic1; //weaponMode
   bolt->r.ownerNum = self->s.number;
   bolt->parent = self;
@@ -508,7 +508,7 @@ fire_luciferCannon(gentity_t *self, vec3_t start, vec3_t dir, int damage, int ra
   bolt->think = G_ExplodeMissile;
   bolt->s.eType = ET_MISSILE;
   bolt->r.svFlags = SVF_USE_CURRENT_ORIGIN;
-  bolt->s.weapon = WP_LUCIFER_CANNON;
+//  bolt->s.weapon = WP_LUCIFER_CANNON;
   bolt->s.generic1 = self->s.generic1; //weaponMode
   bolt->r.ownerNum = self->s.number;
   bolt->parent = self;
@@ -996,21 +996,21 @@ launch_grenade_secondary(gentity_t *self, vec3_t start, vec3_t dir)
   VectorNormalize(dir);
 
   bolt = G_Spawn();
-  bolt->classname = "grenade";
+  bolt->classname = "grenade2";
   bolt->nextthink = level.time + 5000;
   bolt->think = G_ExplodeMissile;
   bolt->s.eType = ET_MISSILE;
   bolt->r.svFlags = SVF_USE_CURRENT_ORIGIN;
   bolt->s.weapon = WP_GRENADE;
-  bolt->s.eFlags = EF_BOUNCE_HALF;
+  //bolt->s.eFlags = EF_BOUNCE_HALF;
   bolt->s.generic1 = WPM_PRIMARY; //weaponMode
   bolt->r.ownerNum = self->s.number;
   bolt->parent = self;
-  bolt->damage = LAUNCHER_DAMAGE;
-  bolt->splashDamage = LAUNCHER_DAMAGE;
-  bolt->splashRadius = LAUNCHER_RADIUS;
-  bolt->methodOfDeath = MOD_GRENADE;
-  bolt->splashMethodOfDeath = MOD_GRENADE;
+  bolt->damage = ONFIRE_EXPLOSION_DAMAGE;
+  bolt->splashDamage = ONFIRE_EXPLOSION_DAMAGE;
+  bolt->splashRadius = INCENDIARY_GRENADE_RANGE;
+  bolt->methodOfDeath = MOD_INCENDIARY_GRENADE;
+  bolt->splashMethodOfDeath = MOD_INCENDIARY_GRENADE;
   bolt->clipmask = MASK_SHOT;
   bolt->target_ent = NULL;
   bolt->r.mins[0] = bolt->r.mins[1] = bolt->r.mins[2] = -3.0f;

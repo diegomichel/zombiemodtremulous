@@ -235,7 +235,10 @@ CG_ParseWeaponModeSection(weaponInfoMode_t *wim, char **text_p)
       if (!token)
         break;
 
+      CG_Printf("Registrando impactparticlesystem for %s\n", token);
       wim->impactParticleSystem = CG_RegisterParticleSystem(token);
+
+      CG_Printf("ID: %d\n", wim->impactParticleSystem);
 
       if (!wim->impactParticleSystem)
         CG_Printf(S_COLOR_RED "ERROR: impact particle system not found %s\n", token);
@@ -1100,12 +1103,6 @@ CG_AddViewWeapon(playerState_t *ps)
   if ((ps->stats[STAT_BUILDABLE] & ~SB_VALID_TOGGLEBIT) > BA_NONE)
     CG_GhostBuildable(ps->stats[STAT_BUILDABLE] & ~SB_VALID_TOGGLEBIT);
 
-  if (weapon == WP_LUCIFER_CANNON && ps->stats[STAT_MISC] > 0)
-  {
-    if (ps->stats[STAT_MISC] > (LCANNON_TOTAL_CHARGE - (LCANNON_TOTAL_CHARGE / 3)))
-      trap_S_AddLoopingSound(ps->clientNum, ps->origin, vec3_origin, cgs.media.lCannonWarningSound);
-  }
-
   // no gun if in third person view
   if (cg.renderingThirdPerson)
     return;
@@ -1166,14 +1163,6 @@ CG_AddViewWeapon(playerState_t *ps)
   VectorMA( hand.origin, cg_gun_x.value, cg.refdef.viewaxis[ 0 ], hand.origin );
   VectorMA( hand.origin, cg_gun_y.value, cg.refdef.viewaxis[ 1 ], hand.origin );
   VectorMA( hand.origin, ( cg_gun_z.value + fovOffset ), cg.refdef.viewaxis[ 2 ], hand.origin );
-
-  if (weapon == WP_LUCIFER_CANNON && ps->stats[STAT_MISC] > 0)
-  {
-    float fraction = (float) ps->stats[STAT_MISC] / (float) LCANNON_TOTAL_CHARGE;
-
-    VectorMA( hand.origin, random( ) * fraction, cg.refdef.viewaxis[ 0 ], hand.origin );
-    VectorMA( hand.origin, random( ) * fraction, cg.refdef.viewaxis[ 1 ], hand.origin );
-  }
 
   AnglesToAxis(angles, hand.axis);
 
@@ -1644,7 +1633,6 @@ CG_MissileHitWall(weapon_t weaponNum, weaponMode_t weaponMode, int clientNum, ve
   if (ps)
   {
     particleSystem_t *partSystem = CG_SpawnNewParticleSystem(ps);
-
     if (CG_IsParticleSystemValid(&partSystem))
     {
       CG_SetAttachmentPoint(&partSystem->attachment, origin);
