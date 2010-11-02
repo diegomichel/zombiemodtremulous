@@ -74,7 +74,7 @@ LookAtKiller(gentity_t *self, gentity_t *inflictor, gentity_t *attacker)
 
 // these are just for logging, the client prints its own messages
 char *modNames[] =
-{ "MOD_UNKNOWN", "MOD_SHOTGUN", "MOD_BLASTER", "MOD_PAINSAW", "MOD_MACHINEGUN", "MOD_CHAINGUN",
+{ "MOD_UNKNOWN", "MOD_SHOTGUN", "MOD_PAINSAW", "MOD_MACHINEGUN", "MOD_CHAINGUN",
     "MOD_PRIFLE", "MOD_MDRIVER", "MOD_LASGUN", "MOD_LCANNON", "MOD_LCANNON_SPLASH", "MOD_FLAMER",
     "MOD_FLAMER_SPLASH", "MOD_GRENADE", "MOD_WATER", "MOD_SLIME", "MOD_LAVA", "MOD_CRUSH",
     "MOD_TELEFRAG", "MOD_FALLING", "MOD_SUICIDE", "MOD_TARGET_LASER", "MOD_TRIGGER_HURT",

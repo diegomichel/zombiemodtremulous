@@ -431,13 +431,6 @@ static void CG_HumanText( char *text, playerState_t *ps )
               CG_KeyNameForCommand( "+zoom" ) ) );
         break;
 
-      case WP_PAIN_SAW:
-        Q_strcat( text, MAX_TUTORIAL_TEXT,
-            va( "Hold %s to activate the %s\n",
-              CG_KeyNameForCommand( "+attack" ),
-              BG_FindHumanNameForWeapon( ps->weapon ) ) );
-        break;
-
       case WP_LUCIFER_CANNON:
         Q_strcat( text, MAX_TUTORIAL_TEXT,
             va( "Hold and release %s to fire a charged shot\n",

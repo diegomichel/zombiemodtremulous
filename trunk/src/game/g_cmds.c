@@ -2570,12 +2570,12 @@ void Cmd_ToggleItem_f(gentity_t *ent) {
 
   if (weapon != WP_NONE) {
     //special case to allow switching between
-    //the blaster and the primary weapon
+    //the pistol and the primary weapon
 
     if (ent->client->ps.weapon != WP_PISTOL)
       weapon = WP_PISTOL;
     else {
-      //find a held weapon which isn't the blaster
+      //find a held weapon which isn't the pistol
       for (i = WP_NONE + 1; i < WP_NUM_WEAPONS; i++) {
         if (i == WP_PISTOL)
           continue;

@@ -76,9 +76,6 @@ G_itemUse(gentity_t *self, gentity_t *other, gentity_t *activator)
     case BA_I_MDRIVER:
       G_switchWeapon(activator, WP_MASS_DRIVER);
       break;
-    case BA_I_PSAW:
-      G_switchWeapon(activator, WP_PAIN_SAW);
-      break;
     case BA_I_PULSERIFLE:
       G_switchWeapon(activator, WP_PULSE_RIFLE);
       break;

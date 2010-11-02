@@ -45,7 +45,7 @@ G_ForceWeaponChange(gentity_t *ent, weapon_t weapon)
 
     if (weapon == WP_NONE || !BG_InventoryContainsWeapon(weapon, ent->client->ps.stats))
     {
-      //switch to the first non blaster weapon
+      //switch to the first non pistol weapon
       for(i = WP_NONE + 1;i < WP_NUM_WEAPONS;i++)
       {
         if (i == WP_PISTOL)
@@ -58,7 +58,7 @@ G_ForceWeaponChange(gentity_t *ent, weapon_t weapon)
         }
       }
 
-      //only got the blaster to switch to
+      //only got the pistol to switch to
       if (i == WP_NUM_WEAPONS)
         ent->client->ps.persistant[PERS_NEWWEAPON] = WP_PISTOL;
     }
@@ -563,25 +563,6 @@ hiveFire(gentity_t *ent)
 
   //  VectorAdd( m->s.pos.trDelta, ent->client->ps.velocity, m->s.pos.trDelta );  // "real" physics
 }
-
-/*
- ======================================================================
-
- BLASTER PISTOL
-
- ======================================================================
- */
-
-void
-blasterFire(gentity_t *ent)
-{
-  gentity_t *m;
-
-  m = fire_blaster(ent, muzzle, forward);
-
-  //  VectorAdd( m->s.pos.trDelta, ent->client->ps.velocity, m->s.pos.trDelta );  // "real" physics
-}
-
 /*
  ======================================================================
 
@@ -773,9 +754,9 @@ painSawFire(gentity_t *ent)
     tent->s.generic1 = ent->s.generic1; //weaponMode
   }
 
-  if (traceEnt->takedamage)
-    G_Damage(
-      traceEnt, ent, ent, forward, tr.endpos, PAINSAW_DAMAGE, DAMAGE_NO_KNOCKBACK, MOD_PAINSAW);
+  //if (traceEnt->takedamage)
+  //  G_Damage(
+  //    traceEnt, ent, ent, forward, tr.endpos, PAINSAW_DAMAGE, DAMAGE_NO_KNOCKBACK, MOD_PAINSAW);
 }
 
 /*
@@ -1870,9 +1851,6 @@ FireWeapon(gentity_t *ent)
       break;
     case WP_LAS_GUN:
       lasGunFire(ent);
-      break;
-    case WP_PAIN_SAW:
-      bulletFire(ent, 0, RIFLE_DMG*2, MOD_PAINSAW);
       break;
     case WP_GRENADE:
       throwGrenade(ent);
