@@ -364,6 +364,8 @@ struct gentity_s
   int lastTimeSeen;
   int camperWarning;
 
+  int lastTimeSawEnemy;
+
   //Path finding vars
   gentity_t *pathTarget;
   vec3_t nextnode;
@@ -384,6 +386,7 @@ struct gentity_s
   //To control bot jumps, like to only jump each 500ms.
   int jumpedTime;
   int botPause;
+  int idletimer;
 };
 
 typedef enum
@@ -635,6 +638,10 @@ struct gclient_s
   int time100;
   int time350;
   int time1000;
+  int time2000;
+  int time3000;
+  int time4000;
+  int time5000;
   int time10000;
 
   char *areabits;

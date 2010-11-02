@@ -192,7 +192,8 @@ G_ClientShove(gentity_t *ent, gentity_t *victim)
   if (!OnSameTeam(ent, victim))
     return;
 
-  if ((victim->client->ps.weapon >= WP_ABUILD) && (victim->client->ps.weapon <= WP_HBUILD) && (victim->client->ps.stats[STAT_BUILDABLE] != BA_NONE))
+  if ((victim->client->ps.weapon >= WP_ABUILD) && (victim->client->ps.weapon <= WP_HBUILD)
+      && (victim->client->ps.stats[STAT_BUILDABLE] != BA_NONE))
     return;
 
   // alien mass is directly related to their health points
@@ -270,7 +271,8 @@ ClientImpacts(gentity_t *ent, pmove_t *pm)
       other->client->unlaggedCalc.used = qfalse;
 
     //charge attack
-    if (ent->client->ps.weapon == WP_ALEVEL4 && ent->client->ps.stats[STAT_MISC] > 0 && ent->client->charging)
+    if (ent->client->ps.weapon == WP_ALEVEL4 && ent->client->ps.stats[STAT_MISC] > 0
+        && ent->client->charging)
       ChargeAttack(ent, other);
 
     if (ent->client && other->client)
@@ -335,8 +337,8 @@ G_TouchTriggers(gentity_t *ent)
       continue;
 
     // ignore most entities if a spectator
-    if ((ent->client->sess.sessionTeam == TEAM_SPECTATOR) || (ent->client->ps.stats[STAT_STATE] & SS_INFESTING) || (ent->client->ps.stats[STAT_STATE]
-        & SS_HOVELING))
+    if ((ent->client->sess.sessionTeam == TEAM_SPECTATOR) || (ent->client->ps.stats[STAT_STATE]
+        & SS_INFESTING) || (ent->client->ps.stats[STAT_STATE] & SS_HOVELING))
     {
       if (hit->s.eType != ET_TELEPORT_TRIGGER &&
       // this is ugly but adding a new ET_? type will
@@ -384,9 +386,11 @@ SpectatorThink(gentity_t *ent, usercmd_t *ucmd)
   }
 
   attack1 = ((client->buttons & BUTTON_ATTACK) && !(client->oldbuttons & BUTTON_ATTACK));
-  attack3 = ((client->buttons & BUTTON_USE_HOLDABLE) && !(client->oldbuttons & BUTTON_USE_HOLDABLE));
+  attack3
+      = ((client->buttons & BUTTON_USE_HOLDABLE) && !(client->oldbuttons & BUTTON_USE_HOLDABLE));
 
-  if (client->sess.spectatorState == SPECTATOR_LOCKED || client->sess.spectatorState == SPECTATOR_FOLLOW)
+  if (client->sess.spectatorState == SPECTATOR_LOCKED || client->sess.spectatorState
+      == SPECTATOR_FOLLOW)
     client->ps.pm_type = PM_FREEZE;
   else
     client->ps.pm_type = PM_SPECTATOR;
@@ -407,8 +411,9 @@ SpectatorThink(gentity_t *ent, usercmd_t *ucmd)
     client->ps.speed = BG_FindSpeedForClass(client->ps.stats[STAT_PCLASS]);
 
     // in case the client entered the queue while following a teammate
-    if ((client->pers.teamSelection == PTE_ALIENS && G_SearchSpawnQueue(&level.alienSpawnQueue, ent - g_entities)) || (client->pers.teamSelection == PTE_HUMANS
-        && G_SearchSpawnQueue(&level.alienSpawnQueue, ent - g_entities)))
+    if ((client->pers.teamSelection == PTE_ALIENS && G_SearchSpawnQueue(&level.alienSpawnQueue, ent
+        - g_entities)) || (client->pers.teamSelection == PTE_HUMANS && G_SearchSpawnQueue(
+      &level.alienSpawnQueue, ent - g_entities)))
     {
       client->ps.pm_flags |= PMF_QUEUED;
     }
@@ -462,11 +467,13 @@ SpectatorThink(gentity_t *ent, usercmd_t *ucmd)
     {
       if (client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
       {
-        client->ps.persistant[PERS_QUEUEPOS] = G_GetPosInSpawnQueue(&level.alienSpawnQueue, client->ps.clientNum);
+        client->ps.persistant[PERS_QUEUEPOS] = G_GetPosInSpawnQueue(
+          &level.alienSpawnQueue, client->ps.clientNum);
       }
       else if (client->ps.stats[STAT_PTEAM] == PTE_HUMANS)
       {
-        client->ps.persistant[PERS_QUEUEPOS] = G_GetPosInSpawnQueue(&level.humanSpawnQueue, client->ps.clientNum);
+        client->ps.persistant[PERS_QUEUEPOS] = G_GetPosInSpawnQueue(
+          &level.humanSpawnQueue, client->ps.clientNum);
       }
     }
   }
@@ -505,7 +512,8 @@ ClientInactivityTimer(gclient_t *client)
     client->inactivityTime = level.time + 60 * 1000;
     client->inactivityWarning = qfalse;
   }
-  else if (client->pers.cmd.forwardmove || client->pers.cmd.rightmove || client->pers.cmd.upmove || (client->pers.cmd.buttons & BUTTON_ATTACK))
+  else if (client->pers.cmd.forwardmove || client->pers.cmd.rightmove || client->pers.cmd.upmove
+      || (client->pers.cmd.buttons & BUTTON_ATTACK))
   {
     client->inactivityTime = level.time + g_inactivity.integer * 1000;
     client->inactivityWarning = qfalse;
@@ -550,6 +558,8 @@ ClientTimerActions(gentity_t *ent, int msec)
   client = ent->client;
   client->time100 += msec;
   client->time1000 += msec;
+  client->time2000 += msec;
+  client->time3000 += msec;
   client->time10000 += msec;
   client->time350 += msec;
 
@@ -628,7 +638,8 @@ ClientTimerActions(gentity_t *ent, int msec)
     //client is charging up for a... charge
     if (client->ps.weapon == WP_ALEVEL4)
     {
-      if (client->ps.stats[STAT_MISC] < LEVEL4_CHARGE_TIME && ucmd->buttons & BUTTON_ATTACK2 && !client->charging)
+      if (client->ps.stats[STAT_MISC] < LEVEL4_CHARGE_TIME && ucmd->buttons & BUTTON_ATTACK2
+          && !client->charging)
       {
         client->charging = qfalse; //should already be off, just making sure
         client->ps.stats[STAT_STATE] &= ~SS_CHARGING;
@@ -648,7 +659,8 @@ ClientTimerActions(gentity_t *ent, int msec)
           client->ps.stats[STAT_MISC] = 0;
       }
 
-      if (!(ucmd->buttons & BUTTON_ATTACK2) || client->charging || client->ps.stats[STAT_MISC] == LEVEL4_CHARGE_TIME)
+      if (!(ucmd->buttons & BUTTON_ATTACK2) || client->charging || client->ps.stats[STAT_MISC]
+          == LEVEL4_CHARGE_TIME)
       {
         if (client->ps.stats[STAT_MISC] > LEVEL4_MIN_CHARGE_TIME)
         {
@@ -709,7 +721,8 @@ ClientTimerActions(gentity_t *ent, int msec)
           int dist = BG_FindBuildDistForClass(ent->client->ps.stats[STAT_PCLASS]);
           vec3_t dummy;
 
-          if (G_CanBuild(ent, client->ps.stats[STAT_BUILDABLE] & ~SB_VALID_TOGGLEBIT, dist, dummy) == IBE_NONE)
+          if (G_CanBuild(ent, client->ps.stats[STAT_BUILDABLE] & ~SB_VALID_TOGGLEBIT, dist, dummy)
+              == IBE_NONE)
             client->ps.stats[STAT_BUILDABLE] |= SB_VALID_TOGGLEBIT;
           else
             client->ps.stats[STAT_BUILDABLE] &= ~SB_VALID_TOGGLEBIT;
@@ -734,7 +747,8 @@ ClientTimerActions(gentity_t *ent, int msec)
 
       if (remainingStartupTime < 0)
       {
-        if (ent->health < ent->client->ps.stats[STAT_MAX_HEALTH] && ent->client->medKitHealthToRestore && ent->client->ps.pm_type != PM_DEAD)
+        if (ent->health < ent->client->ps.stats[STAT_MAX_HEALTH]
+            && ent->client->medKitHealthToRestore && ent->client->ps.pm_type != PM_DEAD)
         {
           ent->client->medKitHealthToRestore--;
           ent->health++;
@@ -744,7 +758,8 @@ ClientTimerActions(gentity_t *ent, int msec)
       }
       else
       {
-        if (ent->health < ent->client->ps.stats[STAT_MAX_HEALTH] && ent->client->medKitHealthToRestore && ent->client->ps.pm_type != PM_DEAD)
+        if (ent->health < ent->client->ps.stats[STAT_MAX_HEALTH]
+            && ent->client->medKitHealthToRestore && ent->client->ps.pm_type != PM_DEAD)
         {
           //partial increase
           if (level.time > client->medKitIncrementTime)
@@ -752,7 +767,8 @@ ClientTimerActions(gentity_t *ent, int msec)
             ent->client->medKitHealthToRestore--;
             ent->health++;
 
-            client->medKitIncrementTime = level.time + (remainingStartupTime / MEDKIT_STARTUP_SPEED);
+            client->medKitIncrementTime = level.time
+                + (remainingStartupTime / MEDKIT_STARTUP_SPEED);
           }
         }
         else
@@ -765,16 +781,8 @@ ClientTimerActions(gentity_t *ent, int msec)
   {
     client->time1000 -= 1000;
 
-    if (ent->botCommand == BOT_REGULAR)
-    {
-      if (ent->botEnemy)
-      {
-        ent->botEnemy = NULL;
-        //VectorSet(ent->client->ps.delta_angles, 0, 0, 0);
-      }
-    }
-
-    if (ent->botCommand == BOT_FOLLOW_PATH && (ent->botEnemy->health <= 0 || ent->botEnemy->client->sess.sessionTeam == TEAM_SPECTATOR
+    if (ent->botCommand == BOT_FOLLOW_PATH && (ent->botEnemy->health <= 0
+        || ent->botEnemy->client->sess.sessionTeam == TEAM_SPECTATOR
         || ent->botEnemy->client->ps.stats[STAT_HEALTH] <= 0))
     {
       ent->botEnemy = NULL;
@@ -800,17 +808,19 @@ ClientTimerActions(gentity_t *ent, int msec)
     }
 
     //Forget the sob
-    if (ent->r.svFlags & SVF_BOT)
-    {
-      if (!g_survival.integer)
-      {
-        ent->botEnemy = NULL;
-      }
-    }
+//    if (ent->r.svFlags & SVF_BOT)
+//    {
+//      if (!g_survival.integer)
+//      {
+//        ent->botEnemy = NULL;
+//      }
+//    }
 
     //client is poison clouded
     if (client->ps.stats[STAT_STATE] & SS_POISONCLOUDED)
-      G_Damage(ent, client->lastPoisonCloudedClient, client->lastPoisonCloudedClient, NULL, NULL, LEVEL1_PCLOUD_DMG, 0, MOD_LEVEL1_PCLOUD);
+      G_Damage(
+        ent, client->lastPoisonCloudedClient, client->lastPoisonCloudedClient, NULL, NULL,
+        LEVEL1_PCLOUD_DMG, 0, MOD_LEVEL1_PCLOUD);
 
     //client is poisoned
     if (client->ps.stats[STAT_STATE] & SS_POISONED)
@@ -824,7 +834,8 @@ ClientTimerActions(gentity_t *ent, int msec)
       if (BG_InventoryContainsUpgrade(UP_LIGHTARMOUR, client->ps.stats))
         damage -= LIGHTARMOUR_POISON_PROTECTION;
 
-      G_Damage(ent, client->lastPoisonClient, client->lastPoisonClient, NULL, 0, damage, 0, MOD_POISON);
+      G_Damage(
+        ent, client->lastPoisonClient, client->lastPoisonClient, NULL, 0, damage, 0, MOD_POISON);
     }
 
     //replenish alien health
@@ -846,19 +857,22 @@ ClientTimerActions(gentity_t *ent, int msec)
       {
         boostEntity = &g_entities[entityList[i]];
 
-        if (boostEntity->client && boostEntity->client->ps.stats[STAT_PTEAM] == PTE_ALIENS && boostEntity->client->ps.stats[STAT_PCLASS] == PCL_ALIEN_LEVEL4)
+        if (boostEntity->client && boostEntity->client->ps.stats[STAT_PTEAM] == PTE_ALIENS
+            && boostEntity->client->ps.stats[STAT_PCLASS] == PCL_ALIEN_LEVEL4)
         {
           modifier = LEVEL4_REGEN_MOD;
           break;
         }
-        else if (boostEntity->s.eType == ET_BUILDABLE && boostEntity->s.modelindex == BA_A_BOOSTER && boostEntity->spawned && boostEntity->health > 0)
+        else if (boostEntity->s.eType == ET_BUILDABLE && boostEntity->s.modelindex == BA_A_BOOSTER
+            && boostEntity->spawned && boostEntity->health > 0)
         {
           modifier = BOOSTER_REGEN_MOD;
           break;
         }
       }
 
-      if (ent->health > 0 && ent->health < client->ps.stats[STAT_MAX_HEALTH] && (ent->lastDamageTime + ALIEN_REGEN_DAMAGE_TIME) < level.time)
+      if (ent->health > 0 && ent->health < client->ps.stats[STAT_MAX_HEALTH]
+          && (ent->lastDamageTime + ALIEN_REGEN_DAMAGE_TIME) < level.time)
         ent->health += BG_FindRegenRateForClass(client->ps.stats[STAT_PCLASS]) * modifier;
 
       if (ent->health > client->ps.stats[STAT_MAX_HEALTH])
@@ -878,14 +892,16 @@ ClientTimerActions(gentity_t *ent, int msec)
       {
         ent->client->pers.statscounters.dretchbasytime++;
         level.alienStatsCounters.dretchbasytime++;
-        if (ent->client->ps.stats[STAT_STATE] & SS_WALLCLIMBING || ent->client->ps.stats[STAT_STATE] & SS_WALLCLIMBINGCEILING)
+        if (ent->client->ps.stats[STAT_STATE] & SS_WALLCLIMBING
+            || ent->client->ps.stats[STAT_STATE] & SS_WALLCLIMBINGCEILING)
         {
           ent->client->pers.statscounters.jetpackusewallwalkusetime++;
           level.alienStatsCounters.jetpackusewallwalkusetime++;
         }
       }
     }
-    else if (ent->client->ps.stats[STAT_HEALTH] > 0 && ent->client->ps.stats[STAT_PTEAM] == PTE_HUMANS)
+    else if (ent->client->ps.stats[STAT_HEALTH] > 0 && ent->client->ps.stats[STAT_PTEAM]
+        == PTE_HUMANS)
     {
       ent->client->pers.statscounters.timealive++;
       level.humanStatsCounters.timealive++;
@@ -907,12 +923,34 @@ ClientTimerActions(gentity_t *ent, int msec)
     // turn off life support when a team admits defeat 
     if (client->ps.stats[STAT_PTEAM] == PTE_ALIENS && level.surrenderTeam == PTE_ALIENS)
     {
-      G_Damage(ent, NULL, NULL, NULL, NULL, BG_FindRegenRateForClass(client->ps.stats[STAT_PCLASS]), DAMAGE_NO_ARMOR, MOD_SUICIDE);
+      G_Damage(
+        ent, NULL, NULL, NULL, NULL, BG_FindRegenRateForClass(client->ps.stats[STAT_PCLASS]),
+        DAMAGE_NO_ARMOR, MOD_SUICIDE);
     }
     else if (client->ps.stats[STAT_PTEAM] == PTE_HUMANS && level.surrenderTeam == PTE_HUMANS)
     {
       G_Damage(ent, NULL, NULL, NULL, NULL, 5, DAMAGE_NO_ARMOR, MOD_SUICIDE);
     }
+  }
+
+  while(client->time2000 >= 2000)
+  {
+    client->time2000 -= 2000;
+    if (ent->botCommand == BOT_REGULAR)
+    {
+      if (ent->botEnemy)
+      {
+        if(!botCanSeeEnemy(ent))
+        {
+          botForgetEnemy(ent);
+        }
+        //VectorSet(ent->client->ps.delta_angles, 0, 0, 0);
+      }
+    }
+  }
+  while(client->time3000 >= 3000)
+  {
+    client->time3000 -= 3000;
   }
 
   while(client->time10000 >= 10000)
@@ -952,7 +990,8 @@ ClientIntermissionThink(gclient_t *client)
   // swap and latch button actions
   client->oldbuttons = client->buttons;
   client->buttons = client->pers.cmd.buttons;
-  if (client->buttons & (BUTTON_ATTACK | BUTTON_USE_HOLDABLE) & (client->oldbuttons ^ client->buttons))
+  if (client->buttons & (BUTTON_ATTACK | BUTTON_USE_HOLDABLE) & (client->oldbuttons
+      ^ client->buttons))
     client->readyToExit = 1;
 }
 
@@ -993,14 +1032,16 @@ ClientEvents(gentity_t *ent, int oldEventSequence)
         if (ent->s.eType != ET_PLAYER)
           break; // not in the player model
 
-        fallDistance = ((float) client->ps.stats[STAT_FALLDIST] - MIN_FALL_DISTANCE) / (MAX_FALL_DISTANCE - MIN_FALL_DISTANCE);
+        fallDistance = ((float) client->ps.stats[STAT_FALLDIST] - MIN_FALL_DISTANCE)
+            / (MAX_FALL_DISTANCE - MIN_FALL_DISTANCE);
 
         if (fallDistance < 0.0f)
           fallDistance = 0.0f;
         else if (fallDistance > 1.0f)
           fallDistance = 1.0f;
 
-        damage = (int) ((float) BG_FindHealthForClass(class) * BG_FindFallDamageForClass(class) * fallDistance);
+        damage = (int) ((float) BG_FindHealthForClass(class) * BG_FindFallDamageForClass(class)
+            * fallDistance);
 
         VectorSet(dir, 0, 0, 1);
         BG_FindBBoxForClass(class, mins, NULL, NULL, NULL, NULL);
@@ -1357,7 +1398,9 @@ G_UnlaggedDetectCollisions(gentity_t *ent)
 
   G_UnlaggedOn(ent, ent->client->oldOrigin, range);
 
-  trap_Trace(&tr, ent->client->oldOrigin, ent->r.mins, ent->r.maxs, ent->client->ps.origin, ent->s.number, MASK_PLAYERSOLID);
+  trap_Trace(
+    &tr, ent->client->oldOrigin, ent->r.mins, ent->r.maxs, ent->client->ps.origin, ent->s.number,
+    MASK_PLAYERSOLID);
   if (tr.entityNum >= 0 && tr.entityNum < MAX_CLIENTS)
     g_entities[tr.entityNum].client->unlaggedCalc.used = qfalse;
 
@@ -1437,7 +1480,8 @@ ClientThink_real(gentity_t *ent)
 
   if (pmove_fixed.integer || client->pers.pmoveFixed)
   {
-    ucmd->serverTime = ((ucmd->serverTime + pmove_msec.integer - 1) / pmove_msec.integer) * pmove_msec.integer;
+    ucmd->serverTime = ((ucmd->serverTime + pmove_msec.integer - 1) / pmove_msec.integer)
+        * pmove_msec.integer;
     //if (ucmd->serverTime - client->ps.commandTime <= 0)
     //  return;
   }
@@ -1475,9 +1519,11 @@ ClientThink_real(gentity_t *ent)
     client->ps.pm_type = PM_NOCLIP;
   else if (client->ps.stats[STAT_HEALTH] <= 0)
     client->ps.pm_type = PM_DEAD;
-  else if (client->ps.stats[STAT_STATE] & SS_INFESTING || client->ps.stats[STAT_STATE] & SS_HOVELING)
+  else if (client->ps.stats[STAT_STATE] & SS_INFESTING || client->ps.stats[STAT_STATE]
+      & SS_HOVELING)
     client->ps.pm_type = PM_FREEZE;
-  else if (client->ps.stats[STAT_STATE] & SS_BLOBLOCKED || client->ps.stats[STAT_STATE] & SS_GRABBED)
+  else if (client->ps.stats[STAT_STATE] & SS_BLOBLOCKED || client->ps.stats[STAT_STATE]
+      & SS_GRABBED)
     client->ps.pm_type = PM_GRABBED;
   /*else if (BG_InventoryContainsUpgrade(UP_JETPACK, client->ps.stats) && BG_UpgradeIsActive(UP_JETPACK, client->ps.stats))
    client->ps.pm_type = PM_JETPACK;*/
@@ -1487,30 +1533,36 @@ ClientThink_real(gentity_t *ent)
   if (client->ps.stats[STAT_STATE] & SS_GRABBED && client->grabExpiryTime < level.time)
     client->ps.stats[STAT_STATE] &= ~SS_GRABBED;
 
-  if (client->ps.stats[STAT_STATE] & SS_BLOBLOCKED && client->lastLockTime + LOCKBLOB_LOCKTIME < level.time)
+  if (client->ps.stats[STAT_STATE] & SS_BLOBLOCKED && client->lastLockTime + LOCKBLOB_LOCKTIME
+      < level.time)
     client->ps.stats[STAT_STATE] &= ~SS_BLOBLOCKED;
 
-  if (client->ps.stats[STAT_STATE] & SS_SLOWLOCKED && client->lastSlowTime + ABUILDER_BLOB_TIME < level.time)
+  if (client->ps.stats[STAT_STATE] & SS_SLOWLOCKED && client->lastSlowTime + ABUILDER_BLOB_TIME
+      < level.time)
     client->ps.stats[STAT_STATE] &= ~SS_SLOWLOCKED;
 
   client->ps.stats[STAT_BOOSTTIME] = level.time - client->lastBoostedTime;
 
-  if (client->ps.stats[STAT_STATE] & SS_BOOSTED && client->lastBoostedTime + BOOST_TIME < level.time)
+  if (client->ps.stats[STAT_STATE] & SS_BOOSTED && client->lastBoostedTime + BOOST_TIME
+      < level.time)
     client->ps.stats[STAT_STATE] &= ~SS_BOOSTED;
 
-  if (client->ps.stats[STAT_STATE] & SS_POISONCLOUDED && client->lastPoisonCloudedTime + LEVEL1_PCLOUD_TIME < level.time)
+  if (client->ps.stats[STAT_STATE] & SS_POISONCLOUDED && client->lastPoisonCloudedTime
+      + LEVEL1_PCLOUD_TIME < level.time)
     client->ps.stats[STAT_STATE] &= ~SS_POISONCLOUDED;
 
-  if (client->ps.stats[STAT_STATE] & SS_POISONED && client->lastPoisonTime + ALIEN_POISON_TIME < level.time)
+  if (client->ps.stats[STAT_STATE] & SS_POISONED && client->lastPoisonTime + ALIEN_POISON_TIME
+      < level.time)
     client->ps.stats[STAT_STATE] &= ~SS_POISONED;
 
   client->ps.gravity = g_gravity.value;
 
-  if (BG_InventoryContainsUpgrade(UP_MEDKIT, client->ps.stats) && BG_UpgradeIsActive(UP_MEDKIT, client->ps.stats))
+  if (BG_InventoryContainsUpgrade(UP_MEDKIT, client->ps.stats) && BG_UpgradeIsActive(
+    UP_MEDKIT, client->ps.stats))
   {
     //if currently using a medkit or have no need for a medkit now
-    if (client->ps.stats[STAT_STATE] & SS_MEDKIT_ACTIVE || (client->ps.stats[STAT_HEALTH] == client->ps.stats[STAT_MAX_HEALTH]
-        && !(client->ps.stats[STAT_STATE] & SS_POISONED)))
+    if (client->ps.stats[STAT_STATE] & SS_MEDKIT_ACTIVE || (client->ps.stats[STAT_HEALTH]
+        == client->ps.stats[STAT_MAX_HEALTH] && !(client->ps.stats[STAT_STATE] & SS_POISONED)))
     {
       BG_DeactivateUpgrade(UP_MEDKIT, client->ps.stats);
     }
@@ -1526,14 +1578,16 @@ ClientThink_real(gentity_t *ent)
 
       client->ps.stats[STAT_STATE] |= SS_MEDKIT_ACTIVE;
       client->lastMedKitTime = level.time;
-      client->medKitHealthToRestore = client->ps.stats[STAT_MAX_HEALTH] - client->ps.stats[STAT_HEALTH];
+      client->medKitHealthToRestore = client->ps.stats[STAT_MAX_HEALTH]
+          - client->ps.stats[STAT_HEALTH];
       client->medKitIncrementTime = level.time + (MEDKIT_STARTUP_TIME / MEDKIT_STARTUP_SPEED);
 
       G_AddEvent(ent, EV_MEDKIT_USED, 0);
     }
   }
 
-  if (BG_InventoryContainsUpgrade(UP_GRENADE, client->ps.stats) && BG_UpgradeIsActive(UP_GRENADE, client->ps.stats))
+  if (BG_InventoryContainsUpgrade(UP_GRENADE, client->ps.stats) && BG_UpgradeIsActive(
+    UP_GRENADE, client->ps.stats))
   {
     int lastWeapon = ent->s.weapon;
 
@@ -1547,7 +1601,8 @@ ClientThink_real(gentity_t *ent)
     ent->s.weapon = lastWeapon;
   }
 
-  if (BG_InventoryContainsUpgrade(UP_MINE, client->ps.stats) && BG_UpgradeIsActive(UP_MINE, client->ps.stats))
+  if (BG_InventoryContainsUpgrade(UP_MINE, client->ps.stats) && BG_UpgradeIsActive(
+    UP_MINE, client->ps.stats))
   {
     int lastWeapon = ent->s.weapon;
 
@@ -1673,7 +1728,8 @@ ClientThink_real(gentity_t *ent)
     ent->eventTime = level.time;
 
   if (g_smoothClients.integer)
-    BG_PlayerStateToEntityStateExtraPolate(&ent->client->ps, &ent->s, ent->client->ps.commandTime, qtrue);
+    BG_PlayerStateToEntityStateExtraPolate(
+      &ent->client->ps, &ent->s, ent->client->ps.commandTime, qtrue);
   else
     BG_PlayerStateToEntityState(&ent->client->ps, &ent->s, qtrue);
 
@@ -1696,7 +1752,7 @@ ClientThink_real(gentity_t *ent)
   // touch other objects
   ClientImpacts(ent, &pm);
 
-  if(!(ent->r.svFlags & SVF_BOT))
+  if (!(ent->r.svFlags & SVF_BOT))
   {
     ACEND_PathMap(ent);
   }
@@ -1724,7 +1780,8 @@ ClientThink_real(gentity_t *ent)
   client->buttons = ucmd->buttons;
   client->latched_buttons |= client->buttons & ~client->oldbuttons;
 
-  if ((client->buttons & BUTTON_GETFLAG) && !(client->oldbuttons & BUTTON_GETFLAG) && client->ps.stats[STAT_HEALTH] > 0)
+  if ((client->buttons & BUTTON_GETFLAG) && !(client->oldbuttons & BUTTON_GETFLAG)
+      && client->ps.stats[STAT_HEALTH] > 0)
   {
     trace_t trace;
     vec3_t view, point;
@@ -1914,7 +1971,8 @@ SpectatorClientEndFrame(gentity_t *ent)
 
         if (cl -> sess.spectatorState != SPECTATOR_FOLLOW)
         {
-          flags = (cl->ps.eFlags & ~(EF_VOTED | EF_TEAMVOTED)) | (ent->client->ps.eFlags & (EF_VOTED | EF_TEAMVOTED));
+          flags = (cl->ps.eFlags & ~(EF_VOTED | EF_TEAMVOTED)) | (ent->client->ps.eFlags
+              & (EF_VOTED | EF_TEAMVOTED));
           score = ent->client->ps.persistant[PERS_SCORE];
           ping = ent->client->ps.ping;
           ent->client->ps = cl->ps;
@@ -2001,7 +2059,8 @@ ClientEndFrame(gentity_t *ent)
 
   // set the latest infor
   if (g_smoothClients.integer)
-    BG_PlayerStateToEntityStateExtraPolate(&ent->client->ps, &ent->s, ent->client->ps.commandTime, qtrue);
+    BG_PlayerStateToEntityStateExtraPolate(
+      &ent->client->ps, &ent->s, ent->client->ps.commandTime, qtrue);
   else
     BG_PlayerStateToEntityState(&ent->client->ps, &ent->s, qtrue);
 

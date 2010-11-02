@@ -418,7 +418,6 @@ ACEMV_Move(gentity_t * self)
 
   if (self->botPause > level.time)
   {
-    G_Printf("Bot movement paused\n");
     return;
   }
 
@@ -493,7 +492,6 @@ ACEMV_Move(gentity_t * self)
       && currentNodeType == NODE_JUMP
       && nextNodeType == NODE_MOVE && !self->bs.isJumping)
   {
-    G_Printf("JUMP HUERFANO DETECTED\n");
     botWalk(self, 127);
     botJump(self, 127);
     self->client->ps.velocity[2] = 211;
@@ -520,7 +518,6 @@ ACEMV_Move(gentity_t * self)
       if (Distance2d(nodes[self->bs.nextNode].origin, nodes[self->bs.currentNode].origin) >= 288
           || ((self->botPause + 200) > level.time))
       {
-        G_Printf("Long Jump.");
         VectorNormalize(self->client->ps.velocity);
         VectorScale(self->client->ps.velocity, 320, self->client->ps.velocity);
         self->client->ps.velocity[2] += 75;

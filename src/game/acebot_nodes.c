@@ -73,9 +73,11 @@ G_canSpawn(gentity_t * ent)
   trace_t tr;
 
   BG_FindBBoxForClass(PCL_HUMAN, cmins, cmaxs, NULL, NULL, NULL);
-
+//  { -15, -15, -24 }, //vec3_t  mins;
+//  { 15, 15, 32 }, //vec3_t  maxs;
+  ent->nextSpawnLocation[2]+=5;
   VectorCopy(ent->nextSpawnLocation, localOrigin);
-  localOrigin[2] += fabs(cmins[2]) + 1.0f;
+  //localOrigin[2] += fabs(cmins[2]) + 1.0f;
 
   trap_Trace(&tr, ent->nextSpawnLocation, cmins, cmaxs, localOrigin, ent->s.number, MASK_SHOT);
   if(tr.startsolid)
@@ -93,7 +95,7 @@ qboolean
 ACEND_FindClosestSpawnNodeToEnemy(gentity_t * self)
 {
   vec3_t v;
-  float range = 2048.0f;
+  float range = 1024.0f;
   float minrange = 128; // Around the corner :>
   float dist;
   int i;
@@ -101,6 +103,10 @@ ACEND_FindClosestSpawnNodeToEnemy(gentity_t * self)
   vec3_t enemyOrigin;
   vec3_t nodeOrigin;
   trace_t tr;
+
+  int cost = -1;
+  int bestNode = INVALID;
+  int bestCost = 9999;
 
   VectorCopy(self->botEnemy->client->ps.origin, enemyOrigin);
   enemyOrigin[2]+=26;
@@ -130,14 +136,24 @@ ACEND_FindClosestSpawnNodeToEnemy(gentity_t * self)
         VectorCopy(nodes[i].origin, self->nextSpawnLocation);
         if(G_canSpawn(self))
         {
-          //G_Printf("Woha Found a good node COST: %d.\n", ACEND_FindCost(i,closestNode));
-          return qtrue;
+          cost = ACEND_FindCost(i,closestNode);
+          if(cost > 2 && cost < bestCost)
+          {
+            bestNode = i;
+            bestCost = cost;
+          }
+          //return qtrue;
         }
         else
         {
         }
       }
     }
+  }
+  if(bestNode != INVALID)
+  {
+    VectorCopy(nodes[bestNode].origin, self->nextSpawnLocation);
+    return qtrue;
   }
   return qfalse;
 }
@@ -373,7 +389,8 @@ ACEND_CheckForDucking(gentity_t *self)
       MASK_SOLID);
     if (!trace.allsolid)
     {
-      return qtrue;
+      //Well the place is crouching... but...
+      return qfalse;
     }
     else
     {
@@ -479,8 +496,8 @@ ACEND_PathMap(gentity_t * self)
   currentNodeType = nodes[self->bs.currentNode].type;
   nextNodeType = nodes[self->bs.nextNode].type;
 
-  //  if (!g_survival.integer)
-  //    return;
+  if (!g_survival.integer)
+      return;
 
   if ((self->r.svFlags & SVF_BOT))
   {

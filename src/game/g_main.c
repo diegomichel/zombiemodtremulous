@@ -22,6 +22,7 @@
  */
 
 #include "g_local.h"
+#include "acebot.h"
 
 #define QVM_NAME       "Lakitu7's QVM"
 #define QVM_VERSIONNUM      "5.5"
@@ -1409,6 +1410,13 @@ botSpawn(gentity_t *ent)
 
   teamLocal = client->pers.teamSelection;
 
+  if (ent->botEnemy)
+  {
+    if (ent->botEnemy->client)
+    {
+    }
+  }
+
   //Reset Everything For path Finding
   ent->bs.currentNode = -1;
   ent->bs.goalNode = -1;
@@ -1418,6 +1426,14 @@ botSpawn(gentity_t *ent)
   ent->bs.isJumping = qfalse;
   ent->bs.isLongJumping = qfalse;
   ent->bs.isUsingLadder = qfalse;
+
+  if (g_survival.integer)
+  {
+    ent->bs.state = STATE_WANDER;
+    ent->botCommand = BOT_FOLLOW_PATH;
+  }
+
+  ent->lastTimeSawEnemy = level.time;
 
   //if client is dead and following teammate, stop following before spawning
   if (ent->client->sess.spectatorClient != -1)
@@ -1454,7 +1470,6 @@ botSpawn(gentity_t *ent)
   {
     botWalk(ent, 0);
     botJump(ent, 0);
-    ent->botCommand = BOT_REGULAR;
   }
 
   client->pers = saved;
@@ -1506,9 +1521,9 @@ botSpawn(gentity_t *ent)
 
   BG_FindBBoxForClass(ent->client->pers.classSelection, ent->r.mins, ent->r.maxs, NULL, NULL, NULL);
 
-  client->pers.maxHealth = client->ps.stats[STAT_MAX_HEALTH] = 150;
+  client->pers.maxHealth = client->ps.stats[STAT_MAX_HEALTH] = 100;
 
-  client->pers.maxHealth += (20 * (level.numConnectedClients - level.bots));
+  //client->pers.maxHealth += (20 * (level.numConnectedClients - level.bots));
 
   ent->client->ps.stats[STAT_PCLASS] = ent->client->pers.classSelection;
   ent->client->ps.stats[STAT_PTEAM] = ent->client->pers.teamSelection;
@@ -1627,6 +1642,15 @@ G_SpawnBots(void)
   {
     clientNum = G_PeekSpawnQueue(sq);
     ent = &g_entities[clientNum];
+
+    //Our enemy is valid?
+    if (!ent->botEnemy || ent->botEnemy->health <= 0 || !ent->botEnemy->client
+        || ent->botEnemy->client->pers.connected == CON_DISCONNECTED)
+    {
+      //Find a new enemy.
+      botSelectEnemy(ent);
+    }
+
     if (ent->botEnemy && ent->botEnemy->health > 0 && ent->botEnemy->client
         && ent->botEnemy->client->pers.connected != CON_DISCONNECTED
         && ACEND_FindClosestSpawnNodeToEnemy(ent))
@@ -1644,6 +1668,7 @@ G_SpawnBots(void)
     else
     {
       //Failed to get a good node haaa...
+      ent->botEnemy = NULL;
       G_SpawnClients(PTE_ALIENS);
     }
   }
@@ -1660,15 +1685,59 @@ G_Director()
   gentity_t *camper; //Like to hides and dont fight
   int i, j;
 
-  //FIXME: PRODUCTION MOVE TO TOP.
   if (!g_survival.integer)
     return;
 
   G_SpawnBots();
 
+  if ((level.time-level.startTime) >= 600000  && (level.time-level.startTime) < 601000)
+  {
+    //trap_SendServerCommand(-1, "print \"^3Alien Team Unlocked.\n\"");
+    level.alienTeamLocked = qfalse;
+    //Loop trought all players and putteam the ones dead on the alien team.
+    for(i = level.botslots;i < level.botslots + level.numConnectedClients;i++)
+    {
+      ent = &g_entities[i];
+
+      if (!ent)
+        continue;
+      if (!ent->client)
+        continue;
+      if (ent->client->ps.stats[STAT_HEALTH] > 0 || ent->health > 0)
+        continue;
+      if (ent->client->pers.connected != CON_CONNECTED)
+        continue;
+
+      trap_SendServerCommand(-1, "print \"^3Join ^1Zombies /team aliens \n\"");
+      G_ChangeTeam(ent, PTE_ALIENS);
+    }
+  }
+
   if (level.time % 1000 % 15 != 0) // every 5 seconds lolz.
   {
     return;
+  }
+
+  for(i = 0;i < level.bots;i++)
+  {
+    ent = &g_entities[i];
+
+    if (!ent)
+      continue;
+    if (!(ent->r.svFlags & SVF_BOT))
+      continue;
+    if (!ent->client)
+      continue;
+    if (ent->client->sess.sessionTeam == TEAM_SPECTATOR)
+      continue;
+    if (ent->client->ps.stats[STAT_PTEAM] != PTE_ALIENS)
+      continue;
+    if (ent->client->ps.stats[STAT_HEALTH] <= 0 || ent->health <= 0)
+      continue;
+    if ((ent->lastTimeSawEnemy + 23000) > level.time)
+      continue;
+
+    G_Damage(ent, NULL, NULL, NULL, NULL, 500, 0, MOD_UNKNOWN);
   }
 
   ent = ent2 = randomPlayer = rambo = camper = NULL;
@@ -1820,16 +1889,16 @@ G_addBot()
   //if (!g_survival.integer) return;
   if (g_survival.integer)
   {
-    level.lastBotTime = level.time + 5000;
+    level.lastBotTime = level.time + 3000;
     if ((level.time - level.startTime) / 1000 / 60 > 4) //4 Minutes
 
     {
-      level.lastBotTime = level.time + 4000;
+      level.lastBotTime = level.time + 2000;
     }
     if ((level.time - level.startTime) / 1000 / 60 > 6) //6 Minutes
 
     {
-      level.lastBotTime = level.time + 2000;
+      level.lastBotTime = level.time + 1000;
     }
   }
   else
@@ -1837,7 +1906,7 @@ G_addBot()
     level.lastBotTime = level.time + 1000;
   }
   level.botsLevel++;
-  if (level.bots < 40)
+  if (level.bots < 32)
   {
     G_BotAdd(va("^1Zombie%d", level.bots), PTE_ALIENS, level.botsLevel, NULL);
   }
@@ -3566,6 +3635,7 @@ G_RunFrame(int levelTime)
   //G_UpdateCamper();
   G_CalculateSurvivalRecords();
 
+  //FIXME: PRODUCTION
   G_addBot();
   G_Director();
 

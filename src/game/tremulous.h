@@ -343,7 +343,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define HDM(d)                      ((int)((float)d*HUMAN_WDMG_MODIFIER))
 
 #define BLASTER_REPEAT              600
-#define BLASTER_K_SCALE             2.0f
+#define BLASTER_K_SCALE             5.0f
 #define BLASTER_SPREAD              200
 #define BLASTER_SPEED               1400
 #define BLASTER_DMG                 HDM(9)
@@ -358,8 +358,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define RIFLE_DMG                   HDM(5)
 
 #define PAINSAW_PRICE               100
-#define PAINSAW_REPEAT              75
-#define PAINSAW_K_SCALE             2.0f
+#define PAINSAW_REPEAT              500
+#define PAINSAW_K_SCALE             5.0f
 #define PAINSAW_DAMAGE              HDM(15)
 #define PAINSAW_RANGE               40.0f
 
@@ -649,4 +649,4 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define GRIDSIZE                    120
 #define BLOCKSIZE                   100
 
-#define ZOMBIE_RANGE                128.0f
+#define ZOMBIE_RANGE                256.0f

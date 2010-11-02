@@ -257,6 +257,55 @@ Bot_Buy(gentity_t * self)
 }
 
 qboolean
+botBlockedByBot(gentity_t *self)
+{
+  gentity_t *traceEnt = NULL;
+  int i;
+  trace_t tr;
+  vec3_t end, forward;
+
+  AngleVectors(self->client->ps.viewangles, forward, NULL, NULL);
+  VectorMA(self->client->ps.origin, 75, forward, end);
+
+  trap_Trace(
+    &tr, self->client->ps.origin, self->r.mins, self->r.maxs, end, self->s.number, MASK_PLAYERSOLID);
+  traceEnt = &g_entities[tr.entityNum];
+
+  if (traceEnt && traceEnt->client && traceEnt->client->pers.teamSelection == PTE_ALIENS)
+  {
+    //So is blocked lets try the other side
+    AngleVectors(self->client->ps.viewangles, forward, NULL, NULL);
+    VectorMA(self->client->ps.origin, -40, forward, end);
+
+    trap_Trace(
+      &tr, self->client->ps.origin, self->r.mins, self->r.maxs, end, self->s.number,
+      MASK_PLAYERSOLID);
+
+    traceEnt = &g_entities[tr.entityNum];
+    if (traceEnt && traceEnt->client && traceEnt->client->pers.teamSelection == PTE_ALIENS)
+    {
+      return qtrue;
+    }
+    else if(tr.fraction == 1.0)
+    {
+      self->client->ps.delta_angles[1] = ANGLE2SHORT(self->client->ps.delta_angles[1] + 180);
+      return qfalse;
+    }
+    else
+    {
+      //Hit something.
+      return qtrue;
+    }
+    //self->client->ps.delta_angles[1] = ANGLE2SHORT(self->client->ps.delta_angles[1] + 90);
+  }
+  else
+  {
+    return qfalse;
+  }
+
+}
+
+qboolean
 Bot_Stuck(gentity_t * self, int zone)
 {
   if (self->turntime < level.time)
@@ -451,17 +500,27 @@ G_BotThink(gentity_t * self)
         memset(&self->client->pers.cmd, 0, sizeof(self->client->pers.cmd));
         break;
       }
+      if (botBlockedByBot(self))
+      {
+        //This prevent our bot explode to soon
+        self->lastTimeSawEnemy = level.time;
+
+        self->botCommand = BOT_IDLE;
+        return;
+      }
       switch(self->botMetaMode)
       {
         case ATTACK_RAMBO:
         case ATTACK_CAMPER:
         case ATTACK_ALL:
+        default:
           if (nodes[self->bs.currentNode].type == NODE_DUCK && nodes[self->bs.nextNode].type
               == NODE_JUMP)
           {
             ACEAI_Think(self);
             return;
           }
+
           tempEntityIndex = botFindClosestEnemy(self, qfalse);
           if (tempEntityIndex >= 0)
           {
@@ -469,8 +528,7 @@ G_BotThink(gentity_t * self)
             {
               G_Printf("Was following path and i found a enemy around so im gonna attack him.\n");
             }
-            self->botEnemy = &g_entities[tempEntityIndex];
-            self->botEnemy->lastTimeSeen = level.time;
+            botSetEnemy(self, NULL, tempEntityIndex);
             memset(&self->client->pers.cmd, 0, sizeof(self->client->pers.cmd));
             self->botCommand = BOT_REGULAR;
             ACEND_setCurrentNode(self, INVALID);
@@ -480,9 +538,10 @@ G_BotThink(gentity_t * self)
             ACEAI_Think(self);
           }
           break;
-        default:
-          ACEAI_Think(self);
-          break;
+
+          //          G_Printf("WHAT THE SHIT\n");
+          //          ACEAI_Think(self);
+          //          break;
       }
       break;
 
@@ -514,7 +573,6 @@ G_BotThink(gentity_t * self)
           {
             self->botEnemy = NULL;
             self->botEnemyLastSeen = 0;
-            G_Printf("Forgotten Enemy\n");
           }
           else
           {
@@ -531,8 +589,7 @@ G_BotThink(gentity_t * self)
         tempEntityIndex = botFindClosestEnemy(self, qfalse);
         if (tempEntityIndex >= 0)
         {
-          self->botEnemy = &g_entities[tempEntityIndex];
-          self->botEnemy->lastTimeSeen = level.time;
+          botSetEnemy(self, NULL, tempEntityIndex);
         }
       }
       if (!self->botEnemy)
@@ -598,12 +655,10 @@ G_BotThink(gentity_t * self)
             botWalk(self, forwardMove);
           }
           //botShootIfTargetInRange(self, self->botEnemy);
-          botAimAtTarget(self, self->botEnemy);
         }
         if (distance < 45)
         {
           //forwardMove = (forwardMove + (self->botSkillLevel * 5));
-          botAimAtTarget(self, self->botEnemy);
           botWalk(self, forwardMove);
           botShootIfTargetInRange(self, self->botEnemy);
         }
@@ -617,6 +672,22 @@ G_BotThink(gentity_t * self)
 
     case BOT_IDLE:
       // just stand there and look pretty.
+      botWalk(self, 0);
+      if (self->idletimer < level.time)
+      {
+        self->idletimer = level.time + 1500;
+        if (botBlockedByBot(self))
+        {
+          //Stay the same
+        }
+        else
+        {
+          //Switch to bot follow path
+          self->botCommand = BOT_FOLLOW_PATH;
+          self->bs.state = STATE_WANDER;
+          botWalk(self, 127);
+        }
+      }
       break;
     default:
       // dunno.
@@ -747,9 +818,9 @@ botAimAtTarget(gentity_t * self, gentity_t * target)
 
   VectorCopy(target->client->ps.origin, enemyOrigin);
 
-  if((target->client->ps.pm_flags & PMF_DUCKED))
+  if ((target->client->ps.pm_flags & PMF_DUCKED))
   {
-    enemyOrigin[2]-=16; //min-cmin
+    enemyOrigin[2] -= 16; //min-cmin
   }
 
   VectorSubtract(enemyOrigin, self->client->ps.origin, direction);
@@ -1122,4 +1193,148 @@ botJump(gentity_t *self, int speed)
 
   self->client->pers.cmd.upmove = speed;
   self->jumpedTime = level.time;
+}
+qboolean
+botCanSeeEnemy(gentity_t * self)
+{
+  trace_t trace;
+  gentity_t *traceEnt;
+  vec3_t forward, right, up;
+  vec3_t muzzle;
+
+  int maxDistance = 1024;
+  int distanceToEnemy;
+
+  AngleVectors(self->client->ps.viewangles, forward, right, up);
+  CalcMuzzlePoint(self, forward, right, up, muzzle);
+
+  if (!self || !self->botEnemy)
+  {
+    return qfalse;
+  }
+  if (!self->client)
+    return qfalse;
+  if (!self->botEnemy->client)
+    return qfalse;
+  if (self->botEnemy->health <= 0)
+    return qfalse;
+  if (self->botEnemy->client->ps.stats[STAT_HEALTH] <= 0)
+    return qfalse;
+  if (self->botEnemy->client->ps.stats[STAT_PTEAM] != PTE_HUMANS)
+    return qfalse;
+
+  distanceToEnemy = Distance(self->client->ps.origin, self->botEnemy->client->ps.origin);
+
+  if (distanceToEnemy > maxDistance)
+    return qfalse;
+
+  trap_Trace(
+    &trace, self->client->ps.origin, self->r.mins, self->r.maxs, self->botEnemy->client->ps.origin,
+    self->s.number, MASK_SHOT | ~MASK_PLAYERSOLID);
+  traceEnt = &g_entities[trace.entityNum];
+
+  //check our target is in LOS
+  if (traceEnt == self->botEnemy)
+    return qtrue;
+
+  return qfalse;
+}
+void
+botForgetEnemy(gentity_t *self)
+{
+  if (director_debug.integer)
+  {
+    G_Printf("Forgotten Enemy");
+  }
+  self->botEnemy = NULL;
+}
+void
+botSetEnemy(gentity_t *self, gentity_t *enemy, int entityId)
+{
+  self->lastTimeSawEnemy = level.time;
+
+  if (enemy)
+  {
+    self->botEnemy = enemy;
+  }
+  else
+  {
+    if (entityId >= 0)
+    {
+      self->botEnemy = &g_entities[entityId];
+    }
+  }
+  if (self->botEnemy)
+  {
+    self->botEnemy->lastTimeSeen = level.time;
+    if (director_debug.integer)
+    {
+      G_Printf(
+        "%s: new enemy = %s", self->client->pers.netname, self->botEnemy->client->pers.netname);
+    }
+  }
+}
+void
+botSelectEnemy(gentity_t *self)
+{
+  int i, j;
+  gentity_t *ent;
+  gentity_t *rambo;
+  gentity_t *ent2;
+  gentity_t *other;
+
+  ent = rambo = ent2 = other = NULL;
+
+  for(i = level.botslots;i < level.botslots + level.numConnectedClients;i++)
+  {
+    ent = &g_entities[i];
+    if (!ent)
+      continue;
+    if (!ent->client)
+      continue;
+    if (ent->client->sess.sessionTeam == TEAM_SPECTATOR)
+      continue;
+    if (ent->client->ps.stats[STAT_PTEAM] != PTE_HUMANS)
+      continue;
+    if (ent->client->ps.stats[STAT_HEALTH] <= 0 || ent->health <= 0)
+      continue;
+
+    other = ent;
+    rambo = ent;
+
+    for(j = level.botslots;j < level.botslots + level.numConnectedClients;j++)
+    {
+      ent2 = &g_entities[j];
+      if (!ent2)
+        continue;
+      if (!ent2->client)
+        continue;
+      if (i == j)
+        continue;
+      if (ent2->client->sess.sessionTeam == TEAM_SPECTATOR)
+        continue;
+      if (ent2->client->ps.stats[STAT_PTEAM] != PTE_HUMANS)
+        continue;
+      if (ent2->client->ps.stats[STAT_HEALTH] <= 0 || ent2->health <= 0)
+        continue;
+
+      //G_Printf("Checking visibility from %s to %s\n", ent->client->pers.netname, ent2->client->pers.netname);
+      if (G_Visible(ent, ent2))
+      {
+        rambo = NULL;
+        break;
+      }
+    }
+    if (rambo)
+      break;
+  }
+
+  if (rambo)
+  {
+    self->botEnemy = rambo;
+  }
+  else if (other)
+  {
+    self->botEnemy = other;
+  }
 }

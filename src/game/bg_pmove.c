@@ -2713,7 +2713,7 @@ PM_TorsoAnimation(void)
 
   if (pm->ps->weaponstate == WEAPON_READY)
   {
-    if (pm->ps->weapon == WP_BLASTER)
+    if (pm->ps->weapon == WP_BLASTER || pm->ps->weapon == WP_PAIN_SAW)
       PM_ContinueTorsoAnim(TORSO_STAND2);
     else
       PM_ContinueTorsoAnim(TORSO_STAND);
@@ -2824,7 +2824,7 @@ PM_Weapon(void)
 
     if (!(pm->ps->persistant[PERS_STATE] & PS_NONSEGMODEL))
     {
-      if (pm->ps->weapon == WP_BLASTER)
+      if (pm->ps->weapon == WP_BLASTER || pm->ps->weapon == WP_PAIN_SAW)
         PM_ContinueTorsoAnim(TORSO_STAND2);
       else
         PM_ContinueTorsoAnim(TORSO_STAND);
@@ -3182,6 +3182,10 @@ PM_Weapon(void)
       case WP_BLASTER:
         PM_StartTorsoAnim(TORSO_ATTACK2);
         break;
+
+      case WP_PAIN_SAW:
+        PM_StartTorsoAnim(TORSO_ATTACK2);
+      break;
 
       default:
         PM_StartTorsoAnim(TORSO_ATTACK);

@@ -4401,6 +4401,10 @@ void Cmd_Builder_f(gentity_t *ent) {
    else {
     trap_SendServerCommand(ent - g_entities, "print \"^5/builder:^7 No structure found in your crosshair. Please face a structure and try again.\n\"");
   }
+  if(tr.fraction < 1.0f )
+  {
+    trap_SendServerCommand(ent - g_entities, va("print \"^5/builder:^7 ID: %d.\n\"", traceEnt->s.number));
+  }
 }
 
 void G_CP(gentity_t *ent) {
