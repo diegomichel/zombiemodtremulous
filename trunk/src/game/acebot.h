@@ -166,6 +166,8 @@ void ACEND_setCurrentNode(gentity_t *ent, int node);
 void ACEND_setNextNode(gentity_t *ent, int node);
 qboolean
 ACEND_nodeInUse(int node);
+qboolean
+ACEND_FindClosestSpawnNodeToEnemy(gentity_t * self);
 
 #endif							// ACEBOT
 #endif

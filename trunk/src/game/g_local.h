@@ -372,6 +372,8 @@ struct gentity_s
   int levelz; // Level Z we are on.
   int numMines;
 
+  vec3_t nextSpawnLocation;
+
 #if defined(ACEBOT)
   botState_t bs;
 

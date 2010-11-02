@@ -66,6 +66,82 @@ ACEND_FindCost(int from, int to)
   return cost;
 }
 
+qboolean
+G_canSpawn(gentity_t * ent)
+{
+  vec3_t cmins, cmaxs, localOrigin;
+  trace_t tr;
+
+  BG_FindBBoxForClass(PCL_HUMAN, cmins, cmaxs, NULL, NULL, NULL);
+
+  VectorCopy(ent->nextSpawnLocation, localOrigin);
+  localOrigin[2] += fabs(cmins[2]) + 1.0f;
+
+  trap_Trace(&tr, ent->nextSpawnLocation, cmins, cmaxs, localOrigin, ent->s.number, MASK_SHOT);
+  if(tr.startsolid)
+  {
+    return qfalse;
+  }
+  if (tr.fraction < 1.0)
+  {
+    return qfalse;
+  }
+  return qtrue;
+}
+
+qboolean
+ACEND_FindClosestSpawnNodeToEnemy(gentity_t * self)
+{
+  vec3_t v;
+  float range = 2048.0f;
+  float minrange = 128; // Around the corner :>
+  float dist;
+  int i;
+  int closestNode = -1;
+  vec3_t enemyOrigin;
+  vec3_t nodeOrigin;
+  trace_t tr;
+
+  VectorCopy(self->botEnemy->client->ps.origin, enemyOrigin);
+  enemyOrigin[2]+=26;
+
+  closestNode = ACEND_FindClosestReachableNode(self->botEnemy, 300.0f, NODE_MOVE);
+
+  for(i = numNodes - 1;i >= 0;i--)
+  {
+    if (nodes[i].type != NODE_MOVE)
+      continue;
+
+    VectorSubtract(nodes[i].origin, self->botEnemy->client->ps.origin, v); // subtract first
+    dist = VectorLength(v);
+
+    if (dist > minrange && dist < range)
+    {
+      VectorCopy(nodes[i].origin, nodeOrigin);
+      nodeOrigin[2] += 32;
+
+      trap_Trace(
+        &tr, enemyOrigin, NULL, NULL, nodeOrigin, self->s.number,
+        CONTENTS_SOLID | ~MASK_PLAYERSOLID);
+
+      //Not Visible
+      if (tr.fraction != 1.0)
+      {
+        VectorCopy(nodes[i].origin, self->nextSpawnLocation);
+        if(G_canSpawn(self))
+        {
+          //G_Printf("Woha Found a good node COST: %d.\n", ACEND_FindCost(i,closestNode));
+          return qtrue;
+        }
+        else
+        {
+        }
+      }
+    }
+  }
+  return qfalse;
+}
+
 // Find a close node to the player within dist.
 //
 // Faster than looking for the closest node, but not very 
@@ -138,6 +214,7 @@ ACEND_FindClosestReachableNode(gentity_t * self, float range, int type)
   //  rng = (float)(range * range);   // square range for distance comparison (eliminate sqrt)
   for(i = 0;i < numNodes;i++)
   {
+    //FIXME: should not be i?
     if (ACEND_nodeInUse(self->bs.currentNode))
     {
       continue;
@@ -231,8 +308,8 @@ ACEND_FollowPath(gentity_t * self)
       if (ace_debug.integer)
         G_Printf("print \"%s: reached goal node!\n\"", self->client->pers.netname);
 
-//      G_Printf("Is %s visible?", self->botEnemy->client->pers.netname);
-      if(Distance(nodes[self->bs.goalNode].origin, self->botEnemy->s.origin) < 200)
+      //      G_Printf("Is %s visible?", self->botEnemy->client->pers.netname);
+      if (Distance(nodes[self->bs.goalNode].origin, self->botEnemy->s.origin) < 200)
       {
         self->botCommand = BOT_CHOMP;
       }
@@ -247,18 +324,19 @@ ACEND_FollowPath(gentity_t * self)
           && nodes[self->bs.currentNode].type == NODE_JUMP)
       {
         self->botPause = level.time + 300;
-       // VectorSet(self->client->ps.velocity,0,0,0);
-       // G_Printf("Stop a bit.\n");
+        // VectorSet(self->client->ps.velocity,0,0,0);
+        // G_Printf("Stop a bit.\n");
       }
-      else if(nodes[self->bs.lastNode].type == NODE_MOVE && nodes[self->bs.nextNode].type == NODE_JUMP)
+      else if (nodes[self->bs.lastNode].type == NODE_MOVE && nodes[self->bs.nextNode].type
+          == NODE_JUMP)
       {
         self->botPause = level.time + 300;
       }
 
       /*else if(self->botPause+300 > level.time && nodes[self->bs.lastNode].type == NODE_JUMP)
-      {
-        G_Printf("\n\n\nHAAA\n");
-      }*/
+       {
+       G_Printf("\n\n\nHAAA\n");
+       }*/
 
       ACEND_selectNextNode(self);
       //self->bs.currentNode = self->bs.nextNode;
