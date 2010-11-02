@@ -2821,9 +2821,9 @@ CG_ScanForCrosshairEntity(void)
     return;
 
   // if the player is in fog, don't show it
-  content = trap_CM_PointContents(trace.endpos, 0);
-  if (content & CONTENTS_FOG)
-    return;
+//  content = trap_CM_PointContents(trace.endpos, 0);
+//  if (content & CONTENTS_FOG)
+//    return;
 
   team = cgs.clientinfo[trace.entityNum].team;
 

@@ -1,0 +1,22261 @@
+data
+export bg_buildableList
+align 4
+LABELV bg_buildableList
+byte 4 1
+address $57
+address $58
+address $59
+address $60
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3256877056
+byte 4 3256877056
+byte 4 3229614080
+byte 4 1109393408
+byte 4 1109393408
+byte 4 1082130432
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 10
+byte 4 7
+byte 4 1240
+byte 4 0
+byte 4 50
+byte 4 100
+byte 4 37
+byte 4 2
+byte 4 0
+byte 4 3
+byte 4 100
+byte 4 10000
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1064514355
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 3
+address $61
+address $62
+address $63
+address $64
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3255566336
+byte 4 3255566336
+byte 4 3245342720
+byte 4 1108082688
+byte 4 1108082688
+byte 4 1114636288
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 10
+byte 4 7
+byte 4 200
+byte 4 14
+byte 4 50
+byte 4 50
+byte 4 41
+byte 4 1
+byte 4 402653184
+byte 4 3
+byte 4 100
+byte 4 20000
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1060437492
+byte 4 0
+byte 4 1
+byte 4 120
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 6
+address $65
+address $66
+address $67
+address $68
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3251634176
+byte 4 3251634176
+byte 4 3239051264
+byte 4 1104150528
+byte 4 1104150528
+byte 4 1091567616
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 12
+byte 4 6
+byte 4 150
+byte 4 8
+byte 4 50
+byte 4 50
+byte 4 41
+byte 4 1
+byte 4 402653184
+byte 4 3
+byte 4 100
+byte 4 15000
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1060437492
+byte 4 0
+byte 4 1
+byte 4 120
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 1
+byte 4 4
+address $69
+address $70
+address $71
+address $72
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3251109888
+byte 4 3251109888
+byte 4 3251109888
+byte 4 1103626240
+byte 4 1103626240
+byte 4 1103626240
+byte 4 3245342720
+byte 4 5
+byte 4 0
+byte 4 8
+byte 4 7
+byte 4 125
+byte 4 10
+byte 4 6
+byte 4 300
+byte 4 42
+byte 4 1
+byte 4 402653184
+byte 4 3
+byte 4 200
+byte 4 15000
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 1
+byte 4 120
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 7
+address $73
+address $74
+address $75
+address $72
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3255566336
+byte 4 3255566336
+byte 4 3251109888
+byte 4 1108082688
+byte 4 1108082688
+byte 4 1103626240
+byte 4 3245342720
+byte 4 5
+byte 4 0
+byte 4 12
+byte 4 4
+byte 4 125
+byte 4 10
+byte 4 30
+byte 4 200
+byte 4 41
+byte 4 1
+byte 4 402653184
+byte 4 3
+byte 4 500
+byte 4 20000
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 24
+byte 4 0
+byte 4 1
+byte 4 1
+byte 4 120
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 5
+address $76
+address $77
+address $78
+address $79
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3245342720
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1097859072
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 8
+byte 4 6
+byte 4 50
+byte 4 6
+byte 4 15
+byte 4 100
+byte 4 41
+byte 4 1
+byte 4 402653184
+byte 4 3
+byte 4 100
+byte 4 12000
+byte 4 0
+byte 4 400
+byte 4 1000
+byte 4 23
+byte 4 0
+byte 4 1
+byte 4 1
+byte 4 30
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 2
+address $80
+address $81
+address $82
+address $83
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3258187776
+byte 4 3258187776
+byte 4 3245342720
+byte 4 1110704128
+byte 4 1110704128
+byte 4 1119748096
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 0
+byte 4 7
+byte 4 750
+byte 4 6
+byte 4 15
+byte 4 300
+byte 4 41
+byte 4 1
+byte 4 402653184
+byte 4 3
+byte 4 1000
+byte 4 30000
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1064514355
+byte 4 0
+byte 4 0
+byte 4 120
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 1
+byte 4 8
+address $84
+address $85
+address $86
+address $87
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3259498496
+byte 4 3259498496
+byte 4 3248488448
+byte 4 1112014848
+byte 4 1112014848
+byte 4 1101004800
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 0
+byte 4 4
+byte 4 375
+byte 4 20
+byte 4 20
+byte 4 200
+byte 4 41
+byte 4 1
+byte 4 402653184
+byte 4 3
+byte 4 150
+byte 4 15000
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1064514355
+byte 4 0
+byte 4 1
+byte 4 120
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 9
+address $88
+address $89
+address $90
+address $60
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3256877056
+byte 4 3256877056
+byte 4 3229614080
+byte 4 1109393408
+byte 4 1109393408
+byte 4 1082130432
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 10
+byte 4 7
+byte 4 1240
+byte 4 0
+byte 4 50
+byte 4 100
+byte 4 37
+byte 4 2
+byte 4 1610612736
+byte 4 3
+byte 4 100
+byte 4 10000
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1064514355
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 14
+address $91
+address $92
+address $93
+address $94
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3255566336
+byte 4 3255566336
+byte 4 3235905536
+byte 4 1108082688
+byte 4 1108082688
+byte 4 1088421888
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 8
+byte 4 7
+byte 4 760
+byte 4 0
+byte 4 50
+byte 4 100
+byte 4 37
+byte 4 2
+byte 4 1610612736
+byte 4 3
+byte 4 100
+byte 4 10000
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1064514355
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 1
+byte 4 10
+address $95
+address $96
+address $97
+address $98
+address $99
+address $100
+byte 4 0
+byte 4 1065353216
+byte 4 3251109888
+byte 4 3251109888
+byte 4 3248488448
+byte 4 1103626240
+byte 4 1103626240
+byte 4 1101004800
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 8
+byte 4 7
+byte 4 760
+byte 4 0
+byte 4 100
+byte 4 100
+byte 4 37
+byte 4 2
+byte 4 1610612736
+byte 4 3
+byte 4 50
+byte 4 10000
+byte 4 0
+byte 4 200
+byte 4 100
+byte 4 26
+byte 4 1064514355
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 11
+address $101
+address $102
+address $103
+address $104
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3249537024
+byte 4 3249537024
+byte 4 3256877056
+byte 4 1102053376
+byte 4 1102053376
+byte 4 1109393408
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 10
+byte 4 4
+byte 4 880
+byte 4 0
+byte 4 50
+byte 4 100
+byte 4 37
+byte 4 2
+byte 4 536870912
+byte 4 3
+byte 4 150
+byte 4 15000
+byte 4 0
+byte 4 150
+byte 4 250
+byte 4 25
+byte 4 1064514355
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 13
+address $105
+address $106
+address $107
+address $108
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3255566336
+byte 4 3255566336
+byte 4 3243245568
+byte 4 1108082688
+byte 4 1108082688
+byte 4 1111228416
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 8
+byte 4 6
+byte 4 760
+byte 4 0
+byte 4 50
+byte 4 100
+byte 4 37
+byte 4 2
+byte 4 536870912
+byte 4 3
+byte 4 100
+byte 4 10000
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1064514355
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 12
+address $109
+address $110
+address $111
+address $112
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3256877056
+byte 4 3256877056
+byte 4 3243245568
+byte 4 1109393408
+byte 4 1109393408
+byte 4 1112014848
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 10
+byte 4 7
+byte 4 1120
+byte 4 0
+byte 4 50
+byte 4 100
+byte 4 37
+byte 4 2
+byte 4 1610612736
+byte 4 3
+byte 4 100
+byte 4 10000
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1064514355
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 15
+address $113
+address $114
+address $115
+address $116
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3259498496
+byte 4 3259498496
+byte 4 3245342720
+byte 4 1112014848
+byte 4 1112014848
+byte 4 1119748096
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 0
+byte 4 7
+byte 4 3720
+byte 4 0
+byte 4 200
+byte 4 300
+byte 4 37
+byte 4 2
+byte 4 1610612736
+byte 4 3
+byte 4 1000
+byte 4 20000
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1064514355
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 1
+byte 4 16
+address $117
+address $118
+address $119
+address $120
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3245342720
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1103626240
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 0
+byte 4 6
+byte 4 1000
+byte 4 0
+byte 4 50
+byte 4 100
+byte 4 37
+byte 4 2
+byte 4 1610612736
+byte 4 3
+byte 4 100
+byte 4 10000
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1064514355
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 18
+address $121
+address $122
+address $123
+address $124
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3245342720
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1103626240
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 0
+byte 4 4
+byte 4 1000
+byte 4 0
+byte 4 50
+byte 4 100
+byte 4 37
+byte 4 2
+byte 4 0
+byte 4 3
+byte 4 100
+byte 4 10000
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1064514355
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 19
+address $125
+address $126
+address $127
+address $128
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3245342720
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1103626240
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 0
+byte 4 4
+byte 4 1000
+byte 4 0
+byte 4 50
+byte 4 100
+byte 4 37
+byte 4 2
+byte 4 0
+byte 4 3
+byte 4 100
+byte 4 10000
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1064514355
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 24
+address $129
+address $130
+address $131
+address $132
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3245342720
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1103626240
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 0
+byte 4 4
+byte 4 1000
+byte 4 0
+byte 4 50
+byte 4 100
+byte 4 37
+byte 4 2
+byte 4 0
+byte 4 3
+byte 4 100
+byte 4 10000
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1064514355
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 23
+address $133
+address $134
+address $135
+address $136
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3245342720
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1103626240
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 0
+byte 4 4
+byte 4 1000
+byte 4 0
+byte 4 50
+byte 4 100
+byte 4 37
+byte 4 2
+byte 4 0
+byte 4 3
+byte 4 100
+byte 4 10000
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1064514355
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 21
+address $137
+address $138
+address $139
+address $140
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3245342720
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1103626240
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 0
+byte 4 4
+byte 4 1000
+byte 4 0
+byte 4 50
+byte 4 100
+byte 4 37
+byte 4 2
+byte 4 0
+byte 4 3
+byte 4 100
+byte 4 10000
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1064514355
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 22
+address $141
+address $142
+address $143
+address $144
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3245342720
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1103626240
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 0
+byte 4 4
+byte 4 1000
+byte 4 0
+byte 4 50
+byte 4 100
+byte 4 37
+byte 4 2
+byte 4 0
+byte 4 3
+byte 4 100
+byte 4 10000
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1064514355
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 25
+address $145
+address $146
+address $147
+address $148
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3245342720
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1103626240
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 0
+byte 4 4
+byte 4 1000
+byte 4 0
+byte 4 50
+byte 4 100
+byte 4 37
+byte 4 2
+byte 4 0
+byte 4 3
+byte 4 100
+byte 4 10000
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1064514355
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 20
+address $149
+address $150
+address $151
+address $152
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3245342720
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1103626240
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 0
+byte 4 4
+byte 4 1000
+byte 4 0
+byte 4 50
+byte 4 100
+byte 4 37
+byte 4 2
+byte 4 0
+byte 4 3
+byte 4 100
+byte 4 10000
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1064514355
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 26
+address $153
+address $154
+address $155
+address $156
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3245342720
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1103626240
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 0
+byte 4 4
+byte 4 1000
+byte 4 0
+byte 4 50
+byte 4 100
+byte 4 37
+byte 4 2
+byte 4 0
+byte 4 3
+byte 4 100
+byte 4 10000
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1064514355
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 17
+address $157
+address $158
+address $159
+address $160
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3245342720
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1103626240
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 0
+byte 4 4
+byte 4 1000
+byte 4 0
+byte 4 50
+byte 4 100
+byte 4 37
+byte 4 2
+byte 4 0
+byte 4 3
+byte 4 100
+byte 4 10000
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1064514355
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 27
+address $161
+address $162
+address $163
+address $164
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3245342720
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1103626240
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 0
+byte 4 4
+byte 4 1000
+byte 4 0
+byte 4 50
+byte 4 100
+byte 4 37
+byte 4 2
+byte 4 0
+byte 4 3
+byte 4 100
+byte 4 10000
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1064514355
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 28
+address $165
+address $166
+address $167
+address $168
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3245342720
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1103626240
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 0
+byte 4 4
+byte 4 1000
+byte 4 0
+byte 4 50
+byte 4 100
+byte 4 37
+byte 4 2
+byte 4 0
+byte 4 3
+byte 4 100
+byte 4 10000
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1064514355
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+export bg_numBuildables
+align 4
+LABELV bg_numBuildables
+byte 4 28
+export BG_FindBuildNumForName
+code
+proc BG_FindBuildNumForName 8 8
+ADDRFP4 0
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $173
+JUMPV
+LABELV $170
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+4
+ADDP4
+INDIRP4
+ARGP4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRLP4 4
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 4
+INDIRI4
+CNSTI4 0
+NEI4 $174
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $169
+JUMPV
+LABELV $174
+LABELV $171
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $173
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $170
+CNSTI4 0
+RETI4
+LABELV $169
+endproc BG_FindBuildNumForName 8 8
+export BG_FindBuildNumForEntityName
+proc BG_FindBuildNumForEntityName 8 8
+ADDRFP4 0
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $181
+JUMPV
+LABELV $178
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+12
+ADDP4
+INDIRP4
+ARGP4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRLP4 4
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 4
+INDIRI4
+CNSTI4 0
+NEI4 $182
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $177
+JUMPV
+LABELV $182
+LABELV $179
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $181
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $178
+CNSTI4 0
+RETI4
+LABELV $177
+endproc BG_FindBuildNumForEntityName 8 8
+export BG_FindNameForBuildable
+proc BG_FindNameForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $189
+JUMPV
+LABELV $186
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $190
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+4
+ADDP4
+INDIRP4
+RETP4
+ADDRGP4 $185
+JUMPV
+LABELV $190
+LABELV $187
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $189
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $186
+CNSTP4 0
+RETP4
+LABELV $185
+endproc BG_FindNameForBuildable 4 0
+export BG_FindHumanNameForBuildable
+proc BG_FindHumanNameForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $197
+JUMPV
+LABELV $194
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $198
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+8
+ADDP4
+INDIRP4
+RETP4
+ADDRGP4 $193
+JUMPV
+LABELV $198
+LABELV $195
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $197
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $194
+CNSTP4 0
+RETP4
+LABELV $193
+endproc BG_FindHumanNameForBuildable 4 0
+export BG_FindEntityNameForBuildable
+proc BG_FindEntityNameForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $205
+JUMPV
+LABELV $202
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $206
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+12
+ADDP4
+INDIRP4
+RETP4
+ADDRGP4 $201
+JUMPV
+LABELV $206
+LABELV $203
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $205
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $202
+CNSTP4 0
+RETP4
+LABELV $201
+endproc BG_FindEntityNameForBuildable 4 0
+export BG_FindModelsForBuildable
+proc BG_FindModelsForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRFP4 4
+ADDRFP4 4
+INDIRI4
+ASGNI4
+ADDRFP4 4
+INDIRI4
+CNSTI4 6
+LSHI4
+CNSTI4 288
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableOverrideList
+ADDP4
+ADDP4
+INDIRI1
+CVII4 1
+CNSTI4 0
+EQI4 $210
+ADDRFP4 4
+INDIRI4
+CNSTI4 6
+LSHI4
+CNSTI4 288
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableOverrideList
+ADDP4
+ADDP4
+RETP4
+ADDRGP4 $209
+JUMPV
+LABELV $210
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $215
+JUMPV
+LABELV $212
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $216
+ADDRFP4 4
+INDIRI4
+CNSTI4 2
+LSHI4
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+16
+ADDP4
+ADDP4
+INDIRP4
+RETP4
+ADDRGP4 $209
+JUMPV
+LABELV $216
+LABELV $213
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $215
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $212
+CNSTP4 0
+RETP4
+LABELV $209
+endproc BG_FindModelsForBuildable 4 0
+export BG_FindModelScaleForBuildable
+proc BG_FindModelScaleForBuildable 4 8
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+CNSTI4 288
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableOverrideList+256
+ADDP4
+INDIRF4
+CNSTF4 0
+EQF4 $220
+CNSTI4 288
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableOverrideList+256
+ADDP4
+INDIRF4
+RETF4
+ADDRGP4 $219
+JUMPV
+LABELV $220
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $227
+JUMPV
+LABELV $224
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $228
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+32
+ADDP4
+INDIRF4
+RETF4
+ADDRGP4 $219
+JUMPV
+LABELV $228
+LABELV $225
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $227
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $224
+ADDRGP4 $231
+ARGP4
+ADDRFP4 0
+INDIRI4
+ARGI4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTF4 1065353216
+RETF4
+LABELV $219
+endproc BG_FindModelScaleForBuildable 4 8
+export BG_FindBBoxForBuildable
+proc BG_FindBBoxForBuildable 8 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRFP4 4
+ADDRFP4 4
+INDIRP4
+ASGNP4
+ADDRFP4 8
+ADDRFP4 8
+INDIRP4
+ASGNP4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $236
+JUMPV
+LABELV $233
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $237
+ADDRFP4 4
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $239
+ADDRFP4 4
+INDIRP4
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+36
+ADDP4
+INDIRB
+ASGNB 12
+CNSTI4 288
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableOverrideList+260
+ADDP4
+ARGP4
+ADDRLP4 4
+ADDRGP4 VectorLength
+CALLF4
+ASGNF4
+ADDRLP4 4
+INDIRF4
+CNSTF4 0
+EQF4 $242
+ADDRFP4 4
+INDIRP4
+CNSTI4 288
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableOverrideList+260
+ADDP4
+INDIRB
+ASGNB 12
+LABELV $242
+LABELV $239
+ADDRFP4 8
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $232
+ADDRFP4 8
+INDIRP4
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+48
+ADDP4
+INDIRB
+ASGNB 12
+CNSTI4 288
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableOverrideList+272
+ADDP4
+ARGP4
+ADDRLP4 4
+ADDRGP4 VectorLength
+CALLF4
+ASGNF4
+ADDRLP4 4
+INDIRF4
+CNSTF4 0
+EQF4 $232
+ADDRFP4 8
+INDIRP4
+CNSTI4 288
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableOverrideList+272
+ADDP4
+INDIRB
+ASGNB 12
+ADDRGP4 $232
+JUMPV
+LABELV $237
+LABELV $234
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $236
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $233
+ADDRFP4 4
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $253
+ADDRFP4 4
+INDIRP4
+ADDRGP4 bg_buildableList+36
+INDIRB
+ASGNB 12
+LABELV $253
+ADDRFP4 8
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $256
+ADDRFP4 8
+INDIRP4
+ADDRGP4 bg_buildableList+48
+INDIRB
+ASGNB 12
+LABELV $256
+LABELV $232
+endproc BG_FindBBoxForBuildable 8 4
+export BG_FindZOffsetForBuildable
+proc BG_FindZOffsetForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+CNSTI4 288
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableOverrideList+284
+ADDP4
+INDIRF4
+CNSTF4 0
+EQF4 $260
+CNSTI4 288
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableOverrideList+284
+ADDP4
+INDIRF4
+RETF4
+ADDRGP4 $259
+JUMPV
+LABELV $260
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $267
+JUMPV
+LABELV $264
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $268
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+60
+ADDP4
+INDIRF4
+RETF4
+ADDRGP4 $259
+JUMPV
+LABELV $268
+LABELV $265
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $267
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $264
+CNSTF4 0
+RETF4
+LABELV $259
+endproc BG_FindZOffsetForBuildable 4 0
+export BG_FindTrajectoryForBuildable
+proc BG_FindTrajectoryForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $275
+JUMPV
+LABELV $272
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $276
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+64
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $271
+JUMPV
+LABELV $276
+LABELV $273
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $275
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $272
+CNSTI4 5
+RETI4
+LABELV $271
+endproc BG_FindTrajectoryForBuildable 4 0
+export BG_FindBounceForBuildable
+proc BG_FindBounceForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $283
+JUMPV
+LABELV $280
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $284
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+68
+ADDP4
+INDIRF4
+RETF4
+ADDRGP4 $279
+JUMPV
+LABELV $284
+LABELV $281
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $283
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $280
+CNSTF4 0
+RETF4
+LABELV $279
+endproc BG_FindBounceForBuildable 4 0
+export BG_FindBuildPointsForBuildable
+proc BG_FindBuildPointsForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $291
+JUMPV
+LABELV $288
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $292
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+72
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $287
+JUMPV
+LABELV $292
+LABELV $289
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $291
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $288
+CNSTI4 1000
+RETI4
+LABELV $287
+endproc BG_FindBuildPointsForBuildable 4 0
+export BG_FindStagesForBuildable
+proc BG_FindStagesForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRFP4 4
+ADDRFP4 4
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $299
+JUMPV
+LABELV $296
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $300
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+76
+ADDP4
+INDIRI4
+CNSTI4 1
+ADDRFP4 4
+INDIRI4
+LSHI4
+BANDI4
+CNSTI4 0
+EQI4 $302
+CNSTI4 1
+RETI4
+ADDRGP4 $295
+JUMPV
+LABELV $302
+CNSTI4 0
+RETI4
+ADDRGP4 $295
+JUMPV
+LABELV $300
+LABELV $297
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $299
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $296
+CNSTI4 0
+RETI4
+LABELV $295
+endproc BG_FindStagesForBuildable 4 0
+export BG_FindHealthForBuildable
+proc BG_FindHealthForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $309
+JUMPV
+LABELV $306
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $310
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+80
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $305
+JUMPV
+LABELV $310
+LABELV $307
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $309
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $306
+CNSTI4 1000
+RETI4
+LABELV $305
+endproc BG_FindHealthForBuildable 4 0
+export BG_FindRegenRateForBuildable
+proc BG_FindRegenRateForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $317
+JUMPV
+LABELV $314
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $318
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+84
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $313
+JUMPV
+LABELV $318
+LABELV $315
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $317
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $314
+CNSTI4 0
+RETI4
+LABELV $313
+endproc BG_FindRegenRateForBuildable 4 0
+export BG_FindSplashDamageForBuildable
+proc BG_FindSplashDamageForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $325
+JUMPV
+LABELV $322
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $326
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+88
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $321
+JUMPV
+LABELV $326
+LABELV $323
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $325
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $322
+CNSTI4 50
+RETI4
+LABELV $321
+endproc BG_FindSplashDamageForBuildable 4 0
+export BG_FindSplashRadiusForBuildable
+proc BG_FindSplashRadiusForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $333
+JUMPV
+LABELV $330
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $334
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+92
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $329
+JUMPV
+LABELV $334
+LABELV $331
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $333
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $330
+CNSTI4 200
+RETI4
+LABELV $329
+endproc BG_FindSplashRadiusForBuildable 4 0
+export BG_FindMODForBuildable
+proc BG_FindMODForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $341
+JUMPV
+LABELV $338
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $342
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+96
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $337
+JUMPV
+LABELV $342
+LABELV $339
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $341
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $338
+CNSTI4 0
+RETI4
+LABELV $337
+endproc BG_FindMODForBuildable 4 0
+export BG_FindTeamForBuildable
+proc BG_FindTeamForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $349
+JUMPV
+LABELV $346
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $350
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+100
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $345
+JUMPV
+LABELV $350
+LABELV $347
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $349
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $346
+CNSTI4 0
+RETI4
+LABELV $345
+endproc BG_FindTeamForBuildable 4 0
+export BG_FindBuildWeaponForBuildable
+proc BG_FindBuildWeaponForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $357
+JUMPV
+LABELV $354
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $358
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+104
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $353
+JUMPV
+LABELV $358
+LABELV $355
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $357
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $354
+CNSTI4 0
+RETI4
+LABELV $353
+endproc BG_FindBuildWeaponForBuildable 4 0
+export BG_FindAnimForBuildable
+proc BG_FindAnimForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $365
+JUMPV
+LABELV $362
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $366
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+108
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $361
+JUMPV
+LABELV $366
+LABELV $363
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $365
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $362
+CNSTI4 3
+RETI4
+LABELV $361
+endproc BG_FindAnimForBuildable 4 0
+export BG_FindNextThinkForBuildable
+proc BG_FindNextThinkForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $373
+JUMPV
+LABELV $370
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $374
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+112
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $369
+JUMPV
+LABELV $374
+LABELV $371
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $373
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $370
+CNSTI4 100
+RETI4
+LABELV $369
+endproc BG_FindNextThinkForBuildable 4 0
+export BG_FindBuildTimeForBuildable
+proc BG_FindBuildTimeForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $381
+JUMPV
+LABELV $378
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $382
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+116
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $377
+JUMPV
+LABELV $382
+LABELV $379
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $381
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $378
+CNSTI4 10000
+RETI4
+LABELV $377
+endproc BG_FindBuildTimeForBuildable 4 0
+export BG_FindUsableForBuildable
+proc BG_FindUsableForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $389
+JUMPV
+LABELV $386
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $390
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+120
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $385
+JUMPV
+LABELV $390
+LABELV $387
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $389
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $386
+CNSTI4 0
+RETI4
+LABELV $385
+endproc BG_FindUsableForBuildable 4 0
+export BG_FindFireSpeedForBuildable
+proc BG_FindFireSpeedForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $397
+JUMPV
+LABELV $394
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $398
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+128
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $393
+JUMPV
+LABELV $398
+LABELV $395
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $397
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $394
+CNSTI4 1000
+RETI4
+LABELV $393
+endproc BG_FindFireSpeedForBuildable 4 0
+export BG_FindRangeForBuildable
+proc BG_FindRangeForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $405
+JUMPV
+LABELV $402
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $406
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+124
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $401
+JUMPV
+LABELV $406
+LABELV $403
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $405
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $402
+CNSTI4 1000
+RETI4
+LABELV $401
+endproc BG_FindRangeForBuildable 4 0
+export BG_FindProjTypeForBuildable
+proc BG_FindProjTypeForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $413
+JUMPV
+LABELV $410
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $414
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+132
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $409
+JUMPV
+LABELV $414
+LABELV $411
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $413
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $410
+CNSTI4 0
+RETI4
+LABELV $409
+endproc BG_FindProjTypeForBuildable 4 0
+export BG_FindMinNormalForBuildable
+proc BG_FindMinNormalForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $421
+JUMPV
+LABELV $418
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $422
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+136
+ADDP4
+INDIRF4
+RETF4
+ADDRGP4 $417
+JUMPV
+LABELV $422
+LABELV $419
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $421
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $418
+CNSTF4 1060437492
+RETF4
+LABELV $417
+endproc BG_FindMinNormalForBuildable 4 0
+export BG_FindInvertNormalForBuildable
+proc BG_FindInvertNormalForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $429
+JUMPV
+LABELV $426
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $430
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+140
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $425
+JUMPV
+LABELV $430
+LABELV $427
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $429
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $426
+CNSTI4 0
+RETI4
+LABELV $425
+endproc BG_FindInvertNormalForBuildable 4 0
+export BG_FindCreepTestForBuildable
+proc BG_FindCreepTestForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $437
+JUMPV
+LABELV $434
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $438
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+144
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $433
+JUMPV
+LABELV $438
+LABELV $435
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $437
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $434
+CNSTI4 0
+RETI4
+LABELV $433
+endproc BG_FindCreepTestForBuildable 4 0
+export BG_FindCreepSizeForBuildable
+proc BG_FindCreepSizeForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $445
+JUMPV
+LABELV $442
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $446
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+148
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $441
+JUMPV
+LABELV $446
+LABELV $443
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $445
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $442
+CNSTI4 700
+RETI4
+LABELV $441
+endproc BG_FindCreepSizeForBuildable 4 0
+export BG_FindDCCTestForBuildable
+proc BG_FindDCCTestForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $453
+JUMPV
+LABELV $450
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $454
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+152
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $449
+JUMPV
+LABELV $454
+LABELV $451
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $453
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $450
+CNSTI4 0
+RETI4
+LABELV $449
+endproc BG_FindDCCTestForBuildable 4 0
+export BG_FindUniqueTestForBuildable
+proc BG_FindUniqueTestForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $461
+JUMPV
+LABELV $458
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $462
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+160
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $457
+JUMPV
+LABELV $462
+LABELV $459
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $461
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $458
+CNSTI4 0
+RETI4
+LABELV $457
+endproc BG_FindUniqueTestForBuildable 4 0
+export BG_FindReplaceableTestForBuildable
+proc BG_FindReplaceableTestForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $469
+JUMPV
+LABELV $466
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $470
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+164
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $465
+JUMPV
+LABELV $470
+LABELV $467
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $469
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $466
+CNSTI4 0
+RETI4
+LABELV $465
+endproc BG_FindReplaceableTestForBuildable 4 0
+proc BG_FindOverrideForBuildable 0 0
+CNSTI4 288
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableOverrideList
+ADDP4
+RETP4
+LABELV $473
+endproc BG_FindOverrideForBuildable 0 0
+export BG_FindTransparentTestForBuildable
+proc BG_FindTransparentTestForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $478
+JUMPV
+LABELV $475
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $479
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+156
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $474
+JUMPV
+LABELV $479
+LABELV $476
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $478
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $475
+CNSTI4 0
+RETI4
+LABELV $474
+endproc BG_FindTransparentTestForBuildable 4 0
+proc BG_ParseBuildableFile 20072 12
+ADDRFP4 4
+ADDRFP4 4
+INDIRP4
+ASGNP4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRLP4 20020
+ARGP4
+CNSTI4 0
+ARGI4
+ADDRLP4 20024
+ADDRGP4 trap_FS_FOpenFile
+CALLI4
+ASGNI4
+ADDRLP4 16
+ADDRLP4 20024
+INDIRI4
+ASGNI4
+ADDRLP4 16
+INDIRI4
+CNSTI4 0
+GEI4 $483
+CNSTI4 0
+RETI4
+ADDRGP4 $482
+JUMPV
+LABELV $483
+ADDRLP4 16
+INDIRI4
+CNSTI4 0
+EQI4 $487
+ADDRLP4 16
+INDIRI4
+CVIU4 4
+CNSTU4 19999
+LTU4 $485
+LABELV $487
+ADDRLP4 20020
+INDIRI4
+ARGI4
+ADDRGP4 trap_FS_FCloseFile
+CALLV
+pop
+ADDRGP4 $488
+ARGP4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRLP4 16
+INDIRI4
+CNSTI4 0
+NEI4 $492
+ADDRLP4 20032
+ADDRGP4 $489
+ASGNP4
+ADDRGP4 $493
+JUMPV
+LABELV $492
+ADDRLP4 20032
+ADDRGP4 $490
+ASGNP4
+LABELV $493
+ADDRLP4 20032
+INDIRP4
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTI4 0
+RETI4
+ADDRGP4 $482
+JUMPV
+LABELV $485
+ADDRLP4 20
+ARGP4
+ADDRLP4 16
+INDIRI4
+ARGI4
+ADDRLP4 20020
+INDIRI4
+ARGI4
+ADDRGP4 trap_FS_Read
+CALLV
+pop
+ADDRLP4 16
+INDIRI4
+ADDRLP4 20
+ADDP4
+CNSTI1 0
+ASGNI1
+ADDRLP4 20020
+INDIRI4
+ARGI4
+ADDRGP4 trap_FS_FCloseFile
+CALLV
+pop
+ADDRLP4 8
+ADDRLP4 20
+ASGNP4
+ADDRGP4 $495
+JUMPV
+LABELV $494
+ADDRLP4 8
+ARGP4
+ADDRLP4 20032
+ADDRGP4 COM_Parse
+CALLP4
+ASGNP4
+ADDRLP4 0
+ADDRLP4 20032
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $497
+ADDRGP4 $496
+JUMPV
+LABELV $497
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 $501
+ARGP4
+ADDRLP4 20036
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 20036
+INDIRI4
+CNSTI4 0
+NEI4 $499
+ADDRGP4 $496
+JUMPV
+LABELV $499
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 $504
+ARGP4
+ADDRLP4 20040
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 20040
+INDIRI4
+CNSTI4 0
+NEI4 $502
+ADDRLP4 20044
+CNSTI4 0
+ASGNI4
+ADDRLP4 8
+ARGP4
+ADDRLP4 20048
+ADDRGP4 COM_Parse
+CALLP4
+ASGNP4
+ADDRLP4 0
+ADDRLP4 20048
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $505
+ADDRGP4 $496
+JUMPV
+LABELV $505
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRLP4 20052
+ADDRGP4 atoi
+CALLI4
+ASGNI4
+ADDRLP4 20044
+ADDRLP4 20052
+INDIRI4
+ASGNI4
+ADDRLP4 20044
+INDIRI4
+CNSTI4 0
+GEI4 $507
+ADDRLP4 20044
+CNSTI4 0
+ASGNI4
+ADDRGP4 $508
+JUMPV
+LABELV $507
+ADDRLP4 20044
+INDIRI4
+CNSTI4 3
+LEI4 $509
+ADDRLP4 20044
+CNSTI4 3
+ASGNI4
+LABELV $509
+LABELV $508
+ADDRLP4 8
+ARGP4
+ADDRLP4 20056
+ADDRGP4 COM_Parse
+CALLP4
+ASGNP4
+ADDRLP4 0
+ADDRLP4 20056
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $511
+ADDRGP4 $496
+JUMPV
+LABELV $511
+ADDRLP4 20044
+INDIRI4
+CNSTI4 6
+LSHI4
+ADDRFP4 4
+INDIRP4
+ADDP4
+ARGP4
+ADDRLP4 0
+INDIRP4
+ARGP4
+CNSTI4 64
+ARGI4
+ADDRGP4 Q_strncpyz
+CALLV
+pop
+ADDRGP4 $495
+JUMPV
+LABELV $502
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 $515
+ARGP4
+ADDRLP4 20044
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 20044
+INDIRI4
+CNSTI4 0
+NEI4 $513
+ADDRLP4 8
+ARGP4
+ADDRLP4 20048
+ADDRGP4 COM_Parse
+CALLP4
+ASGNP4
+ADDRLP4 0
+ADDRLP4 20048
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $516
+ADDRGP4 $496
+JUMPV
+LABELV $516
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRLP4 20052
+ADDRGP4 atof
+CALLF4
+ASGNF4
+ADDRLP4 12
+ADDRLP4 20052
+INDIRF4
+ASGNF4
+ADDRLP4 12
+INDIRF4
+CNSTF4 0
+GEF4 $518
+ADDRLP4 12
+CNSTF4 0
+ASGNF4
+LABELV $518
+ADDRFP4 4
+INDIRP4
+CNSTI4 256
+ADDP4
+ADDRLP4 12
+INDIRF4
+ASGNF4
+ADDRGP4 $495
+JUMPV
+LABELV $513
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 $522
+ARGP4
+ADDRLP4 20048
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 20048
+INDIRI4
+CNSTI4 0
+NEI4 $520
+ADDRLP4 4
+CNSTI4 0
+ASGNI4
+LABELV $523
+ADDRLP4 8
+ARGP4
+ADDRLP4 20052
+ADDRGP4 COM_Parse
+CALLP4
+ASGNP4
+ADDRLP4 0
+ADDRLP4 20052
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $527
+ADDRGP4 $495
+JUMPV
+LABELV $527
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRLP4 20056
+ADDRGP4 atof
+CALLF4
+ASGNF4
+ADDRLP4 4
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 260
+ADDP4
+ADDP4
+ADDRLP4 20056
+INDIRF4
+ASGNF4
+LABELV $524
+ADDRLP4 4
+ADDRLP4 4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 4
+INDIRI4
+CNSTI4 2
+LEI4 $523
+ADDRGP4 $495
+JUMPV
+LABELV $520
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 $531
+ARGP4
+ADDRLP4 20052
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 20052
+INDIRI4
+CNSTI4 0
+NEI4 $529
+ADDRLP4 4
+CNSTI4 0
+ASGNI4
+LABELV $532
+ADDRLP4 8
+ARGP4
+ADDRLP4 20056
+ADDRGP4 COM_Parse
+CALLP4
+ASGNP4
+ADDRLP4 0
+ADDRLP4 20056
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $536
+ADDRGP4 $495
+JUMPV
+LABELV $536
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRLP4 20060
+ADDRGP4 atof
+CALLF4
+ASGNF4
+ADDRLP4 4
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 272
+ADDP4
+ADDP4
+ADDRLP4 20060
+INDIRF4
+ASGNF4
+LABELV $533
+ADDRLP4 4
+ADDRLP4 4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 4
+INDIRI4
+CNSTI4 2
+LEI4 $532
+ADDRGP4 $495
+JUMPV
+LABELV $529
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 $540
+ARGP4
+ADDRLP4 20056
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 20056
+INDIRI4
+CNSTI4 0
+NEI4 $538
+ADDRLP4 8
+ARGP4
+ADDRLP4 20064
+ADDRGP4 COM_Parse
+CALLP4
+ASGNP4
+ADDRLP4 0
+ADDRLP4 20064
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $541
+ADDRGP4 $496
+JUMPV
+LABELV $541
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRLP4 20068
+ADDRGP4 atof
+CALLF4
+ASGNF4
+ADDRLP4 20060
+ADDRLP4 20068
+INDIRF4
+ASGNF4
+ADDRFP4 4
+INDIRP4
+CNSTI4 284
+ADDP4
+ADDRLP4 20060
+INDIRF4
+ASGNF4
+ADDRGP4 $495
+JUMPV
+LABELV $538
+ADDRGP4 $543
+ARGP4
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTI4 0
+RETI4
+ADDRGP4 $482
+JUMPV
+LABELV $495
+ADDRGP4 $494
+JUMPV
+LABELV $496
+CNSTI4 1
+RETI4
+LABELV $482
+endproc BG_ParseBuildableFile 20072 12
+export BG_InitBuildableOverrides
+proc BG_InitBuildableOverrides 20 8
+ADDRLP4 0
+CNSTI4 1
+ASGNI4
+LABELV $545
+ADDRLP4 0
+INDIRI4
+ARGI4
+ADDRLP4 8
+ADDRGP4 BG_FindOverrideForBuildable
+CALLP4
+ASGNP4
+ADDRLP4 4
+ADDRLP4 8
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRI4
+ARGI4
+ADDRLP4 12
+ADDRGP4 BG_FindNameForBuildable
+CALLP4
+ASGNP4
+ADDRGP4 $549
+ARGP4
+ADDRLP4 12
+INDIRP4
+ARGP4
+ADDRLP4 16
+ADDRGP4 va
+CALLP4
+ASGNP4
+ADDRLP4 16
+INDIRP4
+ARGP4
+ADDRLP4 4
+INDIRP4
+ARGP4
+ADDRGP4 BG_ParseBuildableFile
+CALLI4
+pop
+LABELV $546
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+CNSTI4 29
+LTI4 $545
+LABELV $544
+endproc BG_InitBuildableOverrides 20 8
+data
+export bg_classList
+align 4
+LABELV bg_classList
+byte 4 0
+address $550
+address $551
+address $501
+byte 4 1065353216
+address $501
+byte 4 1065353216
+address $501
+byte 4 7
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3245342720
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1097859072
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3245342720
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1097859072
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 90
+byte 4 0
+byte 4 1065353216
+byte 4 0
+byte 4 1142292480
+byte 4 1092616192
+byte 4 1065353216
+byte 4 1086324736
+byte 4 1120403456
+byte 4 1132920832
+byte 4 1065353216
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+address $552
+address $553
+address $552
+byte 4 1065353216
+address $554
+byte 4 1065353216
+address $555
+byte 4 7
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3248488448
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1101004800
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1101004800
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3229614080
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1082130432
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 50
+byte 4 1045220557
+byte 4 2
+byte 4 50
+byte 4 27
+byte 4 1119748096
+byte 4 80
+byte 4 981668463
+byte 4 1073741824
+byte 4 150
+byte 4 1061997773
+byte 4 1092616192
+byte 4 1065353216
+byte 4 1086324736
+byte 4 1120403456
+byte 4 1128464384
+byte 4 1065353216
+byte 4 2
+byte 4 3
+byte 4 0
+byte 4 0
+byte 4 200
+byte 4 2
+address $556
+address $557
+address $552
+byte 4 1065353216
+address $558
+byte 4 1065353216
+address $555
+byte 4 6
+byte 4 3248488448
+byte 4 3248488448
+byte 4 3248488448
+byte 4 1101004800
+byte 4 1101004800
+byte 4 1101004800
+byte 4 1101004800
+byte 4 1101004800
+byte 4 1101004800
+byte 4 3248488448
+byte 4 3248488448
+byte 4 3229614080
+byte 4 1101004800
+byte 4 1101004800
+byte 4 1082130432
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 75
+byte 4 0
+byte 4 3
+byte 4 49
+byte 4 28
+byte 4 1121058816
+byte 4 110
+byte 4 981668463
+byte 4 1073741824
+byte 4 100
+byte 4 1065353216
+byte 4 1092616192
+byte 4 1065353216
+byte 4 1086324736
+byte 4 1120403456
+byte 4 1132920832
+byte 4 1065353216
+byte 4 3
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 250
+byte 4 3
+address $559
+address $560
+address $561
+byte 4 1045220557
+address $554
+byte 4 1050253722
+address $562
+byte 4 7
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3245342720
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1097859072
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3229614080
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1082130432
+byte 4 3238002688
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 25
+byte 4 0
+byte 4 1
+byte 4 57
+byte 4 1
+byte 4 0
+byte 4 140
+byte 4 0
+byte 4 1075838976
+byte 4 25
+byte 4 1067869798
+byte 4 1092616192
+byte 4 1065353216
+byte 4 1086324736
+byte 4 1137180672
+byte 4 1132068864
+byte 4 1073741824
+byte 4 4
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 175
+byte 4 4
+address $563
+address $564
+address $565
+byte 4 1058642330
+address $554
+byte 4 1065353216
+address $562
+byte 4 7
+byte 4 3247439872
+byte 4 3247439872
+byte 4 3247439872
+byte 4 1099956224
+byte 4 1099956224
+byte 4 1099956224
+byte 4 1099956224
+byte 4 1099956224
+byte 4 1099956224
+byte 4 3247439872
+byte 4 3247439872
+byte 4 3229614080
+byte 4 1099956224
+byte 4 1099956224
+byte 4 1082130432
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 75
+byte 4 0
+byte 4 2
+byte 4 57
+byte 4 2
+byte 4 0
+byte 4 120
+byte 4 981668463
+byte 4 1072064102
+byte 4 60
+byte 4 1067450368
+byte 4 1092616192
+byte 4 1065353216
+byte 4 1086324736
+byte 4 1133903872
+byte 4 1132920832
+byte 4 1067030938
+byte 4 6
+byte 4 5
+byte 4 0
+byte 4 1
+byte 4 225
+byte 4 5
+address $566
+address $567
+address $565
+byte 4 1060320051
+address $568
+byte 4 1065353216
+address $562
+byte 4 6
+byte 4 3248488448
+byte 4 3248488448
+byte 4 3248488448
+byte 4 1101004800
+byte 4 1101004800
+byte 4 1101004800
+byte 4 1101004800
+byte 4 1101004800
+byte 4 1101004800
+byte 4 3248488448
+byte 4 3248488448
+byte 4 3229614080
+byte 4 1101004800
+byte 4 1101004800
+byte 4 1082130432
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 100
+byte 4 0
+byte 4 3
+byte 4 57
+byte 4 3
+byte 4 0
+byte 4 120
+byte 4 981668463
+byte 4 1072064102
+byte 4 60
+byte 4 1067450368
+byte 4 1092616192
+byte 4 1065353216
+byte 4 1086324736
+byte 4 1133903872
+byte 4 1132920832
+byte 4 1066192077
+byte 4 6
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 275
+byte 4 6
+address $569
+address $570
+address $571
+byte 4 1061158912
+address $554
+byte 4 1065353216
+address $562
+byte 4 7
+byte 4 3249537024
+byte 4 3249537024
+byte 4 3249537024
+byte 4 1102053376
+byte 4 1102053376
+byte 4 1102053376
+byte 4 1102053376
+byte 4 1102053376
+byte 4 1102053376
+byte 4 3249537024
+byte 4 3249537024
+byte 4 3229614080
+byte 4 1102053376
+byte 4 1102053376
+byte 4 1082130432
+byte 4 0
+byte 4 0
+byte 4 10
+byte 4 10
+byte 4 150
+byte 4 0
+byte 4 4
+byte 4 184
+byte 4 4
+byte 4 0
+byte 4 90
+byte 4 981668463
+byte 4 1069547520
+byte 4 80
+byte 4 1067030938
+byte 4 1092616192
+byte 4 1073741824
+byte 4 1086324736
+byte 4 1120403456
+byte 4 1137180672
+byte 4 1061997773
+byte 4 8
+byte 4 7
+byte 4 0
+byte 4 1
+byte 4 350
+byte 4 7
+address $572
+address $573
+address $571
+byte 4 1063675494
+address $574
+byte 4 1065353216
+address $562
+byte 4 6
+byte 4 3250585600
+byte 4 3250585600
+byte 4 3250585600
+byte 4 1103101952
+byte 4 1103101952
+byte 4 1103101952
+byte 4 1103101952
+byte 4 1103101952
+byte 4 1103101952
+byte 4 3250585600
+byte 4 3250585600
+byte 4 3229614080
+byte 4 1103101952
+byte 4 1103101952
+byte 4 1082130432
+byte 4 0
+byte 4 0
+byte 4 12
+byte 4 12
+byte 4 175
+byte 4 0
+byte 4 5
+byte 4 184
+byte 4 5
+byte 4 0
+byte 4 90
+byte 4 981668463
+byte 4 1069547520
+byte 4 80
+byte 4 1067030938
+byte 4 1092616192
+byte 4 1073741824
+byte 4 1086324736
+byte 4 1120403456
+byte 4 1137180672
+byte 4 1060320051
+byte 4 8
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 450
+byte 4 8
+address $575
+address $576
+address $577
+byte 4 1065353216
+address $554
+byte 4 1065353216
+address $562
+byte 4 7
+byte 4 3254779904
+byte 4 3254779904
+byte 4 3249012736
+byte 4 1107296256
+byte 4 1107296256
+byte 4 1101529088
+byte 4 1107296256
+byte 4 1107296256
+byte 4 1101529088
+byte 4 3254779904
+byte 4 3254779904
+byte 4 3229614080
+byte 4 1107296256
+byte 4 1107296256
+byte 4 1082130432
+byte 4 0
+byte 4 1103101952
+byte 4 24
+byte 4 24
+byte 4 200
+byte 4 0
+byte 4 6
+byte 4 56
+byte 4 6
+byte 4 0
+byte 4 110
+byte 4 973279855
+byte 4 1067869798
+byte 4 90
+byte 4 1066192077
+byte 4 1092616192
+byte 4 1065353216
+byte 4 1086324736
+byte 4 1128792064
+byte 4 1132920832
+byte 4 1056964608
+byte 4 10
+byte 4 9
+byte 4 0
+byte 4 1
+byte 4 500
+byte 4 9
+address $578
+address $579
+address $577
+byte 4 1065353216
+address $554
+byte 4 1065353216
+address $562
+byte 4 4
+byte 4 3254779904
+byte 4 3254779904
+byte 4 3249012736
+byte 4 1107296256
+byte 4 1107296256
+byte 4 1101529088
+byte 4 1107296256
+byte 4 1107296256
+byte 4 1101529088
+byte 4 3254779904
+byte 4 3254779904
+byte 4 3229614080
+byte 4 1107296256
+byte 4 1107296256
+byte 4 1082130432
+byte 4 0
+byte 4 1107296256
+byte 4 27
+byte 4 27
+byte 4 250
+byte 4 0
+byte 4 7
+byte 4 56
+byte 4 7
+byte 4 0
+byte 4 110
+byte 4 973279855
+byte 4 1067869798
+byte 4 90
+byte 4 1066192077
+byte 4 1092616192
+byte 4 1065353216
+byte 4 1086324736
+byte 4 1128792064
+byte 4 1132920832
+byte 4 1053609165
+byte 4 10
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 600
+byte 4 10
+address $580
+address $581
+address $582
+byte 4 1065353216
+address $554
+byte 4 1073741824
+address $562
+byte 4 4
+byte 4 3253731328
+byte 4 3253731328
+byte 4 3248488448
+byte 4 1106247680
+byte 4 1106247680
+byte 4 1101004800
+byte 4 1106247680
+byte 4 1106247680
+byte 4 1101004800
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3229614080
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1082130432
+byte 4 0
+byte 4 1118830592
+byte 4 35
+byte 4 35
+byte 4 400
+byte 4 0
+byte 4 7
+byte 4 56
+byte 4 8
+byte 4 0
+byte 4 90
+byte 4 981668463
+byte 4 1066192077
+byte 4 100
+byte 4 1067030938
+byte 4 1092616192
+byte 4 1065353216
+byte 4 1086324736
+byte 4 1120403456
+byte 4 1126825984
+byte 4 1036831949
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 2
+byte 4 800
+byte 4 11
+address $583
+address $584
+address $585
+byte 4 1065353216
+address $554
+byte 4 1065353216
+address $586
+byte 4 7
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3250585600
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1107296256
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1098907648
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3229614080
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1082130432
+byte 4 0
+byte 4 1098907648
+byte 4 26
+byte 4 12
+byte 4 100
+byte 4 1065353216
+byte 4 0
+byte 4 66
+byte 4 0
+byte 4 1121714176
+byte 4 90
+byte 4 990057071
+byte 4 1065353216
+byte 4 100
+byte 4 1065353216
+byte 4 1092616192
+byte 4 1065353216
+byte 4 1086324736
+byte 4 1120403456
+byte 4 1130102784
+byte 4 1065353216
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 12
+address $587
+address $588
+address $589
+byte 4 1065353216
+address $554
+byte 4 1065353216
+address $586
+byte 4 4
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3256352768
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1108869120
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1108869120
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3229614080
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1082130432
+byte 4 3246391296
+byte 4 1103626240
+byte 4 35
+byte 4 35
+byte 4 100
+byte 4 1065353216
+byte 4 0
+byte 4 66
+byte 4 0
+byte 4 1121714176
+byte 4 90
+byte 4 990057071
+byte 4 1065353216
+byte 4 100
+byte 4 1065353216
+byte 4 1092616192
+byte 4 1065353216
+byte 4 1086324736
+byte 4 1120403456
+byte 4 1132920832
+byte 4 1065353216
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+export bg_numPclasses
+align 4
+LABELV bg_numPclasses
+byte 4 13
+export BG_FindClassNumForName
+code
+proc BG_FindClassNumForName 8 8
+ADDRFP4 0
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $594
+JUMPV
+LABELV $591
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+4
+ADDP4
+INDIRP4
+ARGP4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRLP4 4
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 4
+INDIRI4
+CNSTI4 0
+NEI4 $595
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $590
+JUMPV
+LABELV $595
+LABELV $592
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $594
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $591
+CNSTI4 0
+RETI4
+LABELV $590
+endproc BG_FindClassNumForName 8 8
+export BG_FindNameForClassNum
+proc BG_FindNameForClassNum 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $602
+JUMPV
+LABELV $599
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $603
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+4
+ADDP4
+INDIRP4
+RETP4
+ADDRGP4 $598
+JUMPV
+LABELV $603
+LABELV $600
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $602
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $599
+ADDRGP4 $606
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTP4 0
+RETP4
+LABELV $598
+endproc BG_FindNameForClassNum 4 4
+export BG_FindHumanNameForClassNum
+proc BG_FindHumanNameForClassNum 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList+200
+ADDP4
+INDIRI1
+CVII4 1
+CNSTI4 0
+EQI4 $608
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList+200
+ADDP4
+RETP4
+ADDRGP4 $607
+JUMPV
+LABELV $608
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $615
+JUMPV
+LABELV $612
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $616
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+8
+ADDP4
+INDIRP4
+RETP4
+ADDRGP4 $607
+JUMPV
+LABELV $616
+LABELV $613
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $615
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $612
+ADDRGP4 $619
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTP4 0
+RETP4
+LABELV $607
+endproc BG_FindHumanNameForClassNum 4 4
+export BG_FindModelNameForClass
+proc BG_FindModelNameForClass 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList
+ADDP4
+INDIRI1
+CVII4 1
+CNSTI4 0
+EQI4 $621
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList
+ADDP4
+RETP4
+ADDRGP4 $620
+JUMPV
+LABELV $621
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $626
+JUMPV
+LABELV $623
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $627
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+12
+ADDP4
+INDIRP4
+RETP4
+ADDRGP4 $620
+JUMPV
+LABELV $627
+LABELV $624
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $626
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $623
+ADDRGP4 $630
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+ADDRGP4 bg_classList+12
+INDIRP4
+RETP4
+LABELV $620
+endproc BG_FindModelNameForClass 4 4
+export BG_FindModelScaleForClass
+proc BG_FindModelScaleForClass 4 8
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList+64
+ADDP4
+INDIRF4
+CNSTF4 0
+EQF4 $633
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList+64
+ADDP4
+INDIRF4
+RETF4
+ADDRGP4 $632
+JUMPV
+LABELV $633
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $640
+JUMPV
+LABELV $637
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $641
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+16
+ADDP4
+INDIRF4
+RETF4
+ADDRGP4 $632
+JUMPV
+LABELV $641
+LABELV $638
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $640
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $637
+ADDRGP4 $644
+ARGP4
+ADDRFP4 0
+INDIRI4
+ARGI4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTF4 1065353216
+RETF4
+LABELV $632
+endproc BG_FindModelScaleForClass 4 8
+export BG_FindSkinNameForClass
+proc BG_FindSkinNameForClass 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList+68
+ADDP4
+INDIRI1
+CVII4 1
+CNSTI4 0
+EQI4 $646
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList+68
+ADDP4
+RETP4
+ADDRGP4 $645
+JUMPV
+LABELV $646
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $653
+JUMPV
+LABELV $650
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $654
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+20
+ADDP4
+INDIRP4
+RETP4
+ADDRGP4 $645
+JUMPV
+LABELV $654
+LABELV $651
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $653
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $650
+ADDRGP4 $657
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+ADDRGP4 bg_classList+20
+INDIRP4
+RETP4
+LABELV $645
+endproc BG_FindSkinNameForClass 4 4
+export BG_FindShadowScaleForClass
+proc BG_FindShadowScaleForClass 4 8
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList+132
+ADDP4
+INDIRF4
+CNSTF4 0
+EQF4 $660
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList+132
+ADDP4
+INDIRF4
+RETF4
+ADDRGP4 $659
+JUMPV
+LABELV $660
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $667
+JUMPV
+LABELV $664
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $668
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+24
+ADDP4
+INDIRF4
+RETF4
+ADDRGP4 $659
+JUMPV
+LABELV $668
+LABELV $665
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $667
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $664
+ADDRGP4 $671
+ARGP4
+ADDRFP4 0
+INDIRI4
+ARGI4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTF4 1065353216
+RETF4
+LABELV $659
+endproc BG_FindShadowScaleForClass 4 8
+export BG_FindHudNameForClass
+proc BG_FindHudNameForClass 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList+136
+ADDP4
+INDIRI1
+CVII4 1
+CNSTI4 0
+EQI4 $673
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList+136
+ADDP4
+RETP4
+ADDRGP4 $672
+JUMPV
+LABELV $673
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $680
+JUMPV
+LABELV $677
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $681
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+28
+ADDP4
+INDIRP4
+RETP4
+ADDRGP4 $672
+JUMPV
+LABELV $681
+LABELV $678
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $680
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $677
+ADDRGP4 $684
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+ADDRGP4 bg_classList+28
+INDIRP4
+RETP4
+LABELV $672
+endproc BG_FindHudNameForClass 4 4
+export BG_FindStagesForClass
+proc BG_FindStagesForClass 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRFP4 4
+ADDRFP4 4
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $690
+JUMPV
+LABELV $687
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $691
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+32
+ADDP4
+INDIRI4
+CNSTI4 1
+ADDRFP4 4
+INDIRI4
+LSHI4
+BANDI4
+CNSTI4 0
+EQI4 $693
+CNSTI4 1
+RETI4
+ADDRGP4 $686
+JUMPV
+LABELV $693
+CNSTI4 0
+RETI4
+ADDRGP4 $686
+JUMPV
+LABELV $691
+LABELV $688
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $690
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $687
+ADDRGP4 $696
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTI4 0
+RETI4
+LABELV $686
+endproc BG_FindStagesForClass 4 4
+export BG_FindBBoxForClass
+proc BG_FindBBoxForClass 8 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRFP4 4
+ADDRFP4 4
+INDIRP4
+ASGNP4
+ADDRFP4 8
+ADDRFP4 8
+INDIRP4
+ASGNP4
+ADDRFP4 12
+ADDRFP4 12
+INDIRP4
+ASGNP4
+ADDRFP4 16
+ADDRFP4 16
+INDIRP4
+ASGNP4
+ADDRFP4 20
+ADDRFP4 20
+INDIRP4
+ASGNP4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $701
+JUMPV
+LABELV $698
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $702
+ADDRFP4 4
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $704
+ADDRFP4 4
+INDIRP4
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+36
+ADDP4
+INDIRB
+ASGNB 12
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList+1224
+ADDP4
+ARGP4
+ADDRLP4 4
+ADDRGP4 VectorLength
+CALLF4
+ASGNF4
+ADDRLP4 4
+INDIRF4
+CNSTF4 0
+EQF4 $707
+ADDRFP4 4
+INDIRP4
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList+1224
+ADDP4
+INDIRB
+ASGNB 12
+LABELV $707
+LABELV $704
+ADDRFP4 8
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $711
+ADDRFP4 8
+INDIRP4
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+48
+ADDP4
+INDIRB
+ASGNB 12
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList+1236
+ADDP4
+ARGP4
+ADDRLP4 4
+ADDRGP4 VectorLength
+CALLF4
+ASGNF4
+ADDRLP4 4
+INDIRF4
+CNSTF4 0
+EQF4 $714
+ADDRFP4 8
+INDIRP4
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList+1236
+ADDP4
+INDIRB
+ASGNB 12
+LABELV $714
+LABELV $711
+ADDRFP4 12
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $718
+ADDRFP4 12
+INDIRP4
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+60
+ADDP4
+INDIRB
+ASGNB 12
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList+1248
+ADDP4
+ARGP4
+ADDRLP4 4
+ADDRGP4 VectorLength
+CALLF4
+ASGNF4
+ADDRLP4 4
+INDIRF4
+CNSTF4 0
+EQF4 $721
+ADDRFP4 12
+INDIRP4
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList+1248
+ADDP4
+INDIRB
+ASGNB 12
+LABELV $721
+LABELV $718
+ADDRFP4 16
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $725
+ADDRFP4 16
+INDIRP4
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+72
+ADDP4
+INDIRB
+ASGNB 12
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList+1260
+ADDP4
+ARGP4
+ADDRLP4 4
+ADDRGP4 VectorLength
+CALLF4
+ASGNF4
+ADDRLP4 4
+INDIRF4
+CNSTF4 0
+EQF4 $728
+ADDRFP4 16
+INDIRP4
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList+1260
+ADDP4
+INDIRB
+ASGNB 12
+LABELV $728
+LABELV $725
+ADDRFP4 20
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $697
+ADDRFP4 20
+INDIRP4
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+84
+ADDP4
+INDIRB
+ASGNB 12
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList+1272
+ADDP4
+ARGP4
+ADDRLP4 4
+ADDRGP4 VectorLength
+CALLF4
+ASGNF4
+ADDRLP4 4
+INDIRF4
+CNSTF4 0
+EQF4 $697
+ADDRFP4 20
+INDIRP4
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList+1272
+ADDP4
+INDIRB
+ASGNB 12
+ADDRGP4 $697
+JUMPV
+LABELV $702
+LABELV $699
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $701
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $698
+ADDRFP4 4
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $739
+ADDRFP4 4
+INDIRP4
+ADDRGP4 bg_classList+36
+INDIRB
+ASGNB 12
+LABELV $739
+ADDRFP4 8
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $742
+ADDRFP4 8
+INDIRP4
+ADDRGP4 bg_classList+48
+INDIRB
+ASGNB 12
+LABELV $742
+ADDRFP4 12
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $745
+ADDRFP4 12
+INDIRP4
+ADDRGP4 bg_classList+60
+INDIRB
+ASGNB 12
+LABELV $745
+ADDRFP4 16
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $748
+ADDRFP4 16
+INDIRP4
+ADDRGP4 bg_classList+72
+INDIRB
+ASGNB 12
+LABELV $748
+ADDRFP4 20
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $751
+ADDRFP4 20
+INDIRP4
+ADDRGP4 bg_classList+84
+INDIRB
+ASGNB 12
+LABELV $751
+LABELV $697
+endproc BG_FindBBoxForClass 8 4
+export BG_FindSpriteHeightForClass
+proc BG_FindSpriteHeightForClass 8 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $758
+JUMPV
+LABELV $755
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $759
+ADDRLP4 4
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ASGNI4
+ADDRLP4 4
+INDIRI4
+ADDRGP4 bg_classList+48+8
+ADDP4
+INDIRF4
+ADDRLP4 4
+INDIRI4
+ADDRGP4 bg_classList+100
+ADDP4
+INDIRF4
+ADDF4
+RETF4
+ADDRGP4 $754
+JUMPV
+LABELV $759
+LABELV $756
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $758
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $755
+CNSTF4 0
+RETF4
+LABELV $754
+endproc BG_FindSpriteHeightForClass 8 0
+export BG_FindZOffsetForClass
+proc BG_FindZOffsetForClass 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList+1292
+ADDP4
+INDIRF4
+CNSTF4 0
+EQF4 $765
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList+1292
+ADDP4
+INDIRF4
+RETF4
+ADDRGP4 $764
+JUMPV
+LABELV $765
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $772
+JUMPV
+LABELV $769
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $773
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+96
+ADDP4
+INDIRF4
+RETF4
+ADDRGP4 $764
+JUMPV
+LABELV $773
+LABELV $770
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $772
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $769
+ADDRGP4 $776
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTF4 0
+RETF4
+LABELV $764
+endproc BG_FindZOffsetForClass 4 4
+export BG_FindViewheightForClass
+proc BG_FindViewheightForClass 16 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 4
+CNSTI4 0
+ASGNI4
+ADDRLP4 8
+CNSTI4 0
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $781
+JUMPV
+LABELV $778
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $782
+ADDRLP4 12
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ASGNI4
+ADDRLP4 4
+ADDRLP4 12
+INDIRI4
+ADDRGP4 bg_classList+104
+ADDP4
+INDIRI4
+ASGNI4
+ADDRLP4 8
+ADDRLP4 12
+INDIRI4
+ADDRGP4 bg_classList+108
+ADDP4
+INDIRI4
+ASGNI4
+ADDRGP4 $780
+JUMPV
+LABELV $782
+LABELV $779
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $781
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $778
+LABELV $780
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList+1284
+ADDP4
+INDIRI4
+CNSTI4 0
+EQI4 $786
+ADDRLP4 4
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList+1284
+ADDP4
+INDIRI4
+ASGNI4
+LABELV $786
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList+1288
+ADDP4
+INDIRI4
+CNSTI4 0
+EQI4 $790
+ADDRLP4 8
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList+1288
+ADDP4
+INDIRI4
+ASGNI4
+LABELV $790
+ADDRLP4 4
+INDIRI4
+CNSTI4 0
+NEI4 $794
+ADDRLP4 4
+ADDRGP4 bg_classList+104
+INDIRI4
+ASGNI4
+LABELV $794
+ADDRLP4 8
+INDIRI4
+CNSTI4 0
+NEI4 $797
+ADDRLP4 8
+ADDRGP4 bg_classList+108
+INDIRI4
+ASGNI4
+LABELV $797
+ADDRFP4 4
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $800
+ADDRFP4 4
+INDIRP4
+ADDRLP4 4
+INDIRI4
+ASGNI4
+LABELV $800
+ADDRFP4 8
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $802
+ADDRFP4 8
+INDIRP4
+ADDRLP4 8
+INDIRI4
+ASGNI4
+LABELV $802
+LABELV $777
+endproc BG_FindViewheightForClass 16 0
+export BG_FindHealthForClass
+proc BG_FindHealthForClass 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $808
+JUMPV
+LABELV $805
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $809
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+112
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $804
+JUMPV
+LABELV $809
+LABELV $806
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $808
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $805
+ADDRGP4 $812
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTI4 100
+RETI4
+LABELV $804
+endproc BG_FindHealthForClass 4 4
+export BG_FindFallDamageForClass
+proc BG_FindFallDamageForClass 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $817
+JUMPV
+LABELV $814
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $818
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+116
+ADDP4
+INDIRF4
+RETF4
+ADDRGP4 $813
+JUMPV
+LABELV $818
+LABELV $815
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $817
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $814
+ADDRGP4 $821
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTF4 1120403456
+RETF4
+LABELV $813
+endproc BG_FindFallDamageForClass 4 4
+export BG_FindRegenRateForClass
+proc BG_FindRegenRateForClass 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $826
+JUMPV
+LABELV $823
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $827
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+120
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $822
+JUMPV
+LABELV $827
+LABELV $824
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $826
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $823
+ADDRGP4 $830
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTI4 0
+RETI4
+LABELV $822
+endproc BG_FindRegenRateForClass 4 4
+export BG_FindFovForClass
+proc BG_FindFovForClass 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $835
+JUMPV
+LABELV $832
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $836
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+136
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $831
+JUMPV
+LABELV $836
+LABELV $833
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $835
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $832
+ADDRGP4 $839
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTI4 90
+RETI4
+LABELV $831
+endproc BG_FindFovForClass 4 4
+export BG_FindBobForClass
+proc BG_FindBobForClass 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $844
+JUMPV
+LABELV $841
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $845
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+140
+ADDP4
+INDIRF4
+RETF4
+ADDRGP4 $840
+JUMPV
+LABELV $845
+LABELV $842
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $844
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $841
+ADDRGP4 $848
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTF4 990057071
+RETF4
+LABELV $840
+endproc BG_FindBobForClass 4 4
+export BG_FindBobCycleForClass
+proc BG_FindBobCycleForClass 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $853
+JUMPV
+LABELV $850
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $854
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+144
+ADDP4
+INDIRF4
+RETF4
+ADDRGP4 $849
+JUMPV
+LABELV $854
+LABELV $851
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $853
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $850
+ADDRGP4 $857
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTF4 1065353216
+RETF4
+LABELV $849
+endproc BG_FindBobCycleForClass 4 4
+export BG_FindSpeedForClass
+proc BG_FindSpeedForClass 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $862
+JUMPV
+LABELV $859
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $863
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+152
+ADDP4
+INDIRF4
+RETF4
+ADDRGP4 $858
+JUMPV
+LABELV $863
+LABELV $860
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $862
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $859
+ADDRGP4 $866
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTF4 1065353216
+RETF4
+LABELV $858
+endproc BG_FindSpeedForClass 4 4
+export BG_FindAccelerationForClass
+proc BG_FindAccelerationForClass 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $871
+JUMPV
+LABELV $868
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $872
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+156
+ADDP4
+INDIRF4
+RETF4
+ADDRGP4 $867
+JUMPV
+LABELV $872
+LABELV $869
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $871
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $868
+ADDRGP4 $875
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTF4 1092616192
+RETF4
+LABELV $867
+endproc BG_FindAccelerationForClass 4 4
+export BG_FindAirAccelerationForClass
+proc BG_FindAirAccelerationForClass 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $880
+JUMPV
+LABELV $877
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $881
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+160
+ADDP4
+INDIRF4
+RETF4
+ADDRGP4 $876
+JUMPV
+LABELV $881
+LABELV $878
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $880
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $877
+ADDRGP4 $884
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTF4 1065353216
+RETF4
+LABELV $876
+endproc BG_FindAirAccelerationForClass 4 4
+export BG_FindFrictionForClass
+proc BG_FindFrictionForClass 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $889
+JUMPV
+LABELV $886
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $890
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+164
+ADDP4
+INDIRF4
+RETF4
+ADDRGP4 $885
+JUMPV
+LABELV $890
+LABELV $887
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $889
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $886
+ADDRGP4 $893
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTF4 1086324736
+RETF4
+LABELV $885
+endproc BG_FindFrictionForClass 4 4
+export BG_FindStopSpeedForClass
+proc BG_FindStopSpeedForClass 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $898
+JUMPV
+LABELV $895
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $899
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+168
+ADDP4
+INDIRF4
+RETF4
+ADDRGP4 $894
+JUMPV
+LABELV $899
+LABELV $896
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $898
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $895
+ADDRGP4 $902
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTF4 1120403456
+RETF4
+LABELV $894
+endproc BG_FindStopSpeedForClass 4 4
+export BG_FindJumpMagnitudeForClass
+proc BG_FindJumpMagnitudeForClass 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $907
+JUMPV
+LABELV $904
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $908
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+172
+ADDP4
+INDIRF4
+RETF4
+ADDRGP4 $903
+JUMPV
+LABELV $908
+LABELV $905
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $907
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $904
+ADDRGP4 $911
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTF4 1132920832
+RETF4
+LABELV $903
+endproc BG_FindJumpMagnitudeForClass 4 4
+export BG_FindKnockbackScaleForClass
+proc BG_FindKnockbackScaleForClass 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $916
+JUMPV
+LABELV $913
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $917
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+176
+ADDP4
+INDIRF4
+RETF4
+ADDRGP4 $912
+JUMPV
+LABELV $917
+LABELV $914
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $916
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $913
+ADDRGP4 $920
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTF4 1065353216
+RETF4
+LABELV $912
+endproc BG_FindKnockbackScaleForClass 4 4
+export BG_FindSteptimeForClass
+proc BG_FindSteptimeForClass 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $925
+JUMPV
+LABELV $922
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $926
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+148
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $921
+JUMPV
+LABELV $926
+LABELV $923
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $925
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $922
+ADDRGP4 $929
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTI4 200
+RETI4
+LABELV $921
+endproc BG_FindSteptimeForClass 4 4
+export BG_ClassHasAbility
+proc BG_ClassHasAbility 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRFP4 4
+ADDRFP4 4
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $934
+JUMPV
+LABELV $931
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $935
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+124
+ADDP4
+INDIRI4
+ADDRFP4 4
+INDIRI4
+BANDI4
+RETI4
+ADDRGP4 $930
+JUMPV
+LABELV $935
+LABELV $932
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $934
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $931
+CNSTI4 0
+RETI4
+LABELV $930
+endproc BG_ClassHasAbility 4 0
+export BG_FindStartWeaponForClass
+proc BG_FindStartWeaponForClass 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $942
+JUMPV
+LABELV $939
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $943
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+128
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $938
+JUMPV
+LABELV $943
+LABELV $940
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $942
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $939
+ADDRGP4 $946
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTI4 0
+RETI4
+LABELV $938
+endproc BG_FindStartWeaponForClass 4 4
+export BG_FindBuildDistForClass
+proc BG_FindBuildDistForClass 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $951
+JUMPV
+LABELV $948
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $952
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+132
+ADDP4
+INDIRF4
+RETF4
+ADDRGP4 $947
+JUMPV
+LABELV $952
+LABELV $949
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $951
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $948
+ADDRGP4 $955
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTF4 0
+RETF4
+LABELV $947
+endproc BG_FindBuildDistForClass 4 4
+export BG_ClassCanEvolveFromTo
+proc BG_ClassCanEvolveFromTo 36 16
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRFP4 4
+ADDRFP4 4
+INDIRI4
+ASGNI4
+ADDRFP4 8
+ADDRFP4 8
+INDIRI4
+ASGNI4
+ADDRFP4 12
+ADDRFP4 12
+INDIRI4
+ASGNI4
+ADDRFP4 4
+INDIRI4
+ARGI4
+ADDRLP4 12
+ADDRGP4 BG_FindCostOfClass
+CALLI4
+ASGNI4
+ADDRLP4 8
+ADDRLP4 12
+INDIRI4
+ASGNI4
+ADDRFP4 8
+INDIRI4
+ADDRLP4 8
+INDIRI4
+GEI4 $957
+CNSTI4 -1
+RETI4
+ADDRGP4 $956
+JUMPV
+LABELV $957
+ADDRLP4 16
+CNSTI4 0
+ASGNI4
+ADDRFP4 0
+INDIRI4
+ADDRLP4 16
+INDIRI4
+EQI4 $961
+ADDRFP4 4
+INDIRI4
+ADDRLP4 16
+INDIRI4
+NEI4 $959
+LABELV $961
+CNSTI4 -1
+RETI4
+ADDRGP4 $956
+JUMPV
+LABELV $959
+ADDRLP4 4
+CNSTI4 0
+ASGNI4
+ADDRGP4 $965
+JUMPV
+LABELV $962
+CNSTI4 200
+ADDRLP4 4
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $966
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+LABELV $968
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+CNSTI4 200
+ADDRLP4 4
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+180
+ADDP4
+ADDP4
+INDIRI4
+ADDRFP4 4
+INDIRI4
+NEI4 $972
+ADDRFP4 12
+INDIRI4
+ADDRLP4 8
+INDIRI4
+ADDI4
+RETI4
+ADDRGP4 $956
+JUMPV
+LABELV $972
+LABELV $969
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+CNSTI4 3
+LTI4 $968
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+LABELV $975
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+CNSTI4 200
+ADDRLP4 4
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+180
+ADDP4
+ADDP4
+INDIRI4
+ARGI4
+ADDRLP4 24
+ADDRGP4 BG_FindCostOfClass
+CALLI4
+ASGNI4
+ADDRLP4 8
+ADDRLP4 24
+INDIRI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+CNSTI4 200
+ADDRLP4 4
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+180
+ADDP4
+ADDP4
+INDIRI4
+ARGI4
+ADDRFP4 4
+INDIRI4
+ARGI4
+ADDRFP4 8
+INDIRI4
+ADDRLP4 8
+INDIRI4
+SUBI4
+ARGI4
+ADDRFP4 12
+INDIRI4
+ADDRLP4 8
+INDIRI4
+ADDI4
+ARGI4
+ADDRLP4 32
+ADDRGP4 BG_ClassCanEvolveFromTo
+CALLI4
+ASGNI4
+ADDRLP4 20
+ADDRLP4 32
+INDIRI4
+ASGNI4
+ADDRLP4 20
+INDIRI4
+CNSTI4 0
+LTI4 $981
+ADDRLP4 20
+INDIRI4
+RETI4
+ADDRGP4 $956
+JUMPV
+LABELV $981
+LABELV $976
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+CNSTI4 3
+LTI4 $975
+CNSTI4 -1
+RETI4
+ADDRGP4 $956
+JUMPV
+LABELV $966
+LABELV $963
+ADDRLP4 4
+ADDRLP4 4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $965
+ADDRLP4 4
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $962
+CNSTI4 -1
+RETI4
+LABELV $956
+endproc BG_ClassCanEvolveFromTo 36 16
+export BG_FindValueOfClass
+proc BG_FindValueOfClass 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $987
+JUMPV
+LABELV $984
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $988
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+196
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $983
+JUMPV
+LABELV $988
+LABELV $985
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $987
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $984
+ADDRGP4 $991
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTI4 0
+RETI4
+LABELV $983
+endproc BG_FindValueOfClass 4 4
+export BG_FindCostOfClass
+proc BG_FindCostOfClass 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $996
+JUMPV
+LABELV $993
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $997
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+192
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $992
+JUMPV
+LABELV $997
+LABELV $994
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $996
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $993
+ADDRGP4 $1000
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTI4 0
+RETI4
+LABELV $992
+endproc BG_FindCostOfClass 4 4
+proc BG_FindOverrideForClass 0 0
+CNSTI4 1296
+ADDRFP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classOverrideList
+ADDP4
+RETP4
+LABELV $1001
+endproc BG_FindOverrideForClass 0 0
+proc BG_ParseClassFile 20104 12
+ADDRFP4 4
+ADDRFP4 4
+INDIRP4
+ASGNP4
+ADDRLP4 16
+CNSTF4 0
+ASGNF4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRLP4 20020
+ARGP4
+CNSTI4 0
+ARGI4
+ADDRLP4 20024
+ADDRGP4 trap_FS_FOpenFile
+CALLI4
+ASGNI4
+ADDRLP4 12
+ADDRLP4 20024
+INDIRI4
+ASGNI4
+ADDRLP4 12
+INDIRI4
+CNSTI4 0
+GEI4 $1003
+CNSTI4 0
+RETI4
+ADDRGP4 $1002
+JUMPV
+LABELV $1003
+ADDRLP4 12
+INDIRI4
+CNSTI4 0
+EQI4 $1007
+ADDRLP4 12
+INDIRI4
+CVIU4 4
+CNSTU4 19999
+LTU4 $1005
+LABELV $1007
+ADDRLP4 20020
+INDIRI4
+ARGI4
+ADDRGP4 trap_FS_FCloseFile
+CALLV
+pop
+ADDRGP4 $1008
+ARGP4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRLP4 12
+INDIRI4
+CNSTI4 0
+NEI4 $1010
+ADDRLP4 20032
+ADDRGP4 $489
+ASGNP4
+ADDRGP4 $1011
+JUMPV
+LABELV $1010
+ADDRLP4 20032
+ADDRGP4 $490
+ASGNP4
+LABELV $1011
+ADDRLP4 20032
+INDIRP4
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTI4 0
+RETI4
+ADDRGP4 $1002
+JUMPV
+LABELV $1005
+ADDRLP4 20
+ARGP4
+ADDRLP4 12
+INDIRI4
+ARGI4
+ADDRLP4 20020
+INDIRI4
+ARGI4
+ADDRGP4 trap_FS_Read
+CALLV
+pop
+ADDRLP4 12
+INDIRI4
+ADDRLP4 20
+ADDP4
+CNSTI1 0
+ASGNI1
+ADDRLP4 20020
+INDIRI4
+ARGI4
+ADDRGP4 trap_FS_FCloseFile
+CALLV
+pop
+ADDRLP4 4
+ADDRLP4 20
+ASGNP4
+ADDRGP4 $1013
+JUMPV
+LABELV $1012
+ADDRLP4 4
+ARGP4
+ADDRLP4 20032
+ADDRGP4 COM_Parse
+CALLP4
+ASGNP4
+ADDRLP4 0
+ADDRLP4 20032
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $1015
+ADDRGP4 $1014
+JUMPV
+LABELV $1015
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 $501
+ARGP4
+ADDRLP4 20036
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 20036
+INDIRI4
+CNSTI4 0
+NEI4 $1017
+ADDRGP4 $1014
+JUMPV
+LABELV $1017
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 $504
+ARGP4
+ADDRLP4 20040
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 20040
+INDIRI4
+CNSTI4 0
+NEI4 $1019
+ADDRLP4 4
+ARGP4
+ADDRLP4 20044
+ADDRGP4 COM_Parse
+CALLP4
+ASGNP4
+ADDRLP4 0
+ADDRLP4 20044
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $1021
+ADDRGP4 $1014
+JUMPV
+LABELV $1021
+ADDRFP4 4
+INDIRP4
+ARGP4
+ADDRLP4 0
+INDIRP4
+ARGP4
+CNSTI4 64
+ARGI4
+ADDRGP4 Q_strncpyz
+CALLV
+pop
+ADDRGP4 $1013
+JUMPV
+LABELV $1019
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 $1025
+ARGP4
+ADDRLP4 20044
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 20044
+INDIRI4
+CNSTI4 0
+NEI4 $1023
+ADDRLP4 4
+ARGP4
+ADDRLP4 20048
+ADDRGP4 COM_Parse
+CALLP4
+ASGNP4
+ADDRLP4 0
+ADDRLP4 20048
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $1026
+ADDRGP4 $1014
+JUMPV
+LABELV $1026
+ADDRFP4 4
+INDIRP4
+CNSTI4 68
+ADDP4
+ARGP4
+ADDRLP4 0
+INDIRP4
+ARGP4
+CNSTI4 64
+ARGI4
+ADDRGP4 Q_strncpyz
+CALLV
+pop
+ADDRGP4 $1013
+JUMPV
+LABELV $1023
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 $1030
+ARGP4
+ADDRLP4 20048
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 20048
+INDIRI4
+CNSTI4 0
+NEI4 $1028
+ADDRLP4 4
+ARGP4
+ADDRLP4 20052
+ADDRGP4 COM_Parse
+CALLP4
+ASGNP4
+ADDRLP4 0
+ADDRLP4 20052
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $1031
+ADDRGP4 $1014
+JUMPV
+LABELV $1031
+ADDRFP4 4
+INDIRP4
+CNSTI4 136
+ADDP4
+ARGP4
+ADDRLP4 0
+INDIRP4
+ARGP4
+CNSTI4 64
+ARGI4
+ADDRGP4 Q_strncpyz
+CALLV
+pop
+ADDRGP4 $1013
+JUMPV
+LABELV $1028
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 $515
+ARGP4
+ADDRLP4 20052
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 20052
+INDIRI4
+CNSTI4 0
+NEI4 $1033
+ADDRLP4 4
+ARGP4
+ADDRLP4 20056
+ADDRGP4 COM_Parse
+CALLP4
+ASGNP4
+ADDRLP4 0
+ADDRLP4 20056
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $1035
+ADDRGP4 $1014
+JUMPV
+LABELV $1035
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRLP4 20060
+ADDRGP4 atof
+CALLF4
+ASGNF4
+ADDRLP4 16
+ADDRLP4 20060
+INDIRF4
+ASGNF4
+ADDRLP4 16
+INDIRF4
+CNSTF4 0
+GEF4 $1037
+ADDRLP4 16
+CNSTF4 0
+ASGNF4
+LABELV $1037
+ADDRFP4 4
+INDIRP4
+CNSTI4 64
+ADDP4
+ADDRLP4 16
+INDIRF4
+ASGNF4
+ADDRGP4 $1013
+JUMPV
+LABELV $1033
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 $1041
+ARGP4
+ADDRLP4 20056
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 20056
+INDIRI4
+CNSTI4 0
+NEI4 $1039
+ADDRLP4 4
+ARGP4
+ADDRLP4 20060
+ADDRGP4 COM_Parse
+CALLP4
+ASGNP4
+ADDRLP4 0
+ADDRLP4 20060
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $1042
+ADDRGP4 $1014
+JUMPV
+LABELV $1042
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRLP4 20064
+ADDRGP4 atof
+CALLF4
+ASGNF4
+ADDRLP4 16
+ADDRLP4 20064
+INDIRF4
+ASGNF4
+ADDRLP4 16
+INDIRF4
+CNSTF4 0
+GEF4 $1044
+ADDRLP4 16
+CNSTF4 0
+ASGNF4
+LABELV $1044
+ADDRFP4 4
+INDIRP4
+CNSTI4 132
+ADDP4
+ADDRLP4 16
+INDIRF4
+ASGNF4
+ADDRGP4 $1013
+JUMPV
+LABELV $1039
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 $522
+ARGP4
+ADDRLP4 20060
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 20060
+INDIRI4
+CNSTI4 0
+NEI4 $1046
+ADDRLP4 8
+CNSTI4 0
+ASGNI4
+LABELV $1048
+ADDRLP4 4
+ARGP4
+ADDRLP4 20064
+ADDRGP4 COM_Parse
+CALLP4
+ASGNP4
+ADDRLP4 0
+ADDRLP4 20064
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $1052
+ADDRGP4 $1013
+JUMPV
+LABELV $1052
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRLP4 20068
+ADDRGP4 atof
+CALLF4
+ASGNF4
+ADDRLP4 8
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 1224
+ADDP4
+ADDP4
+ADDRLP4 20068
+INDIRF4
+ASGNF4
+LABELV $1049
+ADDRLP4 8
+ADDRLP4 8
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 8
+INDIRI4
+CNSTI4 2
+LEI4 $1048
+ADDRGP4 $1013
+JUMPV
+LABELV $1046
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 $531
+ARGP4
+ADDRLP4 20064
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 20064
+INDIRI4
+CNSTI4 0
+NEI4 $1054
+ADDRLP4 8
+CNSTI4 0
+ASGNI4
+LABELV $1056
+ADDRLP4 4
+ARGP4
+ADDRLP4 20068
+ADDRGP4 COM_Parse
+CALLP4
+ASGNP4
+ADDRLP4 0
+ADDRLP4 20068
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $1060
+ADDRGP4 $1013
+JUMPV
+LABELV $1060
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRLP4 20072
+ADDRGP4 atof
+CALLF4
+ASGNF4
+ADDRLP4 8
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 1236
+ADDP4
+ADDP4
+ADDRLP4 20072
+INDIRF4
+ASGNF4
+LABELV $1057
+ADDRLP4 8
+ADDRLP4 8
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 8
+INDIRI4
+CNSTI4 2
+LEI4 $1056
+ADDRGP4 $1013
+JUMPV
+LABELV $1054
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 $1064
+ARGP4
+ADDRLP4 20068
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 20068
+INDIRI4
+CNSTI4 0
+NEI4 $1062
+ADDRLP4 8
+CNSTI4 0
+ASGNI4
+LABELV $1065
+ADDRLP4 4
+ARGP4
+ADDRLP4 20072
+ADDRGP4 COM_Parse
+CALLP4
+ASGNP4
+ADDRLP4 0
+ADDRLP4 20072
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $1069
+ADDRGP4 $1013
+JUMPV
+LABELV $1069
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRLP4 20076
+ADDRGP4 atof
+CALLF4
+ASGNF4
+ADDRLP4 8
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 1260
+ADDP4
+ADDP4
+ADDRLP4 20076
+INDIRF4
+ASGNF4
+LABELV $1066
+ADDRLP4 8
+ADDRLP4 8
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 8
+INDIRI4
+CNSTI4 2
+LEI4 $1065
+ADDRGP4 $1013
+JUMPV
+LABELV $1062
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 $1073
+ARGP4
+ADDRLP4 20072
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 20072
+INDIRI4
+CNSTI4 0
+NEI4 $1071
+ADDRLP4 8
+CNSTI4 0
+ASGNI4
+LABELV $1074
+ADDRLP4 4
+ARGP4
+ADDRLP4 20076
+ADDRGP4 COM_Parse
+CALLP4
+ASGNP4
+ADDRLP4 0
+ADDRLP4 20076
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $1078
+ADDRGP4 $1013
+JUMPV
+LABELV $1078
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRLP4 20080
+ADDRGP4 atof
+CALLF4
+ASGNF4
+ADDRLP4 8
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 1272
+ADDP4
+ADDP4
+ADDRLP4 20080
+INDIRF4
+ASGNF4
+LABELV $1075
+ADDRLP4 8
+ADDRLP4 8
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 8
+INDIRI4
+CNSTI4 2
+LEI4 $1074
+ADDRGP4 $1013
+JUMPV
+LABELV $1071
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 $1082
+ARGP4
+ADDRLP4 20076
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 20076
+INDIRI4
+CNSTI4 0
+NEI4 $1080
+ADDRLP4 8
+CNSTI4 0
+ASGNI4
+LABELV $1083
+ADDRLP4 4
+ARGP4
+ADDRLP4 20080
+ADDRGP4 COM_Parse
+CALLP4
+ASGNP4
+ADDRLP4 0
+ADDRLP4 20080
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $1087
+ADDRGP4 $1013
+JUMPV
+LABELV $1087
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRLP4 20084
+ADDRGP4 atof
+CALLF4
+ASGNF4
+ADDRLP4 8
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 1248
+ADDP4
+ADDP4
+ADDRLP4 20084
+INDIRF4
+ASGNF4
+LABELV $1084
+ADDRLP4 8
+ADDRLP4 8
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 8
+INDIRI4
+CNSTI4 2
+LEI4 $1083
+ADDRGP4 $1013
+JUMPV
+LABELV $1080
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 $1091
+ARGP4
+ADDRLP4 20080
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 20080
+INDIRI4
+CNSTI4 0
+NEI4 $1089
+ADDRLP4 4
+ARGP4
+ADDRLP4 20084
+ADDRGP4 COM_Parse
+CALLP4
+ASGNP4
+ADDRLP4 0
+ADDRLP4 20084
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRLP4 20088
+ADDRGP4 atoi
+CALLI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 1284
+ADDP4
+ADDRLP4 20088
+INDIRI4
+ASGNI4
+ADDRGP4 $1013
+JUMPV
+LABELV $1089
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 $1094
+ARGP4
+ADDRLP4 20084
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 20084
+INDIRI4
+CNSTI4 0
+NEI4 $1092
+ADDRLP4 4
+ARGP4
+ADDRLP4 20088
+ADDRGP4 COM_Parse
+CALLP4
+ASGNP4
+ADDRLP4 0
+ADDRLP4 20088
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRLP4 20092
+ADDRGP4 atoi
+CALLI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 1288
+ADDP4
+ADDRLP4 20092
+INDIRI4
+ASGNI4
+ADDRGP4 $1013
+JUMPV
+LABELV $1092
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 $540
+ARGP4
+ADDRLP4 20088
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 20088
+INDIRI4
+CNSTI4 0
+NEI4 $1095
+ADDRLP4 4
+ARGP4
+ADDRLP4 20096
+ADDRGP4 COM_Parse
+CALLP4
+ASGNP4
+ADDRLP4 0
+ADDRLP4 20096
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $1097
+ADDRGP4 $1014
+JUMPV
+LABELV $1097
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRLP4 20100
+ADDRGP4 atof
+CALLF4
+ASGNF4
+ADDRLP4 20092
+ADDRLP4 20100
+INDIRF4
+ASGNF4
+ADDRFP4 4
+INDIRP4
+CNSTI4 1292
+ADDP4
+ADDRLP4 20092
+INDIRF4
+ASGNF4
+ADDRGP4 $1013
+JUMPV
+LABELV $1095
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 $1101
+ARGP4
+ADDRLP4 20092
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 20092
+INDIRI4
+CNSTI4 0
+NEI4 $1099
+ADDRLP4 4
+ARGP4
+ADDRLP4 20096
+ADDRGP4 COM_Parse
+CALLP4
+ASGNP4
+ADDRLP4 0
+ADDRLP4 20096
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $1102
+ADDRGP4 $1014
+JUMPV
+LABELV $1102
+ADDRFP4 4
+INDIRP4
+CNSTI4 200
+ADDP4
+ARGP4
+ADDRLP4 0
+INDIRP4
+ARGP4
+CNSTI4 1024
+ARGI4
+ADDRGP4 Q_strncpyz
+CALLV
+pop
+ADDRGP4 $1013
+JUMPV
+LABELV $1099
+ADDRGP4 $543
+ARGP4
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+CNSTI4 0
+RETI4
+ADDRGP4 $1002
+JUMPV
+LABELV $1013
+ADDRGP4 $1012
+JUMPV
+LABELV $1014
+CNSTI4 1
+RETI4
+LABELV $1002
+endproc BG_ParseClassFile 20104 12
+export BG_InitClassOverrides
+proc BG_InitClassOverrides 20 8
+ADDRLP4 0
+CNSTI4 1
+ASGNI4
+LABELV $1105
+ADDRLP4 0
+INDIRI4
+ARGI4
+ADDRLP4 8
+ADDRGP4 BG_FindOverrideForClass
+CALLP4
+ASGNP4
+ADDRLP4 4
+ADDRLP4 8
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRI4
+ARGI4
+ADDRLP4 12
+ADDRGP4 BG_FindNameForClassNum
+CALLP4
+ASGNP4
+ADDRGP4 $1109
+ARGP4
+ADDRLP4 12
+INDIRP4
+ARGP4
+ADDRLP4 16
+ADDRGP4 va
+CALLP4
+ASGNP4
+ADDRLP4 16
+INDIRP4
+ARGP4
+ADDRLP4 4
+INDIRP4
+ARGP4
+ADDRGP4 BG_ParseClassFile
+CALLI4
+pop
+LABELV $1106
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+CNSTI4 13
+LTI4 $1105
+LABELV $1104
+endproc BG_InitClassOverrides 20 8
+data
+export bg_weapons
+align 4
+LABELV bg_weapons
+byte 4 9
+byte 4 0
+byte 4 7
+byte 4 0
+address $1110
+address $1111
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 600
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 1101004800
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 2
+byte 4 10
+byte 4 0
+byte 4 7
+byte 4 32
+address $121
+address $122
+byte 4 30
+byte 4 6
+byte 4 0
+byte 4 0
+byte 4 90
+byte 4 0
+byte 4 0
+byte 4 2000
+byte 4 1065353216
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 1101004800
+byte 4 1
+byte 4 1
+byte 4 0
+byte 4 2
+byte 4 12
+byte 4 150
+byte 4 7
+byte 4 32
+address $125
+address $126
+byte 4 8
+byte 4 3
+byte 4 0
+byte 4 0
+byte 4 1000
+byte 4 0
+byte 4 0
+byte 4 2000
+byte 4 1065353216
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 1101004800
+byte 4 1
+byte 4 1
+byte 4 0
+byte 4 2
+byte 4 17
+byte 4 450
+byte 4 7
+byte 4 32
+address $129
+address $1112
+byte 4 150
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 200
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 1101004800
+byte 4 1
+byte 4 1
+byte 4 0
+byte 4 2
+byte 4 15
+byte 4 400
+byte 4 7
+byte 4 32
+address $133
+address $134
+byte 4 300
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 80
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 1101004800
+byte 4 1
+byte 4 1
+byte 4 0
+byte 4 2
+byte 4 14
+byte 4 350
+byte 4 7
+byte 4 32
+address $137
+address $1113
+byte 4 5
+byte 4 4
+byte 4 0
+byte 4 1
+byte 4 1000
+byte 4 0
+byte 4 0
+byte 4 2000
+byte 4 1065353216
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 1097859072
+byte 4 1
+byte 4 1
+byte 4 0
+byte 4 2
+byte 4 16
+byte 4 400
+byte 4 7
+byte 4 32
+address $141
+address $1114
+byte 4 50
+byte 4 4
+byte 4 0
+byte 4 1
+byte 4 100
+byte 4 0
+byte 4 0
+byte 4 2000
+byte 4 1065353216
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 1101004800
+byte 4 1
+byte 4 1
+byte 4 0
+byte 4 2
+byte 4 18
+byte 4 600
+byte 4 7
+byte 4 32
+address $145
+address $1115
+byte 4 90
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 500
+byte 4 1000
+byte 4 0
+byte 4 2000
+byte 4 1065353216
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 1119092736
+byte 4 1
+byte 4 1
+byte 4 0
+byte 4 2
+byte 4 13
+byte 4 250
+byte 4 7
+byte 4 32
+address $149
+address $1116
+byte 4 200
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 200
+byte 4 0
+byte 4 0
+byte 4 2000
+byte 4 1065353216
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1119092736
+byte 4 1
+byte 4 1
+byte 4 0
+byte 4 2
+byte 4 11
+byte 4 100
+byte 4 7
+byte 4 32
+address $153
+address $1117
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 75
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 1101004800
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 2
+byte 4 19
+byte 4 200
+byte 4 7
+byte 4 0
+address $1118
+address $1119
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1036831949
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1119092736
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 2
+byte 4 22
+byte 4 300
+byte 4 7
+byte 4 0
+address $165
+address $166
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1119092736
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 2
+byte 4 20
+byte 4 200
+byte 4 7
+byte 4 0
+address $1120
+address $1121
+byte 4 1
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 1000
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1036831949
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1119092736
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 2
+byte 4 21
+byte 4 1000
+byte 4 7
+byte 4 32
+address $161
+address $1122
+byte 4 4
+byte 4 2
+byte 4 0
+byte 4 0
+byte 4 1000
+byte 4 1000
+byte 4 0
+byte 4 2000
+byte 4 1036831949
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 1119092736
+byte 4 1
+byte 4 1
+byte 4 0
+byte 4 2
+byte 4 30
+byte 4 0
+byte 4 7
+byte 4 32
+address $1123
+address $1124
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 2000
+byte 4 2000
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 1119092736
+byte 4 1
+byte 4 0
+byte 4 5500
+byte 4 2
+byte 4 29
+byte 4 0
+byte 4 7
+byte 4 32
+address $1125
+address $1126
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 1000
+byte 4 1000
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 1119092736
+byte 4 1
+byte 4 0
+byte 4 4500
+byte 4 2
+byte 4 27
+byte 4 0
+byte 4 7
+byte 4 32
+address $1127
+address $1128
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 500
+byte 4 500
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 1119092736
+byte 4 1
+byte 4 0
+byte 4 17000
+byte 4 1
+byte 4 28
+byte 4 0
+byte 4 7
+byte 4 32
+address $1129
+address $1130
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 500
+byte 4 1000
+byte 4 1000
+byte 4 0
+byte 4 1065353216
+byte 4 1
+byte 4 1
+byte 4 0
+byte 4 1119092736
+byte 4 1
+byte 4 0
+byte 4 12000
+byte 4 1
+byte 4 1
+byte 4 0
+byte 4 7
+byte 4 32
+address $559
+address $1131
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 500
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 1101004800
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 2
+byte 4 0
+byte 4 7
+byte 4 32
+address $563
+address $1132
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 600
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1119092736
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 3
+byte 4 0
+byte 4 7
+byte 4 32
+address $566
+address $1133
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 500
+byte 4 2000
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 1119092736
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 1
+byte 4 4
+byte 4 0
+byte 4 7
+byte 4 32
+address $569
+address $1131
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 500
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1119092736
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 5
+byte 4 0
+byte 4 7
+byte 4 32
+address $572
+address $1134
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 400
+byte 4 1500
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 1119092736
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 6
+byte 4 0
+byte 4 7
+byte 4 32
+address $575
+address $1135
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 700
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1119092736
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 7
+byte 4 0
+byte 4 7
+byte 4 32
+address $578
+address $1136
+byte 4 3
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 600
+byte 4 0
+byte 4 1000
+byte 4 0
+byte 4 1065353216
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 1119092736
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 1
+byte 4 8
+byte 4 0
+byte 4 7
+byte 4 32
+address $580
+address $1137
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 750
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1119092736
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 23
+byte 4 0
+byte 4 7
+byte 4 32
+address $1138
+address $1139
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 500
+byte 4 500
+byte 4 500
+byte 4 0
+byte 4 1065353216
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1119092736
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 24
+byte 4 0
+byte 4 7
+byte 4 32
+address $73
+address $74
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 500
+byte 4 500
+byte 4 500
+byte 4 0
+byte 4 1065353216
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1119092736
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 26
+byte 4 0
+byte 4 7
+byte 4 32
+address $95
+address $96
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1119092736
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 2
+byte 4 25
+byte 4 0
+byte 4 7
+byte 4 32
+address $1140
+address $102
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 1
+byte 4 500
+byte 4 500
+byte 4 500
+byte 4 0
+byte 4 1082130432
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1119092736
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 2
+export bg_numWeapons
+align 4
+LABELV bg_numWeapons
+byte 4 30
+export BG_FindPriceForWeapon
+code
+proc BG_FindPriceForWeapon 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1145
+JUMPV
+LABELV $1142
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1146
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons+4
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $1141
+JUMPV
+LABELV $1146
+LABELV $1143
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1145
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numWeapons
+INDIRI4
+LTI4 $1142
+CNSTI4 100
+RETI4
+LABELV $1141
+endproc BG_FindPriceForWeapon 4 0
+export BG_FindStagesForWeapon
+proc BG_FindStagesForWeapon 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRFP4 4
+ADDRFP4 4
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1153
+JUMPV
+LABELV $1150
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1154
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons+8
+ADDP4
+INDIRI4
+CNSTI4 1
+ADDRFP4 4
+INDIRI4
+LSHI4
+BANDI4
+CNSTI4 0
+EQI4 $1156
+CNSTI4 1
+RETI4
+ADDRGP4 $1149
+JUMPV
+LABELV $1156
+CNSTI4 0
+RETI4
+ADDRGP4 $1149
+JUMPV
+LABELV $1154
+LABELV $1151
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1153
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numWeapons
+INDIRI4
+LTI4 $1150
+CNSTI4 0
+RETI4
+LABELV $1149
+endproc BG_FindStagesForWeapon 4 0
+export BG_FindSlotsForWeapon
+proc BG_FindSlotsForWeapon 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1163
+JUMPV
+LABELV $1160
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1164
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons+12
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $1159
+JUMPV
+LABELV $1164
+LABELV $1161
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1163
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numWeapons
+INDIRI4
+LTI4 $1160
+CNSTI4 32
+RETI4
+LABELV $1159
+endproc BG_FindSlotsForWeapon 4 0
+export BG_FindNameForWeapon
+proc BG_FindNameForWeapon 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1171
+JUMPV
+LABELV $1168
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1172
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons+16
+ADDP4
+INDIRP4
+RETP4
+ADDRGP4 $1167
+JUMPV
+LABELV $1172
+LABELV $1169
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1171
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numWeapons
+INDIRI4
+LTI4 $1168
+CNSTP4 0
+RETP4
+LABELV $1167
+endproc BG_FindNameForWeapon 4 0
+export BG_FindWeaponNumForName
+proc BG_FindWeaponNumForName 8 8
+ADDRFP4 0
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1179
+JUMPV
+LABELV $1176
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons+16
+ADDP4
+INDIRP4
+ARGP4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRLP4 4
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 4
+INDIRI4
+CNSTI4 0
+NEI4 $1180
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $1175
+JUMPV
+LABELV $1180
+LABELV $1177
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1179
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numWeapons
+INDIRI4
+LTI4 $1176
+CNSTI4 0
+RETI4
+LABELV $1175
+endproc BG_FindWeaponNumForName 8 8
+export BG_FindHumanNameForWeapon
+proc BG_FindHumanNameForWeapon 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1187
+JUMPV
+LABELV $1184
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1188
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons+20
+ADDP4
+INDIRP4
+RETP4
+ADDRGP4 $1183
+JUMPV
+LABELV $1188
+LABELV $1185
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1187
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numWeapons
+INDIRI4
+LTI4 $1184
+CNSTP4 0
+RETP4
+LABELV $1183
+endproc BG_FindHumanNameForWeapon 4 0
+export BG_FindAmmoForWeapon
+proc BG_FindAmmoForWeapon 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRFP4 4
+ADDRFP4 4
+INDIRP4
+ASGNP4
+ADDRFP4 8
+ADDRFP4 8
+INDIRP4
+ASGNP4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1195
+JUMPV
+LABELV $1192
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1196
+ADDRFP4 4
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $1198
+ADDRFP4 4
+INDIRP4
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons+24
+ADDP4
+INDIRI4
+ASGNI4
+LABELV $1198
+ADDRFP4 8
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $1194
+ADDRFP4 8
+INDIRP4
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons+28
+ADDP4
+INDIRI4
+ASGNI4
+ADDRGP4 $1194
+JUMPV
+LABELV $1196
+LABELV $1193
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1195
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numWeapons
+INDIRI4
+LTI4 $1192
+LABELV $1194
+LABELV $1191
+endproc BG_FindAmmoForWeapon 4 0
+export BG_FindInfinteAmmoForWeapon
+proc BG_FindInfinteAmmoForWeapon 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1208
+JUMPV
+LABELV $1205
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1209
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons+32
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $1204
+JUMPV
+LABELV $1209
+LABELV $1206
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1208
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numWeapons
+INDIRI4
+LTI4 $1205
+CNSTI4 0
+RETI4
+LABELV $1204
+endproc BG_FindInfinteAmmoForWeapon 4 0
+export BG_FindUsesEnergyForWeapon
+proc BG_FindUsesEnergyForWeapon 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1216
+JUMPV
+LABELV $1213
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1217
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons+36
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $1212
+JUMPV
+LABELV $1217
+LABELV $1214
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1216
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numWeapons
+INDIRI4
+LTI4 $1213
+CNSTI4 0
+RETI4
+LABELV $1212
+endproc BG_FindUsesEnergyForWeapon 4 0
+export BG_FindRepeatRate1ForWeapon
+proc BG_FindRepeatRate1ForWeapon 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1224
+JUMPV
+LABELV $1221
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1225
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons+40
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $1220
+JUMPV
+LABELV $1225
+LABELV $1222
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1224
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numWeapons
+INDIRI4
+LTI4 $1221
+CNSTI4 1000
+RETI4
+LABELV $1220
+endproc BG_FindRepeatRate1ForWeapon 4 0
+export BG_FindRepeatRate2ForWeapon
+proc BG_FindRepeatRate2ForWeapon 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1232
+JUMPV
+LABELV $1229
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1233
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons+44
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $1228
+JUMPV
+LABELV $1233
+LABELV $1230
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1232
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numWeapons
+INDIRI4
+LTI4 $1229
+CNSTI4 1000
+RETI4
+LABELV $1228
+endproc BG_FindRepeatRate2ForWeapon 4 0
+export BG_FindRepeatRate3ForWeapon
+proc BG_FindRepeatRate3ForWeapon 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1240
+JUMPV
+LABELV $1237
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1241
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons+48
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $1236
+JUMPV
+LABELV $1241
+LABELV $1238
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1240
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numWeapons
+INDIRI4
+LTI4 $1237
+CNSTI4 1000
+RETI4
+LABELV $1236
+endproc BG_FindRepeatRate3ForWeapon 4 0
+export BG_FindReloadTimeForWeapon
+proc BG_FindReloadTimeForWeapon 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1248
+JUMPV
+LABELV $1245
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1249
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons+52
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $1244
+JUMPV
+LABELV $1249
+LABELV $1246
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1248
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numWeapons
+INDIRI4
+LTI4 $1245
+CNSTI4 1000
+RETI4
+LABELV $1244
+endproc BG_FindReloadTimeForWeapon 4 0
+export BG_FindKnockbackScaleForWeapon
+proc BG_FindKnockbackScaleForWeapon 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1256
+JUMPV
+LABELV $1253
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1257
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons+56
+ADDP4
+INDIRF4
+RETF4
+ADDRGP4 $1252
+JUMPV
+LABELV $1257
+LABELV $1254
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1256
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numWeapons
+INDIRI4
+LTI4 $1253
+CNSTF4 1065353216
+RETF4
+LABELV $1252
+endproc BG_FindKnockbackScaleForWeapon 4 0
+export BG_WeaponHasAltMode
+proc BG_WeaponHasAltMode 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1264
+JUMPV
+LABELV $1261
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1265
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons+60
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $1260
+JUMPV
+LABELV $1265
+LABELV $1262
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1264
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numWeapons
+INDIRI4
+LTI4 $1261
+CNSTI4 0
+RETI4
+LABELV $1260
+endproc BG_WeaponHasAltMode 4 0
+export BG_WeaponHasThirdMode
+proc BG_WeaponHasThirdMode 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1272
+JUMPV
+LABELV $1269
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1273
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons+64
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $1268
+JUMPV
+LABELV $1273
+LABELV $1270
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1272
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numWeapons
+INDIRI4
+LTI4 $1269
+CNSTI4 0
+RETI4
+LABELV $1268
+endproc BG_WeaponHasThirdMode 4 0
+export BG_WeaponCanZoom
+proc BG_WeaponCanZoom 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1280
+JUMPV
+LABELV $1277
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1281
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons+68
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $1276
+JUMPV
+LABELV $1281
+LABELV $1278
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1280
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numWeapons
+INDIRI4
+LTI4 $1277
+CNSTI4 0
+RETI4
+LABELV $1276
+endproc BG_WeaponCanZoom 4 0
+export BG_FindZoomFovForWeapon
+proc BG_FindZoomFovForWeapon 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1288
+JUMPV
+LABELV $1285
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1289
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons+72
+ADDP4
+INDIRF4
+RETF4
+ADDRGP4 $1284
+JUMPV
+LABELV $1289
+LABELV $1286
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1288
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numWeapons
+INDIRI4
+LTI4 $1285
+CNSTF4 0
+RETF4
+LABELV $1284
+endproc BG_FindZoomFovForWeapon 4 0
+export BG_FindPurchasableForWeapon
+proc BG_FindPurchasableForWeapon 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1296
+JUMPV
+LABELV $1293
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1297
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons+76
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $1292
+JUMPV
+LABELV $1297
+LABELV $1294
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1296
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numWeapons
+INDIRI4
+LTI4 $1293
+CNSTI4 0
+RETI4
+LABELV $1292
+endproc BG_FindPurchasableForWeapon 4 0
+export BG_FindLongRangedForWeapon
+proc BG_FindLongRangedForWeapon 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1304
+JUMPV
+LABELV $1301
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1305
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons+80
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $1300
+JUMPV
+LABELV $1305
+LABELV $1302
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1304
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numWeapons
+INDIRI4
+LTI4 $1301
+CNSTI4 0
+RETI4
+LABELV $1300
+endproc BG_FindLongRangedForWeapon 4 0
+export BG_FindBuildDelayForWeapon
+proc BG_FindBuildDelayForWeapon 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1312
+JUMPV
+LABELV $1309
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1313
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons+84
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $1308
+JUMPV
+LABELV $1313
+LABELV $1310
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1312
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numWeapons
+INDIRI4
+LTI4 $1309
+CNSTI4 0
+RETI4
+LABELV $1308
+endproc BG_FindBuildDelayForWeapon 4 0
+export BG_FindTeamForWeapon
+proc BG_FindTeamForWeapon 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1320
+JUMPV
+LABELV $1317
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1321
+CNSTI4 92
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_weapons+88
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $1316
+JUMPV
+LABELV $1321
+LABELV $1318
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1320
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numWeapons
+INDIRI4
+LTI4 $1317
+CNSTI4 0
+RETI4
+LABELV $1316
+endproc BG_FindTeamForWeapon 4 0
+data
+export bg_upgrades
+align 4
+LABELV bg_upgrades
+byte 4 1
+byte 4 70
+byte 4 7
+byte 4 14
+address $1324
+address $1325
+address $1326
+byte 4 1
+byte 4 0
+byte 4 2
+byte 4 2
+byte 4 90
+byte 4 7
+byte 4 1
+address $1327
+address $1328
+address $1329
+byte 4 1
+byte 4 0
+byte 4 2
+byte 4 3
+byte 4 0
+byte 4 7
+byte 4 0
+address $1330
+address $1331
+address $1332
+byte 4 0
+byte 4 1
+byte 4 2
+byte 4 4
+byte 4 100
+byte 4 7
+byte 4 16
+address $1333
+address $1334
+address $1335
+byte 4 1
+byte 4 0
+byte 4 2
+byte 4 5
+byte 4 200
+byte 4 7
+byte 4 0
+address $1336
+address $1119
+byte 4 0
+byte 4 1
+byte 4 1
+byte 4 2
+byte 4 6
+byte 4 300
+byte 4 7
+byte 4 0
+address $1337
+address $166
+byte 4 0
+byte 4 1
+byte 4 1
+byte 4 2
+byte 4 7
+byte 4 0
+byte 4 7
+byte 4 0
+address $1338
+address $1339
+byte 4 0
+byte 4 1
+byte 4 0
+byte 4 2
+export bg_numUpgrades
+align 4
+LABELV bg_numUpgrades
+byte 4 7
+export BG_FindPriceForUpgrade
+code
+proc BG_FindPriceForUpgrade 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1344
+JUMPV
+LABELV $1341
+CNSTI4 40
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_upgrades
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1345
+CNSTI4 40
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_upgrades+4
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $1340
+JUMPV
+LABELV $1345
+LABELV $1342
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1344
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numUpgrades
+INDIRI4
+LTI4 $1341
+CNSTI4 100
+RETI4
+LABELV $1340
+endproc BG_FindPriceForUpgrade 4 0
+export BG_FindStagesForUpgrade
+proc BG_FindStagesForUpgrade 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRFP4 4
+ADDRFP4 4
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1352
+JUMPV
+LABELV $1349
+CNSTI4 40
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_upgrades
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1353
+CNSTI4 40
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_upgrades+8
+ADDP4
+INDIRI4
+CNSTI4 1
+ADDRFP4 4
+INDIRI4
+LSHI4
+BANDI4
+CNSTI4 0
+EQI4 $1355
+CNSTI4 1
+RETI4
+ADDRGP4 $1348
+JUMPV
+LABELV $1355
+CNSTI4 0
+RETI4
+ADDRGP4 $1348
+JUMPV
+LABELV $1353
+LABELV $1350
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1352
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numUpgrades
+INDIRI4
+LTI4 $1349
+CNSTI4 0
+RETI4
+LABELV $1348
+endproc BG_FindStagesForUpgrade 4 0
+export BG_FindSlotsForUpgrade
+proc BG_FindSlotsForUpgrade 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1362
+JUMPV
+LABELV $1359
+CNSTI4 40
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_upgrades
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1363
+CNSTI4 40
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_upgrades+12
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $1358
+JUMPV
+LABELV $1363
+LABELV $1360
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1362
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numUpgrades
+INDIRI4
+LTI4 $1359
+CNSTI4 0
+RETI4
+LABELV $1358
+endproc BG_FindSlotsForUpgrade 4 0
+export BG_FindNameForUpgrade
+proc BG_FindNameForUpgrade 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1370
+JUMPV
+LABELV $1367
+CNSTI4 40
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_upgrades
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1371
+CNSTI4 40
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_upgrades+16
+ADDP4
+INDIRP4
+RETP4
+ADDRGP4 $1366
+JUMPV
+LABELV $1371
+LABELV $1368
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1370
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numUpgrades
+INDIRI4
+LTI4 $1367
+CNSTP4 0
+RETP4
+LABELV $1366
+endproc BG_FindNameForUpgrade 4 0
+export BG_FindUpgradeNumForName
+proc BG_FindUpgradeNumForName 8 8
+ADDRFP4 0
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1378
+JUMPV
+LABELV $1375
+CNSTI4 40
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_upgrades+16
+ADDP4
+INDIRP4
+ARGP4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRLP4 4
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 4
+INDIRI4
+CNSTI4 0
+NEI4 $1379
+CNSTI4 40
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_upgrades
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $1374
+JUMPV
+LABELV $1379
+LABELV $1376
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1378
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numUpgrades
+INDIRI4
+LTI4 $1375
+CNSTI4 0
+RETI4
+LABELV $1374
+endproc BG_FindUpgradeNumForName 8 8
+export BG_FindHumanNameForUpgrade
+proc BG_FindHumanNameForUpgrade 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1386
+JUMPV
+LABELV $1383
+CNSTI4 40
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_upgrades
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1387
+CNSTI4 40
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_upgrades+20
+ADDP4
+INDIRP4
+RETP4
+ADDRGP4 $1382
+JUMPV
+LABELV $1387
+LABELV $1384
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1386
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numUpgrades
+INDIRI4
+LTI4 $1383
+CNSTP4 0
+RETP4
+LABELV $1382
+endproc BG_FindHumanNameForUpgrade 4 0
+export BG_FindIconForUpgrade
+proc BG_FindIconForUpgrade 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1394
+JUMPV
+LABELV $1391
+CNSTI4 40
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_upgrades
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1395
+CNSTI4 40
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_upgrades+24
+ADDP4
+INDIRP4
+RETP4
+ADDRGP4 $1390
+JUMPV
+LABELV $1395
+LABELV $1392
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1394
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numUpgrades
+INDIRI4
+LTI4 $1391
+CNSTP4 0
+RETP4
+LABELV $1390
+endproc BG_FindIconForUpgrade 4 0
+export BG_FindPurchasableForUpgrade
+proc BG_FindPurchasableForUpgrade 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1402
+JUMPV
+LABELV $1399
+CNSTI4 40
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_upgrades
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1403
+CNSTI4 40
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_upgrades+28
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $1398
+JUMPV
+LABELV $1403
+LABELV $1400
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1402
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numUpgrades
+INDIRI4
+LTI4 $1399
+CNSTI4 0
+RETI4
+LABELV $1398
+endproc BG_FindPurchasableForUpgrade 4 0
+export BG_FindUsableForUpgrade
+proc BG_FindUsableForUpgrade 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1410
+JUMPV
+LABELV $1407
+CNSTI4 40
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_upgrades
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1411
+CNSTI4 40
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_upgrades+32
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $1406
+JUMPV
+LABELV $1411
+LABELV $1408
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1410
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numUpgrades
+INDIRI4
+LTI4 $1407
+CNSTI4 0
+RETI4
+LABELV $1406
+endproc BG_FindUsableForUpgrade 4 0
+export BG_FindTeamForUpgrade
+proc BG_FindTeamForUpgrade 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1418
+JUMPV
+LABELV $1415
+CNSTI4 40
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_upgrades
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1419
+CNSTI4 40
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_upgrades+36
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $1414
+JUMPV
+LABELV $1419
+LABELV $1416
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1418
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numUpgrades
+INDIRI4
+LTI4 $1415
+CNSTI4 0
+RETI4
+LABELV $1414
+endproc BG_FindTeamForUpgrade 4 0
+export BG_EvaluateTrajectory
+proc BG_EvaluateTrajectory 108 12
+ADDRFP4 0
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRLP4 8
+ADDRFP4 0
+INDIRP4
+INDIRI4
+ASGNI4
+ADDRLP4 8
+INDIRI4
+CNSTI4 0
+LTI4 $1423
+ADDRLP4 8
+INDIRI4
+CNSTI4 6
+GTI4 $1423
+ADDRLP4 8
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRGP4 $1437
+ADDP4
+INDIRP4
+JUMPV
+lit
+align 4
+LABELV $1437
+address $1426
+address $1426
+address $1427
+address $1429
+address $1428
+address $1434
+address $1435
+code
+LABELV $1426
+ADDRFP4 8
+INDIRP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 12
+ADDP4
+INDIRB
+ASGNB 12
+ADDRGP4 $1424
+JUMPV
+LABELV $1427
+ADDRLP4 0
+CNSTF4 981668463
+ADDRFP4 4
+INDIRI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRI4
+SUBI4
+CVIF4 4
+MULF4
+ASGNF4
+ADDRFP4 8
+INDIRP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 12
+ADDP4
+INDIRF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 24
+ADDP4
+INDIRF4
+ADDRLP4 0
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRFP4 8
+INDIRP4
+CNSTI4 4
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 16
+ADDP4
+INDIRF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 28
+ADDP4
+INDIRF4
+ADDRLP4 0
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRFP4 8
+INDIRP4
+CNSTI4 8
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 20
+ADDP4
+INDIRF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 32
+ADDP4
+INDIRF4
+ADDRLP4 0
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRGP4 $1424
+JUMPV
+LABELV $1428
+ADDRLP4 0
+ADDRFP4 4
+INDIRI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRI4
+SUBI4
+CVIF4 4
+ADDRFP4 0
+INDIRP4
+CNSTI4 8
+ADDP4
+INDIRI4
+CVIF4 4
+DIVF4
+ASGNF4
+CNSTF4 1073741824
+CNSTF4 1078530011
+ADDRLP4 0
+INDIRF4
+MULF4
+MULF4
+ARGF4
+ADDRLP4 32
+ADDRGP4 sin
+CALLF4
+ASGNF4
+ADDRLP4 4
+ADDRLP4 32
+INDIRF4
+ASGNF4
+ADDRFP4 8
+INDIRP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 12
+ADDP4
+INDIRF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 24
+ADDP4
+INDIRF4
+ADDRLP4 4
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRFP4 8
+INDIRP4
+CNSTI4 4
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 16
+ADDP4
+INDIRF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 28
+ADDP4
+INDIRF4
+ADDRLP4 4
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRFP4 8
+INDIRP4
+CNSTI4 8
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 20
+ADDP4
+INDIRF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 32
+ADDP4
+INDIRF4
+ADDRLP4 4
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRGP4 $1424
+JUMPV
+LABELV $1429
+ADDRFP4 4
+INDIRI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 8
+ADDP4
+INDIRI4
+ADDI4
+LEI4 $1430
+ADDRFP4 4
+ADDRFP4 0
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 8
+ADDP4
+INDIRI4
+ADDI4
+ASGNI4
+LABELV $1430
+ADDRLP4 0
+CNSTF4 981668463
+ADDRFP4 4
+INDIRI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRI4
+SUBI4
+CVIF4 4
+MULF4
+ASGNF4
+ADDRLP4 0
+INDIRF4
+CNSTF4 0
+GEF4 $1432
+ADDRLP4 0
+CNSTF4 0
+ASGNF4
+LABELV $1432
+ADDRFP4 8
+INDIRP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 12
+ADDP4
+INDIRF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 24
+ADDP4
+INDIRF4
+ADDRLP4 0
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRFP4 8
+INDIRP4
+CNSTI4 4
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 16
+ADDP4
+INDIRF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 28
+ADDP4
+INDIRF4
+ADDRLP4 0
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRFP4 8
+INDIRP4
+CNSTI4 8
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 20
+ADDP4
+INDIRF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 32
+ADDP4
+INDIRF4
+ADDRLP4 0
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRGP4 $1424
+JUMPV
+LABELV $1434
+ADDRLP4 0
+CNSTF4 981668463
+ADDRFP4 4
+INDIRI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRI4
+SUBI4
+CVIF4 4
+MULF4
+ASGNF4
+ADDRFP4 8
+INDIRP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 12
+ADDP4
+INDIRF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 24
+ADDP4
+INDIRF4
+ADDRLP4 0
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRFP4 8
+INDIRP4
+CNSTI4 4
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 16
+ADDP4
+INDIRF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 28
+ADDP4
+INDIRF4
+ADDRLP4 0
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRFP4 8
+INDIRP4
+CNSTI4 8
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 20
+ADDP4
+INDIRF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 32
+ADDP4
+INDIRF4
+ADDRLP4 0
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRLP4 80
+ADDRFP4 8
+INDIRP4
+CNSTI4 8
+ADDP4
+ASGNP4
+ADDRLP4 84
+ADDRLP4 0
+INDIRF4
+ASGNF4
+ADDRLP4 80
+INDIRP4
+ADDRLP4 80
+INDIRP4
+INDIRF4
+CNSTF4 1137180672
+ADDRLP4 84
+INDIRF4
+MULF4
+ADDRLP4 84
+INDIRF4
+MULF4
+SUBF4
+ASGNF4
+ADDRGP4 $1424
+JUMPV
+LABELV $1435
+ADDRLP4 0
+CNSTF4 981668463
+ADDRFP4 4
+INDIRI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRI4
+SUBI4
+CVIF4 4
+MULF4
+ASGNF4
+ADDRFP4 8
+INDIRP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 12
+ADDP4
+INDIRF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 24
+ADDP4
+INDIRF4
+ADDRLP4 0
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRFP4 8
+INDIRP4
+CNSTI4 4
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 16
+ADDP4
+INDIRF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 28
+ADDP4
+INDIRF4
+ADDRLP4 0
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRFP4 8
+INDIRP4
+CNSTI4 8
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 20
+ADDP4
+INDIRF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 32
+ADDP4
+INDIRF4
+ADDRLP4 0
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRLP4 100
+ADDRFP4 8
+INDIRP4
+CNSTI4 8
+ADDP4
+ASGNP4
+ADDRLP4 104
+ADDRLP4 0
+INDIRF4
+ASGNF4
+ADDRLP4 100
+INDIRP4
+ADDRLP4 100
+INDIRP4
+INDIRF4
+CNSTF4 1137180672
+ADDRLP4 104
+INDIRF4
+MULF4
+ADDRLP4 104
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRGP4 $1424
+JUMPV
+LABELV $1423
+CNSTI4 1
+ARGI4
+ADDRGP4 $1436
+ARGP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRI4
+ARGI4
+ADDRGP4 Com_Error
+CALLV
+pop
+LABELV $1424
+LABELV $1422
+endproc BG_EvaluateTrajectory 108 12
+export BG_EvaluateTrajectoryDelta
+proc BG_EvaluateTrajectoryDelta 52 12
+ADDRLP4 8
+ADDRFP4 0
+INDIRP4
+INDIRI4
+ASGNI4
+ADDRLP4 8
+INDIRI4
+CNSTI4 0
+LTI4 $1439
+ADDRLP4 8
+INDIRI4
+CNSTI4 6
+GTI4 $1439
+ADDRLP4 8
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRGP4 $1451
+ADDP4
+INDIRP4
+JUMPV
+lit
+align 4
+LABELV $1451
+address $1442
+address $1442
+address $1443
+address $1445
+address $1444
+address $1448
+address $1449
+code
+LABELV $1442
+ADDRLP4 16
+ADDRFP4 8
+INDIRP4
+ASGNP4
+ADDRLP4 20
+CNSTF4 0
+ASGNF4
+ADDRLP4 16
+INDIRP4
+CNSTI4 8
+ADDP4
+ADDRLP4 20
+INDIRF4
+ASGNF4
+ADDRLP4 16
+INDIRP4
+CNSTI4 4
+ADDP4
+ADDRLP4 20
+INDIRF4
+ASGNF4
+ADDRLP4 16
+INDIRP4
+ADDRLP4 20
+INDIRF4
+ASGNF4
+ADDRGP4 $1440
+JUMPV
+LABELV $1443
+ADDRFP4 8
+INDIRP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 24
+ADDP4
+INDIRB
+ASGNB 12
+ADDRGP4 $1440
+JUMPV
+LABELV $1444
+ADDRLP4 24
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRLP4 0
+ADDRFP4 4
+INDIRI4
+ADDRLP4 24
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRI4
+SUBI4
+CVIF4 4
+ADDRLP4 24
+INDIRP4
+CNSTI4 8
+ADDP4
+INDIRI4
+CVIF4 4
+DIVF4
+ASGNF4
+CNSTF4 1073741824
+CNSTF4 1078530011
+ADDRLP4 0
+INDIRF4
+MULF4
+MULF4
+ARGF4
+ADDRLP4 28
+ADDRGP4 cos
+CALLF4
+ASGNF4
+ADDRLP4 4
+ADDRLP4 28
+INDIRF4
+ASGNF4
+ADDRLP4 4
+CNSTF4 1056964608
+ADDRLP4 4
+INDIRF4
+MULF4
+ASGNF4
+ADDRFP4 8
+INDIRP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 24
+ADDP4
+INDIRF4
+ADDRLP4 4
+INDIRF4
+MULF4
+ASGNF4
+ADDRFP4 8
+INDIRP4
+CNSTI4 4
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 28
+ADDP4
+INDIRF4
+ADDRLP4 4
+INDIRF4
+MULF4
+ASGNF4
+ADDRFP4 8
+INDIRP4
+CNSTI4 8
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 32
+ADDP4
+INDIRF4
+ADDRLP4 4
+INDIRF4
+MULF4
+ASGNF4
+ADDRGP4 $1440
+JUMPV
+LABELV $1445
+ADDRLP4 32
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRFP4 4
+INDIRI4
+ADDRLP4 32
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRI4
+ADDRLP4 32
+INDIRP4
+CNSTI4 8
+ADDP4
+INDIRI4
+ADDI4
+LEI4 $1446
+ADDRLP4 36
+ADDRFP4 8
+INDIRP4
+ASGNP4
+ADDRLP4 40
+CNSTF4 0
+ASGNF4
+ADDRLP4 36
+INDIRP4
+CNSTI4 8
+ADDP4
+ADDRLP4 40
+INDIRF4
+ASGNF4
+ADDRLP4 36
+INDIRP4
+CNSTI4 4
+ADDP4
+ADDRLP4 40
+INDIRF4
+ASGNF4
+ADDRLP4 36
+INDIRP4
+ADDRLP4 40
+INDIRF4
+ASGNF4
+ADDRGP4 $1438
+JUMPV
+LABELV $1446
+ADDRFP4 8
+INDIRP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 24
+ADDP4
+INDIRB
+ASGNB 12
+ADDRGP4 $1440
+JUMPV
+LABELV $1448
+ADDRLP4 36
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRLP4 0
+CNSTF4 981668463
+ADDRFP4 4
+INDIRI4
+ADDRLP4 36
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRI4
+SUBI4
+CVIF4 4
+MULF4
+ASGNF4
+ADDRFP4 8
+INDIRP4
+ADDRLP4 36
+INDIRP4
+CNSTI4 24
+ADDP4
+INDIRB
+ASGNB 12
+ADDRLP4 40
+ADDRFP4 8
+INDIRP4
+CNSTI4 8
+ADDP4
+ASGNP4
+ADDRLP4 40
+INDIRP4
+ADDRLP4 40
+INDIRP4
+INDIRF4
+CNSTF4 1145569280
+ADDRLP4 0
+INDIRF4
+MULF4
+SUBF4
+ASGNF4
+ADDRGP4 $1440
+JUMPV
+LABELV $1449
+ADDRLP4 44
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRLP4 0
+CNSTF4 981668463
+ADDRFP4 4
+INDIRI4
+ADDRLP4 44
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRI4
+SUBI4
+CVIF4 4
+MULF4
+ASGNF4
+ADDRFP4 8
+INDIRP4
+ADDRLP4 44
+INDIRP4
+CNSTI4 24
+ADDP4
+INDIRB
+ASGNB 12
+ADDRLP4 48
+ADDRFP4 8
+INDIRP4
+CNSTI4 8
+ADDP4
+ASGNP4
+ADDRLP4 48
+INDIRP4
+ADDRLP4 48
+INDIRP4
+INDIRF4
+CNSTF4 1145569280
+ADDRLP4 0
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRGP4 $1440
+JUMPV
+LABELV $1439
+CNSTI4 1
+ARGI4
+ADDRGP4 $1450
+ARGP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRI4
+ARGI4
+ADDRGP4 Com_Error
+CALLV
+pop
+LABELV $1440
+LABELV $1438
+endproc BG_EvaluateTrajectoryDelta 52 12
+data
+export eventnames
+align 4
+LABELV eventnames
+address $1452
+address $1453
+address $1454
+address $1455
+address $1456
+address $1457
+address $1458
+address $1459
+address $1460
+address $1461
+address $1462
+address $1463
+address $1464
+address $1465
+address $1466
+address $1467
+address $1468
+address $1469
+address $1470
+address $1471
+address $1472
+address $1473
+address $1474
+address $1475
+address $1476
+address $1477
+address $1478
+address $1479
+address $1480
+address $1481
+address $1482
+address $1483
+address $1484
+address $1485
+address $1486
+address $1487
+address $1488
+address $1489
+address $1490
+address $1491
+address $1492
+address $1493
+address $1494
+address $1495
+address $1496
+address $1497
+address $1498
+address $1499
+address $1500
+address $1501
+address $1502
+address $1503
+address $1504
+address $1505
+address $1506
+address $1507
+address $1508
+address $1509
+address $1510
+address $1511
+address $1512
+address $1513
+address $1514
+address $1515
+address $1516
+address $1517
+address $1518
+address $1519
+address $1520
+address $1521
+address $1522
+export BG_AddPredictableEventToPlayerstate
+code
+proc BG_AddPredictableEventToPlayerstate 12 0
+ADDRFP4 8
+ADDRFP4 8
+INDIRP4
+ASGNP4
+ADDRFP4 8
+INDIRP4
+CNSTI4 108
+ADDP4
+INDIRI4
+CNSTI4 1
+BANDI4
+CNSTI4 2
+LSHI4
+ADDRFP4 8
+INDIRP4
+CNSTI4 112
+ADDP4
+ADDP4
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRFP4 8
+INDIRP4
+CNSTI4 108
+ADDP4
+INDIRI4
+CNSTI4 1
+BANDI4
+CNSTI4 2
+LSHI4
+ADDRFP4 8
+INDIRP4
+CNSTI4 120
+ADDP4
+ADDP4
+ADDRFP4 4
+INDIRI4
+ASGNI4
+ADDRLP4 8
+ADDRFP4 8
+INDIRP4
+CNSTI4 108
+ADDP4
+ASGNP4
+ADDRLP4 8
+INDIRP4
+ADDRLP4 8
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1523
+endproc BG_AddPredictableEventToPlayerstate 12 0
+export BG_PlayerStateToEntityState
+proc BG_PlayerStateToEntityState 56 8
+ADDRFP4 0
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRFP4 4
+ADDRFP4 4
+INDIRP4
+ASGNP4
+ADDRLP4 4
+ADDRFP4 0
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRI4
+ASGNI4
+ADDRLP4 4
+INDIRI4
+CNSTI4 7
+EQI4 $1528
+ADDRLP4 4
+INDIRI4
+CNSTI4 2
+EQI4 $1528
+ADDRLP4 4
+INDIRI4
+CNSTI4 6
+NEI4 $1525
+LABELV $1528
+ADDRFP4 4
+INDIRP4
+CNSTI4 4
+ADDP4
+CNSTI4 11
+ASGNI4
+ADDRGP4 $1526
+JUMPV
+LABELV $1525
+ADDRFP4 0
+INDIRP4
+CNSTI4 260
+ADDP4
+INDIRI4
+CNSTI4 1
+NEI4 $1529
+ADDRFP4 4
+INDIRP4
+CNSTI4 4
+ADDP4
+CNSTI4 11
+ASGNI4
+ADDRGP4 $1530
+JUMPV
+LABELV $1529
+ADDRFP4 4
+INDIRP4
+CNSTI4 4
+ADDP4
+CNSTI4 1
+ASGNI4
+LABELV $1530
+LABELV $1526
+ADDRFP4 4
+INDIRP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 140
+ADDP4
+INDIRI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 12
+ADDP4
+CNSTI4 1
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 24
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 20
+ADDP4
+INDIRB
+ASGNB 12
+ADDRFP4 8
+INDIRI4
+CNSTI4 0
+EQI4 $1531
+ADDRLP4 8
+ADDRFP4 4
+INDIRP4
+CNSTI4 24
+ADDP4
+ASGNP4
+ADDRLP4 8
+INDIRP4
+ADDRLP4 8
+INDIRP4
+INDIRF4
+CVFI4 4
+CVIF4 4
+ASGNF4
+ADDRLP4 12
+ADDRFP4 4
+INDIRP4
+CNSTI4 28
+ADDP4
+ASGNP4
+ADDRLP4 12
+INDIRP4
+ADDRLP4 12
+INDIRP4
+INDIRF4
+CVFI4 4
+CVIF4 4
+ASGNF4
+ADDRLP4 16
+ADDRFP4 4
+INDIRP4
+CNSTI4 32
+ADDP4
+ASGNP4
+ADDRLP4 16
+INDIRP4
+ADDRLP4 16
+INDIRP4
+INDIRF4
+CVFI4 4
+CVIF4 4
+ASGNF4
+LABELV $1531
+ADDRFP4 4
+INDIRP4
+CNSTI4 36
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 32
+ADDP4
+INDIRB
+ASGNB 12
+ADDRFP4 4
+INDIRP4
+CNSTI4 48
+ADDP4
+CNSTI4 1
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 60
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 152
+ADDP4
+INDIRB
+ASGNB 12
+ADDRFP4 8
+INDIRI4
+CNSTI4 0
+EQI4 $1533
+ADDRLP4 8
+ADDRFP4 4
+INDIRP4
+CNSTI4 60
+ADDP4
+ASGNP4
+ADDRLP4 8
+INDIRP4
+ADDRLP4 8
+INDIRP4
+INDIRF4
+CVFI4 4
+CVIF4 4
+ASGNF4
+ADDRLP4 12
+ADDRFP4 4
+INDIRP4
+CNSTI4 64
+ADDP4
+ASGNP4
+ADDRLP4 12
+INDIRP4
+ADDRLP4 12
+INDIRP4
+INDIRF4
+CVFI4 4
+CVIF4 4
+ASGNF4
+ADDRLP4 16
+ADDRFP4 4
+INDIRP4
+CNSTI4 68
+ADDP4
+ASGNP4
+ADDRLP4 16
+INDIRP4
+ADDRLP4 16
+INDIRP4
+INDIRF4
+CVFI4 4
+CVIF4 4
+ASGNF4
+LABELV $1533
+ADDRLP4 8
+CNSTI4 88
+ASGNI4
+ADDRFP4 4
+INDIRP4
+ADDRLP4 8
+INDIRI4
+ADDP4
+ADDRFP4 0
+INDIRP4
+ADDRLP4 8
+INDIRI4
+ADDP4
+INDIRI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 196
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 76
+ADDP4
+INDIRI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 200
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 84
+ADDP4
+INDIRI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 168
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 140
+ADDP4
+INDIRI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 8
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 104
+ADDP4
+INDIRI4
+ASGNI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 184
+ADDP4
+INDIRI4
+CNSTI4 0
+GTI4 $1535
+ADDRLP4 12
+ADDRFP4 4
+INDIRP4
+CNSTI4 8
+ADDP4
+ASGNP4
+ADDRLP4 12
+INDIRP4
+ADDRLP4 12
+INDIRP4
+INDIRI4
+CNSTI4 1
+BORI4
+ASGNI4
+ADDRGP4 $1536
+JUMPV
+LABELV $1535
+ADDRLP4 16
+ADDRFP4 4
+INDIRP4
+CNSTI4 8
+ADDP4
+ASGNP4
+ADDRLP4 16
+INDIRP4
+ADDRLP4 16
+INDIRP4
+INDIRI4
+CNSTI4 -2
+BANDI4
+ASGNI4
+LABELV $1536
+ADDRFP4 0
+INDIRP4
+CNSTI4 224
+ADDP4
+INDIRI4
+CNSTI4 64
+BANDI4
+CNSTI4 0
+EQI4 $1537
+ADDRLP4 20
+ADDRFP4 4
+INDIRP4
+CNSTI4 8
+ADDP4
+ASGNP4
+ADDRLP4 20
+INDIRP4
+ADDRLP4 20
+INDIRP4
+INDIRI4
+CNSTI4 131072
+BORI4
+ASGNI4
+ADDRGP4 $1538
+JUMPV
+LABELV $1537
+ADDRLP4 24
+ADDRFP4 4
+INDIRP4
+CNSTI4 8
+ADDP4
+ASGNP4
+ADDRLP4 24
+INDIRP4
+ADDRLP4 24
+INDIRP4
+INDIRI4
+CNSTI4 -131073
+BANDI4
+ASGNI4
+LABELV $1538
+ADDRFP4 0
+INDIRP4
+CNSTI4 128
+ADDP4
+INDIRI4
+CNSTI4 0
+EQI4 $1539
+ADDRFP4 4
+INDIRP4
+CNSTI4 180
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 128
+ADDP4
+INDIRI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 184
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 132
+ADDP4
+INDIRI4
+ASGNI4
+ADDRGP4 $1540
+JUMPV
+LABELV $1539
+ADDRFP4 0
+INDIRP4
+CNSTI4 464
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 108
+ADDP4
+INDIRI4
+GEI4 $1541
+ADDRFP4 0
+INDIRP4
+CNSTI4 464
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 108
+ADDP4
+INDIRI4
+CNSTI4 2
+SUBI4
+GEI4 $1543
+ADDRFP4 0
+INDIRP4
+CNSTI4 464
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 108
+ADDP4
+INDIRI4
+CNSTI4 2
+SUBI4
+ASGNI4
+LABELV $1543
+ADDRLP4 48
+ADDRFP4 0
+INDIRP4
+CNSTI4 464
+ADDP4
+ASGNP4
+ADDRLP4 32
+ADDRLP4 48
+INDIRP4
+INDIRI4
+CNSTI4 1
+BANDI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 180
+ADDP4
+ADDRLP4 32
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 112
+ADDP4
+ADDP4
+INDIRI4
+ADDRLP4 48
+INDIRP4
+INDIRI4
+CNSTI4 3
+BANDI4
+CNSTI4 8
+LSHI4
+BORI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 184
+ADDP4
+ADDRLP4 32
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 120
+ADDP4
+ADDP4
+INDIRI4
+ASGNI4
+ADDRLP4 52
+ADDRFP4 0
+INDIRP4
+CNSTI4 464
+ADDP4
+ASGNP4
+ADDRLP4 52
+INDIRP4
+ADDRLP4 52
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1541
+LABELV $1540
+ADDRFP4 4
+INDIRP4
+CNSTI4 192
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 144
+ADDP4
+INDIRI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 148
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 68
+ADDP4
+INDIRI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 160
+ADDP4
+CNSTI4 0
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 164
+ADDP4
+CNSTI4 0
+ASGNI4
+ADDRLP4 0
+CNSTI4 1
+ASGNI4
+LABELV $1545
+ADDRLP4 0
+INDIRI4
+ARGI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 184
+ADDP4
+ARGP4
+ADDRLP4 32
+ADDRGP4 BG_InventoryContainsUpgrade
+CALLI4
+ASGNI4
+ADDRLP4 32
+INDIRI4
+CNSTI4 0
+EQI4 $1549
+ADDRLP4 36
+ADDRFP4 4
+INDIRP4
+CNSTI4 160
+ADDP4
+ASGNP4
+ADDRLP4 36
+INDIRP4
+ADDRLP4 36
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDRLP4 0
+INDIRI4
+LSHI4
+BORI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+ARGI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 184
+ADDP4
+ARGP4
+ADDRLP4 40
+ADDRGP4 BG_UpgradeIsActive
+CALLI4
+ASGNI4
+ADDRLP4 40
+INDIRI4
+CNSTI4 0
+EQI4 $1551
+ADDRLP4 44
+ADDRFP4 4
+INDIRP4
+CNSTI4 164
+ADDP4
+ASGNP4
+ADDRLP4 44
+INDIRP4
+ADDRLP4 44
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDRLP4 0
+INDIRI4
+LSHI4
+BORI4
+ASGNI4
+LABELV $1551
+LABELV $1549
+LABELV $1546
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+CNSTI4 8
+LTI4 $1545
+ADDRFP4 4
+INDIRP4
+CNSTI4 188
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 216
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 212
+ADDP4
+INDIRI4
+CNSTI4 8
+LSHI4
+BORI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 128
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 92
+ADDP4
+INDIRB
+ASGNB 12
+ADDRFP4 0
+INDIRP4
+CNSTI4 224
+ADDP4
+INDIRI4
+CNSTI4 2
+BANDI4
+CNSTI4 0
+EQI4 $1553
+ADDRLP4 36
+ADDRFP4 4
+INDIRP4
+CNSTI4 8
+ADDP4
+ASGNP4
+ADDRLP4 36
+INDIRP4
+ADDRLP4 36
+INDIRP4
+INDIRI4
+CNSTI4 128
+BORI4
+ASGNI4
+LABELV $1553
+ADDRFP4 4
+INDIRP4
+CNSTI4 156
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 444
+ADDP4
+INDIRI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 204
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 440
+ADDP4
+INDIRI4
+ASGNI4
+ADDRLP4 40
+ADDRFP4 4
+INDIRP4
+CNSTI4 204
+ADDP4
+INDIRI4
+ASGNI4
+ADDRLP4 40
+INDIRI4
+CNSTI4 0
+LEI4 $1557
+ADDRLP4 40
+INDIRI4
+CNSTI4 5
+LTI4 $1555
+LABELV $1557
+ADDRFP4 4
+INDIRP4
+CNSTI4 204
+ADDP4
+CNSTI4 1
+ASGNI4
+LABELV $1555
+ADDRFP4 4
+INDIRP4
+CNSTI4 140
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 448
+ADDP4
+INDIRI4
+ASGNI4
+LABELV $1524
+endproc BG_PlayerStateToEntityState 56 8
+export BG_PlayerStateToEntityStateExtraPolate
+proc BG_PlayerStateToEntityStateExtraPolate 56 8
+ADDRFP4 0
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRFP4 4
+ADDRFP4 4
+INDIRP4
+ASGNP4
+ADDRLP4 4
+ADDRFP4 0
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRI4
+ASGNI4
+ADDRLP4 4
+INDIRI4
+CNSTI4 7
+EQI4 $1562
+ADDRLP4 4
+INDIRI4
+CNSTI4 2
+EQI4 $1562
+ADDRLP4 4
+INDIRI4
+CNSTI4 6
+NEI4 $1559
+LABELV $1562
+ADDRFP4 4
+INDIRP4
+CNSTI4 4
+ADDP4
+CNSTI4 11
+ASGNI4
+ADDRGP4 $1560
+JUMPV
+LABELV $1559
+ADDRFP4 0
+INDIRP4
+CNSTI4 260
+ADDP4
+INDIRI4
+CNSTI4 1
+NEI4 $1563
+ADDRFP4 4
+INDIRP4
+CNSTI4 4
+ADDP4
+CNSTI4 11
+ASGNI4
+ADDRGP4 $1564
+JUMPV
+LABELV $1563
+ADDRFP4 4
+INDIRP4
+CNSTI4 4
+ADDP4
+CNSTI4 1
+ASGNI4
+LABELV $1564
+LABELV $1560
+ADDRFP4 4
+INDIRP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 140
+ADDP4
+INDIRI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 12
+ADDP4
+CNSTI4 3
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 24
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 20
+ADDP4
+INDIRB
+ASGNB 12
+ADDRFP4 12
+INDIRI4
+CNSTI4 0
+EQI4 $1565
+ADDRLP4 8
+ADDRFP4 4
+INDIRP4
+CNSTI4 24
+ADDP4
+ASGNP4
+ADDRLP4 8
+INDIRP4
+ADDRLP4 8
+INDIRP4
+INDIRF4
+CVFI4 4
+CVIF4 4
+ASGNF4
+ADDRLP4 12
+ADDRFP4 4
+INDIRP4
+CNSTI4 28
+ADDP4
+ASGNP4
+ADDRLP4 12
+INDIRP4
+ADDRLP4 12
+INDIRP4
+INDIRF4
+CVFI4 4
+CVIF4 4
+ASGNF4
+ADDRLP4 16
+ADDRFP4 4
+INDIRP4
+CNSTI4 32
+ADDP4
+ASGNP4
+ADDRLP4 16
+INDIRP4
+ADDRLP4 16
+INDIRP4
+INDIRF4
+CVFI4 4
+CVIF4 4
+ASGNF4
+LABELV $1565
+ADDRFP4 4
+INDIRP4
+CNSTI4 36
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 32
+ADDP4
+INDIRB
+ASGNB 12
+ADDRFP4 4
+INDIRP4
+CNSTI4 16
+ADDP4
+ADDRFP4 8
+INDIRI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 20
+ADDP4
+CNSTI4 50
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 48
+ADDP4
+CNSTI4 1
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 60
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 152
+ADDP4
+INDIRB
+ASGNB 12
+ADDRFP4 12
+INDIRI4
+CNSTI4 0
+EQI4 $1567
+ADDRLP4 8
+ADDRFP4 4
+INDIRP4
+CNSTI4 60
+ADDP4
+ASGNP4
+ADDRLP4 8
+INDIRP4
+ADDRLP4 8
+INDIRP4
+INDIRF4
+CVFI4 4
+CVIF4 4
+ASGNF4
+ADDRLP4 12
+ADDRFP4 4
+INDIRP4
+CNSTI4 64
+ADDP4
+ASGNP4
+ADDRLP4 12
+INDIRP4
+ADDRLP4 12
+INDIRP4
+INDIRF4
+CVFI4 4
+CVIF4 4
+ASGNF4
+ADDRLP4 16
+ADDRFP4 4
+INDIRP4
+CNSTI4 68
+ADDP4
+ASGNP4
+ADDRLP4 16
+INDIRP4
+ADDRLP4 16
+INDIRP4
+INDIRF4
+CVFI4 4
+CVIF4 4
+ASGNF4
+LABELV $1567
+ADDRLP4 8
+CNSTI4 88
+ASGNI4
+ADDRFP4 4
+INDIRP4
+ADDRLP4 8
+INDIRI4
+ADDP4
+ADDRFP4 0
+INDIRP4
+ADDRLP4 8
+INDIRI4
+ADDP4
+INDIRI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 196
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 76
+ADDP4
+INDIRI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 200
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 84
+ADDP4
+INDIRI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 168
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 140
+ADDP4
+INDIRI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 8
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 104
+ADDP4
+INDIRI4
+ASGNI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 184
+ADDP4
+INDIRI4
+CNSTI4 0
+GTI4 $1569
+ADDRLP4 12
+ADDRFP4 4
+INDIRP4
+CNSTI4 8
+ADDP4
+ASGNP4
+ADDRLP4 12
+INDIRP4
+ADDRLP4 12
+INDIRP4
+INDIRI4
+CNSTI4 1
+BORI4
+ASGNI4
+ADDRGP4 $1570
+JUMPV
+LABELV $1569
+ADDRLP4 16
+ADDRFP4 4
+INDIRP4
+CNSTI4 8
+ADDP4
+ASGNP4
+ADDRLP4 16
+INDIRP4
+ADDRLP4 16
+INDIRP4
+INDIRI4
+CNSTI4 -2
+BANDI4
+ASGNI4
+LABELV $1570
+ADDRFP4 0
+INDIRP4
+CNSTI4 224
+ADDP4
+INDIRI4
+CNSTI4 64
+BANDI4
+CNSTI4 0
+EQI4 $1571
+ADDRLP4 20
+ADDRFP4 4
+INDIRP4
+CNSTI4 8
+ADDP4
+ASGNP4
+ADDRLP4 20
+INDIRP4
+ADDRLP4 20
+INDIRP4
+INDIRI4
+CNSTI4 131072
+BORI4
+ASGNI4
+ADDRGP4 $1572
+JUMPV
+LABELV $1571
+ADDRLP4 24
+ADDRFP4 4
+INDIRP4
+CNSTI4 8
+ADDP4
+ASGNP4
+ADDRLP4 24
+INDIRP4
+ADDRLP4 24
+INDIRP4
+INDIRI4
+CNSTI4 -131073
+BANDI4
+ASGNI4
+LABELV $1572
+ADDRFP4 0
+INDIRP4
+CNSTI4 128
+ADDP4
+INDIRI4
+CNSTI4 0
+EQI4 $1573
+ADDRFP4 4
+INDIRP4
+CNSTI4 180
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 128
+ADDP4
+INDIRI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 184
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 132
+ADDP4
+INDIRI4
+ASGNI4
+ADDRGP4 $1574
+JUMPV
+LABELV $1573
+ADDRFP4 0
+INDIRP4
+CNSTI4 464
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 108
+ADDP4
+INDIRI4
+GEI4 $1575
+ADDRFP4 0
+INDIRP4
+CNSTI4 464
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 108
+ADDP4
+INDIRI4
+CNSTI4 2
+SUBI4
+GEI4 $1577
+ADDRFP4 0
+INDIRP4
+CNSTI4 464
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 108
+ADDP4
+INDIRI4
+CNSTI4 2
+SUBI4
+ASGNI4
+LABELV $1577
+ADDRLP4 48
+ADDRFP4 0
+INDIRP4
+CNSTI4 464
+ADDP4
+ASGNP4
+ADDRLP4 32
+ADDRLP4 48
+INDIRP4
+INDIRI4
+CNSTI4 1
+BANDI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 180
+ADDP4
+ADDRLP4 32
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 112
+ADDP4
+ADDP4
+INDIRI4
+ADDRLP4 48
+INDIRP4
+INDIRI4
+CNSTI4 3
+BANDI4
+CNSTI4 8
+LSHI4
+BORI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 184
+ADDP4
+ADDRLP4 32
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 120
+ADDP4
+ADDP4
+INDIRI4
+ASGNI4
+ADDRLP4 52
+ADDRFP4 0
+INDIRP4
+CNSTI4 464
+ADDP4
+ASGNP4
+ADDRLP4 52
+INDIRP4
+ADDRLP4 52
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1575
+LABELV $1574
+ADDRFP4 4
+INDIRP4
+CNSTI4 192
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 144
+ADDP4
+INDIRI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 148
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 68
+ADDP4
+INDIRI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 160
+ADDP4
+CNSTI4 0
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 164
+ADDP4
+CNSTI4 0
+ASGNI4
+ADDRLP4 0
+CNSTI4 1
+ASGNI4
+LABELV $1579
+ADDRLP4 0
+INDIRI4
+ARGI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 184
+ADDP4
+ARGP4
+ADDRLP4 32
+ADDRGP4 BG_InventoryContainsUpgrade
+CALLI4
+ASGNI4
+ADDRLP4 32
+INDIRI4
+CNSTI4 0
+EQI4 $1583
+ADDRLP4 36
+ADDRFP4 4
+INDIRP4
+CNSTI4 160
+ADDP4
+ASGNP4
+ADDRLP4 36
+INDIRP4
+ADDRLP4 36
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDRLP4 0
+INDIRI4
+LSHI4
+BORI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+ARGI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 184
+ADDP4
+ARGP4
+ADDRLP4 40
+ADDRGP4 BG_UpgradeIsActive
+CALLI4
+ASGNI4
+ADDRLP4 40
+INDIRI4
+CNSTI4 0
+EQI4 $1585
+ADDRLP4 44
+ADDRFP4 4
+INDIRP4
+CNSTI4 164
+ADDP4
+ASGNP4
+ADDRLP4 44
+INDIRP4
+ADDRLP4 44
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDRLP4 0
+INDIRI4
+LSHI4
+BORI4
+ASGNI4
+LABELV $1585
+LABELV $1583
+LABELV $1580
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+CNSTI4 8
+LTI4 $1579
+ADDRFP4 4
+INDIRP4
+CNSTI4 188
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 216
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 212
+ADDP4
+INDIRI4
+CNSTI4 8
+LSHI4
+BORI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 128
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 92
+ADDP4
+INDIRB
+ASGNB 12
+ADDRFP4 0
+INDIRP4
+CNSTI4 224
+ADDP4
+INDIRI4
+CNSTI4 2
+BANDI4
+CNSTI4 0
+EQI4 $1587
+ADDRLP4 36
+ADDRFP4 4
+INDIRP4
+CNSTI4 8
+ADDP4
+ASGNP4
+ADDRLP4 36
+INDIRP4
+ADDRLP4 36
+INDIRP4
+INDIRI4
+CNSTI4 128
+BORI4
+ASGNI4
+LABELV $1587
+ADDRFP4 4
+INDIRP4
+CNSTI4 156
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 444
+ADDP4
+INDIRI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 204
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 440
+ADDP4
+INDIRI4
+ASGNI4
+ADDRLP4 40
+ADDRFP4 4
+INDIRP4
+CNSTI4 204
+ADDP4
+INDIRI4
+ASGNI4
+ADDRLP4 40
+INDIRI4
+CNSTI4 0
+LEI4 $1591
+ADDRLP4 40
+INDIRI4
+CNSTI4 5
+LTI4 $1589
+LABELV $1591
+ADDRFP4 4
+INDIRP4
+CNSTI4 204
+ADDP4
+CNSTI4 1
+ASGNI4
+LABELV $1589
+ADDRFP4 4
+INDIRP4
+CNSTI4 140
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 448
+ADDP4
+INDIRI4
+ASGNI4
+LABELV $1558
+endproc BG_PlayerStateToEntityStateExtraPolate 56 8
+export BG_UnpackAmmoArray
+proc BG_UnpackAmmoArray 140 0
+ADDRFP4 4
+ADDRFP4 4
+INDIRP4
+ASGNP4
+ADDRFP4 8
+ADDRFP4 8
+INDIRP4
+ASGNP4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+LABELV $1593
+ADDRLP4 132
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ASGNI4
+ADDRLP4 132
+INDIRI4
+ADDRLP4 4
+ADDP4
+ADDRLP4 132
+INDIRI4
+ADDRFP4 4
+INDIRP4
+ADDP4
+INDIRI4
+ASGNI4
+LABELV $1594
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+CNSTI4 15
+LEI4 $1593
+ADDRLP4 0
+CNSTI4 16
+ASGNI4
+LABELV $1597
+ADDRLP4 136
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ASGNI4
+ADDRLP4 136
+INDIRI4
+ADDRLP4 4
+ADDP4
+ADDRLP4 136
+INDIRI4
+CNSTI4 64
+SUBI4
+ADDRFP4 8
+INDIRP4
+ADDP4
+INDIRI4
+ASGNI4
+LABELV $1598
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+CNSTI4 31
+LEI4 $1597
+ADDRFP4 12
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $1601
+ADDRFP4 12
+INDIRP4
+ADDRFP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRLP4 4
+ADDP4
+INDIRI4
+CNSTI4 4095
+BANDI4
+ASGNI4
+LABELV $1601
+ADDRFP4 16
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $1603
+ADDRFP4 16
+INDIRP4
+ADDRFP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRLP4 4
+ADDP4
+INDIRI4
+CNSTI4 12
+RSHI4
+CNSTI4 15
+BANDI4
+ASGNI4
+LABELV $1603
+LABELV $1592
+endproc BG_UnpackAmmoArray 140 0
+export BG_PackAmmoArray
+proc BG_PackAmmoArray 4 0
+ADDRLP4 0
+ADDRFP4 12
+INDIRI4
+ADDRFP4 16
+INDIRI4
+CNSTI4 12
+LSHI4
+BORI4
+ASGNI4
+ADDRFP4 0
+INDIRI4
+CNSTI4 15
+GTI4 $1606
+ADDRFP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 4
+INDIRP4
+ADDP4
+ADDRLP4 0
+INDIRI4
+ASGNI4
+ADDRGP4 $1607
+JUMPV
+LABELV $1606
+ADDRFP4 0
+INDIRI4
+CNSTI4 16
+LTI4 $1608
+ADDRFP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+CNSTI4 64
+SUBI4
+ADDRFP4 8
+INDIRP4
+ADDP4
+ADDRLP4 0
+INDIRI4
+ASGNI4
+LABELV $1608
+LABELV $1607
+LABELV $1605
+endproc BG_PackAmmoArray 4 0
+export BG_WeaponIsFull
+proc BG_WeaponIsFull 24 20
+ADDRFP4 0
+INDIRI4
+ARGI4
+ADDRLP4 0
+ARGP4
+ADDRLP4 4
+ARGP4
+ADDRGP4 BG_FindAmmoForWeapon
+CALLV
+pop
+ADDRFP4 0
+INDIRI4
+ARGI4
+ADDRFP4 8
+INDIRP4
+ARGP4
+ADDRFP4 12
+INDIRP4
+ARGP4
+ADDRLP4 8
+ARGP4
+ADDRLP4 12
+ARGP4
+ADDRGP4 BG_UnpackAmmoArray
+CALLV
+pop
+CNSTI4 4
+ARGI4
+ADDRFP4 4
+INDIRP4
+ARGP4
+ADDRLP4 16
+ADDRGP4 BG_InventoryContainsUpgrade
+CALLI4
+ASGNI4
+ADDRLP4 16
+INDIRI4
+CNSTI4 0
+EQI4 $1611
+ADDRLP4 0
+CNSTF4 1069547520
+ADDRLP4 0
+INDIRI4
+CVIF4 4
+MULF4
+CVFI4 4
+ASGNI4
+LABELV $1611
+ADDRLP4 0
+INDIRI4
+ADDRLP4 8
+INDIRI4
+NEI4 $1614
+ADDRLP4 4
+INDIRI4
+ADDRLP4 12
+INDIRI4
+NEI4 $1614
+ADDRLP4 20
+CNSTI4 1
+ASGNI4
+ADDRGP4 $1615
+JUMPV
+LABELV $1614
+ADDRLP4 20
+CNSTI4 0
+ASGNI4
+LABELV $1615
+ADDRLP4 20
+INDIRI4
+RETI4
+LABELV $1610
+endproc BG_WeaponIsFull 24 20
+export BG_AddWeaponToInventory
+proc BG_AddWeaponToInventory 28 4
+ADDRFP4 4
+ADDRFP4 4
+INDIRP4
+ASGNP4
+ADDRLP4 8
+CNSTI4 16
+ASGNI4
+ADDRLP4 12
+ADDRFP4 4
+INDIRP4
+ADDRLP4 8
+INDIRI4
+ADDP4
+ASGNP4
+ADDRLP4 16
+CNSTI4 65535
+ASGNI4
+ADDRLP4 0
+ADDRLP4 12
+INDIRP4
+INDIRI4
+ADDRLP4 16
+INDIRI4
+BANDI4
+CVIU4 4
+ADDRFP4 4
+INDIRP4
+CNSTI4 20
+ADDP4
+INDIRI4
+ADDRLP4 8
+INDIRI4
+LSHI4
+CVIU4 4
+CNSTU4 4294901760
+BANDU4
+BORU4
+CVUI4 4
+ASGNI4
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDRFP4 0
+INDIRI4
+LSHI4
+BORI4
+ASGNI4
+ADDRLP4 12
+INDIRP4
+ADDRLP4 0
+INDIRI4
+ADDRLP4 16
+INDIRI4
+BANDI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 20
+ADDP4
+ADDRLP4 0
+INDIRI4
+CVIU4 4
+CNSTU4 4294901760
+BANDU4
+CNSTI4 16
+RSHU4
+CVUI4 4
+ASGNI4
+ADDRFP4 0
+INDIRI4
+ARGI4
+ADDRLP4 20
+ADDRGP4 BG_FindSlotsForWeapon
+CALLI4
+ASGNI4
+ADDRLP4 24
+ADDRFP4 4
+INDIRP4
+CNSTI4 8
+ADDP4
+ASGNP4
+ADDRLP4 24
+INDIRP4
+ADDRLP4 24
+INDIRP4
+INDIRI4
+ADDRLP4 20
+INDIRI4
+BORI4
+ASGNI4
+LABELV $1616
+endproc BG_AddWeaponToInventory 28 4
+export BG_RemoveWeaponFromInventory
+proc BG_RemoveWeaponFromInventory 28 4
+ADDRFP4 4
+ADDRFP4 4
+INDIRP4
+ASGNP4
+ADDRLP4 8
+CNSTI4 16
+ASGNI4
+ADDRLP4 12
+ADDRFP4 4
+INDIRP4
+ADDRLP4 8
+INDIRI4
+ADDP4
+ASGNP4
+ADDRLP4 16
+CNSTI4 65535
+ASGNI4
+ADDRLP4 0
+ADDRLP4 12
+INDIRP4
+INDIRI4
+ADDRLP4 16
+INDIRI4
+BANDI4
+CVIU4 4
+ADDRFP4 4
+INDIRP4
+CNSTI4 20
+ADDP4
+INDIRI4
+ADDRLP4 8
+INDIRI4
+LSHI4
+CVIU4 4
+CNSTU4 4294901760
+BANDU4
+BORU4
+CVUI4 4
+ASGNI4
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDRFP4 0
+INDIRI4
+LSHI4
+BCOMI4
+BANDI4
+ASGNI4
+ADDRLP4 12
+INDIRP4
+ADDRLP4 0
+INDIRI4
+ADDRLP4 16
+INDIRI4
+BANDI4
+ASGNI4
+ADDRFP4 4
+INDIRP4
+CNSTI4 20
+ADDP4
+ADDRLP4 0
+INDIRI4
+CVIU4 4
+CNSTU4 4294901760
+BANDU4
+CNSTI4 16
+RSHU4
+CVUI4 4
+ASGNI4
+ADDRFP4 0
+INDIRI4
+ARGI4
+ADDRLP4 20
+ADDRGP4 BG_FindSlotsForWeapon
+CALLI4
+ASGNI4
+ADDRLP4 24
+ADDRFP4 4
+INDIRP4
+CNSTI4 8
+ADDP4
+ASGNP4
+ADDRLP4 24
+INDIRP4
+ADDRLP4 24
+INDIRP4
+INDIRI4
+ADDRLP4 20
+INDIRI4
+BCOMI4
+BANDI4
+ASGNI4
+LABELV $1617
+endproc BG_RemoveWeaponFromInventory 28 4
+export BG_InventoryContainsWeapon
+proc BG_InventoryContainsWeapon 12 0
+ADDRLP4 4
+ADDRFP4 4
+INDIRP4
+ASGNP4
+ADDRLP4 8
+CNSTI4 16
+ASGNI4
+ADDRLP4 0
+ADDRLP4 4
+INDIRP4
+ADDRLP4 8
+INDIRI4
+ADDP4
+INDIRI4
+CNSTI4 65535
+BANDI4
+CVIU4 4
+ADDRLP4 4
+INDIRP4
+CNSTI4 20
+ADDP4
+INDIRI4
+ADDRLP4 8
+INDIRI4
+LSHI4
+CVIU4 4
+CNSTU4 4294901760
+BANDU4
+BORU4
+CVUI4 4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDRFP4 0
+INDIRI4
+LSHI4
+BANDI4
+RETI4
+LABELV $1618
+endproc BG_InventoryContainsWeapon 12 0
+export BG_AddUpgradeToInventory
+proc BG_AddUpgradeToInventory 12 4
+ADDRLP4 0
+ADDRFP4 4
+INDIRP4
+CNSTI4 4
+ADDP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+ADDRLP4 0
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDRFP4 0
+INDIRI4
+LSHI4
+BORI4
+ASGNI4
+ADDRFP4 0
+INDIRI4
+ARGI4
+ADDRLP4 4
+ADDRGP4 BG_FindSlotsForUpgrade
+CALLI4
+ASGNI4
+ADDRLP4 8
+ADDRFP4 4
+INDIRP4
+CNSTI4 8
+ADDP4
+ASGNP4
+ADDRLP4 8
+INDIRP4
+ADDRLP4 8
+INDIRP4
+INDIRI4
+ADDRLP4 4
+INDIRI4
+BORI4
+ASGNI4
+LABELV $1619
+endproc BG_AddUpgradeToInventory 12 4
+export BG_RemoveUpgradeFromInventory
+proc BG_RemoveUpgradeFromInventory 12 4
+ADDRLP4 0
+ADDRFP4 4
+INDIRP4
+CNSTI4 4
+ADDP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+ADDRLP4 0
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDRFP4 0
+INDIRI4
+LSHI4
+BCOMI4
+BANDI4
+ASGNI4
+ADDRFP4 0
+INDIRI4
+ARGI4
+ADDRLP4 4
+ADDRGP4 BG_FindSlotsForUpgrade
+CALLI4
+ASGNI4
+ADDRLP4 8
+ADDRFP4 4
+INDIRP4
+CNSTI4 8
+ADDP4
+ASGNP4
+ADDRLP4 8
+INDIRP4
+ADDRLP4 8
+INDIRP4
+INDIRI4
+ADDRLP4 4
+INDIRI4
+BCOMI4
+BANDI4
+ASGNI4
+LABELV $1620
+endproc BG_RemoveUpgradeFromInventory 12 4
+export BG_InventoryContainsUpgrade
+proc BG_InventoryContainsUpgrade 0 0
+ADDRFP4 4
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRI4
+CNSTI4 1
+ADDRFP4 0
+INDIRI4
+LSHI4
+BANDI4
+RETI4
+LABELV $1621
+endproc BG_InventoryContainsUpgrade 0 0
+export BG_ActivateUpgrade
+proc BG_ActivateUpgrade 4 0
+ADDRLP4 0
+ADDRFP4 4
+INDIRP4
+CNSTI4 12
+ADDP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+ADDRLP4 0
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDRFP4 0
+INDIRI4
+LSHI4
+BORI4
+ASGNI4
+LABELV $1622
+endproc BG_ActivateUpgrade 4 0
+export BG_DeactivateUpgrade
+proc BG_DeactivateUpgrade 4 0
+ADDRLP4 0
+ADDRFP4 4
+INDIRP4
+CNSTI4 12
+ADDP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+ADDRLP4 0
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDRFP4 0
+INDIRI4
+LSHI4
+BCOMI4
+BANDI4
+ASGNI4
+LABELV $1623
+endproc BG_DeactivateUpgrade 4 0
+export BG_UpgradeIsActive
+proc BG_UpgradeIsActive 0 0
+ADDRFP4 4
+INDIRP4
+CNSTI4 12
+ADDP4
+INDIRI4
+CNSTI4 1
+ADDRFP4 0
+INDIRI4
+LSHI4
+BANDI4
+RETI4
+LABELV $1624
+endproc BG_UpgradeIsActive 0 0
+lit
+align 4
+LABELV $1626
+byte 4 0
+byte 4 0
+byte 4 1065353216
+align 4
+LABELV $1627
+byte 4 0
+byte 4 0
+byte 4 3212836864
+export BG_RotateAxis
+code
+proc BG_RotateAxis 68 16
+ADDRLP4 12
+ADDRGP4 $1626
+INDIRB
+ASGNB 12
+ADDRLP4 40
+ADDRGP4 $1627
+INDIRB
+ASGNB 12
+ADDRFP4 16
+INDIRI4
+CNSTI4 0
+EQI4 $1628
+ADDRLP4 24
+ADDRLP4 40
+INDIRB
+ASGNB 12
+ADDRLP4 0
+ADDRFP4 0
+INDIRP4
+INDIRB
+ASGNB 12
+ADDRGP4 $1629
+JUMPV
+LABELV $1628
+ADDRLP4 24
+ADDRFP4 0
+INDIRP4
+INDIRB
+ASGNB 12
+ADDRLP4 24
+ARGP4
+ADDRLP4 12
+ARGP4
+ADDRLP4 0
+ARGP4
+ADDRGP4 CrossProduct
+CALLV
+pop
+ADDRLP4 0
+ARGP4
+ADDRGP4 VectorNormalize
+CALLF4
+pop
+LABELV $1629
+ADDRLP4 0
+ARGP4
+ADDRLP4 52
+ADDRGP4 VectorLength
+CALLF4
+ASGNF4
+ADDRLP4 52
+INDIRF4
+CNSTF4 0
+EQF4 $1630
+ADDRLP4 24
+INDIRF4
+ADDRLP4 12
+INDIRF4
+MULF4
+ADDRLP4 24+4
+INDIRF4
+ADDRLP4 12+4
+INDIRF4
+MULF4
+ADDF4
+ADDRLP4 24+8
+INDIRF4
+ADDRLP4 12+8
+INDIRF4
+MULF4
+ADDF4
+ARGF4
+ADDRLP4 56
+ADDRGP4 acos
+CALLF4
+ASGNF4
+ADDRLP4 36
+CNSTF4 1127481344
+ADDRLP4 56
+INDIRF4
+MULF4
+CNSTF4 1078530011
+DIVF4
+ASGNF4
+ADDRFP4 12
+INDIRI4
+CNSTI4 0
+EQI4 $1636
+ADDRLP4 36
+ADDRLP4 36
+INDIRF4
+NEGF4
+ASGNF4
+LABELV $1636
+ADDRLP4 36
+INDIRF4
+ARGF4
+ADDRGP4 AngleNormalize180
+CALLF4
+pop
+ADDRFP4 8
+INDIRP4
+ARGP4
+ADDRLP4 0
+ARGP4
+ADDRFP4 4
+INDIRP4
+ARGP4
+ADDRLP4 36
+INDIRF4
+NEGF4
+ARGF4
+ADDRGP4 RotatePointAroundVector
+CALLV
+pop
+ADDRLP4 60
+CNSTI4 12
+ASGNI4
+ADDRFP4 8
+INDIRP4
+ADDRLP4 60
+INDIRI4
+ADDP4
+ARGP4
+ADDRLP4 0
+ARGP4
+ADDRFP4 4
+INDIRP4
+ADDRLP4 60
+INDIRI4
+ADDP4
+ARGP4
+ADDRLP4 36
+INDIRF4
+NEGF4
+ARGF4
+ADDRGP4 RotatePointAroundVector
+CALLV
+pop
+ADDRLP4 64
+CNSTI4 24
+ASGNI4
+ADDRFP4 8
+INDIRP4
+ADDRLP4 64
+INDIRI4
+ADDP4
+ARGP4
+ADDRLP4 0
+ARGP4
+ADDRFP4 4
+INDIRP4
+ADDRLP4 64
+INDIRI4
+ADDP4
+ARGP4
+ADDRLP4 36
+INDIRF4
+NEGF4
+ARGF4
+ADDRGP4 RotatePointAroundVector
+CALLV
+pop
+ADDRGP4 $1631
+JUMPV
+LABELV $1630
+CNSTI4 0
+RETI4
+ADDRGP4 $1625
+JUMPV
+LABELV $1631
+CNSTI4 1
+RETI4
+LABELV $1625
+endproc BG_RotateAxis 68 16
+export BG_PositionBuildableRelativeToPlayer
+proc BG_PositionBuildableRelativeToPlayer 104 28
+ADDRFP4 0
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRFP4 16
+ADDRFP4 16
+INDIRP4
+ASGNP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 224
+ADDP4
+INDIRI4
+CNSTI4 1
+BANDI4
+CNSTI4 0
+EQI4 $1639
+ADDRFP4 0
+INDIRP4
+CNSTI4 224
+ADDP4
+INDIRI4
+CNSTI4 2
+BANDI4
+CNSTI4 0
+EQI4 $1641
+ADDRLP4 76
+CNSTF4 0
+ASGNF4
+ADDRLP4 12
+ADDRLP4 76
+INDIRF4
+ASGNF4
+ADDRLP4 12+4
+ADDRLP4 76
+INDIRF4
+ASGNF4
+ADDRLP4 12+8
+CNSTF4 3212836864
+ASGNF4
+ADDRGP4 $1640
+JUMPV
+LABELV $1641
+ADDRLP4 12
+ADDRFP4 0
+INDIRP4
+CNSTI4 92
+ADDP4
+INDIRB
+ASGNB 12
+ADDRGP4 $1640
+JUMPV
+LABELV $1639
+ADDRLP4 76
+CNSTF4 0
+ASGNF4
+ADDRLP4 12
+ADDRLP4 76
+INDIRF4
+ASGNF4
+ADDRLP4 12+4
+ADDRLP4 76
+INDIRF4
+ASGNF4
+ADDRLP4 12+8
+CNSTF4 1065353216
+ASGNF4
+LABELV $1640
+ADDRLP4 64
+ADDRFP4 0
+INDIRP4
+CNSTI4 152
+ADDP4
+INDIRB
+ASGNB 12
+ADDRLP4 48
+ADDRFP4 0
+INDIRP4
+CNSTI4 20
+ADDP4
+INDIRB
+ASGNB 12
+ADDRFP4 0
+INDIRP4
+CNSTI4 212
+ADDP4
+INDIRI4
+ARGI4
+ADDRLP4 84
+ADDRGP4 BG_FindBuildDistForClass
+CALLF4
+ASGNF4
+ADDRLP4 60
+ADDRLP4 84
+INDIRF4
+ASGNF4
+ADDRLP4 64
+ARGP4
+ADDRLP4 24
+ARGP4
+ADDRLP4 88
+CNSTP4 0
+ASGNP4
+ADDRLP4 88
+INDIRP4
+ARGP4
+ADDRLP4 88
+INDIRP4
+ARGP4
+ADDRGP4 AngleVectors
+CALLV
+pop
+ADDRLP4 24
+ARGP4
+ADDRLP4 24
+ARGP4
+ADDRLP4 12
+ARGP4
+ADDRGP4 ProjectPointOnPlane
+CALLV
+pop
+ADDRLP4 24
+ARGP4
+ADDRGP4 VectorNormalize
+CALLF4
+pop
+ADDRLP4 0
+ADDRLP4 48
+INDIRF4
+ADDRLP4 24
+INDIRF4
+ADDRLP4 60
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRLP4 0+4
+ADDRLP4 48+4
+INDIRF4
+ADDRLP4 24+4
+INDIRF4
+ADDRLP4 60
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRLP4 0+8
+ADDRLP4 48+8
+INDIRF4
+ADDRLP4 24+8
+INDIRF4
+ADDRLP4 60
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRLP4 36
+ADDRLP4 0
+INDIRB
+ASGNB 12
+ADDRLP4 96
+CNSTF4 1107296256
+ASGNF4
+ADDRLP4 0
+ADDRLP4 0
+INDIRF4
+ADDRLP4 96
+INDIRF4
+ADDRLP4 12
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRLP4 0+4
+ADDRLP4 0+4
+INDIRF4
+ADDRLP4 96
+INDIRF4
+ADDRLP4 12+4
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRLP4 0+8
+ADDRLP4 0+8
+INDIRF4
+CNSTF4 1107296256
+ADDRLP4 12+8
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRLP4 100
+CNSTF4 3271557120
+ASGNF4
+ADDRLP4 36
+ADDRLP4 36
+INDIRF4
+ADDRLP4 100
+INDIRF4
+ADDRLP4 12
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRLP4 36+4
+ADDRLP4 36+4
+INDIRF4
+ADDRLP4 100
+INDIRF4
+ADDRLP4 12+4
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRLP4 36+8
+ADDRLP4 36+8
+INDIRF4
+CNSTF4 3271557120
+ADDRLP4 12+8
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRFP4 24
+INDIRP4
+ARGP4
+ADDRLP4 0
+ARGP4
+ADDRFP4 4
+INDIRP4
+ARGP4
+ADDRFP4 8
+INDIRP4
+ARGP4
+ADDRLP4 36
+ARGP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 140
+ADDP4
+INDIRI4
+ARGI4
+CNSTI4 33619969
+ARGI4
+ADDRFP4 12
+INDIRP4
+CALLV
+pop
+ADDRLP4 0
+ADDRFP4 24
+INDIRP4
+CNSTI4 12
+ADDP4
+INDIRB
+ASGNB 12
+ADDRFP4 16
+INDIRP4
+ADDRLP4 0
+INDIRF4
+CNSTF4 1036831949
+ADDRLP4 12
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRFP4 16
+INDIRP4
+CNSTI4 4
+ADDP4
+ADDRLP4 0+4
+INDIRF4
+CNSTF4 1036831949
+ADDRLP4 12+4
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRFP4 16
+INDIRP4
+CNSTI4 8
+ADDP4
+ADDRLP4 0+8
+INDIRF4
+CNSTF4 1036831949
+ADDRLP4 12+8
+INDIRF4
+MULF4
+ADDF4
+ASGNF4
+ADDRLP4 24
+ARGP4
+ADDRFP4 20
+INDIRP4
+ARGP4
+ADDRGP4 vectoangles
+CALLV
+pop
+LABELV $1638
+endproc BG_PositionBuildableRelativeToPlayer 104 28
+export BG_GetValueOfEquipment
+proc BG_GetValueOfEquipment 16 8
+ADDRFP4 0
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRLP4 4
+CNSTI4 0
+ASGNI4
+ADDRLP4 0
+CNSTI4 1
+ASGNI4
+LABELV $1670
+ADDRLP4 0
+INDIRI4
+ARGI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 184
+ADDP4
+ARGP4
+ADDRLP4 8
+ADDRGP4 BG_InventoryContainsUpgrade
+CALLI4
+ASGNI4
+ADDRLP4 8
+INDIRI4
+CNSTI4 0
+EQI4 $1674
+ADDRLP4 0
+INDIRI4
+ARGI4
+ADDRLP4 12
+ADDRGP4 BG_FindPriceForUpgrade
+CALLI4
+ASGNI4
+ADDRLP4 4
+ADDRLP4 4
+INDIRI4
+ADDRLP4 12
+INDIRI4
+ADDI4
+ASGNI4
+LABELV $1674
+LABELV $1671
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+CNSTI4 8
+LTI4 $1670
+ADDRLP4 0
+CNSTI4 1
+ASGNI4
+LABELV $1676
+ADDRLP4 0
+INDIRI4
+ARGI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 184
+ADDP4
+ARGP4
+ADDRLP4 8
+ADDRGP4 BG_InventoryContainsWeapon
+CALLI4
+ASGNI4
+ADDRLP4 8
+INDIRI4
+CNSTI4 0
+EQI4 $1680
+ADDRLP4 0
+INDIRI4
+ARGI4
+ADDRLP4 12
+ADDRGP4 BG_FindPriceForWeapon
+CALLI4
+ASGNI4
+ADDRLP4 4
+ADDRLP4 4
+INDIRI4
+ADDRLP4 12
+INDIRI4
+ADDI4
+ASGNI4
+LABELV $1680
+LABELV $1677
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+CNSTI4 31
+LTI4 $1676
+ADDRLP4 4
+INDIRI4
+RETI4
+LABELV $1669
+endproc BG_GetValueOfEquipment 16 8
+export BG_GetValueOfHuman
+proc BG_GetValueOfHuman 12 4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRLP4 4
+ADDRGP4 BG_GetValueOfEquipment
+CALLI4
+ASGNI4
+ADDRLP4 0
+ADDRLP4 4
+INDIRI4
+CVIF4 4
+CNSTF4 1147207680
+DIVF4
+ASGNF4
+ADDRLP4 0
+INDIRF4
+CNSTF4 1008981770
+GEF4 $1683
+ADDRLP4 0
+CNSTF4 1008981770
+ASGNF4
+ADDRGP4 $1684
+JUMPV
+LABELV $1683
+ADDRLP4 0
+INDIRF4
+CNSTF4 1065353216
+LEF4 $1685
+ADDRLP4 0
+CNSTF4 1065353216
+ASGNF4
+LABELV $1685
+LABELV $1684
+CNSTF4 1147207680
+ADDRLP4 0
+INDIRF4
+MULF4
+ARGF4
+ADDRLP4 8
+ADDRGP4 ceil
+CALLF4
+ASGNF4
+ADDRLP4 8
+INDIRF4
+CVFI4 4
+RETI4
+LABELV $1682
+endproc BG_GetValueOfHuman 12 4
+export atof_neg
+proc atof_neg 8 4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRLP4 4
+ADDRGP4 atof
+CALLF4
+ASGNF4
+ADDRLP4 0
+ADDRLP4 4
+INDIRF4
+ASGNF4
+ADDRFP4 4
+INDIRI4
+CNSTI4 0
+NEI4 $1688
+ADDRLP4 0
+INDIRF4
+CNSTF4 0
+GEF4 $1688
+ADDRLP4 0
+CNSTF4 1065353216
+ASGNF4
+LABELV $1688
+ADDRLP4 0
+INDIRF4
+RETF4
+LABELV $1687
+endproc atof_neg 8 4
+export atoi_neg
+proc atoi_neg 12 4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRLP4 4
+ADDRGP4 atoi
+CALLI4
+ASGNI4
+ADDRLP4 0
+ADDRLP4 4
+INDIRI4
+ASGNI4
+ADDRLP4 8
+CNSTI4 0
+ASGNI4
+ADDRFP4 4
+INDIRI4
+ADDRLP4 8
+INDIRI4
+NEI4 $1691
+ADDRLP4 0
+INDIRI4
+ADDRLP4 8
+INDIRI4
+GEI4 $1691
+ADDRLP4 0
+CNSTI4 1
+ASGNI4
+LABELV $1691
+ADDRLP4 0
+INDIRI4
+RETI4
+LABELV $1690
+endproc atoi_neg 12 4
+export BG_ParseCSVEquipmentList
+proc BG_ParseCSVEquipmentList 1076 12
+ADDRFP4 4
+ADDRFP4 4
+INDIRP4
+ASGNP4
+ADDRFP4 8
+ADDRFP4 8
+INDIRI4
+ASGNI4
+ADDRFP4 12
+ADDRFP4 12
+INDIRP4
+ASGNP4
+ADDRFP4 16
+ADDRFP4 16
+INDIRI4
+ASGNI4
+ADDRLP4 8
+CNSTI4 0
+ASGNI4
+ADDRLP4 12
+CNSTI4 0
+ASGNI4
+ADDRLP4 16
+CNSTI4 0
+ASGNI4
+ADDRLP4 20
+ARGP4
+ADDRFP4 0
+INDIRP4
+ARGP4
+CNSTI4 1024
+ARGI4
+ADDRGP4 Q_strncpyz
+CALLV
+pop
+ADDRLP4 4
+ADDRLP4 20
+ASGNP4
+ADDRLP4 0
+ADDRLP4 20
+ASGNP4
+ADDRGP4 $1695
+JUMPV
+LABELV $1697
+ADDRLP4 0
+ADDRLP4 0
+INDIRP4
+CNSTI4 1
+ADDP4
+ASGNP4
+LABELV $1698
+ADDRLP4 1044
+ADDRLP4 0
+INDIRP4
+INDIRI1
+CVII4 1
+ASGNI4
+ADDRLP4 1044
+INDIRI4
+CNSTI4 44
+EQI4 $1700
+ADDRLP4 1044
+INDIRI4
+CNSTI4 0
+NEI4 $1697
+LABELV $1700
+ADDRLP4 0
+INDIRP4
+INDIRI1
+CVII4 1
+CNSTI4 0
+NEI4 $1701
+ADDRLP4 16
+CNSTI4 1
+ASGNI4
+LABELV $1701
+ADDRLP4 0
+INDIRP4
+CNSTI1 0
+ASGNI1
+ADDRGP4 $1704
+JUMPV
+LABELV $1703
+ADDRLP4 4
+ADDRLP4 4
+INDIRP4
+CNSTI4 1
+ADDP4
+ASGNP4
+LABELV $1704
+ADDRLP4 4
+INDIRP4
+INDIRI1
+CVII4 1
+CNSTI4 32
+EQI4 $1703
+ADDRFP4 8
+INDIRI4
+CNSTI4 0
+EQI4 $1706
+ADDRLP4 4
+INDIRP4
+ARGP4
+ADDRLP4 1048
+ADDRGP4 BG_FindWeaponNumForName
+CALLI4
+ASGNI4
+ADDRLP4 8
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 4
+INDIRP4
+ADDP4
+ADDRLP4 1048
+INDIRI4
+ASGNI4
+LABELV $1706
+ADDRFP4 16
+INDIRI4
+CNSTI4 0
+EQI4 $1708
+ADDRLP4 4
+INDIRP4
+ARGP4
+ADDRLP4 1052
+ADDRGP4 BG_FindUpgradeNumForName
+CALLI4
+ASGNI4
+ADDRLP4 12
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 12
+INDIRP4
+ADDP4
+ADDRLP4 1052
+INDIRI4
+ASGNI4
+LABELV $1708
+ADDRLP4 1056
+CNSTI4 0
+ASGNI4
+ADDRFP4 8
+INDIRI4
+ADDRLP4 1056
+INDIRI4
+EQI4 $1710
+ADDRLP4 1060
+CNSTI4 2
+ASGNI4
+ADDRLP4 8
+INDIRI4
+ADDRLP4 1060
+INDIRI4
+LSHI4
+ADDRFP4 4
+INDIRP4
+ADDP4
+INDIRI4
+ADDRLP4 1056
+INDIRI4
+NEI4 $1710
+ADDRFP4 16
+INDIRI4
+ADDRLP4 1056
+INDIRI4
+EQI4 $1710
+ADDRLP4 12
+INDIRI4
+ADDRLP4 1060
+INDIRI4
+LSHI4
+ADDRFP4 12
+INDIRP4
+ADDP4
+INDIRI4
+ADDRLP4 1056
+INDIRI4
+NEI4 $1710
+ADDRGP4 $1712
+ARGP4
+ADDRLP4 4
+INDIRP4
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+ADDRGP4 $1711
+JUMPV
+LABELV $1710
+ADDRLP4 1064
+CNSTI4 0
+ASGNI4
+ADDRFP4 8
+INDIRI4
+ADDRLP4 1064
+INDIRI4
+EQI4 $1713
+ADDRLP4 8
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 4
+INDIRP4
+ADDP4
+INDIRI4
+ADDRLP4 1064
+INDIRI4
+EQI4 $1713
+ADDRLP4 8
+ADDRLP4 8
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRGP4 $1714
+JUMPV
+LABELV $1713
+ADDRLP4 1068
+CNSTI4 0
+ASGNI4
+ADDRFP4 16
+INDIRI4
+ADDRLP4 1068
+INDIRI4
+EQI4 $1715
+ADDRLP4 12
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 12
+INDIRP4
+ADDP4
+INDIRI4
+ADDRLP4 1068
+INDIRI4
+EQI4 $1715
+ADDRLP4 12
+ADDRLP4 12
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1715
+LABELV $1714
+LABELV $1711
+ADDRLP4 16
+INDIRI4
+CNSTI4 0
+NEI4 $1696
+ADDRLP4 0
+ADDRLP4 0
+INDIRP4
+CNSTI4 1
+ADDP4
+ASGNP4
+ADDRLP4 4
+ADDRLP4 0
+INDIRP4
+ASGNP4
+LABELV $1718
+ADDRLP4 1072
+CNSTI4 1
+ASGNI4
+ADDRLP4 8
+INDIRI4
+ADDRFP4 8
+INDIRI4
+ADDRLP4 1072
+INDIRI4
+SUBI4
+EQI4 $1721
+ADDRLP4 12
+INDIRI4
+ADDRFP4 16
+INDIRI4
+ADDRLP4 1072
+INDIRI4
+SUBI4
+NEI4 $1719
+LABELV $1721
+ADDRGP4 $1696
+JUMPV
+LABELV $1719
+LABELV $1695
+ADDRLP4 0
+INDIRP4
+INDIRI1
+CVII4 1
+CNSTI4 0
+NEI4 $1698
+LABELV $1696
+ADDRFP4 8
+INDIRI4
+CNSTI4 0
+EQI4 $1722
+ADDRLP4 8
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 4
+INDIRP4
+ADDP4
+CNSTI4 0
+ASGNI4
+LABELV $1722
+ADDRFP4 16
+INDIRI4
+CNSTI4 0
+EQI4 $1724
+ADDRLP4 12
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 12
+INDIRP4
+ADDP4
+CNSTI4 0
+ASGNI4
+LABELV $1724
+LABELV $1693
+endproc BG_ParseCSVEquipmentList 1076 12
+export BG_ParseCSVClassList
+proc BG_ParseCSVClassList 1048 12
+ADDRFP4 4
+ADDRFP4 4
+INDIRP4
+ASGNP4
+ADDRLP4 8
+CNSTI4 0
+ASGNI4
+ADDRLP4 12
+CNSTI4 0
+ASGNI4
+ADDRLP4 16
+ARGP4
+ADDRFP4 0
+INDIRP4
+ARGP4
+CNSTI4 1024
+ARGI4
+ADDRGP4 Q_strncpyz
+CALLV
+pop
+ADDRLP4 4
+ADDRLP4 16
+ASGNP4
+ADDRLP4 0
+ADDRLP4 16
+ASGNP4
+ADDRGP4 $1728
+JUMPV
+LABELV $1730
+ADDRLP4 0
+ADDRLP4 0
+INDIRP4
+CNSTI4 1
+ADDP4
+ASGNP4
+LABELV $1731
+ADDRLP4 1040
+ADDRLP4 0
+INDIRP4
+INDIRI1
+CVII4 1
+ASGNI4
+ADDRLP4 1040
+INDIRI4
+CNSTI4 44
+EQI4 $1733
+ADDRLP4 1040
+INDIRI4
+CNSTI4 0
+NEI4 $1730
+LABELV $1733
+ADDRLP4 0
+INDIRP4
+INDIRI1
+CVII4 1
+CNSTI4 0
+NEI4 $1734
+ADDRLP4 12
+CNSTI4 1
+ASGNI4
+LABELV $1734
+ADDRLP4 0
+INDIRP4
+CNSTI1 0
+ASGNI1
+ADDRGP4 $1737
+JUMPV
+LABELV $1736
+ADDRLP4 4
+ADDRLP4 4
+INDIRP4
+CNSTI4 1
+ADDP4
+ASGNP4
+LABELV $1737
+ADDRLP4 4
+INDIRP4
+INDIRI1
+CVII4 1
+CNSTI4 32
+EQI4 $1736
+ADDRLP4 4
+INDIRP4
+ARGP4
+ADDRLP4 1044
+ADDRGP4 BG_FindClassNumForName
+CALLI4
+ASGNI4
+ADDRLP4 8
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 4
+INDIRP4
+ADDP4
+ADDRLP4 1044
+INDIRI4
+ASGNI4
+ADDRLP4 8
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 4
+INDIRP4
+ADDP4
+INDIRI4
+CNSTI4 0
+NEI4 $1739
+ADDRGP4 $1741
+ARGP4
+ADDRLP4 4
+INDIRP4
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+ADDRGP4 $1740
+JUMPV
+LABELV $1739
+ADDRLP4 8
+ADDRLP4 8
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1740
+ADDRLP4 12
+INDIRI4
+CNSTI4 0
+NEI4 $1729
+ADDRLP4 0
+ADDRLP4 0
+INDIRP4
+CNSTI4 1
+ADDP4
+ASGNP4
+ADDRLP4 4
+ADDRLP4 0
+INDIRP4
+ASGNP4
+LABELV $1743
+LABELV $1728
+ADDRLP4 0
+INDIRP4
+INDIRI1
+CVII4 1
+CNSTI4 0
+NEI4 $1731
+LABELV $1729
+ADDRLP4 8
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 4
+INDIRP4
+ADDP4
+CNSTI4 0
+ASGNI4
+LABELV $1726
+endproc BG_ParseCSVClassList 1048 12
+export BG_ParseCSVBuildableList
+proc BG_ParseCSVBuildableList 1048 12
+ADDRFP4 4
+ADDRFP4 4
+INDIRP4
+ASGNP4
+ADDRLP4 8
+CNSTI4 0
+ASGNI4
+ADDRLP4 12
+CNSTI4 0
+ASGNI4
+ADDRLP4 16
+ARGP4
+ADDRFP4 0
+INDIRP4
+ARGP4
+CNSTI4 1024
+ARGI4
+ADDRGP4 Q_strncpyz
+CALLV
+pop
+ADDRLP4 4
+ADDRLP4 16
+ASGNP4
+ADDRLP4 0
+ADDRLP4 16
+ASGNP4
+ADDRGP4 $1746
+JUMPV
+LABELV $1748
+ADDRLP4 0
+ADDRLP4 0
+INDIRP4
+CNSTI4 1
+ADDP4
+ASGNP4
+LABELV $1749
+ADDRLP4 1040
+ADDRLP4 0
+INDIRP4
+INDIRI1
+CVII4 1
+ASGNI4
+ADDRLP4 1040
+INDIRI4
+CNSTI4 44
+EQI4 $1751
+ADDRLP4 1040
+INDIRI4
+CNSTI4 0
+NEI4 $1748
+LABELV $1751
+ADDRLP4 0
+INDIRP4
+INDIRI1
+CVII4 1
+CNSTI4 0
+NEI4 $1752
+ADDRLP4 12
+CNSTI4 1
+ASGNI4
+LABELV $1752
+ADDRLP4 0
+INDIRP4
+CNSTI1 0
+ASGNI1
+ADDRGP4 $1755
+JUMPV
+LABELV $1754
+ADDRLP4 4
+ADDRLP4 4
+INDIRP4
+CNSTI4 1
+ADDP4
+ASGNP4
+LABELV $1755
+ADDRLP4 4
+INDIRP4
+INDIRI1
+CVII4 1
+CNSTI4 32
+EQI4 $1754
+ADDRLP4 4
+INDIRP4
+ARGP4
+ADDRLP4 1044
+ADDRGP4 BG_FindBuildNumForName
+CALLI4
+ASGNI4
+ADDRLP4 8
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 4
+INDIRP4
+ADDP4
+ADDRLP4 1044
+INDIRI4
+ASGNI4
+ADDRLP4 8
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 4
+INDIRP4
+ADDP4
+INDIRI4
+CNSTI4 0
+NEI4 $1757
+ADDRGP4 $1759
+ARGP4
+ADDRLP4 4
+INDIRP4
+ARGP4
+ADDRGP4 Com_Printf
+CALLV
+pop
+ADDRGP4 $1758
+JUMPV
+LABELV $1757
+ADDRLP4 8
+ADDRLP4 8
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1758
+ADDRLP4 12
+INDIRI4
+CNSTI4 0
+NEI4 $1747
+ADDRLP4 0
+ADDRLP4 0
+INDIRP4
+CNSTI4 1
+ADDP4
+ASGNP4
+ADDRLP4 4
+ADDRLP4 0
+INDIRP4
+ASGNP4
+LABELV $1761
+LABELV $1746
+ADDRLP4 0
+INDIRP4
+INDIRI1
+CVII4 1
+CNSTI4 0
+NEI4 $1749
+LABELV $1747
+ADDRLP4 8
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 4
+INDIRP4
+ADDP4
+CNSTI4 0
+ASGNI4
+LABELV $1744
+endproc BG_ParseCSVBuildableList 1048 12
+export BG_UpgradeClassAvailable
+proc BG_UpgradeClassAvailable 1052 16
+ADDRFP4 0
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRGP4 $1763
+ARGP4
+ADDRLP4 8
+ARGP4
+CNSTI4 1024
+ARGI4
+ADDRGP4 trap_Cvar_VariableStringBuffer
+CALLV
+pop
+ADDRLP4 8
+ARGP4
+ADDRLP4 1032
+ADDRGP4 atoi
+CALLI4
+ASGNI4
+ADDRLP4 4
+ADDRLP4 1032
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 1
+ASGNI4
+LABELV $1764
+ADDRFP4 0
+INDIRP4
+CNSTI4 212
+ADDP4
+INDIRI4
+ARGI4
+ADDRLP4 0
+INDIRI4
+ARGI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 280
+ADDP4
+INDIRI4
+ARGI4
+CNSTI4 0
+ARGI4
+ADDRLP4 1040
+ADDRGP4 BG_ClassCanEvolveFromTo
+CALLI4
+ASGNI4
+ADDRLP4 1040
+INDIRI4
+CNSTI4 0
+LTI4 $1768
+ADDRLP4 0
+INDIRI4
+ARGI4
+ADDRLP4 4
+INDIRI4
+ARGI4
+ADDRLP4 1044
+ADDRGP4 BG_FindStagesForClass
+CALLI4
+ASGNI4
+ADDRLP4 1044
+INDIRI4
+CNSTI4 0
+EQI4 $1768
+ADDRLP4 0
+INDIRI4
+ARGI4
+ADDRLP4 1048
+ADDRGP4 BG_ClassIsAllowed
+CALLI4
+ASGNI4
+ADDRLP4 1048
+INDIRI4
+CNSTI4 0
+EQI4 $1768
+CNSTI4 1
+RETI4
+ADDRGP4 $1762
+JUMPV
+LABELV $1768
+LABELV $1765
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+CNSTI4 13
+LTI4 $1764
+CNSTI4 0
+RETI4
+LABELV $1762
+endproc BG_UpgradeClassAvailable 1052 16
+export BG_InitAllowedGameElements
+proc BG_InitAllowedGameElements 256 20
+ADDRGP4 $1771
+ARGP4
+ADDRLP4 0
+ARGP4
+CNSTI4 256
+ARGI4
+ADDRGP4 trap_Cvar_VariableStringBuffer
+CALLV
+pop
+ADDRLP4 0
+ARGP4
+ADDRGP4 bg_disabledGameElements+168
+ARGP4
+CNSTI4 31
+ARGI4
+ADDRGP4 bg_disabledGameElements+292
+ARGP4
+CNSTI4 8
+ARGI4
+ADDRGP4 BG_ParseCSVEquipmentList
+CALLV
+pop
+ADDRGP4 $1774
+ARGP4
+ADDRLP4 0
+ARGP4
+CNSTI4 256
+ARGI4
+ADDRGP4 trap_Cvar_VariableStringBuffer
+CALLV
+pop
+ADDRLP4 0
+ARGP4
+ADDRGP4 bg_disabledGameElements+116
+ARGP4
+CNSTI4 13
+ARGI4
+ADDRGP4 BG_ParseCSVClassList
+CALLV
+pop
+ADDRGP4 $1776
+ARGP4
+ADDRLP4 0
+ARGP4
+CNSTI4 256
+ARGI4
+ADDRGP4 trap_Cvar_VariableStringBuffer
+CALLV
+pop
+ADDRLP4 0
+ARGP4
+ADDRGP4 bg_disabledGameElements
+ARGP4
+CNSTI4 29
+ARGI4
+ADDRGP4 BG_ParseCSVBuildableList
+CALLV
+pop
+LABELV $1770
+endproc BG_InitAllowedGameElements 256 20
+export BG_WeaponIsAllowed
+proc BG_WeaponIsAllowed 8 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1781
+JUMPV
+LABELV $1778
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRGP4 bg_disabledGameElements+168
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1783
+CNSTI4 0
+RETI4
+ADDRGP4 $1777
+JUMPV
+LABELV $1783
+LABELV $1779
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1781
+ADDRLP4 0
+INDIRI4
+CNSTI4 31
+GEI4 $1786
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRGP4 bg_disabledGameElements+168
+ADDP4
+INDIRI4
+CNSTI4 0
+NEI4 $1778
+LABELV $1786
+CNSTI4 1
+RETI4
+LABELV $1777
+endproc BG_WeaponIsAllowed 8 0
+export BG_UpgradeIsAllowed
+proc BG_UpgradeIsAllowed 8 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1791
+JUMPV
+LABELV $1788
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRGP4 bg_disabledGameElements+292
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1793
+CNSTI4 0
+RETI4
+ADDRGP4 $1787
+JUMPV
+LABELV $1793
+LABELV $1789
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1791
+ADDRLP4 0
+INDIRI4
+CNSTI4 8
+GEI4 $1796
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRGP4 bg_disabledGameElements+292
+ADDP4
+INDIRI4
+CNSTI4 0
+NEI4 $1788
+LABELV $1796
+CNSTI4 1
+RETI4
+LABELV $1787
+endproc BG_UpgradeIsAllowed 8 0
+export BG_ClassIsAllowed
+proc BG_ClassIsAllowed 8 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1801
+JUMPV
+LABELV $1798
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRGP4 bg_disabledGameElements+116
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1803
+CNSTI4 0
+RETI4
+ADDRGP4 $1797
+JUMPV
+LABELV $1803
+LABELV $1799
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1801
+ADDRLP4 0
+INDIRI4
+CNSTI4 13
+GEI4 $1806
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRGP4 bg_disabledGameElements+116
+ADDP4
+INDIRI4
+CNSTI4 0
+NEI4 $1798
+LABELV $1806
+CNSTI4 1
+RETI4
+LABELV $1797
+endproc BG_ClassIsAllowed 8 0
+export BG_BuildableIsAllowed
+proc BG_BuildableIsAllowed 8 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1811
+JUMPV
+LABELV $1808
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRGP4 bg_disabledGameElements
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1812
+CNSTI4 0
+RETI4
+ADDRGP4 $1807
+JUMPV
+LABELV $1812
+LABELV $1809
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1811
+ADDRLP4 0
+INDIRI4
+CNSTI4 29
+GEI4 $1814
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRGP4 bg_disabledGameElements
+ADDP4
+INDIRI4
+CNSTI4 0
+NEI4 $1808
+LABELV $1814
+CNSTI4 1
+RETI4
+LABELV $1807
+endproc BG_BuildableIsAllowed 8 0
+export BG_ClientListTest
+proc BG_ClientListTest 12 0
+ADDRFP4 4
+ADDRFP4 4
+INDIRI4
+ASGNI4
+ADDRFP4 4
+INDIRI4
+CNSTI4 0
+LTI4 $1819
+ADDRFP4 4
+INDIRI4
+CNSTI4 64
+GEI4 $1819
+ADDRFP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $1816
+LABELV $1819
+CNSTI4 0
+RETI4
+ADDRGP4 $1815
+JUMPV
+LABELV $1816
+ADDRFP4 4
+INDIRI4
+CNSTI4 32
+GEI4 $1820
+ADDRFP4 0
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRU4
+CNSTI4 1
+ADDRFP4 4
+INDIRI4
+LSHI4
+CVIU4 4
+BANDU4
+CNSTU4 0
+EQU4 $1823
+ADDRLP4 4
+CNSTI4 1
+ASGNI4
+ADDRGP4 $1824
+JUMPV
+LABELV $1823
+ADDRLP4 4
+CNSTI4 0
+ASGNI4
+LABELV $1824
+ADDRLP4 4
+INDIRI4
+RETI4
+ADDRGP4 $1815
+JUMPV
+LABELV $1820
+ADDRFP4 0
+INDIRP4
+INDIRU4
+CNSTI4 1
+ADDRFP4 4
+INDIRI4
+CNSTI4 32
+SUBI4
+LSHI4
+CVIU4 4
+BANDU4
+CNSTU4 0
+EQU4 $1826
+ADDRLP4 8
+CNSTI4 1
+ASGNI4
+ADDRGP4 $1827
+JUMPV
+LABELV $1826
+ADDRLP4 8
+CNSTI4 0
+ASGNI4
+LABELV $1827
+ADDRLP4 8
+INDIRI4
+RETI4
+LABELV $1815
+endproc BG_ClientListTest 12 0
+export BG_ClientListAdd
+proc BG_ClientListAdd 12 0
+ADDRFP4 4
+ADDRFP4 4
+INDIRI4
+ASGNI4
+ADDRFP4 4
+INDIRI4
+CNSTI4 0
+LTI4 $1832
+ADDRFP4 4
+INDIRI4
+CNSTI4 64
+GEI4 $1832
+ADDRFP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $1829
+LABELV $1832
+ADDRGP4 $1828
+JUMPV
+LABELV $1829
+ADDRFP4 4
+INDIRI4
+CNSTI4 32
+GEI4 $1833
+ADDRLP4 4
+ADDRFP4 0
+INDIRP4
+CNSTI4 4
+ADDP4
+ASGNP4
+ADDRLP4 4
+INDIRP4
+ADDRLP4 4
+INDIRP4
+INDIRU4
+CNSTI4 1
+ADDRFP4 4
+INDIRI4
+LSHI4
+CVIU4 4
+BORU4
+ASGNU4
+ADDRGP4 $1834
+JUMPV
+LABELV $1833
+ADDRLP4 8
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRLP4 8
+INDIRP4
+ADDRLP4 8
+INDIRP4
+INDIRU4
+CNSTI4 1
+ADDRFP4 4
+INDIRI4
+CNSTI4 32
+SUBI4
+LSHI4
+CVIU4 4
+BORU4
+ASGNU4
+LABELV $1834
+LABELV $1828
+endproc BG_ClientListAdd 12 0
+export BG_ClientListRemove
+proc BG_ClientListRemove 12 0
+ADDRFP4 4
+ADDRFP4 4
+INDIRI4
+ASGNI4
+ADDRFP4 4
+INDIRI4
+CNSTI4 0
+LTI4 $1839
+ADDRFP4 4
+INDIRI4
+CNSTI4 64
+GEI4 $1839
+ADDRFP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $1836
+LABELV $1839
+ADDRGP4 $1835
+JUMPV
+LABELV $1836
+ADDRFP4 4
+INDIRI4
+CNSTI4 32
+GEI4 $1840
+ADDRLP4 4
+ADDRFP4 0
+INDIRP4
+CNSTI4 4
+ADDP4
+ASGNP4
+ADDRLP4 4
+INDIRP4
+ADDRLP4 4
+INDIRP4
+INDIRU4
+CNSTI4 1
+ADDRFP4 4
+INDIRI4
+LSHI4
+BCOMI4
+CVIU4 4
+BANDU4
+ASGNU4
+ADDRGP4 $1841
+JUMPV
+LABELV $1840
+ADDRLP4 8
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRLP4 8
+INDIRP4
+ADDRLP4 8
+INDIRP4
+INDIRU4
+CNSTI4 1
+ADDRFP4 4
+INDIRI4
+CNSTI4 32
+SUBI4
+LSHI4
+BCOMI4
+CVIU4 4
+BANDU4
+ASGNU4
+LABELV $1841
+LABELV $1835
+endproc BG_ClientListRemove 12 0
+bss
+align 1
+LABELV $1843
+skip 17
+export BG_ClientListString
+code
+proc BG_ClientListString 4 20
+ADDRFP4 0
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRGP4 $1843
+CNSTI1 0
+ASGNI1
+ADDRFP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $1844
+ADDRGP4 $1843
+RETP4
+ADDRGP4 $1842
+JUMPV
+LABELV $1844
+ADDRGP4 $1843
+ARGP4
+CNSTI4 17
+ARGI4
+ADDRGP4 $1846
+ARGP4
+ADDRFP4 0
+INDIRP4
+INDIRU4
+ARGU4
+ADDRFP4 0
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRU4
+ARGU4
+ADDRGP4 Com_sprintf
+CALLV
+pop
+ADDRGP4 $1843
+RETP4
+LABELV $1842
+endproc BG_ClientListString 4 20
+export BG_ClientListParse
+proc BG_ClientListParse 8 16
+ADDRFP4 0
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRFP4 4
+ADDRFP4 4
+INDIRP4
+ASGNP4
+ADDRFP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $1848
+ADDRGP4 $1847
+JUMPV
+LABELV $1848
+ADDRFP4 0
+INDIRP4
+CNSTI4 4
+ADDP4
+CNSTU4 0
+ASGNU4
+ADDRFP4 0
+INDIRP4
+CNSTU4 0
+ASGNU4
+ADDRFP4 4
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $1850
+ADDRGP4 $1847
+JUMPV
+LABELV $1850
+ADDRFP4 4
+INDIRP4
+ARGP4
+ADDRLP4 0
+ADDRGP4 strlen
+CALLI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+CNSTI4 16
+EQI4 $1852
+ADDRGP4 $1847
+JUMPV
+LABELV $1852
+ADDRFP4 4
+INDIRP4
+ARGP4
+ADDRGP4 $1854
+ARGP4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 4
+ADDP4
+ARGP4
+ADDRGP4 sscanf
+CALLI4
+pop
+LABELV $1847
+endproc BG_ClientListParse 8 16
+bss
+align 4
+LABELV bg_disabledGameElements
+skip 324
+import trap_Cvar_VariableStringBuffer
+export bg_classOverrideList
+align 4
+LABELV bg_classOverrideList
+skip 16848
+export bg_buildableOverrideList
+align 4
+LABELV bg_buildableOverrideList
+skip 8352
+import trap_FS_Seek
+import trap_FS_FCloseFile
+import trap_FS_Write
+import trap_FS_Read
+import trap_FS_FOpenFile
+import BG_PlayerTouchesItem
+import BG_FindCrosshairSizeForWeapon
+import BG_FindCrosshairForWeapon
+import BG_FindIconForWeapon
+import BG_FindModelsForWeapon
+import Pmove
+import PM_UpdateViewAngles
+import Com_Printf
+import Com_Error
+import Info_NextPair
+import Info_Validate
+import Info_SetValueForKey_Big
+import Info_SetValueForKey
+import Info_RemoveKey_big
+import Info_RemoveKey
+import Info_ValueForKey
+import Com_TruncateLongString
+import va
+import Q_CountChar
+import Q_CleanStr
+import Q_PrintStrlen
+import Q_strcat
+import Q_strncpyz
+import Q_stristr
+import Q_strrchr
+import Q_strupr
+import Q_strlwr
+import Q_stricmpn
+import Q_strncmp
+import Q_stricmp
+import Q_isintegral
+import Q_isanumber
+import Q_isdigit
+import Q_isalpha
+import Q_isupper
+import Q_islower
+import Q_isprint
+import Com_RandomBytes
+import Com_SkipCharset
+import Com_SkipTokens
+import Com_sprintf
+import Com_HexStrToInt
+import Parse3DMatrix
+import Parse2DMatrix
+import Parse1DMatrix
+import SkipRestOfLine
+import SkipBracedSection
+import COM_MatchToken
+import COM_ParseWarning
+import COM_ParseError
+import COM_Compress
+import COM_ParseExt
+import COM_Parse
+import COM_GetCurrentParseLine
+import COM_BeginParseSession
+import COM_DefaultExtension
+import COM_StripExtension
+import COM_GetExtension
+import COM_SkipPath
+import Com_Clamp
+import DistanceBetweenLineSegments
+import DistanceBetweenLineSegmentsSquared
+import VectorMaxComponent
+import VectorMinComponent
+import pointToLineDistance
+import VectorDistance
+import ProjectPointOntoVector
+import GetPerpendicularViewVector
+import Q_isnan
+import PerpendicularVector
+import AngleVectors
+import VectorMatrixMultiply
+import MatrixMultiply
+import MakeNormalVectors
+import RotateAroundDirection
+import RotatePointAroundVector
+import ProjectPointOnPlane
+import PlaneFromPoints
+import AngleDelta
+import AngleNormalize180
+import AngleNormalize360
+import AnglesSubtract
+import AngleSubtract
+import LerpAngle
+import AngleMod
+import BoundsIntersectPoint
+import BoundsIntersectSphere
+import BoundsIntersect
+import BoxOnPlaneSide
+import SetPlaneSignbits
+import AxisCopy
+import AxisClear
+import AxisToAngles
+import AnglesToAxis
+import vectoangles
+import Q_crandom
+import Q_random
+import Q_rand
+import Q_acos
+import Q_log2
+import VectorRotate
+import Vector4Scale
+import VectorNormalize2
+import VectorNormalize
+import CrossProduct
+import VectorInverse
+import VectorNormalizeFast
+import DistanceSquared
+import Distance
+import VectorLengthSquared
+import VectorLength
+import VectorCompare
+import AddPointToBounds
+import ClearBounds
+import RadiusFromBounds
+import NormalizeColor
+import ColorBytes4
+import ColorBytes3
+import _VectorMA
+import _VectorScale
+import _VectorCopy
+import _VectorAdd
+import _VectorSubtract
+import _DotProduct
+import ByteToDir
+import DirToByte
+import ClampShort
+import ClampChar
+import Q_rsqrt
+import Q_fabs
+import axisDefault
+import vec3_origin
+import g_color_table
+import colorDkGrey
+import colorMdGrey
+import colorLtGrey
+import colorWhite
+import colorCyan
+import colorMagenta
+import colorYellow
+import colorBlue
+import colorGreen
+import colorRed
+import colorBlack
+import bytedirs
+import Hunk_Alloc
+import FloatSwap
+import LongSwap
+import ShortSwap
+import rint
+import pow
+import acos
+import fabs
+import abs
+import tan
+import atan2
+import cos
+import sin
+import sqrt
+import floor
+import ceil
+import memcpy
+import memset
+import memmove
+import sscanf
+import vsprintf
+import _atoi
+import atoi
+import _atof
+import atof
+import toupper
+import tolower
+import strncpy
+import strstr
+import strrchr
+import strchr
+import strcmp
+import strcpy
+import strcat
+import strlen
+import rand
+import srand
+import qsort
+lit
+align 1
+LABELV $1854
+byte 1 37
+byte 1 120
+byte 1 37
+byte 1 120
+byte 1 0
+align 1
+LABELV $1846
+byte 1 37
+byte 1 48
+byte 1 56
+byte 1 120
+byte 1 37
+byte 1 48
+byte 1 56
+byte 1 120
+byte 1 0
+align 1
+LABELV $1776
+byte 1 103
+byte 1 95
+byte 1 100
+byte 1 105
+byte 1 115
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 100
+byte 1 66
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 115
+byte 1 0
+align 1
+LABELV $1774
+byte 1 103
+byte 1 95
+byte 1 100
+byte 1 105
+byte 1 115
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 100
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 101
+byte 1 115
+byte 1 0
+align 1
+LABELV $1771
+byte 1 103
+byte 1 95
+byte 1 100
+byte 1 105
+byte 1 115
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 100
+byte 1 69
+byte 1 113
+byte 1 117
+byte 1 105
+byte 1 112
+byte 1 109
+byte 1 101
+byte 1 110
+byte 1 116
+byte 1 0
+align 1
+LABELV $1763
+byte 1 103
+byte 1 95
+byte 1 97
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 83
+byte 1 116
+byte 1 97
+byte 1 103
+byte 1 101
+byte 1 0
+align 1
+LABELV $1759
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 117
+byte 1 110
+byte 1 107
+byte 1 110
+byte 1 111
+byte 1 119
+byte 1 110
+byte 1 32
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 32
+byte 1 37
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $1741
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 117
+byte 1 110
+byte 1 107
+byte 1 110
+byte 1 111
+byte 1 119
+byte 1 110
+byte 1 32
+byte 1 99
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 32
+byte 1 37
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $1712
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 117
+byte 1 110
+byte 1 107
+byte 1 110
+byte 1 111
+byte 1 119
+byte 1 110
+byte 1 32
+byte 1 101
+byte 1 113
+byte 1 117
+byte 1 105
+byte 1 112
+byte 1 109
+byte 1 101
+byte 1 110
+byte 1 116
+byte 1 32
+byte 1 37
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $1522
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 82
+byte 1 80
+byte 1 84
+byte 1 85
+byte 1 83
+byte 1 69
+byte 1 95
+byte 1 83
+byte 1 79
+byte 1 85
+byte 1 78
+byte 1 68
+byte 1 0
+align 1
+LABELV $1521
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 68
+byte 1 67
+byte 1 67
+byte 1 95
+byte 1 65
+byte 1 84
+byte 1 84
+byte 1 65
+byte 1 67
+byte 1 75
+byte 1 0
+align 1
+LABELV $1520
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 79
+byte 1 86
+byte 1 69
+byte 1 82
+byte 1 77
+byte 1 73
+byte 1 78
+byte 1 68
+byte 1 95
+byte 1 83
+byte 1 80
+byte 1 65
+byte 1 87
+byte 1 78
+byte 1 83
+byte 1 0
+align 1
+LABELV $1519
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 79
+byte 1 86
+byte 1 69
+byte 1 82
+byte 1 77
+byte 1 73
+byte 1 78
+byte 1 68
+byte 1 95
+byte 1 68
+byte 1 89
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 0
+align 1
+LABELV $1518
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 79
+byte 1 86
+byte 1 69
+byte 1 82
+byte 1 77
+byte 1 73
+byte 1 78
+byte 1 68
+byte 1 95
+byte 1 65
+byte 1 84
+byte 1 84
+byte 1 65
+byte 1 67
+byte 1 75
+byte 1 0
+align 1
+LABELV $1517
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 84
+byte 1 65
+byte 1 85
+byte 1 78
+byte 1 84
+byte 1 0
+align 1
+LABELV $1516
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 83
+byte 1 84
+byte 1 79
+byte 1 80
+byte 1 76
+byte 1 79
+byte 1 79
+byte 1 80
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 83
+byte 1 79
+byte 1 85
+byte 1 78
+byte 1 68
+byte 1 0
+align 1
+LABELV $1515
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 68
+byte 1 69
+byte 1 66
+byte 1 85
+byte 1 71
+byte 1 95
+byte 1 76
+byte 1 73
+byte 1 78
+byte 1 69
+byte 1 0
+align 1
+LABELV $1514
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 65
+byte 1 76
+byte 1 73
+byte 1 69
+byte 1 78
+byte 1 95
+byte 1 69
+byte 1 86
+byte 1 79
+byte 1 76
+byte 1 86
+byte 1 69
+byte 1 95
+byte 1 70
+byte 1 65
+byte 1 73
+byte 1 76
+byte 1 69
+byte 1 68
+byte 1 0
+align 1
+LABELV $1513
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 65
+byte 1 76
+byte 1 73
+byte 1 69
+byte 1 78
+byte 1 95
+byte 1 69
+byte 1 86
+byte 1 79
+byte 1 76
+byte 1 86
+byte 1 69
+byte 1 0
+align 1
+LABELV $1512
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 77
+byte 1 69
+byte 1 68
+byte 1 75
+byte 1 73
+byte 1 84
+byte 1 95
+byte 1 85
+byte 1 83
+byte 1 69
+byte 1 68
+byte 1 0
+align 1
+LABELV $1511
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 65
+byte 1 76
+byte 1 73
+byte 1 69
+byte 1 78
+byte 1 95
+byte 1 65
+byte 1 67
+byte 1 73
+byte 1 68
+byte 1 84
+byte 1 85
+byte 1 66
+byte 1 69
+byte 1 0
+align 1
+LABELV $1510
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 65
+byte 1 76
+byte 1 73
+byte 1 69
+byte 1 78
+byte 1 95
+byte 1 66
+byte 1 85
+byte 1 73
+byte 1 76
+byte 1 68
+byte 1 65
+byte 1 66
+byte 1 76
+byte 1 69
+byte 1 95
+byte 1 69
+byte 1 88
+byte 1 80
+byte 1 76
+byte 1 79
+byte 1 83
+byte 1 73
+byte 1 79
+byte 1 78
+byte 1 0
+align 1
+LABELV $1509
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 72
+byte 1 85
+byte 1 77
+byte 1 65
+byte 1 78
+byte 1 95
+byte 1 66
+byte 1 85
+byte 1 73
+byte 1 76
+byte 1 68
+byte 1 65
+byte 1 66
+byte 1 76
+byte 1 69
+byte 1 95
+byte 1 69
+byte 1 88
+byte 1 80
+byte 1 76
+byte 1 79
+byte 1 83
+byte 1 73
+byte 1 79
+byte 1 78
+byte 1 0
+align 1
+LABELV $1508
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 66
+byte 1 85
+byte 1 73
+byte 1 76
+byte 1 68
+byte 1 95
+byte 1 82
+byte 1 69
+byte 1 80
+byte 1 65
+byte 1 73
+byte 1 82
+byte 1 69
+byte 1 68
+byte 1 0
+align 1
+LABELV $1507
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 66
+byte 1 85
+byte 1 73
+byte 1 76
+byte 1 68
+byte 1 95
+byte 1 82
+byte 1 69
+byte 1 80
+byte 1 65
+byte 1 73
+byte 1 82
+byte 1 0
+align 1
+LABELV $1506
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 66
+byte 1 85
+byte 1 73
+byte 1 76
+byte 1 68
+byte 1 95
+byte 1 68
+byte 1 69
+byte 1 76
+byte 1 65
+byte 1 89
+byte 1 0
+align 1
+LABELV $1505
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 66
+byte 1 85
+byte 1 73
+byte 1 76
+byte 1 68
+byte 1 95
+byte 1 68
+byte 1 69
+byte 1 83
+byte 1 84
+byte 1 82
+byte 1 79
+byte 1 89
+byte 1 0
+align 1
+LABELV $1504
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 66
+byte 1 85
+byte 1 73
+byte 1 76
+byte 1 68
+byte 1 95
+byte 1 67
+byte 1 79
+byte 1 78
+byte 1 83
+byte 1 84
+byte 1 82
+byte 1 85
+byte 1 67
+byte 1 84
+byte 1 0
+align 1
+LABELV $1503
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 71
+byte 1 73
+byte 1 66
+byte 1 95
+byte 1 80
+byte 1 76
+byte 1 65
+byte 1 89
+byte 1 69
+byte 1 82
+byte 1 0
+align 1
+LABELV $1502
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 79
+byte 1 66
+byte 1 73
+byte 1 84
+byte 1 85
+byte 1 65
+byte 1 82
+byte 1 89
+byte 1 0
+align 1
+LABELV $1501
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 68
+byte 1 69
+byte 1 65
+byte 1 84
+byte 1 72
+byte 1 51
+byte 1 0
+align 1
+LABELV $1500
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 68
+byte 1 69
+byte 1 65
+byte 1 84
+byte 1 72
+byte 1 50
+byte 1 0
+align 1
+LABELV $1499
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 68
+byte 1 69
+byte 1 65
+byte 1 84
+byte 1 72
+byte 1 49
+byte 1 0
+align 1
+LABELV $1498
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 80
+byte 1 65
+byte 1 73
+byte 1 78
+byte 1 0
+align 1
+LABELV $1497
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 76
+byte 1 69
+byte 1 86
+byte 1 52
+byte 1 95
+byte 1 67
+byte 1 72
+byte 1 65
+byte 1 82
+byte 1 71
+byte 1 69
+byte 1 95
+byte 1 83
+byte 1 84
+byte 1 65
+byte 1 82
+byte 1 84
+byte 1 0
+align 1
+LABELV $1496
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 76
+byte 1 69
+byte 1 86
+byte 1 52
+byte 1 95
+byte 1 67
+byte 1 72
+byte 1 65
+byte 1 82
+byte 1 71
+byte 1 69
+byte 1 95
+byte 1 80
+byte 1 82
+byte 1 69
+byte 1 80
+byte 1 65
+byte 1 82
+byte 1 69
+byte 1 0
+align 1
+LABELV $1495
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 76
+byte 1 69
+byte 1 86
+byte 1 49
+byte 1 95
+byte 1 71
+byte 1 82
+byte 1 65
+byte 1 66
+byte 1 0
+align 1
+LABELV $1494
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 66
+byte 1 85
+byte 1 76
+byte 1 76
+byte 1 69
+byte 1 84
+byte 1 0
+align 1
+LABELV $1493
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 84
+byte 1 69
+byte 1 83
+byte 1 76
+byte 1 65
+byte 1 84
+byte 1 82
+byte 1 65
+byte 1 73
+byte 1 76
+byte 1 0
+align 1
+LABELV $1492
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 77
+byte 1 73
+byte 1 83
+byte 1 83
+byte 1 73
+byte 1 76
+byte 1 69
+byte 1 95
+byte 1 77
+byte 1 73
+byte 1 83
+byte 1 83
+byte 1 95
+byte 1 77
+byte 1 69
+byte 1 84
+byte 1 65
+byte 1 76
+byte 1 0
+align 1
+LABELV $1491
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 77
+byte 1 73
+byte 1 83
+byte 1 83
+byte 1 73
+byte 1 76
+byte 1 69
+byte 1 95
+byte 1 77
+byte 1 73
+byte 1 83
+byte 1 83
+byte 1 0
+align 1
+LABELV $1490
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 77
+byte 1 73
+byte 1 83
+byte 1 83
+byte 1 73
+byte 1 76
+byte 1 69
+byte 1 95
+byte 1 72
+byte 1 73
+byte 1 84
+byte 1 0
+align 1
+LABELV $1489
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 83
+byte 1 72
+byte 1 79
+byte 1 84
+byte 1 71
+byte 1 85
+byte 1 78
+byte 1 0
+align 1
+LABELV $1488
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 66
+byte 1 85
+byte 1 76
+byte 1 76
+byte 1 69
+byte 1 84
+byte 1 95
+byte 1 72
+byte 1 73
+byte 1 84
+byte 1 95
+byte 1 87
+byte 1 65
+byte 1 76
+byte 1 76
+byte 1 0
+align 1
+LABELV $1487
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 66
+byte 1 85
+byte 1 76
+byte 1 76
+byte 1 69
+byte 1 84
+byte 1 95
+byte 1 72
+byte 1 73
+byte 1 84
+byte 1 95
+byte 1 70
+byte 1 76
+byte 1 69
+byte 1 83
+byte 1 72
+byte 1 0
+align 1
+LABELV $1486
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 71
+byte 1 76
+byte 1 79
+byte 1 66
+byte 1 65
+byte 1 76
+byte 1 95
+byte 1 83
+byte 1 79
+byte 1 85
+byte 1 78
+byte 1 68
+byte 1 0
+align 1
+LABELV $1485
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 71
+byte 1 69
+byte 1 78
+byte 1 69
+byte 1 82
+byte 1 65
+byte 1 76
+byte 1 95
+byte 1 83
+byte 1 79
+byte 1 85
+byte 1 78
+byte 1 68
+byte 1 0
+align 1
+LABELV $1484
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 71
+byte 1 82
+byte 1 69
+byte 1 78
+byte 1 65
+byte 1 68
+byte 1 69
+byte 1 95
+byte 1 66
+byte 1 79
+byte 1 85
+byte 1 78
+byte 1 67
+byte 1 69
+byte 1 0
+align 1
+LABELV $1483
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 80
+byte 1 76
+byte 1 65
+byte 1 89
+byte 1 69
+byte 1 82
+byte 1 95
+byte 1 84
+byte 1 69
+byte 1 76
+byte 1 69
+byte 1 80
+byte 1 79
+byte 1 82
+byte 1 84
+byte 1 95
+byte 1 79
+byte 1 85
+byte 1 84
+byte 1 0
+align 1
+LABELV $1482
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 80
+byte 1 76
+byte 1 65
+byte 1 89
+byte 1 69
+byte 1 82
+byte 1 95
+byte 1 84
+byte 1 69
+byte 1 76
+byte 1 69
+byte 1 80
+byte 1 79
+byte 1 82
+byte 1 84
+byte 1 95
+byte 1 73
+byte 1 78
+byte 1 0
+align 1
+LABELV $1481
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 80
+byte 1 76
+byte 1 65
+byte 1 89
+byte 1 69
+byte 1 82
+byte 1 95
+byte 1 82
+byte 1 69
+byte 1 83
+byte 1 80
+byte 1 65
+byte 1 87
+byte 1 78
+byte 1 0
+align 1
+LABELV $1480
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 70
+byte 1 73
+byte 1 82
+byte 1 69
+byte 1 95
+byte 1 87
+byte 1 69
+byte 1 65
+byte 1 80
+byte 1 79
+byte 1 78
+byte 1 51
+byte 1 0
+align 1
+LABELV $1479
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 70
+byte 1 73
+byte 1 82
+byte 1 69
+byte 1 95
+byte 1 87
+byte 1 69
+byte 1 65
+byte 1 80
+byte 1 79
+byte 1 78
+byte 1 50
+byte 1 0
+align 1
+LABELV $1478
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 70
+byte 1 73
+byte 1 82
+byte 1 69
+byte 1 95
+byte 1 87
+byte 1 69
+byte 1 65
+byte 1 80
+byte 1 79
+byte 1 78
+byte 1 0
+align 1
+LABELV $1477
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 67
+byte 1 72
+byte 1 65
+byte 1 78
+byte 1 71
+byte 1 69
+byte 1 95
+byte 1 87
+byte 1 69
+byte 1 65
+byte 1 80
+byte 1 79
+byte 1 78
+byte 1 0
+align 1
+LABELV $1476
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 78
+byte 1 79
+byte 1 65
+byte 1 77
+byte 1 77
+byte 1 79
+byte 1 0
+align 1
+LABELV $1475
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 87
+byte 1 65
+byte 1 84
+byte 1 69
+byte 1 82
+byte 1 95
+byte 1 67
+byte 1 76
+byte 1 69
+byte 1 65
+byte 1 82
+byte 1 0
+align 1
+LABELV $1474
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 87
+byte 1 65
+byte 1 84
+byte 1 69
+byte 1 82
+byte 1 95
+byte 1 85
+byte 1 78
+byte 1 68
+byte 1 69
+byte 1 82
+byte 1 0
+align 1
+LABELV $1473
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 87
+byte 1 65
+byte 1 84
+byte 1 69
+byte 1 82
+byte 1 95
+byte 1 76
+byte 1 69
+byte 1 65
+byte 1 86
+byte 1 69
+byte 1 0
+align 1
+LABELV $1472
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 87
+byte 1 65
+byte 1 84
+byte 1 69
+byte 1 82
+byte 1 95
+byte 1 84
+byte 1 79
+byte 1 85
+byte 1 67
+byte 1 72
+byte 1 0
+align 1
+LABELV $1471
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 74
+byte 1 85
+byte 1 77
+byte 1 80
+byte 1 0
+align 1
+LABELV $1470
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 70
+byte 1 65
+byte 1 76
+byte 1 76
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 0
+align 1
+LABELV $1469
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 70
+byte 1 65
+byte 1 76
+byte 1 76
+byte 1 95
+byte 1 70
+byte 1 65
+byte 1 82
+byte 1 0
+align 1
+LABELV $1468
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 70
+byte 1 65
+byte 1 76
+byte 1 76
+byte 1 95
+byte 1 77
+byte 1 69
+byte 1 68
+byte 1 73
+byte 1 85
+byte 1 77
+byte 1 0
+align 1
+LABELV $1467
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 70
+byte 1 65
+byte 1 76
+byte 1 76
+byte 1 95
+byte 1 83
+byte 1 72
+byte 1 79
+byte 1 82
+byte 1 84
+byte 1 0
+align 1
+LABELV $1466
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 83
+byte 1 84
+byte 1 69
+byte 1 80
+byte 1 68
+byte 1 78
+byte 1 95
+byte 1 49
+byte 1 54
+byte 1 0
+align 1
+LABELV $1465
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 83
+byte 1 84
+byte 1 69
+byte 1 80
+byte 1 68
+byte 1 78
+byte 1 95
+byte 1 49
+byte 1 50
+byte 1 0
+align 1
+LABELV $1464
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 83
+byte 1 84
+byte 1 69
+byte 1 80
+byte 1 68
+byte 1 78
+byte 1 95
+byte 1 56
+byte 1 0
+align 1
+LABELV $1463
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 83
+byte 1 84
+byte 1 69
+byte 1 80
+byte 1 68
+byte 1 78
+byte 1 95
+byte 1 52
+byte 1 0
+align 1
+LABELV $1462
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 83
+byte 1 84
+byte 1 69
+byte 1 80
+byte 1 95
+byte 1 49
+byte 1 54
+byte 1 0
+align 1
+LABELV $1461
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 83
+byte 1 84
+byte 1 69
+byte 1 80
+byte 1 95
+byte 1 49
+byte 1 50
+byte 1 0
+align 1
+LABELV $1460
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 83
+byte 1 84
+byte 1 69
+byte 1 80
+byte 1 95
+byte 1 56
+byte 1 0
+align 1
+LABELV $1459
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 83
+byte 1 84
+byte 1 69
+byte 1 80
+byte 1 95
+byte 1 52
+byte 1 0
+align 1
+LABELV $1458
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 83
+byte 1 87
+byte 1 73
+byte 1 77
+byte 1 0
+align 1
+LABELV $1457
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 70
+byte 1 79
+byte 1 79
+byte 1 84
+byte 1 87
+byte 1 65
+byte 1 68
+byte 1 69
+byte 1 0
+align 1
+LABELV $1456
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 70
+byte 1 79
+byte 1 79
+byte 1 84
+byte 1 83
+byte 1 80
+byte 1 76
+byte 1 65
+byte 1 83
+byte 1 72
+byte 1 0
+align 1
+LABELV $1455
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 70
+byte 1 79
+byte 1 79
+byte 1 84
+byte 1 83
+byte 1 84
+byte 1 69
+byte 1 80
+byte 1 95
+byte 1 83
+byte 1 81
+byte 1 85
+byte 1 69
+byte 1 76
+byte 1 67
+byte 1 72
+byte 1 0
+align 1
+LABELV $1454
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 70
+byte 1 79
+byte 1 79
+byte 1 84
+byte 1 83
+byte 1 84
+byte 1 69
+byte 1 80
+byte 1 95
+byte 1 77
+byte 1 69
+byte 1 84
+byte 1 65
+byte 1 76
+byte 1 0
+align 1
+LABELV $1453
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 70
+byte 1 79
+byte 1 79
+byte 1 84
+byte 1 83
+byte 1 84
+byte 1 69
+byte 1 80
+byte 1 0
+align 1
+LABELV $1452
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 78
+byte 1 79
+byte 1 78
+byte 1 69
+byte 1 0
+align 1
+LABELV $1450
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 69
+byte 1 118
+byte 1 97
+byte 1 108
+byte 1 117
+byte 1 97
+byte 1 116
+byte 1 101
+byte 1 84
+byte 1 114
+byte 1 97
+byte 1 106
+byte 1 101
+byte 1 99
+byte 1 116
+byte 1 111
+byte 1 114
+byte 1 121
+byte 1 68
+byte 1 101
+byte 1 108
+byte 1 116
+byte 1 97
+byte 1 58
+byte 1 32
+byte 1 117
+byte 1 110
+byte 1 107
+byte 1 110
+byte 1 111
+byte 1 119
+byte 1 110
+byte 1 32
+byte 1 116
+byte 1 114
+byte 1 84
+byte 1 121
+byte 1 112
+byte 1 101
+byte 1 58
+byte 1 32
+byte 1 37
+byte 1 105
+byte 1 0
+align 1
+LABELV $1436
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 69
+byte 1 118
+byte 1 97
+byte 1 108
+byte 1 117
+byte 1 97
+byte 1 116
+byte 1 101
+byte 1 84
+byte 1 114
+byte 1 97
+byte 1 106
+byte 1 101
+byte 1 99
+byte 1 116
+byte 1 111
+byte 1 114
+byte 1 121
+byte 1 58
+byte 1 32
+byte 1 117
+byte 1 110
+byte 1 107
+byte 1 110
+byte 1 111
+byte 1 119
+byte 1 110
+byte 1 32
+byte 1 116
+byte 1 114
+byte 1 84
+byte 1 121
+byte 1 112
+byte 1 101
+byte 1 58
+byte 1 32
+byte 1 37
+byte 1 105
+byte 1 0
+align 1
+LABELV $1339
+byte 1 65
+byte 1 109
+byte 1 109
+byte 1 117
+byte 1 110
+byte 1 105
+byte 1 116
+byte 1 105
+byte 1 111
+byte 1 110
+byte 1 0
+align 1
+LABELV $1338
+byte 1 97
+byte 1 109
+byte 1 109
+byte 1 111
+byte 1 0
+align 1
+LABELV $1337
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 0
+align 1
+LABELV $1336
+byte 1 103
+byte 1 114
+byte 1 101
+byte 1 110
+byte 1 0
+align 1
+LABELV $1335
+byte 1 105
+byte 1 99
+byte 1 111
+byte 1 110
+byte 1 115
+byte 1 47
+byte 1 105
+byte 1 99
+byte 1 111
+byte 1 110
+byte 1 117
+byte 1 95
+byte 1 98
+byte 1 97
+byte 1 116
+byte 1 116
+byte 1 112
+byte 1 97
+byte 1 99
+byte 1 107
+byte 1 0
+align 1
+LABELV $1334
+byte 1 66
+byte 1 97
+byte 1 116
+byte 1 116
+byte 1 101
+byte 1 114
+byte 1 121
+byte 1 32
+byte 1 80
+byte 1 97
+byte 1 99
+byte 1 107
+byte 1 0
+align 1
+LABELV $1333
+byte 1 98
+byte 1 97
+byte 1 116
+byte 1 116
+byte 1 112
+byte 1 97
+byte 1 99
+byte 1 107
+byte 1 0
+align 1
+LABELV $1332
+byte 1 105
+byte 1 99
+byte 1 111
+byte 1 110
+byte 1 115
+byte 1 47
+byte 1 105
+byte 1 99
+byte 1 111
+byte 1 110
+byte 1 117
+byte 1 95
+byte 1 97
+byte 1 116
+byte 1 111
+byte 1 120
+byte 1 105
+byte 1 110
+byte 1 0
+align 1
+LABELV $1331
+byte 1 77
+byte 1 101
+byte 1 100
+byte 1 107
+byte 1 105
+byte 1 116
+byte 1 0
+align 1
+LABELV $1330
+byte 1 109
+byte 1 101
+byte 1 100
+byte 1 107
+byte 1 105
+byte 1 116
+byte 1 0
+align 1
+LABELV $1329
+byte 1 105
+byte 1 99
+byte 1 111
+byte 1 110
+byte 1 115
+byte 1 47
+byte 1 105
+byte 1 99
+byte 1 111
+byte 1 110
+byte 1 117
+byte 1 95
+byte 1 104
+byte 1 101
+byte 1 108
+byte 1 109
+byte 1 101
+byte 1 116
+byte 1 0
+align 1
+LABELV $1328
+byte 1 72
+byte 1 101
+byte 1 108
+byte 1 109
+byte 1 101
+byte 1 116
+byte 1 0
+align 1
+LABELV $1327
+byte 1 104
+byte 1 101
+byte 1 108
+byte 1 109
+byte 1 101
+byte 1 116
+byte 1 0
+align 1
+LABELV $1326
+byte 1 105
+byte 1 99
+byte 1 111
+byte 1 110
+byte 1 115
+byte 1 47
+byte 1 105
+byte 1 99
+byte 1 111
+byte 1 110
+byte 1 117
+byte 1 95
+byte 1 108
+byte 1 97
+byte 1 114
+byte 1 109
+byte 1 111
+byte 1 117
+byte 1 114
+byte 1 0
+align 1
+LABELV $1325
+byte 1 76
+byte 1 105
+byte 1 103
+byte 1 104
+byte 1 116
+byte 1 32
+byte 1 65
+byte 1 114
+byte 1 109
+byte 1 111
+byte 1 117
+byte 1 114
+byte 1 0
+align 1
+LABELV $1324
+byte 1 108
+byte 1 97
+byte 1 114
+byte 1 109
+byte 1 111
+byte 1 117
+byte 1 114
+byte 1 0
+align 1
+LABELV $1140
+byte 1 116
+byte 1 101
+byte 1 115
+byte 1 108
+byte 1 97
+byte 1 103
+byte 1 101
+byte 1 110
+byte 1 0
+align 1
+LABELV $1139
+byte 1 76
+byte 1 111
+byte 1 99
+byte 1 107
+byte 1 32
+byte 1 66
+byte 1 108
+byte 1 111
+byte 1 98
+byte 1 0
+align 1
+LABELV $1138
+byte 1 108
+byte 1 111
+byte 1 99
+byte 1 107
+byte 1 98
+byte 1 108
+byte 1 111
+byte 1 98
+byte 1 0
+align 1
+LABELV $1137
+byte 1 67
+byte 1 104
+byte 1 97
+byte 1 114
+byte 1 103
+byte 1 101
+byte 1 0
+align 1
+LABELV $1136
+byte 1 80
+byte 1 111
+byte 1 117
+byte 1 110
+byte 1 99
+byte 1 101
+byte 1 32
+byte 1 40
+byte 1 117
+byte 1 112
+byte 1 103
+byte 1 114
+byte 1 97
+byte 1 100
+byte 1 101
+byte 1 41
+byte 1 0
+align 1
+LABELV $1135
+byte 1 80
+byte 1 111
+byte 1 117
+byte 1 110
+byte 1 99
+byte 1 101
+byte 1 0
+align 1
+LABELV $1134
+byte 1 90
+byte 1 97
+byte 1 112
+byte 1 0
+align 1
+LABELV $1133
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 119
+byte 1 115
+byte 1 32
+byte 1 85
+byte 1 112
+byte 1 103
+byte 1 114
+byte 1 97
+byte 1 100
+byte 1 101
+byte 1 0
+align 1
+LABELV $1132
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 119
+byte 1 115
+byte 1 0
+align 1
+LABELV $1131
+byte 1 66
+byte 1 105
+byte 1 116
+byte 1 101
+byte 1 0
+align 1
+LABELV $1130
+byte 1 65
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 32
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 32
+byte 1 119
+byte 1 101
+byte 1 97
+byte 1 112
+byte 1 111
+byte 1 110
+byte 1 50
+byte 1 0
+align 1
+LABELV $1129
+byte 1 97
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 117
+byte 1 112
+byte 1 103
+byte 1 0
+align 1
+LABELV $1128
+byte 1 65
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 32
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 32
+byte 1 119
+byte 1 101
+byte 1 97
+byte 1 112
+byte 1 111
+byte 1 110
+byte 1 0
+align 1
+LABELV $1127
+byte 1 97
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 0
+align 1
+LABELV $1126
+byte 1 65
+byte 1 100
+byte 1 118
+byte 1 32
+byte 1 67
+byte 1 111
+byte 1 110
+byte 1 115
+byte 1 116
+byte 1 114
+byte 1 117
+byte 1 99
+byte 1 116
+byte 1 105
+byte 1 111
+byte 1 110
+byte 1 32
+byte 1 75
+byte 1 105
+byte 1 116
+byte 1 0
+align 1
+LABELV $1125
+byte 1 97
+byte 1 99
+byte 1 107
+byte 1 105
+byte 1 116
+byte 1 0
+align 1
+LABELV $1124
+byte 1 67
+byte 1 111
+byte 1 110
+byte 1 115
+byte 1 116
+byte 1 114
+byte 1 117
+byte 1 99
+byte 1 116
+byte 1 105
+byte 1 111
+byte 1 110
+byte 1 32
+byte 1 75
+byte 1 105
+byte 1 116
+byte 1 0
+align 1
+LABELV $1123
+byte 1 99
+byte 1 107
+byte 1 105
+byte 1 116
+byte 1 0
+align 1
+LABELV $1122
+byte 1 71
+byte 1 114
+byte 1 101
+byte 1 110
+byte 1 97
+byte 1 100
+byte 1 101
+byte 1 32
+byte 1 76
+byte 1 97
+byte 1 117
+byte 1 110
+byte 1 99
+byte 1 104
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $1121
+byte 1 66
+byte 1 111
+byte 1 109
+byte 1 98
+byte 1 0
+align 1
+LABELV $1120
+byte 1 98
+byte 1 111
+byte 1 109
+byte 1 98
+byte 1 0
+align 1
+LABELV $1119
+byte 1 71
+byte 1 114
+byte 1 101
+byte 1 110
+byte 1 97
+byte 1 100
+byte 1 101
+byte 1 0
+align 1
+LABELV $1118
+byte 1 103
+byte 1 114
+byte 1 101
+byte 1 110
+byte 1 97
+byte 1 100
+byte 1 101
+byte 1 0
+align 1
+LABELV $1117
+byte 1 80
+byte 1 97
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 83
+byte 1 97
+byte 1 119
+byte 1 0
+align 1
+LABELV $1116
+byte 1 76
+byte 1 97
+byte 1 115
+byte 1 32
+byte 1 71
+byte 1 117
+byte 1 110
+byte 1 0
+align 1
+LABELV $1115
+byte 1 76
+byte 1 117
+byte 1 99
+byte 1 105
+byte 1 102
+byte 1 101
+byte 1 114
+byte 1 32
+byte 1 67
+byte 1 97
+byte 1 110
+byte 1 110
+byte 1 111
+byte 1 110
+byte 1 0
+align 1
+LABELV $1114
+byte 1 80
+byte 1 117
+byte 1 108
+byte 1 115
+byte 1 101
+byte 1 32
+byte 1 82
+byte 1 105
+byte 1 102
+byte 1 108
+byte 1 101
+byte 1 0
+align 1
+LABELV $1113
+byte 1 77
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 32
+byte 1 68
+byte 1 114
+byte 1 105
+byte 1 118
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $1112
+byte 1 70
+byte 1 108
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 32
+byte 1 84
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 119
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $1111
+byte 1 66
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 116
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $1110
+byte 1 98
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 116
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $1109
+byte 1 111
+byte 1 118
+byte 1 101
+byte 1 114
+byte 1 114
+byte 1 105
+byte 1 100
+byte 1 101
+byte 1 115
+byte 1 47
+byte 1 99
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 101
+byte 1 115
+byte 1 47
+byte 1 37
+byte 1 115
+byte 1 46
+byte 1 99
+byte 1 102
+byte 1 103
+byte 1 0
+align 1
+LABELV $1101
+byte 1 110
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 0
+align 1
+LABELV $1094
+byte 1 99
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 99
+byte 1 104
+byte 1 86
+byte 1 105
+byte 1 101
+byte 1 119
+byte 1 104
+byte 1 101
+byte 1 105
+byte 1 103
+byte 1 104
+byte 1 116
+byte 1 0
+align 1
+LABELV $1091
+byte 1 118
+byte 1 105
+byte 1 101
+byte 1 119
+byte 1 104
+byte 1 101
+byte 1 105
+byte 1 103
+byte 1 104
+byte 1 116
+byte 1 0
+align 1
+LABELV $1082
+byte 1 99
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 99
+byte 1 104
+byte 1 77
+byte 1 97
+byte 1 120
+byte 1 115
+byte 1 0
+align 1
+LABELV $1073
+byte 1 100
+byte 1 101
+byte 1 97
+byte 1 100
+byte 1 77
+byte 1 97
+byte 1 120
+byte 1 115
+byte 1 0
+align 1
+LABELV $1064
+byte 1 100
+byte 1 101
+byte 1 97
+byte 1 100
+byte 1 77
+byte 1 105
+byte 1 110
+byte 1 115
+byte 1 0
+align 1
+LABELV $1041
+byte 1 115
+byte 1 104
+byte 1 97
+byte 1 100
+byte 1 111
+byte 1 119
+byte 1 83
+byte 1 99
+byte 1 97
+byte 1 108
+byte 1 101
+byte 1 0
+align 1
+LABELV $1030
+byte 1 104
+byte 1 117
+byte 1 100
+byte 1 0
+align 1
+LABELV $1025
+byte 1 115
+byte 1 107
+byte 1 105
+byte 1 110
+byte 1 0
+align 1
+LABELV $1008
+byte 1 94
+byte 1 49
+byte 1 69
+byte 1 82
+byte 1 82
+byte 1 79
+byte 1 82
+byte 1 58
+byte 1 32
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 32
+byte 1 102
+byte 1 105
+byte 1 108
+byte 1 101
+byte 1 32
+byte 1 37
+byte 1 115
+byte 1 32
+byte 1 105
+byte 1 115
+byte 1 32
+byte 1 37
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $1000
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 67
+byte 1 111
+byte 1 115
+byte 1 116
+byte 1 79
+byte 1 102
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $991
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 86
+byte 1 97
+byte 1 108
+byte 1 117
+byte 1 101
+byte 1 79
+byte 1 102
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $955
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 66
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 68
+byte 1 105
+byte 1 115
+byte 1 116
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $946
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 83
+byte 1 116
+byte 1 97
+byte 1 114
+byte 1 116
+byte 1 87
+byte 1 101
+byte 1 97
+byte 1 112
+byte 1 111
+byte 1 110
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $929
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 83
+byte 1 116
+byte 1 101
+byte 1 112
+byte 1 116
+byte 1 105
+byte 1 109
+byte 1 101
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $920
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 75
+byte 1 110
+byte 1 111
+byte 1 99
+byte 1 107
+byte 1 98
+byte 1 97
+byte 1 99
+byte 1 107
+byte 1 83
+byte 1 99
+byte 1 97
+byte 1 108
+byte 1 101
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $911
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 74
+byte 1 117
+byte 1 109
+byte 1 112
+byte 1 77
+byte 1 97
+byte 1 103
+byte 1 110
+byte 1 105
+byte 1 116
+byte 1 117
+byte 1 100
+byte 1 101
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $902
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 83
+byte 1 116
+byte 1 111
+byte 1 112
+byte 1 83
+byte 1 112
+byte 1 101
+byte 1 101
+byte 1 100
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $893
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 70
+byte 1 114
+byte 1 105
+byte 1 99
+byte 1 116
+byte 1 105
+byte 1 111
+byte 1 110
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $884
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 65
+byte 1 105
+byte 1 114
+byte 1 65
+byte 1 99
+byte 1 99
+byte 1 101
+byte 1 108
+byte 1 101
+byte 1 114
+byte 1 97
+byte 1 116
+byte 1 105
+byte 1 111
+byte 1 110
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $875
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 65
+byte 1 99
+byte 1 99
+byte 1 101
+byte 1 108
+byte 1 101
+byte 1 114
+byte 1 97
+byte 1 116
+byte 1 105
+byte 1 111
+byte 1 110
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $866
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 83
+byte 1 112
+byte 1 101
+byte 1 101
+byte 1 100
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $857
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 66
+byte 1 111
+byte 1 98
+byte 1 67
+byte 1 121
+byte 1 99
+byte 1 108
+byte 1 101
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $848
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 66
+byte 1 111
+byte 1 98
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $839
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 70
+byte 1 111
+byte 1 118
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $830
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 82
+byte 1 101
+byte 1 103
+byte 1 101
+byte 1 110
+byte 1 82
+byte 1 97
+byte 1 116
+byte 1 101
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $821
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 70
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 68
+byte 1 97
+byte 1 109
+byte 1 97
+byte 1 103
+byte 1 101
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $812
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 72
+byte 1 101
+byte 1 97
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $776
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 90
+byte 1 79
+byte 1 102
+byte 1 102
+byte 1 115
+byte 1 101
+byte 1 116
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $696
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 83
+byte 1 116
+byte 1 97
+byte 1 103
+byte 1 101
+byte 1 115
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $684
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 72
+byte 1 117
+byte 1 100
+byte 1 78
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $671
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 83
+byte 1 104
+byte 1 97
+byte 1 100
+byte 1 111
+byte 1 119
+byte 1 83
+byte 1 99
+byte 1 97
+byte 1 108
+byte 1 101
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 40
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 41
+byte 1 10
+byte 1 0
+align 1
+LABELV $657
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 83
+byte 1 107
+byte 1 105
+byte 1 110
+byte 1 78
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $644
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 77
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 83
+byte 1 99
+byte 1 97
+byte 1 108
+byte 1 101
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 40
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 41
+byte 1 10
+byte 1 0
+align 1
+LABELV $630
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 77
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 78
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $619
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 72
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 78
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 78
+byte 1 117
+byte 1 109
+byte 1 10
+byte 1 0
+align 1
+LABELV $606
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 78
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 78
+byte 1 117
+byte 1 109
+byte 1 10
+byte 1 0
+align 1
+LABELV $589
+byte 1 107
+byte 1 101
+byte 1 101
+byte 1 108
+byte 1 0
+align 1
+LABELV $588
+byte 1 98
+byte 1 115
+byte 1 117
+byte 1 105
+byte 1 116
+byte 1 0
+align 1
+LABELV $587
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 95
+byte 1 98
+byte 1 115
+byte 1 117
+byte 1 105
+byte 1 116
+byte 1 0
+align 1
+LABELV $586
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 100
+byte 1 0
+align 1
+LABELV $585
+byte 1 115
+byte 1 97
+byte 1 114
+byte 1 103
+byte 1 101
+byte 1 0
+align 1
+LABELV $584
+byte 1 72
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 0
+align 1
+LABELV $583
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 95
+byte 1 98
+byte 1 97
+byte 1 115
+byte 1 101
+byte 1 0
+align 1
+LABELV $582
+byte 1 109
+byte 1 111
+byte 1 102
+byte 1 111
+byte 1 0
+align 1
+LABELV $581
+byte 1 66
+byte 1 105
+byte 1 103
+byte 1 32
+byte 1 77
+byte 1 111
+byte 1 102
+byte 1 111
+byte 1 0
+align 1
+LABELV $580
+byte 1 108
+byte 1 101
+byte 1 118
+byte 1 101
+byte 1 108
+byte 1 52
+byte 1 0
+align 1
+LABELV $579
+byte 1 68
+byte 1 114
+byte 1 97
+byte 1 103
+byte 1 111
+byte 1 111
+byte 1 110
+byte 1 32
+byte 1 85
+byte 1 112
+byte 1 103
+byte 1 114
+byte 1 97
+byte 1 100
+byte 1 101
+byte 1 0
+align 1
+LABELV $578
+byte 1 108
+byte 1 101
+byte 1 118
+byte 1 101
+byte 1 108
+byte 1 51
+byte 1 117
+byte 1 112
+byte 1 103
+byte 1 0
+align 1
+LABELV $577
+byte 1 112
+byte 1 114
+byte 1 111
+byte 1 119
+byte 1 108
+byte 1 0
+align 1
+LABELV $576
+byte 1 68
+byte 1 114
+byte 1 97
+byte 1 103
+byte 1 111
+byte 1 111
+byte 1 110
+byte 1 0
+align 1
+LABELV $575
+byte 1 108
+byte 1 101
+byte 1 118
+byte 1 101
+byte 1 108
+byte 1 51
+byte 1 0
+align 1
+LABELV $574
+byte 1 114
+byte 1 101
+byte 1 100
+byte 1 0
+align 1
+LABELV $573
+byte 1 67
+byte 1 104
+byte 1 105
+byte 1 109
+byte 1 101
+byte 1 114
+byte 1 97
+byte 1 32
+byte 1 85
+byte 1 112
+byte 1 103
+byte 1 114
+byte 1 97
+byte 1 100
+byte 1 101
+byte 1 0
+align 1
+LABELV $572
+byte 1 108
+byte 1 101
+byte 1 118
+byte 1 101
+byte 1 108
+byte 1 50
+byte 1 117
+byte 1 112
+byte 1 103
+byte 1 0
+align 1
+LABELV $571
+byte 1 116
+byte 1 97
+byte 1 114
+byte 1 97
+byte 1 110
+byte 1 116
+byte 1 117
+byte 1 108
+byte 1 97
+byte 1 0
+align 1
+LABELV $570
+byte 1 67
+byte 1 104
+byte 1 105
+byte 1 109
+byte 1 101
+byte 1 114
+byte 1 97
+byte 1 0
+align 1
+LABELV $569
+byte 1 108
+byte 1 101
+byte 1 118
+byte 1 101
+byte 1 108
+byte 1 50
+byte 1 0
+align 1
+LABELV $568
+byte 1 98
+byte 1 108
+byte 1 117
+byte 1 101
+byte 1 0
+align 1
+LABELV $567
+byte 1 72
+byte 1 121
+byte 1 100
+byte 1 114
+byte 1 97
+byte 1 32
+byte 1 85
+byte 1 112
+byte 1 103
+byte 1 114
+byte 1 97
+byte 1 100
+byte 1 101
+byte 1 0
+align 1
+LABELV $566
+byte 1 108
+byte 1 101
+byte 1 118
+byte 1 101
+byte 1 108
+byte 1 49
+byte 1 117
+byte 1 112
+byte 1 103
+byte 1 0
+align 1
+LABELV $565
+byte 1 115
+byte 1 112
+byte 1 105
+byte 1 116
+byte 1 116
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $564
+byte 1 72
+byte 1 121
+byte 1 100
+byte 1 114
+byte 1 97
+byte 1 0
+align 1
+LABELV $563
+byte 1 108
+byte 1 101
+byte 1 118
+byte 1 101
+byte 1 108
+byte 1 49
+byte 1 0
+align 1
+LABELV $562
+byte 1 97
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 95
+byte 1 103
+byte 1 101
+byte 1 110
+byte 1 101
+byte 1 114
+byte 1 97
+byte 1 108
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 100
+byte 1 0
+align 1
+LABELV $561
+byte 1 106
+byte 1 117
+byte 1 109
+byte 1 112
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $560
+byte 1 83
+byte 1 111
+byte 1 108
+byte 1 100
+byte 1 105
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $559
+byte 1 108
+byte 1 101
+byte 1 118
+byte 1 101
+byte 1 108
+byte 1 48
+byte 1 0
+align 1
+LABELV $558
+byte 1 97
+byte 1 100
+byte 1 118
+byte 1 97
+byte 1 110
+byte 1 99
+byte 1 101
+byte 1 100
+byte 1 0
+align 1
+LABELV $557
+byte 1 65
+byte 1 100
+byte 1 118
+byte 1 97
+byte 1 110
+byte 1 99
+byte 1 101
+byte 1 100
+byte 1 32
+byte 1 66
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $556
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 101
+byte 1 114
+byte 1 117
+byte 1 112
+byte 1 103
+byte 1 0
+align 1
+LABELV $555
+byte 1 97
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 95
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 101
+byte 1 114
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 100
+byte 1 0
+align 1
+LABELV $554
+byte 1 100
+byte 1 101
+byte 1 102
+byte 1 97
+byte 1 117
+byte 1 108
+byte 1 116
+byte 1 0
+align 1
+LABELV $553
+byte 1 66
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $552
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $551
+byte 1 83
+byte 1 112
+byte 1 101
+byte 1 99
+byte 1 116
+byte 1 97
+byte 1 116
+byte 1 111
+byte 1 114
+byte 1 0
+align 1
+LABELV $550
+byte 1 115
+byte 1 112
+byte 1 101
+byte 1 99
+byte 1 116
+byte 1 97
+byte 1 116
+byte 1 111
+byte 1 114
+byte 1 0
+align 1
+LABELV $549
+byte 1 111
+byte 1 118
+byte 1 101
+byte 1 114
+byte 1 114
+byte 1 105
+byte 1 100
+byte 1 101
+byte 1 115
+byte 1 47
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 115
+byte 1 47
+byte 1 37
+byte 1 115
+byte 1 46
+byte 1 99
+byte 1 102
+byte 1 103
+byte 1 0
+align 1
+LABELV $543
+byte 1 94
+byte 1 49
+byte 1 69
+byte 1 82
+byte 1 82
+byte 1 79
+byte 1 82
+byte 1 58
+byte 1 32
+byte 1 117
+byte 1 110
+byte 1 107
+byte 1 110
+byte 1 111
+byte 1 119
+byte 1 110
+byte 1 32
+byte 1 116
+byte 1 111
+byte 1 107
+byte 1 101
+byte 1 110
+byte 1 32
+byte 1 39
+byte 1 37
+byte 1 115
+byte 1 39
+byte 1 10
+byte 1 0
+align 1
+LABELV $540
+byte 1 122
+byte 1 79
+byte 1 102
+byte 1 102
+byte 1 115
+byte 1 101
+byte 1 116
+byte 1 0
+align 1
+LABELV $531
+byte 1 109
+byte 1 97
+byte 1 120
+byte 1 115
+byte 1 0
+align 1
+LABELV $522
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 115
+byte 1 0
+align 1
+LABELV $515
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 83
+byte 1 99
+byte 1 97
+byte 1 108
+byte 1 101
+byte 1 0
+align 1
+LABELV $504
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 0
+align 1
+LABELV $501
+byte 1 0
+align 1
+LABELV $490
+byte 1 116
+byte 1 111
+byte 1 111
+byte 1 32
+byte 1 108
+byte 1 111
+byte 1 110
+byte 1 103
+byte 1 0
+align 1
+LABELV $489
+byte 1 101
+byte 1 109
+byte 1 112
+byte 1 116
+byte 1 121
+byte 1 0
+align 1
+LABELV $488
+byte 1 94
+byte 1 49
+byte 1 69
+byte 1 82
+byte 1 82
+byte 1 79
+byte 1 82
+byte 1 58
+byte 1 32
+byte 1 66
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 32
+byte 1 102
+byte 1 105
+byte 1 108
+byte 1 101
+byte 1 32
+byte 1 37
+byte 1 115
+byte 1 32
+byte 1 105
+byte 1 115
+byte 1 32
+byte 1 37
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $231
+byte 1 94
+byte 1 51
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 116
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 117
+byte 1 103
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 66
+byte 1 71
+byte 1 95
+byte 1 70
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 77
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 83
+byte 1 99
+byte 1 97
+byte 1 108
+byte 1 101
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 66
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 40
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 41
+byte 1 10
+byte 1 0
+align 1
+LABELV $168
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 119
+byte 1 101
+byte 1 97
+byte 1 112
+byte 1 111
+byte 1 110
+byte 1 115
+byte 1 47
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 101
+byte 1 47
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 101
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $167
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 95
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 101
+byte 1 0
+align 1
+LABELV $166
+byte 1 77
+byte 1 105
+byte 1 110
+byte 1 101
+byte 1 0
+align 1
+LABELV $165
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 101
+byte 1 0
+align 1
+LABELV $164
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 119
+byte 1 101
+byte 1 97
+byte 1 112
+byte 1 111
+byte 1 110
+byte 1 115
+byte 1 47
+byte 1 108
+byte 1 97
+byte 1 117
+byte 1 110
+byte 1 99
+byte 1 104
+byte 1 101
+byte 1 114
+byte 1 47
+byte 1 108
+byte 1 97
+byte 1 117
+byte 1 110
+byte 1 99
+byte 1 104
+byte 1 101
+byte 1 114
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $163
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 95
+byte 1 108
+byte 1 97
+byte 1 117
+byte 1 110
+byte 1 99
+byte 1 104
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $162
+byte 1 76
+byte 1 97
+byte 1 117
+byte 1 110
+byte 1 99
+byte 1 104
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $161
+byte 1 108
+byte 1 97
+byte 1 117
+byte 1 110
+byte 1 99
+byte 1 104
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $160
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 119
+byte 1 101
+byte 1 97
+byte 1 112
+byte 1 111
+byte 1 110
+byte 1 115
+byte 1 47
+byte 1 115
+byte 1 121
+byte 1 114
+byte 1 105
+byte 1 110
+byte 1 120
+byte 1 47
+byte 1 115
+byte 1 121
+byte 1 114
+byte 1 105
+byte 1 110
+byte 1 120
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $159
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 95
+byte 1 115
+byte 1 121
+byte 1 114
+byte 1 105
+byte 1 110
+byte 1 120
+byte 1 0
+align 1
+LABELV $158
+byte 1 83
+byte 1 121
+byte 1 114
+byte 1 105
+byte 1 110
+byte 1 120
+byte 1 0
+align 1
+LABELV $157
+byte 1 115
+byte 1 121
+byte 1 114
+byte 1 105
+byte 1 110
+byte 1 120
+byte 1 0
+align 1
+LABELV $156
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 119
+byte 1 101
+byte 1 97
+byte 1 112
+byte 1 111
+byte 1 110
+byte 1 115
+byte 1 47
+byte 1 112
+byte 1 115
+byte 1 97
+byte 1 119
+byte 1 47
+byte 1 112
+byte 1 115
+byte 1 97
+byte 1 119
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $155
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 95
+byte 1 112
+byte 1 115
+byte 1 97
+byte 1 119
+byte 1 0
+align 1
+LABELV $154
+byte 1 80
+byte 1 115
+byte 1 97
+byte 1 119
+byte 1 0
+align 1
+LABELV $153
+byte 1 112
+byte 1 115
+byte 1 97
+byte 1 119
+byte 1 0
+align 1
+LABELV $152
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 119
+byte 1 101
+byte 1 97
+byte 1 112
+byte 1 111
+byte 1 110
+byte 1 115
+byte 1 47
+byte 1 108
+byte 1 103
+byte 1 117
+byte 1 110
+byte 1 47
+byte 1 108
+byte 1 103
+byte 1 117
+byte 1 110
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $151
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 95
+byte 1 108
+byte 1 103
+byte 1 117
+byte 1 110
+byte 1 0
+align 1
+LABELV $150
+byte 1 76
+byte 1 103
+byte 1 117
+byte 1 110
+byte 1 0
+align 1
+LABELV $149
+byte 1 108
+byte 1 103
+byte 1 117
+byte 1 110
+byte 1 0
+align 1
+LABELV $148
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 119
+byte 1 101
+byte 1 97
+byte 1 112
+byte 1 111
+byte 1 110
+byte 1 115
+byte 1 47
+byte 1 108
+byte 1 99
+byte 1 97
+byte 1 110
+byte 1 110
+byte 1 111
+byte 1 110
+byte 1 47
+byte 1 108
+byte 1 99
+byte 1 97
+byte 1 110
+byte 1 110
+byte 1 111
+byte 1 110
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $147
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 95
+byte 1 108
+byte 1 99
+byte 1 97
+byte 1 110
+byte 1 110
+byte 1 111
+byte 1 110
+byte 1 0
+align 1
+LABELV $146
+byte 1 76
+byte 1 99
+byte 1 97
+byte 1 110
+byte 1 110
+byte 1 111
+byte 1 110
+byte 1 0
+align 1
+LABELV $145
+byte 1 108
+byte 1 99
+byte 1 97
+byte 1 110
+byte 1 110
+byte 1 111
+byte 1 110
+byte 1 0
+align 1
+LABELV $144
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 119
+byte 1 101
+byte 1 97
+byte 1 112
+byte 1 111
+byte 1 110
+byte 1 115
+byte 1 47
+byte 1 112
+byte 1 114
+byte 1 105
+byte 1 102
+byte 1 108
+byte 1 101
+byte 1 47
+byte 1 112
+byte 1 114
+byte 1 105
+byte 1 102
+byte 1 108
+byte 1 101
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $143
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 95
+byte 1 112
+byte 1 114
+byte 1 105
+byte 1 102
+byte 1 108
+byte 1 101
+byte 1 0
+align 1
+LABELV $142
+byte 1 80
+byte 1 114
+byte 1 105
+byte 1 102
+byte 1 108
+byte 1 101
+byte 1 0
+align 1
+LABELV $141
+byte 1 112
+byte 1 114
+byte 1 105
+byte 1 102
+byte 1 108
+byte 1 101
+byte 1 0
+align 1
+LABELV $140
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 119
+byte 1 101
+byte 1 97
+byte 1 112
+byte 1 111
+byte 1 110
+byte 1 115
+byte 1 47
+byte 1 109
+byte 1 100
+byte 1 114
+byte 1 105
+byte 1 118
+byte 1 101
+byte 1 114
+byte 1 47
+byte 1 109
+byte 1 100
+byte 1 114
+byte 1 105
+byte 1 118
+byte 1 101
+byte 1 114
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $139
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 95
+byte 1 109
+byte 1 100
+byte 1 114
+byte 1 105
+byte 1 118
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $138
+byte 1 77
+byte 1 100
+byte 1 114
+byte 1 105
+byte 1 118
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $137
+byte 1 109
+byte 1 100
+byte 1 114
+byte 1 105
+byte 1 118
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $136
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 119
+byte 1 101
+byte 1 97
+byte 1 112
+byte 1 111
+byte 1 110
+byte 1 115
+byte 1 47
+byte 1 99
+byte 1 104
+byte 1 97
+byte 1 105
+byte 1 110
+byte 1 103
+byte 1 117
+byte 1 110
+byte 1 47
+byte 1 99
+byte 1 104
+byte 1 97
+byte 1 105
+byte 1 110
+byte 1 103
+byte 1 117
+byte 1 110
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $135
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 95
+byte 1 99
+byte 1 104
+byte 1 97
+byte 1 105
+byte 1 110
+byte 1 103
+byte 1 117
+byte 1 110
+byte 1 0
+align 1
+LABELV $134
+byte 1 67
+byte 1 104
+byte 1 97
+byte 1 105
+byte 1 110
+byte 1 103
+byte 1 117
+byte 1 110
+byte 1 0
+align 1
+LABELV $133
+byte 1 99
+byte 1 104
+byte 1 97
+byte 1 105
+byte 1 110
+byte 1 103
+byte 1 117
+byte 1 110
+byte 1 0
+align 1
+LABELV $132
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 119
+byte 1 101
+byte 1 97
+byte 1 112
+byte 1 111
+byte 1 110
+byte 1 115
+byte 1 47
+byte 1 102
+byte 1 108
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 114
+byte 1 47
+byte 1 102
+byte 1 108
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 114
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $131
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 95
+byte 1 102
+byte 1 108
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $130
+byte 1 70
+byte 1 108
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $129
+byte 1 102
+byte 1 108
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $128
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 119
+byte 1 101
+byte 1 97
+byte 1 112
+byte 1 111
+byte 1 110
+byte 1 115
+byte 1 47
+byte 1 115
+byte 1 104
+byte 1 111
+byte 1 116
+byte 1 103
+byte 1 117
+byte 1 110
+byte 1 47
+byte 1 115
+byte 1 104
+byte 1 111
+byte 1 116
+byte 1 103
+byte 1 117
+byte 1 110
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $127
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 95
+byte 1 115
+byte 1 104
+byte 1 111
+byte 1 116
+byte 1 103
+byte 1 117
+byte 1 110
+byte 1 0
+align 1
+LABELV $126
+byte 1 83
+byte 1 104
+byte 1 111
+byte 1 116
+byte 1 103
+byte 1 117
+byte 1 110
+byte 1 0
+align 1
+LABELV $125
+byte 1 115
+byte 1 104
+byte 1 111
+byte 1 116
+byte 1 103
+byte 1 117
+byte 1 110
+byte 1 0
+align 1
+LABELV $124
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 119
+byte 1 101
+byte 1 97
+byte 1 112
+byte 1 111
+byte 1 110
+byte 1 115
+byte 1 47
+byte 1 114
+byte 1 105
+byte 1 102
+byte 1 108
+byte 1 101
+byte 1 47
+byte 1 114
+byte 1 105
+byte 1 102
+byte 1 108
+byte 1 101
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $123
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 95
+byte 1 114
+byte 1 105
+byte 1 102
+byte 1 108
+byte 1 101
+byte 1 0
+align 1
+LABELV $122
+byte 1 82
+byte 1 105
+byte 1 102
+byte 1 108
+byte 1 101
+byte 1 0
+align 1
+LABELV $121
+byte 1 114
+byte 1 105
+byte 1 102
+byte 1 108
+byte 1 101
+byte 1 0
+align 1
+LABELV $120
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 115
+byte 1 47
+byte 1 114
+byte 1 101
+byte 1 112
+byte 1 101
+byte 1 97
+byte 1 116
+byte 1 101
+byte 1 114
+byte 1 47
+byte 1 114
+byte 1 101
+byte 1 112
+byte 1 101
+byte 1 97
+byte 1 116
+byte 1 101
+byte 1 114
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $119
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 95
+byte 1 114
+byte 1 101
+byte 1 112
+byte 1 101
+byte 1 97
+byte 1 116
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $118
+byte 1 82
+byte 1 101
+byte 1 112
+byte 1 101
+byte 1 97
+byte 1 116
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $117
+byte 1 114
+byte 1 101
+byte 1 112
+byte 1 101
+byte 1 97
+byte 1 116
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $116
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 115
+byte 1 47
+byte 1 114
+byte 1 101
+byte 1 97
+byte 1 99
+byte 1 116
+byte 1 111
+byte 1 114
+byte 1 47
+byte 1 114
+byte 1 101
+byte 1 97
+byte 1 99
+byte 1 116
+byte 1 111
+byte 1 114
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $115
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 95
+byte 1 114
+byte 1 101
+byte 1 97
+byte 1 99
+byte 1 116
+byte 1 111
+byte 1 114
+byte 1 0
+align 1
+LABELV $114
+byte 1 82
+byte 1 101
+byte 1 97
+byte 1 99
+byte 1 116
+byte 1 111
+byte 1 114
+byte 1 0
+align 1
+LABELV $113
+byte 1 114
+byte 1 101
+byte 1 97
+byte 1 99
+byte 1 116
+byte 1 111
+byte 1 114
+byte 1 0
+align 1
+LABELV $112
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 115
+byte 1 47
+byte 1 97
+byte 1 114
+byte 1 109
+byte 1 47
+byte 1 97
+byte 1 114
+byte 1 109
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $111
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 95
+byte 1 97
+byte 1 114
+byte 1 109
+byte 1 111
+byte 1 117
+byte 1 114
+byte 1 121
+byte 1 0
+align 1
+LABELV $110
+byte 1 65
+byte 1 114
+byte 1 109
+byte 1 111
+byte 1 117
+byte 1 114
+byte 1 121
+byte 1 0
+align 1
+LABELV $109
+byte 1 97
+byte 1 114
+byte 1 109
+byte 1 0
+align 1
+LABELV $108
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 115
+byte 1 47
+byte 1 100
+byte 1 99
+byte 1 99
+byte 1 47
+byte 1 100
+byte 1 99
+byte 1 99
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $107
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 95
+byte 1 100
+byte 1 99
+byte 1 99
+byte 1 0
+align 1
+LABELV $106
+byte 1 68
+byte 1 101
+byte 1 102
+byte 1 101
+byte 1 110
+byte 1 99
+byte 1 101
+byte 1 32
+byte 1 67
+byte 1 111
+byte 1 109
+byte 1 112
+byte 1 117
+byte 1 116
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $105
+byte 1 100
+byte 1 99
+byte 1 99
+byte 1 0
+align 1
+LABELV $104
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 115
+byte 1 47
+byte 1 116
+byte 1 101
+byte 1 115
+byte 1 108
+byte 1 97
+byte 1 47
+byte 1 116
+byte 1 101
+byte 1 115
+byte 1 108
+byte 1 97
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $103
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 95
+byte 1 116
+byte 1 101
+byte 1 115
+byte 1 108
+byte 1 97
+byte 1 0
+align 1
+LABELV $102
+byte 1 84
+byte 1 101
+byte 1 115
+byte 1 108
+byte 1 97
+byte 1 32
+byte 1 71
+byte 1 101
+byte 1 110
+byte 1 101
+byte 1 114
+byte 1 97
+byte 1 116
+byte 1 111
+byte 1 114
+byte 1 0
+align 1
+LABELV $101
+byte 1 116
+byte 1 101
+byte 1 115
+byte 1 108
+byte 1 97
+byte 1 0
+align 1
+LABELV $100
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 115
+byte 1 47
+byte 1 109
+byte 1 103
+byte 1 116
+byte 1 117
+byte 1 114
+byte 1 114
+byte 1 101
+byte 1 116
+byte 1 47
+byte 1 116
+byte 1 117
+byte 1 114
+byte 1 114
+byte 1 101
+byte 1 116
+byte 1 95
+byte 1 116
+byte 1 111
+byte 1 112
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $99
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 115
+byte 1 47
+byte 1 109
+byte 1 103
+byte 1 116
+byte 1 117
+byte 1 114
+byte 1 114
+byte 1 101
+byte 1 116
+byte 1 47
+byte 1 116
+byte 1 117
+byte 1 114
+byte 1 114
+byte 1 101
+byte 1 116
+byte 1 95
+byte 1 98
+byte 1 97
+byte 1 114
+byte 1 114
+byte 1 101
+byte 1 108
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $98
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 115
+byte 1 47
+byte 1 109
+byte 1 103
+byte 1 116
+byte 1 117
+byte 1 114
+byte 1 114
+byte 1 101
+byte 1 116
+byte 1 47
+byte 1 116
+byte 1 117
+byte 1 114
+byte 1 114
+byte 1 101
+byte 1 116
+byte 1 95
+byte 1 98
+byte 1 97
+byte 1 115
+byte 1 101
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $97
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 95
+byte 1 109
+byte 1 103
+byte 1 116
+byte 1 117
+byte 1 114
+byte 1 114
+byte 1 101
+byte 1 116
+byte 1 0
+align 1
+LABELV $96
+byte 1 77
+byte 1 97
+byte 1 99
+byte 1 104
+byte 1 105
+byte 1 110
+byte 1 101
+byte 1 103
+byte 1 117
+byte 1 110
+byte 1 32
+byte 1 84
+byte 1 117
+byte 1 114
+byte 1 114
+byte 1 101
+byte 1 116
+byte 1 0
+align 1
+LABELV $95
+byte 1 109
+byte 1 103
+byte 1 116
+byte 1 117
+byte 1 114
+byte 1 114
+byte 1 101
+byte 1 116
+byte 1 0
+align 1
+LABELV $94
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 115
+byte 1 47
+byte 1 109
+byte 1 101
+byte 1 100
+byte 1 105
+byte 1 115
+byte 1 116
+byte 1 97
+byte 1 116
+byte 1 47
+byte 1 109
+byte 1 101
+byte 1 100
+byte 1 105
+byte 1 115
+byte 1 116
+byte 1 97
+byte 1 116
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $93
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 95
+byte 1 109
+byte 1 101
+byte 1 100
+byte 1 105
+byte 1 115
+byte 1 116
+byte 1 97
+byte 1 116
+byte 1 0
+align 1
+LABELV $92
+byte 1 77
+byte 1 101
+byte 1 100
+byte 1 105
+byte 1 115
+byte 1 116
+byte 1 97
+byte 1 116
+byte 1 105
+byte 1 111
+byte 1 110
+byte 1 0
+align 1
+LABELV $91
+byte 1 109
+byte 1 101
+byte 1 100
+byte 1 105
+byte 1 115
+byte 1 116
+byte 1 97
+byte 1 116
+byte 1 0
+align 1
+LABELV $90
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 95
+byte 1 115
+byte 1 112
+byte 1 97
+byte 1 119
+byte 1 110
+byte 1 0
+align 1
+LABELV $89
+byte 1 84
+byte 1 101
+byte 1 108
+byte 1 101
+byte 1 110
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 0
+align 1
+LABELV $88
+byte 1 116
+byte 1 101
+byte 1 108
+byte 1 101
+byte 1 110
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 0
+align 1
+LABELV $87
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 115
+byte 1 47
+byte 1 104
+byte 1 111
+byte 1 118
+byte 1 101
+byte 1 108
+byte 1 47
+byte 1 104
+byte 1 111
+byte 1 118
+byte 1 101
+byte 1 108
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $86
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 97
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 95
+byte 1 104
+byte 1 111
+byte 1 118
+byte 1 101
+byte 1 108
+byte 1 0
+align 1
+LABELV $85
+byte 1 72
+byte 1 111
+byte 1 118
+byte 1 101
+byte 1 108
+byte 1 0
+align 1
+LABELV $84
+byte 1 104
+byte 1 111
+byte 1 118
+byte 1 101
+byte 1 108
+byte 1 0
+align 1
+LABELV $83
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 115
+byte 1 47
+byte 1 111
+byte 1 118
+byte 1 101
+byte 1 114
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 47
+byte 1 111
+byte 1 118
+byte 1 101
+byte 1 114
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $82
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 97
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 95
+byte 1 111
+byte 1 118
+byte 1 101
+byte 1 114
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 0
+align 1
+LABELV $81
+byte 1 79
+byte 1 118
+byte 1 101
+byte 1 114
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 0
+align 1
+LABELV $80
+byte 1 111
+byte 1 118
+byte 1 101
+byte 1 114
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 100
+byte 1 0
+align 1
+LABELV $79
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 115
+byte 1 47
+byte 1 116
+byte 1 114
+byte 1 97
+byte 1 112
+byte 1 112
+byte 1 101
+byte 1 114
+byte 1 47
+byte 1 116
+byte 1 114
+byte 1 97
+byte 1 112
+byte 1 112
+byte 1 101
+byte 1 114
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $78
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 97
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 95
+byte 1 116
+byte 1 114
+byte 1 97
+byte 1 112
+byte 1 112
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $77
+byte 1 84
+byte 1 114
+byte 1 97
+byte 1 112
+byte 1 112
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $76
+byte 1 116
+byte 1 114
+byte 1 97
+byte 1 112
+byte 1 112
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $75
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 97
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 95
+byte 1 104
+byte 1 105
+byte 1 118
+byte 1 101
+byte 1 0
+align 1
+LABELV $74
+byte 1 72
+byte 1 105
+byte 1 118
+byte 1 101
+byte 1 0
+align 1
+LABELV $73
+byte 1 104
+byte 1 105
+byte 1 118
+byte 1 101
+byte 1 0
+align 1
+LABELV $72
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 115
+byte 1 47
+byte 1 97
+byte 1 99
+byte 1 105
+byte 1 100
+byte 1 95
+byte 1 116
+byte 1 117
+byte 1 98
+byte 1 101
+byte 1 47
+byte 1 97
+byte 1 99
+byte 1 105
+byte 1 100
+byte 1 95
+byte 1 116
+byte 1 117
+byte 1 98
+byte 1 101
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $71
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 97
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 95
+byte 1 97
+byte 1 99
+byte 1 105
+byte 1 100
+byte 1 95
+byte 1 116
+byte 1 117
+byte 1 98
+byte 1 101
+byte 1 0
+align 1
+LABELV $70
+byte 1 65
+byte 1 99
+byte 1 105
+byte 1 100
+byte 1 32
+byte 1 84
+byte 1 117
+byte 1 98
+byte 1 101
+byte 1 0
+align 1
+LABELV $69
+byte 1 97
+byte 1 99
+byte 1 105
+byte 1 100
+byte 1 95
+byte 1 116
+byte 1 117
+byte 1 98
+byte 1 101
+byte 1 0
+align 1
+LABELV $68
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 115
+byte 1 47
+byte 1 98
+byte 1 111
+byte 1 111
+byte 1 115
+byte 1 116
+byte 1 101
+byte 1 114
+byte 1 47
+byte 1 98
+byte 1 111
+byte 1 111
+byte 1 115
+byte 1 116
+byte 1 101
+byte 1 114
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $67
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 97
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 95
+byte 1 98
+byte 1 111
+byte 1 111
+byte 1 115
+byte 1 116
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $66
+byte 1 66
+byte 1 111
+byte 1 111
+byte 1 115
+byte 1 116
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $65
+byte 1 98
+byte 1 111
+byte 1 111
+byte 1 115
+byte 1 116
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $64
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 115
+byte 1 47
+byte 1 98
+byte 1 97
+byte 1 114
+byte 1 114
+byte 1 105
+byte 1 99
+byte 1 97
+byte 1 100
+byte 1 101
+byte 1 47
+byte 1 98
+byte 1 97
+byte 1 114
+byte 1 114
+byte 1 105
+byte 1 99
+byte 1 97
+byte 1 100
+byte 1 101
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $63
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 97
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 95
+byte 1 98
+byte 1 97
+byte 1 114
+byte 1 114
+byte 1 105
+byte 1 99
+byte 1 97
+byte 1 100
+byte 1 101
+byte 1 0
+align 1
+LABELV $62
+byte 1 66
+byte 1 97
+byte 1 114
+byte 1 114
+byte 1 105
+byte 1 99
+byte 1 97
+byte 1 100
+byte 1 101
+byte 1 0
+align 1
+LABELV $61
+byte 1 98
+byte 1 97
+byte 1 114
+byte 1 114
+byte 1 105
+byte 1 99
+byte 1 97
+byte 1 100
+byte 1 101
+byte 1 0
+align 1
+LABELV $60
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 115
+byte 1 47
+byte 1 116
+byte 1 101
+byte 1 108
+byte 1 101
+byte 1 110
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 47
+byte 1 116
+byte 1 101
+byte 1 108
+byte 1 101
+byte 1 110
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $59
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 97
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 95
+byte 1 115
+byte 1 112
+byte 1 97
+byte 1 119
+byte 1 110
+byte 1 0
+align 1
+LABELV $58
+byte 1 69
+byte 1 103
+byte 1 103
+byte 1 0
+align 1
+LABELV $57
+byte 1 101
+byte 1 103
+byte 1 103
+byte 1 112
+byte 1 111
+byte 1 100
+byte 1 0
