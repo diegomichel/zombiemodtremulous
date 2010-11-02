@@ -318,7 +318,20 @@ G_MissileImpact(gentity_t *ent, trace_t *trace)
   else if (trace->surfaceFlags & SURF_METALSTEPS)
     G_AddEvent(ent, EV_MISSILE_MISS_METAL, DirToByte(trace->plane.normal));
   else
-    G_AddEvent(ent, EV_MISSILE_MISS, DirToByte(trace->plane.normal));
+  {
+    if (other->r.svFlags & SVF_BOT)
+    {
+      G_AddEvent(ent, EV_MISSILE_HIT, DirToByte(trace->plane.normal));
+      if(ent->s.weapon == WP_AXE && ent->s.generic1 == WPM_SECONDARY)
+      {
+        return;
+      }
+    }
+    else
+    {
+      G_AddEvent(ent, EV_MISSILE_MISS, DirToByte(trace->plane.normal));
+    }
+  }
 
   ent->freeAfterEvent = qtrue;
 
@@ -421,8 +434,8 @@ fire_flamer(gentity_t *self, vec3_t start, vec3_t dir)
   bolt->damage = FLAMER_DMG;
   bolt->splashDamage = FLAMER_DMG;
   bolt->splashRadius = FLAMER_RADIUS;
-  bolt->methodOfDeath = MOD_FLAMER;
-  bolt->splashMethodOfDeath = MOD_FLAMER_SPLASH;
+//  bolt->methodOfDeath = MOD_FLAMER;
+//  bolt->splashMethodOfDeath = MOD_FLAMER_SPLASH;
   bolt->clipmask = MASK_SHOT;
   bolt->target_ent = NULL;
   bolt->r.mins[0] = bolt->r.mins[1] = bolt->r.mins[2] = -15.0f;
@@ -465,8 +478,8 @@ fire_pulseRifle(gentity_t *self, vec3_t start, vec3_t dir)
   bolt->damage = PRIFLE_DMG;
   bolt->splashDamage = 0;
   bolt->splashRadius = 0;
-  bolt->methodOfDeath = MOD_PRIFLE;
-  bolt->splashMethodOfDeath = MOD_PRIFLE;
+//  bolt->methodOfDeath = MOD_PRIFLE;
+//  bolt->splashMethodOfDeath = MOD_PRIFLE;
   bolt->clipmask = MASK_SHOT;
   bolt->target_ent = NULL;
 
@@ -515,8 +528,8 @@ fire_luciferCannon(gentity_t *self, vec3_t start, vec3_t dir, int damage, int ra
   bolt->damage = localDamage;
   bolt->splashDamage = localDamage / 2;
   bolt->splashRadius = radius;
-  bolt->methodOfDeath = MOD_LCANNON;
-  bolt->splashMethodOfDeath = MOD_LCANNON_SPLASH;
+//  bolt->methodOfDeath = MOD_LCANNON;
+//  bolt->splashMethodOfDeath = MOD_LCANNON_SPLASH;
   bolt->clipmask = MASK_SHOT;
   bolt->target_ent = NULL;
 
@@ -892,8 +905,8 @@ fire_bounceBall(gentity_t *self, vec3_t start, vec3_t dir)
   bolt->damage = LEVEL3_BOUNCEBALL_DMG;
   bolt->splashDamage = 0;
   bolt->splashRadius = 0;
-  bolt->methodOfDeath = MOD_LEVEL3_BOUNCEBALL;
-  bolt->splashMethodOfDeath = MOD_LEVEL3_BOUNCEBALL;
+//  bolt->methodOfDeath = MOD_LEVEL3_BOUNCEBALL;
+//  bolt->splashMethodOfDeath = MOD_LEVEL3_BOUNCEBALL;
   bolt->clipmask = MASK_SHOT;
   bolt->target_ent = NULL;
 
@@ -932,8 +945,8 @@ drawRedBall(gentity_t *ent, int x, int y)
   bolt->damage = PRIFLE_DMG;
   bolt->splashDamage = 0;
   bolt->splashRadius = 0;
-  bolt->methodOfDeath = MOD_PRIFLE;
-  bolt->splashMethodOfDeath = MOD_PRIFLE;
+//  bolt->methodOfDeath = MOD_PRIFLE;
+//  bolt->splashMethodOfDeath = MOD_PRIFLE;
   bolt->clipmask = MASK_WATER;
   bolt->target_ent = NULL;
 
@@ -969,8 +982,8 @@ launch_grenade_primary(gentity_t *self, vec3_t start, vec3_t dir)
   bolt->damage = LAUNCHER_DAMAGE;
   bolt->splashDamage = LAUNCHER_DAMAGE;
   bolt->splashRadius = LAUNCHER_RADIUS;
-  bolt->methodOfDeath = MOD_GRENADE;
-  bolt->splashMethodOfDeath = MOD_GRENADE;
+  bolt->methodOfDeath = MOD_GRENADE_LAUNCHER;
+  bolt->splashMethodOfDeath = MOD_GRENADE_LAUNCHER;
   bolt->clipmask = MASK_SHOT;
   bolt->target_ent = NULL;
   bolt->r.mins[0] = bolt->r.mins[1] = bolt->r.mins[2] = -3.0f;
@@ -1003,14 +1016,14 @@ launch_grenade_secondary(gentity_t *self, vec3_t start, vec3_t dir)
   bolt->r.svFlags = SVF_USE_CURRENT_ORIGIN;
   bolt->s.weapon = WP_GRENADE;
   //bolt->s.eFlags = EF_BOUNCE_HALF;
-  bolt->s.generic1 = WPM_PRIMARY; //weaponMode
+  bolt->s.generic1 = WPM_SECONDARY; //weaponMode
   bolt->r.ownerNum = self->s.number;
   bolt->parent = self;
   bolt->damage = ONFIRE_EXPLOSION_DAMAGE;
   bolt->splashDamage = ONFIRE_EXPLOSION_DAMAGE;
   bolt->splashRadius = INCENDIARY_GRENADE_RANGE;
-  bolt->methodOfDeath = MOD_INCENDIARY_GRENADE;
-  bolt->splashMethodOfDeath = MOD_INCENDIARY_GRENADE;
+  bolt->methodOfDeath = MOD_GRENADE_LAUNCHER_INCENDIARY;
+  bolt->splashMethodOfDeath = MOD_GRENADE_LAUNCHER_INCENDIARY;
   bolt->clipmask = MASK_SHOT;
   bolt->target_ent = NULL;
   bolt->r.mins[0] = bolt->r.mins[1] = bolt->r.mins[2] = -3.0f;
@@ -1043,14 +1056,14 @@ fire_axe(gentity_t *self, vec3_t start, vec3_t dir)
   bolt->r.svFlags = SVF_USE_CURRENT_ORIGIN;
   bolt->s.weapon = WP_AXE;
   //bolt->s.eFlags = EF_BOUNCE_HALF;
-  bolt->s.generic1 = WPM_PRIMARY; //weaponMode
+  bolt->s.generic1 = WPM_SECONDARY; //weaponMode
   bolt->r.ownerNum = self->s.number;
   bolt->parent = self;
   bolt->damage = AXE_DAMAGE;
   bolt->splashDamage = 0;
   bolt->splashRadius = 0;
-  bolt->methodOfDeath = MOD_UNKNOWN;
-  bolt->splashMethodOfDeath = MOD_UNKNOWN;
+  bolt->methodOfDeath = MOD_AXE;
+  bolt->splashMethodOfDeath = MOD_AXE;
   bolt->clipmask = MASK_SHOT;
   bolt->target_ent = NULL;
   bolt->r.mins[0] = bolt->r.mins[1] = bolt->r.mins[2] = -10.0f;
@@ -1066,6 +1079,87 @@ fire_axe(gentity_t *self, vec3_t start, vec3_t dir)
   VectorCopy( start, bolt->r.currentOrigin );
 
   return bolt;
+}
+
+
+void
+G_domethink(gentity_t *ent)
+{
+  trace_t tr;
+  vec3_t end, origin, dir, mins ,maxs;
+  gentity_t *otherEnt;
+  int radius, numListedEntities;
+  int entityList[MAX_GENTITIES];
+  int e,i;
+  float points, dist;
+  vec3_t v;
+
+  ent->nextthink = level.time + 1000;
+
+  if(level.time > ent->dieTime)
+  {
+    ent->freeAfterEvent = qtrue;
+    ent->parent->numDomes -= 1;
+    return;
+  }
+
+  VectorCopy(ent->s.origin, origin);
+  radius = DOME_RANGE;
+
+  for(i = 0;i < 3;i++)
+  {
+    mins[i] = origin[i] - radius;
+    maxs[i] = origin[i] + radius;
+  }
+
+  numListedEntities = trap_EntitiesInBox(mins, maxs, entityList, MAX_GENTITIES);
+
+  for(e = 0;e < numListedEntities;e++)
+  {
+    otherEnt = &g_entities[entityList[e]];
+
+    if(!otherEnt)
+      continue;
+    if(!otherEnt->client)
+      continue;
+    if (otherEnt->client->sess.sessionTeam == TEAM_SPECTATOR)
+      continue;
+    if(otherEnt->health <= 0)
+      continue;
+
+    // find the distance from the edge of the bounding box
+    for(i = 0;i < 3;i++)
+    {
+      if (origin[i] < ent->r.absmin[i])
+        v[i] = ent->r.absmin[i] - origin[i];
+      else if (origin[i] > ent->r.absmax[i])
+        v[i] = origin[i] - ent->r.absmax[i];
+      else
+        v[i] = 0;
+    }
+
+    dist = VectorLength(v);
+    if (dist >= radius)
+      continue;
+
+
+    if(otherEnt->client->ps.stats[STAT_PTEAM] != PTE_HUMANS)
+    {
+      otherEnt->client->ps.stats[STAT_STATE] |= SS_CREEPSLOWED;
+      continue;
+    }
+
+    if (otherEnt->health < 100)
+    {
+      otherEnt->health = otherEnt->client->ps.stats[STAT_HEALTH]
+          = otherEnt->health + 3;
+      if(otherEnt->health >=100)
+      {
+        otherEnt->health = otherEnt->client->ps.stats[STAT_HEALTH] = 100;
+        G_AddEvent(otherEnt, EV_MEDKIT_USED, 0);
+      }
+    }
+  }
 }
 
 void
@@ -1127,13 +1221,13 @@ plant_mine(gentity_t *self, vec3_t start, vec3_t dir)
   bolt->damage = MINE_DAMAGE;
   bolt->splashDamage = MINE_DAMAGE;
   bolt->splashRadius = MINE_RANGE;
-  bolt->methodOfDeath = MOD_UNKNOWN;
-  bolt->splashMethodOfDeath = MOD_UNKNOWN;
+  bolt->methodOfDeath = MOD_MINE;
+  bolt->splashMethodOfDeath = MOD_MINE;
   bolt->clipmask = MASK_DEADSOLID;
   bolt->target_ent = NULL;
-  bolt->r.mins[0] = bolt->r.mins[1] = -3.0f;
+  bolt->r.mins[0] = bolt->r.mins[1] = -5.0f;
   bolt->r.mins[2] = 0.0f;
-  bolt->r.maxs[0] = bolt->r.maxs[1] = 3.0f;
+  bolt->r.maxs[0] = bolt->r.maxs[1] = 5.0f;
   bolt->r.maxs[2] = 2.0f;
   bolt->s.time = level.time;
 
@@ -1173,8 +1267,8 @@ gentity_t      *fire_rocket(gentity_t * self, vec3_t start, vec3_t dir)
   bolt->damage = ROCKET_LAUNCHER_DAMAGE;
   bolt->splashDamage = ROCKET_LAUNCHER_DAMAGE;
   bolt->splashRadius = ROCKET_LAUNCHER_RANGE;
-  bolt->methodOfDeath = MOD_UNKNOWN;
-  bolt->splashMethodOfDeath = MOD_UNKNOWN;
+  bolt->methodOfDeath = MOD_ROCKET_LAUNCHER;
+  bolt->splashMethodOfDeath = MOD_ROCKET_LAUNCHER;
   bolt->clipmask = MASK_SHOT;
   bolt->target_ent = NULL;
   bolt->r.mins[0] = bolt->r.mins[1] = bolt->r.mins[2] = -3.0f;
@@ -1191,4 +1285,53 @@ gentity_t      *fire_rocket(gentity_t * self, vec3_t start, vec3_t dir)
 
   return bolt;
 
+}
+
+/*
+=================
+fire_dome
+=================
+*/
+gentity_t      *fire_dome(gentity_t * self, vec3_t start, vec3_t dir)
+{
+    gentity_t *bolt;
+
+    VectorNormalize(dir);
+
+    bolt = G_Spawn();
+    bolt->classname = "dome";
+    bolt->nextthink = level.time + 1000;
+    bolt->dieTime = level.time + 60000; //60 Second stand.
+    bolt->think = G_domethink;
+    bolt->s.eType = ET_MISSILE;
+    bolt->r.svFlags = SVF_USE_CURRENT_ORIGIN;
+    bolt->s.weapon = WP_DOME;
+    bolt->s.eFlags = EF_BOUNCE_HALF;
+    bolt->s.generic1 = WPM_PRIMARY; //weaponMode
+    bolt->r.ownerNum = self->s.number;
+    bolt->parent = self;
+    bolt->damage = MINE_DAMAGE;
+    bolt->splashDamage = MINE_DAMAGE;
+    bolt->splashRadius = MINE_RANGE;
+    bolt->methodOfDeath = MOD_MINE;
+    bolt->splashMethodOfDeath = MOD_MINE;
+    bolt->clipmask = MASK_DEADSOLID;
+    bolt->target_ent = NULL;
+    bolt->r.mins[0] = bolt->r.mins[1] = -3.0f;
+    bolt->r.mins[2] = 0.0f;
+    bolt->r.maxs[0] = bolt->r.maxs[1] = 3.0f;
+    bolt->r.maxs[2] = 2.0f;
+    bolt->s.time = level.time;
+
+    bolt->biteam = bolt->s.modelindex2 = BIT_HUMANS;
+    //bolt->use = G_itemUse;
+
+    bolt->s.pos.trType = TR_GRAVITY;
+    bolt->s.pos.trTime = level.time - MISSILE_PRESTEP_TIME; // move a bit on the very first frame
+    VectorCopy( start, bolt->s.pos.trBase );
+    VectorScale( dir, GRENADE_SPEED/3, bolt->s.pos.trDelta );
+    SnapVector( bolt->s.pos.trDelta ); // save net bandwidth
+
+    VectorCopy( start, bolt->r.currentOrigin );
+    return bolt;
 }

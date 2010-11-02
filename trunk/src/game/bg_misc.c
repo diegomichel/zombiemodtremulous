@@ -602,10 +602,10 @@ buildableAttributes_t bg_buildableList[] =
         qtrue, //qboolean  replacable;
     },
     { BA_I_MACHINEGUN, //int       buildNum;
-        "rifle", //char      *buildName; //This must the same as in the wp_ struct to make the mode works.
+        "machinegun", //char      *buildName; //This must the same as in the wp_ struct to make the mode works.
         "Rifle", //char      *humanName;
         "team_human_rifle", //char      *entityName;
-        { "models/weapons/rifle/rifle.md3", 0, 0, 0 }, 1.0f, //float     modelScale;
+        { "models/weapons/machinegun/machinegun.md3", 0, 0, 0 }, 1.3f, //float     modelScale;
         { -15, -15, -15 }, //vec3_t    mins;
         { 15, 15, 25 }, //vec3_t    maxs;
         0.0f, //float     zOffset;
@@ -637,10 +637,10 @@ buildableAttributes_t bg_buildableList[] =
         qtrue, //qboolean  replacable;
     },
     { BA_I_SHOTGUN, //int       buildNum;
-        "shotgun", //char      *buildName; //This must the same as in the wp_ struct to make the mode works.
-        "Shotgun", //char      *humanName;
+        "shotty", //char      *buildName; //This must the same as in the wp_ struct to make the mode works.
+        "Shotty", //char      *humanName;
         "team_human_shotgun", //char      *entityName;
-        { "models/weapons/shotgun/shotgun.md3", 0, 0, 0 }, 1.0f, //float     modelScale;
+        { "models/weapons/shotty/shotty.md3", 0, 0, 0 }, 1.3f, //float     modelScale;
         { -15, -15, -15 }, //vec3_t    mins;
         { 15, 15, 25 }, //vec3_t    maxs;
         0.0f, //float     zOffset;
@@ -671,11 +671,11 @@ buildableAttributes_t bg_buildableList[] =
         qfalse, //qboolean  reactorTest;
         qtrue, //qboolean  replacable;
     },
-    { BA_I_FLAMER, //int       buildNum;
-        "flamer", //char      *buildName; //This must the same as in the wp_ struct to make the mode works.
-        "Flamer", //char      *humanName;
-        "team_human_flamer", //char      *entityName;
-        { "models/weapons/flamer/flamer.md3", 0, 0, 0 }, 1.0f, //float     modelScale;
+    { BA_I_AXE, //int       buildNum;
+        "axe", //char      *buildName; //This must the same as in the wp_ struct to make the mode works.
+        "Axe", //char      *humanName;
+        "team_human_shotgun", //char      *entityName;
+        { "models/weapons/axe/axe.md3", 0, 0, 0 }, 1.3f, //float     modelScale;
         { -15, -15, -15 }, //vec3_t    mins;
         { 15, 15, 25 }, //vec3_t    maxs;
         0.0f, //float     zOffset;
@@ -710,7 +710,7 @@ buildableAttributes_t bg_buildableList[] =
         "chaingun", //char      *buildName; //This must the same as in the wp_ struct to make the mode works.
         "Chaingun", //char      *humanName;
         "team_human_chaingun", //char      *entityName;
-        { "models/weapons/chaingun/chaingun.md3", 0, 0, 0 }, 1.0f, //float     modelScale;
+        { "models/weapons/chaingun/chaingun.md3", 0, 0, 0 }, 1.3f, //float     modelScale;
         { -15, -15, -15 }, //vec3_t    mins;
         { 15, 15, 25 }, //vec3_t    maxs;
         0.0f, //float     zOffset;
@@ -745,7 +745,7 @@ buildableAttributes_t bg_buildableList[] =
         "mdriver", //char      *buildName; //This must the same as in the wp_ struct to make the mode works.
         "Mdriver", //char      *humanName;
         "team_human_mdriver", //char      *entityName;
-        { "models/weapons/mdriver/mdriver.md3", 0, 0, 0 }, 1.0f, //float     modelScale;
+        { "models/weapons/mdriver/mdriver.md3", 0, 0, 0 }, 1.3f, //float     modelScale;
         { -15, -15, -15 }, //vec3_t    mins;
         { 15, 15, 25 }, //vec3_t    maxs;
         0.0f, //float     zOffset;
@@ -776,46 +776,11 @@ buildableAttributes_t bg_buildableList[] =
         qfalse, //qboolean  reactorTest;
         qtrue, //qboolean  replacable;
     },
-    { BA_I_LCANNON, //int       buildNum;
-        "lcannon", //char      *buildName; //This must the same as in the wp_ struct to make the mode works.
-        "Lcannon", //char      *humanName;
-        "team_human_lcannon", //char      *entityName;
-        { "models/weapons/lcannon/lcannon.md3", 0, 0, 0 }, 1.0f, //float     modelScale;
-        { -15, -15, -15 }, //vec3_t    mins;
-        { 15, 15, 25 }, //vec3_t    maxs;
-        0.0f, //float     zOffset;
-        TR_GRAVITY, //trType_t  traj;
-        0.0, //float     bounce;
-        REPEATER_BP, //int       buildPoints;
-        4, //int  stages
-        REPEATER_HEALTH, //int       health;
-        0, //int       regenRate;
-        REPEATER_SPLASHDAMAGE, //int       splashDamage;
-        REPEATER_SPLASHRADIUS, //int       splashRadius;
-        MOD_HSPAWN, //int       meansOfDeath;
-        BIT_HUMANS, //int       team;
-        WP_NONE, //weapon_t  buildWeapon;
-        BANIM_IDLE1, //int       idleAnim;
-        100, //int       nextthink;
-        REPEATER_BT, //int       buildTime;
-        qtrue, //qboolean  usable;
-        0, //int       turretRange;
-        0, //int       turretFireSpeed;
-        WP_NONE, //weapon_t  turretProjType;
-        0.95f, //float     minNormal;
-        qfalse, //qboolean  invertNormal;
-        qfalse, //qboolean  creepTest;
-        0, //int       creepSize;
-        qfalse, //qboolean  dccTest;
-        qfalse, //qboolean  transparentTest;
-        qfalse, //qboolean  reactorTest;
-        qtrue, //qboolean  replacable;
-    },
-    { BA_I_LASGUN, //int       buildNum;
-        "lgun", //char      *buildName; //This must the same as in the wp_ struct to make the mode works.
-        "Lgun", //char      *humanName;
+    { BA_I_LASERGUN, //int       buildNum;
+        "lasergun", //char      *buildName; //This must the same as in the wp_ struct to make the mode works.
+        "Laser gun", //char      *humanName;
         "team_human_lgun", //char      *entityName;
-        { "models/weapons/lgun/lgun.md3", 0, 0, 0 }, 1.0f, //float     modelScale;
+        { "models/weapons/lasergun/lasergun.md3", 0, 0, 0 }, 1.3f, //float     modelScale;
         { -15, -15, -15 }, //vec3_t    mins;
         { 15, 15, 25 }, //vec3_t    maxs;
         0.0f, //float     zOffset;
@@ -850,7 +815,7 @@ buildableAttributes_t bg_buildableList[] =
         "syrinx", //char      *buildName; //This must the same as in the wp_ struct to make the mode works.
         "Syrinx", //char      *humanName;
         "team_human_syrinx", //char      *entityName;
-        { "models/weapons/syrinx/syrinx.md3", 0, 0, 0 }, 1.0f, //float     modelScale;
+        { "models/weapons/syrinx/syrinx.md3", 0, 0, 0 }, 1.3f, //float     modelScale;
         { -15, -15, -15 }, //vec3_t    mins;
         { 15, 15, 25 }, //vec3_t    maxs;
         0.0f, //float     zOffset;
@@ -881,11 +846,11 @@ buildableAttributes_t bg_buildableList[] =
         qfalse, //qboolean  reactorTest;
         qtrue, //qboolean  replacable;
     },
-    { BA_I_LAUNCHER, //int       buildNum;
-        "launcher", //char      *buildName; //This must the same as in the wp_ struct to make the mode works.
-        "Launcher", //char      *humanName;
+    { BA_I_GRENADE_LAUNCHER, //int       buildNum;
+        "grenade_launcher", //char      *buildName; //This must the same as in the wp_ struct to make the mode works.
+        "Grenade Launcher", //char      *humanName;
         "team_human_launcher", //char      *entityName;
-        { "models/weapons/launcher/launcher.md3", 0, 0, 0 }, 1.0f, //float     modelScale;
+        { "models/weapons/grenade_launcher/grenade_launcher.md3", 0, 0, 0 }, 1.3f, //float     modelScale;
         { -15, -15, -15 }, //vec3_t    mins;
         { 15, 15, 25 }, //vec3_t    maxs;
         0.0f, //float     zOffset;
@@ -920,7 +885,7 @@ buildableAttributes_t bg_buildableList[] =
         "mine", //char      *buildName; //This must the same as in the wp_ struct to make the mode works.
         "Mine", //char      *humanName;
         "team_human_mine", //char      *entityName;
-        { "models/weapons/mine/mine.md3", 0, 0, 0 }, 1.0f, //float     modelScale;
+        { "models/weapons/mine/mine.md3", 0, 0, 0 }, 1.3f, //float     modelScale;
         { -15, -15, -15 }, //vec3_t    mins;
         { 15, 15, 25 }, //vec3_t    maxs;
         0.0f, //float     zOffset;
@@ -950,8 +915,44 @@ buildableAttributes_t bg_buildableList[] =
         qfalse, //qboolean  transparentTest;
         qfalse, //qboolean  reactorTest;
         qtrue, //qboolean  replacable;
-    } };
-
+    },
+    { BA_I_ROCKET_LAUNCHER, //int       buildNum;
+        "rocket_launcher", //char      *buildName; //This must the same as in the wp_ struct to make the mode works.
+        "Rocket Launcher", //char      *humanName;
+        "team_human_rocket_launcher", //char      *entityName;
+        { "models/weapons/rocket_launcher/rocket_launcher.md3", 0, 0, 0 }, 1.3f, //float     modelScale;
+        { -15, -15, -15 }, //vec3_t    mins;
+        { 15, 15, 25 }, //vec3_t    maxs;
+        0.0f, //float     zOffset;
+        TR_GRAVITY, //trType_t  traj;
+        0.0, //float     bounce;
+        REPEATER_BP, //int       buildPoints;
+        4, //int  stages
+        REPEATER_HEALTH, //int       health;
+        0, //int       regenRate;
+        REPEATER_SPLASHDAMAGE, //int       splashDamage;
+        REPEATER_SPLASHRADIUS, //int       splashRadius;
+        MOD_HSPAWN, //int       meansOfDeath;
+        BIT_HUMANS, //int       team;
+        WP_NONE, //weapon_t  buildWeapon;
+        BANIM_IDLE1, //int       idleAnim;
+        100, //int       nextthink;
+        REPEATER_BT, //int       buildTime;
+        qtrue, //qboolean  usable;
+        0, //int       turretRange;
+        0, //int       turretFireSpeed;
+        WP_NONE, //weapon_t  turretProjType;
+        0.95f, //float     minNormal;
+        qfalse, //qboolean  invertNormal;
+        qfalse, //qboolean  creepTest;
+        0, //int       creepSize;
+        qfalse, //qboolean  dccTest;
+        qfalse, //qboolean  transparentTest;
+        qfalse, //qboolean  reactorTest;
+        qtrue, //qboolean  replacable;
+    }, };
+//"rocket_launcher", //char      *weaponName;
+//       "Rocket Launcher", //char      *weaponHumanName;
 int bg_numBuildables = sizeof(bg_buildableList) / sizeof(bg_buildableList[0]);
 
 //separate from bg_buildableList to work around char struct init bug
@@ -3475,29 +3476,29 @@ BG_InitClassOverrides(void)
 
 weaponAttributes_t bg_weapons[] =
 {
-    { WP_MACHINEGUN, //int       weaponNum;
-        RIFLE_PRICE, //int       price;
-        (1 << S1) | (1 << S2) | (1 << S3), //int  stages
-        SLOT_WEAPON, //int       slots;
-        "machinegun", //char      *weaponName;
-        "Tommy", //char      *weaponHumanName;
-        RIFLE_CLIPSIZE, //int       maxAmmo;
-        RIFLE_MAXCLIPS, //int       maxClips;
-        qfalse, //int       infiniteAmmo;
-        qfalse, //int       usesEnergy;
-        RIFLE_REPEAT, //int       repeatRate1;
-        0, //int       repeatRate2;
-        0, //int       repeatRate3;
-        RIFLE_RELOAD, //int       reloadTime;
-        RIFLE_K_SCALE, //float     knockbackScale;
-        qfalse, //qboolean  hasAltMode;
-        qfalse, //qboolean  hasThirdMode;
-        qtrue, //qboolean  canZoom;
-        20.0f, //float     zoomFov;
-        qtrue, //qboolean  purchasable;
-        qtrue, //qboolean  longRanged;
-        0, //int       buildDelay;
-        WUT_HUMANS //WUTeam_t  team;
+{ WP_MACHINEGUN, //int       weaponNum;
+    RIFLE_PRICE, //int       price;
+    (1 << S1) | (1 << S2) | (1 << S3), //int  stages
+    SLOT_WEAPON, //int       slots;
+    "machinegun", //char      *weaponName;
+    "Tommy", //char      *weaponHumanName;
+    RIFLE_CLIPSIZE, //int       maxAmmo;
+    RIFLE_MAXCLIPS, //int       maxClips;
+    qfalse, //int       infiniteAmmo;
+    qfalse, //int       usesEnergy;
+    RIFLE_REPEAT, //int       repeatRate1;
+    0, //int       repeatRate2;
+    0, //int       repeatRate3;
+    RIFLE_RELOAD, //int       reloadTime;
+    RIFLE_K_SCALE, //float     knockbackScale;
+    qfalse, //qboolean  hasAltMode;
+    qfalse, //qboolean  hasThirdMode;
+    qtrue, //qboolean  canZoom;
+    20.0f, //float     zoomFov;
+    qtrue, //qboolean  purchasable;
+    qtrue, //qboolean  longRanged;
+    0, //int       buildDelay;
+    WUT_HUMANS //WUTeam_t  team;
     },
     { WP_SHOTGUN, //int       weaponNum;
         SHOTGUN_PRICE, //int       price;
@@ -3576,7 +3577,7 @@ weaponAttributes_t bg_weapons[] =
         (1 << S1) | (1 << S2) | (1 << S3), //int  stages
         SLOT_WEAPON, //int       slots;
         "lasergun", //char      *weaponName;
-        "Las Gun", //char      *weaponHumanName;
+        "Laser Gun", //char      *weaponHumanName;
         LASGUN_AMMO, //int       maxAmmo;
         0, //int       maxClips;
         qfalse, //int       infiniteAmmo;
@@ -3588,8 +3589,8 @@ weaponAttributes_t bg_weapons[] =
         LASGUN_K_SCALE, //float     knockbackScale;
         qfalse, //qboolean  hasAltMode;
         qfalse, //qboolean  hasThirdMode;
-        qfalse, //qboolean  canZoom;
-        90.0f, //float     zoomFov;
+        qtrue, //qboolean  canZoom;
+        20.0f, //float     zoomFov;
         qtrue, //qboolean  purchasable;
         qtrue, //qboolean  longRanged;
         0, //int       buildDelay;
@@ -3669,7 +3670,7 @@ weaponAttributes_t bg_weapons[] =
     },
     { WP_HBUILD, //int       weaponNum;
         HBUILD_PRICE, //int       price;
-        (1 << S1) | (1 << S2) | (1 << S3), //int  stages
+        (1 << S3), //int  stages
         SLOT_WEAPON, //int       slots;
         "ckit", //char      *weaponName;
         "Construction Kit", //char      *weaponHumanName;
@@ -3689,12 +3690,12 @@ weaponAttributes_t bg_weapons[] =
         qtrue, //qboolean  purchasable;
         qfalse, //qboolean  longRanged;
         HBUILD_DELAY, //int       buildDelay;
-        WUT_HUMANS //WUTeam_t  team;
+        WUT_NONE //WUTeam_t  team;
     },
     { WP_HBUILD2, //int       weaponNum;
         HBUILD2_PRICE, //int       price;
         (1 << S1) | (1 << S2) | (1 << S3), //int  stages
-        SLOT_WEAPON, //int       slots;
+        0, //int       slots;
         "ackit", //char      *weaponName;
         "Adv Construction Kit", //char      *weaponHumanName;
         0, //int       maxAmmo;
@@ -4051,8 +4052,7 @@ weaponAttributes_t bg_weapons[] =
         0, //int       buildDelay;
         WUT_HUMANS //WUTeam_t  team;
     },
-    {
-        WP_AXE, //int       weaponNum;
+    { WP_AXE, //int       weaponNum;
         AXE_PRICE, //int       price;
         (1 << S1) | (1 << S2) | (1 << S3), //int  stages
         SLOT_WEAPON, //int       slots;
@@ -4076,8 +4076,7 @@ weaponAttributes_t bg_weapons[] =
         0, //int       buildDelay;
         WUT_HUMANS //WUTeam_t  team;
     },
-    {
-        WP_PISTOL, //int       weaponNum;
+    { WP_PISTOL, //int       weaponNum;
         0, //int       price;
         (1 << S1) | (1 << S2) | (1 << S3), //int  stages
         0, //int       slots;
@@ -4101,8 +4100,7 @@ weaponAttributes_t bg_weapons[] =
         0, //int       buildDelay;
         WUT_HUMANS //WUTeam_t  team;
     },
-    {
-        WP_ROCKET_LAUNCHER, //int       weaponNum;
+    { WP_ROCKET_LAUNCHER, //int       weaponNum;
         ROCKET_LAUNCHER_PRICE, //int       price;
         (1 << S1) | (1 << S2) | (1 << S3), //int  stages
         SLOT_WEAPON, //int       slots;
@@ -4127,30 +4125,53 @@ weaponAttributes_t bg_weapons[] =
         WUT_HUMANS //WUTeam_t  team;
     },
     { WP_LAUNCHER, //int       weaponNum;
-            LAUNCHER_PRICE, //int       price;
-            (1 << S1) | (1 << S2) | (1 << S3), //int  stages
-            SLOT_WEAPON, //int       slots;
-            "grenade_launcher", //char      *weaponName;
-            "Grenade Launcher", //char      *weaponHumanName;
-            LAUNCHER_AMMO, //int       maxAmmo;
-            LAUNCHER_MAXAMMO, //int       maxClips;
-            qfalse, //int       infiniteAmmo;
-            qfalse, //int       usesEnergy;
-            LAUNCHER_REPEAT, //int       repeatRate1;
-            LAUNCHER_REPEAT, //int       repeatRate2;
-            0, //int       repeatRate3;
-            LAUNCHER_RELOAD, //int       reloadTime;
-            LAUNCHER_K_SCALE, //float     knockbackScale;
-            qtrue, //qboolean  hasAltMode;
-            qfalse, //qboolean  hasThirdMode;
-            qfalse, //qboolean  canZoom;
-            90.0f, //float     zoomFov;
-            qtrue, //qboolean  purchasable;
-            qtrue, //qboolean  longRanged;
-            0, //int       buildDelay;
-            WUT_HUMANS //WUTeam_t  team;
-        }
-};
+        LAUNCHER_PRICE, //int       price;
+        (1 << S1) | (1 << S2) | (1 << S3), //int  stages
+        SLOT_WEAPON, //int       slots;
+        "grenade_launcher", //char      *weaponName;
+        "Grenade Launcher", //char      *weaponHumanName;
+        LAUNCHER_AMMO, //int       maxAmmo;
+        LAUNCHER_MAXAMMO, //int       maxClips;
+        qfalse, //int       infiniteAmmo;
+        qfalse, //int       usesEnergy;
+        LAUNCHER_REPEAT, //int       repeatRate1;
+        LAUNCHER_REPEAT, //int       repeatRate2;
+        0, //int       repeatRate3;
+        LAUNCHER_RELOAD, //int       reloadTime;
+        LAUNCHER_K_SCALE, //float     knockbackScale;
+        qtrue, //qboolean  hasAltMode;
+        qfalse, //qboolean  hasThirdMode;
+        qfalse, //qboolean  canZoom;
+        90.0f, //float     zoomFov;
+        qtrue, //qboolean  purchasable;
+        qtrue, //qboolean  longRanged;
+        0, //int       buildDelay;
+        WUT_HUMANS //WUTeam_t  team;
+    },
+    { WP_DOME, //int       weaponNum;
+        MINE_PRICE, //int       price;
+        (1 << S1) | (1 << S2) | (1 << S3), //int  stages
+        SLOT_NONE, //int       slots;
+        "dome", //char      *weaponName;
+        "Dome", //char      *weaponHumanName;
+        1, //int       maxAmmo;
+        0, //int       maxClips;
+        qfalse, //int       infiniteAmmo;
+        qfalse, //int       usesEnergy;
+        MINE_REPEAT, //int       repeatRate1;
+        0, //int       repeatRate2;
+        0, //int       repeatRate3;
+        0, //int       reloadTime;
+        MINE_K_SCALE, //float     knockbackScale;
+        qfalse, //qboolean  hasAltMode;
+        qfalse, //qboolean  hasThirdMode;
+        qfalse, //qboolean  canZoom;
+        90.0f, //float     zoomFov;
+        qfalse, //qboolean  purchasable;
+        qfalse, //qboolean  longRanged;
+        0, //int       buildDelay;
+        WUT_HUMANS //WUTeam_t  team;
+    }, };
 
 int bg_numWeapons = sizeof(bg_weapons) / sizeof(bg_weapons[0]);
 
@@ -5200,9 +5221,9 @@ BG_PlayerStateToEntityState(playerState_t *ps, entityState_t *s, qboolean snap)
     s->eFlags &= ~EF_BLOBLOCKED;
 
   if (ps->stats[STAT_STATE] & SS_ONFIRE)
-      s->eFlags |= EF_ONFIRE;
-    else
-      s->eFlags &= ~EF_ONFIRE;
+    s->eFlags |= EF_ONFIRE;
+  else
+    s->eFlags &= ~EF_ONFIRE;
 
   if (ps->externalEvent)
   {
@@ -5460,7 +5481,7 @@ BG_AddWeaponToInventory(int weapon, int stats[])
   stats[STAT_WEAPONS] = weaponList & 0x0000FFFF;
   stats[STAT_WEAPONS2] = (weaponList & 0xFFFF0000) >> 16;
 
-  if (stats[ STAT_SLOTS ] & BG_FindSlotsForWeapon(weapon))
+  if (stats[STAT_SLOTS] & BG_FindSlotsForWeapon(weapon))
     Com_Printf(S_COLOR_YELLOW "WARNING: Held items conflict with weapon %d\n", weapon);
 
   stats[STAT_SLOTS] |= BG_FindSlotsForWeapon(weapon);

@@ -2181,7 +2181,7 @@ CG_Player(centity_t *cent)
 
   if (es->eFlags & EF_ONFIRE)
   {
-    CG_PlayerOnFire(cent->lerpOrigin);
+    CG_PlayerOnFire(cent);
   }
 
   if (cg_drawBBOX.integer)
@@ -2750,20 +2750,26 @@ CG_AtHighestClass(void)
 }
 
 //Flamer fire effect :).
-void CG_PlayerOnFire(vec3_t origin)
+void CG_PlayerOnFire(centity_t *cent)
 {
   particleSystem_t *ps;
 
-  if(cg.time % 10 != 0)
+  if(cent->fireTime > cg.time)
+  {
     return;
+  }
+  else
+  {
+    cent->fireTime = cg.time + 3000;
+  }
 
-  trap_S_StartSound(origin, ENTITYNUM_WORLD, CHAN_AUTO, cgs.media.disconnectSound);
+  trap_S_StartSound(cent->lerpOrigin, ENTITYNUM_WORLD, CHAN_AUTO, cgs.media.fireSound);
 
   ps = CG_SpawnNewParticleSystem(cgs.media.fire);
 
   if (CG_IsParticleSystemValid(&ps))
   {
-    CG_SetAttachmentPoint(&ps->attachment, origin);
+    CG_SetAttachmentPoint(&ps->attachment, cent->lerpOrigin);
     CG_AttachToPoint(&ps->attachment);
   }
 }

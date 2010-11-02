@@ -387,6 +387,14 @@ struct gentity_s
   int jumpedTime;
   int botPause;
   int idletimer;
+
+  //Combo Kills
+  int comboKills;
+  int comboMod;
+
+  //Dome vars
+  int dieTime;
+  int numDomes;
 };
 
 typedef enum
@@ -1355,6 +1363,8 @@ gentity_t * fire_axe(gentity_t *self, vec3_t start, vec3_t dir);
 void massDriverFire2( gentity_t *ent );
 
 gentity_t      *fire_rocket(gentity_t * self, vec3_t start, vec3_t dir);
+gentity_t      *fire_dome(gentity_t * self, vec3_t start, vec3_t dir);
+
 
 
 //
@@ -2045,3 +2055,13 @@ extern vmCvar_t ace_botsFile;
 #endif
 
 extern vmCvar_t director_debug;
+
+char *
+modString( int mod);
+void g_comboClear();
+void g_comboPrint();
+qboolean G_playerInRange(gentity_t *ent, int range, int team);
+qboolean
+G_itemInRange(gentity_t *ent, int range, int team);
+qboolean
+G_doorInRange(gentity_t *ent, int range, int team);

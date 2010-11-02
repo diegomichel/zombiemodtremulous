@@ -498,7 +498,9 @@ vmMain(int command, int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, 
       return (intptr_t) ClientConnect(arg0, arg1);
 
     case GAME_CLIENT_THINK:
+      g_comboClear();
       ClientThink(arg0);
+      g_comboPrint();
       return 0;
 
     case GAME_CLIENT_USERINFO_CHANGED:
@@ -518,7 +520,9 @@ vmMain(int command, int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, 
       return 0;
 
     case GAME_RUN_FRAME:
+      g_comboClear();
       G_RunFrame(arg0);
+      g_comboPrint();
       return 0;
 
     case GAME_CONSOLE_COMMAND:
@@ -1521,7 +1525,14 @@ botSpawn(gentity_t *ent)
 
   BG_FindBBoxForClass(ent->client->pers.classSelection, ent->r.mins, ent->r.maxs, NULL, NULL, NULL);
 
-  client->pers.maxHealth = client->ps.stats[STAT_MAX_HEALTH] = 100;
+  if(g_survival.integer)
+  {
+    client->pers.maxHealth = client->ps.stats[STAT_MAX_HEALTH] = 300;
+  }
+  else
+  {
+    client->pers.maxHealth = client->ps.stats[STAT_MAX_HEALTH] = 100;
+  }
 
   //client->pers.maxHealth += (20 * (level.numConnectedClients - level.bots));
 
@@ -1906,7 +1917,7 @@ G_addBot()
     level.lastBotTime = level.time + 1000;
   }
   level.botsLevel++;
-  if (level.bots < 32)
+  if (level.bots < 25)
   {
     G_BotAdd(va("^1Zombie%d", level.bots), PTE_ALIENS, level.botsLevel, NULL);
   }
@@ -3471,7 +3482,7 @@ void
 G_RunFrame(int levelTime)
 {
   int i;
-  gentity_t *ent;
+  gentity_t *ent, *ent2;
   int msec;
   int start, end;
 
@@ -3645,7 +3656,8 @@ G_RunFrame(int levelTime)
   if (g_listEntity.integer)
   {
     for(i = 0;i < MAX_GENTITIES;i++)
-      G_Printf("%4i: %s\n", i, g_entities[i].classname);
+      if(g_entities[i].classname)
+        G_Printf("%4i: %s\n", i, g_entities[i].classname);
 
     trap_Cvar_Set("g_listEntity", "0");
   }

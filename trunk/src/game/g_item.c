@@ -1,4 +1,5 @@
 #include "g_local.h"
+#include "tremulous.h"
 
 void
 G_itemThink(gentity_t *ent)
@@ -41,8 +42,11 @@ G_switchWeapon(gentity_t *player, weapon_t weapon)
 void
 G_giveHealth(gentity_t *player)
 {
-  player->health = player->client->ps.stats[STAT_HEALTH] = player->client->ps.stats[STAT_MAX_HEALTH];
-  G_AddEvent(player, EV_MEDKIT_USED, 0);
+  trap_SendServerCommand(
+    player - g_entities, "print \"^2Use Construction Kit to build a Health Dome\n\"");
+//  player->health = player->client->ps.stats[STAT_HEALTH]
+//      = player->client->ps.stats[STAT_MAX_HEALTH];
+//  G_AddEvent(player, EV_MEDKIT_USED, 0);
 
   player->client->ps.persistant[PERS_UNUSED] = 3;
 }
@@ -61,7 +65,10 @@ G_itemUse(gentity_t *self, gentity_t *other, gentity_t *activator)
     case BA_I_CHAINGUN:
       G_switchWeapon(activator, WP_CHAINGUN);
       break;
-    case BA_I_LASGUN:
+    case BA_I_AXE:
+      G_switchWeapon(activator, WP_AXE);
+      break;
+    case BA_I_LASERGUN:
       G_switchWeapon(activator, WP_LAS_GUN);
       break;
     case BA_I_MACHINEGUN:
@@ -73,31 +80,34 @@ G_itemUse(gentity_t *self, gentity_t *other, gentity_t *activator)
     case BA_I_SHOTGUN:
       G_switchWeapon(activator, WP_SHOTGUN);
       break;
-    case BA_I_LAUNCHER:
+    case BA_I_GRENADE_LAUNCHER:
       G_switchWeapon(activator, WP_LAUNCHER);
+      break;
+    case BA_I_ROCKET_LAUNCHER:
+      G_switchWeapon(activator, WP_ROCKET_LAUNCHER);
       break;
     case BA_I_SYRINX:
       G_giveHealth(activator);
       break;
     default:
-        item = qfalse;
+      item = qfalse;
       break;
   }
   ////////////////////////////////////////////////////////////////////////////
   // Special Case for Mines
   ////////////////////////////////////////////////////////////////////////////
-  if(self->s.weapon == WP_MINE && self->parent == activator)
+  if (self->s.weapon == WP_MINE && self->parent == activator)
   {
     G_giveMine(activator);
     G_FreeEntity(self);
     activator->numMines--;
   }
-  else if(self->s.modelindex == BA_I_MINE)
+  else if (self->s.modelindex == BA_I_MINE)
   {
     G_giveMine(activator);
     G_FreeEntity(self);
   }
-  else if(item == qtrue)
+  else if (item == qtrue)
   {
     G_FreeEntity(self);
     level.spawnedItems--;
@@ -112,6 +122,19 @@ spawnItem(gentity_t *ent, buildable_t itemtype)
   vec3_t origin;
 
   VectorCopy(ent->s.origin, origin);
+
+  if(G_playerInRange(ent, DOME_RANGE, PTE_HUMANS))
+  {
+    return item;
+  }
+  if(G_itemInRange(ent, DOME_RANGE/2, PTE_NONE))
+  {
+    return item;
+  }
+  if (G_doorInRange(ent, DOME_RANGE / 3, PTE_NONE))
+  {
+    return item;
+  }
 
   origin[2] += 40;
 

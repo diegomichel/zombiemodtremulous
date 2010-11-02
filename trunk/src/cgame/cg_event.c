@@ -138,24 +138,6 @@ CG_Obituary(entityState_t *ent)
     gender = ci->gender;
     switch(mod)
     {
-      case MOD_FLAMER_SPLASH:
-        if (gender == GENDER_FEMALE)
-          message = "toasted herself";
-        else if (gender == GENDER_NEUTER)
-          message = "toasted itself";
-        else
-          message = "toasted himself";
-        break;
-
-      case MOD_LCANNON_SPLASH:
-        if (gender == GENDER_FEMALE)
-          message = "irradiated herself";
-        else if (gender == GENDER_NEUTER)
-          message = "irradiated itself";
-        else
-          message = "irradiated himself";
-        break;
-
       case MOD_GRENADE:
         if (gender == GENDER_FEMALE)
           message = "blew herself up";
@@ -216,30 +198,8 @@ CG_Obituary(entityState_t *ent)
       case MOD_SHOTGUN:
         message = "was gunned down by";
         break;
-      case MOD_PRIFLE:
-        message = "was pulse rifled by";
-        break;
       case MOD_MDRIVER:
         message = "was mass driven by";
-        break;
-      case MOD_LASGUN:
-        message = "was lasgunned by";
-        break;
-      case MOD_FLAMER:
-        message = "was grilled by";
-        message2 = "'s flamer";
-        break;
-      case MOD_FLAMER_SPLASH:
-        message = "was toasted by";
-        message2 = "'s flamer";
-        break;
-      case MOD_LCANNON:
-        message = "felt the full force of";
-        message2 = "'s lucifer cannon";
-        break;
-      case MOD_LCANNON_SPLASH:
-        message = "was caught in the fallout of";
-        message2 = "'s lucifer cannon";
         break;
       case MOD_GRENADE:
         message = "couldn't escape";
@@ -253,57 +213,10 @@ CG_Obituary(entityState_t *ent)
       case MOD_LEVEL0_BITE:
         message = "was bitten by";
         break;
-      case MOD_LEVEL1_CLAW:
-        message = "was Eaten by";
-        Com_sprintf(className, 64, "", "");
-        message2 = className;
-        break;
-      case MOD_LEVEL2_CLAW:
-        message = "was clawed by";
-        Com_sprintf(className, 64, "'s %s", BG_FindHumanNameForClassNum(PCL_ALIEN_LEVEL2));
-        message2 = className;
-        break;
-      case MOD_LEVEL2_ZAP:
-        message = "was zapped by";
-        Com_sprintf(className, 64, "'s %s", BG_FindHumanNameForClassNum(PCL_ALIEN_LEVEL2));
-        message2 = className;
-        break;
-      case MOD_LEVEL3_CLAW:
-        message = "was chomped by";
-        Com_sprintf(className, 64, "'s %s", BG_FindHumanNameForClassNum(PCL_ALIEN_LEVEL3));
-        message2 = className;
-        break;
-      case MOD_LEVEL3_POUNCE:
-        message = "was pounced upon by";
-        Com_sprintf(className, 64, "'s %s", BG_FindHumanNameForClassNum(PCL_ALIEN_LEVEL3));
-        message2 = className;
-        break;
-      case MOD_LEVEL3_BOUNCEBALL:
-        message = "was sniped by";
-        Com_sprintf(className, 64, "'s %s", BG_FindHumanNameForClassNum(PCL_ALIEN_LEVEL3));
-        message2 = className;
-        break;
-      case MOD_LEVEL4_CLAW:
-        message = "was mauled by";
-        Com_sprintf(className, 64, "'s %s", BG_FindHumanNameForClassNum(PCL_ALIEN_LEVEL4));
-        message2 = className;
-        break;
-      case MOD_LEVEL4_CHARGE:
-        message = "should have gotten out of the way of";
-        Com_sprintf(className, 64, "'s %s", BG_FindHumanNameForClassNum(PCL_ALIEN_LEVEL4));
-        message2 = className;
-        break;
-
       case MOD_POISON:
         message = "should have used a medkit against";
         message2 = "'s poison";
         break;
-      case MOD_LEVEL1_PCLOUD:
-        message = "was eaten by";
-        Com_sprintf(className, 64, "'s %s", "");
-        message2 = className;
-        break;
-
       case MOD_TELEFRAG:
         message = "tried to invade";
         message2 = "'s personal space";
@@ -743,7 +656,6 @@ CG_EntityEvent(centity_t *cent, vec3_t position)
     case EV_PLAYER_ON_FIRE:
       DEBUGNAME( "EV_PLAYER_ON_FIRE" )
       ;
-      CG_PlayerOnFire(position);
     break;
 
     case EV_BUILD_CONSTRUCT:

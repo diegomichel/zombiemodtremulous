@@ -536,7 +536,8 @@ launcherSecondaryFire(gentity_t *ent)
 void launchAxe(gentity_t *ent)
 {
   gentity_t *m;
-
+  BG_RemoveWeaponFromInventory(WP_AXE, ent->client->ps.stats);
+  G_ForceWeaponChange(ent, WP_PISTOL);
   m = fire_axe(ent, muzzle,forward);
 }
 void
@@ -683,20 +684,24 @@ lasGunFire(gentity_t *ent)
 
   if (traceEnt->takedamage)
   {
-    G_Damage(traceEnt, ent, ent, forward, tr.endpos, damage, 0, MOD_LASGUN);
+    G_Damage(traceEnt, ent, ent, forward, tr.endpos, damage, 0, MOD_LASERGUN);
   }
 
+  // send impact
   if (traceEnt->takedamage && traceEnt->client)
   {
     tent = G_TempEntity(tr.endpos, EV_MISSILE_HIT);
     tent->s.otherEntityNum = traceEnt->s.number;
     tent->s.eventParm = DirToByte(tr.plane.normal);
     tent->s.weapon = ent->s.weapon;
+    tent->s.generic1 = ent->s.generic1; //weaponMode
   }
-  else if (!(tr.surfaceFlags & SURF_NOIMPACT))
+  else
   {
-    tent = G_TempEntity(tr.endpos, EV_BULLET_HIT_WALL);
+    tent = G_TempEntity(tr.endpos, EV_MISSILE_MISS);
     tent->s.eventParm = DirToByte(tr.plane.normal);
+    tent->s.weapon = ent->s.weapon;
+    tent->s.generic1 = ent->s.generic1; //weaponMode
   }
 }
 
@@ -895,6 +900,9 @@ cancelBuildFire(gentity_t *ent)
   //Reapir budy.
   if (ent->client->ps.stats[STAT_PTEAM] == PTE_HUMANS && g_survival.integer)
   {
+    return;
+//    trap_SendServerCommand(
+//              ent - g_entities, "print \"^2Primary Fire.\n\"");
     AngleVectors(ent->client->ps.viewangles, forward, NULL, NULL);
     VectorMA(ent->client->ps.origin, 200, forward, end);
 
@@ -999,6 +1007,38 @@ void
 buildFire(gentity_t *ent, dynMenu_t menu)
 {
   int biteam;
+
+  //If survival shot the dome.
+  if(g_survival.integer)
+  {
+    gentity_t      *m;
+
+    if (ent->client->ps.stats[STAT_MISC] > 0)
+    {
+      G_AddEvent(ent, EV_BUILD_DELAY, ent->client->ps.clientNum);
+      return;
+    }
+
+    if (ent->client->ps.persistant[PERS_UNUSED] < 1)
+    {
+      G_AddEvent(ent, EV_BUILD_DELAY, ent->client->ps.clientNum);
+      trap_SendServerCommand(ent - g_entities, "print \"^2You need to pickup a medical supply.\n\"");
+      return;
+    }
+    if (ent->numDomes > 0)
+    {
+      trap_SendServerCommand(ent - g_entities, "print \"You cannot drop more than 1 Dome.\n\"");
+      return;
+    }
+    ent->numDomes++;
+
+    ent->client->ps.persistant[PERS_UNUSED] -= 1; //Medkit.
+    ent->client->ps.persistant[PERS_SCORE] += 10; //Incrase score.
+
+    m = fire_dome(ent, muzzle, forward);
+    return;
+  }
+
   if (ent->client->ps.stats[STAT_PTEAM] == PTE_HUMANS)
   {
     biteam = BIT_HUMANS;
@@ -1487,10 +1527,10 @@ G_UpdateZaps(int msec)
           //do the damage
           if (damage)
           {
-            G_Damage(
-              target, source, zap->creator, forward, target->s.origin, damage, DAMAGE_NO_KNOCKBACK
-                  | DAMAGE_NO_LOCDAMAGE, MOD_LEVEL2_ZAP);
-            zap->damageUsed += damage;
+//            G_Damage(
+//              target, source, zap->creator, forward, target->s.origin, damage, DAMAGE_NO_KNOCKBACK
+//                  | DAMAGE_NO_LOCDAMAGE, MOD_LEVEL2_ZAP);
+//            zap->damageUsed += damage;
           }
         }
       }
@@ -1604,8 +1644,8 @@ CheckPounceAttack(gentity_t *ent)
 
   ent->client->pmext.pouncePayload = 0;
 
-  G_Damage(traceEnt, ent, ent, forward, tr.endpos, damage, DAMAGE_NO_KNOCKBACK
-      | DAMAGE_NO_LOCDAMAGE, MOD_LEVEL3_POUNCE);
+//  G_Damage(traceEnt, ent, ent, forward, tr.endpos, damage, DAMAGE_NO_KNOCKBACK
+//      | DAMAGE_NO_LOCDAMAGE, MOD_LEVEL3_POUNCE);
 
   ent->client->allowedToPounce = qfalse;
 
@@ -1666,7 +1706,7 @@ ChargeAttack(gentity_t *ent, gentity_t *victim)
   damage = (int) (((float) ent->client->ps.stats[STAT_MISC] / (float) LEVEL4_CHARGE_TIME)
       * LEVEL4_CHARGE_DMG);
 
-  G_Damage(victim, ent, ent, forward, victim->s.origin, damage, 0, MOD_LEVEL4_CHARGE);
+//  G_Damage(victim, ent, ent, forward, victim->s.origin, damage, 0, MOD_LEVEL4_CHARGE);
 }
 
 
@@ -1807,23 +1847,6 @@ FireWeapon(gentity_t *ent)
   // fire the specific weapon
   switch(ent->s.weapon)
   {
-    case WP_ALEVEL1:
-    case WP_ALEVEL1_UPG:
-      meleeAttack(ent, LEVEL1_CLAW_RANGE, LEVEL1_CLAW_WIDTH, LEVEL1_CLAW_DMG, MOD_LEVEL1_CLAW);
-      break;
-    case WP_ALEVEL3:
-    case WP_ALEVEL3_UPG:
-      meleeAttack(ent, LEVEL3_CLAW_RANGE, LEVEL3_CLAW_WIDTH, LEVEL3_CLAW_DMG, MOD_LEVEL3_CLAW);
-      break;
-    case WP_ALEVEL2:
-      meleeAttack(ent, LEVEL2_CLAW_RANGE, LEVEL2_CLAW_WIDTH, LEVEL2_CLAW_DMG, MOD_LEVEL2_CLAW);
-      break;
-    case WP_ALEVEL2_UPG:
-      meleeAttack(ent, LEVEL2_CLAW_RANGE, LEVEL2_CLAW_WIDTH, LEVEL2_CLAW_DMG, MOD_LEVEL2_CLAW);
-      break;
-    case WP_ALEVEL4:
-      meleeAttack(ent, LEVEL4_CLAW_RANGE, LEVEL4_CLAW_WIDTH, LEVEL4_CLAW_DMG, MOD_LEVEL4_CLAW);
-      break;
     case WP_MACHINEGUN:
       bulletFire(ent, RIFLE_SPREAD, RIFLE_DMG, MOD_MACHINEGUN);
       break;
@@ -1846,17 +1869,13 @@ FireWeapon(gentity_t *ent)
       plantMine(ent);
       break;
     case WP_ZOMBIE_BITE:
-      meleeAttack(ent, ZOMBIE_RANGE*2, LEVEL1_CLAW_WIDTH, LEVEL1_CLAW_DMG/3, MOD_LEVEL1_CLAW);
-      break;
-    case WP_LOCKBLOB_LAUNCHER:
-      lockBlobLauncherFire(ent);
+      meleeAttack(ent, ZOMBIE_RANGE*2, LEVEL1_CLAW_WIDTH, LEVEL1_CLAW_DMG/3, MOD_ZOMBIE_BITE);
       break;
     case WP_LAUNCHER:
       launcherFire(ent);
       break;
-    case WP_HIVE:
-      hiveFire(ent);
-      break;
+
+
     case WP_TESLAGEN:
       teslaFire(ent);
       break;
@@ -1864,20 +1883,16 @@ FireWeapon(gentity_t *ent)
       bulletFire(ent, MGTURRET_SPREAD, MGTURRET_DMG, MOD_MGTURRET);
       break;
 
-    case WP_ABUILD:
-    case WP_ABUILD2:
-      buildFire(ent, MN_A_BUILD);
-      break;
     case WP_HBUILD:
     case WP_HBUILD2:
       buildFire(ent, MN_H_BUILD);
       break;
     //New Weapons
     case WP_AXE:
-      meleeAttack(ent, AXE_RANGE, AXE_WIDTH, AXE_DAMAGE, MOD_UNKNOWN);
+      meleeAttack(ent, AXE_RANGE, AXE_WIDTH, AXE_DAMAGE, MOD_AXE);
       break;
     case WP_PISTOL:
-      bulletFire(ent,0,PISTOL_DAMAGE, MOD_UNKNOWN);
+      bulletFire(ent,0,PISTOL_DAMAGE, MOD_PISTOL);
       break;
     case WP_ROCKET_LAUNCHER:
       fireRocket(ent);

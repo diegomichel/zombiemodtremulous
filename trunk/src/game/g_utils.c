@@ -75,7 +75,9 @@ BuildShaderStateConfig(void)
 
   for(i = 0;i < remapCount;i++)
   {
-    Com_sprintf(out, (MAX_QPATH * 2) + 5, "%s=%s:%5.2f@", remappedShaders[i].oldShader, remappedShaders[i].newShader, remappedShaders[i].timeOffset);
+    Com_sprintf(
+      out, (MAX_QPATH * 2) + 5, "%s=%s:%5.2f@", remappedShaders[i].oldShader,
+      remappedShaders[i].newShader, remappedShaders[i].timeOffset);
     Q_strcat(buff, sizeof(buff), out);
   }
   return buff;
@@ -171,20 +173,20 @@ G_TeamCommand(pTeam_t team, char *cmd)
   {
     if (level.clients[i].pers.connected == CON_CONNECTED)
     {
-      if (level.clients[i].pers.teamSelection == team || (level.clients[i].pers.teamSelection == PTE_NONE && G_admin_permission(&g_entities[i],
-          ADMF_SPEC_ALLCHAT)))
+      if (level.clients[i].pers.teamSelection == team || (level.clients[i].pers.teamSelection
+          == PTE_NONE && G_admin_permission(&g_entities[i], ADMF_SPEC_ALLCHAT)))
         trap_SendServerCommand(i, cmd);
     }
   }
 }
 
-void G_ProjectSource(vec3_t point, vec3_t distance, vec3_t forward, vec3_t right, vec3_t result)
+void
+G_ProjectSource(vec3_t point, vec3_t distance, vec3_t forward, vec3_t right, vec3_t result)
 {
-        result[0] = point[0] + forward[0] * distance[0] + right[0] * distance[1];
-        result[1] = point[1] + forward[1] * distance[0] + right[1] * distance[1];
-        result[2] = point[2] + forward[2] * distance[0] + right[2] * distance[1] + distance[2];
+  result[0] = point[0] + forward[0] * distance[0] + right[0] * distance[1];
+  result[1] = point[1] + forward[1] * distance[0] + right[1] * distance[1];
+  result[2] = point[2] + forward[2] * distance[0] + right[2] * distance[1] + distance[2];
 }
-
 
 /*
  =============
@@ -494,7 +496,9 @@ G_Spawn(void)
   level.num_entities++;
 
   // let the server system know that there are more entities
-  trap_LocateGameData(level.gentities, level.num_entities, sizeof(gentity_t), &level.clients[0].ps, sizeof(level.clients[0]));
+  trap_LocateGameData(
+    level.gentities, level.num_entities, sizeof(gentity_t), &level.clients[0].ps,
+    sizeof(level.clients[0]));
 
   G_InitGentity(e);
   return e;
@@ -535,7 +539,8 @@ G_EntitiesFree(void)
 void
 G_FreeEntity(gentity_t *ent)
 {
-  if (g_ctn.integer > 0 && ent && ent->builder && ent->s.eType == ET_BUILDABLE && ent->builder->client && ent->builder->ctn_build_count > 0)
+  if (g_ctn.integer > 0 && ent && ent->builder && ent->s.eType == ET_BUILDABLE
+      && ent->builder->client && ent->builder->ctn_build_count > 0)
   {
     ent->builder->ctn_build_count--;
   }
@@ -768,8 +773,8 @@ G_SetOrigin(gentity_t *ent, vec3_t origin)
 // (NOBODY): Code helper function
 //
 
-gentity_t
-*G_FindRadius(gentity_t * from, const vec3_t org, float rad)
+gentity_t *
+G_FindRadius(gentity_t * from, const vec3_t org, float rad)
 {
   vec3_t eorg;
   int j;
@@ -897,7 +902,7 @@ G_KillStructuresSurvival()
       continue;
     if (ent->health < 0)
       continue;
-    if(ent->biteam == BIT_ALIENS)
+    if (ent->biteam == BIT_ALIENS)
       continue;
 
     if (ent->s.modelindex == BA_H_SPAWN && ent->biteam == BIT_ALIENS)
@@ -924,7 +929,8 @@ G_BuyAll(gentity_t *ent)
 
   if (500 > ent->client->pers.credit)
   {
-    trap_SendServerCommand(ent - g_entities, "print \"^1Inventory: Rifle, Medkit, Helmet and Light Armour\n\"");
+    trap_SendServerCommand(
+      ent - g_entities, "print \"^1Inventory: Rifle, Medkit, Helmet and Light Armour\n\"");
     return;
   }
   BG_AddWeaponToInventory(WP_HBUILD2, ent->client->ps.stats);
@@ -938,11 +944,14 @@ G_BuyAll(gentity_t *ent)
 
   BG_AddWeaponToInventory(WP_MASS_DRIVER, ent->client->ps.stats);
   BG_FindAmmoForWeapon(WP_MASS_DRIVER, &maxAmmo, &maxClips);
-  BG_PackAmmoArray(WP_MASS_DRIVER, &ent->client->ps.ammo, ent->client->ps.powerups, maxAmmo, maxClips);
+  BG_PackAmmoArray(
+    WP_MASS_DRIVER, &ent->client->ps.ammo, ent->client->ps.powerups, maxAmmo, maxClips);
 
   if (1000 > ent->client->pers.credit)
   {
-    trap_SendServerCommand(ent - g_entities, "print \"^1Inventory: Rifle, Shotgun, Lasgun, MassDriver, Medkit, Helmet and Light Armour\n\"");
+    trap_SendServerCommand(
+      ent - g_entities,
+      "print \"^1Inventory: Rifle, Shotgun, Lasgun, MassDriver, Medkit, Helmet and Light Armour\n\"");
     return;
   }
 
@@ -952,7 +961,8 @@ G_BuyAll(gentity_t *ent)
 
   if (1500 > ent->client->pers.credit)
   {
-    trap_SendServerCommand(ent - g_entities, "print \"^1Inventory: Everything Except the Lucifer Cannon\n\"");
+    trap_SendServerCommand(
+      ent - g_entities, "print \"^1Inventory: Everything Except the Lucifer Cannon\n\"");
     return;
   }
 
@@ -1004,13 +1014,17 @@ canSeeNextNode(vec3_t playerpos, vec3_t nodepos, gentity_t *ent)
 
   if (tr.fraction < 1.0)
   {
-    trap_SendServerCommand(-1, va("print\"CANT SEE: %f %f %f -> %f %f %f\n\"", point_a[0], point_a[1], point_a[2], point_b[0], point_b[1], point_b[2]));
+    trap_SendServerCommand(-1, va(
+      "print\"CANT SEE: %f %f %f -> %f %f %f\n\"", point_a[0], point_a[1], point_a[2], point_b[0],
+      point_b[1], point_b[2]));
     return qfalse;
   }
 
   if (tr.contents & CONTENTS_SOLID)
   {
-    trap_SendServerCommand(-1, va("print\"CONTENT_SOLID %f %f %f -> %f %f %f\"", point_a[0], point_a[1], point_a[2], point_b[0], point_b[1], point_b[2]));
+    trap_SendServerCommand(-1, va(
+      "print\"CONTENT_SOLID %f %f %f -> %f %f %f\"", point_a[0], point_a[1], point_a[2],
+      point_b[0], point_b[1], point_b[2]));
     return qfalse;
   }
   return qtrue;
@@ -1023,7 +1037,7 @@ canSeeNextNodeSpecialCase(vec3_t playerpos, vec3_t nodepos, gentity_t *ent)
   {
     return qtrue;
   }
-    return qfalse;
+  return qfalse;
 }
 
 qboolean
@@ -1081,9 +1095,11 @@ visitedLastNode(gentity_t *self)
 qboolean
 botReachedDestination(gentity_t *self)
 {
-  if (level.pathx[self->botnextpath + 1] == -1 && level.pathy[self->botnextpath + 1] == -1 && Distance2d(self->nextnode, self->s.origin) < (BLOCKSIZE / 5))
+  if (level.pathx[self->botnextpath + 1] == -1 && level.pathy[self->botnextpath + 1] == -1
+      && Distance2d(self->nextnode, self->s.origin) < (BLOCKSIZE / 5))
   {
-    trap_SendServerCommand(-1, va("print \"Distance to node: %d\n\"", Distance2d(self->s.origin, self->nextnode)));
+    trap_SendServerCommand(-1, va("print \"Distance to node: %d\n\"", Distance2d(
+      self->s.origin, self->nextnode)));
     return qtrue;
   }
   return qfalse;
@@ -1176,64 +1192,256 @@ nextNodeVisible(gentity_t *ent)
   return canSeeNextNode(realPoint, ent->nextnode, ent);
 }
 //SYRINX
-gentity_t *syrinxSpawn(gentity_t *ent) {
+gentity_t *
+syrinxSpawn(gentity_t *ent)
+{
 
-        gentity_t *bolt;
-        vec3_t start;
+  gentity_t *bolt;
+  vec3_t start;
 
-        start[0] = ent->client->ps.origin[0];
-        start[1] = ent->client->ps.origin[1];
-        start[2] = ent->client->ps.origin[2] + 30;//Over the head.
+  start[0] = ent->client->ps.origin[0];
+  start[1] = ent->client->ps.origin[1];
+  start[2] = ent->client->ps.origin[2] + 30;//Over the head.
 
-        bolt = G_Spawn();
-        bolt->classname = "pulse";
-        bolt->nextthink = level.time + 1000;
-        bolt->think = G_itemThink;
-        bolt->s.eType = ET_MISSILE;
-        bolt->r.svFlags = SVF_USE_CURRENT_ORIGIN;
-//        bolt->s.weapon = WP_LUCIFER_CANNON;
-        bolt->s.generic1 = ent->s.generic1; //weaponMode
-        bolt->r.ownerNum = ent->s.number;
-        bolt->parent = ent;
-        bolt->damage = PRIFLE_DMG;
-        bolt->splashDamage = 0;
-        bolt->splashRadius = 0;
-        bolt->methodOfDeath = MOD_PRIFLE;
-        bolt->splashMethodOfDeath = MOD_PRIFLE;
-        bolt->clipmask = MASK_WATER;
-        bolt->target_ent = NULL;
+  bolt = G_Spawn();
+  bolt->classname = "pulse";
+  bolt->nextthink = level.time + 1000;
+  bolt->think = G_itemThink;
+  bolt->s.eType = ET_MISSILE;
+  bolt->r.svFlags = SVF_USE_CURRENT_ORIGIN;
+  //        bolt->s.weapon = WP_LUCIFER_CANNON;
+  bolt->s.generic1 = ent->s.generic1; //weaponMode
+  bolt->r.ownerNum = ent->s.number;
+  bolt->parent = ent;
+  bolt->damage = PRIFLE_DMG;
+  bolt->splashDamage = 0;
+  bolt->splashRadius = 0;
+  //        bolt->methodOfDeath = MOD_PRIFLE;
+  //        bolt->splashMethodOfDeath = MOD_PRIFLE;
+  bolt->clipmask = MASK_WATER;
+  bolt->target_ent = NULL;
 
-        bolt->s.pos.trType = TR_LINEAR;
-        bolt->s.pos.trTime = level.time - 50; // move a bit on the very first frame
-        VectorCopy(start, bolt->s.pos.trBase);
-        VectorScale(start, 0, bolt->s.pos.trDelta);
+  bolt->s.pos.trType = TR_LINEAR;
+  bolt->s.pos.trTime = level.time - 50; // move a bit on the very first frame
+  VectorCopy(start, bolt->s.pos.trBase);
+  VectorScale(start, 0, bolt->s.pos.trDelta);
 
-        SnapVector(bolt->s.pos.trDelta); // save net bandwidth
+  SnapVector(bolt->s.pos.trDelta); // save net bandwidth
 
-        VectorCopy(start, bolt->r.currentOrigin);
+  VectorCopy(start, bolt->r.currentOrigin);
 
-        return bolt;
+  return bolt;
 }
 /*
-=================
-AngleBetweenVectors
+ =================
+ AngleBetweenVectors
 
-returns the angle between two vectors normalized to the range [0 <= angle <= 180]
-=================
-*/
-float AngleBetweenVectors(const vec3_t a, const vec3_t b)
+ returns the angle between two vectors normalized to the range [0 <= angle <= 180]
+ =================
+ */
+float
+AngleBetweenVectors(const vec3_t a, const vec3_t b)
 {
-        vec_t           alen, blen;
+  vec_t alen, blen;
 
-        alen = VectorLength(a);
-        blen = VectorLength(b);
+  alen = VectorLength(a);
+  blen = VectorLength(b);
 
-        if(!alen || !blen)
-                return 0;
+  if (!alen || !blen)
+    return 0;
 
-        // complete dot product of two vectors a, b is |a| * |b| * cos(angle)
-        // this results in:
-        //
-        // angle = acos( (a * b) / (|a| * |b|) )
-        return RAD2DEG(Q_acos(DotProduct(a, b) / (alen * blen)));
+  // complete dot product of two vectors a, b is |a| * |b| * cos(angle)
+  // this results in:
+  //
+  // angle = acos( (a * b) / (|a| * |b|) )
+  return RAD2DEG(Q_acos(DotProduct(a, b) / (alen * blen)));
+}
+char *
+modString(int mod)
+{
+  switch(mod)
+  {
+    case MOD_PISTOL:
+      return "Pistol";
+      break;
+    case MOD_AXE:
+      return "Axe";
+      break;
+    case MOD_MACHINEGUN:
+      return "Machine Gun";
+      break;
+    case MOD_SHOTGUN:
+      return "Shotgun";
+      break;
+    case MOD_MDRIVER:
+      return "Mass Driver";
+      break;
+    case MOD_ROCKET_LAUNCHER:
+      return "Rocket Launcher";
+      break;
+    case MOD_CHAINGUN:
+      return "Chaingun";
+      break;
+    case MOD_GRENADE:
+      return "Grenade";
+      break;
+    case MOD_GRENADE_LAUNCHER:
+      return "Grenade Launcher";
+      break;
+    case MOD_GRENADE_LAUNCHER_INCENDIARY:
+      return "Grenade Launcher Incendiary";
+      break;
+    case MOD_LASERGUN:
+      return "Laser";
+      break;
+    case MOD_MINE:
+      return "Mine";
+      break;
+    default:
+      return "?";
+      break;
+  }
+}
+void
+g_comboClear()
+{
+  int i;
+  gentity_t *ent2;
+
+  for(i = level.botslots;i < level.botslots + level.numConnectedClients;i++)
+  {
+    ent2 = &g_entities[i];
+    if (!ent2)
+      continue;
+    if (!ent2->client)
+      continue;
+    if (ent2->client->sess.sessionTeam == TEAM_SPECTATOR)
+      continue;
+    if (ent2->client->ps.stats[STAT_PTEAM] != PTE_HUMANS)
+      continue;
+
+    ent2->comboKills = 0;
+    ent2->comboMod = -1;
+  }
+}
+void
+g_comboPrint()
+{
+  int i;
+  gentity_t *ent2;
+
+  for(i = level.botslots;i < level.botslots + level.numConnectedClients;i++)
+  {
+    ent2 = &g_entities[i];
+    if (!ent2)
+      continue;
+    if (!ent2->client)
+      continue;
+    if (ent2->client->sess.sessionTeam == TEAM_SPECTATOR)
+      continue;
+
+    if (ent2->comboKills > 0)
+    {
+      trap_SendServerCommand(-1, va(
+        "print \"[x^%d%d ^7%s] %s\n\"", ent2->comboKills % 10, ent2->comboKills, modString(
+          ent2->comboMod), ent2->client->pers.netname));
+    }
+  }
+}
+qboolean
+G_playerInRange(gentity_t *ent, int range, int team)
+{
+  gentity_t *enemy;
+  int entityList[MAX_GENTITIES];
+  vec3_t mins, maxs;
+  int i, num;
+  int radius;
+  vec3_t origin;
+
+  VectorCopy(ent->s.origin, origin);
+
+  radius = range;
+
+  for(i = 0;i < 3;i++)
+  {
+    mins[i] = origin[i] - radius;
+    maxs[i] = origin[i] + radius;
+  }
+
+  num = trap_EntitiesInBox(mins, maxs, entityList, MAX_GENTITIES);
+  for(i = 0;i < num;i++)
+  {
+    enemy = &g_entities[entityList[i]];
+
+    if (G_Visible(ent, enemy) && enemy->client && enemy->client->ps.stats[STAT_PTEAM] == team)
+    {
+      return qtrue;
+    }
+  }
+  return qfalse;
+}
+qboolean
+G_itemInRange(gentity_t *ent, int range, int team)
+{
+  gentity_t *enemy;
+  int entityList[MAX_GENTITIES];
+  vec3_t mins, maxs;
+  int i, num;
+  int radius;
+  vec3_t origin;
+
+  VectorCopy(ent->s.origin, origin);
+
+  radius = range;
+
+  for(i = 0;i < 3;i++)
+  {
+    mins[i] = origin[i] - radius;
+    maxs[i] = origin[i] + radius;
+  }
+
+  num = trap_EntitiesInBox(mins, maxs, entityList, MAX_GENTITIES);
+  for(i = 0;i < num;i++)
+  {
+    enemy = &g_entities[entityList[i]];
+
+    if (G_Visible(ent, enemy) && enemy->s.eType == ET_BUILDABLE)
+    {
+      return qtrue;
+    }
+  }
+  return qfalse;
+}
+qboolean
+G_doorInRange(gentity_t *ent, int range, int team)
+{
+  gentity_t *enemy;
+  int entityList[MAX_GENTITIES];
+  vec3_t mins, maxs;
+  int i, num;
+  int radius;
+  vec3_t origin;
+
+  VectorCopy(ent->s.origin, origin);
+
+  radius = range;
+
+  for(i = 0;i < 3;i++)
+  {
+    mins[i] = origin[i] - radius;
+    maxs[i] = origin[i] + radius;
+  }
+
+  num = trap_EntitiesInBox(mins, maxs, entityList, MAX_GENTITIES);
+  for(i = 0;i < num;i++)
+  {
+    enemy = &g_entities[entityList[i]];
+
+    if (G_Visible(ent, enemy) &&
+        (enemy->s.eType == ET_MODELDOOR || enemy->door || enemy->s.eType == ET_MOVER))
+    {
+      return qtrue;
+    }
+  }
+  return qfalse;
 }

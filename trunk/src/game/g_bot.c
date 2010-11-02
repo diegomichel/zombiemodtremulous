@@ -1169,6 +1169,10 @@ botWalk(gentity_t *self, int speed)
   validSpeed = ClampChar(speed);
 
   self->client->pers.cmd.forwardmove = validSpeed;
+  if(g_survival.integer)
+  {
+    //self->client->pers.cmd.forwardmove = validSpeed - 30;
+  }
   if (speed <= 64)
   {
 
