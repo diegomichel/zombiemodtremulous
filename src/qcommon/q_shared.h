@@ -131,6 +131,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 typedef unsigned char 		byte;
 
 typedef enum {qfalse, qtrue}	qboolean;
+//typedef enum {false,true}	boolean;//Why dont did it from start? FUCK boolean defined else where out of qvm
+//compiling client gives error.
 
 typedef int		qhandle_t;
 typedef int		sfxHandle_t;

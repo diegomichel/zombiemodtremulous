@@ -898,4 +898,42 @@ gentity_t *fire_bounceBall(gentity_t *self, vec3_t start, vec3_t dir) {
   return bolt;
 }
 
+gentity_t *drawRedBall(gentity_t *ent, int x, int y) {
+
+	gentity_t *bolt;
+	vec3_t start;
+
+	start[0] = convertGridToWorld(x);
+	start[1] = convertGridToWorld(y);
+	start[2] = ent->client->ps.origin[2] + 30;//Over the head.
+
+	bolt = G_Spawn();
+	bolt->classname = "pulse";
+	bolt->nextthink = level.time + 10000;
+	bolt->think = G_ExplodeMissile;
+	bolt->s.eType = ET_MISSILE;
+	bolt->r.svFlags = SVF_USE_CURRENT_ORIGIN;
+	bolt->s.weapon = WP_PULSE_RIFLE;
+	bolt->s.generic1 = ent->s.generic1; //weaponMode
+	bolt->r.ownerNum = ent->s.number;
+	bolt->parent = ent;
+	bolt->damage = PRIFLE_DMG;
+	bolt->splashDamage = 0;
+	bolt->splashRadius = 0;
+	bolt->methodOfDeath = MOD_PRIFLE;
+	bolt->splashMethodOfDeath = MOD_PRIFLE;
+	bolt->clipmask = MASK_WATER;
+	bolt->target_ent = NULL;
+
+	bolt->s.pos.trType = TR_LINEAR;
+	bolt->s.pos.trTime = level.time - MISSILE_PRESTEP_TIME; // move a bit on the very first frame
+	VectorCopy(start, bolt->s.pos.trBase);
+	VectorScale(start, 0, bolt->s.pos.trDelta);
+
+	SnapVector(bolt->s.pos.trDelta); // save net bandwidth
+
+	VectorCopy(start, bolt->r.currentOrigin);
+
+	return bolt;
+}
 

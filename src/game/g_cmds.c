@@ -2029,6 +2029,16 @@ void Cmd_SetViewpos_f(gentity_t *ent) {
   TeleportPlayer(ent, origin, angles);
 }
 
+void Cmd_ViewPosPlayer_f(gentity_t *ent) {
+    trap_SendServerCommand(ent - g_entities,
+        va("print \"[  %f   %f   %f  ]\n\"",
+            ent->client->ps.origin[0],
+            ent->client->ps.origin[1],
+            ent->client->ps.origin[2]
+            ));
+    return;
+}
+
 #define AS_OVER_RT3         ((ALIENSENSE_RANGE*0.5f)/M_ROOT3)
 
 static qboolean G_RoomForClassChange(gentity_t *ent, pClass_t class,
@@ -3906,6 +3916,7 @@ commands_t cmds[ ] = {
   { "noclip", CMD_CHEAT | CMD_TEAM | CMD_LIVING, Cmd_Noclip_f},
   { "levelshot", CMD_CHEAT, Cmd_LevelShot_f},
   { "setviewpos", CMD_CHEAT, Cmd_SetViewpos_f},
+  { "viewposplayer", CMD_CHEAT, Cmd_ViewPosPlayer_f},
   { "destroy", CMD_CHEAT | CMD_TEAM | CMD_LIVING, Cmd_Destroy_f},
 
   { "kill", CMD_TEAM | CMD_LIVING, Cmd_Kill_f},

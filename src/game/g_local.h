@@ -164,7 +164,6 @@ struct gentity_s {
   vec3_t acceleration;
   vec3_t oldAccel;
   vec3_t jerk;
-  vec3_t  nextnode;
   vec3_t  lostnode;
   
   qboolean reachobjetivenode;
@@ -318,6 +317,10 @@ struct gentity_s {
 
   //Path finding vars
   gentity_t *pathTarget;
+  vec3_t  nextnode;
+  qboolean nextnodeset;
+  vec3_t  lastnode; //Save last node to check if is visible with the new one.
+  int levelz; // Level Z we are on.
 };
 
 typedef enum {
@@ -1099,7 +1102,7 @@ qboolean botLost(gentity_t *self);
 qboolean canMakeWay(gentity_t *self);
 */
 
-
+int Distance2d(vec3_t from, vec3_t to);
 
 
 qboolean G_Visible(gentity_t *ent1, gentity_t *ent2);
@@ -1642,4 +1645,15 @@ void      trap_mysql_reconnect(void);
 
 //Grid pathfinding related
 //void  fillGrid(int x, int y);
+//g_utils.c
+qboolean	WallInFront(gentity_t * self);
+void	fillGrid(gentity_t *ent);
+int	convertWorldToGrid(float);
+int	convertGridToWorld(int);
+void spawnGridNode(gentity_t *ent, int x, int y);
+qboolean pointBehindWall(gentity_t *ent, vec3_t point);
 
+//g_missile.c
+gentity_t *drawRedBall(gentity_t *ent, int x, int y );
+//g_bot.c
+void	selectBetterWay(gentity_t * self);
