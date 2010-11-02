@@ -4259,7 +4259,10 @@ weaponAttributes_t bg_weapons[] =
         qfalse, //qboolean  longRanged;
         0, //int       buildDelay;
         WUT_HUMANS //WUTeam_t  team;
-    } };
+    },
+    //NEW WEAPONS
+
+};
 
 int bg_numWeapons = sizeof(bg_weapons) / sizeof(bg_weapons[0]);
 

@@ -502,10 +502,13 @@ G_BotThink(gentity_t * self)
       }
       if (botBlockedByBot(self))
       {
+    	//Bot was blocked by other bot, lets jump over it lmao..
+    	botJump(self, 127);
+    	self->botCommand = BOT_REGULAR;
         //This prevent our bot explode to soon
         self->lastTimeSawEnemy = level.time;
 
-        self->botCommand = BOT_IDLE;
+//        self->botCommand = BOT_IDLE;
         return;
       }
       switch(self->botMetaMode)
@@ -656,7 +659,7 @@ G_BotThink(gentity_t * self)
           }
           //botShootIfTargetInRange(self, self->botEnemy);
         }
-        if (distance < 45)
+        if (distance < 65)//45
         {
           //forwardMove = (forwardMove + (self->botSkillLevel * 5));
           botWalk(self, forwardMove);
@@ -1131,6 +1134,7 @@ qboolean
 botShootIfTargetInRange(gentity_t * self, gentity_t * target)
 {
   int nahoda = 0;
+  float distance = 0.0f;
   botAimAtTarget(self, self->botEnemy);
 
   self->client->pers.cmd.buttons = 0;
@@ -1152,10 +1156,20 @@ botShootIfTargetInRange(gentity_t * self, gentity_t * target)
   }
   else
   {
-    if (Distance(self->s.origin, self->botEnemy->s.origin) <= ZOMBIE_RANGE)
+    distance = Distance(self->s.origin, self->botEnemy->s.origin);
+    if (distance <= ZOMBIE_RANGE)
     {
+      //G_Printf("Attacking the sob\n");
       self->client->pers.cmd.buttons |= BUTTON_ATTACK;
     }
+//    else if((distance <= (ZOMBIE_RANGE*2)) && self->s.origin[2] < self->botEnemy->s.origin[2])
+//    {
+//      G_Printf("The sob is over me, should incrase range...\n");
+//    }
+//    else
+//    {
+//      G_Printf("shit...\n");
+//    }
   }
   return qtrue;
 }
