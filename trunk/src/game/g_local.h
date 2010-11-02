@@ -649,8 +649,10 @@ struct gclient_s
   gentity_t *hovel;
 
   int lastPoisonTime;
+  int lastOnFireTime;
   int poisonImmunityTime;
   gentity_t *lastPoisonClient;
+  gentity_t *lastOnFireClient;
   int lastPoisonCloudedTime;
   gentity_t *lastPoisonCloudedClient;
   int grabExpiryTime;

@@ -740,6 +740,12 @@ CG_EntityEvent(centity_t *cent, vec3_t position)
       CG_PlayerDisconnect(position);
       break;
 
+    case EV_PLAYER_ON_FIRE:
+      DEBUGNAME( "EV_PLAYER_ON_FIRE" )
+      ;
+      CG_PlayerOnFire(position);
+    break;
+
     case EV_BUILD_CONSTRUCT:
       DEBUGNAME( "EV_BUILD_CONSTRUCT" )
       ;

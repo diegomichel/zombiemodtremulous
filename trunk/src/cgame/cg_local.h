@@ -1269,6 +1269,8 @@ typedef struct
   qhandle_t   upgradeClassIconShader;
 
   qhandle_t   laser;
+  qhandle_t   fire;
+
 } cgMedia_t;
 
 
@@ -1619,6 +1621,7 @@ void        CG_NewClientInfo( int clientNum );
 void        CG_PrecacheClientInfo( pClass_t class, char *model, char *skin );
 sfxHandle_t CG_CustomSound( int clientNum, const char *soundName );
 void        CG_PlayerDisconnect( vec3_t org );
+void        CG_PlayerOnFire( vec3_t org );
 void        CG_Bleed( vec3_t origin, vec3_t normal, int entityNum );
 qboolean    CG_AtHighestClass( void );
 

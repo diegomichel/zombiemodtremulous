@@ -5247,6 +5247,11 @@ BG_PlayerStateToEntityState(playerState_t *ps, entityState_t *s, qboolean snap)
   else
     s->eFlags &= ~EF_BLOBLOCKED;
 
+  if (ps->stats[STAT_STATE] & SS_ONFIRE)
+      s->eFlags |= EF_ONFIRE;
+    else
+      s->eFlags &= ~EF_ONFIRE;
+
   if (ps->externalEvent)
   {
     s->event = ps->externalEvent;
@@ -5357,6 +5362,11 @@ BG_PlayerStateToEntityStateExtraPolate(playerState_t *ps, entityState_t *s, int 
     s->eFlags |= EF_BLOBLOCKED;
   else
     s->eFlags &= ~EF_BLOBLOCKED;
+
+  if (ps->stats[STAT_STATE] & SS_ONFIRE)
+    s->eFlags |= EF_ONFIRE;
+  else
+    s->eFlags &= ~EF_ONFIRE;
 
   if (ps->externalEvent)
   {

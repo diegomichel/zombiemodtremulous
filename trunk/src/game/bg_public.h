@@ -247,6 +247,7 @@ typedef enum {
 #define SS_POISONCLOUDED        0x00000800
 #define SS_MEDKIT_ACTIVE        0x00001000
 #define SS_CHARGING             0x00002000
+#define SS_ONFIRE               0x00008000
 
 #define SB_VALID_TOGGLEBIT      0x00004000
 
@@ -299,6 +300,7 @@ typedef enum {
 #define EF_BLOBLOCKED       0x00020000    // TA: caught by a trapper
 #define EF_REAL_LIGHT       0x00040000    // TA: light sprites according to ambient light
 #define EF_DBUILDER         0x00080000    // designated builder protection
+#define EF_ONFIRE           0x00040010    // Player on Fire
 
 typedef enum {
   PW_NONE,
@@ -545,6 +547,7 @@ typedef enum {
   EV_PLAYER_RESPAWN, //TA: for fovwarp effects
   EV_PLAYER_TELEPORT_IN,
   EV_PLAYER_TELEPORT_OUT,
+  EV_PLAYER_ON_FIRE,
 
   EV_GRENADE_BOUNCE, // eventParm will be the soundindex
 
@@ -906,6 +909,7 @@ typedef enum {
 
   MOD_ASPAWN,
   MOD_ATUBE,
+  MOD_FIRE,
   MOD_OVERMIND
 } meansOfDeath_t;
 

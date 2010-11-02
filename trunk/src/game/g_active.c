@@ -835,8 +835,26 @@ ClientTimerActions(gentity_t *ent, int msec)
         damage -= LIGHTARMOUR_POISON_PROTECTION;
 
       G_Damage(
-        ent, client->lastPoisonClient, client->lastPoisonClient, NULL, 0, damage, 0, MOD_POISON);
+              ent, client->lastPoisonClient, client->lastPoisonClient, NULL, 0, damage, 0, MOD_POISON);
     }
+
+    //client is on fire
+    if (client->ps.stats[STAT_STATE] & SS_ONFIRE)
+    {
+      int damage = ONFIRE_DAMAGE;
+
+      ent->client->ps.eFlags |= EF_ONFIRE;
+      ent->s.eFlags |= EF_ONFIRE;
+
+      G_Damage(
+        ent, client->lastOnFireClient, client->lastOnFireClient, NULL, 0, damage, 0, MOD_FIRE);
+    }
+    else
+    {
+      ent->s.eFlags &= ~EF_ONFIRE;
+      ent->client->ps.eFlags &= ~EF_ONFIRE;
+    }
+
 
     //replenish alien health
     if (client->ps.stats[STAT_PTEAM] == PTE_ALIENS && level.surrenderTeam != PTE_ALIENS)
@@ -1581,6 +1599,10 @@ ClientThink_real(gentity_t *ent)
   if (client->ps.stats[STAT_STATE] & SS_POISONED && client->lastPoisonTime + ALIEN_POISON_TIME
       < level.time)
     client->ps.stats[STAT_STATE] &= ~SS_POISONED;
+
+  if (client->ps.stats[STAT_STATE] & SS_ONFIRE && client->lastOnFireTime + ONFIRE_TIME
+        < level.time)
+      client->ps.stats[STAT_STATE] &= ~SS_ONFIRE;
 
   client->ps.gravity = g_gravity.value;
 

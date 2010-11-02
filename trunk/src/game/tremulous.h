@@ -404,16 +404,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define PRIFLE_DMG                  HDM(9)
 #define PRIFLE_SPEED                1000
 
-#define FLAMER_PRICE                450
-#define FLAMER_GAS                  150
-#define FLAMER_REPEAT               200
-#define FLAMER_K_SCALE              1.0f
-#define FLAMER_DMG                  HDM(20)
-#define FLAMER_RADIUS               50
-#define FLAMER_LIFETIME             800.0f
-#define FLAMER_SPEED                200.0f
-#define FLAMER_LAG                  0.65f  //the amount of player velocity that is added to the fireball
-
 #define LCANNON_PRICE               600
 #define LCANNON_AMMO                90
 #define LCANNON_REPEAT              500
@@ -676,3 +666,18 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define ROCKET_LAUNCHER_RANGE               40.0f
 #define ROCKET_LAUNCHER_WIDTH               16.0f
 #define ROCKET_LAUNCHER_SPEED               400
+
+//Flamer fire
+#define ONFIRE_TIME           5000
+#define ONFIRE_DAMAGE         10
+
+#define FLAMER_PRICE                450
+#define FLAMER_GAS                  150
+#define FLAMER_REPEAT               200
+#define FLAMER_K_SCALE              1.0f
+#define FLAMER_DMG                  HDM(1)
+#define FLAMER_RADIUS               50
+#define FLAMER_LIFETIME             800.0f
+#define FLAMER_SPEED                200.0f
+#define FLAMER_LAG                  0.65f  //the amount of player velocity that is added to the fireball
+
