@@ -695,7 +695,7 @@ lasGunFire(gentity_t *ent)
   }
   else if (!(tr.surfaceFlags & SURF_NOIMPACT))
   {
-    tent = G_TempEntity(tr.endpos, EV_MISSILE_MISS);
+    tent = G_TempEntity(tr.endpos, EV_BULLET_HIT_WALL);
     tent->s.eventParm = DirToByte(tr.plane.normal);
   }
 }
@@ -1765,10 +1765,6 @@ FireWeapon2(gentity_t *ent)
       areaZapFire(ent);
       break;
 
-    case WP_LUCIFER_CANNON:
-      LCChargeFire(ent, qtrue);
-      break;
-
     case WP_LAUNCHER:
       launcherSecondaryFire(ent);
       break;
@@ -1837,14 +1833,8 @@ FireWeapon(gentity_t *ent)
     case WP_CHAINGUN:
       bulletFire(ent, CHAINGUN_SPREAD, CHAINGUN_DMG, MOD_CHAINGUN);
       break;
-    case WP_FLAMER:
-      flamerFire(ent);
-      break;
     case WP_MASS_DRIVER:
       massDriverFire2(ent);
-      break;
-    case WP_LUCIFER_CANNON:
-      LCChargeFire(ent, qfalse);
       break;
     case WP_LAS_GUN:
       lasGunFire(ent);

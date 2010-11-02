@@ -2655,10 +2655,6 @@ PM_BeginWeaponChange(int weapon)
   if (pm->ps->weaponstate == WEAPON_DROPPING)
     return;
 
-  //special case to prevent storing a charged up lcannon
-  if (pm->ps->weapon == WP_LUCIFER_CANNON)
-    pm->ps->stats[STAT_MISC] = 0;
-
   // force this here to prevent flamer effect from continuing, among other issues
   pm->ps->generic1 = WPM_NOTFIRING;
 
@@ -2920,35 +2916,6 @@ PM_Weapon(void)
       }
       break;
 
-    case WP_LUCIFER_CANNON:
-      attack1 = pm->cmd.buttons & BUTTON_ATTACK;
-      attack2 = pm->cmd.buttons & BUTTON_ATTACK2;
-      attack3 = pm->cmd.buttons & BUTTON_USE_HOLDABLE;
-
-      if ((attack1 || pm->ps->stats[STAT_MISC] == 0) && !attack2 && !attack3)
-      {
-        if (pm->ps->stats[STAT_MISC] < LCANNON_TOTAL_CHARGE)
-        {
-          pm->ps->weaponTime = 0;
-          pm->ps->weaponstate = WEAPON_READY;
-          return;
-        }
-        else
-          attack1 = !attack1;
-      }
-
-      //erp this looks confusing
-      if (pm->ps->stats[STAT_MISC] > LCANNON_MIN_CHARGE)
-        attack1 = !attack1;
-      else if (pm->ps->stats[STAT_MISC] > 0)
-      {
-        pm->ps->stats[STAT_MISC] = 0;
-        pm->ps->weaponTime = 0;
-        pm->ps->weaponstate = WEAPON_READY;
-        return;
-      }
-      break;
-
     case WP_MASS_DRIVER:
       attack2 = attack3 = qfalse;
       attack1 = pm->cmd.buttons & BUTTON_ATTACK;
@@ -2989,19 +2956,6 @@ PM_Weapon(void)
       break;
 
     case WP_SHOTGUN:
-      attack2 = attack3 = qfalse;
-      attack1 = pm->cmd.buttons & BUTTON_ATTACK;
-      // attack2 is handled on the client for zooming (cg_view.c)
-
-      if (!attack1)
-      {
-        pm->ps->weaponTime = 0;
-        pm->ps->weaponstate = WEAPON_READY;
-        return;
-      }
-      break;
-
-    case WP_FLAMER:
       attack2 = attack3 = qfalse;
       attack1 = pm->cmd.buttons & BUTTON_ATTACK;
       // attack2 is handled on the client for zooming (cg_view.c)
@@ -3106,12 +3060,6 @@ PM_Weapon(void)
       break;
   }
 
-  if (pm->ps->weapon == WP_LUCIFER_CANNON && pm->ps->stats[STAT_MISC] > 0 && attack3)
-  {
-    attack1 = qtrue;
-    attack3 = qfalse;
-  }
-
   //TA: fire events for non auto weapons
   if (attack3)
   {
@@ -3188,13 +3136,6 @@ PM_Weapon(void)
     //FIXME: this should be an option in the client weapon.cfg
     switch(pm->ps->weapon)
     {
-      case WP_FLAMER:
-        if (pm->ps->weaponstate == WEAPON_READY)
-        {
-          PM_StartTorsoAnim(TORSO_ATTACK);
-        }
-        break;
-
       case WP_PISTOL:
         PM_StartTorsoAnim(TORSO_ATTACK2);
         break;
@@ -3241,17 +3182,6 @@ PM_Weapon(void)
   // take an ammo away if not infinite
   if (!BG_FindInfinteAmmoForWeapon(pm->ps->weapon))
   {
-    //special case for lCanon
-    if (pm->ps->weapon == WP_LUCIFER_CANNON && attack1 && !attack2)
-    {
-      ammo
-          -= (int) (ceil(((float) pm->ps->stats[STAT_MISC] / (float) LCANNON_TOTAL_CHARGE) * 10.0f));
-
-      //stay on the safe side
-      if (ammo < 0)
-        ammo = 0;
-    }
-    else
       ammo--;
 
     BG_PackAmmoArray(pm->ps->weapon, &pm->ps->ammo, pm->ps->powerups, ammo, clips);

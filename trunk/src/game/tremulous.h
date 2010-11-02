@@ -395,30 +395,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define CHAINGUN_SPREAD             200
 #define CHAINGUN_DMG                HDM(6)
 
-#define PRIFLE_PRICE                400
-#define PRIFLE_CLIPS                50
-#define PRIFLE_MAXCLIPS             4
-#define PRIFLE_REPEAT               100
-#define PRIFLE_K_SCALE              1.0f
-#define PRIFLE_RELOAD               2000
-#define PRIFLE_DMG                  HDM(9)
-#define PRIFLE_SPEED                1000
-
-#define LCANNON_PRICE               600
-#define LCANNON_AMMO                90
-#define LCANNON_REPEAT              500
-#define LCANNON_K_SCALE             1.0f
-#define LCANNON_CHARGEREPEAT        1000
-#define LCANNON_RELOAD              2000
-#define LCANNON_DAMAGE              HDM(265)
-#define LCANNON_RADIUS              150
-#define LCANNON_SECONDARY_DAMAGE    HDM(7)
-#define LCANNON_SECONDARY_RADIUS    75
-#define LCANNON_SPEED               350
-#define LCANNON_CHARGE_TIME         2000
-#define LCANNON_TOTAL_CHARGE        255
-#define LCANNON_MIN_CHARGE          50
-
 #define LAUNCHER_PRICE               1000
 #define LAUNCHER_AMMO                4
 #define LAUNCHER_REPEAT              1000
@@ -667,9 +643,37 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define ROCKET_LAUNCHER_WIDTH               16.0f
 #define ROCKET_LAUNCHER_SPEED               400
 
-//Flamer fire
+//INCENDIARY GRENADE
 #define ONFIRE_TIME           5000
 #define ONFIRE_DAMAGE         10
+#define ONFIRE_EXPLOSION_DAMAGE 1
+#define INCENDIARY_GRENADE_RANGE 500
+
+
+//REMOVED
+#define PRIFLE_PRICE                400
+#define PRIFLE_CLIPS                50
+#define PRIFLE_MAXCLIPS             4
+#define PRIFLE_REPEAT               100
+#define PRIFLE_K_SCALE              1.0f
+#define PRIFLE_RELOAD               2000
+#define PRIFLE_DMG                  HDM(9)
+#define PRIFLE_SPEED                1000
+
+#define LCANNON_PRICE               600
+#define LCANNON_AMMO                90
+#define LCANNON_REPEAT              500
+#define LCANNON_K_SCALE             1.0f
+#define LCANNON_CHARGEREPEAT        1000
+#define LCANNON_RELOAD              2000
+#define LCANNON_DAMAGE              HDM(265)
+#define LCANNON_RADIUS              150
+#define LCANNON_SECONDARY_DAMAGE    HDM(7)
+#define LCANNON_SECONDARY_RADIUS    75
+#define LCANNON_SPEED               350
+#define LCANNON_CHARGE_TIME         2000
+#define LCANNON_TOTAL_CHARGE        255
+#define LCANNON_MIN_CHARGE          50
 
 #define FLAMER_PRICE                450
 #define FLAMER_GAS                  150
@@ -680,4 +684,3 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define FLAMER_LIFETIME             800.0f
 #define FLAMER_SPEED                200.0f
 #define FLAMER_LAG                  0.65f  //the amount of player velocity that is added to the fireball
-

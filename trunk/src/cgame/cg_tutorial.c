@@ -384,7 +384,6 @@ static void CG_HumanText( char *text, playerState_t *ps )
       case WP_MACHINEGUN:
       case WP_CHAINGUN:
       case WP_SHOTGUN:
-      case WP_FLAMER:
         Q_strcat( text, MAX_TUTORIAL_TEXT,
             va( "Find an Armoury and press %s for more ammo\n",
               CG_KeyNameForCommand( "buy ammo" ) ) );
@@ -392,7 +391,6 @@ static void CG_HumanText( char *text, playerState_t *ps )
 
       case WP_LAS_GUN:
       case WP_MASS_DRIVER:
-      case WP_LUCIFER_CANNON:
         Q_strcat( text, MAX_TUTORIAL_TEXT,
             va( "Find a Reactor or Repeater and press %s for more ammo\n",
               CG_KeyNameForCommand( "buy ammo" ) ) );
@@ -411,7 +409,6 @@ static void CG_HumanText( char *text, playerState_t *ps )
       case WP_SHOTGUN:
       case WP_LAS_GUN:
       case WP_CHAINGUN:
-      case WP_FLAMER:
         Q_strcat( text, MAX_TUTORIAL_TEXT,
             va( "Press %s to fire the %s\n",
               CG_KeyNameForCommand( "+attack" ),
@@ -427,17 +424,6 @@ static void CG_HumanText( char *text, playerState_t *ps )
         Q_strcat( text, MAX_TUTORIAL_TEXT,
             va( "Hold %s to zoom\n",
               CG_KeyNameForCommand( "+zoom" ) ) );
-        break;
-
-      case WP_LUCIFER_CANNON:
-        Q_strcat( text, MAX_TUTORIAL_TEXT,
-            va( "Hold and release %s to fire a charged shot\n",
-              CG_KeyNameForCommand( "+attack" ) ) );
-
-        Q_strcat( text, MAX_TUTORIAL_TEXT,
-            va( "Press %s to fire the %s\n",
-              CG_KeyNameForCommand( "+button5" ),
-              BG_FindHumanNameForWeapon( ps->weapon ) ) );
         break;
 
       case WP_HBUILD:

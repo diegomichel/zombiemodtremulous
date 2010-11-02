@@ -950,18 +950,11 @@ G_BuyAll(gentity_t *ent)
   BG_FindAmmoForWeapon(WP_CHAINGUN, &maxAmmo, &maxClips);
   BG_PackAmmoArray(WP_CHAINGUN, &ent->client->ps.ammo, ent->client->ps.powerups, maxAmmo, maxClips);
 
-  BG_AddWeaponToInventory(WP_FLAMER, ent->client->ps.stats);
-  BG_FindAmmoForWeapon(WP_FLAMER, &maxAmmo, &maxClips);
-  BG_PackAmmoArray(WP_FLAMER, &ent->client->ps.ammo, ent->client->ps.powerups, maxAmmo, maxClips);
-
   if (1500 > ent->client->pers.credit)
   {
     trap_SendServerCommand(ent - g_entities, "print \"^1Inventory: Everything Except the Lucifer Cannon\n\"");
     return;
   }
-  BG_AddWeaponToInventory(WP_LUCIFER_CANNON, ent->client->ps.stats);
-  BG_FindAmmoForWeapon(WP_LUCIFER_CANNON, &maxAmmo, &maxClips);
-  BG_PackAmmoArray(WP_LUCIFER_CANNON, &ent->client->ps.ammo, ent->client->ps.powerups, maxAmmo, maxClips);
 
   //G_GiveClientMaxAmmo( ent, qtrue );
   G_ForceWeaponChange(ent, WP_SHOTGUN);
@@ -1198,7 +1191,7 @@ gentity_t *syrinxSpawn(gentity_t *ent) {
         bolt->think = G_itemThink;
         bolt->s.eType = ET_MISSILE;
         bolt->r.svFlags = SVF_USE_CURRENT_ORIGIN;
-        bolt->s.weapon = WP_LUCIFER_CANNON;
+//        bolt->s.weapon = WP_LUCIFER_CANNON;
         bolt->s.generic1 = ent->s.generic1; //weaponMode
         bolt->r.ownerNum = ent->s.number;
         bolt->parent = ent;
