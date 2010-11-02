@@ -106,7 +106,7 @@ CG_AMOAnimation
 */
 static void CG_AMOAnimation( centity_t *cent, int *old, int *now, float *backLerp )
 {
-  if( !( cent->currentState.eFlags & EF_MOVER_STOP ) || cent->animPlaying )
+  if( !( cent->currentState.eFlags & EF_MOVER_STOP ) )
   {
     int delta = cg.time - cent->miscTime;
 
@@ -194,30 +194,6 @@ void CG_AnimMapObj( centity_t *cent )
   }
 
   cent->lerpFrame.animation = &anim;
- 
-  if( !anim.loopFrames )
-  {
-    // add one frame to allow the animation to play the last frame
-    // add another to get it to stop playing at the first frame
-    anim.numFrames += 2;
-
-    if( !cent->animInit )
-    {
-      cent->animInit = qtrue;
-      cent->animPlaying = !( cent->currentState.eFlags & EF_MOVER_STOP );
-    }
-    else
-    {
-      if( cent->animLastState !=
-          !( cent->currentState.eFlags & EF_MOVER_STOP ) )
-      {
-        cent->animPlaying = qtrue;
-        cent->lerpFrame.animationTime = cg.time;
-        cent->lerpFrame.frameTime = cg.time;
-      }
-    }
-    cent->animLastState = !( cent->currentState.eFlags & EF_MOVER_STOP );
-  }
 
   //run animation
   CG_AMOAnimation( cent, &ent.oldframe, &ent.frame, &ent.backlerp );

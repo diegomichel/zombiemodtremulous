@@ -44,7 +44,6 @@ static void CG_Obituary( entityState_t *ent )
   char          className[ 64 ];
   gender_t      gender;
   clientInfo_t  *ci;
-  qboolean      teamKill = qfalse;
 
   target = ent->otherEntityNum;
   attacker = ent->otherEntityNum2;
@@ -61,11 +60,7 @@ static void CG_Obituary( entityState_t *ent )
     attackerInfo = NULL;
   }
   else
-  {
     attackerInfo = CG_ConfigString( CS_PLAYERS + attacker );
-    if( ci && cgs.clientinfo[ attacker ].team == ci->team )
-      teamKill = qtrue;
-  }
 
   targetInfo = CG_ConfigString( CS_PLAYERS + target );
 
@@ -106,7 +101,7 @@ static void CG_Obituary( entityState_t *ent )
       message = "was in the wrong place";
       break;
     case MOD_HSPAWN:
-      message = "should have run further";
+      message = "should have ran further";
       break;
     case MOD_ASPAWN:
       message = "shouldn't have trod in the acid";
@@ -258,9 +253,9 @@ static void CG_Obituary( entityState_t *ent )
         message = "was bitten by";
         break;
       case MOD_LEVEL1_CLAW:
-        message = "was swiped by";
-        Com_sprintf( className, 64, "'s %s",
-            BG_FindHumanNameForClassNum( PCL_ALIEN_LEVEL1 ) );
+        message = "was Eaten by";
+        Com_sprintf( className, 64, "",
+            "" );
         message2 = className;
         break;
       case MOD_LEVEL2_CLAW:
@@ -311,9 +306,9 @@ static void CG_Obituary( entityState_t *ent )
         message2 = "'s poison";
         break;
       case MOD_LEVEL1_PCLOUD:
-        message = "was gassed by";
+        message = "was eaten by";
         Com_sprintf( className, 64, "'s %s",
-            BG_FindHumanNameForClassNum( PCL_ALIEN_LEVEL1 ) );
+            "" );
         message2 = className;
         break;
 
@@ -329,16 +324,8 @@ static void CG_Obituary( entityState_t *ent )
 
     if( message )
     {
-      CG_Printf( "%s %s %s%s%s\n",
-        targetName, message,
-        ( teamKill ) ? S_COLOR_RED "TEAMMATE " S_COLOR_WHITE : "",
-        attackerName, message2 );
-      if( teamKill && attacker == cg.clientNum )
-      {
-        CG_CenterPrint( va ( "You killed " S_COLOR_RED "TEAMMATE "
-          S_COLOR_WHITE "%s", targetName ),
-          SCREEN_HEIGHT * 0.30, BIGCHAR_WIDTH );
-      }
+      CG_Printf( "%s %s %s%s\n",
+        targetName, message, attackerName, message2 );
       return;
     }
   }
@@ -363,15 +350,30 @@ void CG_PainEvent( centity_t *cent, int health )
   // don't do more than two pain sounds a second
   if( cg.time - cent->pe.painTime < 500 )
     return;
-
-  if( health < 25 )
-    snd = "*pain25_1.wav";
-  else if( health < 50 )
-    snd = "*pain50_1.wav";
-  else if( health < 75 )
-    snd = "*pain75_1.wav";
+  
+  if( cgs.clientinfo[ cent->currentState.number ].team!=PTE_ALIENS )
+  {
+    if( health < 25 )
+      snd = "*pain25_1.wav";
+    else if( health < 50 )
+      snd = "*pain50_1.wav";
+    else if( health < 75 )
+      snd = "*pain75_1.wav";
+    else
+      snd = "*pain100_1.wav";
+  }
   else
-    snd = "*pain100_1.wav";
+  {
+    if( health < 25 )
+      snd = "*pain25_1zombie.wav";
+    else if( health < 50 )
+      snd = "*pain50_1zombie.wav";
+    else if( health < 75 )
+      snd = "*pain75_1zombie.wav";
+    else
+      snd = "*pain100_1zombie.wav";
+  }
+    
 
   trap_S_StartSound( NULL, cent->currentState.number, CHAN_VOICE,
     CG_CustomSound( cent->currentState.number, snd ) );
@@ -518,7 +520,14 @@ void CG_EntityEvent( centity_t *cent, vec3_t position )
 
     case EV_FALL_FAR:
       DEBUGNAME( "EV_FALL_FAR" );
-      trap_S_StartSound (NULL, es->number, CHAN_AUTO, CG_CustomSound( es->number, "*fall1.wav" ) );
+      if( cgs.clientinfo[ cent->currentState.number ].team!=PTE_ALIENS )
+      {
+        trap_S_StartSound (NULL, es->number, CHAN_AUTO, CG_CustomSound( es->number, "*fall1.wav" ) );
+      }
+      else
+      {
+        trap_S_StartSound (NULL, es->number, CHAN_AUTO, CG_CustomSound( es->number, "*fall1zombie.wav" ) );
+      }
       cent->pe.painTime = cg.time;  // don't play a pain sound right after this
 
       if( clientNum == cg.predictedPlayerState.clientNum )
@@ -634,8 +643,14 @@ void CG_EntityEvent( centity_t *cent, vec3_t position )
 
     case EV_TAUNT:
       DEBUGNAME( "EV_TAUNT" );
-      if( !cg_noTaunt.integer )
+      if( cgs.clientinfo[ cent->currentState.number ].team!=PTE_ALIENS )
+      {
         trap_S_StartSound( NULL, es->number, CHAN_VOICE, CG_CustomSound( es->number, "*taunt.wav" ) );
+      }
+      else
+      {
+        trap_S_StartSound( NULL, es->number, CHAN_VOICE, CG_CustomSound( es->number, "*tauntzombie.wav" ) );
+      }
       break;
 
     case EV_WATER_TOUCH:
@@ -834,8 +849,16 @@ void CG_EntityEvent( centity_t *cent, vec3_t position )
     case EV_DEATH2:
     case EV_DEATH3:
       DEBUGNAME( "EV_DEATHx" );
-      trap_S_StartSound( NULL, es->number, CHAN_VOICE,
-          CG_CustomSound( es->number, va( "*death%i.wav", event - EV_DEATH1 + 1 ) ) );
+      if( cgs.clientinfo[ cent->currentState.number ].team!=PTE_ALIENS )
+      {
+        trap_S_StartSound( NULL, es->number, CHAN_VOICE,
+            CG_CustomSound( es->number, va( "*death%i.wav", event - EV_DEATH1 + 1 ) ) );
+      }
+      else
+      {
+        trap_S_StartSound( NULL, es->number, CHAN_VOICE,
+            CG_CustomSound( es->number, va( "*death%izombie.wav", event - EV_DEATH1 + 1 ) ) );
+      }
       break;
 
     case EV_OBITUARY:

@@ -1233,7 +1233,7 @@ void UI_LoadMenus(const char *menuFile, qboolean reset) {
   handle = trap_Parse_LoadSource( menuFile );
   if (!handle) {
     trap_Error( va( S_COLOR_YELLOW "menu file not found: %s, using default\n", menuFile ) );
-    handle = trap_Parse_LoadSource( "ui/menus.txt" );
+    handle = trap_PC_LoadSource( "ui/menus.txt" );//trap_Parse_LoadSource( "ui/menus.txt" );
     if (!handle) {
       trap_Error( va( S_COLOR_RED "default menu file not found: ui/menus.txt, unable to continue!\n" ) );
     }
@@ -2085,10 +2085,6 @@ static int UI_OwnerDrawWidth(int ownerDraw, float scale) {
     case UI_TIER_GAMETYPE:
       break;
     case UI_ALLMAPS_SELECTION:
-      break;
-    case UI_PLAYERLIST_SELECTION:
-      break;
-    case UI_TEAMLIST_SELECTION:
       break;
     case UI_OPPONENT_NAME:
       break;

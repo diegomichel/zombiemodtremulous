@@ -25,7 +25,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 static entityPos_t   entityPositions;
 
-#define HUMAN_SCANNER_UPDATE_PERIOD 700
+#define HUMAN_SCANNER_UPDATE_PERIOD 1
 
 /*
 =============
@@ -265,14 +265,14 @@ void CG_Scanner( rectDef_t *rect, qhandle_t shader, vec4_t color )
   int     i;
   vec3_t  origin;
   vec3_t  relOrigin;
-  vec4_t  hIabove;
-  vec4_t  hIbelow;
+  vec4_t  hIabove = { 0.0f, 0.0f, 0.0f, 1.0f };
+  vec4_t  hIbelow = { 0.0f, 0.0f, 0.0f, 1.0f };
   vec4_t  aIabove = { 1.0f, 0.0f, 0.0f, 0.75f };
   vec4_t  aIbelow = { 1.0f, 0.0f, 0.0f, 0.5f };
 
-  Vector4Copy( color, hIabove );
-  hIabove[ 3 ] *= 1.5f;
-  Vector4Copy( color, hIbelow );
+  //Vector4Copy( color, hIabove );
+  //hIabove[ 3 ] *= 1.5f;
+  //Vector4Copy( color, hIbelow );
 
   VectorCopy( entityPositions.origin, origin );
 
