@@ -4,7 +4,7 @@ void
 G_itemThink(gentity_t *ent)
 {
   ent->nextthink = level.time + 3000;
-  if(level.spawnedItems >= (10 - ((level.time-level.startTime)/1000/60)))
+  if (level.spawnedItems >= (10 - ((level.time - level.startTime) / 1000 / 60)))
   {
     G_FreeEntity(ent);
     level.spawnedItems--;
@@ -41,16 +41,21 @@ G_switchWeapon(gentity_t *player, weapon_t weapon)
 void
 G_giveHealth(gentity_t *player)
 {
-  player->health =
-      player->client->ps.stats[ STAT_HEALTH ] =
-          player->client->ps.stats[ STAT_MAX_HEALTH ];
+  player->health = player->client->ps.stats[STAT_HEALTH] = player->client->ps.stats[STAT_MAX_HEALTH];
   G_AddEvent(player, EV_MEDKIT_USED, 0);
 
-  player->client->ps.persistant[ PERS_UNUSED ] = 3;
+  player->client->ps.persistant[PERS_UNUSED] = 3;
+}
+void
+G_giveMine(gentity_t *player)
+{
+  BG_AddUpgradeToInventory(UP_MINE, player->client->ps.stats);
 }
 void
 G_itemUse(gentity_t *self, gentity_t *other, gentity_t *activator)
 {
+  qboolean item = qtrue;
+
   switch(self->s.modelindex)
   {
     case BA_I_CHAINGUN:
@@ -80,13 +85,35 @@ G_itemUse(gentity_t *self, gentity_t *other, gentity_t *activator)
     case BA_I_SHOTGUN:
       G_switchWeapon(activator, WP_SHOTGUN);
       break;
+    case BA_I_LAUNCHER:
+      G_switchWeapon(activator, WP_LAUNCHER);
+      break;
     case BA_I_SYRINX:
       G_giveHealth(activator);
       break;
-
+    default:
+        item = qfalse;
+      break;
   }
-  G_FreeEntity(self);
-  level.spawnedItems--;
+  ////////////////////////////////////////////////////////////////////////////
+  // Special Case for Mines
+  ////////////////////////////////////////////////////////////////////////////
+  if(self->s.weapon == WP_MINE && self->parent == activator)
+  {
+    G_giveMine(activator);
+    G_FreeEntity(self);
+    activator->numMines--;
+  }
+  else if(self->s.modelindex == BA_I_MINE)
+  {
+    G_giveMine(activator);
+    G_FreeEntity(self);
+  }
+  else if(item == qtrue)
+  {
+    G_FreeEntity(self);
+    level.spawnedItems--;
+  }
 }
 
 gentity_t *
@@ -150,6 +177,7 @@ spawnItem(gentity_t *ent, buildable_t itemtype)
 
   item->s.generic1 |= B_POWERED_TOGGLEBIT;
   item->s.generic1 |= B_SPAWNED_TOGGLEBIT;
+  item->r.svFlags &= ~SVF_BROADCAST;
 
   VectorCopy(normal, item->s.origin2);
 

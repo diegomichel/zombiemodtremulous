@@ -603,7 +603,11 @@ CG_Missile(centity_t *cent)
       ent.axis[0][2] = 1;
 
     // spin as it moves
-    if (es->pos.trType != TR_STATIONARY && wim->missileRotates)
+    if(weapon == WP_MINE)
+    {
+      AnglesToAxis(cent->lerpAngles, ent.axis);
+    }
+    else if (es->pos.trType != TR_STATIONARY)
       RotateAroundDirection(ent.axis, cg.time / 4);
     else
       RotateAroundDirection(ent.axis, es->time);

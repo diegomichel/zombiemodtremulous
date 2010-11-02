@@ -166,6 +166,7 @@ qboolean ACEND_CheckForLadder(gentity_t *self);
 qboolean
 ACEND_pointVisibleFromEntity(vec3_t point, gentity_t *self);
 void ACEND_setCurrentNode(gentity_t *ent, int node);
+void ACEND_setNextNode(gentity_t *ent, int node);
 qboolean
 ACEND_nodeInUse(int node);
 

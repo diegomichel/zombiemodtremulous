@@ -30,22 +30,6 @@
 
 #if defined(ACEBOT)
 
-/*
- ACEAI_StartFrame
- Simililar to int BotAIStartFrame(int time)
- will be called each bot frame after running G_RunFrame
- so entities like items can settle down in the level before we think
- about pathing the level
- */
-
-void
-ACEAI_StartFrame(int time)
-{
-  //G_Printf("ACEAI_StartFrame()\n");
-
-  ACEIT_BuildItemNodeTable(qtrue);
-}
-
 void
 ACEAI_CheckServerCommands(gentity_t * self)
 {
@@ -158,14 +142,14 @@ ACEAI_Think(gentity_t * self)
   //ACEAI_PickShortRangeGoal(self);
 
   // look for enemies
-  if (ACEAI_FindEnemy(self))
-  {
-    G_Printf("Found enemy\n");
-    ACEAI_ChooseWeapon(self);
-    ACEMV_Attack(self);
-  }
-  else
-  {
+//  if (ACEAI_FindEnemy(self))
+//  {
+//    G_Printf("Found enemy\n");
+//    ACEAI_ChooseWeapon(self);
+//    ACEMV_Attack(self);
+//  }
+//  else
+//  {
     // execute the move, or wander
     if (self->bs.state == STATE_WANDER)
     {
@@ -175,7 +159,7 @@ ACEAI_Think(gentity_t * self)
     {
       ACEMV_Move(self);
     }
-  }
+//  }
 
   //#if 0
   //  if(ace_debug.integer)
@@ -300,7 +284,7 @@ ACEAI_PickLongRangeGoal(gentity_t * self)
     self->bs.state = STATE_WANDER;
     self->bs.wander_timeout = level.time + 1000;
     self->bs.goalNode = -1;
-    G_Printf("There are not good nodes to follow\n");
+    //G_Printf("There are not good nodes to follow\n");
     return;
   }
 

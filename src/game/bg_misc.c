@@ -948,6 +948,76 @@ buildableAttributes_t bg_buildableList[] =
         qfalse, //qboolean  transparentTest;
         qfalse, //qboolean  reactorTest;
         qtrue, //qboolean  replacable;
+    },
+    { BA_I_LAUNCHER, //int       buildNum;
+        "launcher", //char      *buildName; //This must the same as in the wp_ struct to make the mode works.
+        "Launcher", //char      *humanName;
+        "team_human_launcher", //char      *entityName;
+        { "models/weapons/launcher/launcher.md3", 0, 0, 0 }, 1.0f, //float     modelScale;
+        { -15, -15, -15 }, //vec3_t    mins;
+        { 15, 15, 25 }, //vec3_t    maxs;
+        0.0f, //float     zOffset;
+        TR_GRAVITY, //trType_t  traj;
+        0.0, //float     bounce;
+        REPEATER_BP, //int       buildPoints;
+        4, //int  stages
+        REPEATER_HEALTH, //int       health;
+        0, //int       regenRate;
+        REPEATER_SPLASHDAMAGE, //int       splashDamage;
+        REPEATER_SPLASHRADIUS, //int       splashRadius;
+        MOD_HSPAWN, //int       meansOfDeath;
+        BIT_HUMANS, //int       team;
+        WP_NONE, //weapon_t  buildWeapon;
+        BANIM_IDLE1, //int       idleAnim;
+        100, //int       nextthink;
+        REPEATER_BT, //int       buildTime;
+        qtrue, //qboolean  usable;
+        0, //int       turretRange;
+        0, //int       turretFireSpeed;
+        WP_NONE, //weapon_t  turretProjType;
+        0.95f, //float     minNormal;
+        qfalse, //qboolean  invertNormal;
+        qfalse, //qboolean  creepTest;
+        0, //int       creepSize;
+        qfalse, //qboolean  dccTest;
+        qfalse, //qboolean  transparentTest;
+        qfalse, //qboolean  reactorTest;
+        qtrue, //qboolean  replacable;
+    },
+    { BA_I_MINE, //int       buildNum;
+        "mine", //char      *buildName; //This must the same as in the wp_ struct to make the mode works.
+        "Mine", //char      *humanName;
+        "team_human_mine", //char      *entityName;
+        { "models/weapons/mine/mine.md3", 0, 0, 0 }, 1.0f, //float     modelScale;
+        { -15, -15, -15 }, //vec3_t    mins;
+        { 15, 15, 25 }, //vec3_t    maxs;
+        0.0f, //float     zOffset;
+        TR_GRAVITY, //trType_t  traj;
+        0.0, //float     bounce;
+        REPEATER_BP, //int       buildPoints;
+        4, //int  stages
+        REPEATER_HEALTH, //int       health;
+        0, //int       regenRate;
+        REPEATER_SPLASHDAMAGE, //int       splashDamage;
+        REPEATER_SPLASHRADIUS, //int       splashRadius;
+        MOD_HSPAWN, //int       meansOfDeath;
+        BIT_HUMANS, //int       team;
+        WP_NONE, //weapon_t  buildWeapon;
+        BANIM_IDLE1, //int       idleAnim;
+        100, //int       nextthink;
+        REPEATER_BT, //int       buildTime;
+        qtrue, //qboolean  usable;
+        0, //int       turretRange;
+        0, //int       turretFireSpeed;
+        WP_NONE, //weapon_t  turretProjType;
+        0.95f, //float     minNormal;
+        qfalse, //qboolean  invertNormal;
+        qfalse, //qboolean  creepTest;
+        0, //int       creepSize;
+        qfalse, //qboolean  dccTest;
+        qfalse, //qboolean  transparentTest;
+        qfalse, //qboolean  reactorTest;
+        qtrue, //qboolean  replacable;
     } };
 
 int bg_numBuildables = sizeof(bg_buildableList) / sizeof(bg_buildableList[0]);
@@ -3544,7 +3614,7 @@ weaponAttributes_t bg_weapons[] =
     },
     { WP_FLAMER, //int       weaponNum;
         FLAMER_PRICE, //int       price;
-        (1 << S2) | (1 << S3), //int  stages
+        (1 << S1) | (1 << S2) | (1 << S3), //int  stages
         SLOT_WEAPON, //int       slots;
         "flamer", //char      *weaponName;
         "Flame Thrower", //char      *weaponHumanName;
@@ -3616,7 +3686,7 @@ weaponAttributes_t bg_weapons[] =
     },
     { WP_PULSE_RIFLE, //int       weaponNum;
         PRIFLE_PRICE, //int       price;
-        (1 << S2) | (1 << S3), //int  stages
+        (1 << S1) | (1 << S2) | (1 << S3), //int  stages
         SLOT_WEAPON, //int       slots;
         "prifle", //char      *weaponName;
         "Pulse Rifle", //char      *weaponHumanName;
@@ -3640,7 +3710,7 @@ weaponAttributes_t bg_weapons[] =
     },
     { WP_LUCIFER_CANNON, //int       weaponNum;
         LCANNON_PRICE, //int       price;
-        (1 << S3), //int  stages
+        (1 << S1) | (1 << S2) | (1 << S3), //int  stages
         SLOT_WEAPON, //int       slots;
         "lcannon", //char      *weaponName;
         "Lucifer Cannon", //char      *weaponHumanName;
@@ -3712,7 +3782,7 @@ weaponAttributes_t bg_weapons[] =
     },
     { WP_GRENADE, //int       weaponNum;
         GRENADE_PRICE, //int       price;
-        (1 << S2) | (1 << S3), //int  stages
+        (1 << S1) | (1 << S2) | (1 << S3), //int  stages
         SLOT_NONE, //int       slots;
         "grenade", //char      *weaponName;
         "Grenade", //char      *weaponHumanName;
@@ -3734,9 +3804,33 @@ weaponAttributes_t bg_weapons[] =
         0, //int       buildDelay;
         WUT_HUMANS //WUTeam_t  team;
     },
+    { WP_MINE, //int       weaponNum;
+        MINE_PRICE, //int       price;
+        (1 << S1) | (1 << S2) | (1 << S3), //int  stages
+        SLOT_NONE, //int       slots;
+        "mine", //char      *weaponName;
+        "Mine", //char      *weaponHumanName;
+        1, //int       maxAmmo;
+        0, //int       maxClips;
+        qfalse, //int       infiniteAmmo;
+        qfalse, //int       usesEnergy;
+        MINE_REPEAT, //int       repeatRate1;
+        0, //int       repeatRate2;
+        0, //int       repeatRate3;
+        0, //int       reloadTime;
+        MINE_K_SCALE, //float     knockbackScale;
+        qfalse, //qboolean  hasAltMode;
+        qfalse, //qboolean  hasThirdMode;
+        qfalse, //qboolean  canZoom;
+        90.0f, //float     zoomFov;
+        qfalse, //qboolean  purchasable;
+        qfalse, //qboolean  longRanged;
+        0, //int       buildDelay;
+        WUT_HUMANS //WUTeam_t  team;
+    },
     { WP_BOMB, //int       weaponNum;
         GRENADE_PRICE, //int       price;
-        (1 << S2) | (1 << S3), //int  stages
+        (1 << S1) | (1 << S2) | (1 << S3), //int  stages
         SLOT_NONE, //int       slots;
         "bomb", //char      *weaponName;
         "Bomb", //char      *weaponHumanName;
@@ -3755,6 +3849,30 @@ weaponAttributes_t bg_weapons[] =
         90.0f, //float     zoomFov;
         qfalse, //qboolean  purchasable;
         qfalse, //qboolean  longRanged;
+        0, //int       buildDelay;
+        WUT_HUMANS //WUTeam_t  team;
+    },
+    { WP_LAUNCHER, //int       weaponNum;
+        LAUNCHER_PRICE, //int       price;
+        (1 << S1) | (1 << S2) | (1 << S3), //int  stages
+        SLOT_WEAPON, //int       slots;
+        "launcher", //char      *weaponName;
+        "Grenade Launcher", //char      *weaponHumanName;
+        LAUNCHER_AMMO, //int       maxAmmo;
+        LAUNCHER_MAXAMMO, //int       maxClips;
+        qfalse, //int       infiniteAmmo;
+        qfalse, //int       usesEnergy;
+        LAUNCHER_REPEAT, //int       repeatRate1;
+        LAUNCHER_REPEAT, //int       repeatRate2;
+        0, //int       repeatRate3;
+        LAUNCHER_RELOAD, //int       reloadTime;
+        LAUNCHER_K_SCALE, //float     knockbackScale;
+        qtrue, //qboolean  hasAltMode;
+        qfalse, //qboolean  hasThirdMode;
+        qfalse, //qboolean  canZoom;
+        90.0f, //float     zoomFov;
+        qtrue, //qboolean  purchasable;
+        qtrue, //qboolean  longRanged;
         0, //int       buildDelay;
         WUT_HUMANS //WUTeam_t  team;
     },
@@ -3784,7 +3902,7 @@ weaponAttributes_t bg_weapons[] =
     },
     { WP_HBUILD2, //int       weaponNum;
         HBUILD2_PRICE, //int       price;
-        (1 << S2) | (1 << S3), //int  stages
+        (1 << S1) | (1 << S2) | (1 << S3), //int  stages
         SLOT_WEAPON, //int       slots;
         "ackit", //char      *weaponName;
         "Adv Construction Kit", //char      *weaponHumanName;
@@ -4621,7 +4739,7 @@ upgradeAttributes_t bg_upgrades[] =
     },
     { UP_HELMET, //int   upgradeNum;
         HELMET_PRICE, //int   price;
-        (1 << S2) | (1 << S3), //int  stages
+        (1 << S1) | (1 << S2) | (1 << S3), //int  stages
         SLOT_HEAD, //int   slots;
         "helmet", //char  *upgradeName;
         "Helmet", //char  *upgradeHumanName;
@@ -4650,28 +4768,28 @@ upgradeAttributes_t bg_upgrades[] =
         WUT_HUMANS //WUTeam_t  team;
     },
     /*{ UP_JETPACK, //int   upgradeNum;
-        JETPACK_PRICE, //int   price;
-        (1 << S2) | (1 << S3), //int  stages
-        SLOT_BACKPACK, //int   slots;
-        "jetpack", //char  *upgradeName;
-        "Jet Pack", //char  *upgradeHumanName;
-        "icons/iconu_jetpack", qtrue, //qboolean purchasable
-        qtrue, //qboolean usable
-        WUT_HUMANS //WUTeam_t  team;
-    },
-    { UP_BATTLESUIT, //int   upgradeNum;
-        BSUIT_PRICE, //int   price;
-        (1 << S3), //int  stages
-        SLOT_HEAD | SLOT_TORSO | SLOT_ARMS | SLOT_LEGS | SLOT_BACKPACK, //int   slots;
-        "bsuit", //char  *upgradeName;
-        "Battlesuit", //char  *upgradeHumanName;
-        "icons/iconu_bsuit", qtrue, //qboolean purchasable
-        qfalse, //qboolean usable
-        WUT_HUMANS //WUTeam_t  team;
-    },*/
+     JETPACK_PRICE, //int   price;
+     (1 << S2) | (1 << S3), //int  stages
+     SLOT_BACKPACK, //int   slots;
+     "jetpack", //char  *upgradeName;
+     "Jet Pack", //char  *upgradeHumanName;
+     "icons/iconu_jetpack", qtrue, //qboolean purchasable
+     qtrue, //qboolean usable
+     WUT_HUMANS //WUTeam_t  team;
+     },
+     { UP_BATTLESUIT, //int   upgradeNum;
+     BSUIT_PRICE, //int   price;
+     (1 << S3), //int  stages
+     SLOT_HEAD | SLOT_TORSO | SLOT_ARMS | SLOT_LEGS | SLOT_BACKPACK, //int   slots;
+     "bsuit", //char  *upgradeName;
+     "Battlesuit", //char  *upgradeHumanName;
+     "icons/iconu_bsuit", qtrue, //qboolean purchasable
+     qfalse, //qboolean usable
+     WUT_HUMANS //WUTeam_t  team;
+     },*/
     { UP_GRENADE, //int   upgradeNum;
         GRENADE_PRICE, //int   price;
-        (1 << S2) | (1 << S3), //int  stages
+        (1 << S1) | (1 << S2) | (1 << S3), //int  stages
         SLOT_NONE, //int   slots;
         "gren", //char  *upgradeName;
         "Grenade", //char  *upgradeHumanName;
@@ -4679,6 +4797,17 @@ upgradeAttributes_t bg_upgrades[] =
         qtrue, //qboolean usable
         WUT_HUMANS //WUTeam_t  team;
     },
+    { UP_MINE, //int   upgradeNum;
+        MINE_PRICE, //int   price;
+        (1 << S1) | (1 << S2) | (1 << S3), //int  stages
+        SLOT_NONE, //int   slots;
+        "min", //char  *upgradeName;
+        "Mine", //char  *upgradeHumanName;
+        0, qtrue, //qboolean purchasable
+        qtrue, //qboolean usable
+        WUT_HUMANS //WUTeam_t  team;
+    },
+
     /*{
      UP_BOMB,             //int   upgradeNum;
      GRENADE_PRICE,          //int   price;

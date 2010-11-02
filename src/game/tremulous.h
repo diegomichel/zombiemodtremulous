@@ -365,7 +365,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 #define GRENADE_PRICE               200
 #define GRENADE_REPEAT              0
-#define GRENADE_K_SCALE             1.0f
+#define GRENADE_K_SCALE             0.1f
 #define GRENADE_DAMAGE              HDM(310)
 #define GRENADE_RANGE               192.0f
 #define GRENADE_SPEED               400.0f
@@ -435,6 +435,28 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define LCANNON_CHARGE_TIME         2000
 #define LCANNON_TOTAL_CHARGE        255
 #define LCANNON_MIN_CHARGE          50
+
+#define LAUNCHER_PRICE               1000
+#define LAUNCHER_AMMO                4
+#define LAUNCHER_REPEAT              1000
+#define LAUNCHER_K_SCALE             0.1f
+#define LAUNCHER_CHARGEREPEAT        1000
+#define LAUNCHER_RELOAD              2000
+#define LAUNCHER_DAMAGE              HDM(100)
+#define LAUNCHER_RADIUS              150
+#define LAUNCHER_SECONDARY_DAMAGE    HDM(7)
+#define LAUNCHER_SECONDARY_RADIUS    75
+#define LAUNCHER_SPEED               1200
+#define LAUNCHER_CHARGE_TIME         2000
+#define LAUNCHER_TOTAL_CHARGE        255
+#define LAUNCHER_MIN_CHARGE          50
+#define LAUNCHER_MAXAMMO             2
+
+#define MINE_PRICE      300
+#define MINE_K_SCALE    1.0f
+#define MINE_DAMAGE     HDM(120)
+#define MINE_RANGE      350
+#define MINE_REPEAT     0
 
 #define HBUILD_PRICE                0
 #define HBUILD_REPEAT               2000

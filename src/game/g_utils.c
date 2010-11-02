@@ -1274,13 +1274,6 @@ aimNode(gentity_t *self)
   return qtrue;
 }
 
-void
-botWalk(gentity_t *self)
-{
-  self->client->pers.cmd.forwardmove = 120;
-  self->client->pers.cmd.buttons |= BUTTON_WALKING;
-}
-
 qboolean
 visitedLastNode(gentity_t *self)
 {
@@ -1294,13 +1287,6 @@ visitedLastNode(gentity_t *self)
   }
   return qfalse;
 }
-
-void
-botStopWalk(gentity_t *self)
-{
-  self->client->pers.cmd.forwardmove = 0;
-}
-
 qboolean
 botReachedDestination(gentity_t *self)
 {
@@ -1451,36 +1437,6 @@ nextNodeVisible(gentity_t *ent)
   realPoint[2] = convertGridToWorld(convertWorldToGrid(ent->client->ps.origin[2]));
   return canSeeNextNode(realPoint, ent->nextnode, ent);
 }
-void
-walkToNextNode(gentity_t *ent)
-{
-  int distance = Distance2d(ent->client->ps.origin, ent->nextnode);
-  int xclientgrid = convertWorldToGrid(ent->client->ps.origin[0]);
-  int yclientgrid = convertWorldToGrid(ent->client->ps.origin[1]);
-  int xnodegrid = convertWorldToGrid(ent->nextnode[0]);
-  int ynodegrid = convertWorldToGrid(ent->nextnode[1]);
-  aimNode(ent);
-  botWalk(ent);
-  if (distance <= 20 && xclientgrid == xnodegrid && yclientgrid == ynodegrid)
-  {
-    ent->nextnodeset = qfalse;
-    ent->client->pers.cmd.forwardmove = 0;
-    G_LogPrintf(va("print\"%s: Reached node sir NODE: %f %f PPOS: %f %f.\n\"", ent->client->pers.netname, ent->nextnode[0], ent->nextnode[1],
-        ent->client->ps.origin[0], ent->client->ps.origin[1]));
-    return;
-  }
-  if (distance < BLOCKSIZE && distance > 10)
-  {
-    ent->client->pers.cmd.forwardmove = ent->client->pers.cmd.forwardmove - (ent->client->pers.cmd.forwardmove / (distance / 5));
-    //10 == dist 15 == 40 speed and dont move.
-  }
-  if (distance <= 20)
-  {
-    G_LogPrintf(va("print \"%d != %d | %d != %d\n\"", xclientgrid, xnodegrid, yclientgrid, ynodegrid));
-  }
-  G_LogPrintf(va("print\"%s: Dist %d\n\"", ent->client->pers.netname, distance));
-}
-
 int
 findNextNode(int pasos, int x, int y, int fx, int fy, gentity_t *ent)
 {

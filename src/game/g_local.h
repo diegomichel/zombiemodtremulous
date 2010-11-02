@@ -90,9 +90,7 @@ typedef enum
 
 typedef enum
 {
-  ATTACK_RAMBO = 1,
-  ATTACK_CAMPER,
-  ATTACK_ALL
+  ATTACK_RAMBO = 1, ATTACK_CAMPER, ATTACK_ALL
 } botMetaMode_t;
 
 #if defined(ACEBOT)
@@ -369,6 +367,7 @@ struct gentity_s
   qboolean nextnodeset;
   vec3_t lastnode; //Save last node to check if is visible with the new one.
   int levelz; // Level Z we are on.
+  int numMines;
 
 #if defined(ACEBOT)
   botState_t bs;
@@ -1024,7 +1023,8 @@ int
 botGetDistanceBetweenPlayer(gentity_t *self, gentity_t *player);
 qboolean
 botShootIfTargetInRange(gentity_t *self, gentity_t *target);
-
+void
+botWalk(gentity_t *self, int speed);
 //
 // g_cmds.c
 //
@@ -1323,6 +1323,13 @@ gentity_t *
 launch_grenade(gentity_t *self, vec3_t start, vec3_t dir);
 gentity_t *
 launch_bomb(gentity_t *self, vec3_t start, vec3_t dir);
+
+gentity_t *
+launch_grenade_secondary(gentity_t *self, vec3_t start, vec3_t dir);
+gentity_t *
+launch_grenade_primary(gentity_t *self, vec3_t start, vec3_t dir);
+gentity_t *
+plant_mine(gentity_t *self, vec3_t start, vec3_t dir);
 
 //
 // g_mover.c

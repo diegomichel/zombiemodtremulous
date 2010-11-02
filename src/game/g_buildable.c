@@ -2252,7 +2252,7 @@ HMGTurret_CheckTarget(gentity_t *self, gentity_t *target, qboolean ignorePainted
   if (!target->client && target->s.eType != ET_BUILDABLE)
     return qfalse;
 
-  if (target->client->ps.stats[STAT_STATE] & SS_HOVELING)
+  if (target->client && target->client->ps.stats[STAT_STATE] & SS_HOVELING)
     return qfalse;
 
   if (target->health <= 0)

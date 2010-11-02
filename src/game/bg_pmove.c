@@ -2555,10 +2555,10 @@ PM_Footsteps(void)
       // on ground will only play sounds if running
 
 
-//FIXME: I have removed footstep because i believe it can cause some lag
-//Uncomment if sum1 ask for it. :p
-//      if (footstep && !pm->noFootsteps)
-//        PM_AddEvent(PM_FootstepForSurface());
+      //FIXME: I have removed footstep because i believe it can cause some lag
+      //Uncomment if sum1 ask for it. :p
+      //      if (footstep && !pm->noFootsteps)
+      //        PM_AddEvent(PM_FootstepForSurface());
     }
     else if (pm->waterlevel == 1)
     {
@@ -3017,6 +3017,17 @@ PM_Weapon(void)
       // attack2 is handled on the client for zooming (cg_view.c)
 
       if (!attack1)
+      {
+        pm->ps->weaponTime = 0;
+        pm->ps->weaponstate = WEAPON_READY;
+        return;
+      }
+      break;
+    case WP_LAUNCHER:
+      attack1 = pm->cmd.buttons & BUTTON_ATTACK;
+      attack2 = pm->cmd.buttons & BUTTON_ATTACK2;
+
+      if (!attack1 && !attack2)
       {
         pm->ps->weaponTime = 0;
         pm->ps->weaponstate = WEAPON_READY;
