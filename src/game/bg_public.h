@@ -338,17 +338,10 @@ typedef enum {
   WPM_NUM_WEAPONMODES
 } weaponMode_t;
 
+
+//Seems to be that after 32... it fail
 typedef enum {
   WP_NONE,
-
-  WP_ALEVEL0,
-  WP_ALEVEL1,
-  WP_ALEVEL1_UPG,
-  WP_ALEVEL2,
-  WP_ALEVEL2_UPG,
-  WP_ALEVEL3,
-  WP_ALEVEL3_UPG,
-  WP_ALEVEL4,
 
   WP_BLASTER,
   WP_MACHINEGUN,
@@ -363,7 +356,7 @@ typedef enum {
   WP_GRENADE,
   WP_BOMB,
   WP_LAUNCHER,
-  WP_MINE,
+  WP_MINE, //22
 
   WP_LOCKBLOB_LAUNCHER,
   WP_HIVE,
@@ -377,8 +370,21 @@ typedef enum {
   WP_HBUILD,
   //ok?
 
-  //New Weapons
+  //New Weapons 31
+  WP_PISTOL,
   WP_AXE,
+  WP_ROCKET_LAUNCHER,
+  //Another 7 Weapons for here more.
+
+  //Got space for
+  WP_ALEVEL0,
+  WP_ALEVEL1,
+  WP_ALEVEL1_UPG,
+  WP_ALEVEL2,
+  WP_ALEVEL2_UPG,
+  WP_ALEVEL3,
+  WP_ALEVEL3_UPG,
+  WP_ALEVEL4,
 
   WP_NUM_WEAPONS
 } weapon_t;
@@ -1294,6 +1300,8 @@ typedef enum {
 
   ET_AI_NODE,                                     // AI visualization tool
   ET_AI_LINK,
+
+  ET_LASER,     //For the laser gun :>
 
 
   ET_EVENTS // any of the EV_* events can be added freestanding

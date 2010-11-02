@@ -782,6 +782,80 @@ CG_MachinegunSpinAngle(centity_t *cent, qboolean firing)
 }
 
 /*
+ ===============
+ This function is from Xreal proyect
+ Author: Robert Beckebans <trebor_7@users.sourceforge.net>
+ JUHOX: CG_LightningBolt (new version)
+ ===============
+ */
+static void
+CG_LightningBolt(centity_t * cent, vec3_t origin)
+{
+  trace_t trace;
+  refEntity_t beam;
+  vec3_t forward, right, up;
+  vec3_t muzzlePoint, endPoint;
+  vec3_t surfNormal;
+  int anim;
+
+  if (cent->currentState.weapon != WP_LAS_GUN)
+    return;
+
+  memset(&beam, 0, sizeof(beam));
+
+  {
+    if (cent->currentState.eFlags & EF_WALLCLIMB)
+    {
+      if (cent->currentState.eFlags & EF_WALLCLIMBCEILING)
+      {
+        VectorSet(surfNormal, 0.0f, 0.0f, -1.0f);
+      }
+      else
+      {
+        VectorCopy(cent->currentState.angles2, surfNormal);
+      }
+    }
+    else
+    {
+      VectorSet(surfNormal, 0.0f, 0.0f, 1.0f);
+    }
+
+    AngleVectors(cent->lerpAngles, forward, right, up);
+    VectorCopy(cent->lerpOrigin, muzzlePoint);
+  }
+
+  anim = cent->currentState.legsAnim & ~ANIM_TOGGLEBIT;
+  if (anim == LEGS_WALKCR || anim == LEGS_IDLECR)
+  {
+    VectorMA(muzzlePoint, CROUCH_VIEWHEIGHT, surfNormal, muzzlePoint);
+  }
+  else
+  {
+    VectorMA(muzzlePoint, DEFAULT_VIEWHEIGHT, surfNormal, muzzlePoint);
+  }
+
+  VectorMA(muzzlePoint, 14, forward, muzzlePoint);
+
+  // project forward by the lightning range
+  VectorMA(muzzlePoint, 768, forward, endPoint);
+
+  // see if it hit a wall
+  CG_Trace(
+    &trace, muzzlePoint, vec3_origin, vec3_origin, endPoint, cent->currentState.number, MASK_SHOT);
+
+  // this is the endpoint
+  VectorCopy(trace.endpos, beam.oldorigin);
+
+  // use the provided origin, even though it may be slightly
+  // different than the muzzle origin
+  VectorCopy(origin, beam.origin);
+
+  beam.reType = RT_LIGHTNING;
+  beam.customShader = cgs.media.laser;
+  trap_R_AddRefEntityToScene(&beam);
+}
+
+/*
  =============
  CG_AddPlayerWeapon
 
@@ -802,6 +876,7 @@ CG_AddPlayerWeapon(refEntity_t *parent, playerState_t *ps, centity_t *cent)
   weaponInfo_t *weapon;
   qboolean noGunModel;
   qboolean firing;
+  centity_t      *nonPredictedCent;
 
   weaponNum = cent->currentState.weapon;
   weaponMode = cent->currentState.generic1;
@@ -939,6 +1014,22 @@ CG_AddPlayerWeapon(refEntity_t *parent, playerState_t *ps, centity_t *cent)
 
   if (ps || cg.renderingThirdPerson || cent->currentState.number != cg.predictedPlayerState.clientNum)
   {
+
+
+    // make sure we aren't looking at cg.predictedPlayerEntity for LG
+    nonPredictedCent = &cg_entities[cent->currentState.clientNum];
+
+    // if the index of the nonPredictedCent is not the same as the clientNum
+    // then this is a fake player (like on teh single player podiums), so
+    // go ahead and use the cent
+    if ((nonPredictedCent - cg_entities) != cent->currentState.clientNum)
+    {
+      nonPredictedCent = cent;
+    }
+
+    // add lightning bolt
+    CG_LightningBolt(nonPredictedCent, flash.origin);
+
     if (weapon->wim[weaponMode].muzzleParticleSystem && cent->muzzlePsTrigger)
     {
       cent->muzzlePS = CG_SpawnNewParticleSystem(weapon->wim[weaponMode].muzzleParticleSystem);
@@ -964,6 +1055,9 @@ CG_AddPlayerWeapon(refEntity_t *parent, playerState_t *ps, centity_t *cent)
           weapon->wim[weaponMode].flashDlightColor[2]);
     }
   }
+
+
+
 }
 
 /*
@@ -1039,6 +1133,14 @@ CG_AddViewWeapon(playerState_t *ps)
         CG_AttachToPoint(&cent->muzzlePS->attachment);
       }
       cent->muzzlePsTrigger = qfalse;
+    }
+
+    if (cg.predictedPlayerState.eFlags & EF_FIRING)
+    {
+      // special hack for lightning gun...
+      VectorCopy(cg.refdef.vieworg, origin);
+      VectorMA(origin, -8, cg.refdef.viewaxis[2], origin);
+      CG_LightningBolt(&cg_entities[ps->clientNum], origin);
     }
 
     return;
@@ -1813,4 +1915,3 @@ CG_ShotgunFire(entityState_t *es)
 
   CG_ShotgunPattern(es->pos.trBase, es->origin2, es->eventParm, es->otherEntityNum);
 }
-

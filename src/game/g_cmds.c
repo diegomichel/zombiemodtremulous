@@ -2572,12 +2572,12 @@ void Cmd_ToggleItem_f(gentity_t *ent) {
     //special case to allow switching between
     //the blaster and the primary weapon
 
-    if (ent->client->ps.weapon != WP_BLASTER)
-      weapon = WP_BLASTER;
+    if (ent->client->ps.weapon != WP_PISTOL)
+      weapon = WP_PISTOL;
     else {
       //find a held weapon which isn't the blaster
       for (i = WP_NONE + 1; i < WP_NUM_WEAPONS; i++) {
-        if (i == WP_BLASTER)
+        if (i == WP_PISTOL)
           continue;
 
         if (BG_InventoryContainsWeapon(i, ent->client->ps.stats)) {
@@ -2587,7 +2587,7 @@ void Cmd_ToggleItem_f(gentity_t *ent) {
       }
 
       if (i == WP_NUM_WEAPONS)
-        weapon = WP_BLASTER;
+        weapon = WP_PISTOL;
     }
 
     G_ForceWeaponChange(ent, weapon);

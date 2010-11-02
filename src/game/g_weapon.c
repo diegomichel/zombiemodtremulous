@@ -48,7 +48,7 @@ G_ForceWeaponChange(gentity_t *ent, weapon_t weapon)
       //switch to the first non blaster weapon
       for(i = WP_NONE + 1;i < WP_NUM_WEAPONS;i++)
       {
-        if (i == WP_BLASTER)
+        if (i == WP_PISTOL)
           continue;
 
         if (BG_InventoryContainsWeapon(i, ent->client->ps.stats))
@@ -60,7 +60,7 @@ G_ForceWeaponChange(gentity_t *ent, weapon_t weapon)
 
       //only got the blaster to switch to
       if (i == WP_NUM_WEAPONS)
-        ent->client->ps.persistant[PERS_NEWWEAPON] = WP_BLASTER;
+        ent->client->ps.persistant[PERS_NEWWEAPON] = WP_PISTOL;
     }
     else
       ent->client->ps.persistant[PERS_NEWWEAPON] = weapon;
@@ -533,6 +533,12 @@ launcherSecondaryFire(gentity_t *ent)
   m = launch_grenade_secondary(ent, muzzle, forward);
 }
 
+void launchAxe(gentity_t *ent)
+{
+  gentity_t *m;
+
+  m = fire_axe(ent, muzzle,forward);
+}
 void
 launcherFire(gentity_t *ent)
 {
@@ -675,42 +681,42 @@ lasGunFire(gentity_t *ent)
 {
   trace_t tr;
   vec3_t end;
-  gentity_t *tent;
-  gentity_t *traceEnt;
 
-  VectorMA(muzzle, 8192 * 16, forward, end);
+  gentity_t *traceEnt, *tent;
+  int damage, i, passent;
 
-  G_UnlaggedOn(ent, muzzle, 8192 * 16);
-  trap_Trace(&tr, muzzle, NULL, NULL, end, ent->s.number, MASK_SHOT);
-  G_UnlaggedOff();
+  damage = LASGUN_DAMAGE;
 
-  if (tr.surfaceFlags & SURF_NOIMPACT)
+  passent = ent->s.number;
+
+  VectorMA(muzzle, LASGUN_RANGE, forward, end);
+
+  trap_Trace(&tr, muzzle, NULL, NULL, end, passent, MASK_SHOT);
+
+  if (tr.entityNum == ENTITYNUM_NONE)
+  {
     return;
+  }
 
   traceEnt = &g_entities[tr.entityNum];
 
-  // snap the endpos to integers, but nudged towards the line
-  SnapVectorTowards(tr.endpos, muzzle);
+  if (traceEnt->takedamage)
+  {
+    G_Damage(traceEnt, ent, ent, forward, tr.endpos, damage, 0, MOD_LASGUN);
+  }
 
-  // send impact
   if (traceEnt->takedamage && traceEnt->client)
   {
     tent = G_TempEntity(tr.endpos, EV_MISSILE_HIT);
     tent->s.otherEntityNum = traceEnt->s.number;
     tent->s.eventParm = DirToByte(tr.plane.normal);
     tent->s.weapon = ent->s.weapon;
-    tent->s.generic1 = ent->s.generic1; //weaponMode
   }
-  else
+  else if (!(tr.surfaceFlags & SURF_NOIMPACT))
   {
     tent = G_TempEntity(tr.endpos, EV_MISSILE_MISS);
     tent->s.eventParm = DirToByte(tr.plane.normal);
-    tent->s.weapon = ent->s.weapon;
-    tent->s.generic1 = ent->s.generic1; //weaponMode
   }
-
-  if (traceEnt->takedamage)
-    G_Damage(traceEnt, ent, ent, forward, tr.endpos, LASGUN_DAMAGE, 0, MOD_LASGUN);
 }
 
 /*
@@ -1682,6 +1688,14 @@ ChargeAttack(gentity_t *ent, gentity_t *victim)
   G_Damage(victim, ent, ent, forward, victim->s.origin, damage, 0, MOD_LEVEL4_CHARGE);
 }
 
+
+void fireRocket(gentity_t *ent)
+{
+  gentity_t      *m;
+
+  m = fire_rocket(ent, muzzle, forward);
+}
+
 //======================================================================
 
 /*
@@ -1778,6 +1792,10 @@ FireWeapon2(gentity_t *ent)
       launcherSecondaryFire(ent);
       break;
 
+    case WP_AXE:
+      launchAxe(ent);
+      break;
+
     case WP_ABUILD:
     case WP_ABUILD2:
     case WP_HBUILD:
@@ -1828,11 +1846,6 @@ FireWeapon(gentity_t *ent)
       break;
     case WP_ALEVEL4:
       meleeAttack(ent, LEVEL4_CLAW_RANGE, LEVEL4_CLAW_WIDTH, LEVEL4_CLAW_DMG, MOD_LEVEL4_CLAW);
-      break;
-
-    case WP_BLASTER:
-      bulletFire(ent, 0, RIFLE_DMG, MOD_BLASTER);
-      //blasterFire(ent);
       break;
     case WP_MACHINEGUN:
       bulletFire(ent, RIFLE_SPREAD, RIFLE_DMG, MOD_MACHINEGUN);
@@ -1893,6 +1906,16 @@ FireWeapon(gentity_t *ent)
     case WP_HBUILD:
     case WP_HBUILD2:
       buildFire(ent, MN_H_BUILD);
+      break;
+    //New Weapons
+    case WP_AXE:
+      meleeAttack(ent, AXE_RANGE, AXE_WIDTH, AXE_DAMAGE, MOD_UNKNOWN);
+      break;
+    case WP_PISTOL:
+      bulletFire(ent,0,PISTOL_DAMAGE, MOD_UNKNOWN);
+      break;
+    case WP_ROCKET_LAUNCHER:
+      fireRocket(ent);
       break;
     default:
       break;
