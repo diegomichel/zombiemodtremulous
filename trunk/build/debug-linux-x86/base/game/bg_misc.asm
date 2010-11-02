@@ -70,7 +70,7 @@ byte 4 50
 byte 4 50
 byte 4 41
 byte 4 1
-byte 4 100663296
+byte 4 402653184
 byte 4 3
 byte 4 100
 byte 4 20000
@@ -112,7 +112,7 @@ byte 4 50
 byte 4 50
 byte 4 41
 byte 4 1
-byte 4 100663296
+byte 4 402653184
 byte 4 3
 byte 4 100
 byte 4 15000
@@ -154,7 +154,7 @@ byte 4 6
 byte 4 300
 byte 4 42
 byte 4 1
-byte 4 100663296
+byte 4 402653184
 byte 4 3
 byte 4 200
 byte 4 15000
@@ -196,14 +196,14 @@ byte 4 30
 byte 4 200
 byte 4 41
 byte 4 1
-byte 4 100663296
+byte 4 402653184
 byte 4 3
 byte 4 500
 byte 4 20000
 byte 4 0
 byte 4 0
 byte 4 0
-byte 4 22
+byte 4 24
 byte 4 0
 byte 4 1
 byte 4 1
@@ -238,14 +238,14 @@ byte 4 15
 byte 4 100
 byte 4 41
 byte 4 1
-byte 4 100663296
+byte 4 402653184
 byte 4 3
 byte 4 100
 byte 4 12000
 byte 4 0
 byte 4 400
 byte 4 1000
-byte 4 21
+byte 4 23
 byte 4 0
 byte 4 1
 byte 4 1
@@ -280,7 +280,7 @@ byte 4 15
 byte 4 300
 byte 4 41
 byte 4 1
-byte 4 100663296
+byte 4 402653184
 byte 4 3
 byte 4 1000
 byte 4 30000
@@ -322,7 +322,7 @@ byte 4 20
 byte 4 200
 byte 4 41
 byte 4 1
-byte 4 100663296
+byte 4 402653184
 byte 4 3
 byte 4 150
 byte 4 15000
@@ -364,7 +364,7 @@ byte 4 50
 byte 4 100
 byte 4 37
 byte 4 2
-byte 4 402653184
+byte 4 1610612736
 byte 4 3
 byte 4 100
 byte 4 10000
@@ -406,7 +406,7 @@ byte 4 50
 byte 4 100
 byte 4 37
 byte 4 2
-byte 4 402653184
+byte 4 1610612736
 byte 4 3
 byte 4 100
 byte 4 10000
@@ -448,14 +448,14 @@ byte 4 100
 byte 4 100
 byte 4 37
 byte 4 2
-byte 4 402653184
+byte 4 1610612736
 byte 4 3
 byte 4 50
 byte 4 10000
 byte 4 0
 byte 4 200
 byte 4 100
-byte 4 24
+byte 4 26
 byte 4 1064514355
 byte 4 0
 byte 4 0
@@ -490,14 +490,14 @@ byte 4 50
 byte 4 100
 byte 4 37
 byte 4 2
-byte 4 134217728
+byte 4 536870912
 byte 4 3
 byte 4 150
 byte 4 15000
 byte 4 0
 byte 4 150
 byte 4 250
-byte 4 23
+byte 4 25
 byte 4 1064514355
 byte 4 0
 byte 4 0
@@ -532,7 +532,7 @@ byte 4 50
 byte 4 100
 byte 4 37
 byte 4 2
-byte 4 134217728
+byte 4 536870912
 byte 4 3
 byte 4 100
 byte 4 10000
@@ -574,7 +574,7 @@ byte 4 50
 byte 4 100
 byte 4 37
 byte 4 2
-byte 4 402653184
+byte 4 1610612736
 byte 4 3
 byte 4 100
 byte 4 10000
@@ -616,7 +616,7 @@ byte 4 200
 byte 4 300
 byte 4 37
 byte 4 2
-byte 4 402653184
+byte 4 1610612736
 byte 4 3
 byte 4 1000
 byte 4 20000
@@ -658,7 +658,7 @@ byte 4 50
 byte 4 100
 byte 4 37
 byte 4 2
-byte 4 402653184
+byte 4 1610612736
 byte 4 3
 byte 4 100
 byte 4 10000
@@ -1094,72 +1094,97 @@ byte 4 0
 byte 4 0
 byte 4 0
 byte 4 1
+byte 4 27
+address $161
+address $162
+address $163
+address $164
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3245342720
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1103626240
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 0
+byte 4 4
+byte 4 1000
+byte 4 0
+byte 4 50
+byte 4 100
+byte 4 37
+byte 4 2
+byte 4 0
+byte 4 3
+byte 4 100
+byte 4 10000
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1064514355
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
+byte 4 28
+address $165
+address $166
+address $167
+address $168
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1065353216
+byte 4 3245342720
+byte 4 3245342720
+byte 4 3245342720
+byte 4 1097859072
+byte 4 1097859072
+byte 4 1103626240
+byte 4 0
+byte 4 5
+byte 4 0
+byte 4 0
+byte 4 4
+byte 4 1000
+byte 4 0
+byte 4 50
+byte 4 100
+byte 4 37
+byte 4 2
+byte 4 0
+byte 4 3
+byte 4 100
+byte 4 10000
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1064514355
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1
 export bg_numBuildables
 align 4
 LABELV bg_numBuildables
-byte 4 26
+byte 4 28
 export BG_FindBuildNumForName
 code
 proc BG_FindBuildNumForName 8 8
-ADDRFP4 0
-ADDRFP4 0
-INDIRP4
-ASGNP4
-ADDRLP4 0
-CNSTI4 0
-ASGNI4
-ADDRGP4 $165
-JUMPV
-LABELV $162
-CNSTI4 168
-ADDRLP4 0
-INDIRI4
-MULI4
-ADDRGP4 bg_buildableList+4
-ADDP4
-INDIRP4
-ARGP4
-ADDRFP4 0
-INDIRP4
-ARGP4
-ADDRLP4 4
-ADDRGP4 Q_stricmp
-CALLI4
-ASGNI4
-ADDRLP4 4
-INDIRI4
-CNSTI4 0
-NEI4 $166
-CNSTI4 168
-ADDRLP4 0
-INDIRI4
-MULI4
-ADDRGP4 bg_buildableList
-ADDP4
-INDIRI4
-RETI4
-ADDRGP4 $161
-JUMPV
-LABELV $166
-LABELV $163
-ADDRLP4 0
-ADDRLP4 0
-INDIRI4
-CNSTI4 1
-ADDI4
-ASGNI4
-LABELV $165
-ADDRLP4 0
-INDIRI4
-ADDRGP4 bg_numBuildables
-INDIRI4
-LTI4 $162
-CNSTI4 0
-RETI4
-LABELV $161
-endproc BG_FindBuildNumForName 8 8
-export BG_FindBuildNumForEntityName
-proc BG_FindBuildNumForEntityName 8 8
 ADDRFP4 0
 ADDRFP4 0
 INDIRP4
@@ -1174,7 +1199,7 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+12
+ADDRGP4 bg_buildableList+4
 ADDP4
 INDIRP4
 ARGP4
@@ -1216,13 +1241,13 @@ LTI4 $170
 CNSTI4 0
 RETI4
 LABELV $169
-endproc BG_FindBuildNumForEntityName 8 8
-export BG_FindNameForBuildable
-proc BG_FindNameForBuildable 4 0
+endproc BG_FindBuildNumForName 8 8
+export BG_FindBuildNumForEntityName
+proc BG_FindBuildNumForEntityName 8 8
 ADDRFP4 0
 ADDRFP4 0
-INDIRI4
-ASGNI4
+INDIRP4
+ASGNP4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
@@ -1233,20 +1258,29 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList
+ADDRGP4 bg_buildableList+12
 ADDP4
-INDIRI4
+INDIRP4
+ARGP4
 ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRLP4 4
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 4
 INDIRI4
+CNSTI4 0
 NEI4 $182
 CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+4
+ADDRGP4 bg_buildableList
 ADDP4
-INDIRP4
-RETP4
+INDIRI4
+RETI4
 ADDRGP4 $177
 JUMPV
 LABELV $182
@@ -1263,12 +1297,12 @@ INDIRI4
 ADDRGP4 bg_numBuildables
 INDIRI4
 LTI4 $178
-CNSTP4 0
-RETP4
+CNSTI4 0
+RETI4
 LABELV $177
-endproc BG_FindNameForBuildable 4 0
-export BG_FindHumanNameForBuildable
-proc BG_FindHumanNameForBuildable 4 0
+endproc BG_FindBuildNumForEntityName 8 8
+export BG_FindNameForBuildable
+proc BG_FindNameForBuildable 4 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -1293,7 +1327,7 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+8
+ADDRGP4 bg_buildableList+4
 ADDP4
 INDIRP4
 RETP4
@@ -1316,9 +1350,9 @@ LTI4 $186
 CNSTP4 0
 RETP4
 LABELV $185
-endproc BG_FindHumanNameForBuildable 4 0
-export BG_FindEntityNameForBuildable
-proc BG_FindEntityNameForBuildable 4 0
+endproc BG_FindNameForBuildable 4 0
+export BG_FindHumanNameForBuildable
+proc BG_FindHumanNameForBuildable 4 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -1343,7 +1377,7 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+12
+ADDRGP4 bg_buildableList+8
 ADDP4
 INDIRP4
 RETP4
@@ -1366,6 +1400,56 @@ LTI4 $194
 CNSTP4 0
 RETP4
 LABELV $193
+endproc BG_FindHumanNameForBuildable 4 0
+export BG_FindEntityNameForBuildable
+proc BG_FindEntityNameForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $205
+JUMPV
+LABELV $202
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $206
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+12
+ADDP4
+INDIRP4
+RETP4
+ADDRGP4 $201
+JUMPV
+LABELV $206
+LABELV $203
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $205
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $202
+CNSTP4 0
+RETP4
+LABELV $201
 endproc BG_FindEntityNameForBuildable 4 0
 export BG_FindModelsForBuildable
 proc BG_FindModelsForBuildable 4 0
@@ -1391,7 +1475,7 @@ ADDP4
 INDIRI1
 CVII4 1
 CNSTI4 0
-EQI4 $202
+EQI4 $210
 ADDRFP4 4
 INDIRI4
 CNSTI4 6
@@ -1404,15 +1488,15 @@ ADDRGP4 bg_buildableOverrideList
 ADDP4
 ADDP4
 RETP4
-ADDRGP4 $201
+ADDRGP4 $209
 JUMPV
-LABELV $202
+LABELV $210
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $207
+ADDRGP4 $215
 JUMPV
-LABELV $204
+LABELV $212
 CNSTI4 168
 ADDRLP4 0
 INDIRI4
@@ -1422,7 +1506,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $208
+NEI4 $216
 ADDRFP4 4
 INDIRI4
 CNSTI4 2
@@ -1436,25 +1520,25 @@ ADDP4
 ADDP4
 INDIRP4
 RETP4
-ADDRGP4 $201
+ADDRGP4 $209
 JUMPV
-LABELV $208
-LABELV $205
+LABELV $216
+LABELV $213
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $207
+LABELV $215
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numBuildables
 INDIRI4
-LTI4 $204
+LTI4 $212
 CNSTP4 0
 RETP4
-LABELV $201
+LABELV $209
 endproc BG_FindModelsForBuildable 4 0
 export BG_FindModelScaleForBuildable
 proc BG_FindModelScaleForBuildable 4 8
@@ -1470,7 +1554,7 @@ ADDRGP4 bg_buildableOverrideList+256
 ADDP4
 INDIRF4
 CNSTF4 0
-EQF4 $212
+EQF4 $220
 CNSTI4 288
 ADDRFP4 0
 INDIRI4
@@ -1479,15 +1563,15 @@ ADDRGP4 bg_buildableOverrideList+256
 ADDP4
 INDIRF4
 RETF4
-ADDRGP4 $211
+ADDRGP4 $219
 JUMPV
-LABELV $212
+LABELV $220
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $219
+ADDRGP4 $227
 JUMPV
-LABELV $216
+LABELV $224
 CNSTI4 168
 ADDRLP4 0
 INDIRI4
@@ -1497,7 +1581,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $220
+NEI4 $228
 CNSTI4 168
 ADDRLP4 0
 INDIRI4
@@ -1506,23 +1590,23 @@ ADDRGP4 bg_buildableList+32
 ADDP4
 INDIRF4
 RETF4
-ADDRGP4 $211
+ADDRGP4 $219
 JUMPV
-LABELV $220
-LABELV $217
+LABELV $228
+LABELV $225
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $219
+LABELV $227
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numBuildables
 INDIRI4
-LTI4 $216
-ADDRGP4 $223
+LTI4 $224
+ADDRGP4 $231
 ARGP4
 ADDRFP4 0
 INDIRI4
@@ -1532,7 +1616,7 @@ CALLV
 pop
 CNSTF4 1065353216
 RETF4
-LABELV $211
+LABELV $219
 endproc BG_FindModelScaleForBuildable 4 8
 export BG_FindBBoxForBuildable
 proc BG_FindBBoxForBuildable 8 4
@@ -1551,9 +1635,9 @@ ASGNP4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $228
+ADDRGP4 $236
 JUMPV
-LABELV $225
+LABELV $233
 CNSTI4 168
 ADDRLP4 0
 INDIRI4
@@ -1563,12 +1647,12 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $229
+NEI4 $237
 ADDRFP4 4
 INDIRP4
 CVPU4 4
 CNSTU4 0
-EQU4 $231
+EQU4 $239
 ADDRFP4 4
 INDIRP4
 CNSTI4 168
@@ -1593,7 +1677,7 @@ ASGNF4
 ADDRLP4 4
 INDIRF4
 CNSTF4 0
-EQF4 $234
+EQF4 $242
 ADDRFP4 4
 INDIRP4
 CNSTI4 288
@@ -1604,13 +1688,13 @@ ADDRGP4 bg_buildableOverrideList+260
 ADDP4
 INDIRB
 ASGNB 12
-LABELV $234
-LABELV $231
+LABELV $242
+LABELV $239
 ADDRFP4 8
 INDIRP4
 CVPU4 4
 CNSTU4 0
-EQU4 $224
+EQU4 $232
 ADDRFP4 8
 INDIRP4
 CNSTI4 168
@@ -1635,7 +1719,7 @@ ASGNF4
 ADDRLP4 4
 INDIRF4
 CNSTF4 0
-EQF4 $224
+EQF4 $232
 ADDRFP4 8
 INDIRP4
 CNSTI4 288
@@ -1646,45 +1730,45 @@ ADDRGP4 bg_buildableOverrideList+272
 ADDP4
 INDIRB
 ASGNB 12
-ADDRGP4 $224
+ADDRGP4 $232
 JUMPV
-LABELV $229
-LABELV $226
+LABELV $237
+LABELV $234
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $228
+LABELV $236
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numBuildables
 INDIRI4
-LTI4 $225
+LTI4 $233
 ADDRFP4 4
 INDIRP4
 CVPU4 4
 CNSTU4 0
-EQU4 $245
+EQU4 $253
 ADDRFP4 4
 INDIRP4
 ADDRGP4 bg_buildableList+36
 INDIRB
 ASGNB 12
-LABELV $245
+LABELV $253
 ADDRFP4 8
 INDIRP4
 CVPU4 4
 CNSTU4 0
-EQU4 $248
+EQU4 $256
 ADDRFP4 8
 INDIRP4
 ADDRGP4 bg_buildableList+48
 INDIRB
 ASGNB 12
-LABELV $248
-LABELV $224
+LABELV $256
+LABELV $232
 endproc BG_FindBBoxForBuildable 8 4
 export BG_FindZOffsetForBuildable
 proc BG_FindZOffsetForBuildable 4 0
@@ -1700,7 +1784,7 @@ ADDRGP4 bg_buildableOverrideList+284
 ADDP4
 INDIRF4
 CNSTF4 0
-EQF4 $252
+EQF4 $260
 CNSTI4 288
 ADDRFP4 0
 INDIRI4
@@ -1709,59 +1793,9 @@ ADDRGP4 bg_buildableOverrideList+284
 ADDP4
 INDIRF4
 RETF4
-ADDRGP4 $251
-JUMPV
-LABELV $252
-ADDRLP4 0
-CNSTI4 0
-ASGNI4
 ADDRGP4 $259
 JUMPV
-LABELV $256
-CNSTI4 168
-ADDRLP4 0
-INDIRI4
-MULI4
-ADDRGP4 bg_buildableList
-ADDP4
-INDIRI4
-ADDRFP4 0
-INDIRI4
-NEI4 $260
-CNSTI4 168
-ADDRLP4 0
-INDIRI4
-MULI4
-ADDRGP4 bg_buildableList+60
-ADDP4
-INDIRF4
-RETF4
-ADDRGP4 $251
-JUMPV
 LABELV $260
-LABELV $257
-ADDRLP4 0
-ADDRLP4 0
-INDIRI4
-CNSTI4 1
-ADDI4
-ASGNI4
-LABELV $259
-ADDRLP4 0
-INDIRI4
-ADDRGP4 bg_numBuildables
-INDIRI4
-LTI4 $256
-CNSTF4 0
-RETF4
-LABELV $251
-endproc BG_FindZOffsetForBuildable 4 0
-export BG_FindTrajectoryForBuildable
-proc BG_FindTrajectoryForBuildable 4 0
-ADDRFP4 0
-ADDRFP4 0
-INDIRI4
-ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
@@ -1782,11 +1816,11 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+64
+ADDRGP4 bg_buildableList+60
 ADDP4
-INDIRI4
-RETI4
-ADDRGP4 $263
+INDIRF4
+RETF4
+ADDRGP4 $259
 JUMPV
 LABELV $268
 LABELV $265
@@ -1802,12 +1836,12 @@ INDIRI4
 ADDRGP4 bg_numBuildables
 INDIRI4
 LTI4 $264
-CNSTI4 5
-RETI4
-LABELV $263
-endproc BG_FindTrajectoryForBuildable 4 0
-export BG_FindBounceForBuildable
-proc BG_FindBounceForBuildable 4 0
+CNSTF4 0
+RETF4
+LABELV $259
+endproc BG_FindZOffsetForBuildable 4 0
+export BG_FindTrajectoryForBuildable
+proc BG_FindTrajectoryForBuildable 4 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -1832,10 +1866,10 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+68
+ADDRGP4 bg_buildableList+64
 ADDP4
-INDIRF4
-RETF4
+INDIRI4
+RETI4
 ADDRGP4 $271
 JUMPV
 LABELV $276
@@ -1852,12 +1886,12 @@ INDIRI4
 ADDRGP4 bg_numBuildables
 INDIRI4
 LTI4 $272
-CNSTF4 0
-RETF4
+CNSTI4 5
+RETI4
 LABELV $271
-endproc BG_FindBounceForBuildable 4 0
-export BG_FindBuildPointsForBuildable
-proc BG_FindBuildPointsForBuildable 4 0
+endproc BG_FindTrajectoryForBuildable 4 0
+export BG_FindBounceForBuildable
+proc BG_FindBounceForBuildable 4 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -1882,10 +1916,10 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+72
+ADDRGP4 bg_buildableList+68
 ADDP4
-INDIRI4
-RETI4
+INDIRF4
+RETF4
 ADDRGP4 $279
 JUMPV
 LABELV $284
@@ -1902,18 +1936,14 @@ INDIRI4
 ADDRGP4 bg_numBuildables
 INDIRI4
 LTI4 $280
-CNSTI4 1000
-RETI4
+CNSTF4 0
+RETF4
 LABELV $279
-endproc BG_FindBuildPointsForBuildable 4 0
-export BG_FindStagesForBuildable
-proc BG_FindStagesForBuildable 4 0
+endproc BG_FindBounceForBuildable 4 0
+export BG_FindBuildPointsForBuildable
+proc BG_FindBuildPointsForBuildable 4 0
 ADDRFP4 0
 ADDRFP4 0
-INDIRI4
-ASGNI4
-ADDRFP4 4
-ADDRFP4 4
 INDIRI4
 ASGNI4
 ADDRLP4 0
@@ -1936,22 +1966,9 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+76
+ADDRGP4 bg_buildableList+72
 ADDP4
 INDIRI4
-CNSTI4 1
-ADDRFP4 4
-INDIRI4
-LSHI4
-BANDI4
-CNSTI4 0
-EQI4 $294
-CNSTI4 1
-RETI4
-ADDRGP4 $287
-JUMPV
-LABELV $294
-CNSTI4 0
 RETI4
 ADDRGP4 $287
 JUMPV
@@ -1969,22 +1986,26 @@ INDIRI4
 ADDRGP4 bg_numBuildables
 INDIRI4
 LTI4 $288
-CNSTI4 0
+CNSTI4 1000
 RETI4
 LABELV $287
-endproc BG_FindStagesForBuildable 4 0
-export BG_FindHealthForBuildable
-proc BG_FindHealthForBuildable 4 0
+endproc BG_FindBuildPointsForBuildable 4 0
+export BG_FindStagesForBuildable
+proc BG_FindStagesForBuildable 4 0
 ADDRFP4 0
 ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRFP4 4
+ADDRFP4 4
 INDIRI4
 ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $301
+ADDRGP4 $299
 JUMPV
-LABELV $298
+LABELV $296
 CNSTI4 168
 ADDRLP4 0
 INDIRI4
@@ -1994,37 +2015,50 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $302
+NEI4 $300
 CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+80
+ADDRGP4 bg_buildableList+76
 ADDP4
 INDIRI4
+CNSTI4 1
+ADDRFP4 4
+INDIRI4
+LSHI4
+BANDI4
+CNSTI4 0
+EQI4 $302
+CNSTI4 1
 RETI4
-ADDRGP4 $297
+ADDRGP4 $295
 JUMPV
 LABELV $302
-LABELV $299
+CNSTI4 0
+RETI4
+ADDRGP4 $295
+JUMPV
+LABELV $300
+LABELV $297
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $301
+LABELV $299
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numBuildables
 INDIRI4
-LTI4 $298
-CNSTI4 1000
+LTI4 $296
+CNSTI4 0
 RETI4
-LABELV $297
-endproc BG_FindHealthForBuildable 4 0
-export BG_FindRegenRateForBuildable
-proc BG_FindRegenRateForBuildable 4 0
+LABELV $295
+endproc BG_FindStagesForBuildable 4 0
+export BG_FindHealthForBuildable
+proc BG_FindHealthForBuildable 4 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -2049,7 +2083,7 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+84
+ADDRGP4 bg_buildableList+80
 ADDP4
 INDIRI4
 RETI4
@@ -2069,12 +2103,12 @@ INDIRI4
 ADDRGP4 bg_numBuildables
 INDIRI4
 LTI4 $306
-CNSTI4 0
+CNSTI4 1000
 RETI4
 LABELV $305
-endproc BG_FindRegenRateForBuildable 4 0
-export BG_FindSplashDamageForBuildable
-proc BG_FindSplashDamageForBuildable 4 0
+endproc BG_FindHealthForBuildable 4 0
+export BG_FindRegenRateForBuildable
+proc BG_FindRegenRateForBuildable 4 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -2099,7 +2133,7 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+88
+ADDRGP4 bg_buildableList+84
 ADDP4
 INDIRI4
 RETI4
@@ -2119,12 +2153,12 @@ INDIRI4
 ADDRGP4 bg_numBuildables
 INDIRI4
 LTI4 $314
-CNSTI4 50
+CNSTI4 0
 RETI4
 LABELV $313
-endproc BG_FindSplashDamageForBuildable 4 0
-export BG_FindSplashRadiusForBuildable
-proc BG_FindSplashRadiusForBuildable 4 0
+endproc BG_FindRegenRateForBuildable 4 0
+export BG_FindSplashDamageForBuildable
+proc BG_FindSplashDamageForBuildable 4 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -2149,7 +2183,7 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+92
+ADDRGP4 bg_buildableList+88
 ADDP4
 INDIRI4
 RETI4
@@ -2169,12 +2203,12 @@ INDIRI4
 ADDRGP4 bg_numBuildables
 INDIRI4
 LTI4 $322
-CNSTI4 200
+CNSTI4 50
 RETI4
 LABELV $321
-endproc BG_FindSplashRadiusForBuildable 4 0
-export BG_FindMODForBuildable
-proc BG_FindMODForBuildable 4 0
+endproc BG_FindSplashDamageForBuildable 4 0
+export BG_FindSplashRadiusForBuildable
+proc BG_FindSplashRadiusForBuildable 4 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -2199,7 +2233,7 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+96
+ADDRGP4 bg_buildableList+92
 ADDP4
 INDIRI4
 RETI4
@@ -2219,12 +2253,12 @@ INDIRI4
 ADDRGP4 bg_numBuildables
 INDIRI4
 LTI4 $330
-CNSTI4 0
+CNSTI4 200
 RETI4
 LABELV $329
-endproc BG_FindMODForBuildable 4 0
-export BG_FindTeamForBuildable
-proc BG_FindTeamForBuildable 4 0
+endproc BG_FindSplashRadiusForBuildable 4 0
+export BG_FindMODForBuildable
+proc BG_FindMODForBuildable 4 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -2249,7 +2283,7 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+100
+ADDRGP4 bg_buildableList+96
 ADDP4
 INDIRI4
 RETI4
@@ -2272,9 +2306,9 @@ LTI4 $338
 CNSTI4 0
 RETI4
 LABELV $337
-endproc BG_FindTeamForBuildable 4 0
-export BG_FindBuildWeaponForBuildable
-proc BG_FindBuildWeaponForBuildable 4 0
+endproc BG_FindMODForBuildable 4 0
+export BG_FindTeamForBuildable
+proc BG_FindTeamForBuildable 4 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -2299,7 +2333,7 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+104
+ADDRGP4 bg_buildableList+100
 ADDP4
 INDIRI4
 RETI4
@@ -2322,9 +2356,9 @@ LTI4 $346
 CNSTI4 0
 RETI4
 LABELV $345
-endproc BG_FindBuildWeaponForBuildable 4 0
-export BG_FindAnimForBuildable
-proc BG_FindAnimForBuildable 4 0
+endproc BG_FindTeamForBuildable 4 0
+export BG_FindBuildWeaponForBuildable
+proc BG_FindBuildWeaponForBuildable 4 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -2349,7 +2383,7 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+108
+ADDRGP4 bg_buildableList+104
 ADDP4
 INDIRI4
 RETI4
@@ -2369,12 +2403,12 @@ INDIRI4
 ADDRGP4 bg_numBuildables
 INDIRI4
 LTI4 $354
-CNSTI4 3
+CNSTI4 0
 RETI4
 LABELV $353
-endproc BG_FindAnimForBuildable 4 0
-export BG_FindNextThinkForBuildable
-proc BG_FindNextThinkForBuildable 4 0
+endproc BG_FindBuildWeaponForBuildable 4 0
+export BG_FindAnimForBuildable
+proc BG_FindAnimForBuildable 4 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -2399,7 +2433,7 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+112
+ADDRGP4 bg_buildableList+108
 ADDP4
 INDIRI4
 RETI4
@@ -2419,12 +2453,12 @@ INDIRI4
 ADDRGP4 bg_numBuildables
 INDIRI4
 LTI4 $362
-CNSTI4 100
+CNSTI4 3
 RETI4
 LABELV $361
-endproc BG_FindNextThinkForBuildable 4 0
-export BG_FindBuildTimeForBuildable
-proc BG_FindBuildTimeForBuildable 4 0
+endproc BG_FindAnimForBuildable 4 0
+export BG_FindNextThinkForBuildable
+proc BG_FindNextThinkForBuildable 4 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -2449,7 +2483,7 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+116
+ADDRGP4 bg_buildableList+112
 ADDP4
 INDIRI4
 RETI4
@@ -2469,12 +2503,12 @@ INDIRI4
 ADDRGP4 bg_numBuildables
 INDIRI4
 LTI4 $370
-CNSTI4 10000
+CNSTI4 100
 RETI4
 LABELV $369
-endproc BG_FindBuildTimeForBuildable 4 0
-export BG_FindUsableForBuildable
-proc BG_FindUsableForBuildable 4 0
+endproc BG_FindNextThinkForBuildable 4 0
+export BG_FindBuildTimeForBuildable
+proc BG_FindBuildTimeForBuildable 4 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -2499,7 +2533,7 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+120
+ADDRGP4 bg_buildableList+116
 ADDP4
 INDIRI4
 RETI4
@@ -2519,12 +2553,12 @@ INDIRI4
 ADDRGP4 bg_numBuildables
 INDIRI4
 LTI4 $378
-CNSTI4 0
+CNSTI4 10000
 RETI4
 LABELV $377
-endproc BG_FindUsableForBuildable 4 0
-export BG_FindFireSpeedForBuildable
-proc BG_FindFireSpeedForBuildable 4 0
+endproc BG_FindBuildTimeForBuildable 4 0
+export BG_FindUsableForBuildable
+proc BG_FindUsableForBuildable 4 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -2549,7 +2583,7 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+128
+ADDRGP4 bg_buildableList+120
 ADDP4
 INDIRI4
 RETI4
@@ -2569,12 +2603,12 @@ INDIRI4
 ADDRGP4 bg_numBuildables
 INDIRI4
 LTI4 $386
-CNSTI4 1000
+CNSTI4 0
 RETI4
 LABELV $385
-endproc BG_FindFireSpeedForBuildable 4 0
-export BG_FindRangeForBuildable
-proc BG_FindRangeForBuildable 4 0
+endproc BG_FindUsableForBuildable 4 0
+export BG_FindFireSpeedForBuildable
+proc BG_FindFireSpeedForBuildable 4 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -2599,7 +2633,7 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+124
+ADDRGP4 bg_buildableList+128
 ADDP4
 INDIRI4
 RETI4
@@ -2622,9 +2656,9 @@ LTI4 $394
 CNSTI4 1000
 RETI4
 LABELV $393
-endproc BG_FindRangeForBuildable 4 0
-export BG_FindProjTypeForBuildable
-proc BG_FindProjTypeForBuildable 4 0
+endproc BG_FindFireSpeedForBuildable 4 0
+export BG_FindRangeForBuildable
+proc BG_FindRangeForBuildable 4 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -2649,7 +2683,7 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+132
+ADDRGP4 bg_buildableList+124
 ADDP4
 INDIRI4
 RETI4
@@ -2669,12 +2703,12 @@ INDIRI4
 ADDRGP4 bg_numBuildables
 INDIRI4
 LTI4 $402
-CNSTI4 0
+CNSTI4 1000
 RETI4
 LABELV $401
-endproc BG_FindProjTypeForBuildable 4 0
-export BG_FindMinNormalForBuildable
-proc BG_FindMinNormalForBuildable 4 0
+endproc BG_FindRangeForBuildable 4 0
+export BG_FindProjTypeForBuildable
+proc BG_FindProjTypeForBuildable 4 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -2699,10 +2733,10 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+136
+ADDRGP4 bg_buildableList+132
 ADDP4
-INDIRF4
-RETF4
+INDIRI4
+RETI4
 ADDRGP4 $409
 JUMPV
 LABELV $414
@@ -2719,12 +2753,12 @@ INDIRI4
 ADDRGP4 bg_numBuildables
 INDIRI4
 LTI4 $410
-CNSTF4 1060437492
-RETF4
+CNSTI4 0
+RETI4
 LABELV $409
-endproc BG_FindMinNormalForBuildable 4 0
-export BG_FindInvertNormalForBuildable
-proc BG_FindInvertNormalForBuildable 4 0
+endproc BG_FindProjTypeForBuildable 4 0
+export BG_FindMinNormalForBuildable
+proc BG_FindMinNormalForBuildable 4 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -2749,10 +2783,10 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+140
+ADDRGP4 bg_buildableList+136
 ADDP4
-INDIRI4
-RETI4
+INDIRF4
+RETF4
 ADDRGP4 $417
 JUMPV
 LABELV $422
@@ -2769,12 +2803,12 @@ INDIRI4
 ADDRGP4 bg_numBuildables
 INDIRI4
 LTI4 $418
-CNSTI4 0
-RETI4
+CNSTF4 1060437492
+RETF4
 LABELV $417
-endproc BG_FindInvertNormalForBuildable 4 0
-export BG_FindCreepTestForBuildable
-proc BG_FindCreepTestForBuildable 4 0
+endproc BG_FindMinNormalForBuildable 4 0
+export BG_FindInvertNormalForBuildable
+proc BG_FindInvertNormalForBuildable 4 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -2799,7 +2833,7 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+144
+ADDRGP4 bg_buildableList+140
 ADDP4
 INDIRI4
 RETI4
@@ -2822,9 +2856,9 @@ LTI4 $426
 CNSTI4 0
 RETI4
 LABELV $425
-endproc BG_FindCreepTestForBuildable 4 0
-export BG_FindCreepSizeForBuildable
-proc BG_FindCreepSizeForBuildable 4 0
+endproc BG_FindInvertNormalForBuildable 4 0
+export BG_FindCreepTestForBuildable
+proc BG_FindCreepTestForBuildable 4 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -2849,7 +2883,7 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+148
+ADDRGP4 bg_buildableList+144
 ADDP4
 INDIRI4
 RETI4
@@ -2869,12 +2903,12 @@ INDIRI4
 ADDRGP4 bg_numBuildables
 INDIRI4
 LTI4 $434
-CNSTI4 700
+CNSTI4 0
 RETI4
 LABELV $433
-endproc BG_FindCreepSizeForBuildable 4 0
-export BG_FindDCCTestForBuildable
-proc BG_FindDCCTestForBuildable 4 0
+endproc BG_FindCreepTestForBuildable 4 0
+export BG_FindCreepSizeForBuildable
+proc BG_FindCreepSizeForBuildable 4 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -2899,7 +2933,7 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+152
+ADDRGP4 bg_buildableList+148
 ADDP4
 INDIRI4
 RETI4
@@ -2919,12 +2953,12 @@ INDIRI4
 ADDRGP4 bg_numBuildables
 INDIRI4
 LTI4 $442
-CNSTI4 0
+CNSTI4 700
 RETI4
 LABELV $441
-endproc BG_FindDCCTestForBuildable 4 0
-export BG_FindUniqueTestForBuildable
-proc BG_FindUniqueTestForBuildable 4 0
+endproc BG_FindCreepSizeForBuildable 4 0
+export BG_FindDCCTestForBuildable
+proc BG_FindDCCTestForBuildable 4 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -2949,7 +2983,7 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+160
+ADDRGP4 bg_buildableList+152
 ADDP4
 INDIRI4
 RETI4
@@ -2972,9 +3006,9 @@ LTI4 $450
 CNSTI4 0
 RETI4
 LABELV $449
-endproc BG_FindUniqueTestForBuildable 4 0
-export BG_FindReplaceableTestForBuildable
-proc BG_FindReplaceableTestForBuildable 4 0
+endproc BG_FindDCCTestForBuildable 4 0
+export BG_FindUniqueTestForBuildable
+proc BG_FindUniqueTestForBuildable 4 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -2999,7 +3033,7 @@ CNSTI4 168
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_buildableList+164
+ADDRGP4 bg_buildableList+160
 ADDP4
 INDIRI4
 RETI4
@@ -3022,6 +3056,56 @@ LTI4 $458
 CNSTI4 0
 RETI4
 LABELV $457
+endproc BG_FindUniqueTestForBuildable 4 0
+export BG_FindReplaceableTestForBuildable
+proc BG_FindReplaceableTestForBuildable 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $469
+JUMPV
+LABELV $466
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $470
+CNSTI4 168
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_buildableList+164
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $465
+JUMPV
+LABELV $470
+LABELV $467
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $469
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numBuildables
+INDIRI4
+LTI4 $466
+CNSTI4 0
+RETI4
+LABELV $465
 endproc BG_FindReplaceableTestForBuildable 4 0
 proc BG_FindOverrideForBuildable 0 0
 CNSTI4 288
@@ -3031,7 +3115,7 @@ MULI4
 ADDRGP4 bg_buildableOverrideList
 ADDP4
 RETP4
-LABELV $465
+LABELV $473
 endproc BG_FindOverrideForBuildable 0 0
 export BG_FindTransparentTestForBuildable
 proc BG_FindTransparentTestForBuildable 4 0
@@ -3042,9 +3126,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $470
+ADDRGP4 $478
 JUMPV
-LABELV $467
+LABELV $475
 CNSTI4 168
 ADDRLP4 0
 INDIRI4
@@ -3054,7 +3138,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $471
+NEI4 $479
 CNSTI4 168
 ADDRLP4 0
 INDIRI4
@@ -3063,25 +3147,25 @@ ADDRGP4 bg_buildableList+156
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $466
+ADDRGP4 $474
 JUMPV
-LABELV $471
-LABELV $468
+LABELV $479
+LABELV $476
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $470
+LABELV $478
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numBuildables
 INDIRI4
-LTI4 $467
+LTI4 $475
 CNSTI4 0
 RETI4
-LABELV $466
+LABELV $474
 endproc BG_FindTransparentTestForBuildable 4 0
 proc BG_ParseBuildableFile 20072 12
 ADDRFP4 4
@@ -3106,29 +3190,29 @@ ASGNI4
 ADDRLP4 16
 INDIRI4
 CNSTI4 0
-GEI4 $475
+GEI4 $483
 CNSTI4 0
 RETI4
-ADDRGP4 $474
+ADDRGP4 $482
 JUMPV
-LABELV $475
+LABELV $483
 ADDRLP4 16
 INDIRI4
 CNSTI4 0
-EQI4 $479
+EQI4 $487
 ADDRLP4 16
 INDIRI4
 CVIU4 4
 CNSTU4 19999
-LTU4 $477
-LABELV $479
+LTU4 $485
+LABELV $487
 ADDRLP4 20020
 INDIRI4
 ARGI4
 ADDRGP4 trap_FS_FCloseFile
 CALLV
 pop
-ADDRGP4 $480
+ADDRGP4 $488
 ARGP4
 ADDRFP4 0
 INDIRP4
@@ -3136,17 +3220,17 @@ ARGP4
 ADDRLP4 16
 INDIRI4
 CNSTI4 0
-NEI4 $484
+NEI4 $492
 ADDRLP4 20032
-ADDRGP4 $481
+ADDRGP4 $489
 ASGNP4
-ADDRGP4 $485
+ADDRGP4 $493
 JUMPV
-LABELV $484
+LABELV $492
 ADDRLP4 20032
-ADDRGP4 $482
+ADDRGP4 $490
 ASGNP4
-LABELV $485
+LABELV $493
 ADDRLP4 20032
 INDIRP4
 ARGP4
@@ -3155,9 +3239,9 @@ CALLV
 pop
 CNSTI4 0
 RETI4
-ADDRGP4 $474
+ADDRGP4 $482
 JUMPV
-LABELV $477
+LABELV $485
 ADDRLP4 20
 ARGP4
 ADDRLP4 16
@@ -3184,9 +3268,9 @@ pop
 ADDRLP4 8
 ADDRLP4 20
 ASGNP4
-ADDRGP4 $487
+ADDRGP4 $495
 JUMPV
-LABELV $486
+LABELV $494
 ADDRLP4 8
 ARGP4
 ADDRLP4 20032
@@ -3201,30 +3285,30 @@ ADDRLP4 0
 INDIRP4
 CVPU4 4
 CNSTU4 0
-NEU4 $489
-ADDRGP4 $488
-JUMPV
-LABELV $489
-ADDRLP4 0
-INDIRP4
-ARGP4
-ADDRGP4 $493
-ARGP4
-ADDRLP4 20036
-ADDRGP4 Q_stricmp
-CALLI4
-ASGNI4
-ADDRLP4 20036
-INDIRI4
-CNSTI4 0
-NEI4 $491
-ADDRGP4 $488
-JUMPV
-LABELV $491
-ADDRLP4 0
-INDIRP4
-ARGP4
+NEU4 $497
 ADDRGP4 $496
+JUMPV
+LABELV $497
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 $501
+ARGP4
+ADDRLP4 20036
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 20036
+INDIRI4
+CNSTI4 0
+NEI4 $499
+ADDRGP4 $496
+JUMPV
+LABELV $499
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 $504
 ARGP4
 ADDRLP4 20040
 ADDRGP4 Q_stricmp
@@ -3233,7 +3317,7 @@ ASGNI4
 ADDRLP4 20040
 INDIRI4
 CNSTI4 0
-NEI4 $494
+NEI4 $502
 ADDRLP4 20044
 CNSTI4 0
 ASGNI4
@@ -3251,10 +3335,10 @@ ADDRLP4 0
 INDIRP4
 CVPU4 4
 CNSTU4 0
-NEU4 $497
-ADDRGP4 $488
+NEU4 $505
+ADDRGP4 $496
 JUMPV
-LABELV $497
+LABELV $505
 ADDRLP4 0
 INDIRP4
 ARGP4
@@ -3269,22 +3353,22 @@ ASGNI4
 ADDRLP4 20044
 INDIRI4
 CNSTI4 0
-GEI4 $499
+GEI4 $507
 ADDRLP4 20044
 CNSTI4 0
 ASGNI4
-ADDRGP4 $500
+ADDRGP4 $508
 JUMPV
-LABELV $499
+LABELV $507
 ADDRLP4 20044
 INDIRI4
 CNSTI4 3
-LEI4 $501
+LEI4 $509
 ADDRLP4 20044
 CNSTI4 3
 ASGNI4
-LABELV $501
-LABELV $500
+LABELV $509
+LABELV $508
 ADDRLP4 8
 ARGP4
 ADDRLP4 20056
@@ -3299,10 +3383,10 @@ ADDRLP4 0
 INDIRP4
 CVPU4 4
 CNSTU4 0
-NEU4 $503
-ADDRGP4 $488
+NEU4 $511
+ADDRGP4 $496
 JUMPV
-LABELV $503
+LABELV $511
 ADDRLP4 20044
 INDIRI4
 CNSTI4 6
@@ -3319,13 +3403,13 @@ ARGI4
 ADDRGP4 Q_strncpyz
 CALLV
 pop
-ADDRGP4 $487
+ADDRGP4 $495
 JUMPV
-LABELV $494
+LABELV $502
 ADDRLP4 0
 INDIRP4
 ARGP4
-ADDRGP4 $507
+ADDRGP4 $515
 ARGP4
 ADDRLP4 20044
 ADDRGP4 Q_stricmp
@@ -3334,7 +3418,7 @@ ASGNI4
 ADDRLP4 20044
 INDIRI4
 CNSTI4 0
-NEI4 $505
+NEI4 $513
 ADDRLP4 8
 ARGP4
 ADDRLP4 20048
@@ -3349,10 +3433,10 @@ ADDRLP4 0
 INDIRP4
 CVPU4 4
 CNSTU4 0
-NEU4 $508
-ADDRGP4 $488
+NEU4 $516
+ADDRGP4 $496
 JUMPV
-LABELV $508
+LABELV $516
 ADDRLP4 0
 INDIRP4
 ARGP4
@@ -3367,11 +3451,11 @@ ASGNF4
 ADDRLP4 12
 INDIRF4
 CNSTF4 0
-GEF4 $510
+GEF4 $518
 ADDRLP4 12
 CNSTF4 0
 ASGNF4
-LABELV $510
+LABELV $518
 ADDRFP4 4
 INDIRP4
 CNSTI4 256
@@ -3379,13 +3463,13 @@ ADDP4
 ADDRLP4 12
 INDIRF4
 ASGNF4
-ADDRGP4 $487
+ADDRGP4 $495
 JUMPV
-LABELV $505
+LABELV $513
 ADDRLP4 0
 INDIRP4
 ARGP4
-ADDRGP4 $514
+ADDRGP4 $522
 ARGP4
 ADDRLP4 20048
 ADDRGP4 Q_stricmp
@@ -3394,11 +3478,11 @@ ASGNI4
 ADDRLP4 20048
 INDIRI4
 CNSTI4 0
-NEI4 $512
+NEI4 $520
 ADDRLP4 4
 CNSTI4 0
 ASGNI4
-LABELV $515
+LABELV $523
 ADDRLP4 8
 ARGP4
 ADDRLP4 20052
@@ -3413,10 +3497,10 @@ ADDRLP4 0
 INDIRP4
 CVPU4 4
 CNSTU4 0
-NEU4 $519
-ADDRGP4 $487
+NEU4 $527
+ADDRGP4 $495
 JUMPV
-LABELV $519
+LABELV $527
 ADDRLP4 0
 INDIRP4
 ARGP4
@@ -3436,7 +3520,7 @@ ADDP4
 ADDRLP4 20056
 INDIRF4
 ASGNF4
-LABELV $516
+LABELV $524
 ADDRLP4 4
 ADDRLP4 4
 INDIRI4
@@ -3446,14 +3530,14 @@ ASGNI4
 ADDRLP4 4
 INDIRI4
 CNSTI4 2
-LEI4 $515
-ADDRGP4 $487
+LEI4 $523
+ADDRGP4 $495
 JUMPV
-LABELV $512
+LABELV $520
 ADDRLP4 0
 INDIRP4
 ARGP4
-ADDRGP4 $523
+ADDRGP4 $531
 ARGP4
 ADDRLP4 20052
 ADDRGP4 Q_stricmp
@@ -3462,11 +3546,11 @@ ASGNI4
 ADDRLP4 20052
 INDIRI4
 CNSTI4 0
-NEI4 $521
+NEI4 $529
 ADDRLP4 4
 CNSTI4 0
 ASGNI4
-LABELV $524
+LABELV $532
 ADDRLP4 8
 ARGP4
 ADDRLP4 20056
@@ -3481,10 +3565,10 @@ ADDRLP4 0
 INDIRP4
 CVPU4 4
 CNSTU4 0
-NEU4 $528
-ADDRGP4 $487
+NEU4 $536
+ADDRGP4 $495
 JUMPV
-LABELV $528
+LABELV $536
 ADDRLP4 0
 INDIRP4
 ARGP4
@@ -3504,7 +3588,7 @@ ADDP4
 ADDRLP4 20060
 INDIRF4
 ASGNF4
-LABELV $525
+LABELV $533
 ADDRLP4 4
 ADDRLP4 4
 INDIRI4
@@ -3514,14 +3598,14 @@ ASGNI4
 ADDRLP4 4
 INDIRI4
 CNSTI4 2
-LEI4 $524
-ADDRGP4 $487
+LEI4 $532
+ADDRGP4 $495
 JUMPV
-LABELV $521
+LABELV $529
 ADDRLP4 0
 INDIRP4
 ARGP4
-ADDRGP4 $532
+ADDRGP4 $540
 ARGP4
 ADDRLP4 20056
 ADDRGP4 Q_stricmp
@@ -3530,7 +3614,7 @@ ASGNI4
 ADDRLP4 20056
 INDIRI4
 CNSTI4 0
-NEI4 $530
+NEI4 $538
 ADDRLP4 8
 ARGP4
 ADDRLP4 20064
@@ -3545,10 +3629,10 @@ ADDRLP4 0
 INDIRP4
 CVPU4 4
 CNSTU4 0
-NEU4 $533
-ADDRGP4 $488
+NEU4 $541
+ADDRGP4 $496
 JUMPV
-LABELV $533
+LABELV $541
 ADDRLP4 0
 INDIRP4
 ARGP4
@@ -3567,10 +3651,10 @@ ADDP4
 ADDRLP4 20060
 INDIRF4
 ASGNF4
-ADDRGP4 $487
+ADDRGP4 $495
 JUMPV
-LABELV $530
-ADDRGP4 $535
+LABELV $538
+ADDRGP4 $543
 ARGP4
 ADDRLP4 0
 INDIRP4
@@ -3580,22 +3664,22 @@ CALLV
 pop
 CNSTI4 0
 RETI4
-ADDRGP4 $474
+ADDRGP4 $482
 JUMPV
-LABELV $487
-ADDRGP4 $486
+LABELV $495
+ADDRGP4 $494
 JUMPV
-LABELV $488
+LABELV $496
 CNSTI4 1
 RETI4
-LABELV $474
+LABELV $482
 endproc BG_ParseBuildableFile 20072 12
 export BG_InitBuildableOverrides
 proc BG_InitBuildableOverrides 20 8
 ADDRLP4 0
 CNSTI4 1
 ASGNI4
-LABELV $537
+LABELV $545
 ADDRLP4 0
 INDIRI4
 ARGI4
@@ -3614,7 +3698,7 @@ ADDRLP4 12
 ADDRGP4 BG_FindNameForBuildable
 CALLP4
 ASGNP4
-ADDRGP4 $541
+ADDRGP4 $549
 ARGP4
 ADDRLP4 12
 INDIRP4
@@ -3632,7 +3716,7 @@ ARGP4
 ADDRGP4 BG_ParseBuildableFile
 CALLI4
 pop
-LABELV $538
+LABELV $546
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
@@ -3641,22 +3725,22 @@ ADDI4
 ASGNI4
 ADDRLP4 0
 INDIRI4
-CNSTI4 27
-LTI4 $537
-LABELV $536
+CNSTI4 29
+LTI4 $545
+LABELV $544
 endproc BG_InitBuildableOverrides 20 8
 data
 export bg_classList
 align 4
 LABELV bg_classList
 byte 4 0
-address $542
-address $543
-address $493
+address $550
+address $551
+address $501
 byte 4 1065353216
-address $493
+address $501
 byte 4 1065353216
-address $493
+address $501
 byte 4 7
 byte 4 3245342720
 byte 4 3245342720
@@ -3700,13 +3784,13 @@ byte 4 0
 byte 4 0
 byte 4 0
 byte 4 1
-address $544
-address $545
-address $544
+address $552
+address $553
+address $552
 byte 4 1065353216
-address $546
+address $554
 byte 4 1065353216
-address $547
+address $555
 byte 4 7
 byte 4 3245342720
 byte 4 3245342720
@@ -3731,7 +3815,7 @@ byte 4 50
 byte 4 1045220557
 byte 4 2
 byte 4 50
-byte 4 25
+byte 4 27
 byte 4 1119748096
 byte 4 80
 byte 4 981668463
@@ -3750,13 +3834,13 @@ byte 4 0
 byte 4 0
 byte 4 200
 byte 4 2
-address $548
-address $549
-address $544
+address $556
+address $557
+address $552
 byte 4 1065353216
-address $550
+address $558
 byte 4 1065353216
-address $547
+address $555
 byte 4 6
 byte 4 3248488448
 byte 4 3248488448
@@ -3781,7 +3865,7 @@ byte 4 75
 byte 4 0
 byte 4 3
 byte 4 49
-byte 4 26
+byte 4 28
 byte 4 1121058816
 byte 4 110
 byte 4 981668463
@@ -3800,13 +3884,13 @@ byte 4 0
 byte 4 0
 byte 4 250
 byte 4 3
-address $551
-address $552
-address $553
+address $559
+address $560
+address $561
 byte 4 1045220557
-address $546
-byte 4 1050253722
 address $554
+byte 4 1050253722
+address $562
 byte 4 7
 byte 4 3245342720
 byte 4 3245342720
@@ -3850,13 +3934,13 @@ byte 4 0
 byte 4 0
 byte 4 175
 byte 4 4
-address $555
-address $556
-address $557
+address $563
+address $564
+address $565
 byte 4 1058642330
-address $546
-byte 4 1065353216
 address $554
+byte 4 1065353216
+address $562
 byte 4 7
 byte 4 3247439872
 byte 4 3247439872
@@ -3900,13 +3984,13 @@ byte 4 0
 byte 4 1
 byte 4 225
 byte 4 5
-address $558
-address $559
-address $557
+address $566
+address $567
+address $565
 byte 4 1060320051
-address $560
+address $568
 byte 4 1065353216
-address $554
+address $562
 byte 4 6
 byte 4 3248488448
 byte 4 3248488448
@@ -3950,13 +4034,13 @@ byte 4 0
 byte 4 1
 byte 4 275
 byte 4 6
-address $561
-address $562
-address $563
+address $569
+address $570
+address $571
 byte 4 1061158912
-address $546
-byte 4 1065353216
 address $554
+byte 4 1065353216
+address $562
 byte 4 7
 byte 4 3249537024
 byte 4 3249537024
@@ -4000,13 +4084,13 @@ byte 4 0
 byte 4 1
 byte 4 350
 byte 4 7
-address $564
-address $565
-address $563
+address $572
+address $573
+address $571
 byte 4 1063675494
-address $566
+address $574
 byte 4 1065353216
-address $554
+address $562
 byte 4 6
 byte 4 3250585600
 byte 4 3250585600
@@ -4050,13 +4134,13 @@ byte 4 0
 byte 4 1
 byte 4 450
 byte 4 8
-address $567
-address $568
-address $569
-byte 4 1065353216
-address $546
+address $575
+address $576
+address $577
 byte 4 1065353216
 address $554
+byte 4 1065353216
+address $562
 byte 4 7
 byte 4 3254779904
 byte 4 3254779904
@@ -4100,13 +4184,13 @@ byte 4 0
 byte 4 1
 byte 4 500
 byte 4 9
-address $570
-address $571
-address $569
-byte 4 1065353216
-address $546
+address $578
+address $579
+address $577
 byte 4 1065353216
 address $554
+byte 4 1065353216
+address $562
 byte 4 4
 byte 4 3254779904
 byte 4 3254779904
@@ -4150,13 +4234,13 @@ byte 4 0
 byte 4 1
 byte 4 600
 byte 4 10
-address $572
-address $573
-address $574
+address $580
+address $581
+address $582
 byte 4 1065353216
-address $546
-byte 4 1073741824
 address $554
+byte 4 1073741824
+address $562
 byte 4 4
 byte 4 3253731328
 byte 4 3253731328
@@ -4200,13 +4284,13 @@ byte 4 0
 byte 4 2
 byte 4 800
 byte 4 11
-address $575
-address $576
-address $577
+address $583
+address $584
+address $585
 byte 4 1065353216
-address $546
+address $554
 byte 4 1065353216
-address $578
+address $586
 byte 4 7
 byte 4 3245342720
 byte 4 3245342720
@@ -4250,13 +4334,13 @@ byte 4 0
 byte 4 0
 byte 4 0
 byte 4 12
-address $579
-address $580
-address $581
+address $587
+address $588
+address $589
 byte 4 1065353216
-address $546
+address $554
 byte 4 1065353216
-address $578
+address $586
 byte 4 4
 byte 4 3245342720
 byte 4 3245342720
@@ -4313,9 +4397,9 @@ ASGNP4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $586
+ADDRGP4 $594
 JUMPV
-LABELV $583
+LABELV $591
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -4334,65 +4418,15 @@ ASGNI4
 ADDRLP4 4
 INDIRI4
 CNSTI4 0
-NEI4 $587
-CNSTI4 200
-ADDRLP4 0
-INDIRI4
-MULI4
-ADDRGP4 bg_classList
-ADDP4
-INDIRI4
-RETI4
-ADDRGP4 $582
-JUMPV
-LABELV $587
-LABELV $584
-ADDRLP4 0
-ADDRLP4 0
-INDIRI4
-CNSTI4 1
-ADDI4
-ASGNI4
-LABELV $586
-ADDRLP4 0
-INDIRI4
-ADDRGP4 bg_numPclasses
-INDIRI4
-LTI4 $583
-CNSTI4 0
-RETI4
-LABELV $582
-endproc BG_FindClassNumForName 8 8
-export BG_FindNameForClassNum
-proc BG_FindNameForClassNum 4 4
-ADDRFP4 0
-ADDRFP4 0
-INDIRI4
-ASGNI4
-ADDRLP4 0
-CNSTI4 0
-ASGNI4
-ADDRGP4 $594
-JUMPV
-LABELV $591
-CNSTI4 200
-ADDRLP4 0
-INDIRI4
-MULI4
-ADDRGP4 bg_classList
-ADDP4
-INDIRI4
-ADDRFP4 0
-INDIRI4
 NEI4 $595
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_classList+4
+ADDRGP4 bg_classList
 ADDP4
-INDIRP4
-RETP4
+INDIRI4
+RETI4
 ADDRGP4 $590
 JUMPV
 LABELV $595
@@ -4409,14 +4443,64 @@ INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
 LTI4 $591
+CNSTI4 0
+RETI4
+LABELV $590
+endproc BG_FindClassNumForName 8 8
+export BG_FindNameForClassNum
+proc BG_FindNameForClassNum 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $602
+JUMPV
+LABELV $599
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $603
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+4
+ADDP4
+INDIRP4
+RETP4
 ADDRGP4 $598
+JUMPV
+LABELV $603
+LABELV $600
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $602
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $599
+ADDRGP4 $606
 ARGP4
 ADDRGP4 Com_Printf
 CALLV
 pop
 CNSTP4 0
 RETP4
-LABELV $590
+LABELV $598
 endproc BG_FindNameForClassNum 4 4
 export BG_FindHumanNameForClassNum
 proc BG_FindHumanNameForClassNum 4 4
@@ -4433,7 +4517,7 @@ ADDP4
 INDIRI1
 CVII4 1
 CNSTI4 0
-EQI4 $600
+EQI4 $608
 CNSTI4 1296
 ADDRFP4 0
 INDIRI4
@@ -4441,15 +4525,15 @@ MULI4
 ADDRGP4 bg_classOverrideList+200
 ADDP4
 RETP4
-ADDRGP4 $599
+ADDRGP4 $607
 JUMPV
-LABELV $600
+LABELV $608
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $607
+ADDRGP4 $615
 JUMPV
-LABELV $604
+LABELV $612
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -4459,7 +4543,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $608
+NEI4 $616
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -4468,30 +4552,30 @@ ADDRGP4 bg_classList+8
 ADDP4
 INDIRP4
 RETP4
-ADDRGP4 $599
+ADDRGP4 $607
 JUMPV
-LABELV $608
-LABELV $605
+LABELV $616
+LABELV $613
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $607
+LABELV $615
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $604
-ADDRGP4 $611
+LTI4 $612
+ADDRGP4 $619
 ARGP4
 ADDRGP4 Com_Printf
 CALLV
 pop
 CNSTP4 0
 RETP4
-LABELV $599
+LABELV $607
 endproc BG_FindHumanNameForClassNum 4 4
 export BG_FindModelNameForClass
 proc BG_FindModelNameForClass 4 4
@@ -4508,7 +4592,7 @@ ADDP4
 INDIRI1
 CVII4 1
 CNSTI4 0
-EQI4 $613
+EQI4 $621
 CNSTI4 1296
 ADDRFP4 0
 INDIRI4
@@ -4516,15 +4600,15 @@ MULI4
 ADDRGP4 bg_classOverrideList
 ADDP4
 RETP4
-ADDRGP4 $612
+ADDRGP4 $620
 JUMPV
-LABELV $613
+LABELV $621
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $618
+ADDRGP4 $626
 JUMPV
-LABELV $615
+LABELV $623
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -4534,7 +4618,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $619
+NEI4 $627
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -4543,23 +4627,23 @@ ADDRGP4 bg_classList+12
 ADDP4
 INDIRP4
 RETP4
-ADDRGP4 $612
+ADDRGP4 $620
 JUMPV
-LABELV $619
-LABELV $616
+LABELV $627
+LABELV $624
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $618
+LABELV $626
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $615
-ADDRGP4 $622
+LTI4 $623
+ADDRGP4 $630
 ARGP4
 ADDRGP4 Com_Printf
 CALLV
@@ -4567,7 +4651,7 @@ pop
 ADDRGP4 bg_classList+12
 INDIRP4
 RETP4
-LABELV $612
+LABELV $620
 endproc BG_FindModelNameForClass 4 4
 export BG_FindModelScaleForClass
 proc BG_FindModelScaleForClass 4 8
@@ -4583,7 +4667,7 @@ ADDRGP4 bg_classOverrideList+64
 ADDP4
 INDIRF4
 CNSTF4 0
-EQF4 $625
+EQF4 $633
 CNSTI4 1296
 ADDRFP4 0
 INDIRI4
@@ -4592,15 +4676,15 @@ ADDRGP4 bg_classOverrideList+64
 ADDP4
 INDIRF4
 RETF4
-ADDRGP4 $624
+ADDRGP4 $632
 JUMPV
-LABELV $625
+LABELV $633
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $632
+ADDRGP4 $640
 JUMPV
-LABELV $629
+LABELV $637
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -4610,7 +4694,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $633
+NEI4 $641
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -4619,23 +4703,23 @@ ADDRGP4 bg_classList+16
 ADDP4
 INDIRF4
 RETF4
-ADDRGP4 $624
+ADDRGP4 $632
 JUMPV
-LABELV $633
-LABELV $630
+LABELV $641
+LABELV $638
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $632
+LABELV $640
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $629
-ADDRGP4 $636
+LTI4 $637
+ADDRGP4 $644
 ARGP4
 ADDRFP4 0
 INDIRI4
@@ -4645,7 +4729,7 @@ CALLV
 pop
 CNSTF4 1065353216
 RETF4
-LABELV $624
+LABELV $632
 endproc BG_FindModelScaleForClass 4 8
 export BG_FindSkinNameForClass
 proc BG_FindSkinNameForClass 4 4
@@ -4662,7 +4746,7 @@ ADDP4
 INDIRI1
 CVII4 1
 CNSTI4 0
-EQI4 $638
+EQI4 $646
 CNSTI4 1296
 ADDRFP4 0
 INDIRI4
@@ -4670,15 +4754,15 @@ MULI4
 ADDRGP4 bg_classOverrideList+68
 ADDP4
 RETP4
-ADDRGP4 $637
+ADDRGP4 $645
 JUMPV
-LABELV $638
+LABELV $646
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $645
+ADDRGP4 $653
 JUMPV
-LABELV $642
+LABELV $650
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -4688,7 +4772,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $646
+NEI4 $654
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -4697,23 +4781,23 @@ ADDRGP4 bg_classList+20
 ADDP4
 INDIRP4
 RETP4
-ADDRGP4 $637
+ADDRGP4 $645
 JUMPV
-LABELV $646
-LABELV $643
+LABELV $654
+LABELV $651
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $645
+LABELV $653
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $642
-ADDRGP4 $649
+LTI4 $650
+ADDRGP4 $657
 ARGP4
 ADDRGP4 Com_Printf
 CALLV
@@ -4721,7 +4805,7 @@ pop
 ADDRGP4 bg_classList+20
 INDIRP4
 RETP4
-LABELV $637
+LABELV $645
 endproc BG_FindSkinNameForClass 4 4
 export BG_FindShadowScaleForClass
 proc BG_FindShadowScaleForClass 4 8
@@ -4737,7 +4821,7 @@ ADDRGP4 bg_classOverrideList+132
 ADDP4
 INDIRF4
 CNSTF4 0
-EQF4 $652
+EQF4 $660
 CNSTI4 1296
 ADDRFP4 0
 INDIRI4
@@ -4746,15 +4830,15 @@ ADDRGP4 bg_classOverrideList+132
 ADDP4
 INDIRF4
 RETF4
-ADDRGP4 $651
+ADDRGP4 $659
 JUMPV
-LABELV $652
+LABELV $660
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $659
+ADDRGP4 $667
 JUMPV
-LABELV $656
+LABELV $664
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -4764,7 +4848,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $660
+NEI4 $668
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -4773,23 +4857,23 @@ ADDRGP4 bg_classList+24
 ADDP4
 INDIRF4
 RETF4
-ADDRGP4 $651
+ADDRGP4 $659
 JUMPV
-LABELV $660
-LABELV $657
+LABELV $668
+LABELV $665
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $659
+LABELV $667
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $656
-ADDRGP4 $663
+LTI4 $664
+ADDRGP4 $671
 ARGP4
 ADDRFP4 0
 INDIRI4
@@ -4799,7 +4883,7 @@ CALLV
 pop
 CNSTF4 1065353216
 RETF4
-LABELV $651
+LABELV $659
 endproc BG_FindShadowScaleForClass 4 8
 export BG_FindHudNameForClass
 proc BG_FindHudNameForClass 4 4
@@ -4816,7 +4900,7 @@ ADDP4
 INDIRI1
 CVII4 1
 CNSTI4 0
-EQI4 $665
+EQI4 $673
 CNSTI4 1296
 ADDRFP4 0
 INDIRI4
@@ -4824,15 +4908,15 @@ MULI4
 ADDRGP4 bg_classOverrideList+136
 ADDP4
 RETP4
-ADDRGP4 $664
+ADDRGP4 $672
 JUMPV
-LABELV $665
+LABELV $673
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $672
+ADDRGP4 $680
 JUMPV
-LABELV $669
+LABELV $677
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -4842,7 +4926,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $673
+NEI4 $681
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -4851,23 +4935,23 @@ ADDRGP4 bg_classList+28
 ADDP4
 INDIRP4
 RETP4
-ADDRGP4 $664
+ADDRGP4 $672
 JUMPV
-LABELV $673
-LABELV $670
+LABELV $681
+LABELV $678
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $672
+LABELV $680
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $669
-ADDRGP4 $676
+LTI4 $677
+ADDRGP4 $684
 ARGP4
 ADDRGP4 Com_Printf
 CALLV
@@ -4875,7 +4959,7 @@ pop
 ADDRGP4 bg_classList+28
 INDIRP4
 RETP4
-LABELV $664
+LABELV $672
 endproc BG_FindHudNameForClass 4 4
 export BG_FindStagesForClass
 proc BG_FindStagesForClass 4 4
@@ -4890,9 +4974,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $682
+ADDRGP4 $690
 JUMPV
-LABELV $679
+LABELV $687
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -4902,7 +4986,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $683
+NEI4 $691
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -4916,38 +5000,38 @@ INDIRI4
 LSHI4
 BANDI4
 CNSTI4 0
-EQI4 $685
+EQI4 $693
 CNSTI4 1
 RETI4
-ADDRGP4 $678
+ADDRGP4 $686
 JUMPV
-LABELV $685
+LABELV $693
 CNSTI4 0
 RETI4
-ADDRGP4 $678
+ADDRGP4 $686
 JUMPV
-LABELV $683
-LABELV $680
+LABELV $691
+LABELV $688
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $682
+LABELV $690
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $679
-ADDRGP4 $688
+LTI4 $687
+ADDRGP4 $696
 ARGP4
 ADDRGP4 Com_Printf
 CALLV
 pop
 CNSTI4 0
 RETI4
-LABELV $678
+LABELV $686
 endproc BG_FindStagesForClass 4 4
 export BG_FindBBoxForClass
 proc BG_FindBBoxForClass 8 4
@@ -4978,9 +5062,9 @@ ASGNP4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $693
+ADDRGP4 $701
 JUMPV
-LABELV $690
+LABELV $698
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -4990,12 +5074,12 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $694
+NEI4 $702
 ADDRFP4 4
 INDIRP4
 CVPU4 4
 CNSTU4 0
-EQU4 $696
+EQU4 $704
 ADDRFP4 4
 INDIRP4
 CNSTI4 200
@@ -5020,7 +5104,7 @@ ASGNF4
 ADDRLP4 4
 INDIRF4
 CNSTF4 0
-EQF4 $699
+EQF4 $707
 ADDRFP4 4
 INDIRP4
 CNSTI4 1296
@@ -5031,13 +5115,13 @@ ADDRGP4 bg_classOverrideList+1224
 ADDP4
 INDIRB
 ASGNB 12
-LABELV $699
-LABELV $696
+LABELV $707
+LABELV $704
 ADDRFP4 8
 INDIRP4
 CVPU4 4
 CNSTU4 0
-EQU4 $703
+EQU4 $711
 ADDRFP4 8
 INDIRP4
 CNSTI4 200
@@ -5062,7 +5146,7 @@ ASGNF4
 ADDRLP4 4
 INDIRF4
 CNSTF4 0
-EQF4 $706
+EQF4 $714
 ADDRFP4 8
 INDIRP4
 CNSTI4 1296
@@ -5073,13 +5157,13 @@ ADDRGP4 bg_classOverrideList+1236
 ADDP4
 INDIRB
 ASGNB 12
-LABELV $706
-LABELV $703
+LABELV $714
+LABELV $711
 ADDRFP4 12
 INDIRP4
 CVPU4 4
 CNSTU4 0
-EQU4 $710
+EQU4 $718
 ADDRFP4 12
 INDIRP4
 CNSTI4 200
@@ -5104,7 +5188,7 @@ ASGNF4
 ADDRLP4 4
 INDIRF4
 CNSTF4 0
-EQF4 $713
+EQF4 $721
 ADDRFP4 12
 INDIRP4
 CNSTI4 1296
@@ -5115,13 +5199,13 @@ ADDRGP4 bg_classOverrideList+1248
 ADDP4
 INDIRB
 ASGNB 12
-LABELV $713
-LABELV $710
+LABELV $721
+LABELV $718
 ADDRFP4 16
 INDIRP4
 CVPU4 4
 CNSTU4 0
-EQU4 $717
+EQU4 $725
 ADDRFP4 16
 INDIRP4
 CNSTI4 200
@@ -5146,7 +5230,7 @@ ASGNF4
 ADDRLP4 4
 INDIRF4
 CNSTF4 0
-EQF4 $720
+EQF4 $728
 ADDRFP4 16
 INDIRP4
 CNSTI4 1296
@@ -5157,13 +5241,13 @@ ADDRGP4 bg_classOverrideList+1260
 ADDP4
 INDIRB
 ASGNB 12
-LABELV $720
-LABELV $717
+LABELV $728
+LABELV $725
 ADDRFP4 20
 INDIRP4
 CVPU4 4
 CNSTU4 0
-EQU4 $689
+EQU4 $697
 ADDRFP4 20
 INDIRP4
 CNSTI4 200
@@ -5188,7 +5272,7 @@ ASGNF4
 ADDRLP4 4
 INDIRF4
 CNSTF4 0
-EQF4 $689
+EQF4 $697
 ADDRFP4 20
 INDIRP4
 CNSTI4 1296
@@ -5199,78 +5283,78 @@ ADDRGP4 bg_classOverrideList+1272
 ADDP4
 INDIRB
 ASGNB 12
-ADDRGP4 $689
+ADDRGP4 $697
 JUMPV
-LABELV $694
-LABELV $691
+LABELV $702
+LABELV $699
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $693
+LABELV $701
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $690
+LTI4 $698
 ADDRFP4 4
 INDIRP4
 CVPU4 4
 CNSTU4 0
-EQU4 $731
+EQU4 $739
 ADDRFP4 4
 INDIRP4
 ADDRGP4 bg_classList+36
 INDIRB
 ASGNB 12
-LABELV $731
+LABELV $739
 ADDRFP4 8
 INDIRP4
 CVPU4 4
 CNSTU4 0
-EQU4 $734
+EQU4 $742
 ADDRFP4 8
 INDIRP4
 ADDRGP4 bg_classList+48
 INDIRB
 ASGNB 12
-LABELV $734
+LABELV $742
 ADDRFP4 12
 INDIRP4
 CVPU4 4
 CNSTU4 0
-EQU4 $737
+EQU4 $745
 ADDRFP4 12
 INDIRP4
 ADDRGP4 bg_classList+60
 INDIRB
 ASGNB 12
-LABELV $737
+LABELV $745
 ADDRFP4 16
 INDIRP4
 CVPU4 4
 CNSTU4 0
-EQU4 $740
+EQU4 $748
 ADDRFP4 16
 INDIRP4
 ADDRGP4 bg_classList+72
 INDIRB
 ASGNB 12
-LABELV $740
+LABELV $748
 ADDRFP4 20
 INDIRP4
 CVPU4 4
 CNSTU4 0
-EQU4 $743
+EQU4 $751
 ADDRFP4 20
 INDIRP4
 ADDRGP4 bg_classList+84
 INDIRB
 ASGNB 12
-LABELV $743
-LABELV $689
+LABELV $751
+LABELV $697
 endproc BG_FindBBoxForClass 8 4
 export BG_FindSpriteHeightForClass
 proc BG_FindSpriteHeightForClass 8 0
@@ -5281,9 +5365,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $750
+ADDRGP4 $758
 JUMPV
-LABELV $747
+LABELV $755
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -5293,7 +5377,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $751
+NEI4 $759
 ADDRLP4 4
 CNSTI4 200
 ADDRLP4 0
@@ -5312,25 +5396,25 @@ ADDP4
 INDIRF4
 ADDF4
 RETF4
-ADDRGP4 $746
+ADDRGP4 $754
 JUMPV
-LABELV $751
-LABELV $748
+LABELV $759
+LABELV $756
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $750
+LABELV $758
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $747
+LTI4 $755
 CNSTF4 0
 RETF4
-LABELV $746
+LABELV $754
 endproc BG_FindSpriteHeightForClass 8 0
 export BG_FindZOffsetForClass
 proc BG_FindZOffsetForClass 4 4
@@ -5346,7 +5430,7 @@ ADDRGP4 bg_classOverrideList+1292
 ADDP4
 INDIRF4
 CNSTF4 0
-EQF4 $757
+EQF4 $765
 CNSTI4 1296
 ADDRFP4 0
 INDIRI4
@@ -5355,15 +5439,15 @@ ADDRGP4 bg_classOverrideList+1292
 ADDP4
 INDIRF4
 RETF4
-ADDRGP4 $756
+ADDRGP4 $764
 JUMPV
-LABELV $757
+LABELV $765
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $764
+ADDRGP4 $772
 JUMPV
-LABELV $761
+LABELV $769
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -5373,7 +5457,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $765
+NEI4 $773
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -5382,30 +5466,30 @@ ADDRGP4 bg_classList+96
 ADDP4
 INDIRF4
 RETF4
-ADDRGP4 $756
+ADDRGP4 $764
 JUMPV
-LABELV $765
-LABELV $762
+LABELV $773
+LABELV $770
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $764
+LABELV $772
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $761
-ADDRGP4 $768
+LTI4 $769
+ADDRGP4 $776
 ARGP4
 ADDRGP4 Com_Printf
 CALLV
 pop
 CNSTF4 0
 RETF4
-LABELV $756
+LABELV $764
 endproc BG_FindZOffsetForClass 4 4
 export BG_FindViewheightForClass
 proc BG_FindViewheightForClass 16 0
@@ -5422,9 +5506,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $773
+ADDRGP4 $781
 JUMPV
-LABELV $770
+LABELV $778
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -5434,7 +5518,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $774
+NEI4 $782
 ADDRLP4 12
 CNSTI4 200
 ADDRLP4 0
@@ -5455,23 +5539,23 @@ ADDRGP4 bg_classList+108
 ADDP4
 INDIRI4
 ASGNI4
-ADDRGP4 $772
+ADDRGP4 $780
 JUMPV
-LABELV $774
-LABELV $771
+LABELV $782
+LABELV $779
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $773
+LABELV $781
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $770
-LABELV $772
+LTI4 $778
+LABELV $780
 CNSTI4 1296
 ADDRFP4 0
 INDIRI4
@@ -5480,7 +5564,7 @@ ADDRGP4 bg_classOverrideList+1284
 ADDP4
 INDIRI4
 CNSTI4 0
-EQI4 $778
+EQI4 $786
 ADDRLP4 4
 CNSTI4 1296
 ADDRFP4 0
@@ -5490,7 +5574,7 @@ ADDRGP4 bg_classOverrideList+1284
 ADDP4
 INDIRI4
 ASGNI4
-LABELV $778
+LABELV $786
 CNSTI4 1296
 ADDRFP4 0
 INDIRI4
@@ -5499,7 +5583,7 @@ ADDRGP4 bg_classOverrideList+1288
 ADDP4
 INDIRI4
 CNSTI4 0
-EQI4 $782
+EQI4 $790
 ADDRLP4 8
 CNSTI4 1296
 ADDRFP4 0
@@ -5509,48 +5593,48 @@ ADDRGP4 bg_classOverrideList+1288
 ADDP4
 INDIRI4
 ASGNI4
-LABELV $782
+LABELV $790
 ADDRLP4 4
 INDIRI4
 CNSTI4 0
-NEI4 $786
+NEI4 $794
 ADDRLP4 4
 ADDRGP4 bg_classList+104
 INDIRI4
 ASGNI4
-LABELV $786
+LABELV $794
 ADDRLP4 8
 INDIRI4
 CNSTI4 0
-NEI4 $789
+NEI4 $797
 ADDRLP4 8
 ADDRGP4 bg_classList+108
 INDIRI4
 ASGNI4
-LABELV $789
+LABELV $797
 ADDRFP4 4
 INDIRP4
 CVPU4 4
 CNSTU4 0
-EQU4 $792
+EQU4 $800
 ADDRFP4 4
 INDIRP4
 ADDRLP4 4
 INDIRI4
 ASGNI4
-LABELV $792
+LABELV $800
 ADDRFP4 8
 INDIRP4
 CVPU4 4
 CNSTU4 0
-EQU4 $794
+EQU4 $802
 ADDRFP4 8
 INDIRP4
 ADDRLP4 8
 INDIRI4
 ASGNI4
-LABELV $794
-LABELV $769
+LABELV $802
+LABELV $777
 endproc BG_FindViewheightForClass 16 0
 export BG_FindHealthForClass
 proc BG_FindHealthForClass 4 4
@@ -5561,9 +5645,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $800
+ADDRGP4 $808
 JUMPV
-LABELV $797
+LABELV $805
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -5573,7 +5657,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $801
+NEI4 $809
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -5582,30 +5666,30 @@ ADDRGP4 bg_classList+112
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $796
+ADDRGP4 $804
 JUMPV
-LABELV $801
-LABELV $798
+LABELV $809
+LABELV $806
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $800
+LABELV $808
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $797
-ADDRGP4 $804
+LTI4 $805
+ADDRGP4 $812
 ARGP4
 ADDRGP4 Com_Printf
 CALLV
 pop
 CNSTI4 100
 RETI4
-LABELV $796
+LABELV $804
 endproc BG_FindHealthForClass 4 4
 export BG_FindFallDamageForClass
 proc BG_FindFallDamageForClass 4 4
@@ -5616,9 +5700,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $809
+ADDRGP4 $817
 JUMPV
-LABELV $806
+LABELV $814
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -5628,7 +5712,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $810
+NEI4 $818
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -5637,30 +5721,30 @@ ADDRGP4 bg_classList+116
 ADDP4
 INDIRF4
 RETF4
-ADDRGP4 $805
+ADDRGP4 $813
 JUMPV
-LABELV $810
-LABELV $807
+LABELV $818
+LABELV $815
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $809
+LABELV $817
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $806
-ADDRGP4 $813
+LTI4 $814
+ADDRGP4 $821
 ARGP4
 ADDRGP4 Com_Printf
 CALLV
 pop
 CNSTF4 1120403456
 RETF4
-LABELV $805
+LABELV $813
 endproc BG_FindFallDamageForClass 4 4
 export BG_FindRegenRateForClass
 proc BG_FindRegenRateForClass 4 4
@@ -5671,9 +5755,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $818
+ADDRGP4 $826
 JUMPV
-LABELV $815
+LABELV $823
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -5683,7 +5767,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $819
+NEI4 $827
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -5692,30 +5776,30 @@ ADDRGP4 bg_classList+120
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $814
+ADDRGP4 $822
 JUMPV
-LABELV $819
-LABELV $816
+LABELV $827
+LABELV $824
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $818
+LABELV $826
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $815
-ADDRGP4 $822
+LTI4 $823
+ADDRGP4 $830
 ARGP4
 ADDRGP4 Com_Printf
 CALLV
 pop
 CNSTI4 0
 RETI4
-LABELV $814
+LABELV $822
 endproc BG_FindRegenRateForClass 4 4
 export BG_FindFovForClass
 proc BG_FindFovForClass 4 4
@@ -5726,9 +5810,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $827
+ADDRGP4 $835
 JUMPV
-LABELV $824
+LABELV $832
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -5738,7 +5822,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $828
+NEI4 $836
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -5747,30 +5831,30 @@ ADDRGP4 bg_classList+136
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $823
+ADDRGP4 $831
 JUMPV
-LABELV $828
-LABELV $825
+LABELV $836
+LABELV $833
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $827
+LABELV $835
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $824
-ADDRGP4 $831
+LTI4 $832
+ADDRGP4 $839
 ARGP4
 ADDRGP4 Com_Printf
 CALLV
 pop
 CNSTI4 90
 RETI4
-LABELV $823
+LABELV $831
 endproc BG_FindFovForClass 4 4
 export BG_FindBobForClass
 proc BG_FindBobForClass 4 4
@@ -5781,9 +5865,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $836
+ADDRGP4 $844
 JUMPV
-LABELV $833
+LABELV $841
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -5793,7 +5877,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $837
+NEI4 $845
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -5802,30 +5886,30 @@ ADDRGP4 bg_classList+140
 ADDP4
 INDIRF4
 RETF4
-ADDRGP4 $832
+ADDRGP4 $840
 JUMPV
-LABELV $837
-LABELV $834
+LABELV $845
+LABELV $842
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $836
+LABELV $844
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $833
-ADDRGP4 $840
+LTI4 $841
+ADDRGP4 $848
 ARGP4
 ADDRGP4 Com_Printf
 CALLV
 pop
 CNSTF4 990057071
 RETF4
-LABELV $832
+LABELV $840
 endproc BG_FindBobForClass 4 4
 export BG_FindBobCycleForClass
 proc BG_FindBobCycleForClass 4 4
@@ -5836,9 +5920,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $845
+ADDRGP4 $853
 JUMPV
-LABELV $842
+LABELV $850
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -5848,7 +5932,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $846
+NEI4 $854
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -5857,30 +5941,30 @@ ADDRGP4 bg_classList+144
 ADDP4
 INDIRF4
 RETF4
-ADDRGP4 $841
+ADDRGP4 $849
 JUMPV
-LABELV $846
-LABELV $843
+LABELV $854
+LABELV $851
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $845
+LABELV $853
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $842
-ADDRGP4 $849
+LTI4 $850
+ADDRGP4 $857
 ARGP4
 ADDRGP4 Com_Printf
 CALLV
 pop
 CNSTF4 1065353216
 RETF4
-LABELV $841
+LABELV $849
 endproc BG_FindBobCycleForClass 4 4
 export BG_FindSpeedForClass
 proc BG_FindSpeedForClass 4 4
@@ -5891,9 +5975,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $854
+ADDRGP4 $862
 JUMPV
-LABELV $851
+LABELV $859
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -5903,7 +5987,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $855
+NEI4 $863
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -5912,30 +5996,30 @@ ADDRGP4 bg_classList+152
 ADDP4
 INDIRF4
 RETF4
-ADDRGP4 $850
+ADDRGP4 $858
 JUMPV
-LABELV $855
-LABELV $852
+LABELV $863
+LABELV $860
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $854
+LABELV $862
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $851
-ADDRGP4 $858
+LTI4 $859
+ADDRGP4 $866
 ARGP4
 ADDRGP4 Com_Printf
 CALLV
 pop
 CNSTF4 1065353216
 RETF4
-LABELV $850
+LABELV $858
 endproc BG_FindSpeedForClass 4 4
 export BG_FindAccelerationForClass
 proc BG_FindAccelerationForClass 4 4
@@ -5946,9 +6030,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $863
+ADDRGP4 $871
 JUMPV
-LABELV $860
+LABELV $868
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -5958,7 +6042,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $864
+NEI4 $872
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -5967,30 +6051,30 @@ ADDRGP4 bg_classList+156
 ADDP4
 INDIRF4
 RETF4
-ADDRGP4 $859
+ADDRGP4 $867
 JUMPV
-LABELV $864
-LABELV $861
+LABELV $872
+LABELV $869
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $863
+LABELV $871
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $860
-ADDRGP4 $867
+LTI4 $868
+ADDRGP4 $875
 ARGP4
 ADDRGP4 Com_Printf
 CALLV
 pop
 CNSTF4 1092616192
 RETF4
-LABELV $859
+LABELV $867
 endproc BG_FindAccelerationForClass 4 4
 export BG_FindAirAccelerationForClass
 proc BG_FindAirAccelerationForClass 4 4
@@ -6001,9 +6085,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $872
+ADDRGP4 $880
 JUMPV
-LABELV $869
+LABELV $877
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -6013,7 +6097,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $873
+NEI4 $881
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -6022,30 +6106,30 @@ ADDRGP4 bg_classList+160
 ADDP4
 INDIRF4
 RETF4
-ADDRGP4 $868
+ADDRGP4 $876
 JUMPV
-LABELV $873
-LABELV $870
+LABELV $881
+LABELV $878
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $872
+LABELV $880
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $869
-ADDRGP4 $876
+LTI4 $877
+ADDRGP4 $884
 ARGP4
 ADDRGP4 Com_Printf
 CALLV
 pop
 CNSTF4 1065353216
 RETF4
-LABELV $868
+LABELV $876
 endproc BG_FindAirAccelerationForClass 4 4
 export BG_FindFrictionForClass
 proc BG_FindFrictionForClass 4 4
@@ -6056,9 +6140,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $881
+ADDRGP4 $889
 JUMPV
-LABELV $878
+LABELV $886
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -6068,7 +6152,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $882
+NEI4 $890
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -6077,30 +6161,30 @@ ADDRGP4 bg_classList+164
 ADDP4
 INDIRF4
 RETF4
-ADDRGP4 $877
+ADDRGP4 $885
 JUMPV
-LABELV $882
-LABELV $879
+LABELV $890
+LABELV $887
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $881
+LABELV $889
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $878
-ADDRGP4 $885
+LTI4 $886
+ADDRGP4 $893
 ARGP4
 ADDRGP4 Com_Printf
 CALLV
 pop
 CNSTF4 1086324736
 RETF4
-LABELV $877
+LABELV $885
 endproc BG_FindFrictionForClass 4 4
 export BG_FindStopSpeedForClass
 proc BG_FindStopSpeedForClass 4 4
@@ -6111,9 +6195,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $890
+ADDRGP4 $898
 JUMPV
-LABELV $887
+LABELV $895
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -6123,7 +6207,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $891
+NEI4 $899
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -6132,30 +6216,30 @@ ADDRGP4 bg_classList+168
 ADDP4
 INDIRF4
 RETF4
-ADDRGP4 $886
+ADDRGP4 $894
 JUMPV
-LABELV $891
-LABELV $888
+LABELV $899
+LABELV $896
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $890
+LABELV $898
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $887
-ADDRGP4 $894
+LTI4 $895
+ADDRGP4 $902
 ARGP4
 ADDRGP4 Com_Printf
 CALLV
 pop
 CNSTF4 1120403456
 RETF4
-LABELV $886
+LABELV $894
 endproc BG_FindStopSpeedForClass 4 4
 export BG_FindJumpMagnitudeForClass
 proc BG_FindJumpMagnitudeForClass 4 4
@@ -6166,9 +6250,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $899
+ADDRGP4 $907
 JUMPV
-LABELV $896
+LABELV $904
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -6178,7 +6262,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $900
+NEI4 $908
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -6187,30 +6271,30 @@ ADDRGP4 bg_classList+172
 ADDP4
 INDIRF4
 RETF4
-ADDRGP4 $895
+ADDRGP4 $903
 JUMPV
-LABELV $900
-LABELV $897
+LABELV $908
+LABELV $905
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $899
+LABELV $907
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $896
-ADDRGP4 $903
+LTI4 $904
+ADDRGP4 $911
 ARGP4
 ADDRGP4 Com_Printf
 CALLV
 pop
 CNSTF4 1132920832
 RETF4
-LABELV $895
+LABELV $903
 endproc BG_FindJumpMagnitudeForClass 4 4
 export BG_FindKnockbackScaleForClass
 proc BG_FindKnockbackScaleForClass 4 4
@@ -6221,9 +6305,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $908
+ADDRGP4 $916
 JUMPV
-LABELV $905
+LABELV $913
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -6233,7 +6317,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $909
+NEI4 $917
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -6242,30 +6326,30 @@ ADDRGP4 bg_classList+176
 ADDP4
 INDIRF4
 RETF4
-ADDRGP4 $904
+ADDRGP4 $912
 JUMPV
-LABELV $909
-LABELV $906
+LABELV $917
+LABELV $914
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $908
+LABELV $916
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $905
-ADDRGP4 $912
+LTI4 $913
+ADDRGP4 $920
 ARGP4
 ADDRGP4 Com_Printf
 CALLV
 pop
 CNSTF4 1065353216
 RETF4
-LABELV $904
+LABELV $912
 endproc BG_FindKnockbackScaleForClass 4 4
 export BG_FindSteptimeForClass
 proc BG_FindSteptimeForClass 4 4
@@ -6276,9 +6360,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $917
+ADDRGP4 $925
 JUMPV
-LABELV $914
+LABELV $922
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -6288,7 +6372,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $918
+NEI4 $926
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -6297,30 +6381,30 @@ ADDRGP4 bg_classList+148
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $913
+ADDRGP4 $921
 JUMPV
-LABELV $918
-LABELV $915
+LABELV $926
+LABELV $923
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $917
+LABELV $925
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $914
-ADDRGP4 $921
+LTI4 $922
+ADDRGP4 $929
 ARGP4
 ADDRGP4 Com_Printf
 CALLV
 pop
 CNSTI4 200
 RETI4
-LABELV $913
+LABELV $921
 endproc BG_FindSteptimeForClass 4 4
 export BG_ClassHasAbility
 proc BG_ClassHasAbility 4 0
@@ -6330,59 +6414,6 @@ INDIRI4
 ASGNI4
 ADDRFP4 4
 ADDRFP4 4
-INDIRI4
-ASGNI4
-ADDRLP4 0
-CNSTI4 0
-ASGNI4
-ADDRGP4 $926
-JUMPV
-LABELV $923
-CNSTI4 200
-ADDRLP4 0
-INDIRI4
-MULI4
-ADDRGP4 bg_classList
-ADDP4
-INDIRI4
-ADDRFP4 0
-INDIRI4
-NEI4 $927
-CNSTI4 200
-ADDRLP4 0
-INDIRI4
-MULI4
-ADDRGP4 bg_classList+124
-ADDP4
-INDIRI4
-ADDRFP4 4
-INDIRI4
-BANDI4
-RETI4
-ADDRGP4 $922
-JUMPV
-LABELV $927
-LABELV $924
-ADDRLP4 0
-ADDRLP4 0
-INDIRI4
-CNSTI4 1
-ADDI4
-ASGNI4
-LABELV $926
-ADDRLP4 0
-INDIRI4
-ADDRGP4 bg_numPclasses
-INDIRI4
-LTI4 $923
-CNSTI4 0
-RETI4
-LABELV $922
-endproc BG_ClassHasAbility 4 0
-export BG_FindStartWeaponForClass
-proc BG_FindStartWeaponForClass 4 4
-ADDRFP4 0
-ADDRFP4 0
 INDIRI4
 ASGNI4
 ADDRLP4 0
@@ -6405,9 +6436,12 @@ CNSTI4 200
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_classList+128
+ADDRGP4 bg_classList+124
 ADDP4
 INDIRI4
+ADDRFP4 4
+INDIRI4
+BANDI4
 RETI4
 ADDRGP4 $930
 JUMPV
@@ -6425,14 +6459,64 @@ INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
 LTI4 $931
+CNSTI4 0
+RETI4
+LABELV $930
+endproc BG_ClassHasAbility 4 0
+export BG_FindStartWeaponForClass
+proc BG_FindStartWeaponForClass 4 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $942
+JUMPV
+LABELV $939
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $943
+CNSTI4 200
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_classList+128
+ADDP4
+INDIRI4
+RETI4
 ADDRGP4 $938
+JUMPV
+LABELV $943
+LABELV $940
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $942
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numPclasses
+INDIRI4
+LTI4 $939
+ADDRGP4 $946
 ARGP4
 ADDRGP4 Com_Printf
 CALLV
 pop
 CNSTI4 0
 RETI4
-LABELV $930
+LABELV $938
 endproc BG_FindStartWeaponForClass 4 4
 export BG_FindBuildDistForClass
 proc BG_FindBuildDistForClass 4 4
@@ -6443,9 +6527,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $943
+ADDRGP4 $951
 JUMPV
-LABELV $940
+LABELV $948
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -6455,7 +6539,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $944
+NEI4 $952
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -6464,30 +6548,30 @@ ADDRGP4 bg_classList+132
 ADDP4
 INDIRF4
 RETF4
-ADDRGP4 $939
+ADDRGP4 $947
 JUMPV
-LABELV $944
-LABELV $941
+LABELV $952
+LABELV $949
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $943
+LABELV $951
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $940
-ADDRGP4 $947
+LTI4 $948
+ADDRGP4 $955
 ARGP4
 ADDRGP4 Com_Printf
 CALLV
 pop
 CNSTF4 0
 RETF4
-LABELV $939
+LABELV $947
 endproc BG_FindBuildDistForClass 4 4
 export BG_ClassCanEvolveFromTo
 proc BG_ClassCanEvolveFromTo 36 16
@@ -6522,12 +6606,12 @@ ADDRFP4 8
 INDIRI4
 ADDRLP4 8
 INDIRI4
-GEI4 $949
+GEI4 $957
 CNSTI4 -1
 RETI4
-ADDRGP4 $948
+ADDRGP4 $956
 JUMPV
-LABELV $949
+LABELV $957
 ADDRLP4 16
 CNSTI4 0
 ASGNI4
@@ -6535,24 +6619,24 @@ ADDRFP4 0
 INDIRI4
 ADDRLP4 16
 INDIRI4
-EQI4 $953
+EQI4 $961
 ADDRFP4 4
 INDIRI4
 ADDRLP4 16
 INDIRI4
-NEI4 $951
-LABELV $953
+NEI4 $959
+LABELV $961
 CNSTI4 -1
 RETI4
-ADDRGP4 $948
+ADDRGP4 $956
 JUMPV
-LABELV $951
+LABELV $959
 ADDRLP4 4
 CNSTI4 0
 ASGNI4
-ADDRGP4 $957
+ADDRGP4 $965
 JUMPV
-LABELV $954
+LABELV $962
 CNSTI4 200
 ADDRLP4 4
 INDIRI4
@@ -6562,11 +6646,11 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $958
+NEI4 $966
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-LABELV $960
+LABELV $968
 ADDRLP4 0
 INDIRI4
 CNSTI4 2
@@ -6581,17 +6665,17 @@ ADDP4
 INDIRI4
 ADDRFP4 4
 INDIRI4
-NEI4 $964
+NEI4 $972
 ADDRFP4 12
 INDIRI4
 ADDRLP4 8
 INDIRI4
 ADDI4
 RETI4
-ADDRGP4 $948
+ADDRGP4 $956
 JUMPV
-LABELV $964
-LABELV $961
+LABELV $972
+LABELV $969
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
@@ -6601,11 +6685,11 @@ ASGNI4
 ADDRLP4 0
 INDIRI4
 CNSTI4 3
-LTI4 $960
+LTI4 $968
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-LABELV $967
+LABELV $975
 ADDRLP4 0
 INDIRI4
 CNSTI4 2
@@ -6666,14 +6750,14 @@ ASGNI4
 ADDRLP4 20
 INDIRI4
 CNSTI4 0
-LTI4 $973
+LTI4 $981
 ADDRLP4 20
 INDIRI4
 RETI4
-ADDRGP4 $948
+ADDRGP4 $956
 JUMPV
-LABELV $973
-LABELV $968
+LABELV $981
+LABELV $976
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
@@ -6683,28 +6767,28 @@ ASGNI4
 ADDRLP4 0
 INDIRI4
 CNSTI4 3
-LTI4 $967
+LTI4 $975
 CNSTI4 -1
 RETI4
-ADDRGP4 $948
+ADDRGP4 $956
 JUMPV
-LABELV $958
-LABELV $955
+LABELV $966
+LABELV $963
 ADDRLP4 4
 ADDRLP4 4
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $957
+LABELV $965
 ADDRLP4 4
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $954
+LTI4 $962
 CNSTI4 -1
 RETI4
-LABELV $948
+LABELV $956
 endproc BG_ClassCanEvolveFromTo 36 16
 export BG_FindValueOfClass
 proc BG_FindValueOfClass 4 4
@@ -6715,9 +6799,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $979
+ADDRGP4 $987
 JUMPV
-LABELV $976
+LABELV $984
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -6727,7 +6811,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $980
+NEI4 $988
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -6736,30 +6820,30 @@ ADDRGP4 bg_classList+196
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $975
+ADDRGP4 $983
 JUMPV
-LABELV $980
-LABELV $977
+LABELV $988
+LABELV $985
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $979
+LABELV $987
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $976
-ADDRGP4 $983
+LTI4 $984
+ADDRGP4 $991
 ARGP4
 ADDRGP4 Com_Printf
 CALLV
 pop
 CNSTI4 0
 RETI4
-LABELV $975
+LABELV $983
 endproc BG_FindValueOfClass 4 4
 export BG_FindCostOfClass
 proc BG_FindCostOfClass 4 4
@@ -6770,9 +6854,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $988
+ADDRGP4 $996
 JUMPV
-LABELV $985
+LABELV $993
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -6782,7 +6866,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $989
+NEI4 $997
 CNSTI4 200
 ADDRLP4 0
 INDIRI4
@@ -6791,30 +6875,30 @@ ADDRGP4 bg_classList+192
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $984
+ADDRGP4 $992
 JUMPV
-LABELV $989
-LABELV $986
+LABELV $997
+LABELV $994
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $988
+LABELV $996
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numPclasses
 INDIRI4
-LTI4 $985
-ADDRGP4 $992
+LTI4 $993
+ADDRGP4 $1000
 ARGP4
 ADDRGP4 Com_Printf
 CALLV
 pop
 CNSTI4 0
 RETI4
-LABELV $984
+LABELV $992
 endproc BG_FindCostOfClass 4 4
 proc BG_FindOverrideForClass 0 0
 CNSTI4 1296
@@ -6824,7 +6908,7 @@ MULI4
 ADDRGP4 bg_classOverrideList
 ADDP4
 RETP4
-LABELV $993
+LABELV $1001
 endproc BG_FindOverrideForClass 0 0
 proc BG_ParseClassFile 20104 12
 ADDRFP4 4
@@ -6852,29 +6936,29 @@ ASGNI4
 ADDRLP4 12
 INDIRI4
 CNSTI4 0
-GEI4 $995
+GEI4 $1003
 CNSTI4 0
 RETI4
-ADDRGP4 $994
+ADDRGP4 $1002
 JUMPV
-LABELV $995
+LABELV $1003
 ADDRLP4 12
 INDIRI4
 CNSTI4 0
-EQI4 $999
+EQI4 $1007
 ADDRLP4 12
 INDIRI4
 CVIU4 4
 CNSTU4 19999
-LTU4 $997
-LABELV $999
+LTU4 $1005
+LABELV $1007
 ADDRLP4 20020
 INDIRI4
 ARGI4
 ADDRGP4 trap_FS_FCloseFile
 CALLV
 pop
-ADDRGP4 $1000
+ADDRGP4 $1008
 ARGP4
 ADDRFP4 0
 INDIRP4
@@ -6882,17 +6966,17 @@ ARGP4
 ADDRLP4 12
 INDIRI4
 CNSTI4 0
-NEI4 $1002
+NEI4 $1010
 ADDRLP4 20032
-ADDRGP4 $481
+ADDRGP4 $489
 ASGNP4
-ADDRGP4 $1003
+ADDRGP4 $1011
 JUMPV
-LABELV $1002
+LABELV $1010
 ADDRLP4 20032
-ADDRGP4 $482
+ADDRGP4 $490
 ASGNP4
-LABELV $1003
+LABELV $1011
 ADDRLP4 20032
 INDIRP4
 ARGP4
@@ -6901,9 +6985,9 @@ CALLV
 pop
 CNSTI4 0
 RETI4
-ADDRGP4 $994
+ADDRGP4 $1002
 JUMPV
-LABELV $997
+LABELV $1005
 ADDRLP4 20
 ARGP4
 ADDRLP4 12
@@ -6930,9 +7014,9 @@ pop
 ADDRLP4 4
 ADDRLP4 20
 ASGNP4
-ADDRGP4 $1005
+ADDRGP4 $1013
 JUMPV
-LABELV $1004
+LABELV $1012
 ADDRLP4 4
 ARGP4
 ADDRLP4 20032
@@ -6947,14 +7031,14 @@ ADDRLP4 0
 INDIRP4
 CVPU4 4
 CNSTU4 0
-NEU4 $1007
-ADDRGP4 $1006
+NEU4 $1015
+ADDRGP4 $1014
 JUMPV
-LABELV $1007
+LABELV $1015
 ADDRLP4 0
 INDIRP4
 ARGP4
-ADDRGP4 $493
+ADDRGP4 $501
 ARGP4
 ADDRLP4 20036
 ADDRGP4 Q_stricmp
@@ -6963,14 +7047,14 @@ ASGNI4
 ADDRLP4 20036
 INDIRI4
 CNSTI4 0
-NEI4 $1009
-ADDRGP4 $1006
+NEI4 $1017
+ADDRGP4 $1014
 JUMPV
-LABELV $1009
+LABELV $1017
 ADDRLP4 0
 INDIRP4
 ARGP4
-ADDRGP4 $496
+ADDRGP4 $504
 ARGP4
 ADDRLP4 20040
 ADDRGP4 Q_stricmp
@@ -6979,7 +7063,7 @@ ASGNI4
 ADDRLP4 20040
 INDIRI4
 CNSTI4 0
-NEI4 $1011
+NEI4 $1019
 ADDRLP4 4
 ARGP4
 ADDRLP4 20044
@@ -6994,10 +7078,10 @@ ADDRLP4 0
 INDIRP4
 CVPU4 4
 CNSTU4 0
-NEU4 $1013
-ADDRGP4 $1006
+NEU4 $1021
+ADDRGP4 $1014
 JUMPV
-LABELV $1013
+LABELV $1021
 ADDRFP4 4
 INDIRP4
 ARGP4
@@ -7009,13 +7093,13 @@ ARGI4
 ADDRGP4 Q_strncpyz
 CALLV
 pop
-ADDRGP4 $1005
+ADDRGP4 $1013
 JUMPV
-LABELV $1011
+LABELV $1019
 ADDRLP4 0
 INDIRP4
 ARGP4
-ADDRGP4 $1017
+ADDRGP4 $1025
 ARGP4
 ADDRLP4 20044
 ADDRGP4 Q_stricmp
@@ -7024,7 +7108,7 @@ ASGNI4
 ADDRLP4 20044
 INDIRI4
 CNSTI4 0
-NEI4 $1015
+NEI4 $1023
 ADDRLP4 4
 ARGP4
 ADDRLP4 20048
@@ -7039,10 +7123,10 @@ ADDRLP4 0
 INDIRP4
 CVPU4 4
 CNSTU4 0
-NEU4 $1018
-ADDRGP4 $1006
+NEU4 $1026
+ADDRGP4 $1014
 JUMPV
-LABELV $1018
+LABELV $1026
 ADDRFP4 4
 INDIRP4
 CNSTI4 68
@@ -7056,13 +7140,13 @@ ARGI4
 ADDRGP4 Q_strncpyz
 CALLV
 pop
-ADDRGP4 $1005
+ADDRGP4 $1013
 JUMPV
-LABELV $1015
+LABELV $1023
 ADDRLP4 0
 INDIRP4
 ARGP4
-ADDRGP4 $1022
+ADDRGP4 $1030
 ARGP4
 ADDRLP4 20048
 ADDRGP4 Q_stricmp
@@ -7071,7 +7155,7 @@ ASGNI4
 ADDRLP4 20048
 INDIRI4
 CNSTI4 0
-NEI4 $1020
+NEI4 $1028
 ADDRLP4 4
 ARGP4
 ADDRLP4 20052
@@ -7086,10 +7170,10 @@ ADDRLP4 0
 INDIRP4
 CVPU4 4
 CNSTU4 0
-NEU4 $1023
-ADDRGP4 $1006
+NEU4 $1031
+ADDRGP4 $1014
 JUMPV
-LABELV $1023
+LABELV $1031
 ADDRFP4 4
 INDIRP4
 CNSTI4 136
@@ -7103,13 +7187,13 @@ ARGI4
 ADDRGP4 Q_strncpyz
 CALLV
 pop
-ADDRGP4 $1005
+ADDRGP4 $1013
 JUMPV
-LABELV $1020
+LABELV $1028
 ADDRLP4 0
 INDIRP4
 ARGP4
-ADDRGP4 $507
+ADDRGP4 $515
 ARGP4
 ADDRLP4 20052
 ADDRGP4 Q_stricmp
@@ -7118,7 +7202,7 @@ ASGNI4
 ADDRLP4 20052
 INDIRI4
 CNSTI4 0
-NEI4 $1025
+NEI4 $1033
 ADDRLP4 4
 ARGP4
 ADDRLP4 20056
@@ -7133,10 +7217,10 @@ ADDRLP4 0
 INDIRP4
 CVPU4 4
 CNSTU4 0
-NEU4 $1027
-ADDRGP4 $1006
+NEU4 $1035
+ADDRGP4 $1014
 JUMPV
-LABELV $1027
+LABELV $1035
 ADDRLP4 0
 INDIRP4
 ARGP4
@@ -7151,11 +7235,11 @@ ASGNF4
 ADDRLP4 16
 INDIRF4
 CNSTF4 0
-GEF4 $1029
+GEF4 $1037
 ADDRLP4 16
 CNSTF4 0
 ASGNF4
-LABELV $1029
+LABELV $1037
 ADDRFP4 4
 INDIRP4
 CNSTI4 64
@@ -7163,13 +7247,13 @@ ADDP4
 ADDRLP4 16
 INDIRF4
 ASGNF4
-ADDRGP4 $1005
+ADDRGP4 $1013
 JUMPV
-LABELV $1025
+LABELV $1033
 ADDRLP4 0
 INDIRP4
 ARGP4
-ADDRGP4 $1033
+ADDRGP4 $1041
 ARGP4
 ADDRLP4 20056
 ADDRGP4 Q_stricmp
@@ -7178,7 +7262,7 @@ ASGNI4
 ADDRLP4 20056
 INDIRI4
 CNSTI4 0
-NEI4 $1031
+NEI4 $1039
 ADDRLP4 4
 ARGP4
 ADDRLP4 20060
@@ -7193,10 +7277,10 @@ ADDRLP4 0
 INDIRP4
 CVPU4 4
 CNSTU4 0
-NEU4 $1034
-ADDRGP4 $1006
+NEU4 $1042
+ADDRGP4 $1014
 JUMPV
-LABELV $1034
+LABELV $1042
 ADDRLP4 0
 INDIRP4
 ARGP4
@@ -7211,11 +7295,11 @@ ASGNF4
 ADDRLP4 16
 INDIRF4
 CNSTF4 0
-GEF4 $1036
+GEF4 $1044
 ADDRLP4 16
 CNSTF4 0
 ASGNF4
-LABELV $1036
+LABELV $1044
 ADDRFP4 4
 INDIRP4
 CNSTI4 132
@@ -7223,13 +7307,13 @@ ADDP4
 ADDRLP4 16
 INDIRF4
 ASGNF4
-ADDRGP4 $1005
+ADDRGP4 $1013
 JUMPV
-LABELV $1031
+LABELV $1039
 ADDRLP4 0
 INDIRP4
 ARGP4
-ADDRGP4 $514
+ADDRGP4 $522
 ARGP4
 ADDRLP4 20060
 ADDRGP4 Q_stricmp
@@ -7238,11 +7322,11 @@ ASGNI4
 ADDRLP4 20060
 INDIRI4
 CNSTI4 0
-NEI4 $1038
+NEI4 $1046
 ADDRLP4 8
 CNSTI4 0
 ASGNI4
-LABELV $1040
+LABELV $1048
 ADDRLP4 4
 ARGP4
 ADDRLP4 20064
@@ -7257,10 +7341,10 @@ ADDRLP4 0
 INDIRP4
 CVPU4 4
 CNSTU4 0
-NEU4 $1044
-ADDRGP4 $1005
+NEU4 $1052
+ADDRGP4 $1013
 JUMPV
-LABELV $1044
+LABELV $1052
 ADDRLP4 0
 INDIRP4
 ARGP4
@@ -7280,7 +7364,7 @@ ADDP4
 ADDRLP4 20068
 INDIRF4
 ASGNF4
-LABELV $1041
+LABELV $1049
 ADDRLP4 8
 ADDRLP4 8
 INDIRI4
@@ -7290,14 +7374,14 @@ ASGNI4
 ADDRLP4 8
 INDIRI4
 CNSTI4 2
-LEI4 $1040
-ADDRGP4 $1005
+LEI4 $1048
+ADDRGP4 $1013
 JUMPV
-LABELV $1038
+LABELV $1046
 ADDRLP4 0
 INDIRP4
 ARGP4
-ADDRGP4 $523
+ADDRGP4 $531
 ARGP4
 ADDRLP4 20064
 ADDRGP4 Q_stricmp
@@ -7306,11 +7390,11 @@ ASGNI4
 ADDRLP4 20064
 INDIRI4
 CNSTI4 0
-NEI4 $1046
+NEI4 $1054
 ADDRLP4 8
 CNSTI4 0
 ASGNI4
-LABELV $1048
+LABELV $1056
 ADDRLP4 4
 ARGP4
 ADDRLP4 20068
@@ -7325,10 +7409,10 @@ ADDRLP4 0
 INDIRP4
 CVPU4 4
 CNSTU4 0
-NEU4 $1052
-ADDRGP4 $1005
+NEU4 $1060
+ADDRGP4 $1013
 JUMPV
-LABELV $1052
+LABELV $1060
 ADDRLP4 0
 INDIRP4
 ARGP4
@@ -7348,7 +7432,7 @@ ADDP4
 ADDRLP4 20072
 INDIRF4
 ASGNF4
-LABELV $1049
+LABELV $1057
 ADDRLP4 8
 ADDRLP4 8
 INDIRI4
@@ -7358,14 +7442,14 @@ ASGNI4
 ADDRLP4 8
 INDIRI4
 CNSTI4 2
-LEI4 $1048
-ADDRGP4 $1005
+LEI4 $1056
+ADDRGP4 $1013
 JUMPV
-LABELV $1046
+LABELV $1054
 ADDRLP4 0
 INDIRP4
 ARGP4
-ADDRGP4 $1056
+ADDRGP4 $1064
 ARGP4
 ADDRLP4 20068
 ADDRGP4 Q_stricmp
@@ -7374,11 +7458,11 @@ ASGNI4
 ADDRLP4 20068
 INDIRI4
 CNSTI4 0
-NEI4 $1054
+NEI4 $1062
 ADDRLP4 8
 CNSTI4 0
 ASGNI4
-LABELV $1057
+LABELV $1065
 ADDRLP4 4
 ARGP4
 ADDRLP4 20072
@@ -7393,10 +7477,10 @@ ADDRLP4 0
 INDIRP4
 CVPU4 4
 CNSTU4 0
-NEU4 $1061
-ADDRGP4 $1005
+NEU4 $1069
+ADDRGP4 $1013
 JUMPV
-LABELV $1061
+LABELV $1069
 ADDRLP4 0
 INDIRP4
 ARGP4
@@ -7416,7 +7500,7 @@ ADDP4
 ADDRLP4 20076
 INDIRF4
 ASGNF4
-LABELV $1058
+LABELV $1066
 ADDRLP4 8
 ADDRLP4 8
 INDIRI4
@@ -7426,14 +7510,14 @@ ASGNI4
 ADDRLP4 8
 INDIRI4
 CNSTI4 2
-LEI4 $1057
-ADDRGP4 $1005
+LEI4 $1065
+ADDRGP4 $1013
 JUMPV
-LABELV $1054
+LABELV $1062
 ADDRLP4 0
 INDIRP4
 ARGP4
-ADDRGP4 $1065
+ADDRGP4 $1073
 ARGP4
 ADDRLP4 20072
 ADDRGP4 Q_stricmp
@@ -7442,11 +7526,11 @@ ASGNI4
 ADDRLP4 20072
 INDIRI4
 CNSTI4 0
-NEI4 $1063
+NEI4 $1071
 ADDRLP4 8
 CNSTI4 0
 ASGNI4
-LABELV $1066
+LABELV $1074
 ADDRLP4 4
 ARGP4
 ADDRLP4 20076
@@ -7461,10 +7545,10 @@ ADDRLP4 0
 INDIRP4
 CVPU4 4
 CNSTU4 0
-NEU4 $1070
-ADDRGP4 $1005
+NEU4 $1078
+ADDRGP4 $1013
 JUMPV
-LABELV $1070
+LABELV $1078
 ADDRLP4 0
 INDIRP4
 ARGP4
@@ -7484,7 +7568,7 @@ ADDP4
 ADDRLP4 20080
 INDIRF4
 ASGNF4
-LABELV $1067
+LABELV $1075
 ADDRLP4 8
 ADDRLP4 8
 INDIRI4
@@ -7494,14 +7578,14 @@ ASGNI4
 ADDRLP4 8
 INDIRI4
 CNSTI4 2
-LEI4 $1066
-ADDRGP4 $1005
+LEI4 $1074
+ADDRGP4 $1013
 JUMPV
-LABELV $1063
+LABELV $1071
 ADDRLP4 0
 INDIRP4
 ARGP4
-ADDRGP4 $1074
+ADDRGP4 $1082
 ARGP4
 ADDRLP4 20076
 ADDRGP4 Q_stricmp
@@ -7510,11 +7594,11 @@ ASGNI4
 ADDRLP4 20076
 INDIRI4
 CNSTI4 0
-NEI4 $1072
+NEI4 $1080
 ADDRLP4 8
 CNSTI4 0
 ASGNI4
-LABELV $1075
+LABELV $1083
 ADDRLP4 4
 ARGP4
 ADDRLP4 20080
@@ -7529,10 +7613,10 @@ ADDRLP4 0
 INDIRP4
 CVPU4 4
 CNSTU4 0
-NEU4 $1079
-ADDRGP4 $1005
+NEU4 $1087
+ADDRGP4 $1013
 JUMPV
-LABELV $1079
+LABELV $1087
 ADDRLP4 0
 INDIRP4
 ARGP4
@@ -7552,7 +7636,7 @@ ADDP4
 ADDRLP4 20084
 INDIRF4
 ASGNF4
-LABELV $1076
+LABELV $1084
 ADDRLP4 8
 ADDRLP4 8
 INDIRI4
@@ -7562,14 +7646,14 @@ ASGNI4
 ADDRLP4 8
 INDIRI4
 CNSTI4 2
-LEI4 $1075
-ADDRGP4 $1005
+LEI4 $1083
+ADDRGP4 $1013
 JUMPV
-LABELV $1072
+LABELV $1080
 ADDRLP4 0
 INDIRP4
 ARGP4
-ADDRGP4 $1083
+ADDRGP4 $1091
 ARGP4
 ADDRLP4 20080
 ADDRGP4 Q_stricmp
@@ -7578,7 +7662,7 @@ ASGNI4
 ADDRLP4 20080
 INDIRI4
 CNSTI4 0
-NEI4 $1081
+NEI4 $1089
 ADDRLP4 4
 ARGP4
 ADDRLP4 20084
@@ -7603,13 +7687,13 @@ ADDP4
 ADDRLP4 20088
 INDIRI4
 ASGNI4
-ADDRGP4 $1005
+ADDRGP4 $1013
 JUMPV
-LABELV $1081
+LABELV $1089
 ADDRLP4 0
 INDIRP4
 ARGP4
-ADDRGP4 $1086
+ADDRGP4 $1094
 ARGP4
 ADDRLP4 20084
 ADDRGP4 Q_stricmp
@@ -7618,7 +7702,7 @@ ASGNI4
 ADDRLP4 20084
 INDIRI4
 CNSTI4 0
-NEI4 $1084
+NEI4 $1092
 ADDRLP4 4
 ARGP4
 ADDRLP4 20088
@@ -7643,13 +7727,13 @@ ADDP4
 ADDRLP4 20092
 INDIRI4
 ASGNI4
-ADDRGP4 $1005
+ADDRGP4 $1013
 JUMPV
-LABELV $1084
+LABELV $1092
 ADDRLP4 0
 INDIRP4
 ARGP4
-ADDRGP4 $532
+ADDRGP4 $540
 ARGP4
 ADDRLP4 20088
 ADDRGP4 Q_stricmp
@@ -7658,7 +7742,7 @@ ASGNI4
 ADDRLP4 20088
 INDIRI4
 CNSTI4 0
-NEI4 $1087
+NEI4 $1095
 ADDRLP4 4
 ARGP4
 ADDRLP4 20096
@@ -7673,10 +7757,10 @@ ADDRLP4 0
 INDIRP4
 CVPU4 4
 CNSTU4 0
-NEU4 $1089
-ADDRGP4 $1006
+NEU4 $1097
+ADDRGP4 $1014
 JUMPV
-LABELV $1089
+LABELV $1097
 ADDRLP4 0
 INDIRP4
 ARGP4
@@ -7695,13 +7779,13 @@ ADDP4
 ADDRLP4 20092
 INDIRF4
 ASGNF4
-ADDRGP4 $1005
+ADDRGP4 $1013
 JUMPV
-LABELV $1087
+LABELV $1095
 ADDRLP4 0
 INDIRP4
 ARGP4
-ADDRGP4 $1093
+ADDRGP4 $1101
 ARGP4
 ADDRLP4 20092
 ADDRGP4 Q_stricmp
@@ -7710,7 +7794,7 @@ ASGNI4
 ADDRLP4 20092
 INDIRI4
 CNSTI4 0
-NEI4 $1091
+NEI4 $1099
 ADDRLP4 4
 ARGP4
 ADDRLP4 20096
@@ -7725,10 +7809,10 @@ ADDRLP4 0
 INDIRP4
 CVPU4 4
 CNSTU4 0
-NEU4 $1094
-ADDRGP4 $1006
+NEU4 $1102
+ADDRGP4 $1014
 JUMPV
-LABELV $1094
+LABELV $1102
 ADDRFP4 4
 INDIRP4
 CNSTI4 200
@@ -7742,10 +7826,10 @@ ARGI4
 ADDRGP4 Q_strncpyz
 CALLV
 pop
-ADDRGP4 $1005
+ADDRGP4 $1013
 JUMPV
-LABELV $1091
-ADDRGP4 $535
+LABELV $1099
+ADDRGP4 $543
 ARGP4
 ADDRLP4 0
 INDIRP4
@@ -7755,22 +7839,22 @@ CALLV
 pop
 CNSTI4 0
 RETI4
-ADDRGP4 $994
+ADDRGP4 $1002
 JUMPV
-LABELV $1005
-ADDRGP4 $1004
+LABELV $1013
+ADDRGP4 $1012
 JUMPV
-LABELV $1006
+LABELV $1014
 CNSTI4 1
 RETI4
-LABELV $994
+LABELV $1002
 endproc BG_ParseClassFile 20104 12
 export BG_InitClassOverrides
 proc BG_InitClassOverrides 20 8
 ADDRLP4 0
 CNSTI4 1
 ASGNI4
-LABELV $1097
+LABELV $1105
 ADDRLP4 0
 INDIRI4
 ARGI4
@@ -7789,7 +7873,7 @@ ADDRLP4 12
 ADDRGP4 BG_FindNameForClassNum
 CALLP4
 ASGNP4
-ADDRGP4 $1101
+ADDRGP4 $1109
 ARGP4
 ADDRLP4 12
 INDIRP4
@@ -7807,7 +7891,7 @@ ARGP4
 ADDRGP4 BG_ParseClassFile
 CALLI4
 pop
-LABELV $1098
+LABELV $1106
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
@@ -7817,8 +7901,8 @@ ASGNI4
 ADDRLP4 0
 INDIRI4
 CNSTI4 13
-LTI4 $1097
-LABELV $1096
+LTI4 $1105
+LABELV $1104
 endproc BG_InitClassOverrides 20 8
 data
 export bg_weapons
@@ -7828,8 +7912,8 @@ byte 4 9
 byte 4 0
 byte 4 7
 byte 4 0
-address $1102
-address $1103
+address $1110
+address $1111
 byte 4 0
 byte 4 0
 byte 4 1
@@ -7895,10 +7979,10 @@ byte 4 0
 byte 4 2
 byte 4 17
 byte 4 450
-byte 4 6
+byte 4 7
 byte 4 32
 address $129
-address $1104
+address $1112
 byte 4 150
 byte 4 0
 byte 4 0
@@ -7944,7 +8028,7 @@ byte 4 350
 byte 4 7
 byte 4 32
 address $137
-address $1105
+address $1113
 byte 4 5
 byte 4 4
 byte 4 0
@@ -7964,10 +8048,10 @@ byte 4 0
 byte 4 2
 byte 4 16
 byte 4 400
-byte 4 6
+byte 4 7
 byte 4 32
 address $141
-address $1106
+address $1114
 byte 4 50
 byte 4 4
 byte 4 0
@@ -7987,10 +8071,10 @@ byte 4 0
 byte 4 2
 byte 4 18
 byte 4 600
-byte 4 4
+byte 4 7
 byte 4 32
 address $145
-address $1107
+address $1115
 byte 4 90
 byte 4 0
 byte 4 0
@@ -8013,7 +8097,7 @@ byte 4 250
 byte 4 7
 byte 4 32
 address $149
-address $1108
+address $1116
 byte 4 200
 byte 4 0
 byte 4 0
@@ -8036,7 +8120,7 @@ byte 4 100
 byte 4 7
 byte 4 32
 address $153
-address $1109
+address $1117
 byte 4 0
 byte 4 0
 byte 4 1
@@ -8056,10 +8140,33 @@ byte 4 0
 byte 4 2
 byte 4 19
 byte 4 200
-byte 4 6
+byte 4 7
 byte 4 0
-address $1110
-address $1111
+address $1118
+address $1119
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1036831949
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 1119092736
+byte 4 0
+byte 4 0
+byte 4 0
+byte 4 2
+byte 4 22
+byte 4 300
+byte 4 7
+byte 4 0
+address $165
+address $166
 byte 4 1
 byte 4 0
 byte 4 0
@@ -8079,10 +8186,10 @@ byte 4 0
 byte 4 2
 byte 4 20
 byte 4 200
-byte 4 6
+byte 4 7
 byte 4 0
-address $1112
-address $1113
+address $1120
+address $1121
 byte 4 1
 byte 4 0
 byte 4 1
@@ -8091,7 +8198,7 @@ byte 4 1000
 byte 4 0
 byte 4 0
 byte 4 0
-byte 4 1065353216
+byte 4 1036831949
 byte 4 0
 byte 4 0
 byte 4 0
@@ -8100,12 +8207,35 @@ byte 4 0
 byte 4 0
 byte 4 0
 byte 4 2
-byte 4 28
+byte 4 21
+byte 4 1000
+byte 4 7
+byte 4 32
+address $161
+address $1122
+byte 4 4
+byte 4 2
+byte 4 0
+byte 4 0
+byte 4 1000
+byte 4 1000
+byte 4 0
+byte 4 2000
+byte 4 1036831949
+byte 4 1
+byte 4 0
+byte 4 0
+byte 4 1119092736
+byte 4 1
+byte 4 1
+byte 4 0
+byte 4 2
+byte 4 30
 byte 4 0
 byte 4 7
 byte 4 32
-address $1114
-address $1115
+address $1123
+address $1124
 byte 4 0
 byte 4 0
 byte 4 1
@@ -8123,12 +8253,12 @@ byte 4 1
 byte 4 0
 byte 4 5500
 byte 4 2
-byte 4 27
+byte 4 29
 byte 4 0
-byte 4 6
+byte 4 7
 byte 4 32
-address $1116
-address $1117
+address $1125
+address $1126
 byte 4 0
 byte 4 0
 byte 4 1
@@ -8146,12 +8276,12 @@ byte 4 1
 byte 4 0
 byte 4 4500
 byte 4 2
-byte 4 25
+byte 4 27
 byte 4 0
 byte 4 7
 byte 4 32
-address $1118
-address $1119
+address $1127
+address $1128
 byte 4 0
 byte 4 0
 byte 4 1
@@ -8169,12 +8299,12 @@ byte 4 1
 byte 4 0
 byte 4 17000
 byte 4 1
-byte 4 26
+byte 4 28
 byte 4 0
 byte 4 7
 byte 4 32
-address $1120
-address $1121
+address $1129
+address $1130
 byte 4 0
 byte 4 0
 byte 4 1
@@ -8196,8 +8326,8 @@ byte 4 1
 byte 4 0
 byte 4 7
 byte 4 32
-address $551
-address $1122
+address $559
+address $1131
 byte 4 0
 byte 4 0
 byte 4 1
@@ -8219,8 +8349,8 @@ byte 4 2
 byte 4 0
 byte 4 7
 byte 4 32
-address $555
-address $1123
+address $563
+address $1132
 byte 4 0
 byte 4 0
 byte 4 1
@@ -8242,8 +8372,8 @@ byte 4 3
 byte 4 0
 byte 4 7
 byte 4 32
-address $558
-address $1124
+address $566
+address $1133
 byte 4 0
 byte 4 0
 byte 4 1
@@ -8265,8 +8395,8 @@ byte 4 4
 byte 4 0
 byte 4 7
 byte 4 32
-address $561
-address $1122
+address $569
+address $1131
 byte 4 0
 byte 4 0
 byte 4 1
@@ -8288,8 +8418,8 @@ byte 4 5
 byte 4 0
 byte 4 7
 byte 4 32
-address $564
-address $1125
+address $572
+address $1134
 byte 4 0
 byte 4 0
 byte 4 1
@@ -8311,8 +8441,8 @@ byte 4 6
 byte 4 0
 byte 4 7
 byte 4 32
-address $567
-address $1126
+address $575
+address $1135
 byte 4 0
 byte 4 0
 byte 4 1
@@ -8334,8 +8464,8 @@ byte 4 7
 byte 4 0
 byte 4 7
 byte 4 32
-address $570
-address $1127
+address $578
+address $1136
 byte 4 3
 byte 4 0
 byte 4 1
@@ -8357,8 +8487,8 @@ byte 4 8
 byte 4 0
 byte 4 7
 byte 4 32
-address $572
-address $1128
+address $580
+address $1137
 byte 4 0
 byte 4 0
 byte 4 1
@@ -8376,12 +8506,12 @@ byte 4 0
 byte 4 0
 byte 4 0
 byte 4 1
-byte 4 21
+byte 4 23
 byte 4 0
 byte 4 7
 byte 4 32
-address $1129
-address $1130
+address $1138
+address $1139
 byte 4 0
 byte 4 0
 byte 4 1
@@ -8399,7 +8529,7 @@ byte 4 0
 byte 4 0
 byte 4 0
 byte 4 1
-byte 4 22
+byte 4 24
 byte 4 0
 byte 4 7
 byte 4 32
@@ -8422,7 +8552,7 @@ byte 4 0
 byte 4 0
 byte 4 0
 byte 4 1
-byte 4 24
+byte 4 26
 byte 4 0
 byte 4 7
 byte 4 32
@@ -8445,11 +8575,11 @@ byte 4 0
 byte 4 0
 byte 4 0
 byte 4 2
-byte 4 23
+byte 4 25
 byte 4 0
 byte 4 7
 byte 4 32
-address $1131
+address $1140
 address $102
 byte 4 0
 byte 4 0
@@ -8471,7 +8601,7 @@ byte 4 2
 export bg_numWeapons
 align 4
 LABELV bg_numWeapons
-byte 4 28
+byte 4 30
 export BG_FindPriceForWeapon
 code
 proc BG_FindPriceForWeapon 4 0
@@ -8482,9 +8612,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1136
+ADDRGP4 $1145
 JUMPV
-LABELV $1133
+LABELV $1142
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -8494,7 +8624,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1137
+NEI4 $1146
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -8503,25 +8633,25 @@ ADDRGP4 bg_weapons+4
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $1132
+ADDRGP4 $1141
 JUMPV
-LABELV $1137
-LABELV $1134
+LABELV $1146
+LABELV $1143
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1136
+LABELV $1145
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numWeapons
 INDIRI4
-LTI4 $1133
+LTI4 $1142
 CNSTI4 100
 RETI4
-LABELV $1132
+LABELV $1141
 endproc BG_FindPriceForWeapon 4 0
 export BG_FindStagesForWeapon
 proc BG_FindStagesForWeapon 4 0
@@ -8536,9 +8666,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1144
+ADDRGP4 $1153
 JUMPV
-LABELV $1141
+LABELV $1150
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -8548,7 +8678,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1145
+NEI4 $1154
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -8562,33 +8692,33 @@ INDIRI4
 LSHI4
 BANDI4
 CNSTI4 0
-EQI4 $1147
+EQI4 $1156
 CNSTI4 1
 RETI4
-ADDRGP4 $1140
+ADDRGP4 $1149
 JUMPV
-LABELV $1147
+LABELV $1156
 CNSTI4 0
 RETI4
-ADDRGP4 $1140
+ADDRGP4 $1149
 JUMPV
-LABELV $1145
-LABELV $1142
+LABELV $1154
+LABELV $1151
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1144
+LABELV $1153
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numWeapons
 INDIRI4
-LTI4 $1141
+LTI4 $1150
 CNSTI4 0
 RETI4
-LABELV $1140
+LABELV $1149
 endproc BG_FindStagesForWeapon 4 0
 export BG_FindSlotsForWeapon
 proc BG_FindSlotsForWeapon 4 0
@@ -8599,9 +8729,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1154
+ADDRGP4 $1163
 JUMPV
-LABELV $1151
+LABELV $1160
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -8611,7 +8741,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1155
+NEI4 $1164
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -8620,25 +8750,25 @@ ADDRGP4 bg_weapons+12
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $1150
+ADDRGP4 $1159
 JUMPV
-LABELV $1155
-LABELV $1152
+LABELV $1164
+LABELV $1161
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1154
+LABELV $1163
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numWeapons
 INDIRI4
-LTI4 $1151
+LTI4 $1160
 CNSTI4 32
 RETI4
-LABELV $1150
+LABELV $1159
 endproc BG_FindSlotsForWeapon 4 0
 export BG_FindNameForWeapon
 proc BG_FindNameForWeapon 4 0
@@ -8649,9 +8779,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1162
+ADDRGP4 $1171
 JUMPV
-LABELV $1159
+LABELV $1168
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -8661,7 +8791,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1163
+NEI4 $1172
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -8670,25 +8800,25 @@ ADDRGP4 bg_weapons+16
 ADDP4
 INDIRP4
 RETP4
-ADDRGP4 $1158
+ADDRGP4 $1167
 JUMPV
-LABELV $1163
-LABELV $1160
+LABELV $1172
+LABELV $1169
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1162
+LABELV $1171
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numWeapons
 INDIRI4
-LTI4 $1159
+LTI4 $1168
 CNSTP4 0
 RETP4
-LABELV $1158
+LABELV $1167
 endproc BG_FindNameForWeapon 4 0
 export BG_FindWeaponNumForName
 proc BG_FindWeaponNumForName 8 8
@@ -8699,9 +8829,9 @@ ASGNP4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1170
+ADDRGP4 $1179
 JUMPV
-LABELV $1167
+LABELV $1176
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -8720,7 +8850,7 @@ ASGNI4
 ADDRLP4 4
 INDIRI4
 CNSTI4 0
-NEI4 $1171
+NEI4 $1180
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -8729,25 +8859,25 @@ ADDRGP4 bg_weapons
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $1166
+ADDRGP4 $1175
 JUMPV
-LABELV $1171
-LABELV $1168
+LABELV $1180
+LABELV $1177
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1170
+LABELV $1179
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numWeapons
 INDIRI4
-LTI4 $1167
+LTI4 $1176
 CNSTI4 0
 RETI4
-LABELV $1166
+LABELV $1175
 endproc BG_FindWeaponNumForName 8 8
 export BG_FindHumanNameForWeapon
 proc BG_FindHumanNameForWeapon 4 0
@@ -8758,9 +8888,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1178
+ADDRGP4 $1187
 JUMPV
-LABELV $1175
+LABELV $1184
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -8770,7 +8900,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1179
+NEI4 $1188
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -8779,25 +8909,25 @@ ADDRGP4 bg_weapons+20
 ADDP4
 INDIRP4
 RETP4
-ADDRGP4 $1174
+ADDRGP4 $1183
 JUMPV
-LABELV $1179
-LABELV $1176
+LABELV $1188
+LABELV $1185
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1178
+LABELV $1187
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numWeapons
 INDIRI4
-LTI4 $1175
+LTI4 $1184
 CNSTP4 0
 RETP4
-LABELV $1174
+LABELV $1183
 endproc BG_FindHumanNameForWeapon 4 0
 export BG_FindAmmoForWeapon
 proc BG_FindAmmoForWeapon 4 0
@@ -8816,9 +8946,9 @@ ASGNP4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1186
+ADDRGP4 $1195
 JUMPV
-LABELV $1183
+LABELV $1192
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -8828,12 +8958,12 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1187
+NEI4 $1196
 ADDRFP4 4
 INDIRP4
 CVPU4 4
 CNSTU4 0
-EQU4 $1189
+EQU4 $1198
 ADDRFP4 4
 INDIRP4
 CNSTI4 92
@@ -8844,12 +8974,12 @@ ADDRGP4 bg_weapons+24
 ADDP4
 INDIRI4
 ASGNI4
-LABELV $1189
+LABELV $1198
 ADDRFP4 8
 INDIRP4
 CVPU4 4
 CNSTU4 0
-EQU4 $1185
+EQU4 $1194
 ADDRFP4 8
 INDIRP4
 CNSTI4 92
@@ -8860,24 +8990,24 @@ ADDRGP4 bg_weapons+28
 ADDP4
 INDIRI4
 ASGNI4
-ADDRGP4 $1185
+ADDRGP4 $1194
 JUMPV
-LABELV $1187
-LABELV $1184
+LABELV $1196
+LABELV $1193
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1186
+LABELV $1195
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numWeapons
 INDIRI4
-LTI4 $1183
-LABELV $1185
-LABELV $1182
+LTI4 $1192
+LABELV $1194
+LABELV $1191
 endproc BG_FindAmmoForWeapon 4 0
 export BG_FindInfinteAmmoForWeapon
 proc BG_FindInfinteAmmoForWeapon 4 0
@@ -8888,9 +9018,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1199
+ADDRGP4 $1208
 JUMPV
-LABELV $1196
+LABELV $1205
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -8900,7 +9030,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1200
+NEI4 $1209
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -8909,25 +9039,25 @@ ADDRGP4 bg_weapons+32
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $1195
+ADDRGP4 $1204
 JUMPV
-LABELV $1200
-LABELV $1197
+LABELV $1209
+LABELV $1206
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1199
+LABELV $1208
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numWeapons
 INDIRI4
-LTI4 $1196
+LTI4 $1205
 CNSTI4 0
 RETI4
-LABELV $1195
+LABELV $1204
 endproc BG_FindInfinteAmmoForWeapon 4 0
 export BG_FindUsesEnergyForWeapon
 proc BG_FindUsesEnergyForWeapon 4 0
@@ -8938,9 +9068,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1207
+ADDRGP4 $1216
 JUMPV
-LABELV $1204
+LABELV $1213
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -8950,7 +9080,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1208
+NEI4 $1217
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -8959,25 +9089,25 @@ ADDRGP4 bg_weapons+36
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $1203
+ADDRGP4 $1212
 JUMPV
-LABELV $1208
-LABELV $1205
+LABELV $1217
+LABELV $1214
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1207
+LABELV $1216
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numWeapons
 INDIRI4
-LTI4 $1204
+LTI4 $1213
 CNSTI4 0
 RETI4
-LABELV $1203
+LABELV $1212
 endproc BG_FindUsesEnergyForWeapon 4 0
 export BG_FindRepeatRate1ForWeapon
 proc BG_FindRepeatRate1ForWeapon 4 0
@@ -8988,9 +9118,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1215
+ADDRGP4 $1224
 JUMPV
-LABELV $1212
+LABELV $1221
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -9000,7 +9130,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1216
+NEI4 $1225
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -9009,25 +9139,25 @@ ADDRGP4 bg_weapons+40
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $1211
+ADDRGP4 $1220
 JUMPV
-LABELV $1216
-LABELV $1213
+LABELV $1225
+LABELV $1222
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1215
+LABELV $1224
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numWeapons
 INDIRI4
-LTI4 $1212
+LTI4 $1221
 CNSTI4 1000
 RETI4
-LABELV $1211
+LABELV $1220
 endproc BG_FindRepeatRate1ForWeapon 4 0
 export BG_FindRepeatRate2ForWeapon
 proc BG_FindRepeatRate2ForWeapon 4 0
@@ -9038,9 +9168,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1223
+ADDRGP4 $1232
 JUMPV
-LABELV $1220
+LABELV $1229
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -9050,7 +9180,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1224
+NEI4 $1233
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -9059,25 +9189,25 @@ ADDRGP4 bg_weapons+44
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $1219
+ADDRGP4 $1228
 JUMPV
-LABELV $1224
-LABELV $1221
+LABELV $1233
+LABELV $1230
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1223
+LABELV $1232
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numWeapons
 INDIRI4
-LTI4 $1220
+LTI4 $1229
 CNSTI4 1000
 RETI4
-LABELV $1219
+LABELV $1228
 endproc BG_FindRepeatRate2ForWeapon 4 0
 export BG_FindRepeatRate3ForWeapon
 proc BG_FindRepeatRate3ForWeapon 4 0
@@ -9088,9 +9218,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1231
+ADDRGP4 $1240
 JUMPV
-LABELV $1228
+LABELV $1237
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -9100,7 +9230,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1232
+NEI4 $1241
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -9109,25 +9239,25 @@ ADDRGP4 bg_weapons+48
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $1227
+ADDRGP4 $1236
 JUMPV
-LABELV $1232
-LABELV $1229
+LABELV $1241
+LABELV $1238
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1231
+LABELV $1240
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numWeapons
 INDIRI4
-LTI4 $1228
+LTI4 $1237
 CNSTI4 1000
 RETI4
-LABELV $1227
+LABELV $1236
 endproc BG_FindRepeatRate3ForWeapon 4 0
 export BG_FindReloadTimeForWeapon
 proc BG_FindReloadTimeForWeapon 4 0
@@ -9138,9 +9268,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1239
+ADDRGP4 $1248
 JUMPV
-LABELV $1236
+LABELV $1245
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -9150,7 +9280,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1240
+NEI4 $1249
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -9159,25 +9289,25 @@ ADDRGP4 bg_weapons+52
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $1235
+ADDRGP4 $1244
 JUMPV
-LABELV $1240
-LABELV $1237
+LABELV $1249
+LABELV $1246
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1239
+LABELV $1248
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numWeapons
 INDIRI4
-LTI4 $1236
+LTI4 $1245
 CNSTI4 1000
 RETI4
-LABELV $1235
+LABELV $1244
 endproc BG_FindReloadTimeForWeapon 4 0
 export BG_FindKnockbackScaleForWeapon
 proc BG_FindKnockbackScaleForWeapon 4 0
@@ -9188,9 +9318,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1247
+ADDRGP4 $1256
 JUMPV
-LABELV $1244
+LABELV $1253
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -9200,7 +9330,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1248
+NEI4 $1257
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -9209,25 +9339,25 @@ ADDRGP4 bg_weapons+56
 ADDP4
 INDIRF4
 RETF4
-ADDRGP4 $1243
+ADDRGP4 $1252
 JUMPV
-LABELV $1248
-LABELV $1245
+LABELV $1257
+LABELV $1254
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1247
+LABELV $1256
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numWeapons
 INDIRI4
-LTI4 $1244
+LTI4 $1253
 CNSTF4 1065353216
 RETF4
-LABELV $1243
+LABELV $1252
 endproc BG_FindKnockbackScaleForWeapon 4 0
 export BG_WeaponHasAltMode
 proc BG_WeaponHasAltMode 4 0
@@ -9238,9 +9368,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1255
+ADDRGP4 $1264
 JUMPV
-LABELV $1252
+LABELV $1261
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -9250,7 +9380,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1256
+NEI4 $1265
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -9259,25 +9389,25 @@ ADDRGP4 bg_weapons+60
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $1251
+ADDRGP4 $1260
 JUMPV
-LABELV $1256
-LABELV $1253
+LABELV $1265
+LABELV $1262
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1255
+LABELV $1264
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numWeapons
 INDIRI4
-LTI4 $1252
+LTI4 $1261
 CNSTI4 0
 RETI4
-LABELV $1251
+LABELV $1260
 endproc BG_WeaponHasAltMode 4 0
 export BG_WeaponHasThirdMode
 proc BG_WeaponHasThirdMode 4 0
@@ -9288,9 +9418,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1263
+ADDRGP4 $1272
 JUMPV
-LABELV $1260
+LABELV $1269
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -9300,7 +9430,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1264
+NEI4 $1273
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -9309,25 +9439,25 @@ ADDRGP4 bg_weapons+64
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $1259
+ADDRGP4 $1268
 JUMPV
-LABELV $1264
-LABELV $1261
+LABELV $1273
+LABELV $1270
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1263
+LABELV $1272
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numWeapons
 INDIRI4
-LTI4 $1260
+LTI4 $1269
 CNSTI4 0
 RETI4
-LABELV $1259
+LABELV $1268
 endproc BG_WeaponHasThirdMode 4 0
 export BG_WeaponCanZoom
 proc BG_WeaponCanZoom 4 0
@@ -9338,9 +9468,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1271
+ADDRGP4 $1280
 JUMPV
-LABELV $1268
+LABELV $1277
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -9350,7 +9480,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1272
+NEI4 $1281
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -9359,25 +9489,25 @@ ADDRGP4 bg_weapons+68
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $1267
+ADDRGP4 $1276
 JUMPV
-LABELV $1272
-LABELV $1269
+LABELV $1281
+LABELV $1278
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1271
+LABELV $1280
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numWeapons
 INDIRI4
-LTI4 $1268
+LTI4 $1277
 CNSTI4 0
 RETI4
-LABELV $1267
+LABELV $1276
 endproc BG_WeaponCanZoom 4 0
 export BG_FindZoomFovForWeapon
 proc BG_FindZoomFovForWeapon 4 0
@@ -9388,9 +9518,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1279
+ADDRGP4 $1288
 JUMPV
-LABELV $1276
+LABELV $1285
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -9400,7 +9530,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1280
+NEI4 $1289
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -9409,25 +9539,25 @@ ADDRGP4 bg_weapons+72
 ADDP4
 INDIRF4
 RETF4
-ADDRGP4 $1275
+ADDRGP4 $1284
 JUMPV
-LABELV $1280
-LABELV $1277
+LABELV $1289
+LABELV $1286
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1279
+LABELV $1288
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numWeapons
 INDIRI4
-LTI4 $1276
+LTI4 $1285
 CNSTF4 0
 RETF4
-LABELV $1275
+LABELV $1284
 endproc BG_FindZoomFovForWeapon 4 0
 export BG_FindPurchasableForWeapon
 proc BG_FindPurchasableForWeapon 4 0
@@ -9438,9 +9568,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1287
+ADDRGP4 $1296
 JUMPV
-LABELV $1284
+LABELV $1293
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -9450,7 +9580,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1288
+NEI4 $1297
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -9459,25 +9589,25 @@ ADDRGP4 bg_weapons+76
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $1283
+ADDRGP4 $1292
 JUMPV
-LABELV $1288
-LABELV $1285
+LABELV $1297
+LABELV $1294
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1287
+LABELV $1296
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numWeapons
 INDIRI4
-LTI4 $1284
+LTI4 $1293
 CNSTI4 0
 RETI4
-LABELV $1283
+LABELV $1292
 endproc BG_FindPurchasableForWeapon 4 0
 export BG_FindLongRangedForWeapon
 proc BG_FindLongRangedForWeapon 4 0
@@ -9488,9 +9618,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1295
+ADDRGP4 $1304
 JUMPV
-LABELV $1292
+LABELV $1301
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -9500,7 +9630,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1296
+NEI4 $1305
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -9509,25 +9639,25 @@ ADDRGP4 bg_weapons+80
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $1291
+ADDRGP4 $1300
 JUMPV
-LABELV $1296
-LABELV $1293
+LABELV $1305
+LABELV $1302
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1295
+LABELV $1304
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numWeapons
 INDIRI4
-LTI4 $1292
+LTI4 $1301
 CNSTI4 0
 RETI4
-LABELV $1291
+LABELV $1300
 endproc BG_FindLongRangedForWeapon 4 0
 export BG_FindBuildDelayForWeapon
 proc BG_FindBuildDelayForWeapon 4 0
@@ -9538,9 +9668,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1303
+ADDRGP4 $1312
 JUMPV
-LABELV $1300
+LABELV $1309
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -9550,7 +9680,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1304
+NEI4 $1313
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -9559,25 +9689,25 @@ ADDRGP4 bg_weapons+84
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $1299
+ADDRGP4 $1308
 JUMPV
-LABELV $1304
-LABELV $1301
+LABELV $1313
+LABELV $1310
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1303
+LABELV $1312
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numWeapons
 INDIRI4
-LTI4 $1300
+LTI4 $1309
 CNSTI4 0
 RETI4
-LABELV $1299
+LABELV $1308
 endproc BG_FindBuildDelayForWeapon 4 0
 export BG_FindTeamForWeapon
 proc BG_FindTeamForWeapon 4 0
@@ -9588,9 +9718,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1311
+ADDRGP4 $1320
 JUMPV
-LABELV $1308
+LABELV $1317
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -9600,7 +9730,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1312
+NEI4 $1321
 CNSTI4 92
 ADDRLP4 0
 INDIRI4
@@ -9609,25 +9739,25 @@ ADDRGP4 bg_weapons+88
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $1307
+ADDRGP4 $1316
 JUMPV
-LABELV $1312
-LABELV $1309
+LABELV $1321
+LABELV $1318
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1311
+LABELV $1320
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numWeapons
 INDIRI4
-LTI4 $1308
+LTI4 $1317
 CNSTI4 0
 RETI4
-LABELV $1307
+LABELV $1316
 endproc BG_FindTeamForWeapon 4 0
 data
 export bg_upgrades
@@ -9637,19 +9767,19 @@ byte 4 1
 byte 4 70
 byte 4 7
 byte 4 14
-address $1315
-address $1316
-address $1317
+address $1324
+address $1325
+address $1326
 byte 4 1
 byte 4 0
 byte 4 2
 byte 4 2
 byte 4 90
-byte 4 6
+byte 4 7
 byte 4 1
-address $1318
-address $1319
-address $1320
+address $1327
+address $1328
+address $1329
 byte 4 1
 byte 4 0
 byte 4 2
@@ -9657,9 +9787,9 @@ byte 4 3
 byte 4 0
 byte 4 7
 byte 4 0
-address $1321
-address $1322
-address $1323
+address $1330
+address $1331
+address $1332
 byte 4 0
 byte 4 1
 byte 4 2
@@ -9667,28 +9797,38 @@ byte 4 4
 byte 4 100
 byte 4 7
 byte 4 16
-address $1324
-address $1325
-address $1326
+address $1333
+address $1334
+address $1335
 byte 4 1
 byte 4 0
 byte 4 2
 byte 4 5
 byte 4 200
-byte 4 6
+byte 4 7
 byte 4 0
-address $1327
-address $1111
+address $1336
+address $1119
 byte 4 0
 byte 4 1
 byte 4 1
 byte 4 2
 byte 4 6
+byte 4 300
+byte 4 7
+byte 4 0
+address $1337
+address $166
+byte 4 0
+byte 4 1
+byte 4 1
+byte 4 2
+byte 4 7
 byte 4 0
 byte 4 7
 byte 4 0
-address $1328
-address $1329
+address $1338
+address $1339
 byte 4 0
 byte 4 1
 byte 4 0
@@ -9696,7 +9836,7 @@ byte 4 2
 export bg_numUpgrades
 align 4
 LABELV bg_numUpgrades
-byte 4 6
+byte 4 7
 export BG_FindPriceForUpgrade
 code
 proc BG_FindPriceForUpgrade 4 0
@@ -9707,9 +9847,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1334
+ADDRGP4 $1344
 JUMPV
-LABELV $1331
+LABELV $1341
 CNSTI4 40
 ADDRLP4 0
 INDIRI4
@@ -9719,7 +9859,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1335
+NEI4 $1345
 CNSTI4 40
 ADDRLP4 0
 INDIRI4
@@ -9728,25 +9868,25 @@ ADDRGP4 bg_upgrades+4
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $1330
+ADDRGP4 $1340
 JUMPV
-LABELV $1335
-LABELV $1332
+LABELV $1345
+LABELV $1342
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1334
+LABELV $1344
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numUpgrades
 INDIRI4
-LTI4 $1331
+LTI4 $1341
 CNSTI4 100
 RETI4
-LABELV $1330
+LABELV $1340
 endproc BG_FindPriceForUpgrade 4 0
 export BG_FindStagesForUpgrade
 proc BG_FindStagesForUpgrade 4 0
@@ -9756,69 +9896,6 @@ INDIRI4
 ASGNI4
 ADDRFP4 4
 ADDRFP4 4
-INDIRI4
-ASGNI4
-ADDRLP4 0
-CNSTI4 0
-ASGNI4
-ADDRGP4 $1342
-JUMPV
-LABELV $1339
-CNSTI4 40
-ADDRLP4 0
-INDIRI4
-MULI4
-ADDRGP4 bg_upgrades
-ADDP4
-INDIRI4
-ADDRFP4 0
-INDIRI4
-NEI4 $1343
-CNSTI4 40
-ADDRLP4 0
-INDIRI4
-MULI4
-ADDRGP4 bg_upgrades+8
-ADDP4
-INDIRI4
-CNSTI4 1
-ADDRFP4 4
-INDIRI4
-LSHI4
-BANDI4
-CNSTI4 0
-EQI4 $1345
-CNSTI4 1
-RETI4
-ADDRGP4 $1338
-JUMPV
-LABELV $1345
-CNSTI4 0
-RETI4
-ADDRGP4 $1338
-JUMPV
-LABELV $1343
-LABELV $1340
-ADDRLP4 0
-ADDRLP4 0
-INDIRI4
-CNSTI4 1
-ADDI4
-ASGNI4
-LABELV $1342
-ADDRLP4 0
-INDIRI4
-ADDRGP4 bg_numUpgrades
-INDIRI4
-LTI4 $1339
-CNSTI4 0
-RETI4
-LABELV $1338
-endproc BG_FindStagesForUpgrade 4 0
-export BG_FindSlotsForUpgrade
-proc BG_FindSlotsForUpgrade 4 0
-ADDRFP4 0
-ADDRFP4 0
 INDIRI4
 ASGNI4
 ADDRLP4 0
@@ -9841,9 +9918,22 @@ CNSTI4 40
 ADDRLP4 0
 INDIRI4
 MULI4
-ADDRGP4 bg_upgrades+12
+ADDRGP4 bg_upgrades+8
 ADDP4
 INDIRI4
+CNSTI4 1
+ADDRFP4 4
+INDIRI4
+LSHI4
+BANDI4
+CNSTI4 0
+EQI4 $1355
+CNSTI4 1
+RETI4
+ADDRGP4 $1348
+JUMPV
+LABELV $1355
+CNSTI4 0
 RETI4
 ADDRGP4 $1348
 JUMPV
@@ -9864,6 +9954,56 @@ LTI4 $1349
 CNSTI4 0
 RETI4
 LABELV $1348
+endproc BG_FindStagesForUpgrade 4 0
+export BG_FindSlotsForUpgrade
+proc BG_FindSlotsForUpgrade 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1362
+JUMPV
+LABELV $1359
+CNSTI4 40
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_upgrades
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1363
+CNSTI4 40
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 bg_upgrades+12
+ADDP4
+INDIRI4
+RETI4
+ADDRGP4 $1358
+JUMPV
+LABELV $1363
+LABELV $1360
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1362
+ADDRLP4 0
+INDIRI4
+ADDRGP4 bg_numUpgrades
+INDIRI4
+LTI4 $1359
+CNSTI4 0
+RETI4
+LABELV $1358
 endproc BG_FindSlotsForUpgrade 4 0
 export BG_FindNameForUpgrade
 proc BG_FindNameForUpgrade 4 0
@@ -9874,9 +10014,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1360
+ADDRGP4 $1370
 JUMPV
-LABELV $1357
+LABELV $1367
 CNSTI4 40
 ADDRLP4 0
 INDIRI4
@@ -9886,7 +10026,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1361
+NEI4 $1371
 CNSTI4 40
 ADDRLP4 0
 INDIRI4
@@ -9895,25 +10035,25 @@ ADDRGP4 bg_upgrades+16
 ADDP4
 INDIRP4
 RETP4
-ADDRGP4 $1356
+ADDRGP4 $1366
 JUMPV
-LABELV $1361
-LABELV $1358
+LABELV $1371
+LABELV $1368
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1360
+LABELV $1370
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numUpgrades
 INDIRI4
-LTI4 $1357
+LTI4 $1367
 CNSTP4 0
 RETP4
-LABELV $1356
+LABELV $1366
 endproc BG_FindNameForUpgrade 4 0
 export BG_FindUpgradeNumForName
 proc BG_FindUpgradeNumForName 8 8
@@ -9924,9 +10064,9 @@ ASGNP4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1368
+ADDRGP4 $1378
 JUMPV
-LABELV $1365
+LABELV $1375
 CNSTI4 40
 ADDRLP4 0
 INDIRI4
@@ -9945,7 +10085,7 @@ ASGNI4
 ADDRLP4 4
 INDIRI4
 CNSTI4 0
-NEI4 $1369
+NEI4 $1379
 CNSTI4 40
 ADDRLP4 0
 INDIRI4
@@ -9954,25 +10094,25 @@ ADDRGP4 bg_upgrades
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $1364
+ADDRGP4 $1374
 JUMPV
-LABELV $1369
-LABELV $1366
+LABELV $1379
+LABELV $1376
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1368
+LABELV $1378
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numUpgrades
 INDIRI4
-LTI4 $1365
+LTI4 $1375
 CNSTI4 0
 RETI4
-LABELV $1364
+LABELV $1374
 endproc BG_FindUpgradeNumForName 8 8
 export BG_FindHumanNameForUpgrade
 proc BG_FindHumanNameForUpgrade 4 0
@@ -9983,9 +10123,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1376
+ADDRGP4 $1386
 JUMPV
-LABELV $1373
+LABELV $1383
 CNSTI4 40
 ADDRLP4 0
 INDIRI4
@@ -9995,7 +10135,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1377
+NEI4 $1387
 CNSTI4 40
 ADDRLP4 0
 INDIRI4
@@ -10004,25 +10144,25 @@ ADDRGP4 bg_upgrades+20
 ADDP4
 INDIRP4
 RETP4
-ADDRGP4 $1372
+ADDRGP4 $1382
 JUMPV
-LABELV $1377
-LABELV $1374
+LABELV $1387
+LABELV $1384
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1376
+LABELV $1386
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numUpgrades
 INDIRI4
-LTI4 $1373
+LTI4 $1383
 CNSTP4 0
 RETP4
-LABELV $1372
+LABELV $1382
 endproc BG_FindHumanNameForUpgrade 4 0
 export BG_FindIconForUpgrade
 proc BG_FindIconForUpgrade 4 0
@@ -10033,9 +10173,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1384
+ADDRGP4 $1394
 JUMPV
-LABELV $1381
+LABELV $1391
 CNSTI4 40
 ADDRLP4 0
 INDIRI4
@@ -10045,7 +10185,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1385
+NEI4 $1395
 CNSTI4 40
 ADDRLP4 0
 INDIRI4
@@ -10054,25 +10194,25 @@ ADDRGP4 bg_upgrades+24
 ADDP4
 INDIRP4
 RETP4
-ADDRGP4 $1380
+ADDRGP4 $1390
 JUMPV
-LABELV $1385
-LABELV $1382
+LABELV $1395
+LABELV $1392
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1384
+LABELV $1394
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numUpgrades
 INDIRI4
-LTI4 $1381
+LTI4 $1391
 CNSTP4 0
 RETP4
-LABELV $1380
+LABELV $1390
 endproc BG_FindIconForUpgrade 4 0
 export BG_FindPurchasableForUpgrade
 proc BG_FindPurchasableForUpgrade 4 0
@@ -10083,9 +10223,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1392
+ADDRGP4 $1402
 JUMPV
-LABELV $1389
+LABELV $1399
 CNSTI4 40
 ADDRLP4 0
 INDIRI4
@@ -10095,7 +10235,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1393
+NEI4 $1403
 CNSTI4 40
 ADDRLP4 0
 INDIRI4
@@ -10104,25 +10244,25 @@ ADDRGP4 bg_upgrades+28
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $1388
+ADDRGP4 $1398
 JUMPV
-LABELV $1393
-LABELV $1390
+LABELV $1403
+LABELV $1400
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1392
+LABELV $1402
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numUpgrades
 INDIRI4
-LTI4 $1389
+LTI4 $1399
 CNSTI4 0
 RETI4
-LABELV $1388
+LABELV $1398
 endproc BG_FindPurchasableForUpgrade 4 0
 export BG_FindUsableForUpgrade
 proc BG_FindUsableForUpgrade 4 0
@@ -10133,9 +10273,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1400
+ADDRGP4 $1410
 JUMPV
-LABELV $1397
+LABELV $1407
 CNSTI4 40
 ADDRLP4 0
 INDIRI4
@@ -10145,7 +10285,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1401
+NEI4 $1411
 CNSTI4 40
 ADDRLP4 0
 INDIRI4
@@ -10154,25 +10294,25 @@ ADDRGP4 bg_upgrades+32
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $1396
+ADDRGP4 $1406
 JUMPV
-LABELV $1401
-LABELV $1398
+LABELV $1411
+LABELV $1408
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1400
+LABELV $1410
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numUpgrades
 INDIRI4
-LTI4 $1397
+LTI4 $1407
 CNSTI4 0
 RETI4
-LABELV $1396
+LABELV $1406
 endproc BG_FindUsableForUpgrade 4 0
 export BG_FindTeamForUpgrade
 proc BG_FindTeamForUpgrade 4 0
@@ -10183,9 +10323,9 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-ADDRGP4 $1408
+ADDRGP4 $1418
 JUMPV
-LABELV $1405
+LABELV $1415
 CNSTI4 40
 ADDRLP4 0
 INDIRI4
@@ -10195,7 +10335,7 @@ ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1409
+NEI4 $1419
 CNSTI4 40
 ADDRLP4 0
 INDIRI4
@@ -10204,25 +10344,25 @@ ADDRGP4 bg_upgrades+36
 ADDP4
 INDIRI4
 RETI4
-ADDRGP4 $1404
+ADDRGP4 $1414
 JUMPV
-LABELV $1409
-LABELV $1406
+LABELV $1419
+LABELV $1416
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1408
+LABELV $1418
 ADDRLP4 0
 INDIRI4
 ADDRGP4 bg_numUpgrades
 INDIRI4
-LTI4 $1405
+LTI4 $1415
 CNSTI4 0
 RETI4
-LABELV $1404
+LABELV $1414
 endproc BG_FindTeamForUpgrade 4 0
 export BG_EvaluateTrajectory
 proc BG_EvaluateTrajectory 108 12
@@ -10238,31 +10378,31 @@ ASGNI4
 ADDRLP4 8
 INDIRI4
 CNSTI4 0
-LTI4 $1413
+LTI4 $1423
 ADDRLP4 8
 INDIRI4
 CNSTI4 6
-GTI4 $1413
+GTI4 $1423
 ADDRLP4 8
 INDIRI4
 CNSTI4 2
 LSHI4
-ADDRGP4 $1427
+ADDRGP4 $1437
 ADDP4
 INDIRP4
 JUMPV
 lit
 align 4
-LABELV $1427
-address $1416
-address $1416
-address $1417
-address $1419
-address $1418
-address $1424
-address $1425
+LABELV $1437
+address $1426
+address $1426
+address $1427
+address $1429
+address $1428
+address $1434
+address $1435
 code
-LABELV $1416
+LABELV $1426
 ADDRFP4 8
 INDIRP4
 ADDRFP4 0
@@ -10271,9 +10411,9 @@ CNSTI4 12
 ADDP4
 INDIRB
 ASGNB 12
-ADDRGP4 $1414
+ADDRGP4 $1424
 JUMPV
-LABELV $1417
+LABELV $1427
 ADDRLP4 0
 CNSTF4 981668463
 ADDRFP4 4
@@ -10342,9 +10482,9 @@ INDIRF4
 MULF4
 ADDF4
 ASGNF4
-ADDRGP4 $1414
+ADDRGP4 $1424
 JUMPV
-LABELV $1418
+LABELV $1428
 ADDRLP4 0
 ADDRFP4 4
 INDIRI4
@@ -10433,9 +10573,9 @@ INDIRF4
 MULF4
 ADDF4
 ASGNF4
-ADDRGP4 $1414
+ADDRGP4 $1424
 JUMPV
-LABELV $1419
+LABELV $1429
 ADDRFP4 4
 INDIRI4
 ADDRFP4 0
@@ -10449,7 +10589,7 @@ CNSTI4 8
 ADDP4
 INDIRI4
 ADDI4
-LEI4 $1420
+LEI4 $1430
 ADDRFP4 4
 ADDRFP4 0
 INDIRP4
@@ -10463,7 +10603,7 @@ ADDP4
 INDIRI4
 ADDI4
 ASGNI4
-LABELV $1420
+LABELV $1430
 ADDRLP4 0
 CNSTF4 981668463
 ADDRFP4 4
@@ -10480,11 +10620,11 @@ ASGNF4
 ADDRLP4 0
 INDIRF4
 CNSTF4 0
-GEF4 $1422
+GEF4 $1432
 ADDRLP4 0
 CNSTF4 0
 ASGNF4
-LABELV $1422
+LABELV $1432
 ADDRFP4 8
 INDIRP4
 ADDRFP4 0
@@ -10540,9 +10680,9 @@ INDIRF4
 MULF4
 ADDF4
 ASGNF4
-ADDRGP4 $1414
+ADDRGP4 $1424
 JUMPV
-LABELV $1424
+LABELV $1434
 ADDRLP4 0
 CNSTF4 981668463
 ADDRFP4 4
@@ -10635,9 +10775,9 @@ INDIRF4
 MULF4
 SUBF4
 ASGNF4
-ADDRGP4 $1414
+ADDRGP4 $1424
 JUMPV
-LABELV $1425
+LABELV $1435
 ADDRLP4 0
 CNSTF4 981668463
 ADDRFP4 4
@@ -10730,12 +10870,12 @@ INDIRF4
 MULF4
 ADDF4
 ASGNF4
-ADDRGP4 $1414
+ADDRGP4 $1424
 JUMPV
-LABELV $1413
+LABELV $1423
 CNSTI4 1
 ARGI4
-ADDRGP4 $1426
+ADDRGP4 $1436
 ARGP4
 ADDRFP4 0
 INDIRP4
@@ -10746,8 +10886,8 @@ ARGI4
 ADDRGP4 Com_Error
 CALLV
 pop
-LABELV $1414
-LABELV $1412
+LABELV $1424
+LABELV $1422
 endproc BG_EvaluateTrajectory 108 12
 export BG_EvaluateTrajectoryDelta
 proc BG_EvaluateTrajectoryDelta 52 12
@@ -10759,31 +10899,31 @@ ASGNI4
 ADDRLP4 8
 INDIRI4
 CNSTI4 0
-LTI4 $1429
+LTI4 $1439
 ADDRLP4 8
 INDIRI4
 CNSTI4 6
-GTI4 $1429
+GTI4 $1439
 ADDRLP4 8
 INDIRI4
 CNSTI4 2
 LSHI4
-ADDRGP4 $1441
+ADDRGP4 $1451
 ADDP4
 INDIRP4
 JUMPV
 lit
 align 4
-LABELV $1441
-address $1432
-address $1432
-address $1433
-address $1435
-address $1434
-address $1438
-address $1439
+LABELV $1451
+address $1442
+address $1442
+address $1443
+address $1445
+address $1444
+address $1448
+address $1449
 code
-LABELV $1432
+LABELV $1442
 ADDRLP4 16
 ADDRFP4 8
 INDIRP4
@@ -10810,9 +10950,9 @@ INDIRP4
 ADDRLP4 20
 INDIRF4
 ASGNF4
-ADDRGP4 $1430
+ADDRGP4 $1440
 JUMPV
-LABELV $1433
+LABELV $1443
 ADDRFP4 8
 INDIRP4
 ADDRFP4 0
@@ -10821,9 +10961,9 @@ CNSTI4 24
 ADDP4
 INDIRB
 ASGNB 12
-ADDRGP4 $1430
+ADDRGP4 $1440
 JUMPV
-LABELV $1434
+LABELV $1444
 ADDRLP4 24
 ADDRFP4 0
 INDIRP4
@@ -10904,9 +11044,9 @@ ADDRLP4 4
 INDIRF4
 MULF4
 ASGNF4
-ADDRGP4 $1430
+ADDRGP4 $1440
 JUMPV
-LABELV $1435
+LABELV $1445
 ADDRLP4 32
 ADDRFP4 0
 INDIRP4
@@ -10924,7 +11064,7 @@ CNSTI4 8
 ADDP4
 INDIRI4
 ADDI4
-LEI4 $1436
+LEI4 $1446
 ADDRLP4 36
 ADDRFP4 8
 INDIRP4
@@ -10951,9 +11091,9 @@ INDIRP4
 ADDRLP4 40
 INDIRF4
 ASGNF4
-ADDRGP4 $1428
+ADDRGP4 $1438
 JUMPV
-LABELV $1436
+LABELV $1446
 ADDRFP4 8
 INDIRP4
 ADDRFP4 0
@@ -10962,9 +11102,9 @@ CNSTI4 24
 ADDP4
 INDIRB
 ASGNB 12
-ADDRGP4 $1430
+ADDRGP4 $1440
 JUMPV
-LABELV $1438
+LABELV $1448
 ADDRLP4 36
 ADDRFP4 0
 INDIRP4
@@ -11007,9 +11147,9 @@ INDIRF4
 MULF4
 SUBF4
 ASGNF4
-ADDRGP4 $1430
+ADDRGP4 $1440
 JUMPV
-LABELV $1439
+LABELV $1449
 ADDRLP4 44
 ADDRFP4 0
 INDIRP4
@@ -11052,12 +11192,12 @@ INDIRF4
 MULF4
 ADDF4
 ASGNF4
-ADDRGP4 $1430
+ADDRGP4 $1440
 JUMPV
-LABELV $1429
+LABELV $1439
 CNSTI4 1
 ARGI4
-ADDRGP4 $1440
+ADDRGP4 $1450
 ARGP4
 ADDRFP4 0
 INDIRP4
@@ -11068,23 +11208,13 @@ ARGI4
 ADDRGP4 Com_Error
 CALLV
 pop
-LABELV $1430
-LABELV $1428
+LABELV $1440
+LABELV $1438
 endproc BG_EvaluateTrajectoryDelta 52 12
 data
 export eventnames
 align 4
 LABELV eventnames
-address $1442
-address $1443
-address $1444
-address $1445
-address $1446
-address $1447
-address $1448
-address $1449
-address $1450
-address $1451
 address $1452
 address $1453
 address $1454
@@ -11146,6 +11276,16 @@ address $1509
 address $1510
 address $1511
 address $1512
+address $1513
+address $1514
+address $1515
+address $1516
+address $1517
+address $1518
+address $1519
+address $1520
+address $1521
+address $1522
 export BG_AddPredictableEventToPlayerstate
 code
 proc BG_AddPredictableEventToPlayerstate 12 0
@@ -11201,7 +11341,7 @@ INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1513
+LABELV $1523
 endproc BG_AddPredictableEventToPlayerstate 12 0
 export BG_PlayerStateToEntityState
 proc BG_PlayerStateToEntityState 56 8
@@ -11223,49 +11363,49 @@ ASGNI4
 ADDRLP4 4
 INDIRI4
 CNSTI4 7
-EQI4 $1518
+EQI4 $1528
 ADDRLP4 4
 INDIRI4
 CNSTI4 2
-EQI4 $1518
+EQI4 $1528
 ADDRLP4 4
 INDIRI4
 CNSTI4 6
-NEI4 $1515
-LABELV $1518
+NEI4 $1525
+LABELV $1528
 ADDRFP4 4
 INDIRP4
 CNSTI4 4
 ADDP4
 CNSTI4 11
 ASGNI4
-ADDRGP4 $1516
+ADDRGP4 $1526
 JUMPV
-LABELV $1515
+LABELV $1525
 ADDRFP4 0
 INDIRP4
 CNSTI4 260
 ADDP4
 INDIRI4
 CNSTI4 1
-NEI4 $1519
+NEI4 $1529
 ADDRFP4 4
 INDIRP4
 CNSTI4 4
 ADDP4
 CNSTI4 11
 ASGNI4
-ADDRGP4 $1520
+ADDRGP4 $1530
 JUMPV
-LABELV $1519
+LABELV $1529
 ADDRFP4 4
 INDIRP4
 CNSTI4 4
 ADDP4
 CNSTI4 1
 ASGNI4
-LABELV $1520
-LABELV $1516
+LABELV $1530
+LABELV $1526
 ADDRFP4 4
 INDIRP4
 ADDRFP4 0
@@ -11293,7 +11433,7 @@ ASGNB 12
 ADDRFP4 8
 INDIRI4
 CNSTI4 0
-EQI4 $1521
+EQI4 $1531
 ADDRLP4 8
 ADDRFP4 4
 INDIRP4
@@ -11336,7 +11476,7 @@ INDIRF4
 CVFI4 4
 CVIF4 4
 ASGNF4
-LABELV $1521
+LABELV $1531
 ADDRFP4 4
 INDIRP4
 CNSTI4 36
@@ -11366,7 +11506,7 @@ ASGNB 12
 ADDRFP4 8
 INDIRI4
 CNSTI4 0
-EQI4 $1523
+EQI4 $1533
 ADDRLP4 8
 ADDRFP4 4
 INDIRP4
@@ -11409,7 +11549,7 @@ INDIRF4
 CVFI4 4
 CVIF4 4
 ASGNF4
-LABELV $1523
+LABELV $1533
 ADDRLP4 8
 CNSTI4 88
 ASGNI4
@@ -11471,7 +11611,7 @@ CNSTI4 184
 ADDP4
 INDIRI4
 CNSTI4 0
-GTI4 $1525
+GTI4 $1535
 ADDRLP4 12
 ADDRFP4 4
 INDIRP4
@@ -11486,9 +11626,9 @@ INDIRI4
 CNSTI4 1
 BORI4
 ASGNI4
-ADDRGP4 $1526
+ADDRGP4 $1536
 JUMPV
-LABELV $1525
+LABELV $1535
 ADDRLP4 16
 ADDRFP4 4
 INDIRP4
@@ -11503,7 +11643,7 @@ INDIRI4
 CNSTI4 -2
 BANDI4
 ASGNI4
-LABELV $1526
+LABELV $1536
 ADDRFP4 0
 INDIRP4
 CNSTI4 224
@@ -11512,7 +11652,7 @@ INDIRI4
 CNSTI4 64
 BANDI4
 CNSTI4 0
-EQI4 $1527
+EQI4 $1537
 ADDRLP4 20
 ADDRFP4 4
 INDIRP4
@@ -11527,9 +11667,9 @@ INDIRI4
 CNSTI4 131072
 BORI4
 ASGNI4
-ADDRGP4 $1528
+ADDRGP4 $1538
 JUMPV
-LABELV $1527
+LABELV $1537
 ADDRLP4 24
 ADDRFP4 4
 INDIRP4
@@ -11544,14 +11684,14 @@ INDIRI4
 CNSTI4 -131073
 BANDI4
 ASGNI4
-LABELV $1528
+LABELV $1538
 ADDRFP4 0
 INDIRP4
 CNSTI4 128
 ADDP4
 INDIRI4
 CNSTI4 0
-EQI4 $1529
+EQI4 $1539
 ADDRFP4 4
 INDIRP4
 CNSTI4 180
@@ -11572,9 +11712,9 @@ CNSTI4 132
 ADDP4
 INDIRI4
 ASGNI4
-ADDRGP4 $1530
+ADDRGP4 $1540
 JUMPV
-LABELV $1529
+LABELV $1539
 ADDRFP4 0
 INDIRP4
 CNSTI4 464
@@ -11585,7 +11725,7 @@ INDIRP4
 CNSTI4 108
 ADDP4
 INDIRI4
-GEI4 $1531
+GEI4 $1541
 ADDRFP4 0
 INDIRP4
 CNSTI4 464
@@ -11598,7 +11738,7 @@ ADDP4
 INDIRI4
 CNSTI4 2
 SUBI4
-GEI4 $1533
+GEI4 $1543
 ADDRFP4 0
 INDIRP4
 CNSTI4 464
@@ -11611,7 +11751,7 @@ INDIRI4
 CNSTI4 2
 SUBI4
 ASGNI4
-LABELV $1533
+LABELV $1543
 ADDRLP4 48
 ADDRFP4 0
 INDIRP4
@@ -11677,8 +11817,8 @@ INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1531
-LABELV $1530
+LABELV $1541
+LABELV $1540
 ADDRFP4 4
 INDIRP4
 CNSTI4 192
@@ -11714,7 +11854,7 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 1
 ASGNI4
-LABELV $1535
+LABELV $1545
 ADDRLP4 0
 INDIRI4
 ARGI4
@@ -11730,7 +11870,7 @@ ASGNI4
 ADDRLP4 32
 INDIRI4
 CNSTI4 0
-EQI4 $1539
+EQI4 $1549
 ADDRLP4 36
 ADDRFP4 4
 INDIRP4
@@ -11763,7 +11903,7 @@ ASGNI4
 ADDRLP4 40
 INDIRI4
 CNSTI4 0
-EQI4 $1541
+EQI4 $1551
 ADDRLP4 44
 ADDRFP4 4
 INDIRP4
@@ -11781,9 +11921,9 @@ INDIRI4
 LSHI4
 BORI4
 ASGNI4
-LABELV $1541
-LABELV $1539
-LABELV $1536
+LABELV $1551
+LABELV $1549
+LABELV $1546
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
@@ -11792,8 +11932,8 @@ ADDI4
 ASGNI4
 ADDRLP4 0
 INDIRI4
-CNSTI4 7
-LTI4 $1535
+CNSTI4 8
+LTI4 $1545
 ADDRFP4 4
 INDIRP4
 CNSTI4 188
@@ -11830,7 +11970,7 @@ INDIRI4
 CNSTI4 2
 BANDI4
 CNSTI4 0
-EQI4 $1543
+EQI4 $1553
 ADDRLP4 36
 ADDRFP4 4
 INDIRP4
@@ -11845,7 +11985,7 @@ INDIRI4
 CNSTI4 128
 BORI4
 ASGNI4
-LABELV $1543
+LABELV $1553
 ADDRFP4 4
 INDIRP4
 CNSTI4 156
@@ -11876,19 +12016,19 @@ ASGNI4
 ADDRLP4 40
 INDIRI4
 CNSTI4 0
-LEI4 $1547
+LEI4 $1557
 ADDRLP4 40
 INDIRI4
 CNSTI4 5
-LTI4 $1545
-LABELV $1547
+LTI4 $1555
+LABELV $1557
 ADDRFP4 4
 INDIRP4
 CNSTI4 204
 ADDP4
 CNSTI4 1
 ASGNI4
-LABELV $1545
+LABELV $1555
 ADDRFP4 4
 INDIRP4
 CNSTI4 140
@@ -11899,7 +12039,7 @@ CNSTI4 448
 ADDP4
 INDIRI4
 ASGNI4
-LABELV $1514
+LABELV $1524
 endproc BG_PlayerStateToEntityState 56 8
 export BG_PlayerStateToEntityStateExtraPolate
 proc BG_PlayerStateToEntityStateExtraPolate 56 8
@@ -11921,49 +12061,49 @@ ASGNI4
 ADDRLP4 4
 INDIRI4
 CNSTI4 7
-EQI4 $1552
+EQI4 $1562
 ADDRLP4 4
 INDIRI4
 CNSTI4 2
-EQI4 $1552
+EQI4 $1562
 ADDRLP4 4
 INDIRI4
 CNSTI4 6
-NEI4 $1549
-LABELV $1552
+NEI4 $1559
+LABELV $1562
 ADDRFP4 4
 INDIRP4
 CNSTI4 4
 ADDP4
 CNSTI4 11
 ASGNI4
-ADDRGP4 $1550
+ADDRGP4 $1560
 JUMPV
-LABELV $1549
+LABELV $1559
 ADDRFP4 0
 INDIRP4
 CNSTI4 260
 ADDP4
 INDIRI4
 CNSTI4 1
-NEI4 $1553
+NEI4 $1563
 ADDRFP4 4
 INDIRP4
 CNSTI4 4
 ADDP4
 CNSTI4 11
 ASGNI4
-ADDRGP4 $1554
+ADDRGP4 $1564
 JUMPV
-LABELV $1553
+LABELV $1563
 ADDRFP4 4
 INDIRP4
 CNSTI4 4
 ADDP4
 CNSTI4 1
 ASGNI4
-LABELV $1554
-LABELV $1550
+LABELV $1564
+LABELV $1560
 ADDRFP4 4
 INDIRP4
 ADDRFP4 0
@@ -11991,7 +12131,7 @@ ASGNB 12
 ADDRFP4 12
 INDIRI4
 CNSTI4 0
-EQI4 $1555
+EQI4 $1565
 ADDRLP4 8
 ADDRFP4 4
 INDIRP4
@@ -12034,7 +12174,7 @@ INDIRF4
 CVFI4 4
 CVIF4 4
 ASGNF4
-LABELV $1555
+LABELV $1565
 ADDRFP4 4
 INDIRP4
 CNSTI4 36
@@ -12077,7 +12217,7 @@ ASGNB 12
 ADDRFP4 12
 INDIRI4
 CNSTI4 0
-EQI4 $1557
+EQI4 $1567
 ADDRLP4 8
 ADDRFP4 4
 INDIRP4
@@ -12120,7 +12260,7 @@ INDIRF4
 CVFI4 4
 CVIF4 4
 ASGNF4
-LABELV $1557
+LABELV $1567
 ADDRLP4 8
 CNSTI4 88
 ASGNI4
@@ -12182,7 +12322,7 @@ CNSTI4 184
 ADDP4
 INDIRI4
 CNSTI4 0
-GTI4 $1559
+GTI4 $1569
 ADDRLP4 12
 ADDRFP4 4
 INDIRP4
@@ -12197,9 +12337,9 @@ INDIRI4
 CNSTI4 1
 BORI4
 ASGNI4
-ADDRGP4 $1560
+ADDRGP4 $1570
 JUMPV
-LABELV $1559
+LABELV $1569
 ADDRLP4 16
 ADDRFP4 4
 INDIRP4
@@ -12214,7 +12354,7 @@ INDIRI4
 CNSTI4 -2
 BANDI4
 ASGNI4
-LABELV $1560
+LABELV $1570
 ADDRFP4 0
 INDIRP4
 CNSTI4 224
@@ -12223,7 +12363,7 @@ INDIRI4
 CNSTI4 64
 BANDI4
 CNSTI4 0
-EQI4 $1561
+EQI4 $1571
 ADDRLP4 20
 ADDRFP4 4
 INDIRP4
@@ -12238,9 +12378,9 @@ INDIRI4
 CNSTI4 131072
 BORI4
 ASGNI4
-ADDRGP4 $1562
+ADDRGP4 $1572
 JUMPV
-LABELV $1561
+LABELV $1571
 ADDRLP4 24
 ADDRFP4 4
 INDIRP4
@@ -12255,14 +12395,14 @@ INDIRI4
 CNSTI4 -131073
 BANDI4
 ASGNI4
-LABELV $1562
+LABELV $1572
 ADDRFP4 0
 INDIRP4
 CNSTI4 128
 ADDP4
 INDIRI4
 CNSTI4 0
-EQI4 $1563
+EQI4 $1573
 ADDRFP4 4
 INDIRP4
 CNSTI4 180
@@ -12283,9 +12423,9 @@ CNSTI4 132
 ADDP4
 INDIRI4
 ASGNI4
-ADDRGP4 $1564
+ADDRGP4 $1574
 JUMPV
-LABELV $1563
+LABELV $1573
 ADDRFP4 0
 INDIRP4
 CNSTI4 464
@@ -12296,7 +12436,7 @@ INDIRP4
 CNSTI4 108
 ADDP4
 INDIRI4
-GEI4 $1565
+GEI4 $1575
 ADDRFP4 0
 INDIRP4
 CNSTI4 464
@@ -12309,7 +12449,7 @@ ADDP4
 INDIRI4
 CNSTI4 2
 SUBI4
-GEI4 $1567
+GEI4 $1577
 ADDRFP4 0
 INDIRP4
 CNSTI4 464
@@ -12322,7 +12462,7 @@ INDIRI4
 CNSTI4 2
 SUBI4
 ASGNI4
-LABELV $1567
+LABELV $1577
 ADDRLP4 48
 ADDRFP4 0
 INDIRP4
@@ -12388,8 +12528,8 @@ INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1565
-LABELV $1564
+LABELV $1575
+LABELV $1574
 ADDRFP4 4
 INDIRP4
 CNSTI4 192
@@ -12425,7 +12565,7 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 1
 ASGNI4
-LABELV $1569
+LABELV $1579
 ADDRLP4 0
 INDIRI4
 ARGI4
@@ -12441,7 +12581,7 @@ ASGNI4
 ADDRLP4 32
 INDIRI4
 CNSTI4 0
-EQI4 $1573
+EQI4 $1583
 ADDRLP4 36
 ADDRFP4 4
 INDIRP4
@@ -12474,7 +12614,7 @@ ASGNI4
 ADDRLP4 40
 INDIRI4
 CNSTI4 0
-EQI4 $1575
+EQI4 $1585
 ADDRLP4 44
 ADDRFP4 4
 INDIRP4
@@ -12492,9 +12632,9 @@ INDIRI4
 LSHI4
 BORI4
 ASGNI4
-LABELV $1575
-LABELV $1573
-LABELV $1570
+LABELV $1585
+LABELV $1583
+LABELV $1580
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
@@ -12503,8 +12643,8 @@ ADDI4
 ASGNI4
 ADDRLP4 0
 INDIRI4
-CNSTI4 7
-LTI4 $1569
+CNSTI4 8
+LTI4 $1579
 ADDRFP4 4
 INDIRP4
 CNSTI4 188
@@ -12541,7 +12681,7 @@ INDIRI4
 CNSTI4 2
 BANDI4
 CNSTI4 0
-EQI4 $1577
+EQI4 $1587
 ADDRLP4 36
 ADDRFP4 4
 INDIRP4
@@ -12556,7 +12696,7 @@ INDIRI4
 CNSTI4 128
 BORI4
 ASGNI4
-LABELV $1577
+LABELV $1587
 ADDRFP4 4
 INDIRP4
 CNSTI4 156
@@ -12587,19 +12727,19 @@ ASGNI4
 ADDRLP4 40
 INDIRI4
 CNSTI4 0
-LEI4 $1581
+LEI4 $1591
 ADDRLP4 40
 INDIRI4
 CNSTI4 5
-LTI4 $1579
-LABELV $1581
+LTI4 $1589
+LABELV $1591
 ADDRFP4 4
 INDIRP4
 CNSTI4 204
 ADDP4
 CNSTI4 1
 ASGNI4
-LABELV $1579
+LABELV $1589
 ADDRFP4 4
 INDIRP4
 CNSTI4 140
@@ -12610,7 +12750,7 @@ CNSTI4 448
 ADDP4
 INDIRI4
 ASGNI4
-LABELV $1548
+LABELV $1558
 endproc BG_PlayerStateToEntityStateExtraPolate 56 8
 export BG_UnpackAmmoArray
 proc BG_UnpackAmmoArray 140 0
@@ -12625,7 +12765,7 @@ ASGNP4
 ADDRLP4 0
 CNSTI4 0
 ASGNI4
-LABELV $1583
+LABELV $1593
 ADDRLP4 132
 ADDRLP4 0
 INDIRI4
@@ -12643,7 +12783,7 @@ INDIRP4
 ADDP4
 INDIRI4
 ASGNI4
-LABELV $1584
+LABELV $1594
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
@@ -12653,11 +12793,11 @@ ASGNI4
 ADDRLP4 0
 INDIRI4
 CNSTI4 15
-LEI4 $1583
+LEI4 $1593
 ADDRLP4 0
 CNSTI4 16
 ASGNI4
-LABELV $1587
+LABELV $1597
 ADDRLP4 136
 ADDRLP4 0
 INDIRI4
@@ -12677,7 +12817,7 @@ INDIRP4
 ADDP4
 INDIRI4
 ASGNI4
-LABELV $1588
+LABELV $1598
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
@@ -12687,12 +12827,12 @@ ASGNI4
 ADDRLP4 0
 INDIRI4
 CNSTI4 31
-LEI4 $1587
+LEI4 $1597
 ADDRFP4 12
 INDIRP4
 CVPU4 4
 CNSTU4 0
-EQU4 $1591
+EQU4 $1601
 ADDRFP4 12
 INDIRP4
 ADDRFP4 0
@@ -12705,12 +12845,12 @@ INDIRI4
 CNSTI4 4095
 BANDI4
 ASGNI4
-LABELV $1591
+LABELV $1601
 ADDRFP4 16
 INDIRP4
 CVPU4 4
 CNSTU4 0
-EQU4 $1593
+EQU4 $1603
 ADDRFP4 16
 INDIRP4
 ADDRFP4 0
@@ -12725,8 +12865,8 @@ RSHI4
 CNSTI4 15
 BANDI4
 ASGNI4
-LABELV $1593
-LABELV $1582
+LABELV $1603
+LABELV $1592
 endproc BG_UnpackAmmoArray 140 0
 export BG_PackAmmoArray
 proc BG_PackAmmoArray 4 0
@@ -12742,7 +12882,7 @@ ASGNI4
 ADDRFP4 0
 INDIRI4
 CNSTI4 15
-GTI4 $1596
+GTI4 $1606
 ADDRFP4 0
 INDIRI4
 CNSTI4 2
@@ -12753,13 +12893,13 @@ ADDP4
 ADDRLP4 0
 INDIRI4
 ASGNI4
-ADDRGP4 $1597
+ADDRGP4 $1607
 JUMPV
-LABELV $1596
+LABELV $1606
 ADDRFP4 0
 INDIRI4
 CNSTI4 16
-LTI4 $1598
+LTI4 $1608
 ADDRFP4 0
 INDIRI4
 CNSTI4 2
@@ -12772,9 +12912,9 @@ ADDP4
 ADDRLP4 0
 INDIRI4
 ASGNI4
-LABELV $1598
-LABELV $1597
-LABELV $1595
+LABELV $1608
+LABELV $1607
+LABELV $1605
 endproc BG_PackAmmoArray 4 0
 export BG_WeaponIsFull
 proc BG_WeaponIsFull 24 20
@@ -12816,7 +12956,7 @@ ASGNI4
 ADDRLP4 16
 INDIRI4
 CNSTI4 0
-EQI4 $1601
+EQI4 $1611
 ADDRLP4 0
 CNSTF4 1069547520
 ADDRLP4 0
@@ -12825,31 +12965,31 @@ CVIF4 4
 MULF4
 CVFI4 4
 ASGNI4
-LABELV $1601
+LABELV $1611
 ADDRLP4 0
 INDIRI4
 ADDRLP4 8
 INDIRI4
-NEI4 $1604
+NEI4 $1614
 ADDRLP4 4
 INDIRI4
 ADDRLP4 12
 INDIRI4
-NEI4 $1604
+NEI4 $1614
 ADDRLP4 20
 CNSTI4 1
 ASGNI4
-ADDRGP4 $1605
+ADDRGP4 $1615
 JUMPV
-LABELV $1604
+LABELV $1614
 ADDRLP4 20
 CNSTI4 0
 ASGNI4
-LABELV $1605
+LABELV $1615
 ADDRLP4 20
 INDIRI4
 RETI4
-LABELV $1600
+LABELV $1610
 endproc BG_WeaponIsFull 24 20
 export BG_AddWeaponToInventory
 proc BG_AddWeaponToInventory 28 4
@@ -12944,7 +13084,7 @@ ADDRLP4 20
 INDIRI4
 BORI4
 ASGNI4
-LABELV $1606
+LABELV $1616
 endproc BG_AddWeaponToInventory 28 4
 export BG_RemoveWeaponFromInventory
 proc BG_RemoveWeaponFromInventory 28 4
@@ -13041,7 +13181,7 @@ INDIRI4
 BCOMI4
 BANDI4
 ASGNI4
-LABELV $1607
+LABELV $1617
 endproc BG_RemoveWeaponFromInventory 28 4
 export BG_InventoryContainsWeapon
 proc BG_InventoryContainsWeapon 12 0
@@ -13084,7 +13224,7 @@ INDIRI4
 LSHI4
 BANDI4
 RETI4
-LABELV $1608
+LABELV $1618
 endproc BG_InventoryContainsWeapon 12 0
 export BG_AddUpgradeToInventory
 proc BG_AddUpgradeToInventory 12 4
@@ -13127,7 +13267,7 @@ ADDRLP4 4
 INDIRI4
 BORI4
 ASGNI4
-LABELV $1609
+LABELV $1619
 endproc BG_AddUpgradeToInventory 12 4
 export BG_RemoveUpgradeFromInventory
 proc BG_RemoveUpgradeFromInventory 12 4
@@ -13172,7 +13312,7 @@ INDIRI4
 BCOMI4
 BANDI4
 ASGNI4
-LABELV $1610
+LABELV $1620
 endproc BG_RemoveUpgradeFromInventory 12 4
 export BG_InventoryContainsUpgrade
 proc BG_InventoryContainsUpgrade 0 0
@@ -13187,7 +13327,7 @@ INDIRI4
 LSHI4
 BANDI4
 RETI4
-LABELV $1611
+LABELV $1621
 endproc BG_InventoryContainsUpgrade 0 0
 export BG_ActivateUpgrade
 proc BG_ActivateUpgrade 4 0
@@ -13208,7 +13348,7 @@ INDIRI4
 LSHI4
 BORI4
 ASGNI4
-LABELV $1612
+LABELV $1622
 endproc BG_ActivateUpgrade 4 0
 export BG_DeactivateUpgrade
 proc BG_DeactivateUpgrade 4 0
@@ -13230,7 +13370,7 @@ LSHI4
 BCOMI4
 BANDI4
 ASGNI4
-LABELV $1613
+LABELV $1623
 endproc BG_DeactivateUpgrade 4 0
 export BG_UpgradeIsActive
 proc BG_UpgradeIsActive 0 0
@@ -13245,16 +13385,16 @@ INDIRI4
 LSHI4
 BANDI4
 RETI4
-LABELV $1614
+LABELV $1624
 endproc BG_UpgradeIsActive 0 0
 lit
 align 4
-LABELV $1616
+LABELV $1626
 byte 4 0
 byte 4 0
 byte 4 1065353216
 align 4
-LABELV $1617
+LABELV $1627
 byte 4 0
 byte 4 0
 byte 4 3212836864
@@ -13262,17 +13402,17 @@ export BG_RotateAxis
 code
 proc BG_RotateAxis 68 16
 ADDRLP4 12
-ADDRGP4 $1616
+ADDRGP4 $1626
 INDIRB
 ASGNB 12
 ADDRLP4 40
-ADDRGP4 $1617
+ADDRGP4 $1627
 INDIRB
 ASGNB 12
 ADDRFP4 16
 INDIRI4
 CNSTI4 0
-EQI4 $1618
+EQI4 $1628
 ADDRLP4 24
 ADDRLP4 40
 INDIRB
@@ -13282,9 +13422,9 @@ ADDRFP4 0
 INDIRP4
 INDIRB
 ASGNB 12
-ADDRGP4 $1619
+ADDRGP4 $1629
 JUMPV
-LABELV $1618
+LABELV $1628
 ADDRLP4 24
 ADDRFP4 0
 INDIRP4
@@ -13304,7 +13444,7 @@ ARGP4
 ADDRGP4 VectorNormalize
 CALLF4
 pop
-LABELV $1619
+LABELV $1629
 ADDRLP4 0
 ARGP4
 ADDRLP4 52
@@ -13314,7 +13454,7 @@ ASGNF4
 ADDRLP4 52
 INDIRF4
 CNSTF4 0
-EQF4 $1620
+EQF4 $1630
 ADDRLP4 24
 INDIRF4
 ADDRLP4 12
@@ -13348,13 +13488,13 @@ ASGNF4
 ADDRFP4 12
 INDIRI4
 CNSTI4 0
-EQI4 $1626
+EQI4 $1636
 ADDRLP4 36
 ADDRLP4 36
 INDIRF4
 NEGF4
 ASGNF4
-LABELV $1626
+LABELV $1636
 ADDRLP4 36
 INDIRF4
 ARGF4
@@ -13424,17 +13564,17 @@ ARGF4
 ADDRGP4 RotatePointAroundVector
 CALLV
 pop
-ADDRGP4 $1621
+ADDRGP4 $1631
 JUMPV
-LABELV $1620
+LABELV $1630
 CNSTI4 0
 RETI4
-ADDRGP4 $1615
+ADDRGP4 $1625
 JUMPV
-LABELV $1621
+LABELV $1631
 CNSTI4 1
 RETI4
-LABELV $1615
+LABELV $1625
 endproc BG_RotateAxis 68 16
 export BG_PositionBuildableRelativeToPlayer
 proc BG_PositionBuildableRelativeToPlayer 104 28
@@ -13454,7 +13594,7 @@ INDIRI4
 CNSTI4 1
 BANDI4
 CNSTI4 0
-EQI4 $1629
+EQI4 $1639
 ADDRFP4 0
 INDIRP4
 CNSTI4 224
@@ -13463,7 +13603,7 @@ INDIRI4
 CNSTI4 2
 BANDI4
 CNSTI4 0
-EQI4 $1631
+EQI4 $1641
 ADDRLP4 76
 CNSTF4 0
 ASGNF4
@@ -13478,9 +13618,9 @@ ASGNF4
 ADDRLP4 12+8
 CNSTF4 3212836864
 ASGNF4
-ADDRGP4 $1630
+ADDRGP4 $1640
 JUMPV
-LABELV $1631
+LABELV $1641
 ADDRLP4 12
 ADDRFP4 0
 INDIRP4
@@ -13488,9 +13628,9 @@ CNSTI4 92
 ADDP4
 INDIRB
 ASGNB 12
-ADDRGP4 $1630
+ADDRGP4 $1640
 JUMPV
-LABELV $1629
+LABELV $1639
 ADDRLP4 76
 CNSTF4 0
 ASGNF4
@@ -13505,7 +13645,7 @@ ASGNF4
 ADDRLP4 12+8
 CNSTF4 1065353216
 ASGNF4
-LABELV $1630
+LABELV $1640
 ADDRLP4 64
 ADDRFP4 0
 INDIRP4
@@ -13736,7 +13876,7 @@ ARGP4
 ADDRGP4 vectoangles
 CALLV
 pop
-LABELV $1628
+LABELV $1638
 endproc BG_PositionBuildableRelativeToPlayer 104 28
 export BG_GetValueOfEquipment
 proc BG_GetValueOfEquipment 16 8
@@ -13750,7 +13890,7 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 1
 ASGNI4
-LABELV $1660
+LABELV $1670
 ADDRLP4 0
 INDIRI4
 ARGI4
@@ -13766,7 +13906,7 @@ ASGNI4
 ADDRLP4 8
 INDIRI4
 CNSTI4 0
-EQI4 $1664
+EQI4 $1674
 ADDRLP4 0
 INDIRI4
 ARGI4
@@ -13781,8 +13921,8 @@ ADDRLP4 12
 INDIRI4
 ADDI4
 ASGNI4
-LABELV $1664
-LABELV $1661
+LABELV $1674
+LABELV $1671
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
@@ -13791,12 +13931,12 @@ ADDI4
 ASGNI4
 ADDRLP4 0
 INDIRI4
-CNSTI4 7
-LTI4 $1660
+CNSTI4 8
+LTI4 $1670
 ADDRLP4 0
 CNSTI4 1
 ASGNI4
-LABELV $1666
+LABELV $1676
 ADDRLP4 0
 INDIRI4
 ARGI4
@@ -13812,7 +13952,7 @@ ASGNI4
 ADDRLP4 8
 INDIRI4
 CNSTI4 0
-EQI4 $1670
+EQI4 $1680
 ADDRLP4 0
 INDIRI4
 ARGI4
@@ -13827,8 +13967,8 @@ ADDRLP4 12
 INDIRI4
 ADDI4
 ASGNI4
-LABELV $1670
-LABELV $1667
+LABELV $1680
+LABELV $1677
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
@@ -13837,12 +13977,12 @@ ADDI4
 ASGNI4
 ADDRLP4 0
 INDIRI4
-CNSTI4 29
-LTI4 $1666
+CNSTI4 31
+LTI4 $1676
 ADDRLP4 4
 INDIRI4
 RETI4
-LABELV $1659
+LABELV $1669
 endproc BG_GetValueOfEquipment 16 8
 export BG_GetValueOfHuman
 proc BG_GetValueOfHuman 12 4
@@ -13863,22 +14003,22 @@ ASGNF4
 ADDRLP4 0
 INDIRF4
 CNSTF4 1008981770
-GEF4 $1673
+GEF4 $1683
 ADDRLP4 0
 CNSTF4 1008981770
 ASGNF4
-ADDRGP4 $1674
+ADDRGP4 $1684
 JUMPV
-LABELV $1673
+LABELV $1683
 ADDRLP4 0
 INDIRF4
 CNSTF4 1065353216
-LEF4 $1675
+LEF4 $1685
 ADDRLP4 0
 CNSTF4 1065353216
 ASGNF4
-LABELV $1675
-LABELV $1674
+LABELV $1685
+LABELV $1684
 CNSTF4 1147207680
 ADDRLP4 0
 INDIRF4
@@ -13892,7 +14032,7 @@ ADDRLP4 8
 INDIRF4
 CVFI4 4
 RETI4
-LABELV $1672
+LABELV $1682
 endproc BG_GetValueOfHuman 12 4
 export atof_neg
 proc atof_neg 8 4
@@ -13910,19 +14050,19 @@ ASGNF4
 ADDRFP4 4
 INDIRI4
 CNSTI4 0
-NEI4 $1678
+NEI4 $1688
 ADDRLP4 0
 INDIRF4
 CNSTF4 0
-GEF4 $1678
+GEF4 $1688
 ADDRLP4 0
 CNSTF4 1065353216
 ASGNF4
-LABELV $1678
+LABELV $1688
 ADDRLP4 0
 INDIRF4
 RETF4
-LABELV $1677
+LABELV $1687
 endproc atof_neg 8 4
 export atoi_neg
 proc atoi_neg 12 4
@@ -13944,20 +14084,20 @@ ADDRFP4 4
 INDIRI4
 ADDRLP4 8
 INDIRI4
-NEI4 $1681
+NEI4 $1691
 ADDRLP4 0
 INDIRI4
 ADDRLP4 8
 INDIRI4
-GEI4 $1681
+GEI4 $1691
 ADDRLP4 0
 CNSTI4 1
 ASGNI4
-LABELV $1681
+LABELV $1691
 ADDRLP4 0
 INDIRI4
 RETI4
-LABELV $1680
+LABELV $1690
 endproc atoi_neg 12 4
 export BG_ParseCSVEquipmentList
 proc BG_ParseCSVEquipmentList 1076 12
@@ -14002,16 +14142,16 @@ ASGNP4
 ADDRLP4 0
 ADDRLP4 20
 ASGNP4
-ADDRGP4 $1685
+ADDRGP4 $1695
 JUMPV
-LABELV $1687
+LABELV $1697
 ADDRLP4 0
 ADDRLP4 0
 INDIRP4
 CNSTI4 1
 ADDP4
 ASGNP4
-LABELV $1688
+LABELV $1698
 ADDRLP4 1044
 ADDRLP4 0
 INDIRP4
@@ -14021,46 +14161,46 @@ ASGNI4
 ADDRLP4 1044
 INDIRI4
 CNSTI4 44
-EQI4 $1690
+EQI4 $1700
 ADDRLP4 1044
 INDIRI4
 CNSTI4 0
-NEI4 $1687
-LABELV $1690
+NEI4 $1697
+LABELV $1700
 ADDRLP4 0
 INDIRP4
 INDIRI1
 CVII4 1
 CNSTI4 0
-NEI4 $1691
+NEI4 $1701
 ADDRLP4 16
 CNSTI4 1
 ASGNI4
-LABELV $1691
+LABELV $1701
 ADDRLP4 0
 INDIRP4
 CNSTI1 0
 ASGNI1
-ADDRGP4 $1694
+ADDRGP4 $1704
 JUMPV
-LABELV $1693
+LABELV $1703
 ADDRLP4 4
 ADDRLP4 4
 INDIRP4
 CNSTI4 1
 ADDP4
 ASGNP4
-LABELV $1694
+LABELV $1704
 ADDRLP4 4
 INDIRP4
 INDIRI1
 CVII4 1
 CNSTI4 32
-EQI4 $1693
+EQI4 $1703
 ADDRFP4 8
 INDIRI4
 CNSTI4 0
-EQI4 $1696
+EQI4 $1706
 ADDRLP4 4
 INDIRP4
 ARGP4
@@ -14078,11 +14218,11 @@ ADDP4
 ADDRLP4 1048
 INDIRI4
 ASGNI4
-LABELV $1696
+LABELV $1706
 ADDRFP4 16
 INDIRI4
 CNSTI4 0
-EQI4 $1698
+EQI4 $1708
 ADDRLP4 4
 INDIRP4
 ARGP4
@@ -14100,7 +14240,7 @@ ADDP4
 ADDRLP4 1052
 INDIRI4
 ASGNI4
-LABELV $1698
+LABELV $1708
 ADDRLP4 1056
 CNSTI4 0
 ASGNI4
@@ -14108,7 +14248,7 @@ ADDRFP4 8
 INDIRI4
 ADDRLP4 1056
 INDIRI4
-EQI4 $1700
+EQI4 $1710
 ADDRLP4 1060
 CNSTI4 2
 ASGNI4
@@ -14123,12 +14263,12 @@ ADDP4
 INDIRI4
 ADDRLP4 1056
 INDIRI4
-NEI4 $1700
+NEI4 $1710
 ADDRFP4 16
 INDIRI4
 ADDRLP4 1056
 INDIRI4
-EQI4 $1700
+EQI4 $1710
 ADDRLP4 12
 INDIRI4
 ADDRLP4 1060
@@ -14140,8 +14280,8 @@ ADDP4
 INDIRI4
 ADDRLP4 1056
 INDIRI4
-NEI4 $1700
-ADDRGP4 $1702
+NEI4 $1710
+ADDRGP4 $1712
 ARGP4
 ADDRLP4 4
 INDIRP4
@@ -14149,9 +14289,9 @@ ARGP4
 ADDRGP4 Com_Printf
 CALLV
 pop
-ADDRGP4 $1701
+ADDRGP4 $1711
 JUMPV
-LABELV $1700
+LABELV $1710
 ADDRLP4 1064
 CNSTI4 0
 ASGNI4
@@ -14159,7 +14299,7 @@ ADDRFP4 8
 INDIRI4
 ADDRLP4 1064
 INDIRI4
-EQI4 $1703
+EQI4 $1713
 ADDRLP4 8
 INDIRI4
 CNSTI4 2
@@ -14170,16 +14310,16 @@ ADDP4
 INDIRI4
 ADDRLP4 1064
 INDIRI4
-EQI4 $1703
+EQI4 $1713
 ADDRLP4 8
 ADDRLP4 8
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-ADDRGP4 $1704
+ADDRGP4 $1714
 JUMPV
-LABELV $1703
+LABELV $1713
 ADDRLP4 1068
 CNSTI4 0
 ASGNI4
@@ -14187,7 +14327,7 @@ ADDRFP4 16
 INDIRI4
 ADDRLP4 1068
 INDIRI4
-EQI4 $1705
+EQI4 $1715
 ADDRLP4 12
 INDIRI4
 CNSTI4 2
@@ -14198,20 +14338,20 @@ ADDP4
 INDIRI4
 ADDRLP4 1068
 INDIRI4
-EQI4 $1705
+EQI4 $1715
 ADDRLP4 12
 ADDRLP4 12
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1705
-LABELV $1704
-LABELV $1701
+LABELV $1715
+LABELV $1714
+LABELV $1711
 ADDRLP4 16
 INDIRI4
 CNSTI4 0
-NEI4 $1686
+NEI4 $1696
 ADDRLP4 0
 ADDRLP4 0
 INDIRP4
@@ -14222,7 +14362,7 @@ ADDRLP4 4
 ADDRLP4 0
 INDIRP4
 ASGNP4
-LABELV $1708
+LABELV $1718
 ADDRLP4 1072
 CNSTI4 1
 ASGNI4
@@ -14233,7 +14373,7 @@ INDIRI4
 ADDRLP4 1072
 INDIRI4
 SUBI4
-EQI4 $1711
+EQI4 $1721
 ADDRLP4 12
 INDIRI4
 ADDRFP4 16
@@ -14241,23 +14381,23 @@ INDIRI4
 ADDRLP4 1072
 INDIRI4
 SUBI4
-NEI4 $1709
-LABELV $1711
-ADDRGP4 $1686
+NEI4 $1719
+LABELV $1721
+ADDRGP4 $1696
 JUMPV
-LABELV $1709
-LABELV $1685
+LABELV $1719
+LABELV $1695
 ADDRLP4 0
 INDIRP4
 INDIRI1
 CVII4 1
 CNSTI4 0
-NEI4 $1688
-LABELV $1686
+NEI4 $1698
+LABELV $1696
 ADDRFP4 8
 INDIRI4
 CNSTI4 0
-EQI4 $1712
+EQI4 $1722
 ADDRLP4 8
 INDIRI4
 CNSTI4 2
@@ -14267,11 +14407,11 @@ INDIRP4
 ADDP4
 CNSTI4 0
 ASGNI4
-LABELV $1712
+LABELV $1722
 ADDRFP4 16
 INDIRI4
 CNSTI4 0
-EQI4 $1714
+EQI4 $1724
 ADDRLP4 12
 INDIRI4
 CNSTI4 2
@@ -14281,8 +14421,8 @@ INDIRP4
 ADDP4
 CNSTI4 0
 ASGNI4
-LABELV $1714
-LABELV $1683
+LABELV $1724
+LABELV $1693
 endproc BG_ParseCSVEquipmentList 1076 12
 export BG_ParseCSVClassList
 proc BG_ParseCSVClassList 1048 12
@@ -14312,16 +14452,16 @@ ASGNP4
 ADDRLP4 0
 ADDRLP4 16
 ASGNP4
-ADDRGP4 $1718
+ADDRGP4 $1728
 JUMPV
-LABELV $1720
+LABELV $1730
 ADDRLP4 0
 ADDRLP4 0
 INDIRP4
 CNSTI4 1
 ADDP4
 ASGNP4
-LABELV $1721
+LABELV $1731
 ADDRLP4 1040
 ADDRLP4 0
 INDIRP4
@@ -14331,42 +14471,42 @@ ASGNI4
 ADDRLP4 1040
 INDIRI4
 CNSTI4 44
-EQI4 $1723
+EQI4 $1733
 ADDRLP4 1040
 INDIRI4
 CNSTI4 0
-NEI4 $1720
-LABELV $1723
+NEI4 $1730
+LABELV $1733
 ADDRLP4 0
 INDIRP4
 INDIRI1
 CVII4 1
 CNSTI4 0
-NEI4 $1724
+NEI4 $1734
 ADDRLP4 12
 CNSTI4 1
 ASGNI4
-LABELV $1724
+LABELV $1734
 ADDRLP4 0
 INDIRP4
 CNSTI1 0
 ASGNI1
-ADDRGP4 $1727
+ADDRGP4 $1737
 JUMPV
-LABELV $1726
+LABELV $1736
 ADDRLP4 4
 ADDRLP4 4
 INDIRP4
 CNSTI4 1
 ADDP4
 ASGNP4
-LABELV $1727
+LABELV $1737
 ADDRLP4 4
 INDIRP4
 INDIRI1
 CVII4 1
 CNSTI4 32
-EQI4 $1726
+EQI4 $1736
 ADDRLP4 4
 INDIRP4
 ARGP4
@@ -14393,8 +14533,8 @@ INDIRP4
 ADDP4
 INDIRI4
 CNSTI4 0
-NEI4 $1729
-ADDRGP4 $1731
+NEI4 $1739
+ADDRGP4 $1741
 ARGP4
 ADDRLP4 4
 INDIRP4
@@ -14402,20 +14542,20 @@ ARGP4
 ADDRGP4 Com_Printf
 CALLV
 pop
-ADDRGP4 $1730
+ADDRGP4 $1740
 JUMPV
-LABELV $1729
+LABELV $1739
 ADDRLP4 8
 ADDRLP4 8
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1730
+LABELV $1740
 ADDRLP4 12
 INDIRI4
 CNSTI4 0
-NEI4 $1719
+NEI4 $1729
 ADDRLP4 0
 ADDRLP4 0
 INDIRP4
@@ -14426,15 +14566,15 @@ ADDRLP4 4
 ADDRLP4 0
 INDIRP4
 ASGNP4
-LABELV $1733
-LABELV $1718
+LABELV $1743
+LABELV $1728
 ADDRLP4 0
 INDIRP4
 INDIRI1
 CVII4 1
 CNSTI4 0
-NEI4 $1721
-LABELV $1719
+NEI4 $1731
+LABELV $1729
 ADDRLP4 8
 INDIRI4
 CNSTI4 2
@@ -14444,7 +14584,7 @@ INDIRP4
 ADDP4
 CNSTI4 0
 ASGNI4
-LABELV $1716
+LABELV $1726
 endproc BG_ParseCSVClassList 1048 12
 export BG_ParseCSVBuildableList
 proc BG_ParseCSVBuildableList 1048 12
@@ -14474,16 +14614,16 @@ ASGNP4
 ADDRLP4 0
 ADDRLP4 16
 ASGNP4
-ADDRGP4 $1736
+ADDRGP4 $1746
 JUMPV
-LABELV $1738
+LABELV $1748
 ADDRLP4 0
 ADDRLP4 0
 INDIRP4
 CNSTI4 1
 ADDP4
 ASGNP4
-LABELV $1739
+LABELV $1749
 ADDRLP4 1040
 ADDRLP4 0
 INDIRP4
@@ -14493,42 +14633,42 @@ ASGNI4
 ADDRLP4 1040
 INDIRI4
 CNSTI4 44
-EQI4 $1741
+EQI4 $1751
 ADDRLP4 1040
 INDIRI4
 CNSTI4 0
-NEI4 $1738
-LABELV $1741
+NEI4 $1748
+LABELV $1751
 ADDRLP4 0
 INDIRP4
 INDIRI1
 CVII4 1
 CNSTI4 0
-NEI4 $1742
+NEI4 $1752
 ADDRLP4 12
 CNSTI4 1
 ASGNI4
-LABELV $1742
+LABELV $1752
 ADDRLP4 0
 INDIRP4
 CNSTI1 0
 ASGNI1
-ADDRGP4 $1745
+ADDRGP4 $1755
 JUMPV
-LABELV $1744
+LABELV $1754
 ADDRLP4 4
 ADDRLP4 4
 INDIRP4
 CNSTI4 1
 ADDP4
 ASGNP4
-LABELV $1745
+LABELV $1755
 ADDRLP4 4
 INDIRP4
 INDIRI1
 CVII4 1
 CNSTI4 32
-EQI4 $1744
+EQI4 $1754
 ADDRLP4 4
 INDIRP4
 ARGP4
@@ -14555,8 +14695,8 @@ INDIRP4
 ADDP4
 INDIRI4
 CNSTI4 0
-NEI4 $1747
-ADDRGP4 $1749
+NEI4 $1757
+ADDRGP4 $1759
 ARGP4
 ADDRLP4 4
 INDIRP4
@@ -14564,20 +14704,20 @@ ARGP4
 ADDRGP4 Com_Printf
 CALLV
 pop
-ADDRGP4 $1748
+ADDRGP4 $1758
 JUMPV
-LABELV $1747
+LABELV $1757
 ADDRLP4 8
 ADDRLP4 8
 INDIRI4
 CNSTI4 1
 ADDI4
 ASGNI4
-LABELV $1748
+LABELV $1758
 ADDRLP4 12
 INDIRI4
 CNSTI4 0
-NEI4 $1737
+NEI4 $1747
 ADDRLP4 0
 ADDRLP4 0
 INDIRP4
@@ -14588,15 +14728,15 @@ ADDRLP4 4
 ADDRLP4 0
 INDIRP4
 ASGNP4
-LABELV $1751
-LABELV $1736
+LABELV $1761
+LABELV $1746
 ADDRLP4 0
 INDIRP4
 INDIRI1
 CVII4 1
 CNSTI4 0
-NEI4 $1739
-LABELV $1737
+NEI4 $1749
+LABELV $1747
 ADDRLP4 8
 INDIRI4
 CNSTI4 2
@@ -14606,7 +14746,7 @@ INDIRP4
 ADDP4
 CNSTI4 0
 ASGNI4
-LABELV $1734
+LABELV $1744
 endproc BG_ParseCSVBuildableList 1048 12
 export BG_UpgradeClassAvailable
 proc BG_UpgradeClassAvailable 1052 16
@@ -14614,7 +14754,7 @@ ADDRFP4 0
 ADDRFP4 0
 INDIRP4
 ASGNP4
-ADDRGP4 $1753
+ADDRGP4 $1763
 ARGP4
 ADDRLP4 8
 ARGP4
@@ -14636,7 +14776,7 @@ ASGNI4
 ADDRLP4 0
 CNSTI4 1
 ASGNI4
-LABELV $1754
+LABELV $1764
 ADDRFP4 0
 INDIRP4
 CNSTI4 212
@@ -14661,7 +14801,7 @@ ASGNI4
 ADDRLP4 1040
 INDIRI4
 CNSTI4 0
-LTI4 $1758
+LTI4 $1768
 ADDRLP4 0
 INDIRI4
 ARGI4
@@ -14675,7 +14815,7 @@ ASGNI4
 ADDRLP4 1044
 INDIRI4
 CNSTI4 0
-EQI4 $1758
+EQI4 $1768
 ADDRLP4 0
 INDIRI4
 ARGI4
@@ -14686,13 +14826,13 @@ ASGNI4
 ADDRLP4 1048
 INDIRI4
 CNSTI4 0
-EQI4 $1758
+EQI4 $1768
 CNSTI4 1
 RETI4
-ADDRGP4 $1752
+ADDRGP4 $1762
 JUMPV
-LABELV $1758
-LABELV $1755
+LABELV $1768
+LABELV $1765
 ADDRLP4 0
 ADDRLP4 0
 INDIRI4
@@ -14702,14 +14842,14 @@ ASGNI4
 ADDRLP4 0
 INDIRI4
 CNSTI4 13
-LTI4 $1754
+LTI4 $1764
 CNSTI4 0
 RETI4
-LABELV $1752
+LABELV $1762
 endproc BG_UpgradeClassAvailable 1052 16
 export BG_InitAllowedGameElements
 proc BG_InitAllowedGameElements 256 20
-ADDRGP4 $1761
+ADDRGP4 $1771
 ARGP4
 ADDRLP4 0
 ARGP4
@@ -14720,18 +14860,18 @@ CALLV
 pop
 ADDRLP4 0
 ARGP4
-ADDRGP4 bg_disabledGameElements+160
+ADDRGP4 bg_disabledGameElements+168
 ARGP4
-CNSTI4 29
+CNSTI4 31
 ARGI4
-ADDRGP4 bg_disabledGameElements+276
+ADDRGP4 bg_disabledGameElements+292
 ARGP4
-CNSTI4 7
+CNSTI4 8
 ARGI4
 ADDRGP4 BG_ParseCSVEquipmentList
 CALLV
 pop
-ADDRGP4 $1764
+ADDRGP4 $1774
 ARGP4
 ADDRLP4 0
 ARGP4
@@ -14742,14 +14882,14 @@ CALLV
 pop
 ADDRLP4 0
 ARGP4
-ADDRGP4 bg_disabledGameElements+108
+ADDRGP4 bg_disabledGameElements+116
 ARGP4
 CNSTI4 13
 ARGI4
 ADDRGP4 BG_ParseCSVClassList
 CALLV
 pop
-ADDRGP4 $1766
+ADDRGP4 $1776
 ARGP4
 ADDRLP4 0
 ARGP4
@@ -14762,68 +14902,15 @@ ADDRLP4 0
 ARGP4
 ADDRGP4 bg_disabledGameElements
 ARGP4
-CNSTI4 27
+CNSTI4 29
 ARGI4
 ADDRGP4 BG_ParseCSVBuildableList
 CALLV
 pop
-LABELV $1760
+LABELV $1770
 endproc BG_InitAllowedGameElements 256 20
 export BG_WeaponIsAllowed
 proc BG_WeaponIsAllowed 8 0
-ADDRFP4 0
-ADDRFP4 0
-INDIRI4
-ASGNI4
-ADDRLP4 0
-CNSTI4 0
-ASGNI4
-ADDRGP4 $1771
-JUMPV
-LABELV $1768
-ADDRLP4 0
-INDIRI4
-CNSTI4 2
-LSHI4
-ADDRGP4 bg_disabledGameElements+160
-ADDP4
-INDIRI4
-ADDRFP4 0
-INDIRI4
-NEI4 $1773
-CNSTI4 0
-RETI4
-ADDRGP4 $1767
-JUMPV
-LABELV $1773
-LABELV $1769
-ADDRLP4 0
-ADDRLP4 0
-INDIRI4
-CNSTI4 1
-ADDI4
-ASGNI4
-LABELV $1771
-ADDRLP4 0
-INDIRI4
-CNSTI4 29
-GEI4 $1776
-ADDRLP4 0
-INDIRI4
-CNSTI4 2
-LSHI4
-ADDRGP4 bg_disabledGameElements+160
-ADDP4
-INDIRI4
-CNSTI4 0
-NEI4 $1768
-LABELV $1776
-CNSTI4 1
-RETI4
-LABELV $1767
-endproc BG_WeaponIsAllowed 8 0
-export BG_UpgradeIsAllowed
-proc BG_UpgradeIsAllowed 8 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -14838,7 +14925,7 @@ ADDRLP4 0
 INDIRI4
 CNSTI4 2
 LSHI4
-ADDRGP4 bg_disabledGameElements+276
+ADDRGP4 bg_disabledGameElements+168
 ADDP4
 INDIRI4
 ADDRFP4 0
@@ -14859,13 +14946,13 @@ ASGNI4
 LABELV $1781
 ADDRLP4 0
 INDIRI4
-CNSTI4 7
+CNSTI4 31
 GEI4 $1786
 ADDRLP4 0
 INDIRI4
 CNSTI4 2
 LSHI4
-ADDRGP4 bg_disabledGameElements+276
+ADDRGP4 bg_disabledGameElements+168
 ADDP4
 INDIRI4
 CNSTI4 0
@@ -14874,9 +14961,9 @@ LABELV $1786
 CNSTI4 1
 RETI4
 LABELV $1777
-endproc BG_UpgradeIsAllowed 8 0
-export BG_ClassIsAllowed
-proc BG_ClassIsAllowed 8 0
+endproc BG_WeaponIsAllowed 8 0
+export BG_UpgradeIsAllowed
+proc BG_UpgradeIsAllowed 8 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -14891,7 +14978,7 @@ ADDRLP4 0
 INDIRI4
 CNSTI4 2
 LSHI4
-ADDRGP4 bg_disabledGameElements+108
+ADDRGP4 bg_disabledGameElements+292
 ADDP4
 INDIRI4
 ADDRFP4 0
@@ -14912,13 +14999,13 @@ ASGNI4
 LABELV $1791
 ADDRLP4 0
 INDIRI4
-CNSTI4 13
+CNSTI4 8
 GEI4 $1796
 ADDRLP4 0
 INDIRI4
 CNSTI4 2
 LSHI4
-ADDRGP4 bg_disabledGameElements+108
+ADDRGP4 bg_disabledGameElements+292
 ADDP4
 INDIRI4
 CNSTI4 0
@@ -14927,9 +15014,9 @@ LABELV $1796
 CNSTI4 1
 RETI4
 LABELV $1787
-endproc BG_ClassIsAllowed 8 0
-export BG_BuildableIsAllowed
-proc BG_BuildableIsAllowed 8 0
+endproc BG_UpgradeIsAllowed 8 0
+export BG_ClassIsAllowed
+proc BG_ClassIsAllowed 8 0
 ADDRFP4 0
 ADDRFP4 0
 INDIRI4
@@ -14944,17 +15031,17 @@ ADDRLP4 0
 INDIRI4
 CNSTI4 2
 LSHI4
-ADDRGP4 bg_disabledGameElements
+ADDRGP4 bg_disabledGameElements+116
 ADDP4
 INDIRI4
 ADDRFP4 0
 INDIRI4
-NEI4 $1802
+NEI4 $1803
 CNSTI4 0
 RETI4
 ADDRGP4 $1797
 JUMPV
-LABELV $1802
+LABELV $1803
 LABELV $1799
 ADDRLP4 0
 ADDRLP4 0
@@ -14965,8 +15052,61 @@ ASGNI4
 LABELV $1801
 ADDRLP4 0
 INDIRI4
-CNSTI4 27
-GEI4 $1804
+CNSTI4 13
+GEI4 $1806
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRGP4 bg_disabledGameElements+116
+ADDP4
+INDIRI4
+CNSTI4 0
+NEI4 $1798
+LABELV $1806
+CNSTI4 1
+RETI4
+LABELV $1797
+endproc BG_ClassIsAllowed 8 0
+export BG_BuildableIsAllowed
+proc BG_BuildableIsAllowed 8 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1811
+JUMPV
+LABELV $1808
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRGP4 bg_disabledGameElements
+ADDP4
+INDIRI4
+ADDRFP4 0
+INDIRI4
+NEI4 $1812
+CNSTI4 0
+RETI4
+ADDRGP4 $1807
+JUMPV
+LABELV $1812
+LABELV $1809
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1811
+ADDRLP4 0
+INDIRI4
+CNSTI4 29
+GEI4 $1814
 ADDRLP4 0
 INDIRI4
 CNSTI4 2
@@ -14975,11 +15115,11 @@ ADDRGP4 bg_disabledGameElements
 ADDP4
 INDIRI4
 CNSTI4 0
-NEI4 $1798
-LABELV $1804
+NEI4 $1808
+LABELV $1814
 CNSTI4 1
 RETI4
-LABELV $1797
+LABELV $1807
 endproc BG_BuildableIsAllowed 8 0
 export BG_ClientListTest
 proc BG_ClientListTest 12 0
@@ -14990,26 +15130,26 @@ ASGNI4
 ADDRFP4 4
 INDIRI4
 CNSTI4 0
-LTI4 $1809
+LTI4 $1819
 ADDRFP4 4
 INDIRI4
 CNSTI4 64
-GEI4 $1809
+GEI4 $1819
 ADDRFP4 0
 INDIRP4
 CVPU4 4
 CNSTU4 0
-NEU4 $1806
-LABELV $1809
+NEU4 $1816
+LABELV $1819
 CNSTI4 0
 RETI4
-ADDRGP4 $1805
+ADDRGP4 $1815
 JUMPV
-LABELV $1806
+LABELV $1816
 ADDRFP4 4
 INDIRI4
 CNSTI4 32
-GEI4 $1810
+GEI4 $1820
 ADDRFP4 0
 INDIRP4
 CNSTI4 4
@@ -15022,23 +15162,23 @@ LSHI4
 CVIU4 4
 BANDU4
 CNSTU4 0
-EQU4 $1813
+EQU4 $1823
 ADDRLP4 4
 CNSTI4 1
 ASGNI4
-ADDRGP4 $1814
+ADDRGP4 $1824
 JUMPV
-LABELV $1813
+LABELV $1823
 ADDRLP4 4
 CNSTI4 0
 ASGNI4
-LABELV $1814
+LABELV $1824
 ADDRLP4 4
 INDIRI4
 RETI4
-ADDRGP4 $1805
+ADDRGP4 $1815
 JUMPV
-LABELV $1810
+LABELV $1820
 ADDRFP4 0
 INDIRP4
 INDIRU4
@@ -15051,21 +15191,21 @@ LSHI4
 CVIU4 4
 BANDU4
 CNSTU4 0
-EQU4 $1816
+EQU4 $1826
 ADDRLP4 8
 CNSTI4 1
 ASGNI4
-ADDRGP4 $1817
+ADDRGP4 $1827
 JUMPV
-LABELV $1816
+LABELV $1826
 ADDRLP4 8
 CNSTI4 0
 ASGNI4
-LABELV $1817
+LABELV $1827
 ADDRLP4 8
 INDIRI4
 RETI4
-LABELV $1805
+LABELV $1815
 endproc BG_ClientListTest 12 0
 export BG_ClientListAdd
 proc BG_ClientListAdd 12 0
@@ -15076,24 +15216,24 @@ ASGNI4
 ADDRFP4 4
 INDIRI4
 CNSTI4 0
-LTI4 $1822
+LTI4 $1832
 ADDRFP4 4
 INDIRI4
 CNSTI4 64
-GEI4 $1822
+GEI4 $1832
 ADDRFP4 0
 INDIRP4
 CVPU4 4
 CNSTU4 0
-NEU4 $1819
-LABELV $1822
-ADDRGP4 $1818
+NEU4 $1829
+LABELV $1832
+ADDRGP4 $1828
 JUMPV
-LABELV $1819
+LABELV $1829
 ADDRFP4 4
 INDIRI4
 CNSTI4 32
-GEI4 $1823
+GEI4 $1833
 ADDRLP4 4
 ADDRFP4 0
 INDIRP4
@@ -15112,9 +15252,9 @@ LSHI4
 CVIU4 4
 BORU4
 ASGNU4
-ADDRGP4 $1824
+ADDRGP4 $1834
 JUMPV
-LABELV $1823
+LABELV $1833
 ADDRLP4 8
 ADDRFP4 0
 INDIRP4
@@ -15133,8 +15273,8 @@ LSHI4
 CVIU4 4
 BORU4
 ASGNU4
-LABELV $1824
-LABELV $1818
+LABELV $1834
+LABELV $1828
 endproc BG_ClientListAdd 12 0
 export BG_ClientListRemove
 proc BG_ClientListRemove 12 0
@@ -15145,24 +15285,24 @@ ASGNI4
 ADDRFP4 4
 INDIRI4
 CNSTI4 0
-LTI4 $1829
+LTI4 $1839
 ADDRFP4 4
 INDIRI4
 CNSTI4 64
-GEI4 $1829
+GEI4 $1839
 ADDRFP4 0
 INDIRP4
 CVPU4 4
 CNSTU4 0
-NEU4 $1826
-LABELV $1829
-ADDRGP4 $1825
+NEU4 $1836
+LABELV $1839
+ADDRGP4 $1835
 JUMPV
-LABELV $1826
+LABELV $1836
 ADDRFP4 4
 INDIRI4
 CNSTI4 32
-GEI4 $1830
+GEI4 $1840
 ADDRLP4 4
 ADDRFP4 0
 INDIRP4
@@ -15182,9 +15322,9 @@ BCOMI4
 CVIU4 4
 BANDU4
 ASGNU4
-ADDRGP4 $1831
+ADDRGP4 $1841
 JUMPV
-LABELV $1830
+LABELV $1840
 ADDRLP4 8
 ADDRFP4 0
 INDIRP4
@@ -15204,12 +15344,12 @@ BCOMI4
 CVIU4 4
 BANDU4
 ASGNU4
-LABELV $1831
-LABELV $1825
+LABELV $1841
+LABELV $1835
 endproc BG_ClientListRemove 12 0
 bss
 align 1
-LABELV $1833
+LABELV $1843
 skip 17
 export BG_ClientListString
 code
@@ -15218,24 +15358,24 @@ ADDRFP4 0
 ADDRFP4 0
 INDIRP4
 ASGNP4
-ADDRGP4 $1833
+ADDRGP4 $1843
 CNSTI1 0
 ASGNI1
 ADDRFP4 0
 INDIRP4
 CVPU4 4
 CNSTU4 0
-NEU4 $1834
-ADDRGP4 $1833
+NEU4 $1844
+ADDRGP4 $1843
 RETP4
-ADDRGP4 $1832
+ADDRGP4 $1842
 JUMPV
-LABELV $1834
-ADDRGP4 $1833
+LABELV $1844
+ADDRGP4 $1843
 ARGP4
 CNSTI4 17
 ARGI4
-ADDRGP4 $1836
+ADDRGP4 $1846
 ARGP4
 ADDRFP4 0
 INDIRP4
@@ -15250,9 +15390,9 @@ ARGU4
 ADDRGP4 Com_sprintf
 CALLV
 pop
-ADDRGP4 $1833
+ADDRGP4 $1843
 RETP4
-LABELV $1832
+LABELV $1842
 endproc BG_ClientListString 4 20
 export BG_ClientListParse
 proc BG_ClientListParse 8 16
@@ -15268,10 +15408,10 @@ ADDRFP4 0
 INDIRP4
 CVPU4 4
 CNSTU4 0
-NEU4 $1838
-ADDRGP4 $1837
+NEU4 $1848
+ADDRGP4 $1847
 JUMPV
-LABELV $1838
+LABELV $1848
 ADDRFP4 0
 INDIRP4
 CNSTI4 4
@@ -15286,10 +15426,10 @@ ADDRFP4 4
 INDIRP4
 CVPU4 4
 CNSTU4 0
-NEU4 $1840
-ADDRGP4 $1837
+NEU4 $1850
+ADDRGP4 $1847
 JUMPV
-LABELV $1840
+LABELV $1850
 ADDRFP4 4
 INDIRP4
 ARGP4
@@ -15300,14 +15440,14 @@ ASGNI4
 ADDRLP4 0
 INDIRI4
 CNSTI4 16
-EQI4 $1842
-ADDRGP4 $1837
+EQI4 $1852
+ADDRGP4 $1847
 JUMPV
-LABELV $1842
+LABELV $1852
 ADDRFP4 4
 INDIRP4
 ARGP4
-ADDRGP4 $1844
+ADDRGP4 $1854
 ARGP4
 ADDRFP4 0
 INDIRP4
@@ -15320,12 +15460,12 @@ ARGP4
 ADDRGP4 sscanf
 CALLI4
 pop
-LABELV $1837
+LABELV $1847
 endproc BG_ClientListParse 8 16
 bss
 align 4
 LABELV bg_disabledGameElements
-skip 304
+skip 324
 import trap_Cvar_VariableStringBuffer
 export bg_classOverrideList
 align 4
@@ -15334,7 +15474,7 @@ skip 16848
 export bg_buildableOverrideList
 align 4
 LABELV bg_buildableOverrideList
-skip 7776
+skip 8352
 import trap_FS_Seek
 import trap_FS_FCloseFile
 import trap_FS_Write
@@ -15518,14 +15658,14 @@ import srand
 import qsort
 lit
 align 1
-LABELV $1844
+LABELV $1854
 byte 1 37
 byte 1 120
 byte 1 37
 byte 1 120
 byte 1 0
 align 1
-LABELV $1836
+LABELV $1846
 byte 1 37
 byte 1 48
 byte 1 56
@@ -15536,7 +15676,7 @@ byte 1 56
 byte 1 120
 byte 1 0
 align 1
-LABELV $1766
+LABELV $1776
 byte 1 103
 byte 1 95
 byte 1 100
@@ -15559,7 +15699,7 @@ byte 1 101
 byte 1 115
 byte 1 0
 align 1
-LABELV $1764
+LABELV $1774
 byte 1 103
 byte 1 95
 byte 1 100
@@ -15579,7 +15719,7 @@ byte 1 101
 byte 1 115
 byte 1 0
 align 1
-LABELV $1761
+LABELV $1771
 byte 1 103
 byte 1 95
 byte 1 100
@@ -15601,7 +15741,7 @@ byte 1 110
 byte 1 116
 byte 1 0
 align 1
-LABELV $1753
+LABELV $1763
 byte 1 103
 byte 1 95
 byte 1 97
@@ -15616,7 +15756,7 @@ byte 1 103
 byte 1 101
 byte 1 0
 align 1
-LABELV $1749
+LABELV $1759
 byte 1 94
 byte 1 51
 byte 1 87
@@ -15651,7 +15791,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $1731
+LABELV $1741
 byte 1 94
 byte 1 51
 byte 1 87
@@ -15682,7 +15822,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $1702
+LABELV $1712
 byte 1 94
 byte 1 51
 byte 1 87
@@ -15717,7 +15857,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $1512
+LABELV $1522
 byte 1 69
 byte 1 86
 byte 1 95
@@ -15735,7 +15875,7 @@ byte 1 78
 byte 1 68
 byte 1 0
 align 1
-LABELV $1511
+LABELV $1521
 byte 1 69
 byte 1 86
 byte 1 95
@@ -15751,7 +15891,7 @@ byte 1 67
 byte 1 75
 byte 1 0
 align 1
-LABELV $1510
+LABELV $1520
 byte 1 69
 byte 1 86
 byte 1 95
@@ -15772,7 +15912,7 @@ byte 1 78
 byte 1 83
 byte 1 0
 align 1
-LABELV $1509
+LABELV $1519
 byte 1 69
 byte 1 86
 byte 1 95
@@ -15792,7 +15932,7 @@ byte 1 78
 byte 1 71
 byte 1 0
 align 1
-LABELV $1508
+LABELV $1518
 byte 1 69
 byte 1 86
 byte 1 95
@@ -15813,7 +15953,7 @@ byte 1 67
 byte 1 75
 byte 1 0
 align 1
-LABELV $1507
+LABELV $1517
 byte 1 69
 byte 1 86
 byte 1 95
@@ -15824,7 +15964,7 @@ byte 1 78
 byte 1 84
 byte 1 0
 align 1
-LABELV $1506
+LABELV $1516
 byte 1 69
 byte 1 86
 byte 1 95
@@ -15846,7 +15986,7 @@ byte 1 78
 byte 1 68
 byte 1 0
 align 1
-LABELV $1505
+LABELV $1515
 byte 1 69
 byte 1 86
 byte 1 95
@@ -15862,7 +16002,7 @@ byte 1 78
 byte 1 69
 byte 1 0
 align 1
-LABELV $1504
+LABELV $1514
 byte 1 69
 byte 1 86
 byte 1 95
@@ -15887,7 +16027,7 @@ byte 1 69
 byte 1 68
 byte 1 0
 align 1
-LABELV $1503
+LABELV $1513
 byte 1 69
 byte 1 86
 byte 1 95
@@ -15905,7 +16045,7 @@ byte 1 86
 byte 1 69
 byte 1 0
 align 1
-LABELV $1502
+LABELV $1512
 byte 1 69
 byte 1 86
 byte 1 95
@@ -15922,7 +16062,7 @@ byte 1 69
 byte 1 68
 byte 1 0
 align 1
-LABELV $1501
+LABELV $1511
 byte 1 69
 byte 1 86
 byte 1 95
@@ -15942,7 +16082,7 @@ byte 1 66
 byte 1 69
 byte 1 0
 align 1
-LABELV $1500
+LABELV $1510
 byte 1 69
 byte 1 86
 byte 1 95
@@ -15973,7 +16113,7 @@ byte 1 79
 byte 1 78
 byte 1 0
 align 1
-LABELV $1499
+LABELV $1509
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16004,7 +16144,7 @@ byte 1 79
 byte 1 78
 byte 1 0
 align 1
-LABELV $1498
+LABELV $1508
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16024,7 +16164,7 @@ byte 1 69
 byte 1 68
 byte 1 0
 align 1
-LABELV $1497
+LABELV $1507
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16042,7 +16182,7 @@ byte 1 73
 byte 1 82
 byte 1 0
 align 1
-LABELV $1496
+LABELV $1506
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16059,7 +16199,7 @@ byte 1 65
 byte 1 89
 byte 1 0
 align 1
-LABELV $1495
+LABELV $1505
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16076,6 +16216,166 @@ byte 1 84
 byte 1 82
 byte 1 79
 byte 1 89
+byte 1 0
+align 1
+LABELV $1504
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 66
+byte 1 85
+byte 1 73
+byte 1 76
+byte 1 68
+byte 1 95
+byte 1 67
+byte 1 79
+byte 1 78
+byte 1 83
+byte 1 84
+byte 1 82
+byte 1 85
+byte 1 67
+byte 1 84
+byte 1 0
+align 1
+LABELV $1503
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 71
+byte 1 73
+byte 1 66
+byte 1 95
+byte 1 80
+byte 1 76
+byte 1 65
+byte 1 89
+byte 1 69
+byte 1 82
+byte 1 0
+align 1
+LABELV $1502
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 79
+byte 1 66
+byte 1 73
+byte 1 84
+byte 1 85
+byte 1 65
+byte 1 82
+byte 1 89
+byte 1 0
+align 1
+LABELV $1501
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 68
+byte 1 69
+byte 1 65
+byte 1 84
+byte 1 72
+byte 1 51
+byte 1 0
+align 1
+LABELV $1500
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 68
+byte 1 69
+byte 1 65
+byte 1 84
+byte 1 72
+byte 1 50
+byte 1 0
+align 1
+LABELV $1499
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 68
+byte 1 69
+byte 1 65
+byte 1 84
+byte 1 72
+byte 1 49
+byte 1 0
+align 1
+LABELV $1498
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 80
+byte 1 65
+byte 1 73
+byte 1 78
+byte 1 0
+align 1
+LABELV $1497
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 76
+byte 1 69
+byte 1 86
+byte 1 52
+byte 1 95
+byte 1 67
+byte 1 72
+byte 1 65
+byte 1 82
+byte 1 71
+byte 1 69
+byte 1 95
+byte 1 83
+byte 1 84
+byte 1 65
+byte 1 82
+byte 1 84
+byte 1 0
+align 1
+LABELV $1496
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 76
+byte 1 69
+byte 1 86
+byte 1 52
+byte 1 95
+byte 1 67
+byte 1 72
+byte 1 65
+byte 1 82
+byte 1 71
+byte 1 69
+byte 1 95
+byte 1 80
+byte 1 82
+byte 1 69
+byte 1 80
+byte 1 65
+byte 1 82
+byte 1 69
+byte 1 0
+align 1
+LABELV $1495
+byte 1 69
+byte 1 86
+byte 1 95
+byte 1 76
+byte 1 69
+byte 1 86
+byte 1 49
+byte 1 95
+byte 1 71
+byte 1 82
+byte 1 65
+byte 1 66
 byte 1 0
 align 1
 LABELV $1494
@@ -16084,18 +16384,9 @@ byte 1 86
 byte 1 95
 byte 1 66
 byte 1 85
-byte 1 73
 byte 1 76
-byte 1 68
-byte 1 95
-byte 1 67
-byte 1 79
-byte 1 78
-byte 1 83
-byte 1 84
-byte 1 82
-byte 1 85
-byte 1 67
+byte 1 76
+byte 1 69
 byte 1 84
 byte 1 0
 align 1
@@ -16103,229 +16394,78 @@ LABELV $1493
 byte 1 69
 byte 1 86
 byte 1 95
-byte 1 71
-byte 1 73
-byte 1 66
-byte 1 95
-byte 1 80
+byte 1 84
+byte 1 69
+byte 1 83
 byte 1 76
 byte 1 65
-byte 1 89
-byte 1 69
+byte 1 84
 byte 1 82
+byte 1 65
+byte 1 73
+byte 1 76
 byte 1 0
 align 1
 LABELV $1492
 byte 1 69
 byte 1 86
 byte 1 95
-byte 1 79
-byte 1 66
+byte 1 77
 byte 1 73
+byte 1 83
+byte 1 83
+byte 1 73
+byte 1 76
+byte 1 69
+byte 1 95
+byte 1 77
+byte 1 73
+byte 1 83
+byte 1 83
+byte 1 95
+byte 1 77
+byte 1 69
 byte 1 84
-byte 1 85
 byte 1 65
-byte 1 82
-byte 1 89
+byte 1 76
 byte 1 0
 align 1
 LABELV $1491
 byte 1 69
 byte 1 86
 byte 1 95
-byte 1 68
+byte 1 77
+byte 1 73
+byte 1 83
+byte 1 83
+byte 1 73
+byte 1 76
 byte 1 69
-byte 1 65
-byte 1 84
-byte 1 72
-byte 1 51
+byte 1 95
+byte 1 77
+byte 1 73
+byte 1 83
+byte 1 83
 byte 1 0
 align 1
 LABELV $1490
 byte 1 69
 byte 1 86
 byte 1 95
-byte 1 68
+byte 1 77
+byte 1 73
+byte 1 83
+byte 1 83
+byte 1 73
+byte 1 76
 byte 1 69
-byte 1 65
-byte 1 84
+byte 1 95
 byte 1 72
-byte 1 50
+byte 1 73
+byte 1 84
 byte 1 0
 align 1
 LABELV $1489
-byte 1 69
-byte 1 86
-byte 1 95
-byte 1 68
-byte 1 69
-byte 1 65
-byte 1 84
-byte 1 72
-byte 1 49
-byte 1 0
-align 1
-LABELV $1488
-byte 1 69
-byte 1 86
-byte 1 95
-byte 1 80
-byte 1 65
-byte 1 73
-byte 1 78
-byte 1 0
-align 1
-LABELV $1487
-byte 1 69
-byte 1 86
-byte 1 95
-byte 1 76
-byte 1 69
-byte 1 86
-byte 1 52
-byte 1 95
-byte 1 67
-byte 1 72
-byte 1 65
-byte 1 82
-byte 1 71
-byte 1 69
-byte 1 95
-byte 1 83
-byte 1 84
-byte 1 65
-byte 1 82
-byte 1 84
-byte 1 0
-align 1
-LABELV $1486
-byte 1 69
-byte 1 86
-byte 1 95
-byte 1 76
-byte 1 69
-byte 1 86
-byte 1 52
-byte 1 95
-byte 1 67
-byte 1 72
-byte 1 65
-byte 1 82
-byte 1 71
-byte 1 69
-byte 1 95
-byte 1 80
-byte 1 82
-byte 1 69
-byte 1 80
-byte 1 65
-byte 1 82
-byte 1 69
-byte 1 0
-align 1
-LABELV $1485
-byte 1 69
-byte 1 86
-byte 1 95
-byte 1 76
-byte 1 69
-byte 1 86
-byte 1 49
-byte 1 95
-byte 1 71
-byte 1 82
-byte 1 65
-byte 1 66
-byte 1 0
-align 1
-LABELV $1484
-byte 1 69
-byte 1 86
-byte 1 95
-byte 1 66
-byte 1 85
-byte 1 76
-byte 1 76
-byte 1 69
-byte 1 84
-byte 1 0
-align 1
-LABELV $1483
-byte 1 69
-byte 1 86
-byte 1 95
-byte 1 84
-byte 1 69
-byte 1 83
-byte 1 76
-byte 1 65
-byte 1 84
-byte 1 82
-byte 1 65
-byte 1 73
-byte 1 76
-byte 1 0
-align 1
-LABELV $1482
-byte 1 69
-byte 1 86
-byte 1 95
-byte 1 77
-byte 1 73
-byte 1 83
-byte 1 83
-byte 1 73
-byte 1 76
-byte 1 69
-byte 1 95
-byte 1 77
-byte 1 73
-byte 1 83
-byte 1 83
-byte 1 95
-byte 1 77
-byte 1 69
-byte 1 84
-byte 1 65
-byte 1 76
-byte 1 0
-align 1
-LABELV $1481
-byte 1 69
-byte 1 86
-byte 1 95
-byte 1 77
-byte 1 73
-byte 1 83
-byte 1 83
-byte 1 73
-byte 1 76
-byte 1 69
-byte 1 95
-byte 1 77
-byte 1 73
-byte 1 83
-byte 1 83
-byte 1 0
-align 1
-LABELV $1480
-byte 1 69
-byte 1 86
-byte 1 95
-byte 1 77
-byte 1 73
-byte 1 83
-byte 1 83
-byte 1 73
-byte 1 76
-byte 1 69
-byte 1 95
-byte 1 72
-byte 1 73
-byte 1 84
-byte 1 0
-align 1
-LABELV $1479
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16338,7 +16478,7 @@ byte 1 85
 byte 1 78
 byte 1 0
 align 1
-LABELV $1478
+LABELV $1488
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16359,7 +16499,7 @@ byte 1 76
 byte 1 76
 byte 1 0
 align 1
-LABELV $1477
+LABELV $1487
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16381,7 +16521,7 @@ byte 1 83
 byte 1 72
 byte 1 0
 align 1
-LABELV $1476
+LABELV $1486
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16399,7 +16539,7 @@ byte 1 78
 byte 1 68
 byte 1 0
 align 1
-LABELV $1475
+LABELV $1485
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16418,7 +16558,7 @@ byte 1 78
 byte 1 68
 byte 1 0
 align 1
-LABELV $1474
+LABELV $1484
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16438,7 +16578,7 @@ byte 1 67
 byte 1 69
 byte 1 0
 align 1
-LABELV $1473
+LABELV $1483
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16463,7 +16603,7 @@ byte 1 85
 byte 1 84
 byte 1 0
 align 1
-LABELV $1472
+LABELV $1482
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16487,7 +16627,7 @@ byte 1 73
 byte 1 78
 byte 1 0
 align 1
-LABELV $1471
+LABELV $1481
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16507,7 +16647,7 @@ byte 1 87
 byte 1 78
 byte 1 0
 align 1
-LABELV $1470
+LABELV $1480
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16525,7 +16665,7 @@ byte 1 78
 byte 1 51
 byte 1 0
 align 1
-LABELV $1469
+LABELV $1479
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16543,7 +16683,7 @@ byte 1 78
 byte 1 50
 byte 1 0
 align 1
-LABELV $1468
+LABELV $1478
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16560,7 +16700,7 @@ byte 1 79
 byte 1 78
 byte 1 0
 align 1
-LABELV $1467
+LABELV $1477
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16579,7 +16719,7 @@ byte 1 79
 byte 1 78
 byte 1 0
 align 1
-LABELV $1466
+LABELV $1476
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16591,7 +16731,7 @@ byte 1 77
 byte 1 79
 byte 1 0
 align 1
-LABELV $1465
+LABELV $1475
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16608,7 +16748,7 @@ byte 1 65
 byte 1 82
 byte 1 0
 align 1
-LABELV $1464
+LABELV $1474
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16625,7 +16765,7 @@ byte 1 69
 byte 1 82
 byte 1 0
 align 1
-LABELV $1463
+LABELV $1473
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16642,7 +16782,7 @@ byte 1 86
 byte 1 69
 byte 1 0
 align 1
-LABELV $1462
+LABELV $1472
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16659,7 +16799,7 @@ byte 1 67
 byte 1 72
 byte 1 0
 align 1
-LABELV $1461
+LABELV $1471
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16669,7 +16809,7 @@ byte 1 77
 byte 1 80
 byte 1 0
 align 1
-LABELV $1460
+LABELV $1470
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16682,7 +16822,7 @@ byte 1 78
 byte 1 71
 byte 1 0
 align 1
-LABELV $1459
+LABELV $1469
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16696,7 +16836,7 @@ byte 1 65
 byte 1 82
 byte 1 0
 align 1
-LABELV $1458
+LABELV $1468
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16713,7 +16853,7 @@ byte 1 85
 byte 1 77
 byte 1 0
 align 1
-LABELV $1457
+LABELV $1467
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16729,7 +16869,7 @@ byte 1 82
 byte 1 84
 byte 1 0
 align 1
-LABELV $1456
+LABELV $1466
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16744,7 +16884,7 @@ byte 1 49
 byte 1 54
 byte 1 0
 align 1
-LABELV $1455
+LABELV $1465
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16759,7 +16899,7 @@ byte 1 49
 byte 1 50
 byte 1 0
 align 1
-LABELV $1454
+LABELV $1464
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16773,7 +16913,7 @@ byte 1 95
 byte 1 56
 byte 1 0
 align 1
-LABELV $1453
+LABELV $1463
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16787,7 +16927,7 @@ byte 1 95
 byte 1 52
 byte 1 0
 align 1
-LABELV $1452
+LABELV $1462
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16800,7 +16940,7 @@ byte 1 49
 byte 1 54
 byte 1 0
 align 1
-LABELV $1451
+LABELV $1461
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16813,7 +16953,7 @@ byte 1 49
 byte 1 50
 byte 1 0
 align 1
-LABELV $1450
+LABELV $1460
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16825,7 +16965,7 @@ byte 1 95
 byte 1 56
 byte 1 0
 align 1
-LABELV $1449
+LABELV $1459
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16837,7 +16977,7 @@ byte 1 95
 byte 1 52
 byte 1 0
 align 1
-LABELV $1448
+LABELV $1458
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16847,7 +16987,7 @@ byte 1 73
 byte 1 77
 byte 1 0
 align 1
-LABELV $1447
+LABELV $1457
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16861,7 +17001,7 @@ byte 1 68
 byte 1 69
 byte 1 0
 align 1
-LABELV $1446
+LABELV $1456
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16877,7 +17017,7 @@ byte 1 83
 byte 1 72
 byte 1 0
 align 1
-LABELV $1445
+LABELV $1455
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16899,7 +17039,7 @@ byte 1 67
 byte 1 72
 byte 1 0
 align 1
-LABELV $1444
+LABELV $1454
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16919,7 +17059,7 @@ byte 1 65
 byte 1 76
 byte 1 0
 align 1
-LABELV $1443
+LABELV $1453
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16933,7 +17073,7 @@ byte 1 69
 byte 1 80
 byte 1 0
 align 1
-LABELV $1442
+LABELV $1452
 byte 1 69
 byte 1 86
 byte 1 95
@@ -16943,7 +17083,7 @@ byte 1 78
 byte 1 69
 byte 1 0
 align 1
-LABELV $1440
+LABELV $1450
 byte 1 66
 byte 1 71
 byte 1 95
@@ -16992,7 +17132,7 @@ byte 1 37
 byte 1 105
 byte 1 0
 align 1
-LABELV $1426
+LABELV $1436
 byte 1 66
 byte 1 71
 byte 1 95
@@ -17036,7 +17176,7 @@ byte 1 37
 byte 1 105
 byte 1 0
 align 1
-LABELV $1329
+LABELV $1339
 byte 1 65
 byte 1 109
 byte 1 109
@@ -17049,21 +17189,27 @@ byte 1 111
 byte 1 110
 byte 1 0
 align 1
-LABELV $1328
+LABELV $1338
 byte 1 97
 byte 1 109
 byte 1 109
 byte 1 111
 byte 1 0
 align 1
-LABELV $1327
+LABELV $1337
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 0
+align 1
+LABELV $1336
 byte 1 103
 byte 1 114
 byte 1 101
 byte 1 110
 byte 1 0
 align 1
-LABELV $1326
+LABELV $1335
 byte 1 105
 byte 1 99
 byte 1 111
@@ -17086,7 +17232,7 @@ byte 1 99
 byte 1 107
 byte 1 0
 align 1
-LABELV $1325
+LABELV $1334
 byte 1 66
 byte 1 97
 byte 1 116
@@ -17101,7 +17247,7 @@ byte 1 99
 byte 1 107
 byte 1 0
 align 1
-LABELV $1324
+LABELV $1333
 byte 1 98
 byte 1 97
 byte 1 116
@@ -17112,7 +17258,7 @@ byte 1 99
 byte 1 107
 byte 1 0
 align 1
-LABELV $1323
+LABELV $1332
 byte 1 105
 byte 1 99
 byte 1 111
@@ -17133,7 +17279,7 @@ byte 1 105
 byte 1 110
 byte 1 0
 align 1
-LABELV $1322
+LABELV $1331
 byte 1 77
 byte 1 101
 byte 1 100
@@ -17142,7 +17288,7 @@ byte 1 105
 byte 1 116
 byte 1 0
 align 1
-LABELV $1321
+LABELV $1330
 byte 1 109
 byte 1 101
 byte 1 100
@@ -17151,7 +17297,7 @@ byte 1 105
 byte 1 116
 byte 1 0
 align 1
-LABELV $1320
+LABELV $1329
 byte 1 105
 byte 1 99
 byte 1 111
@@ -17172,7 +17318,7 @@ byte 1 101
 byte 1 116
 byte 1 0
 align 1
-LABELV $1319
+LABELV $1328
 byte 1 72
 byte 1 101
 byte 1 108
@@ -17181,7 +17327,7 @@ byte 1 101
 byte 1 116
 byte 1 0
 align 1
-LABELV $1318
+LABELV $1327
 byte 1 104
 byte 1 101
 byte 1 108
@@ -17190,7 +17336,7 @@ byte 1 101
 byte 1 116
 byte 1 0
 align 1
-LABELV $1317
+LABELV $1326
 byte 1 105
 byte 1 99
 byte 1 111
@@ -17212,7 +17358,7 @@ byte 1 117
 byte 1 114
 byte 1 0
 align 1
-LABELV $1316
+LABELV $1325
 byte 1 76
 byte 1 105
 byte 1 103
@@ -17227,7 +17373,7 @@ byte 1 117
 byte 1 114
 byte 1 0
 align 1
-LABELV $1315
+LABELV $1324
 byte 1 108
 byte 1 97
 byte 1 114
@@ -17237,7 +17383,7 @@ byte 1 117
 byte 1 114
 byte 1 0
 align 1
-LABELV $1131
+LABELV $1140
 byte 1 116
 byte 1 101
 byte 1 115
@@ -17248,7 +17394,7 @@ byte 1 101
 byte 1 110
 byte 1 0
 align 1
-LABELV $1130
+LABELV $1139
 byte 1 76
 byte 1 111
 byte 1 99
@@ -17260,7 +17406,7 @@ byte 1 111
 byte 1 98
 byte 1 0
 align 1
-LABELV $1129
+LABELV $1138
 byte 1 108
 byte 1 111
 byte 1 99
@@ -17271,7 +17417,7 @@ byte 1 111
 byte 1 98
 byte 1 0
 align 1
-LABELV $1128
+LABELV $1137
 byte 1 67
 byte 1 104
 byte 1 97
@@ -17280,7 +17426,7 @@ byte 1 103
 byte 1 101
 byte 1 0
 align 1
-LABELV $1127
+LABELV $1136
 byte 1 80
 byte 1 111
 byte 1 117
@@ -17299,7 +17445,7 @@ byte 1 101
 byte 1 41
 byte 1 0
 align 1
-LABELV $1126
+LABELV $1135
 byte 1 80
 byte 1 111
 byte 1 117
@@ -17308,13 +17454,13 @@ byte 1 99
 byte 1 101
 byte 1 0
 align 1
-LABELV $1125
+LABELV $1134
 byte 1 90
 byte 1 97
 byte 1 112
 byte 1 0
 align 1
-LABELV $1124
+LABELV $1133
 byte 1 67
 byte 1 108
 byte 1 97
@@ -17330,7 +17476,7 @@ byte 1 100
 byte 1 101
 byte 1 0
 align 1
-LABELV $1123
+LABELV $1132
 byte 1 67
 byte 1 108
 byte 1 97
@@ -17338,14 +17484,14 @@ byte 1 119
 byte 1 115
 byte 1 0
 align 1
-LABELV $1122
+LABELV $1131
 byte 1 66
 byte 1 105
 byte 1 116
 byte 1 101
 byte 1 0
 align 1
-LABELV $1121
+LABELV $1130
 byte 1 65
 byte 1 108
 byte 1 105
@@ -17367,7 +17513,7 @@ byte 1 110
 byte 1 50
 byte 1 0
 align 1
-LABELV $1120
+LABELV $1129
 byte 1 97
 byte 1 98
 byte 1 117
@@ -17379,7 +17525,7 @@ byte 1 112
 byte 1 103
 byte 1 0
 align 1
-LABELV $1119
+LABELV $1128
 byte 1 65
 byte 1 108
 byte 1 105
@@ -17400,7 +17546,7 @@ byte 1 111
 byte 1 110
 byte 1 0
 align 1
-LABELV $1118
+LABELV $1127
 byte 1 97
 byte 1 98
 byte 1 117
@@ -17409,7 +17555,7 @@ byte 1 108
 byte 1 100
 byte 1 0
 align 1
-LABELV $1117
+LABELV $1126
 byte 1 65
 byte 1 100
 byte 1 118
@@ -17432,7 +17578,7 @@ byte 1 105
 byte 1 116
 byte 1 0
 align 1
-LABELV $1116
+LABELV $1125
 byte 1 97
 byte 1 99
 byte 1 107
@@ -17440,7 +17586,7 @@ byte 1 105
 byte 1 116
 byte 1 0
 align 1
-LABELV $1115
+LABELV $1124
 byte 1 67
 byte 1 111
 byte 1 110
@@ -17459,28 +17605,47 @@ byte 1 105
 byte 1 116
 byte 1 0
 align 1
-LABELV $1114
+LABELV $1123
 byte 1 99
 byte 1 107
 byte 1 105
 byte 1 116
 byte 1 0
 align 1
-LABELV $1113
+LABELV $1122
+byte 1 71
+byte 1 114
+byte 1 101
+byte 1 110
+byte 1 97
+byte 1 100
+byte 1 101
+byte 1 32
+byte 1 76
+byte 1 97
+byte 1 117
+byte 1 110
+byte 1 99
+byte 1 104
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $1121
 byte 1 66
 byte 1 111
 byte 1 109
 byte 1 98
 byte 1 0
 align 1
-LABELV $1112
+LABELV $1120
 byte 1 98
 byte 1 111
 byte 1 109
 byte 1 98
 byte 1 0
 align 1
-LABELV $1111
+LABELV $1119
 byte 1 71
 byte 1 114
 byte 1 101
@@ -17490,7 +17655,7 @@ byte 1 100
 byte 1 101
 byte 1 0
 align 1
-LABELV $1110
+LABELV $1118
 byte 1 103
 byte 1 114
 byte 1 101
@@ -17500,7 +17665,7 @@ byte 1 100
 byte 1 101
 byte 1 0
 align 1
-LABELV $1109
+LABELV $1117
 byte 1 80
 byte 1 97
 byte 1 105
@@ -17511,7 +17676,7 @@ byte 1 97
 byte 1 119
 byte 1 0
 align 1
-LABELV $1108
+LABELV $1116
 byte 1 76
 byte 1 97
 byte 1 115
@@ -17521,7 +17686,7 @@ byte 1 117
 byte 1 110
 byte 1 0
 align 1
-LABELV $1107
+LABELV $1115
 byte 1 76
 byte 1 117
 byte 1 99
@@ -17538,7 +17703,7 @@ byte 1 111
 byte 1 110
 byte 1 0
 align 1
-LABELV $1106
+LABELV $1114
 byte 1 80
 byte 1 117
 byte 1 108
@@ -17552,7 +17717,7 @@ byte 1 108
 byte 1 101
 byte 1 0
 align 1
-LABELV $1105
+LABELV $1113
 byte 1 77
 byte 1 97
 byte 1 115
@@ -17566,7 +17731,7 @@ byte 1 101
 byte 1 114
 byte 1 0
 align 1
-LABELV $1104
+LABELV $1112
 byte 1 70
 byte 1 108
 byte 1 97
@@ -17582,7 +17747,7 @@ byte 1 101
 byte 1 114
 byte 1 0
 align 1
-LABELV $1103
+LABELV $1111
 byte 1 66
 byte 1 108
 byte 1 97
@@ -17592,7 +17757,7 @@ byte 1 101
 byte 1 114
 byte 1 0
 align 1
-LABELV $1102
+LABELV $1110
 byte 1 98
 byte 1 108
 byte 1 97
@@ -17602,7 +17767,7 @@ byte 1 101
 byte 1 114
 byte 1 0
 align 1
-LABELV $1101
+LABELV $1109
 byte 1 111
 byte 1 118
 byte 1 101
@@ -17629,14 +17794,14 @@ byte 1 102
 byte 1 103
 byte 1 0
 align 1
-LABELV $1093
+LABELV $1101
 byte 1 110
 byte 1 97
 byte 1 109
 byte 1 101
 byte 1 0
 align 1
-LABELV $1086
+LABELV $1094
 byte 1 99
 byte 1 114
 byte 1 111
@@ -17655,7 +17820,7 @@ byte 1 104
 byte 1 116
 byte 1 0
 align 1
-LABELV $1083
+LABELV $1091
 byte 1 118
 byte 1 105
 byte 1 101
@@ -17668,7 +17833,7 @@ byte 1 104
 byte 1 116
 byte 1 0
 align 1
-LABELV $1074
+LABELV $1082
 byte 1 99
 byte 1 114
 byte 1 111
@@ -17681,7 +17846,7 @@ byte 1 120
 byte 1 115
 byte 1 0
 align 1
-LABELV $1065
+LABELV $1073
 byte 1 100
 byte 1 101
 byte 1 97
@@ -17692,7 +17857,7 @@ byte 1 120
 byte 1 115
 byte 1 0
 align 1
-LABELV $1056
+LABELV $1064
 byte 1 100
 byte 1 101
 byte 1 97
@@ -17703,7 +17868,7 @@ byte 1 110
 byte 1 115
 byte 1 0
 align 1
-LABELV $1033
+LABELV $1041
 byte 1 115
 byte 1 104
 byte 1 97
@@ -17717,20 +17882,20 @@ byte 1 108
 byte 1 101
 byte 1 0
 align 1
-LABELV $1022
+LABELV $1030
 byte 1 104
 byte 1 117
 byte 1 100
 byte 1 0
 align 1
-LABELV $1017
+LABELV $1025
 byte 1 115
 byte 1 107
 byte 1 105
 byte 1 110
 byte 1 0
 align 1
-LABELV $1000
+LABELV $1008
 byte 1 94
 byte 1 49
 byte 1 69
@@ -17762,7 +17927,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $992
+LABELV $1000
 byte 1 94
 byte 1 51
 byte 1 87
@@ -17810,7 +17975,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $983
+LABELV $991
 byte 1 94
 byte 1 51
 byte 1 87
@@ -17859,7 +18024,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $947
+LABELV $955
 byte 1 94
 byte 1 51
 byte 1 87
@@ -17913,7 +18078,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $938
+LABELV $946
 byte 1 94
 byte 1 51
 byte 1 87
@@ -17969,7 +18134,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $921
+LABELV $929
 byte 1 94
 byte 1 51
 byte 1 87
@@ -18022,7 +18187,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $912
+LABELV $920
 byte 1 94
 byte 1 51
 byte 1 87
@@ -18081,7 +18246,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $903
+LABELV $911
 byte 1 94
 byte 1 51
 byte 1 87
@@ -18139,7 +18304,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $894
+LABELV $902
 byte 1 94
 byte 1 51
 byte 1 87
@@ -18193,7 +18358,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $885
+LABELV $893
 byte 1 94
 byte 1 51
 byte 1 87
@@ -18246,7 +18411,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $876
+LABELV $884
 byte 1 94
 byte 1 51
 byte 1 87
@@ -18306,7 +18471,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $867
+LABELV $875
 byte 1 94
 byte 1 51
 byte 1 87
@@ -18363,7 +18528,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $858
+LABELV $866
 byte 1 94
 byte 1 51
 byte 1 87
@@ -18413,7 +18578,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $849
+LABELV $857
 byte 1 94
 byte 1 51
 byte 1 87
@@ -18466,7 +18631,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $840
+LABELV $848
 byte 1 94
 byte 1 51
 byte 1 87
@@ -18514,7 +18679,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $831
+LABELV $839
 byte 1 94
 byte 1 51
 byte 1 87
@@ -18562,7 +18727,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $822
+LABELV $830
 byte 1 94
 byte 1 51
 byte 1 87
@@ -18616,7 +18781,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $813
+LABELV $821
 byte 1 94
 byte 1 51
 byte 1 87
@@ -18671,7 +18836,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $804
+LABELV $812
 byte 1 94
 byte 1 51
 byte 1 87
@@ -18722,7 +18887,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $768
+LABELV $776
 byte 1 94
 byte 1 51
 byte 1 87
@@ -18774,7 +18939,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $688
+LABELV $696
 byte 1 94
 byte 1 51
 byte 1 87
@@ -18825,7 +18990,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $676
+LABELV $684
 byte 1 94
 byte 1 51
 byte 1 87
@@ -18877,7 +19042,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $663
+LABELV $671
 byte 1 94
 byte 1 51
 byte 1 87
@@ -18939,7 +19104,7 @@ byte 1 41
 byte 1 10
 byte 1 0
 align 1
-LABELV $649
+LABELV $657
 byte 1 94
 byte 1 51
 byte 1 87
@@ -18992,7 +19157,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $636
+LABELV $644
 byte 1 94
 byte 1 51
 byte 1 87
@@ -19053,7 +19218,7 @@ byte 1 41
 byte 1 10
 byte 1 0
 align 1
-LABELV $622
+LABELV $630
 byte 1 94
 byte 1 51
 byte 1 87
@@ -19107,7 +19272,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $611
+LABELV $619
 byte 1 94
 byte 1 51
 byte 1 87
@@ -19164,7 +19329,7 @@ byte 1 109
 byte 1 10
 byte 1 0
 align 1
-LABELV $598
+LABELV $606
 byte 1 94
 byte 1 51
 byte 1 87
@@ -19216,14 +19381,14 @@ byte 1 109
 byte 1 10
 byte 1 0
 align 1
-LABELV $581
+LABELV $589
 byte 1 107
 byte 1 101
 byte 1 101
 byte 1 108
 byte 1 0
 align 1
-LABELV $580
+LABELV $588
 byte 1 98
 byte 1 115
 byte 1 117
@@ -19231,7 +19396,7 @@ byte 1 105
 byte 1 116
 byte 1 0
 align 1
-LABELV $579
+LABELV $587
 byte 1 104
 byte 1 117
 byte 1 109
@@ -19245,7 +19410,7 @@ byte 1 105
 byte 1 116
 byte 1 0
 align 1
-LABELV $578
+LABELV $586
 byte 1 104
 byte 1 117
 byte 1 109
@@ -19257,7 +19422,7 @@ byte 1 117
 byte 1 100
 byte 1 0
 align 1
-LABELV $577
+LABELV $585
 byte 1 115
 byte 1 97
 byte 1 114
@@ -19265,7 +19430,7 @@ byte 1 103
 byte 1 101
 byte 1 0
 align 1
-LABELV $576
+LABELV $584
 byte 1 72
 byte 1 117
 byte 1 109
@@ -19273,7 +19438,7 @@ byte 1 97
 byte 1 110
 byte 1 0
 align 1
-LABELV $575
+LABELV $583
 byte 1 104
 byte 1 117
 byte 1 109
@@ -19286,14 +19451,14 @@ byte 1 115
 byte 1 101
 byte 1 0
 align 1
-LABELV $574
+LABELV $582
 byte 1 109
 byte 1 111
 byte 1 102
 byte 1 111
 byte 1 0
 align 1
-LABELV $573
+LABELV $581
 byte 1 66
 byte 1 105
 byte 1 103
@@ -19304,7 +19469,7 @@ byte 1 102
 byte 1 111
 byte 1 0
 align 1
-LABELV $572
+LABELV $580
 byte 1 108
 byte 1 101
 byte 1 118
@@ -19313,7 +19478,7 @@ byte 1 108
 byte 1 52
 byte 1 0
 align 1
-LABELV $571
+LABELV $579
 byte 1 68
 byte 1 114
 byte 1 97
@@ -19331,7 +19496,7 @@ byte 1 100
 byte 1 101
 byte 1 0
 align 1
-LABELV $570
+LABELV $578
 byte 1 108
 byte 1 101
 byte 1 118
@@ -19343,7 +19508,7 @@ byte 1 112
 byte 1 103
 byte 1 0
 align 1
-LABELV $569
+LABELV $577
 byte 1 112
 byte 1 114
 byte 1 111
@@ -19351,7 +19516,7 @@ byte 1 119
 byte 1 108
 byte 1 0
 align 1
-LABELV $568
+LABELV $576
 byte 1 68
 byte 1 114
 byte 1 97
@@ -19361,7 +19526,7 @@ byte 1 111
 byte 1 110
 byte 1 0
 align 1
-LABELV $567
+LABELV $575
 byte 1 108
 byte 1 101
 byte 1 118
@@ -19370,13 +19535,13 @@ byte 1 108
 byte 1 51
 byte 1 0
 align 1
-LABELV $566
+LABELV $574
 byte 1 114
 byte 1 101
 byte 1 100
 byte 1 0
 align 1
-LABELV $565
+LABELV $573
 byte 1 67
 byte 1 104
 byte 1 105
@@ -19394,7 +19559,7 @@ byte 1 100
 byte 1 101
 byte 1 0
 align 1
-LABELV $564
+LABELV $572
 byte 1 108
 byte 1 101
 byte 1 118
@@ -19406,7 +19571,7 @@ byte 1 112
 byte 1 103
 byte 1 0
 align 1
-LABELV $563
+LABELV $571
 byte 1 116
 byte 1 97
 byte 1 114
@@ -19418,7 +19583,7 @@ byte 1 108
 byte 1 97
 byte 1 0
 align 1
-LABELV $562
+LABELV $570
 byte 1 67
 byte 1 104
 byte 1 105
@@ -19428,7 +19593,7 @@ byte 1 114
 byte 1 97
 byte 1 0
 align 1
-LABELV $561
+LABELV $569
 byte 1 108
 byte 1 101
 byte 1 118
@@ -19437,14 +19602,14 @@ byte 1 108
 byte 1 50
 byte 1 0
 align 1
-LABELV $560
+LABELV $568
 byte 1 98
 byte 1 108
 byte 1 117
 byte 1 101
 byte 1 0
 align 1
-LABELV $559
+LABELV $567
 byte 1 72
 byte 1 121
 byte 1 100
@@ -19460,7 +19625,7 @@ byte 1 100
 byte 1 101
 byte 1 0
 align 1
-LABELV $558
+LABELV $566
 byte 1 108
 byte 1 101
 byte 1 118
@@ -19472,7 +19637,7 @@ byte 1 112
 byte 1 103
 byte 1 0
 align 1
-LABELV $557
+LABELV $565
 byte 1 115
 byte 1 112
 byte 1 105
@@ -19482,7 +19647,7 @@ byte 1 101
 byte 1 114
 byte 1 0
 align 1
-LABELV $556
+LABELV $564
 byte 1 72
 byte 1 121
 byte 1 100
@@ -19490,7 +19655,7 @@ byte 1 114
 byte 1 97
 byte 1 0
 align 1
-LABELV $555
+LABELV $563
 byte 1 108
 byte 1 101
 byte 1 118
@@ -19499,7 +19664,7 @@ byte 1 108
 byte 1 49
 byte 1 0
 align 1
-LABELV $554
+LABELV $562
 byte 1 97
 byte 1 108
 byte 1 105
@@ -19519,7 +19684,7 @@ byte 1 117
 byte 1 100
 byte 1 0
 align 1
-LABELV $553
+LABELV $561
 byte 1 106
 byte 1 117
 byte 1 109
@@ -19528,7 +19693,7 @@ byte 1 101
 byte 1 114
 byte 1 0
 align 1
-LABELV $552
+LABELV $560
 byte 1 83
 byte 1 111
 byte 1 108
@@ -19538,7 +19703,7 @@ byte 1 101
 byte 1 114
 byte 1 0
 align 1
-LABELV $551
+LABELV $559
 byte 1 108
 byte 1 101
 byte 1 118
@@ -19547,7 +19712,7 @@ byte 1 108
 byte 1 48
 byte 1 0
 align 1
-LABELV $550
+LABELV $558
 byte 1 97
 byte 1 100
 byte 1 118
@@ -19558,7 +19723,7 @@ byte 1 101
 byte 1 100
 byte 1 0
 align 1
-LABELV $549
+LABELV $557
 byte 1 65
 byte 1 100
 byte 1 118
@@ -19577,7 +19742,7 @@ byte 1 101
 byte 1 114
 byte 1 0
 align 1
-LABELV $548
+LABELV $556
 byte 1 98
 byte 1 117
 byte 1 105
@@ -19590,7 +19755,7 @@ byte 1 112
 byte 1 103
 byte 1 0
 align 1
-LABELV $547
+LABELV $555
 byte 1 97
 byte 1 108
 byte 1 105
@@ -19610,7 +19775,7 @@ byte 1 117
 byte 1 100
 byte 1 0
 align 1
-LABELV $546
+LABELV $554
 byte 1 100
 byte 1 101
 byte 1 102
@@ -19620,7 +19785,7 @@ byte 1 108
 byte 1 116
 byte 1 0
 align 1
-LABELV $545
+LABELV $553
 byte 1 66
 byte 1 117
 byte 1 105
@@ -19630,7 +19795,7 @@ byte 1 101
 byte 1 114
 byte 1 0
 align 1
-LABELV $544
+LABELV $552
 byte 1 98
 byte 1 117
 byte 1 105
@@ -19640,7 +19805,7 @@ byte 1 101
 byte 1 114
 byte 1 0
 align 1
-LABELV $543
+LABELV $551
 byte 1 83
 byte 1 112
 byte 1 101
@@ -19652,7 +19817,7 @@ byte 1 111
 byte 1 114
 byte 1 0
 align 1
-LABELV $542
+LABELV $550
 byte 1 115
 byte 1 112
 byte 1 101
@@ -19664,7 +19829,7 @@ byte 1 111
 byte 1 114
 byte 1 0
 align 1
-LABELV $541
+LABELV $549
 byte 1 111
 byte 1 118
 byte 1 101
@@ -19694,7 +19859,7 @@ byte 1 102
 byte 1 103
 byte 1 0
 align 1
-LABELV $535
+LABELV $543
 byte 1 94
 byte 1 49
 byte 1 69
@@ -19725,7 +19890,7 @@ byte 1 39
 byte 1 10
 byte 1 0
 align 1
-LABELV $532
+LABELV $540
 byte 1 122
 byte 1 79
 byte 1 102
@@ -19735,21 +19900,21 @@ byte 1 101
 byte 1 116
 byte 1 0
 align 1
-LABELV $523
+LABELV $531
 byte 1 109
 byte 1 97
 byte 1 120
 byte 1 115
 byte 1 0
 align 1
-LABELV $514
+LABELV $522
 byte 1 109
 byte 1 105
 byte 1 110
 byte 1 115
 byte 1 0
 align 1
-LABELV $507
+LABELV $515
 byte 1 109
 byte 1 111
 byte 1 100
@@ -19762,7 +19927,7 @@ byte 1 108
 byte 1 101
 byte 1 0
 align 1
-LABELV $496
+LABELV $504
 byte 1 109
 byte 1 111
 byte 1 100
@@ -19770,10 +19935,10 @@ byte 1 101
 byte 1 108
 byte 1 0
 align 1
-LABELV $493
+LABELV $501
 byte 1 0
 align 1
-LABELV $482
+LABELV $490
 byte 1 116
 byte 1 111
 byte 1 111
@@ -19784,7 +19949,7 @@ byte 1 110
 byte 1 103
 byte 1 0
 align 1
-LABELV $481
+LABELV $489
 byte 1 101
 byte 1 109
 byte 1 112
@@ -19792,7 +19957,7 @@ byte 1 116
 byte 1 121
 byte 1 0
 align 1
-LABELV $480
+LABELV $488
 byte 1 94
 byte 1 49
 byte 1 69
@@ -19828,7 +19993,7 @@ byte 1 115
 byte 1 10
 byte 1 0
 align 1
-LABELV $223
+LABELV $231
 byte 1 94
 byte 1 51
 byte 1 87
@@ -19891,6 +20056,152 @@ byte 1 100
 byte 1 32
 byte 1 41
 byte 1 10
+byte 1 0
+align 1
+LABELV $168
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 119
+byte 1 101
+byte 1 97
+byte 1 112
+byte 1 111
+byte 1 110
+byte 1 115
+byte 1 47
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 101
+byte 1 47
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 101
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $167
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 95
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 101
+byte 1 0
+align 1
+LABELV $166
+byte 1 77
+byte 1 105
+byte 1 110
+byte 1 101
+byte 1 0
+align 1
+LABELV $165
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 101
+byte 1 0
+align 1
+LABELV $164
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 108
+byte 1 115
+byte 1 47
+byte 1 119
+byte 1 101
+byte 1 97
+byte 1 112
+byte 1 111
+byte 1 110
+byte 1 115
+byte 1 47
+byte 1 108
+byte 1 97
+byte 1 117
+byte 1 110
+byte 1 99
+byte 1 104
+byte 1 101
+byte 1 114
+byte 1 47
+byte 1 108
+byte 1 97
+byte 1 117
+byte 1 110
+byte 1 99
+byte 1 104
+byte 1 101
+byte 1 114
+byte 1 46
+byte 1 109
+byte 1 100
+byte 1 51
+byte 1 0
+align 1
+LABELV $163
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 95
+byte 1 108
+byte 1 97
+byte 1 117
+byte 1 110
+byte 1 99
+byte 1 104
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $162
+byte 1 76
+byte 1 97
+byte 1 117
+byte 1 110
+byte 1 99
+byte 1 104
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $161
+byte 1 108
+byte 1 97
+byte 1 117
+byte 1 110
+byte 1 99
+byte 1 104
+byte 1 101
+byte 1 114
 byte 1 0
 align 1
 LABELV $160

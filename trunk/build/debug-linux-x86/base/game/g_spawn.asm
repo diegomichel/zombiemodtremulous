@@ -1849,10 +1849,10 @@ ARGP4
 ADDRGP4 trap_Cvar_Set
 CALLV
 pop
-ADDRGP4 g_entities+2452800
+ADDRGP4 g_entities+2477328
 CNSTI4 1022
 ASGNI4
-ADDRGP4 g_entities+2452800+524
+ADDRGP4 g_entities+2477328+524
 ADDRGP4 $302
 ASGNP4
 ADDRGP4 g_restarted+12
@@ -2305,6 +2305,9 @@ import trigger_teleporter_touch
 import manualTriggerSpectator
 import Touch_DoorTrigger
 import G_RunMover
+import plant_mine
+import launch_grenade_primary
+import launch_grenade_secondary
 import launch_bomb
 import launch_grenade
 import fire_hive
@@ -2411,6 +2414,7 @@ import G_FollowNewClient
 import G_StopFollowing
 import G_StopFromFollowing
 import Cmd_Score_f
+import botWalk
 import botShootIfTargetInRange
 import botGetDistanceBetweenPlayer
 import botTargetInRange

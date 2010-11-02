@@ -1221,7 +1221,8 @@ G_Damage(gentity_t *targ, gentity_t *inflictor, gentity_t *attacker, vec3_t dir,
     knockback = 0;
 
   // figure momentum add, even if the damage won't be taken
-  if (knockback && targ->client)
+  // Humans will not feel knockback to prevent ppl pushing each other.
+  if (knockback && targ->client && targ->client->ps.stats[ STAT_PTEAM ] != PTE_HUMANS)
   {
     vec3_t kvel;
     float mass;

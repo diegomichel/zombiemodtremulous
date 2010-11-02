@@ -337,6 +337,11 @@ CG_Obituary(entityState_t *ent)
   }
 
   // we don't know what it was
+  if (ci->team == PTE_ALIENS)
+  {
+    Q_strncpyz(targetName, "^1Zombie", sizeof(targetName));
+    strcat(targetName, S_COLOR_WHITE);
+  }
   CG_Printf("%s died.\n", targetName);
 }
 

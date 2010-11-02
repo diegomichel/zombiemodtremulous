@@ -709,13 +709,13 @@ BodySink(gentity_t *ent)
           randomitem = BA_I_CHAINGUN;
           break;
         case 2:
-          randomitem = BA_I_CHAINGUN;
+          randomitem = BA_I_LAUNCHER;
           break;
         case 3:
           randomitem = BA_I_LASGUN;
           break;
         case 4:
-          randomitem = BA_I_LASGUN;
+          randomitem = BA_I_LAUNCHER;
           break;
         case 5:
           randomitem = BA_I_MACHINEGUN;
@@ -724,7 +724,7 @@ BodySink(gentity_t *ent)
           randomitem = BA_I_MDRIVER;
           break;
         case 7:
-          randomitem = BA_I_MACHINEGUN;
+          randomitem = BA_I_MINE;
           break;
         case 8:
           randomitem = BA_I_PULSERIFLE;
@@ -736,7 +736,7 @@ BodySink(gentity_t *ent)
           randomitem = BA_I_SYRINX;
           break;
         default:
-          randomitem = BA_I_SHOTGUN;
+          randomitem = BA_I_MINE;
           break;
       }
       if (!level.intermissiontime)
@@ -1507,10 +1507,14 @@ ClientConnect(int clientNum, qboolean firstTime)
   client->pers.connected = CON_CONNECTING;
 
   // read or initialize the session data
-  if (firstTime || level.newSession)
-    G_InitSessionData(client, userinfo);
+  if(!(ent->r.svFlags & SVF_BOT))
+  {
+    //FIXME: There is a shitty OverFlow on one of this functions.
+    if (firstTime || level.newSession)
+      G_InitSessionData(client, userinfo);
 
-  G_ReadSessionData(client);
+    G_ReadSessionData(client);
+  }
 
   if (firstTime)
     client->pers.firstConnect = qtrue;

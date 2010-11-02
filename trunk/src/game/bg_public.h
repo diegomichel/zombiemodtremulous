@@ -362,6 +362,8 @@ typedef enum {
   WP_LUCIFER_CANNON,
   WP_GRENADE,
   WP_BOMB,
+  WP_LAUNCHER,
+  WP_MINE,
 
   WP_LOCKBLOB_LAUNCHER,
   WP_HIVE,
@@ -388,6 +390,7 @@ typedef enum {
   /*UP_JETPACK,
   UP_BATTLESUIT,*/
   UP_GRENADE,
+  UP_MINE,
   //UP_BOMB,
 
   UP_AMMO,
@@ -413,6 +416,7 @@ typedef enum {
 #define SLOT_BACKPACK   0x00000010
 #define SLOT_WEAPON     0x00000020
 #define SLOT_SIDEARM    0x00000040
+#define SLOT_MINE       0x00000060
 
 typedef enum {
   BA_NONE,
@@ -451,6 +455,8 @@ typedef enum {
   BA_I_FLAMER,
   BA_I_LCANNON,
   BA_I_PSAW,
+  BA_I_LAUNCHER,
+  BA_I_MINE,
 
 
   BA_NUM_BUILDABLES

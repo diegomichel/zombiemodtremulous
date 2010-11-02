@@ -807,12 +807,12 @@ ClientTimerActions(gentity_t *ent, int msec)
     //Forget the sob
     //FIXME: Uncomment Release.
     /*if (ent->r.svFlags & SVF_BOT)
-    {
-      if (!g_survival.integer)
-      {
-        ent->botEnemy = NULL;
-      }
-    }*/
+     {
+     if (!g_survival.integer)
+     {
+     ent->botEnemy = NULL;
+     }
+     }*/
 
     //client is poison clouded
     if (client->ps.stats[STAT_STATE] & SS_POISONCLOUDED)
@@ -1553,6 +1553,20 @@ ClientThink_real(gentity_t *ent)
     ent->s.weapon = lastWeapon;
   }
 
+  if (BG_InventoryContainsUpgrade(UP_MINE, client->ps.stats) && BG_UpgradeIsActive(UP_MINE, client->ps.stats))
+  {
+    int lastWeapon = ent->s.weapon;
+
+    //remove grenade
+    BG_DeactivateUpgrade(UP_MINE, client->ps.stats);
+    BG_RemoveUpgradeFromInventory(UP_MINE, client->ps.stats);
+
+    //M-M-M-M-MONSTER HACK
+    ent->s.weapon = WP_MINE;
+    FireWeapon(ent);
+    ent->s.weapon = lastWeapon;
+  }
+
   /*if( BG_InventoryContainsUpgrade( UP_BOMB, client->ps.stats ) &&
    BG_UpgradeIsActive( UP_BOMB, client->ps.stats ) )
    {
@@ -1689,7 +1703,6 @@ ClientThink_real(gentity_t *ent)
   ClientImpacts(ent, &pm);
 
 #if defined(ACEBOT)
-  //FIXME: PRODUCTION
   ACEND_PathMap(ent);
 #endif
 

@@ -63,7 +63,7 @@ CALLI4
 ASGNI4
 ADDRFP4 0
 INDIRP4
-CNSTI4 2376
+CNSTI4 2400
 ADDP4
 ADDRLP4 5136
 INDIRI4
@@ -337,7 +337,7 @@ ADDRGP4 g_entities
 CVPU4 4
 SUBU4
 CVUI4 4
-CNSTI4 2400
+CNSTI4 2424
 DIVI4
 ARGI4
 ADDRLP4 5176
@@ -511,7 +511,7 @@ ADDRGP4 g_entities
 CVPU4 4
 SUBU4
 CVUI4 4
-CNSTI4 2400
+CNSTI4 2424
 DIVI4
 ARGI4
 ADDRLP4 5196
@@ -545,6 +545,7 @@ pop
 LABELV $121
 endproc ACECM_Store 0 0
 import ACEND_nodeInUse
+import ACEND_setNextNode
 import ACEND_setCurrentNode
 import ACEND_pointVisibleFromEntity
 import ACEND_selectNextNode
@@ -930,6 +931,9 @@ import trigger_teleporter_touch
 import manualTriggerSpectator
 import Touch_DoorTrigger
 import G_RunMover
+import plant_mine
+import launch_grenade_primary
+import launch_grenade_secondary
 import launch_bomb
 import launch_grenade
 import fire_hive
@@ -1036,6 +1040,7 @@ import G_FollowNewClient
 import G_StopFollowing
 import G_StopFromFollowing
 import Cmd_Score_f
+import botWalk
 import botShootIfTargetInRange
 import botGetDistanceBetweenPlayer
 import botTargetInRange

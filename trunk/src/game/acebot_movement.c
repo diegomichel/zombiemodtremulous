@@ -36,7 +36,6 @@
 qboolean
 ACEMV_CanMove(gentity_t * self, int direction)
 {
-#if 1
   vec3_t forward, right;
   vec3_t offset, start, end;
   vec3_t angles;
@@ -71,14 +70,11 @@ ACEMV_CanMove(gentity_t * self, int direction)
   if ((tr.fraction == 1.0) || (tr.contents & (CONTENTS_LAVA | CONTENTS_SLIME | CONTENTS_DONOTENTER)))
   {
     if (ace_debug.integer)
-      trap_SendServerCommand(-1, va("print \"%s:" S_COLOR_WHITE " move blocked\n\"", self->client->pers.netname));
+      G_Printf("%s:" S_COLOR_WHITE " move blocked\n", self->client->pers.netname);
     return qfalse;
   }
 
   return qtrue; // yup, can move
-#else
-  return qtrue;
-#endif
 }
 
 // Handle special cases of crouch/jump
@@ -126,7 +122,9 @@ ACEMV_SpecialMove(gentity_t * self)
     if (!tr.allsolid)
     {
       if (ACEMV_CanMove(self, MOVE_FORWARD))
-        self->client->pers.cmd.forwardmove = 127;
+      {
+        botWalk(self, 127);
+      }
       self->client->pers.cmd.upmove = -127;
       return qtrue;
     }
@@ -141,7 +139,9 @@ ACEMV_SpecialMove(gentity_t * self)
     if (!tr.allsolid)
     {
       if (ACEMV_CanMove(self, MOVE_FORWARD))
-        self->client->pers.cmd.forwardmove = 127;
+      {
+        botWalk(self, 127);
+      }
       self->client->pers.cmd.upmove = 127;
       return qtrue;
     }
@@ -186,21 +186,13 @@ else
 
     trap_Trace(&traceFront, self->client->ps.origin, self->r.mins, self->r.maxs, upend, self->s.number, MASK_PLAYERSOLID);
 
-    /*
-     if(traceFront.contents & CONTENTS_DETAIL)    // using detail brush here cuz sometimes it does not pick up ladders...??
-     {
-     self->client->pers.cmd.upmove = 127;
-     if(ACEMV_CanMove(self, MOVE_FORWARD))
-     self->client->pers.cmd.forwardmove = 127;
-     return qtrue;
-     }
-     */
-
     // if this check fails we need to continue on with more detailed checks
     if(traceFront.fraction == 1)
     {
       if(ACEMV_CanMove(self, MOVE_FORWARD))
-      self->client->pers.cmd.forwardmove = 127;
+      {
+        botWalk(self, 127);
+      }
       return qtrue;
     }
 
@@ -251,7 +243,9 @@ else
         self->bs.viewAngles[YAW] += -(1.0 - traceRight.fraction) * 45.0;
 
         if(ACEMV_CanMove(self, MOVE_FORWARD))
-        self->client->pers.cmd.forwardmove = 127;
+        {
+          botWalk(self, 127);
+        }
         return qtrue;
       }
     }
@@ -384,8 +378,7 @@ ACEMV_MoveToGoal(gentity_t * self)
 
     if (ACEMV_CanMove(self, MOVE_FORWARD))
     {
-      self->client->pers.cmd.forwardmove = 60;
-      self->client->pers.cmd.buttons |= BUTTON_WALKING;
+      botWalk(self, 60);
     }
     return;
   }
@@ -457,20 +450,6 @@ ACEMV_Move(gentity_t * self)
     return; // Wait for elevator
   }
 #endif
-
-  if (currentNodeType == NODE_PLATFORM && nextNodeType == NODE_PLATFORM)
-  {
-    // move to the center
-    self->bs.moveVector[2] = 0; // kill z movement
-
-    if (VectorLength(self->bs.moveVector) > 10)
-      self->client->pers.cmd.forwardmove = 127; // walk to center
-
-    ACEMV_ChangeBotAngle(self);
-
-    return; // No move, riding elevator
-  }
-
   ////////////////////////////////////////////////////////
   // Jumpto Nodes
   ///////////////////////////////////////////////////////
@@ -481,15 +460,13 @@ ACEMV_Move(gentity_t * self)
   if (lastNodeType == NODE_JUMP || (currentNodeType == NODE_JUMP && nodes[self->bs.nextNode].origin[2] > self->s.origin[2]) || nextNodeType == NODE_JUMP)
   {
     // Set up a jump move
-
-    self->client->pers.cmd.forwardmove = 127;
+    botWalk(self, 127);
     self->client->pers.cmd.upmove = 35;
     self->client->ps.stats[STAT_JUMPSPEED] = 256;
 
     if (currentNodeType == NODE_JUMP && !ACEND_nodesVisible(nodes[self->bs.currentNode].origin, nodes[self->bs.nextNode].origin))
     {
-      G_Printf("OH SHIT\n");
-      self->client->pers.cmd.forwardmove = 0;
+      botWalk(self, 0);
       self->client->pers.cmd.upmove = 30;
       self->client->ps.stats[STAT_JUMPSPEED] += 200;
       ACEMV_ChangeBotAngle(self);
@@ -511,7 +488,7 @@ ACEMV_Move(gentity_t * self)
     if (Distance(self->s.origin, nodes[self->bs.currentNode].origin) <= 20)
     {
       //Slow down a bit
-      self->client->pers.cmd.forwardmove = 80;
+      botWalk(self, 80);
       self->client->pers.cmd.upmove = 35;
       self->client->ps.stats[STAT_JUMPSPEED] = 256;
 
@@ -530,7 +507,7 @@ ACEMV_Move(gentity_t * self)
   if (nextNodeType == NODE_LADDER && nodes[self->bs.nextNode].origin[2] > self->s.origin[2])
   {
     // Otherwise move as fast as we can
-    self->client->pers.cmd.forwardmove = 127;
+    botWalk(self, 127);
     self->client->ps.velocity[2] = 320;
     ACEMV_ChangeBotAngle(self);
     return;
@@ -539,7 +516,7 @@ ACEMV_Move(gentity_t * self)
   // If getting off the ladder
   if (currentNodeType == NODE_LADDER && nextNodeType != NODE_LADDER && nodes[self->bs.nextNode].origin[2] > self->s.origin[2])
   {
-    self->client->pers.cmd.forwardmove = 127;
+    botWalk(self, 127);
     self->client->pers.cmd.upmove = 127;
     self->client->ps.velocity[2] = 200;
     ACEMV_ChangeBotAngle(self);
@@ -561,7 +538,7 @@ ACEMV_Move(gentity_t * self)
       self->client->pers.cmd.upmove = 127;
     }
 
-    self->client->pers.cmd.forwardmove = 100;
+    botWalk(self, 127);
     return;
 
   }
@@ -590,25 +567,19 @@ ACEMV_Move(gentity_t * self)
 
     if (ACEMV_CanMove(self, MOVE_FORWARD))
     {
-      self->client->pers.cmd.forwardmove = 60;
+      botWalk(self, 60);
       self->client->pers.cmd.buttons |= BUTTON_WALKING;
     }
     else if (ACEMV_CanMove(self, MOVE_BACK))
-      self->client->pers.cmd.forwardmove = -127;
+      botWalk(self, -127);
     return;
   }
 
   // otherwise move as fast as we can
   if (ACEMV_CanMove(self, MOVE_FORWARD))
   {
-    self->client->pers.cmd.forwardmove = 55;
-    //self->client->ps.stats[STAT_STATE] |= SS_SPEEDBOOST;
+    botWalk(self, 55);
   }
-  //  if (currentNodeType == NODE_JUMP && nextNodeType == NODE_JUMP)
-  //  {
-  //    trap_SendServerCommand(-1, va("print \"%s: ^1JUST JUMPED SLOW DOWNn\"", self->client->pers.netname));
-  //    self->client->pers.cmd.forwardmove = 45;
-  //  }
 
   ACEMV_ChangeBotAngle(self);
 }
@@ -683,7 +654,7 @@ ACEMV_Wander(gentity_t * self)
     else
       self->client->pers.cmd.upmove = 15;
 
-    self->client->pers.cmd.forwardmove = 100;
+    botWalk(self, 100);
   }
   else
   {
@@ -694,32 +665,26 @@ ACEMV_Wander(gentity_t * self)
   tmp[2] -= 48;
   if (trap_PointContents(tmp, self->s.number) & (CONTENTS_LAVA | CONTENTS_SLIME))
   {
-    //  safe_bprintf(PRINT_MEDIUM,"lava jump\n");
     self->bs.viewAngles[YAW] += random() * 360 - 180;
-    self->client->pers.cmd.forwardmove = 127;
+    botWalk(self, 127);
     self->client->pers.cmd.upmove = 127;
     return;
   }
 
-  // check for special movement if we have a normal move (have to test)
   if (VectorLength(self->client->ps.velocity) < 37)
   {
-    //if(random() > 0.1 && ACEMV_SpecialMove(self))
-    //  return; //removed this because when wandering, the last thing you want is bots jumping
-    //over things and going off ledges.  It's better for them to just bounce around the map.
-
     self->bs.viewAngles[YAW] += random() * 180 - 90;
 
     if (ACEMV_CanMove(self, MOVE_FORWARD))
-      self->client->pers.cmd.forwardmove = 127;
+      botWalk(self, 127);
     else if (ACEMV_CanMove(self, MOVE_BACK))
-      self->client->pers.cmd.forwardmove = -127;
+      botWalk(self, -127);
 
     // if there is ground continue otherwise wait for next move
     if ( /*!M_CheckBottom || */self->s.groundEntityNum != ENTITYNUM_NONE)
     {
       if (ACEMV_CanMove(self, MOVE_FORWARD))
-        self->client->pers.cmd.forwardmove = 127;
+        botWalk(self, 127);
     }
 
     return;
@@ -729,7 +694,7 @@ ACEMV_Wander(gentity_t * self)
     return;
 
   if (ACEMV_CanMove(self, MOVE_FORWARD))
-    self->client->pers.cmd.forwardmove = 127;
+    botWalk(self, 127);
 }
 
 qboolean
@@ -778,9 +743,9 @@ ACEMV_Attack(gentity_t * self)
       self->client->pers.cmd.rightmove += 127;
 
     if (c < 0.6 && ACEMV_CanMove(self, MOVE_FORWARD))
-      self->client->pers.cmd.forwardmove += 127;
+      botWalk(self, 127);
     else if (c < 0.8 && ACEMV_CanMove(self, MOVE_FORWARD))
-      self->client->pers.cmd.forwardmove -= 127;
+      botWalk(self, 127);
 
     if (c < 0.95)
       self->client->pers.cmd.upmove -= 90;

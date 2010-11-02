@@ -2367,7 +2367,6 @@ void Cmd_Destroy_f(gentity_t *ent) {
   char cmd[ 12 ];
   qboolean deconstruct = qtrue;
 
-
   if (g_survival.integer) {
     trap_SendServerCommand(ent - g_entities,
             "print \"Cannot decon on survival mode\n\"");
@@ -2645,7 +2644,7 @@ void Cmd_Buy_f(gentity_t *ent) {
   if (weapon == WP_NONE && upgrade == UP_AMMO) {
     buyingEnergyAmmo = hasEnergyWeapon;
   }
-  
+
   if(weapon == WP_HBUILD) weapon = WP_HBUILD2;
 
   if (buyingEnergyAmmo) {

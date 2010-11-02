@@ -41,6 +41,14 @@ G_BotAdd(char *name, int team, int skill, gentity_t * ent)
   char buffer[MAX_QPATH];
   gentity_t *bot;
 
+  if(level.intermissiontime)
+  {
+    return;
+  }
+  if(level.time-level.startTime < 12000)
+  {
+    return;
+  }
   //reservedSlots = trap_Cvar_VariableIntegerValue ("sv_privateclients"); // Found a way to have this var in level.
 
   // find what clientNum to use for bot
@@ -437,25 +445,9 @@ G_BotThink(gentity_t * self)
   self->s.angles[PITCH] = 0;
 
   self->client->pers.cmd.buttons = 0;
-  self->client->pers.cmd.forwardmove = 0;
+  botWalk(self,0);
   self->client->pers.cmd.upmove = 0;
   self->client->pers.cmd.rightmove = 0;
-
-  if (ace_debug.integer)
-  {
-    /*switch(self->botCommand) //Uncomment for debugging.
-     {
-     case BOT_FOLLOW_PATH:
-     trap_SendServerCommand(-1, va("print \"%s: BOT_FOLLOW_PATH\n\"", self->client->pers.netname));
-     break;
-     case BOT_REGULAR:
-     trap_SendServerCommand(-1, va("print \"%s: BOT_REGULAR\n\"", self->client->pers.netname));
-     break;
-     case BOT_IDLE:
-     trap_SendServerCommand(-1, va("print \"%s: BOT_IDLE\n\"", self->client->pers.netname));
-     break;
-     }*/
-  }
 
   switch(self->botCommand)
   {
@@ -469,21 +461,6 @@ G_BotThink(gentity_t * self)
       }
       switch(self->botMetaMode)
       {
-        /*case ATTACK_RAMBO:
-         if (!botTargetInRange(self, self->botEnemy))
-         {
-         ACEAI_Think(self);
-         }
-         else
-         {
-         if (ace_debug.integer)
-         {
-         G_Printf("Can see my enemy switch to bot regular.\n");
-         }
-         memset(&self->client->pers.cmd, 0, sizeof(self->client->pers.cmd));
-         self->botCommand = BOT_REGULAR;
-         }
-         break;*/
         case ATTACK_RAMBO:
         case ATTACK_CAMPER:
         case ATTACK_ALL:
@@ -549,16 +526,12 @@ G_BotThink(gentity_t * self)
         }
         else
         {
-          if (WallInFront(self))//if(Bot_Stuck(self,100))
+          if (WallInFront(self))
           {
             selectBetterWay(self);
-            //self->client->ps.delta_angles[1] =
-            //ANGLE2SHORT(self->client->ps.delta_angles[1] - 30);
           }
         }
-        self->client->pers.cmd.forwardmove = 60;
-        self->client->pers.cmd.buttons |= BUTTON_WALKING;
-        // no enemy
+        botWalk(self, 60);
       }
       else
       {
@@ -571,34 +544,36 @@ G_BotThink(gentity_t * self)
         botAimAtTarget(self, self->botEnemy);
         if (distance > 50)
         {
-          self->client->pers.cmd.forwardmove = forwardMove;
           if (g_survival.integer && (level.time - level.startTime) < 340000)
           {
-            self->client->pers.cmd.forwardmove = 100;
+            botWalk(self, 100);
           }
           if (g_survival.integer && (level.time - level.startTime) < 240000)
           {
-            self->client->pers.cmd.forwardmove = 90;
+            botWalk(self, 70);
           }
           if (g_survival.integer && (level.time - level.startTime) < 120000)
           {
-            self->client->pers.cmd.forwardmove = 80;
+            botWalk(self, 60);
           }
           if (g_survival.integer && (level.time - level.startTime) < 60000)
           {
-            self->client->pers.cmd.forwardmove = 70;
+            botWalk(self, 50);
           }
-          self->client->pers.cmd.buttons &= ~BUTTON_WALKING;
           if (distance < 200)
           {
             self->client->pers.cmd.buttons |= BUTTON_GESTURE;
+          }
+          else
+          {
+            botWalk(self, forwardMove);
           }
           //botShootIfTargetInRange(self, self->botEnemy);
         }
         if (distance < 45)
         {
-          self->client->pers.cmd.forwardmove = forwardMove + (self->botSkillLevel * 5); //20
-          self->client->pers.cmd.buttons &= ~BUTTON_WALKING;
+          forwardMove = (forwardMove + (self->botSkillLevel * 5));
+          botWalk(self, forwardMove);
           botShootIfTargetInRange(self, self->botEnemy);
         }
         if (Bot_Stuck(self, 60) && Distance(self->s.pos.trBase, self->botEnemy->s.pos.trBase) > 80)
@@ -1022,4 +997,21 @@ botShootIfTargetInRange(gentity_t * self, gentity_t * target)
     self->client->pers.cmd.buttons |= BUTTON_ATTACK;
   }
   return qtrue;
+}
+void botWalk(gentity_t *self, int speed)
+{
+  char validSpeed;
+
+  validSpeed = ClampChar(speed);
+
+  self->client->pers.cmd.forwardmove = validSpeed;
+  if(speed <= 64)
+  {
+
+    self->client->pers.cmd.buttons |= BUTTON_WALKING;
+  }
+  else
+  {
+    self->client->pers.cmd.buttons &= ~BUTTON_WALKING;
+  }
 }

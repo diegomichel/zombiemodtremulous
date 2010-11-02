@@ -211,7 +211,7 @@ CALLI4
 ASGNI4
 ADDRLP4 16
 INDIRP4
-CNSTI4 2392
+CNSTI4 2416
 ADDP4
 ADDRLP4 60
 INDIRI4
@@ -565,7 +565,7 @@ CNSTI4 0
 EQI4 $162
 ADDRLP4 16
 INDIRP4
-CNSTI4 2392
+CNSTI4 2416
 ADDP4
 ADDRLP4 0
 INDIRI4
@@ -605,7 +605,7 @@ CALLI4
 ASGNI4
 ADDRLP4 16
 INDIRP4
-CNSTI4 2392
+CNSTI4 2416
 ADDP4
 ADDRLP4 60
 INDIRI4
@@ -622,7 +622,7 @@ ASGNI4
 ADDRLP4 16
 ADDRLP4 16
 INDIRP4
-CNSTI4 2400
+CNSTI4 2424
 ADDP4
 ASGNP4
 LABELV $100
@@ -634,6 +634,7 @@ LTI4 $97
 LABELV $96
 endproc ACEIT_BuildItemNodeTable 76 8
 import ACEND_nodeInUse
+import ACEND_setNextNode
 import ACEND_setCurrentNode
 import ACEND_pointVisibleFromEntity
 import ACEND_selectNextNode
@@ -1016,6 +1017,9 @@ import trigger_teleporter_touch
 import manualTriggerSpectator
 import Touch_DoorTrigger
 import G_RunMover
+import plant_mine
+import launch_grenade_primary
+import launch_grenade_secondary
 import launch_bomb
 import launch_grenade
 import fire_hive
@@ -1122,6 +1126,7 @@ import G_FollowNewClient
 import G_StopFollowing
 import G_StopFromFollowing
 import Cmd_Score_f
+import botWalk
 import botShootIfTargetInRange
 import botGetDistanceBetweenPlayer
 import botTargetInRange

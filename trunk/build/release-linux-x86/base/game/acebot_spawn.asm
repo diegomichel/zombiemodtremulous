@@ -878,19 +878,19 @@ CNSTP4 0
 ASGNP4
 ADDRFP4 0
 INDIRP4
-CNSTI4 2328
+CNSTI4 2352
 ADDP4
 CNSTF4 1108082688
 ASGNF4
 ADDRFP4 0
 INDIRP4
-CNSTI4 2344
+CNSTI4 2368
 ADDP4
 CNSTP4 0
 ASGNP4
 ADDRFP4 0
 INDIRP4
-CNSTI4 2388
+CNSTI4 2412
 ADDP4
 CNSTI4 1
 ASGNI4
@@ -916,33 +916,35 @@ CALLV
 pop
 ADDRFP4 0
 INDIRP4
-CNSTI4 2368
+CNSTI4 2392
 ADDP4
 ADDRFP4 0
 INDIRP4
-CNSTI4 2364
-ADDP4
-INDIRI4
-ASGNI4
-ADDRFP4 0
-INDIRP4
-CNSTI4 2372
-ADDP4
-ADDRFP4 0
-INDIRP4
-CNSTI4 2364
+CNSTI4 2388
 ADDP4
 INDIRI4
 ASGNI4
 ADDRFP4 0
 INDIRP4
-CNSTI4 2376
+ARGP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 2388
+ADDP4
+INDIRI4
+ARGI4
+ADDRGP4 ACEND_setNextNode
+CALLV
+pop
+ADDRFP4 0
+INDIRP4
+CNSTI4 2400
 ADDP4
 CNSTI4 -1
 ASGNI4
 ADDRFP4 0
 INDIRP4
-CNSTI4 2352
+CNSTI4 2376
 ADDP4
 ADDRGP4 level+28
 INDIRI4
@@ -950,7 +952,7 @@ CVIF4 4
 ASGNF4
 ADDRFP4 0
 INDIRP4
-CNSTI4 2360
+CNSTI4 2384
 ADDP4
 ADDRGP4 level+28
 INDIRI4
@@ -978,6 +980,7 @@ align 4
 LABELV g_numBots
 skip 4
 import ACEND_nodeInUse
+import ACEND_setNextNode
 import ACEND_setCurrentNode
 import ACEND_pointVisibleFromEntity
 import ACEND_selectNextNode
@@ -1360,6 +1363,9 @@ import trigger_teleporter_touch
 import manualTriggerSpectator
 import Touch_DoorTrigger
 import G_RunMover
+import plant_mine
+import launch_grenade_primary
+import launch_grenade_secondary
 import launch_bomb
 import launch_grenade
 import fire_hive
@@ -1466,6 +1472,7 @@ import G_FollowNewClient
 import G_StopFollowing
 import G_StopFromFollowing
 import Cmd_Score_f
+import botWalk
 import botShootIfTargetInRange
 import botGetDistanceBetweenPlayer
 import botTargetInRange

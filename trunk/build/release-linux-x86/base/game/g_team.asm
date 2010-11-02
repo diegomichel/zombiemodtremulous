@@ -82,7 +82,7 @@ ADDRGP4 g_entities
 CVPU4 4
 SUBU4
 CVUI4 4
-CNSTI4 2400
+CNSTI4 2424
 DIVI4
 ASGNI4
 LABELV $93
@@ -464,7 +464,7 @@ ADDRGP4 $134
 JUMPV
 LABELV $131
 ADDRLP4 0
-CNSTI4 2400
+CNSTI4 2424
 ADDRLP4 4
 INDIRI4
 CNSTI4 2
@@ -592,7 +592,7 @@ ADDRGP4 $144
 JUMPV
 LABELV $141
 ADDRLP4 0
-CNSTI4 2400
+CNSTI4 2424
 ADDRLP4 4
 INDIRI4
 MULI4
@@ -763,7 +763,7 @@ ADDRGP4 g_entities
 CVPU4 4
 SUBU4
 CVUI4 4
-CNSTI4 2400
+CNSTI4 2424
 DIVI4
 ARGI4
 ADDRLP4 9376
@@ -794,7 +794,7 @@ ADDRGP4 $165
 JUMPV
 LABELV $162
 ADDRLP4 0
-CNSTI4 2400
+CNSTI4 2424
 ADDRLP4 4
 INDIRI4
 MULI4
@@ -903,7 +903,7 @@ ADDRGP4 $177
 JUMPV
 LABELV $174
 ADDRLP4 0
-CNSTI4 2400
+CNSTI4 2424
 ADDRLP4 4
 INDIRI4
 MULI4
@@ -1382,6 +1382,9 @@ import trigger_teleporter_touch
 import manualTriggerSpectator
 import Touch_DoorTrigger
 import G_RunMover
+import plant_mine
+import launch_grenade_primary
+import launch_grenade_secondary
 import launch_bomb
 import launch_grenade
 import fire_hive
@@ -1488,6 +1491,7 @@ import G_FollowNewClient
 import G_StopFollowing
 import G_StopFromFollowing
 import Cmd_Score_f
+import botWalk
 import botShootIfTargetInRange
 import botGetDistanceBetweenPlayer
 import botTargetInRange
