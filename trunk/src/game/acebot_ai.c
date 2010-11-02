@@ -90,7 +90,8 @@ ACEAI_Think(gentity_t * self)
   if (self->client->sess.sessionTeam == TEAM_SPECTATOR)
   {
     if (ace_debug.integer)
-      trap_SendServerCommand(-1, va("print \"%s: I am a spectator, choosing a team...\n\"", self->client->pers.netname));
+      trap_SendServerCommand(-1, va(
+        "print \"%s: I am a spectator, choosing a team...\n\"", self->client->pers.netname));
 
     // this sets the team status and updates the userinfo as well
     //trap_BotClientCommand(self - g_entities, va("team %s", team));
@@ -102,7 +103,11 @@ ACEAI_Think(gentity_t * self)
   VectorSet(self->client->ps.delta_angles, 0, 0, 0);
 
   // FIXME: needed?
-  memset(&self->client->pers.cmd, 0, sizeof(self->client->pers.cmd));
+
+  self->client->pers.cmd.buttons = 0;
+  botWalk(self, 0);
+  self->client->pers.cmd.upmove = 0;
+  self->client->pers.cmd.rightmove = 0;
 
   self->enemy = NULL;
   self->bs.moveTarget = NULL;
@@ -229,7 +234,7 @@ ACEAI_PickLongRangeGoal(gentity_t * self)
   //////////////////////////////////////////////////////////////////
 
   //Free currentNode
-  currentNode = ACEND_FindClosestReachableNode(self, NODE_DENSITY, NODE_ALL);
+  currentNode = ACEND_FindClosestReachableNode(self, NODE_DENSITY, NODE_MOVE);
   ACEND_setCurrentNode(self, currentNode);
   ////////////////////////////////////////////////////////////
   // INVALID TARGET
@@ -308,7 +313,9 @@ ACEAI_PickLongRangeGoal(gentity_t * self)
   self->bs.tries = 0; // reset the count of how many times we tried this goal
 
   if (goalEnt != NULL && ace_debug.integer)
-    G_Printf("print \"%s: selected a %s at node %d for LR goal\n\"", self->client->pers.netname, goalEnt->classname, goalNode);
+    G_Printf(
+      "print \"%s: selected a %s at node %d for LR goal\n\"", self->client->pers.netname,
+      goalEnt->classname, goalNode);
 
   ACEND_SetGoal(self, goalNode);
 }
@@ -381,7 +388,9 @@ ACEAI_PickShortRangeGoal(gentity_t * self)
     self->bs.moveTarget = best;
 
     if (ace_debug.integer && self->bs.goalEntity != self->bs.moveTarget)
-      G_Printf("print \"%s: selected a %s for SR goal\n\"", self->client->pers.netname, self->bs.moveTarget->classname);
+      G_Printf(
+        "print \"%s: selected a %s for SR goal\n\"", self->client->pers.netname,
+        self->bs.moveTarget->classname);
 
     self->bs.goalEntity = best;
   }
@@ -420,7 +429,8 @@ ACEAI_FindEnemy(gentity_t * self)
 
     enemyRange = Distance(self->client->ps.origin, player->client->ps.origin);
 
-    if (ACEAI_InFront(self, player) && ACEAI_Visible(self, player) && trap_InPVS(self->client->ps.origin, player->client->ps.origin) && enemyRange < bestRange)
+    if (ACEAI_InFront(self, player) && ACEAI_Visible(self, player) && trap_InPVS(
+      self->client->ps.origin, player->client->ps.origin) && enemyRange < bestRange)
     {
       /*
        if(ace_debug.integer && self->enemy != player)
@@ -447,7 +457,9 @@ ACEAI_CheckShot(gentity_t * self)
 {
   trace_t tr;
 
-  trap_Trace(&tr, self->client->ps.origin, tv(-8, -8, -8), tv(8, 8, 8), self->enemy->client->ps.origin, self->s.number, MASK_SHOT);
+  trap_Trace(
+    &tr, self->client->ps.origin, tv(-8, -8, -8), tv(8, 8, 8), self->enemy->client->ps.origin,
+    self->s.number, MASK_SHOT);
 
   // if blocked, do not shoot
   if (tr.entityNum == self->enemy->s.number)

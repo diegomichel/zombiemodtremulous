@@ -441,7 +441,7 @@ G_BotThink(gentity_t * self)
   trace_t tr;
   int i;
 
-  self->s.angles[PITCH] = 0;
+  //self->s.angles[PITCH] = 0;
 
   self->client->pers.cmd.buttons = 0;
   botWalk(self, 0);
@@ -463,7 +463,8 @@ G_BotThink(gentity_t * self)
         case ATTACK_RAMBO:
         case ATTACK_CAMPER:
         case ATTACK_ALL:
-          if (nodes[self->bs.currentNode].type == NODE_DUCK || nodes[self->bs.currentNode].type == NODE_JUMP)
+          if (nodes[self->bs.currentNode].type == NODE_DUCK
+              && nodes[self->bs.nextNode].type == NODE_JUMP)
           {
             G_Printf("Current Node is node duck ill keep moving\n");
             ACEAI_Think(self);

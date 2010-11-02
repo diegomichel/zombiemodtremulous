@@ -433,15 +433,28 @@ ACEMV_Move(gentity_t * self)
     botWalk(self, 127);
     botJump(self, 127);
     G_Printf("Jump Walk\n");
+    ACEMV_ChangeBotAngle(self);
     return;
   }
+
   if (nextNodeType == NODE_DUCK && currentNodeType == NODE_JUMP && self->s.groundEntityNum
       == ENTITYNUM_NONE)
   {
-    botWalk(self, 127);
-    botCrouch(self);
-    G_Printf("Jumped now cruch.\n");
-    return;
+    if(self->s.pos.trDelta[2] < -50)
+    {
+      botWalk(self, 127);
+      botCrouch(self);
+      G_Printf("Jumped and going down now cruch.\n");
+      if(self->s.origin[2] <= nodes[self->bs.nextNode].origin[2])
+      {
+        G_Printf("We lost it, magic jump LOLZ");
+        self->client->ps.velocity[2] += 120;
+
+      }
+      self->client->ps.velocity[2] += 70;
+      ACEMV_ChangeBotAngle(self);
+      return;
+    }
   }
   ////////////////////////////////////////////////////////////////////////////
   // CROUCH is not exclusive
@@ -493,14 +506,21 @@ ACEMV_Move(gentity_t * self)
       self->client->ps.velocity[2] = 211;
       ACEMV_ChangeBotAngle(self);
       self->bs.isJumping = qtrue;
-      if(Distance2d(nodes[self->bs.nextNode].origin,nodes[self->bs.currentNode].origin) > 290)
+      if(Distance2d(nodes[self->bs.nextNode].origin,nodes[self->bs.currentNode].origin) >= 288)
       {
         G_Printf("\n\nLong jumping\n");
+
         VectorNormalize(self->client->ps.velocity);
         //self->client->ps.velocity[2] = 50;
         //Is that or...
         VectorScale(self->client->ps.velocity, 320, self->client->ps.velocity);
-        self->client->ps.velocity[2] += 70;
+        self->client->ps.velocity[2] += 75;
+        if(self->s.origin[2]+40 <= nodes[self->bs.nextNode].origin[2])
+        {
+          //We losing it
+          G_Printf("WE LOSING IT\n");
+          self->client->ps.velocity[2] += 30;
+        }
         //self->client->ps.velocity[2] = 560.0f;
         self->bs.isLongJumping = qtrue;
       }

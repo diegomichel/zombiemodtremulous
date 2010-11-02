@@ -570,7 +570,6 @@ ClientTimerActions(gentity_t *ent, int msec)
   while(client->time100 >= 100)
   {
     client->time100 -= 100;
-    ACEND_CheckForDucking(ent);
     
     //if not trying to run then not trying to sprint
     if (aForward <= 64)

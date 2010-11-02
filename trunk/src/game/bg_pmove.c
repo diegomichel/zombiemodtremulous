@@ -357,7 +357,8 @@ PM_CmdScale(usercmd_t *cmd)
   float scale;
   float modifier = 1.0f;
 
-  if ((pm->ps->stats[STAT_PTEAM] == PTE_HUMANS || pm->ps->stats[STAT_PTEAM] == PTE_ALIENS) && pm->ps->pm_type == PM_NORMAL)
+  if ((pm->ps->stats[STAT_PTEAM] == PTE_HUMANS || pm->ps->stats[STAT_PTEAM] == PTE_ALIENS)
+      && pm->ps->pm_type == PM_NORMAL)
   {
     if (pm->ps->stats[STAT_STATE] & SS_SPEEDBOOST)
       modifier *= HUMAN_SPRINT_MODIFIER;
@@ -399,10 +400,12 @@ PM_CmdScale(usercmd_t *cmd)
   }
 
   if (pm->ps->weapon == WP_ALEVEL4 && pm->ps->pm_flags & PMF_CHARGE)
-    modifier *= (1.0f + (pm->ps->stats[STAT_MISC] / (float) LEVEL4_CHARGE_TIME) * (LEVEL4_CHARGE_SPEED - 1.0f));
+    modifier *= (1.0f + (pm->ps->stats[STAT_MISC] / (float) LEVEL4_CHARGE_TIME)
+        * (LEVEL4_CHARGE_SPEED - 1.0f));
 
   //slow player if charging up for a pounce
-  if ((pm->ps->weapon == WP_ALEVEL3 || pm->ps->weapon == WP_ALEVEL3_UPG) && cmd->buttons & BUTTON_ATTACK2)
+  if ((pm->ps->weapon == WP_ALEVEL3 || pm->ps->weapon == WP_ALEVEL3_UPG) && cmd->buttons
+      & BUTTON_ATTACK2)
     modifier *= LEVEL3_POUNCE_SPEED_MOD;
 
   //slow the player if slow locked
@@ -432,7 +435,8 @@ PM_CmdScale(usercmd_t *cmd)
   if (!max)
     return 0;
 
-  total = sqrt(cmd->forwardmove * cmd->forwardmove + cmd->rightmove * cmd->rightmove + cmd->upmove * cmd->upmove);
+  total = sqrt(cmd->forwardmove * cmd->forwardmove + cmd->rightmove * cmd->rightmove + cmd->upmove
+      * cmd->upmove);
 
   scale = (float) pm->ps->speed * max / (127.0 * total) * modifier;
 
@@ -678,14 +682,16 @@ PM_CheckJump(void)
     return PM_CheckWallJump();
 
   //can't jump and pounce at the same time
-  if ((pm->ps->weapon == WP_ALEVEL3 || pm->ps->weapon == WP_ALEVEL3_UPG) && pm->ps->stats[STAT_MISC] > 0)
+  if ((pm->ps->weapon == WP_ALEVEL3 || pm->ps->weapon == WP_ALEVEL3_UPG)
+      && pm->ps->stats[STAT_MISC] > 0)
     return qfalse;
 
   //can't jump and charge at the same time
   if ((pm->ps->weapon == WP_ALEVEL4) && pm->ps->stats[STAT_MISC] > 0)
     return qfalse;
 
-  if ((pm->ps->stats[STAT_PTEAM] == PTE_HUMANS || pm->ps->stats[STAT_PTEAM] == PTE_ALIENS) && (pm->ps->stats[STAT_STAMINA] < 0))
+  if ((pm->ps->stats[STAT_PTEAM] == PTE_HUMANS || pm->ps->stats[STAT_PTEAM] == PTE_ALIENS)
+      && (pm->ps->stats[STAT_STAMINA] < 0))
     return qfalse;
 
   if (pm->ps->pm_flags & PMF_RESPAWNED)
@@ -902,7 +908,8 @@ PM_WaterMove(void)
   else
   {
     for(i = 0;i < 3;i++)
-      wishvel[i] = scale * pml.forward[i] * pm->cmd.forwardmove + scale * pml.right[i] * pm->cmd.rightmove;
+      wishvel[i] = scale * pml.forward[i] * pm->cmd.forwardmove + scale * pml.right[i]
+          * pm->cmd.rightmove;
 
     wishvel[2] += scale * pm->cmd.upmove;
   }
@@ -952,7 +959,8 @@ PM_JetPackMove(void)
 
   // user intentions
   for(i = 0;i < 2;i++)
-    wishvel[i] = scale * pml.forward[i] * pm->cmd.forwardmove + scale * pml.right[i] * pm->cmd.rightmove;
+    wishvel[i] = scale * pml.forward[i] * pm->cmd.forwardmove + scale * pml.right[i]
+        * pm->cmd.rightmove;
 
   if (pm->cmd.upmove > 0.0f)
     wishvel[2] = JETPACK_FLOAT_SPEED;
@@ -1006,7 +1014,8 @@ PM_FlyMove(void)
   else
   {
     for(i = 0;i < 3;i++)
-      wishvel[i] = scale * pml.forward[i] * pm->cmd.forwardmove + scale * pml.right[i] * pm->cmd.rightmove;
+      wishvel[i] = scale * pml.forward[i] * pm->cmd.forwardmove + scale * pml.right[i]
+          * pm->cmd.rightmove;
 
     wishvel[2] += scale * pm->cmd.upmove;
   }
@@ -1224,7 +1233,15 @@ PM_WalkMove(void)
   //charging
   PM_CheckCharge();
 
-  PM_Friction();
+  //No friction to aliens if they are crouching prevent several problems like hard zones to get.
+
+//  if (pm->ps->stats[STAT_PTEAM] == PTE_ALIENS && (pm->ps->pm_flags & PMF_DUCKED))
+//  {
+//  }
+//  else
+//  {
+    PM_Friction();
+//  }
 
   fmove = pm->cmd.forwardmove;
   smove = pm->cmd.rightmove;
@@ -1336,7 +1353,8 @@ PM_LadderMove(void)
   scale = PM_CmdScale(&pm->cmd);
 
   for(i = 0;i < 3;i++)
-    wishvel[i] = scale * pml.forward[i] * pm->cmd.forwardmove + scale * pml.right[i] * pm->cmd.rightmove;
+    wishvel[i] = scale * pml.forward[i] * pm->cmd.forwardmove + scale * pml.right[i]
+        * pm->cmd.rightmove;
 
   wishvel[2] += scale * pm->cmd.upmove;
 
@@ -1651,7 +1669,8 @@ PM_CorrectAllSolid(trace_t *trace)
           point[1] = pm->ps->origin[1];
           point[2] = pm->ps->origin[2] - 0.25;
 
-          pm->trace(trace, pm->ps->origin, pm->mins, pm->maxs, point, pm->ps->clientNum, pm->tracemask);
+          pm->trace(
+            trace, pm->ps->origin, pm->mins, pm->maxs, point, pm->ps->clientNum, pm->tracemask);
           pml.groundTrace = *trace;
           return qtrue;
         }
@@ -2153,9 +2172,11 @@ PM_GroundTrace(void)
 
         //trace into direction we are moving
         VectorMA(pm->ps->origin, 0.25f, movedir, point);
-        pm->trace(&trace, pm->ps->origin, pm->mins, pm->maxs, point, pm->ps->clientNum, pm->tracemask);
+        pm->trace(
+          &trace, pm->ps->origin, pm->mins, pm->maxs, point, pm->ps->clientNum, pm->tracemask);
 
-        if (trace.fraction < 1.0f && !(trace.surfaceFlags & (SURF_SKY | SURF_SLICK)) && (trace.entityNum == ENTITYNUM_WORLD))
+        if (trace.fraction < 1.0f && !(trace.surfaceFlags & (SURF_SKY | SURF_SLICK))
+            && (trace.entityNum == ENTITYNUM_WORLD))
         {
           if (!VectorCompare(trace.plane.normal, pm->ps->grapplePoint))
           {
@@ -2346,7 +2367,9 @@ PM_CheckDuck(void)
     {
       // try to stand up
       pm->maxs[2] = PCmaxs[2];
-      pm->trace(&trace, pm->ps->origin, pm->mins, pm->maxs, pm->ps->origin, pm->ps->clientNum, pm->tracemask);
+      pm->trace(
+        &trace, pm->ps->origin, pm->mins, pm->maxs, pm->ps->origin, pm->ps->clientNum,
+        pm->tracemask);
       if (!trace.allsolid)
         pm->ps->pm_flags &= ~PMF_DUCKED;
     }
@@ -2385,10 +2408,12 @@ PM_Footsteps(void)
   if (BG_ClassHasAbility(pm->ps->stats[STAT_PCLASS], SCA_WALLCLIMBER) && (pml.groundPlane))
   {
     //TA: FIXME: yes yes i know this is wrong
-    pm->xyspeed = sqrt(pm->ps->velocity[0] * pm->ps->velocity[0] + pm->ps->velocity[1] * pm->ps->velocity[1] + pm->ps->velocity[2] * pm->ps->velocity[2]);
+    pm->xyspeed = sqrt(pm->ps->velocity[0] * pm->ps->velocity[0] + pm->ps->velocity[1]
+        * pm->ps->velocity[1] + pm->ps->velocity[2] * pm->ps->velocity[2]);
   }
   else
-    pm->xyspeed = sqrt(pm->ps->velocity[0] * pm->ps->velocity[0] + pm->ps->velocity[1] * pm->ps->velocity[1]);
+    pm->xyspeed = sqrt(pm->ps->velocity[0] * pm->ps->velocity[0] + pm->ps->velocity[1]
+        * pm->ps->velocity[1]);
 
   if (pm->ps->groundEntityNum == ENTITYNUM_NONE)
   {
@@ -2733,7 +2758,8 @@ PM_Weapon(void)
   }
 
   // no bite during pounce
-  if ((pm->ps->weapon == WP_ALEVEL3 || pm->ps->weapon == WP_ALEVEL3_UPG) && (pm->cmd.buttons & BUTTON_ATTACK) && (pm->ps->pm_flags & PMF_CHARGE))
+  if ((pm->ps->weapon == WP_ALEVEL3 || pm->ps->weapon == WP_ALEVEL3_UPG) && (pm->cmd.buttons
+      & BUTTON_ATTACK) && (pm->ps->pm_flags & PMF_CHARGE))
   {
     return;
   }
@@ -2833,7 +2859,8 @@ PM_Weapon(void)
       BG_FindAmmoForWeapon(pm->ps->weapon, &ammo, NULL);
     }
 
-    if (BG_FindUsesEnergyForWeapon(pm->ps->weapon) && BG_InventoryContainsUpgrade(UP_BATTPACK, pm->ps->stats))
+    if (BG_FindUsesEnergyForWeapon(pm->ps->weapon) && BG_InventoryContainsUpgrade(
+      UP_BATTPACK, pm->ps->stats))
       ammo = (int) ((float) ammo * BATTPACK_MODIFIER);
 
     BG_PackAmmoArray(pm->ps->weapon, pm->ps->ammo, pm->ps->powerups, ammo, clips);
@@ -3197,7 +3224,8 @@ PM_Weapon(void)
     //special case for lCanon
     if (pm->ps->weapon == WP_LUCIFER_CANNON && attack1 && !attack2)
     {
-      ammo -= (int) (ceil(((float) pm->ps->stats[STAT_MISC] / (float) LCANNON_TOTAL_CHARGE) * 10.0f));
+      ammo
+          -= (int) (ceil(((float) pm->ps->stats[STAT_MISC] / (float) LCANNON_TOTAL_CHARGE) * 10.0f));
 
       //stay on the safe side
       if (ammo < 0)
@@ -3220,8 +3248,10 @@ PM_Weapon(void)
   {
     if (pm->ps->pm_flags & PMF_DUCKED)
     {
-      pm->ps->delta_angles[PITCH] -= ANGLE2SHORT(((random() * 0.5) - 0.125) * (30 / (float) addTime));
-      pm->ps->delta_angles[YAW] -= ANGLE2SHORT(((random() * 0.5) - 0.25) * (30.0 / (float) addTime));
+      pm->ps->delta_angles[PITCH]
+          -= ANGLE2SHORT(((random() * 0.5) - 0.125) * (30 / (float) addTime));
+      pm->ps->delta_angles[YAW]
+          -= ANGLE2SHORT(((random() * 0.5) - 0.25) * (30.0 / (float) addTime));
     }
     else
     {
@@ -3351,7 +3381,8 @@ PM_UpdateViewAngles(playerState_t *ps, const usercmd_t *cmd)
   //convert viewangles -> axis
   AnglesToAxis(tempang, axis);
 
-  if (!(ps->stats[STAT_STATE] & SS_WALLCLIMBING) || !BG_RotateAxis(ps->grapplePoint, axis, rotaxis, qfalse, ps->stats[STAT_STATE] & SS_WALLCLIMBINGCEILING))
+  if (!(ps->stats[STAT_STATE] & SS_WALLCLIMBING) || !BG_RotateAxis(
+    ps->grapplePoint, axis, rotaxis, qfalse, ps->stats[STAT_STATE] & SS_WALLCLIMBINGCEILING))
     AxisCopy(axis, rotaxis);
 
   //convert the new axis back to angles
@@ -3443,22 +3474,23 @@ PmoveSingle(pmove_t *pmove)
     pm->ps->eFlags &= ~EF_TALK;
 
   // set the firing flag for continuous beam weapons
-  if (!(pm->ps->pm_flags & PMF_RESPAWNED) && pm->ps->pm_type != PM_INTERMISSION && (pm->cmd.buttons & BUTTON_ATTACK) && ((ammo > 0 || clips > 0)
-      || BG_FindInfinteAmmoForWeapon(pm->ps->weapon)))
+  if (!(pm->ps->pm_flags & PMF_RESPAWNED) && pm->ps->pm_type != PM_INTERMISSION && (pm->cmd.buttons
+      & BUTTON_ATTACK) && ((ammo > 0 || clips > 0) || BG_FindInfinteAmmoForWeapon(pm->ps->weapon)))
     pm->ps->eFlags |= EF_FIRING;
   else
     pm->ps->eFlags &= ~EF_FIRING;
 
   // set the firing flag for continuous beam weapons
-  if (!(pm->ps->pm_flags & PMF_RESPAWNED) && pm->ps->pm_type != PM_INTERMISSION && (pm->cmd.buttons & BUTTON_ATTACK2) && ((ammo > 0 || clips > 0)
-      || BG_FindInfinteAmmoForWeapon(pm->ps->weapon)))
+  if (!(pm->ps->pm_flags & PMF_RESPAWNED) && pm->ps->pm_type != PM_INTERMISSION && (pm->cmd.buttons
+      & BUTTON_ATTACK2) && ((ammo > 0 || clips > 0) || BG_FindInfinteAmmoForWeapon(pm->ps->weapon)))
     pm->ps->eFlags |= EF_FIRING2;
   else
     pm->ps->eFlags &= ~EF_FIRING2;
 
   // set the firing flag for continuous beam weapons
-  if (!(pm->ps->pm_flags & PMF_RESPAWNED) && pm->ps->pm_type != PM_INTERMISSION && (pm->cmd.buttons & BUTTON_USE_HOLDABLE) && ((ammo > 0 || clips > 0)
-      || BG_FindInfinteAmmoForWeapon(pm->ps->weapon)))
+  if (!(pm->ps->pm_flags & PMF_RESPAWNED) && pm->ps->pm_type != PM_INTERMISSION && (pm->cmd.buttons
+      & BUTTON_USE_HOLDABLE) && ((ammo > 0 || clips > 0) || BG_FindInfinteAmmoForWeapon(
+    pm->ps->weapon)))
     pm->ps->eFlags |= EF_FIRING3;
   else
     pm->ps->eFlags &= ~EF_FIRING3;
@@ -3574,7 +3606,8 @@ PmoveSingle(pmove_t *pmove)
     PM_LadderMove();
   else if (pml.walking)
   {
-    if (BG_ClassHasAbility(pm->ps->stats[STAT_PCLASS], SCA_WALLCLIMBER) && (pm->ps->stats[STAT_STATE] & SS_WALLCLIMBING))
+    if (BG_ClassHasAbility(pm->ps->stats[STAT_PCLASS], SCA_WALLCLIMBER)
+        && (pm->ps->stats[STAT_STATE] & SS_WALLCLIMBING))
       PM_ClimbMove(); //TA: walking on any surface
     else
       PM_WalkMove(); // walking on ground
@@ -3628,7 +3661,8 @@ Pmove(pmove_t *pmove)
   if (finalTime > pmove->ps->commandTime + 1000)
     pmove->ps->commandTime = finalTime - 1000;
 
-  pmove->ps->pmove_framecount = (pmove->ps->pmove_framecount + 1) & ((1 << PS_PMOVEFRAMECOUNTBITS) - 1);
+  pmove->ps->pmove_framecount = (pmove->ps->pmove_framecount + 1) & ((1 << PS_PMOVEFRAMECOUNTBITS)
+      - 1);
 
   // chop the move up if it is too long, to prevent framerate
   // dependent behavior

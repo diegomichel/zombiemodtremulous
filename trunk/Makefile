@@ -24,9 +24,9 @@ endif
 BUILD_CLIENT     = 0
 BUILD_CLIENT_SMP = 0
 BUILD_SERVER     = 0
-BUILD_GAME_SO    = 0
+BUILD_GAME_SO    = 1
 BUILD_GAME_QVM   = 1
-BUILD_PROFILING  = 0
+BUILD_PROFILING  = 1
 
 #############################################################################
 #

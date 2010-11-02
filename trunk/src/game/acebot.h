@@ -36,7 +36,7 @@
 #define	PRINT_HIGH			2	// critical messages
 #define	PRINT_CHAT			3	// chat messages
 // maximum nodes
-#define MAX_NODES 10000
+#define MAX_NODES 1000
 
 // link types
 #define INVALID -1
@@ -110,7 +110,6 @@ void ACEAI_ChooseWeapon(gentity_t * self);
 
 // acebot_cmds.c protos
 qboolean ACECM_Commands(gentity_t * ent);
-void ACECM_Store();
 
 // acebot_items.c protos
 void ACEIT_PlayerAdded(gentity_t * ent);
@@ -144,9 +143,6 @@ int ACEND_AddNode(gentity_t * self, int type);
 const char *ACEND_NodeTypeToString(int type);
 void ACEND_UpdateNodeEdge(int from, int to, gentity_t *self);
 void ACEND_RemoveNodeEdge(gentity_t * self, int from, int to);
-void ACEND_ResolveAllPaths();
-void ACEND_SaveNodes();
-void ACEND_LoadNodes();
 qboolean ACEND_CheckForDucking(gentity_t *self);
 
 // acebot_spawn.c protos
@@ -157,7 +153,6 @@ void ACESP_Respawn(gentity_t * self);
 gentity_t *ACESP_FindFreeClient(void);
 void ACESP_SetName(gentity_t * bot, char *name, char *skin, char *team);
 void ACESP_SpawnBot(char *name, float skill, char *team);
-void ACESP_ReAddBots();
 void ACESP_RemoveBot(char *name);
 qboolean ACESP_BotConnect(int clientNum, qboolean restart);
 void ACESP_SetupBotState(gentity_t * bot);
