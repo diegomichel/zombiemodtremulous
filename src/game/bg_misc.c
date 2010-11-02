@@ -5498,8 +5498,8 @@ BG_AddWeaponToInventory(int weapon, int stats[])
   stats[STAT_WEAPONS] = weaponList & 0x0000FFFF;
   stats[STAT_WEAPONS2] = (weaponList & 0xFFFF0000) >> 16;
 
-  //if (stats[ STAT_SLOTS ] & BG_FindSlotsForWeapon(weapon))
-  //  Com_Printf(S_COLOR_YELLOW "WARNING: Held items conflict with weapon %d\n", weapon);
+  if (stats[ STAT_SLOTS ] & BG_FindSlotsForWeapon(weapon))
+    Com_Printf(S_COLOR_YELLOW "WARNING: Held items conflict with weapon %d\n", weapon);
 
   stats[STAT_SLOTS] |= BG_FindSlotsForWeapon(weapon);
 }

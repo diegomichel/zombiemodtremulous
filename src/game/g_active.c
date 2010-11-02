@@ -1068,6 +1068,33 @@ ClientEvents(gentity_t *ent, int oldEventSequence)
         break;
 
       case EV_NOAMMO:
+        //if we just ran out of grenades, remove the inventory item
+        if (ent->s.weapon == WP_GRENADE)
+        {
+          int j;
+
+          BG_RemoveWeaponFromInventory(ent->s.weapon, ent->client->ps.stats);
+
+          //switch to the first non blaster weapon
+          for(j = WP_NONE + 1;j < WP_NUM_WEAPONS;j++)
+          {
+            if (j == WP_PISTOL)
+              continue;
+
+            if (BG_InventoryContainsWeapon(j, ent->client->ps.stats))
+            {
+              G_ForceWeaponChange(ent, j);
+              break;
+            }
+          }
+
+          //only got the blaster to switch to
+          if (j == WP_NUM_WEAPONS)
+            G_ForceWeaponChange(ent, WP_PISTOL);
+
+          //update ClientInfo
+          ClientUserinfoChanged(ent->client->ps.clientNum);
+        }
         break;
 
       default:

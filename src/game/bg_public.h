@@ -343,6 +343,7 @@ typedef enum {
 typedef enum {
   WP_NONE,
 
+  WP_PISTOL,
   WP_MACHINEGUN,
   WP_SHOTGUN,
   WP_LAS_GUN,
@@ -368,7 +369,6 @@ typedef enum {
   //ok?
 
   //New Weapons 31
-  WP_PISTOL,
   WP_AXE,
   WP_ROCKET_LAUNCHER,
   //Another 7 Weapons for here more.
