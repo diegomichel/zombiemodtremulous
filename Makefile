@@ -1203,6 +1203,7 @@ GOBJ_ = \
   $(B)/base/game/g_combat.o \
   $(B)/base/game/g_physics.o \
   $(B)/base/game/g_buildable.o \
+  $(B)/base/game/g_item.o \
   $(B)/base/game/g_misc.o \
   $(B)/base/game/g_missile.o \
   $(B)/base/game/g_mover.o \

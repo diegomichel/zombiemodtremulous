@@ -354,8 +354,7 @@ static float PM_CmdScale(usercmd_t *cmd) {
       modifier *= (float) (pm->ps->stats[ STAT_STAMINA ] + 1000) / 500.0f;
 
     if (pm->ps->stats[ STAT_STATE ] & SS_CREEPSLOWED) {
-      if (BG_InventoryContainsUpgrade(UP_LIGHTARMOUR, pm->ps->stats) ||
-              BG_InventoryContainsUpgrade(UP_BATTLESUIT, pm->ps->stats))
+      if (BG_InventoryContainsUpgrade(UP_LIGHTARMOUR, pm->ps->stats))
         modifier *= CREEP_ARMOUR_MODIFIER;
       else
         modifier *= CREEP_MODIFIER;
@@ -2131,8 +2130,7 @@ static void PM_CheckDuck(void) {
 
   //TA: If the standing and crouching viewheights are the same the class can't crouch
   if ((pm->cmd.upmove < 0) && (PCvh != PCcvh) &&
-          pm->ps->pm_type != PM_JETPACK &&
-          !BG_InventoryContainsUpgrade(UP_BATTLESUIT, pm->ps->stats)) {
+          pm->ps->pm_type != PM_JETPACK) {
     // duck
     pm->ps->pm_flags |= PMF_DUCKED;
   } else {
@@ -2892,8 +2890,7 @@ static void PM_Weapon(void) {
 
   //FIXME: predicted angles miss a problem??
   if (pm->ps->weapon == WP_CHAINGUN) {
-    if (pm->ps->pm_flags & PMF_DUCKED ||
-            BG_InventoryContainsUpgrade(UP_BATTLESUIT, pm->ps->stats)) {
+    if (pm->ps->pm_flags & PMF_DUCKED) {
       pm->ps->delta_angles[ PITCH ] -= ANGLE2SHORT(((random() * 0.5) - 0.125) * (30 / (float) addTime));
       pm->ps->delta_angles[ YAW ] -= ANGLE2SHORT(((random() * 0.5) - 0.25) * (30.0 / (float) addTime));
     } else {
@@ -3023,7 +3020,7 @@ void PM_UpdateViewAngles(playerState_t *ps, const usercmd_t *cmd) {
     ps->viewangles[ i ] = tempang[ i ];
 
   //pull the view into the lock point
-  if (ps->pm_type == PM_GRABBED && !BG_InventoryContainsUpgrade(UP_BATTLESUIT, ps->stats)) {
+  if (ps->pm_type == PM_GRABBED) {
     vec3_t dir, angles;
 
     ByteToDir(ps->stats[ STAT_VIEWLOCK ], dir);

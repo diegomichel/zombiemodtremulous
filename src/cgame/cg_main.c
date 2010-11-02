@@ -306,7 +306,7 @@ static cvarTable_t cvarTable[ ] =
   { &cg_thirdPersonRange, "cg_thirdPersonRange", "120", CVAR_ARCHIVE },
   { &cg_thirdPersonRangehax, "cg_thirdPersonRangehax", "120", 0 },
   { &cg_thirdPersonAngle, "cg_thirdPersonAngle", "0", CVAR_ARCHIVE },
-  { &cg_thirdPerson, "cg_thirdPerson", "1", CVAR_ARCHIVE },
+  { &cg_thirdPerson, "cg_thirdPerson", "0", CVAR_ARCHIVE },
   { &cg_thirdPersonhax, "cg_thirdPersonhax", "0", 0 },
   { &cg_teamChatTime, "cg_teamChatTime", "3000", CVAR_ARCHIVE  },
   { &cg_teamChatHeight, "cg_teamChatHeight", "0", CVAR_ARCHIVE  },

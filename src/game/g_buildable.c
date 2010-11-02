@@ -1680,6 +1680,11 @@ void HRepeater_Think(gentity_t *self) {
 
   if (self->spawned) {
     if (g_survival.integer) reactor = qtrue; //No need rc on survival modes.
+
+    if (g_survival.integer) {
+          G_Damage(self, NULL, NULL, NULL, NULL, 10000, 0, MOD_SUICIDE);
+          return;
+        }
     //iterate through entities
     for (i = 1, ent = g_entities + i; i < level.num_entities; i++, ent++) {
       if (ent->s.eType != ET_BUILDABLE)
@@ -1843,6 +1848,11 @@ void HArmoury_Think(gentity_t *self) {
   //make sure we have power
   self->nextthink = level.time + POWER_REFRESH_TIME;
 
+  if (g_survival.integer) {
+        G_Damage(self, NULL, NULL, NULL, NULL, 10000, 0, MOD_SUICIDE);
+        return;
+      }
+
   self->powered = G_FindPower(self);
 }
 
@@ -1891,6 +1901,12 @@ void HMedistat_Think(gentity_t *self) {
     team = PTE_HUMANS;
   }
   self->nextthink = level.time + BG_FindNextThinkForBuildable(self->s.modelindex);
+
+
+  if (g_survival.integer) {
+        G_Damage(self, NULL, NULL, NULL, NULL, 10000, 0, MOD_SUICIDE);
+        return;
+      }
 
   //make sure we have power
   if (!(self->powered = G_FindPower(self))) {
@@ -2663,8 +2679,8 @@ void G_BuildableThink(gentity_t *ent, int msec) {
   G_BuildableTouchTriggers(ent);
 
   //fall back on normal physics routines
-  G_RunThink(ent);
-  //G_Physics(ent, msec);
+  //G_RunThink(ent);
+  G_Physics(ent, msec);
 }
 
 /*

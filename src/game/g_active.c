@@ -1,39 +1,41 @@
 /*
-===========================================================================
-Copyright (C) 1999-2005 Id Software, Inc.
-Copyright (C) 2000-2006 Tim Angus
+ ===========================================================================
+ Copyright (C) 1999-2005 Id Software, Inc.
+ Copyright (C) 2000-2006 Tim Angus
 
-This file is part of Tremulous.
+ This file is part of Tremulous.
 
-Tremulous is free software; you can redistribute it
-and/or modify it under the terms of the GNU General Public License as
-published by the Free Software Foundation; either version 2 of the License,
-or (at your option) any later version.
+ Tremulous is free software; you can redistribute it
+ and/or modify it under the terms of the GNU General Public License as
+ published by the Free Software Foundation; either version 2 of the License,
+ or (at your option) any later version.
 
-Tremulous is distributed in the hope that it will be
-useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+ Tremulous is distributed in the hope that it will be
+ useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License
-along with Tremulous; if not, write to the Free Software
-Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-===========================================================================
+ You should have received a copy of the GNU General Public License
+ along with Tremulous; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ ===========================================================================
  */
 
 #include "g_local.h"
 #include "tremulous.h"
 /*
-===============
-G_DamageFeedback
+ ===============
+ G_DamageFeedback
 
-Called just before a snapshot is sent to the given player.
-Totals up all damage and generates both the player_state_t
-damage values to that client for pain blends and kicks, and
-global pain sound events for all clients.
-===============
+ Called just before a snapshot is sent to the given player.
+ Totals up all damage and generates both the player_state_t
+ damage values to that client for pain blends and kicks, and
+ global pain sound events for all clients.
+ ===============
  */
-void P_DamageFeedback(gentity_t *player) {
+void
+P_DamageFeedback(gentity_t *player)
+{
   gclient_t *client;
   float count;
   vec3_t angles;
@@ -54,24 +56,27 @@ void P_DamageFeedback(gentity_t *player) {
 
   // world damage (falling, slime, etc) uses a special code
   // to make the blend blob centered instead of positional
-  if (client->damage_fromWorld) {
+  if (client->damage_fromWorld)
+  {
     client->ps.damagePitch = 255;
     client->ps.damageYaw = 255;
 
     client->damage_fromWorld = qfalse;
-  } else {
+  }
+  else
+  {
     vectoangles(client->damage_from, angles);
-    client->ps.damagePitch = angles[ PITCH ] / 360.0 * 256;
-    client->ps.damageYaw = angles[ YAW ] / 360.0 * 256;
+    client->ps.damagePitch = angles[PITCH] / 360.0 * 256;
+    client->ps.damageYaw = angles[YAW] / 360.0 * 256;
   }
 
   // play an apropriate pain sound
-  if ((level.time > player->pain_debounce_time) && !(player->flags & FL_GODMODE)) {
+  if ((level.time > player->pain_debounce_time) && !(player->flags & FL_GODMODE))
+  {
     player->pain_debounce_time = level.time + 700;
     G_AddEvent(player, EV_PAIN, player->health > 255 ? 255 : player->health);
     client->ps.damageEvent++;
   }
-
 
   client->ps.damageCount = count;
 
@@ -84,16 +89,19 @@ void P_DamageFeedback(gentity_t *player) {
 }
 
 /*
-=============
-P_WorldEffects
+ =============
+ P_WorldEffects
 
-Check for lava / slime contents and drowning
-=============
+ Check for lava / slime contents and drowning
+ =============
  */
-void P_WorldEffects(gentity_t *ent) {
+void
+P_WorldEffects(gentity_t *ent)
+{
   int waterlevel;
 
-  if (ent->client->noclip) {
+  if (ent->client->noclip)
+  {
     ent->client->airOutTime = level.time + 12000; // don't need air
     return;
   }
@@ -103,12 +111,15 @@ void P_WorldEffects(gentity_t *ent) {
   //
   // check for drowning
   //
-  if (waterlevel == 3) {
+  if (waterlevel == 3)
+  {
     // if out of air, start drowning
-    if (ent->client->airOutTime < level.time) {
+    if (ent->client->airOutTime < level.time)
+    {
       // drown!
       ent->client->airOutTime += 1000;
-      if (ent->health > 0) {
+      if (ent->health > 0)
+      {
         // take more damage the longer underwater
         ent->damage += 2;
         if (ent->damage > 15)
@@ -125,11 +136,12 @@ void P_WorldEffects(gentity_t *ent) {
         // don't play a normal pain sound
         ent->pain_debounce_time = level.time + 200;
 
-        G_Damage(ent, NULL, NULL, NULL, NULL,
-                ent->damage, DAMAGE_NO_ARMOR, MOD_WATER);
+        G_Damage(ent, NULL, NULL, NULL, NULL, ent->damage, DAMAGE_NO_ARMOR, MOD_WATER);
       }
     }
-  } else {
+  }
+  else
+  {
     ent->client->airOutTime = level.time + 12000;
     ent->damage = 2;
   }
@@ -137,40 +149,42 @@ void P_WorldEffects(gentity_t *ent) {
   //
   // check for sizzle damage (move to pmove?)
   //
-  if (waterlevel &&
-          (ent->watertype & (CONTENTS_LAVA | CONTENTS_SLIME))) {
-    if (ent->health > 0 &&
-            ent->pain_debounce_time <= level.time) {
-      if (ent->watertype & CONTENTS_LAVA) {
-        G_Damage(ent, NULL, NULL, NULL, NULL,
-                30 * waterlevel, 0, MOD_LAVA);
+  if (waterlevel && (ent->watertype & (CONTENTS_LAVA | CONTENTS_SLIME)))
+  {
+    if (ent->health > 0 && ent->pain_debounce_time <= level.time)
+    {
+      if (ent->watertype & CONTENTS_LAVA)
+      {
+        G_Damage(ent, NULL, NULL, NULL, NULL, 30 * waterlevel, 0, MOD_LAVA);
       }
 
-      if (ent->watertype & CONTENTS_SLIME) {
-        G_Damage(ent, NULL, NULL, NULL, NULL,
-                10 * waterlevel, 0, MOD_SLIME);
+      if (ent->watertype & CONTENTS_SLIME)
+      {
+        G_Damage(ent, NULL, NULL, NULL, NULL, 10 * waterlevel, 0, MOD_SLIME);
       }
     }
   }
 }
 
 /*
-===============
-G_SetClientSound
-===============
+ ===============
+ G_SetClientSound
+ ===============
  */
-void G_SetClientSound(gentity_t *ent) {
+void
+G_SetClientSound(gentity_t *ent)
+{
   if (ent->waterlevel && (ent->watertype & (CONTENTS_LAVA | CONTENTS_SLIME)))
     ent->client->ps.loopSound = level.snd_fry;
   else
     ent->client->ps.loopSound = 0;
 }
 
-
-
 //==============================================================
 
-static void G_ClientShove(gentity_t *ent, gentity_t *victim) {
+static void
+G_ClientShove(gentity_t *ent, gentity_t *victim)
+{
   vec3_t dir, push;
   int entMass = 200, vicMass = 200;
 
@@ -178,27 +192,31 @@ static void G_ClientShove(gentity_t *ent, gentity_t *victim) {
   if (!OnSameTeam(ent, victim))
     return;
 
-  if ((victim->client->ps.weapon >= WP_ABUILD) &&
-          (victim->client->ps.weapon <= WP_HBUILD) &&
-          (victim->client->ps.stats[ STAT_BUILDABLE ] != BA_NONE))
+  if ((victim->client->ps.weapon >= WP_ABUILD) && (victim->client->ps.weapon <= WP_HBUILD) && (victim->client->ps.stats[STAT_BUILDABLE] != BA_NONE))
     return;
 
   // alien mass is directly related to their health points
   // human mass is 200, double for bsuit  
-  if (ent->client->pers.teamSelection == PTE_ALIENS) {
+  if (ent->client->pers.teamSelection == PTE_ALIENS)
+  {
     //entMass = BG_FindHealthForClass( ent->client->pers.classSelection );
-  } else if (ent->client->pers.teamSelection == PTE_HUMANS) {
-    if (BG_InventoryContainsUpgrade(UP_BATTLESUIT, ent->client->ps.stats))
-      entMass *= 2;
-  } else
+  }
+  else if (ent->client->pers.teamSelection == PTE_HUMANS)
+  {
+    /*if (BG_InventoryContainsUpgrade(UP_BATTLESUIT, ent->client->ps.stats))
+     entMass *= 2;*/
+  }
+  else
     return;
 
-  if (victim->client->ps.stats[STAT_PTEAM] == PTE_ALIENS) {
+  if (victim->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
+  {
     //vicMass = BG_FindHealthForClass( victim->client->pers.classSelection );
-  } else if (BG_InventoryContainsUpgrade(UP_BATTLESUIT,
-          victim->client->ps.stats)) {
-    vicMass *= 2;
   }
+  /*else if (BG_InventoryContainsUpgrade(UP_BATTLESUIT, victim->client->ps.stats))
+   {
+   vicMass *= 2;
+   }*/
 
   if (vicMass <= 0 || entMass <= 0)
     return;
@@ -207,38 +225,42 @@ static void G_ClientShove(gentity_t *ent, gentity_t *victim) {
   VectorNormalizeFast(dir);
 
   // don't break the dretch elevator
-  if (abs(dir[ 2 ]) > abs(dir[ 0 ]) && abs(dir[ 2 ]) > abs(dir[ 1 ]))
+  if (abs(dir[2]) > abs(dir[0]) && abs(dir[2]) > abs(dir[1]))
     return;
 
   VectorScale(dir,
-          (g_shove.value * ((float) entMass / (float) vicMass)), push);
+      (g_shove.value * ((float) entMass / (float) vicMass)), push);
   VectorAdd(victim->client->ps.velocity, push,
-          victim->client->ps.velocity);
+      victim->client->ps.velocity);
 
 }
 
 /*
-==============
-ClientImpacts
-==============
+ ==============
+ ClientImpacts
+ ==============
  */
-void ClientImpacts(gentity_t *ent, pmove_t *pm) {
+void
+ClientImpacts(gentity_t *ent, pmove_t *pm)
+{
   int i, j;
   trace_t trace;
   gentity_t *other;
 
-  memset(&trace, 0, sizeof ( trace));
+  memset(&trace, 0, sizeof(trace));
 
-  for (i = 0; i < pm->numtouch; i++) {
-    for (j = 0; j < i; j++) {
-      if (pm->touchents[ j ] == pm->touchents[ i ])
+  for(i = 0;i < pm->numtouch;i++)
+  {
+    for(j = 0;j < i;j++)
+    {
+      if (pm->touchents[j] == pm->touchents[i])
         break;
     }
 
     if (j != i)
       continue; // duplicated
 
-    other = &g_entities[ pm->touchents[ i ] ];
+    other = &g_entities[pm->touchents[i]];
 
     // see G_UnlaggedDetectCollisions(), this is the inverse of that.
     // if our movement is blocked by another player's real position,
@@ -248,9 +270,7 @@ void ClientImpacts(gentity_t *ent, pmove_t *pm) {
       other->client->unlaggedCalc.used = qfalse;
 
     //charge attack
-    if (ent->client->ps.weapon == WP_ALEVEL4 &&
-            ent->client->ps.stats[ STAT_MISC ] > 0 &&
-            ent->client->charging)
+    if (ent->client->ps.weapon == WP_ALEVEL4 && ent->client->ps.stats[STAT_MISC] > 0 && ent->client->charging)
       ChargeAttack(ent, other);
 
     if (ent->client && other->client)
@@ -264,31 +284,33 @@ void ClientImpacts(gentity_t *ent, pmove_t *pm) {
 }
 
 /*
-============
-G_TouchTriggers
+ ============
+ G_TouchTriggers
 
-Find all trigger entities that ent's current position touches.
-Spectators will only interact with teleporters.
-============
+ Find all trigger entities that ent's current position touches.
+ Spectators will only interact with teleporters.
+ ============
  */
-void G_TouchTriggers(gentity_t *ent) {
+void
+G_TouchTriggers(gentity_t *ent)
+{
   int i, num;
   int touch[MAX_GENTITIES];
   gentity_t *hit;
   trace_t trace;
   vec3_t mins, maxs;
   vec3_t pmins, pmaxs;
-  static vec3_t range = {10, 10, 10};
+  static vec3_t range =
+  { 10, 10, 10 };
 
   if (!ent->client)
     return;
 
   // dead clients don't activate triggers!
-  if (ent->client->ps.stats[ STAT_HEALTH ] <= 0)
+  if (ent->client->ps.stats[STAT_HEALTH] <= 0)
     return;
 
-  BG_FindBBoxForClass(ent->client->ps.stats[ STAT_PCLASS ],
-          pmins, pmaxs, NULL, NULL, NULL);
+  BG_FindBBoxForClass(ent->client->ps.stats[STAT_PCLASS], pmins, pmaxs, NULL, NULL, NULL);
 
   VectorAdd(ent->client->ps.origin, pmins, mins);
   VectorAdd(ent->client->ps.origin, pmaxs, maxs);
@@ -302,8 +324,9 @@ void G_TouchTriggers(gentity_t *ent) {
   VectorAdd(ent->client->ps.origin, ent->r.mins, mins);
   VectorAdd(ent->client->ps.origin, ent->r.maxs, maxs);
 
-  for (i = 0; i < num; i++) {
-    hit = &g_entities[ touch[ i ] ];
+  for(i = 0;i < num;i++)
+  {
+    hit = &g_entities[touch[i]];
 
     if (!hit->touch && !ent->touch)
       continue;
@@ -312,13 +335,14 @@ void G_TouchTriggers(gentity_t *ent) {
       continue;
 
     // ignore most entities if a spectator
-    if ((ent->client->sess.sessionTeam == TEAM_SPECTATOR) ||
-            (ent->client->ps.stats[ STAT_STATE ] & SS_INFESTING) ||
-            (ent->client->ps.stats[ STAT_STATE ] & SS_HOVELING)) {
+    if ((ent->client->sess.sessionTeam == TEAM_SPECTATOR) || (ent->client->ps.stats[STAT_STATE] & SS_INFESTING) || (ent->client->ps.stats[STAT_STATE]
+        & SS_HOVELING))
+    {
       if (hit->s.eType != ET_TELEPORT_TRIGGER &&
-              // this is ugly but adding a new ET_? type will
-              // most likely cause network incompatibilities
-              hit->touch != Touch_DoorTrigger) {
+      // this is ugly but adding a new ET_? type will
+          // most likely cause network incompatibilities
+          hit->touch != Touch_DoorTrigger)
+      {
         //check for manually triggered doors
         manualTriggerSpectator(hit, ent);
         continue;
@@ -328,7 +352,7 @@ void G_TouchTriggers(gentity_t *ent) {
     if (!trap_EntityContact(mins, maxs, hit))
       continue;
 
-    memset(&trace, 0, sizeof ( trace));
+    memset(&trace, 0, sizeof(trace));
 
     if (hit->touch)
       hit->touch(hit, ent, &trace);
@@ -336,11 +360,13 @@ void G_TouchTriggers(gentity_t *ent) {
 }
 
 /*
-=================
-SpectatorThink
-=================
+ =================
+ SpectatorThink
+ =================
  */
-void SpectatorThink(gentity_t *ent, usercmd_t *ucmd) {
+void
+SpectatorThink(gentity_t *ent, usercmd_t *ucmd)
+{
   pmove_t pm;
   gclient_t *client;
   qboolean attack1, attack3;
@@ -351,51 +377,50 @@ void SpectatorThink(gentity_t *ent, usercmd_t *ucmd) {
   client->oldbuttons = client->buttons;
   client->buttons = ucmd->buttons;
 
-  if (ent->r.svFlags & SVF_BOT) {
+  if (ent->r.svFlags & SVF_BOT)
+  {
     G_BotSpectatorThink(ent);
     return;
   }
 
-
-  attack1 = ((client->buttons & BUTTON_ATTACK) &&
-          !(client->oldbuttons & BUTTON_ATTACK));
-  attack3 = ((client->buttons & BUTTON_USE_HOLDABLE) &&
-          !(client->oldbuttons & BUTTON_USE_HOLDABLE));
+  attack1 = ((client->buttons & BUTTON_ATTACK) && !(client->oldbuttons & BUTTON_ATTACK));
+  attack3 = ((client->buttons & BUTTON_USE_HOLDABLE) && !(client->oldbuttons & BUTTON_USE_HOLDABLE));
 
   if (client->sess.spectatorState == SPECTATOR_LOCKED || client->sess.spectatorState == SPECTATOR_FOLLOW)
     client->ps.pm_type = PM_FREEZE;
   else
     client->ps.pm_type = PM_SPECTATOR;
 
-  if (client->sess.spectatorState == SPECTATOR_FOLLOW) {
+  if (client->sess.spectatorState == SPECTATOR_FOLLOW)
+  {
     gclient_t *cl;
-    if (client->sess.spectatorClient >= 0) {
-      cl = &level.clients[ client->sess.spectatorClient ];
+    if (client->sess.spectatorClient >= 0)
+    {
+      cl = &level.clients[client->sess.spectatorClient];
       if (cl->sess.sessionTeam != TEAM_SPECTATOR)
         doPmove = qfalse;
     }
   }
 
-  if (doPmove) {
-    client->ps.speed = BG_FindSpeedForClass(client->ps.stats[ STAT_PCLASS ]);
+  if (doPmove)
+  {
+    client->ps.speed = BG_FindSpeedForClass(client->ps.stats[STAT_PCLASS]);
 
     // in case the client entered the queue while following a teammate
-    if ((client->pers.teamSelection == PTE_ALIENS &&
-            G_SearchSpawnQueue(&level.alienSpawnQueue, ent - g_entities)) ||
-            (client->pers.teamSelection == PTE_HUMANS &&
-            G_SearchSpawnQueue(&level.alienSpawnQueue, ent - g_entities))) {
+    if ((client->pers.teamSelection == PTE_ALIENS && G_SearchSpawnQueue(&level.alienSpawnQueue, ent - g_entities)) || (client->pers.teamSelection == PTE_HUMANS
+        && G_SearchSpawnQueue(&level.alienSpawnQueue, ent - g_entities)))
+    {
       client->ps.pm_flags |= PMF_QUEUED;
     }
 
-
-    client->ps.stats[ STAT_STAMINA ] = 0;
-    client->ps.stats[ STAT_MISC ] = 0;
-    client->ps.stats[ STAT_BUILDABLE ] = 0;
-    client->ps.stats[ STAT_PCLASS ] = PCL_NONE;
+    client->ps.stats[STAT_STAMINA] = 0;
+    client->ps.stats[STAT_MISC] = 0;
+    client->ps.stats[STAT_BUILDABLE] = 0;
+    client->ps.stats[STAT_PCLASS] = PCL_NONE;
     client->ps.weapon = WP_NONE;
 
     // set up for pmove
-    memset(&pm, 0, sizeof ( pm));
+    memset(&pm, 0, sizeof(pm));
     pm.ps = &client->ps;
     pm.cmd = *ucmd;
     pm.tracemask = MASK_PLAYERSOLID & ~CONTENTS_BODY; // spectators can fly through bodies
@@ -411,17 +436,19 @@ void SpectatorThink(gentity_t *ent, usercmd_t *ucmd) {
     G_TouchTriggers(ent);
     trap_UnlinkEntity(ent);
 
-    if ((attack1) && (client->ps.pm_flags & PMF_QUEUED)) {
-      if (client->ps.stats[ STAT_PTEAM ] == PTE_ALIENS)
+    if ((attack1) && (client->ps.pm_flags & PMF_QUEUED))
+    {
+      if (client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
         G_RemoveFromSpawnQueue(&level.alienSpawnQueue, client->ps.clientNum);
-      else if (client->ps.stats[ STAT_PTEAM ] == PTE_HUMANS)
+      else if (client->ps.stats[STAT_PTEAM] == PTE_HUMANS)
         G_RemoveFromSpawnQueue(&level.humanSpawnQueue, client->ps.clientNum);
 
       client->pers.classSelection = PCL_NONE;
-      client->ps.stats[ STAT_PCLASS ] = PCL_NONE;
+      client->ps.stats[STAT_PCLASS] = PCL_NONE;
     }
 
-    if (attack1 && client->pers.classSelection == PCL_NONE) {
+    if (attack1 && client->pers.classSelection == PCL_NONE)
+    {
       if (client->pers.teamSelection == PTE_NONE)
         G_TriggerMenu(client->ps.clientNum, MN_TEAM);
       else if (client->pers.teamSelection == PTE_ALIENS)
@@ -431,17 +458,20 @@ void SpectatorThink(gentity_t *ent, usercmd_t *ucmd) {
     }
 
     //set the queue position for the client side
-    if (client->ps.pm_flags & PMF_QUEUED) {
-      if (client->ps.stats[ STAT_PTEAM ] == PTE_ALIENS) {
-        client->ps.persistant[ PERS_QUEUEPOS ] =
-                G_GetPosInSpawnQueue(&level.alienSpawnQueue, client->ps.clientNum);
-      } else if (client->ps.stats[ STAT_PTEAM ] == PTE_HUMANS) {
-        client->ps.persistant[ PERS_QUEUEPOS ] =
-                G_GetPosInSpawnQueue(&level.humanSpawnQueue, client->ps.clientNum);
+    if (client->ps.pm_flags & PMF_QUEUED)
+    {
+      if (client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
+      {
+        client->ps.persistant[PERS_QUEUEPOS] = G_GetPosInSpawnQueue(&level.alienSpawnQueue, client->ps.clientNum);
+      }
+      else if (client->ps.stats[STAT_PTEAM] == PTE_HUMANS)
+      {
+        client->ps.persistant[PERS_QUEUEPOS] = G_GetPosInSpawnQueue(&level.humanSpawnQueue, client->ps.clientNum);
       }
     }
   }
-  else if (attack1 && ent->client->sess.spectatorState == SPECTATOR_FOLLOW) {
+  else if (attack1 && ent->client->sess.spectatorState == SPECTATOR_FOLLOW)
+  {
     G_StopFollowing(ent);
     client->pers.classSelection = PCL_NONE;
     if (client->pers.teamSelection == PTE_NONE)
@@ -452,37 +482,44 @@ void SpectatorThink(gentity_t *ent, usercmd_t *ucmd) {
       G_TriggerMenu(ent - g_entities, MN_H_SPAWN);
   }
 
-  if (attack3) {
+  if (attack3)
+  {
     G_ToggleFollow(ent);
   }
 }
 
 /*
-=================
-ClientInactivityTimer
+ =================
+ ClientInactivityTimer
 
-Returns qfalse if the client is dropped
-=================
+ Returns qfalse if the client is dropped
+ =================
  */
-qboolean ClientInactivityTimer(gclient_t *client) {
-  if (!g_inactivity.integer) {
+qboolean
+ClientInactivityTimer(gclient_t *client)
+{
+  if (!g_inactivity.integer)
+  {
     // give everyone some time, so if the operator sets g_inactivity during
     // gameplay, everyone isn't kicked
     client->inactivityTime = level.time + 60 * 1000;
     client->inactivityWarning = qfalse;
-  } else if (client->pers.cmd.forwardmove ||
-          client->pers.cmd.rightmove ||
-          client->pers.cmd.upmove ||
-          (client->pers.cmd.buttons & BUTTON_ATTACK)) {
+  }
+  else if (client->pers.cmd.forwardmove || client->pers.cmd.rightmove || client->pers.cmd.upmove || (client->pers.cmd.buttons & BUTTON_ATTACK))
+  {
     client->inactivityTime = level.time + g_inactivity.integer * 1000;
     client->inactivityWarning = qfalse;
-  } else if (!client->pers.localClient) {
-    if (level.time > client->inactivityTime) {
+  }
+  else if (!client->pers.localClient)
+  {
+    if (level.time > client->inactivityTime)
+    {
       trap_DropClient(client - level.clients, "Dropped due to inactivity");
       return qfalse;
     }
 
-    if (level.time > client->inactivityTime - 10000 && !client->inactivityWarning) {
+    if (level.time > client->inactivityTime - 10000 && !client->inactivityWarning)
+    {
       client->inactivityWarning = qtrue;
       trap_SendServerCommand(client - level.clients, "cp \"Ten seconds until inactivity drop!\n\"");
     }
@@ -492,13 +529,15 @@ qboolean ClientInactivityTimer(gclient_t *client) {
 }
 
 /*
-==================
-ClientTimerActions
+ ==================
+ ClientTimerActions
 
-Actions that happen once a second
-==================
+ Actions that happen once a second
+ ==================
  */
-void ClientTimerActions(gentity_t *ent, int msec) {
+void
+ClientTimerActions(gentity_t *ent, int msec)
+{
   gclient_t *client;
   gentity_t *ent2;
   usercmd_t *ucmd;
@@ -519,52 +558,60 @@ void ClientTimerActions(gentity_t *ent, int msec) {
   client->time10000 += msec;
   client->time350 += msec;
 
-  while (client->time350 >= 100) {
+  while(client->time350 >= 100)
+  {
     client->time350 -= 100;
-    if (ent->r.svFlags & SVF_BOT) {
+    if (ent->r.svFlags & SVF_BOT)
+    {
       G_BotThink(ent);
     }
   }
 
-  while (client->time100 >= 100) {
+  while(client->time100 >= 100)
+  {
     client->time100 -= 100;
     
     fillGrid(ent);
-      
+
     //if not trying to run then not trying to sprint
     if (aForward <= 64)
-      client->ps.stats[ STAT_STATE ] &= ~SS_SPEEDBOOST;
+      client->ps.stats[STAT_STATE] &= ~SS_SPEEDBOOST;
 
-    if (BG_InventoryContainsUpgrade(UP_JETPACK, client->ps.stats) && BG_UpgradeIsActive(UP_JETPACK, client->ps.stats))
-      client->ps.stats[ STAT_STATE ] &= ~SS_SPEEDBOOST;
+    /*if (BG_InventoryContainsUpgrade(UP_JETPACK, client->ps.stats) && BG_UpgradeIsActive(UP_JETPACK, client->ps.stats))
+     client->ps.stats[STAT_STATE] &= ~SS_SPEEDBOOST;*/
 
-    if ((client->ps.stats[ STAT_STATE ] & SS_SPEEDBOOST) && ucmd->upmove >= 0) {
+    if ((client->ps.stats[STAT_STATE] & SS_SPEEDBOOST) && ucmd->upmove >= 0)
+    {
       //subtract stamina
       if (BG_InventoryContainsUpgrade(UP_LIGHTARMOUR, client->ps.stats))
-        client->ps.stats[ STAT_STAMINA ] -= STAMINA_LARMOUR_TAKE;
+        client->ps.stats[STAT_STAMINA] -= STAMINA_LARMOUR_TAKE;
       else
-        client->ps.stats[ STAT_STAMINA ] -= STAMINA_SPRINT_TAKE;
+        client->ps.stats[STAT_STAMINA] -= STAMINA_SPRINT_TAKE;
 
-      if (client->ps.stats[ STAT_STAMINA ] < -MAX_STAMINA)
-        client->ps.stats[ STAT_STAMINA ] = -MAX_STAMINA;
+      if (client->ps.stats[STAT_STAMINA] < -MAX_STAMINA)
+        client->ps.stats[STAT_STAMINA] = -MAX_STAMINA;
     }
 
-    if ((aForward <= 64 && aForward > 5) || (aRight <= 64 && aRight > 5)) {
+    if ((aForward <= 64 && aForward > 5) || (aRight <= 64 && aRight > 5))
+    {
       //restore stamina
-      client->ps.stats[ STAT_STAMINA ] += STAMINA_WALK_RESTORE;
+      client->ps.stats[STAT_STAMINA] += STAMINA_WALK_RESTORE;
 
-      if (client->ps.stats[ STAT_STAMINA ] > MAX_STAMINA)
-        client->ps.stats[ STAT_STAMINA ] = MAX_STAMINA;
-    } else if (aForward <= 5 && aRight <= 5) {
+      if (client->ps.stats[STAT_STAMINA] > MAX_STAMINA)
+        client->ps.stats[STAT_STAMINA] = MAX_STAMINA;
+    }
+    else if (aForward <= 5 && aRight <= 5)
+    {
       //restore stamina faster
-      client->ps.stats[ STAT_STAMINA ] += STAMINA_STOP_RESTORE;
+      client->ps.stats[STAT_STAMINA] += STAMINA_STOP_RESTORE;
 
-      if (client->ps.stats[ STAT_STAMINA ] > MAX_STAMINA)
-        client->ps.stats[ STAT_STAMINA ] = MAX_STAMINA;
+      if (client->ps.stats[STAT_STAMINA] > MAX_STAMINA)
+        client->ps.stats[STAT_STAMINA] = MAX_STAMINA;
     }
 
     //client is charging up for a pounce
-    if (client->ps.weapon == WP_ALEVEL3 || client->ps.weapon == WP_ALEVEL3_UPG) {
+    if (client->ps.weapon == WP_ALEVEL3 || client->ps.weapon == WP_ALEVEL3_UPG)
+    {
       int pounceSpeed = 0;
 
       if (client->ps.weapon == WP_ALEVEL3)
@@ -572,165 +619,197 @@ void ClientTimerActions(gentity_t *ent, int msec) {
       else if (client->ps.weapon == WP_ALEVEL3_UPG)
         pounceSpeed = LEVEL3_POUNCE_UPG_SPEED;
 
-      if (client->ps.stats[ STAT_MISC ] < pounceSpeed && ucmd->buttons & BUTTON_ATTACK2)
-        client->ps.stats[ STAT_MISC ] += (100.0f / (float) LEVEL3_POUNCE_CHARGE_TIME) * pounceSpeed;
+      if (client->ps.stats[STAT_MISC] < pounceSpeed && ucmd->buttons & BUTTON_ATTACK2)
+        client->ps.stats[STAT_MISC] += (100.0f / (float) LEVEL3_POUNCE_CHARGE_TIME) * pounceSpeed;
 
-      if (!(ucmd->buttons & BUTTON_ATTACK2)) {
+      if (!(ucmd->buttons & BUTTON_ATTACK2))
+      {
         if (client->pmext.pouncePayload > 0)
           client->allowedToPounce = qtrue;
       }
 
-      if (client->ps.stats[ STAT_MISC ] > pounceSpeed)
-        client->ps.stats[ STAT_MISC ] = pounceSpeed;
+      if (client->ps.stats[STAT_MISC] > pounceSpeed)
+        client->ps.stats[STAT_MISC] = pounceSpeed;
     }
 
     //client is charging up for a... charge
-    if (client->ps.weapon == WP_ALEVEL4) {
-      if (client->ps.stats[ STAT_MISC ] < LEVEL4_CHARGE_TIME && ucmd->buttons & BUTTON_ATTACK2 &&
-              !client->charging) {
+    if (client->ps.weapon == WP_ALEVEL4)
+    {
+      if (client->ps.stats[STAT_MISC] < LEVEL4_CHARGE_TIME && ucmd->buttons & BUTTON_ATTACK2 && !client->charging)
+      {
         client->charging = qfalse; //should already be off, just making sure
-        client->ps.stats[ STAT_STATE ] &= ~SS_CHARGING;
+        client->ps.stats[STAT_STATE] &= ~SS_CHARGING;
 
-        if (ucmd->forwardmove > 0) {
+        if (ucmd->forwardmove > 0)
+        {
           //trigger charge sound...is quite annoying
           //if( client->ps.stats[ STAT_MISC ] <= 0 )
           //  G_AddEvent( ent, EV_LEV4_CHARGE_PREPARE, 0 );
 
-          client->ps.stats[ STAT_MISC ] += (int) (100 * (float) LEVEL4_CHARGE_CHARGE_RATIO);
+          client->ps.stats[STAT_MISC] += (int) (100 * (float) LEVEL4_CHARGE_CHARGE_RATIO);
 
-          if (client->ps.stats[ STAT_MISC ] > LEVEL4_CHARGE_TIME)
-            client->ps.stats[ STAT_MISC ] = LEVEL4_CHARGE_TIME;
-        } else
-          client->ps.stats[ STAT_MISC ] = 0;
+          if (client->ps.stats[STAT_MISC] > LEVEL4_CHARGE_TIME)
+            client->ps.stats[STAT_MISC] = LEVEL4_CHARGE_TIME;
+        }
+        else
+          client->ps.stats[STAT_MISC] = 0;
       }
 
-      if (!(ucmd->buttons & BUTTON_ATTACK2) || client->charging ||
-              client->ps.stats[ STAT_MISC ] == LEVEL4_CHARGE_TIME) {
-        if (client->ps.stats[ STAT_MISC ] > LEVEL4_MIN_CHARGE_TIME) {
-          client->ps.stats[ STAT_MISC ] -= 100;
+      if (!(ucmd->buttons & BUTTON_ATTACK2) || client->charging || client->ps.stats[STAT_MISC] == LEVEL4_CHARGE_TIME)
+      {
+        if (client->ps.stats[STAT_MISC] > LEVEL4_MIN_CHARGE_TIME)
+        {
+          client->ps.stats[STAT_MISC] -= 100;
 
           if (client->charging == qfalse)
             G_AddEvent(ent, EV_LEV4_CHARGE_START, 0);
 
           client->charging = qtrue;
-          client->ps.stats[ STAT_STATE ] |= SS_CHARGING;
+          client->ps.stats[STAT_STATE] |= SS_CHARGING;
 
           //if the charger has stopped moving take a chunk of charge away
           if (VectorLength(client->ps.velocity) < 64.0f || aRight)
-            client->ps.stats[ STAT_MISC ] = client->ps.stats[ STAT_MISC ] / 2;
+            client->ps.stats[STAT_MISC] = client->ps.stats[STAT_MISC] / 2;
 
           //can't charge backwards
           if (ucmd->forwardmove < 0)
-            client->ps.stats[ STAT_MISC ] = 0;
-        } else
-          client->ps.stats[ STAT_MISC ] = 0;
+            client->ps.stats[STAT_MISC] = 0;
+        }
+        else
+          client->ps.stats[STAT_MISC] = 0;
 
-
-        if (client->ps.stats[ STAT_MISC ] <= 0) {
-          client->ps.stats[ STAT_MISC ] = 0;
+        if (client->ps.stats[STAT_MISC] <= 0)
+        {
+          client->ps.stats[STAT_MISC] = 0;
           client->charging = qfalse;
-          client->ps.stats[ STAT_STATE ] &= ~SS_CHARGING;
+          client->ps.stats[STAT_STATE] &= ~SS_CHARGING;
         }
       }
     }
 
     //client is charging up an lcannon
-    if (client->ps.weapon == WP_LUCIFER_CANNON) {
+    if (client->ps.weapon == WP_LUCIFER_CANNON)
+    {
       int ammo;
 
       BG_UnpackAmmoArray(WP_LUCIFER_CANNON, client->ps.ammo, client->ps.powerups, &ammo, NULL);
 
-      if (client->ps.stats[ STAT_MISC ] < LCANNON_TOTAL_CHARGE && ucmd->buttons & BUTTON_ATTACK)
-        client->ps.stats[ STAT_MISC ] += (100.0f / LCANNON_CHARGE_TIME) * LCANNON_TOTAL_CHARGE;
+      if (client->ps.stats[STAT_MISC] < LCANNON_TOTAL_CHARGE && ucmd->buttons & BUTTON_ATTACK)
+        client->ps.stats[STAT_MISC] += (100.0f / LCANNON_CHARGE_TIME) * LCANNON_TOTAL_CHARGE;
 
-      if (client->ps.stats[ STAT_MISC ] > LCANNON_TOTAL_CHARGE)
-        client->ps.stats[ STAT_MISC ] = LCANNON_TOTAL_CHARGE;
+      if (client->ps.stats[STAT_MISC] > LCANNON_TOTAL_CHARGE)
+        client->ps.stats[STAT_MISC] = LCANNON_TOTAL_CHARGE;
 
-      if (client->ps.stats[ STAT_MISC ] > (ammo * LCANNON_TOTAL_CHARGE) / 10)
-        client->ps.stats[ STAT_MISC ] = ammo * LCANNON_TOTAL_CHARGE / 10;
+      if (client->ps.stats[STAT_MISC] > (ammo * LCANNON_TOTAL_CHARGE) / 10)
+        client->ps.stats[STAT_MISC] = ammo * LCANNON_TOTAL_CHARGE / 10;
     }
 
-    switch (client->ps.weapon) {
+    switch(client->ps.weapon)
+    {
       case WP_ABUILD:
       case WP_ABUILD2:
       case WP_HBUILD:
       case WP_HBUILD2:
         //set validity bit on buildable
-        if ((client->ps.stats[ STAT_BUILDABLE ] & ~SB_VALID_TOGGLEBIT) > BA_NONE) {
-          int dist = BG_FindBuildDistForClass(ent->client->ps.stats[ STAT_PCLASS ]);
+        if ((client->ps.stats[STAT_BUILDABLE] & ~SB_VALID_TOGGLEBIT) > BA_NONE)
+        {
+          int dist = BG_FindBuildDistForClass(ent->client->ps.stats[STAT_PCLASS]);
           vec3_t dummy;
 
-          if (G_CanBuild(ent, client->ps.stats[ STAT_BUILDABLE ] & ~SB_VALID_TOGGLEBIT,
-                  dist, dummy) == IBE_NONE)
-            client->ps.stats[ STAT_BUILDABLE ] |= SB_VALID_TOGGLEBIT;
+          if (G_CanBuild(ent, client->ps.stats[STAT_BUILDABLE] & ~SB_VALID_TOGGLEBIT, dist, dummy) == IBE_NONE)
+            client->ps.stats[STAT_BUILDABLE] |= SB_VALID_TOGGLEBIT;
           else
-            client->ps.stats[ STAT_BUILDABLE ] &= ~SB_VALID_TOGGLEBIT;
+            client->ps.stats[STAT_BUILDABLE] &= ~SB_VALID_TOGGLEBIT;
         }
 
       case WP_BLASTER:
         //update build timer
-        if (client->ps.stats[ STAT_MISC ] > 0)
-          client->ps.stats[ STAT_MISC ] -= 100;
+        if (client->ps.stats[STAT_MISC] > 0)
+          client->ps.stats[STAT_MISC] -= 100;
 
-        if (client->ps.stats[ STAT_MISC ] < 0)
-          client->ps.stats[ STAT_MISC ] = 0;
+        if (client->ps.stats[STAT_MISC] < 0)
+          client->ps.stats[STAT_MISC] = 0;
         break;
 
       default:
         break;
     }
 
-    if (client->ps.stats[ STAT_STATE ] & SS_MEDKIT_ACTIVE) {
+    if (client->ps.stats[STAT_STATE] & SS_MEDKIT_ACTIVE)
+    {
       int remainingStartupTime = MEDKIT_STARTUP_TIME - (level.time - client->lastMedKitTime);
 
-      if (remainingStartupTime < 0) {
-        if (ent->health < ent->client->ps.stats[ STAT_MAX_HEALTH ] &&
-                ent->client->medKitHealthToRestore &&
-                ent->client->ps.pm_type != PM_DEAD) {
+      if (remainingStartupTime < 0)
+      {
+        if (ent->health < ent->client->ps.stats[STAT_MAX_HEALTH] && ent->client->medKitHealthToRestore && ent->client->ps.pm_type != PM_DEAD)
+        {
           ent->client->medKitHealthToRestore--;
           ent->health++;
-        } else
-          ent->client->ps.stats[ STAT_STATE ] &= ~SS_MEDKIT_ACTIVE;
-      } else {
-        if (ent->health < ent->client->ps.stats[ STAT_MAX_HEALTH ] &&
-                ent->client->medKitHealthToRestore &&
-                ent->client->ps.pm_type != PM_DEAD) {
+        }
+        else
+          ent->client->ps.stats[STAT_STATE] &= ~SS_MEDKIT_ACTIVE;
+      }
+      else
+      {
+        if (ent->health < ent->client->ps.stats[STAT_MAX_HEALTH] && ent->client->medKitHealthToRestore && ent->client->ps.pm_type != PM_DEAD)
+        {
           //partial increase
-          if (level.time > client->medKitIncrementTime) {
+          if (level.time > client->medKitIncrementTime)
+          {
             ent->client->medKitHealthToRestore--;
             ent->health++;
 
-            client->medKitIncrementTime = level.time +
-                    (remainingStartupTime / MEDKIT_STARTUP_SPEED);
+            client->medKitIncrementTime = level.time + (remainingStartupTime / MEDKIT_STARTUP_SPEED);
           }
-        } else
-          ent->client->ps.stats[ STAT_STATE ] &= ~SS_MEDKIT_ACTIVE;
+        }
+        else
+          ent->client->ps.stats[STAT_STATE] &= ~SS_MEDKIT_ACTIVE;
       }
     }
   }
 
-  while (client->time1000 >= 1000) {
+  while(client->time1000 >= 1000)
+  {
     client->time1000 -= 1000;
 
-    if (g_survival.integer && (ent->client->ps.stats[STAT_PTEAM] == PTE_HUMANS)) {
-      if (level.slowdownTime > level.time) {
+    if (g_survival.integer && (ent->client->ps.stats[STAT_PTEAM] == PTE_HUMANS))
+    {
+
+      if (ent->client->ps.stats[STAT_HEALTH] > 0)
+      {
+        if (ent->client->ps.stats[STAT_HEALTH] < 2)
+        {
+          G_Damage(ent, NULL, NULL, NULL, NULL, 1, 0, MOD_SUICIDE);
+        }
+        else
+        {
+          ent->health = ent->client->ps.stats[STAT_HEALTH] -= 1;
+        }
+      }
+
+      if (level.slowdownTime > level.time)
+      {
         secToSpawn = (level.slowdownTime - level.time) / 1000;
-        if (secToSpawn == 0) {
-            for (i = 1, ent2 = g_entities + i; i < level.num_entities; i++, ent2++) {
-              if (ent2->s.eType != ET_BUILDABLE)
-                continue;
-              if (ent2->health < 0)
-                continue;
-              if(ent2->biteam != BIT_HUMANS)
-                continue;
-              
-              level.survivalStage = ent2->survivalStage;
-              level.slowdownTime = level.time;
-              break;
-            }
+        if (secToSpawn == 0)
+        {
+          for(i = 1, ent2 = g_entities + i;i < level.num_entities;i++, ent2++)
+          {
+            if (ent2->s.eType != ET_BUILDABLE)
+              continue;
+            if (ent2->health < 0)
+              continue;
+            if (ent2->biteam != BIT_HUMANS)
+              continue;
+
+            level.survivalStage = ent2->survivalStage;
+            level.slowdownTime = level.time;
+            break;
+          }
           trap_SendServerCommand(ent - g_entities, "cp \"^1Cover\n\"");
-        } else {
-          if(secToSpawn < 13) //Give some time to the other message to show up.
+        }
+        else
+        {
+          if (secToSpawn < 13) //Give some time to the other message to show up.
           {
             trap_SendServerCommand(ent - g_entities, va("cp \"^1Next wave in\n%d\n\"", secToSpawn));
           }
@@ -739,36 +818,36 @@ void ClientTimerActions(gentity_t *ent, int msec) {
     }
 
     //Forget the sob
-    if (ent->r.svFlags & SVF_BOT) {
+    if (ent->r.svFlags & SVF_BOT)
+    {
       ent->botEnemy = NULL;
     }
 
-
     //client is poison clouded
-    if (client->ps.stats[ STAT_STATE ] & SS_POISONCLOUDED)
-      G_Damage(ent, client->lastPoisonCloudedClient, client->lastPoisonCloudedClient, NULL, NULL,
-            LEVEL1_PCLOUD_DMG, 0, MOD_LEVEL1_PCLOUD);
+    if (client->ps.stats[STAT_STATE] & SS_POISONCLOUDED)
+      G_Damage(ent, client->lastPoisonCloudedClient, client->lastPoisonCloudedClient, NULL, NULL, LEVEL1_PCLOUD_DMG, 0, MOD_LEVEL1_PCLOUD);
 
     //client is poisoned
-    if (client->ps.stats[ STAT_STATE ] & SS_POISONED) {
+    if (client->ps.stats[STAT_STATE] & SS_POISONED)
+    {
       int damage = ALIEN_POISON_DMG;
 
-      if (BG_InventoryContainsUpgrade(UP_BATTLESUIT, client->ps.stats))
-        damage -= BSUIT_POISON_PROTECTION;
+      /*if (BG_InventoryContainsUpgrade(UP_BATTLESUIT, client->ps.stats))
+       damage -= BSUIT_POISON_PROTECTION;*/
       if (BG_InventoryContainsUpgrade(UP_HELMET, client->ps.stats))
         damage -= HELMET_POISON_PROTECTION;
       if (BG_InventoryContainsUpgrade(UP_LIGHTARMOUR, client->ps.stats))
         damage -= LIGHTARMOUR_POISON_PROTECTION;
 
-      G_Damage(ent, client->lastPoisonClient, client->lastPoisonClient, NULL,
-              0, damage, 0, MOD_POISON);
+      G_Damage(ent, client->lastPoisonClient, client->lastPoisonClient, NULL, 0, damage, 0, MOD_POISON);
     }
 
     //replenish alien health
-    if (client->ps.stats[ STAT_PTEAM ] == PTE_ALIENS &&
-            level.surrenderTeam != PTE_ALIENS) {
-      int entityList[ MAX_GENTITIES ];
-      vec3_t range = {LEVEL4_REGEN_RANGE, LEVEL4_REGEN_RANGE, LEVEL4_REGEN_RANGE};
+    if (client->ps.stats[STAT_PTEAM] == PTE_ALIENS && level.surrenderTeam != PTE_ALIENS)
+    {
+      int entityList[MAX_GENTITIES];
+      vec3_t range =
+      { LEVEL4_REGEN_RANGE, LEVEL4_REGEN_RANGE, LEVEL4_REGEN_RANGE };
       vec3_t mins, maxs;
       int i, num;
       gentity_t *boostEntity;
@@ -778,107 +857,119 @@ void ClientTimerActions(gentity_t *ent, int msec) {
       VectorSubtract(client->ps.origin, range, mins);
 
       num = trap_EntitiesInBox(mins, maxs, entityList, MAX_GENTITIES);
-      for (i = 0; i < num; i++) {
-        boostEntity = &g_entities[ entityList[ i ] ];
+      for(i = 0;i < num;i++)
+      {
+        boostEntity = &g_entities[entityList[i]];
 
-        if (boostEntity->client && boostEntity->client->ps.stats[ STAT_PTEAM ] == PTE_ALIENS &&
-                boostEntity->client->ps.stats[ STAT_PCLASS ] == PCL_ALIEN_LEVEL4) {
+        if (boostEntity->client && boostEntity->client->ps.stats[STAT_PTEAM] == PTE_ALIENS && boostEntity->client->ps.stats[STAT_PCLASS] == PCL_ALIEN_LEVEL4)
+        {
           modifier = LEVEL4_REGEN_MOD;
           break;
-        } else if (boostEntity->s.eType == ET_BUILDABLE &&
-                boostEntity->s.modelindex == BA_A_BOOSTER &&
-                boostEntity->spawned && boostEntity->health > 0) {
+        }
+        else if (boostEntity->s.eType == ET_BUILDABLE && boostEntity->s.modelindex == BA_A_BOOSTER && boostEntity->spawned && boostEntity->health > 0)
+        {
           modifier = BOOSTER_REGEN_MOD;
           break;
         }
       }
 
-      if (ent->health > 0 && ent->health < client->ps.stats[ STAT_MAX_HEALTH ] &&
-              (ent->lastDamageTime + ALIEN_REGEN_DAMAGE_TIME) < level.time)
-        ent->health += BG_FindRegenRateForClass(client->ps.stats[ STAT_PCLASS ]) * modifier;
+      if (ent->health > 0 && ent->health < client->ps.stats[STAT_MAX_HEALTH] && (ent->lastDamageTime + ALIEN_REGEN_DAMAGE_TIME) < level.time)
+        ent->health += BG_FindRegenRateForClass(client->ps.stats[STAT_PCLASS]) * modifier;
 
-      if (ent->health > client->ps.stats[ STAT_MAX_HEALTH ])
-        ent->health = client->ps.stats[ STAT_MAX_HEALTH ];
+      if (ent->health > client->ps.stats[STAT_MAX_HEALTH])
+        ent->health = client->ps.stats[STAT_MAX_HEALTH];
     }
 
-
-    if (ent->client->ps.stats[ STAT_HEALTH ] > 0 && ent->client->ps.stats[ STAT_PTEAM ] == PTE_ALIENS) {
+    if (ent->client->ps.stats[STAT_HEALTH] > 0 && ent->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
+    {
       ent->client->pers.statscounters.timealive++;
       level.alienStatsCounters.timealive++;
-      if (G_BuildableRange(ent->client->ps.origin, 900, BA_A_OVERMIND)) {
+      if (G_BuildableRange(ent->client->ps.origin, 900, BA_A_OVERMIND))
+      {
         ent->client->pers.statscounters.timeinbase++;
         level.alienStatsCounters.timeinbase++;
       }
-      if (BG_ClassHasAbility(ent->client->ps.stats[ STAT_PCLASS ], SCA_WALLCLIMBER)) {
+      if (BG_ClassHasAbility(ent->client->ps.stats[STAT_PCLASS], SCA_WALLCLIMBER))
+      {
         ent->client->pers.statscounters.dretchbasytime++;
         level.alienStatsCounters.dretchbasytime++;
-        if (ent->client->ps.stats[ STAT_STATE ] & SS_WALLCLIMBING || ent->client->ps.stats[ STAT_STATE ] & SS_WALLCLIMBINGCEILING) {
+        if (ent->client->ps.stats[STAT_STATE] & SS_WALLCLIMBING || ent->client->ps.stats[STAT_STATE] & SS_WALLCLIMBINGCEILING)
+        {
           ent->client->pers.statscounters.jetpackusewallwalkusetime++;
           level.alienStatsCounters.jetpackusewallwalkusetime++;
         }
       }
-    } else if (ent->client->ps.stats[ STAT_HEALTH ] > 0 && ent->client->ps.stats[ STAT_PTEAM ] == PTE_HUMANS) {
+    }
+    else if (ent->client->ps.stats[STAT_HEALTH] > 0 && ent->client->ps.stats[STAT_PTEAM] == PTE_HUMANS)
+    {
       ent->client->pers.statscounters.timealive++;
       level.humanStatsCounters.timealive++;
-      if (G_BuildableRange(ent->client->ps.origin, 900, BA_H_REACTOR)) {
+      if (G_BuildableRange(ent->client->ps.origin, 900, BA_H_REACTOR))
+      {
         ent->client->pers.statscounters.timeinbase++;
         level.humanStatsCounters.timeinbase++;
       }
-      if (BG_InventoryContainsUpgrade(UP_JETPACK, client->ps.stats)) {
-        if (client->ps.pm_type == PM_JETPACK) {
-          ent->client->pers.statscounters.jetpackusewallwalkusetime++;
-          level.humanStatsCounters.jetpackusewallwalkusetime++;
-        }
-      }
+      /*if (BG_InventoryContainsUpgrade(UP_JETPACK, client->ps.stats))
+       {
+       if (client->ps.pm_type == PM_JETPACK)
+       {
+       ent->client->pers.statscounters.jetpackusewallwalkusetime++;
+       level.humanStatsCounters.jetpackusewallwalkusetime++;
+       }
+       }*/
     }
 
     // turn off life support when a team admits defeat 
-    if (client->ps.stats[ STAT_PTEAM ] == PTE_ALIENS &&
-            level.surrenderTeam == PTE_ALIENS) {
-      G_Damage(ent, NULL, NULL, NULL, NULL,
-              BG_FindRegenRateForClass(client->ps.stats[ STAT_PCLASS ]),
-              DAMAGE_NO_ARMOR, MOD_SUICIDE);
-    } else if (client->ps.stats[ STAT_PTEAM ] == PTE_HUMANS &&
-            level.surrenderTeam == PTE_HUMANS) {
+    if (client->ps.stats[STAT_PTEAM] == PTE_ALIENS && level.surrenderTeam == PTE_ALIENS)
+    {
+      G_Damage(ent, NULL, NULL, NULL, NULL, BG_FindRegenRateForClass(client->ps.stats[STAT_PCLASS]), DAMAGE_NO_ARMOR, MOD_SUICIDE);
+    }
+    else if (client->ps.stats[STAT_PTEAM] == PTE_HUMANS && level.surrenderTeam == PTE_HUMANS)
+    {
       G_Damage(ent, NULL, NULL, NULL, NULL, 5, DAMAGE_NO_ARMOR, MOD_SUICIDE);
     }
   }
 
-  while (client->time10000 >= 10000) {
+  while(client->time10000 >= 10000)
+  {
     client->time10000 -= 10000;
 
-    if (ent->lastTimeSeen < level.time && g_survival.integer && (ent->client->ps.stats[STAT_PTEAM] == PTE_HUMANS)
-            && ent->health > 0 && ent->client->ps.stats[ STAT_HEALTH ] > 0 &&
-            ent->client->sess.sessionTeam != TEAM_SPECTATOR) {
-      if (ent->lastTimeSeen == 0) {
+    if (ent->lastTimeSeen < level.time && g_survival.integer && (ent->client->ps.stats[STAT_PTEAM] == PTE_HUMANS) && ent->health > 0
+        && ent->client->ps.stats[STAT_HEALTH] > 0 && ent->client->sess.sessionTeam != TEAM_SPECTATOR && level.slowdownTime < level.time)
+    {
+      if (ent->lastTimeSeen == 0)
+      {
         ent->lastTimeSeen = level.time + 5500; //30 seconds to camp on start
-      } else if(ent->health > 0 && level.slowdownTime < level.time && level.lastpathfindtime < level.time){
-              if(ent->health > 0 && ent->client->pers.classSelection != PCL_NONE)
-              {
-                level.lastpathfindtime = level.time + 40000; // 10 Seconds to another pathfind.
-                find_path(ent);
-                if(level.botsfollowpath)
-                {
-                  kill_aliens_withoutenemy();
-                  trap_SendServerCommand(-1,
-                  "print \"^1:>\n\"");
-                }
-                
-                /*trap_SendServerCommand(ent - g_entities,
-                  "cp \"^1Stop Camping\n\"");*/
-                //G_Damage(ent, NULL, NULL, NULL, NULL, 33, 0, MOD_SUICIDE);
-              }
-          
-          }
+      }
+      else //if (ent->health > 0 && level.slowdownTime < level.time && level.lastpathfindtime < level.time)
+      {
+        //This works needs some fixs
+        /*if (ent->health > 0 && ent->client->pers.classSelection != PCL_NONE)
+         {
+         level.lastpathfindtime = level.time + 40000; // 10 Seconds to another pathfind.
+         find_path(ent);
+         if (level.botsfollowpath)
+         {
+         kill_aliens_withoutenemy();
+         trap_SendServerCommand(-1, "print \"^1:>\n\"");
+         }*/
+
+        //trap_SendServerCommand(ent - g_entities,
+        // "cp \"^1Stop Camping\n\"");
+        //G_Damage(ent, NULL, NULL, NULL, NULL, 33, 0, MOD_SUICIDE);
+        //G_Damage(ent, NULL, NULL, NULL, NULL, 5, DAMAGE_NO_ARMOR, MOD_SUICIDE);
+      }
     }
 
-    if (client->ps.weapon == WP_ALEVEL3_UPG) {
+    if (client->ps.weapon == WP_ALEVEL3_UPG)
+    {
       int ammo, maxAmmo;
 
       BG_FindAmmoForWeapon(WP_ALEVEL3_UPG, &maxAmmo, NULL);
       BG_UnpackAmmoArray(WP_ALEVEL3_UPG, client->ps.ammo, client->ps.powerups, &ammo, NULL);
 
-      if (ammo < maxAmmo) {
+      if (ammo < maxAmmo)
+      {
         ammo++;
         BG_PackAmmoArray(WP_ALEVEL3_UPG, client->ps.ammo, client->ps.powerups, ammo, 0);
       }
@@ -887,11 +978,13 @@ void ClientTimerActions(gentity_t *ent, int msec) {
 }
 
 /*
-====================
-ClientIntermissionThink
-====================
+ ====================
+ ClientIntermissionThink
+ ====================
  */
-void ClientIntermissionThink(gclient_t *client) {
+void
+ClientIntermissionThink(gclient_t *client)
+{
   client->ps.eFlags &= ~EF_TALK;
   client->ps.eFlags &= ~EF_FIRING;
   client->ps.eFlags &= ~EF_FIRING2;
@@ -906,14 +999,16 @@ void ClientIntermissionThink(gclient_t *client) {
 }
 
 /*
-================
-ClientEvents
+ ================
+ ClientEvents
 
-Events will be passed on to the clients for presentation,
-but any server game effects are handled here
-================
+ Events will be passed on to the clients for presentation,
+ but any server game effects are handled here
+ ================
  */
-void ClientEvents(gentity_t *ent, int oldEventSequence) {
+void
+ClientEvents(gentity_t *ent, int oldEventSequence)
+{
   int i;
   int event;
   gclient_t *client;
@@ -924,34 +1019,34 @@ void ClientEvents(gentity_t *ent, int oldEventSequence) {
   pClass_t class;
 
   client = ent->client;
-  class = client->ps.stats[ STAT_PCLASS ];
+  class = client->ps.stats[STAT_PCLASS];
 
   if (oldEventSequence < client->ps.eventSequence - MAX_PS_EVENTS)
     oldEventSequence = client->ps.eventSequence - MAX_PS_EVENTS;
 
-  for (i = oldEventSequence; i < client->ps.eventSequence; i++) {
-    event = client->ps.events[ i & (MAX_PS_EVENTS - 1) ];
+  for(i = oldEventSequence;i < client->ps.eventSequence;i++)
+  {
+    event = client->ps.events[i & (MAX_PS_EVENTS - 1)];
 
-    switch (event) {
+    switch(event)
+    {
       case EV_FALL_MEDIUM:
       case EV_FALL_FAR:
         if (ent->s.eType != ET_PLAYER)
           break; // not in the player model
 
-        fallDistance = ((float) client->ps.stats[ STAT_FALLDIST ] - MIN_FALL_DISTANCE) /
-                (MAX_FALL_DISTANCE - MIN_FALL_DISTANCE);
+        fallDistance = ((float) client->ps.stats[STAT_FALLDIST] - MIN_FALL_DISTANCE) / (MAX_FALL_DISTANCE - MIN_FALL_DISTANCE);
 
         if (fallDistance < 0.0f)
           fallDistance = 0.0f;
         else if (fallDistance > 1.0f)
           fallDistance = 1.0f;
 
-        damage = (int) ((float) BG_FindHealthForClass(class) *
-                BG_FindFallDamageForClass(class) * fallDistance);
+        damage = (int) ((float) BG_FindHealthForClass(class) * BG_FindFallDamageForClass(class) * fallDistance);
 
         VectorSet(dir, 0, 0, 1);
         BG_FindBBoxForClass(class, mins, NULL, NULL, NULL, NULL);
-        mins[ 0 ] = mins[ 1 ] = 0.0f;
+        mins[0] = mins[1] = 0.0f;
         VectorAdd(client->ps.origin, mins, point);
 
         ent->pain_debounce_time = level.time + 200; // no normal pain sound
@@ -983,21 +1078,24 @@ void ClientEvents(gentity_t *ent, int oldEventSequence) {
 }
 
 /*
-==============
-SendPendingPredictableEvents
-==============
+ ==============
+ SendPendingPredictableEvents
+ ==============
  */
-void SendPendingPredictableEvents(playerState_t *ps) {
+void
+SendPendingPredictableEvents(playerState_t *ps)
+{
   gentity_t *t;
   int event, seq;
   int extEvent, number;
 
   // if there are still events pending
-  if (ps->entityEventSequence < ps->eventSequence) {
+  if (ps->entityEventSequence < ps->eventSequence)
+  {
     // create a temporary entity for this event which is sent to everyone
     // except the client who generated the event
     seq = ps->entityEventSequence & (MAX_PS_EVENTS - 1);
-    event = ps->events[ seq ] | ((ps->entityEventSequence & 3) << 8);
+    event = ps->events[seq] | ((ps->entityEventSequence & 3) << 8);
     // set external event to zero before calling BG_PlayerStateToEntityState
     extEvent = ps->externalEvent;
     ps->externalEvent = 0;
@@ -1018,15 +1116,17 @@ void SendPendingPredictableEvents(playerState_t *ps) {
 }
 
 /*
-==============
+ ==============
  G_UnlaggedStore
 
  Called on every server frame.  Stores position data for the client at that 
  into client->unlaggedHist[] and the time into level.unlaggedTimes[].  
  This data is used by G_UnlaggedCalc()
-==============
+ ==============
  */
-void G_UnlaggedStore(void) {
+void
+G_UnlaggedStore(void)
+{
   int i = 0;
   gentity_t *ent;
   unlagged_t *save;
@@ -1037,11 +1137,12 @@ void G_UnlaggedStore(void) {
   if (level.unlaggedIndex >= MAX_UNLAGGED_MARKERS)
     level.unlaggedIndex = 0;
 
-  level.unlaggedTimes[ level.unlaggedIndex ] = level.time;
+  level.unlaggedTimes[level.unlaggedIndex] = level.time;
 
-  for (i = 0; i < level.maxclients; i++) {
-    ent = &g_entities[ i ];
-    save = &ent->client->unlaggedHist[ level.unlaggedIndex ];
+  for(i = 0;i < level.maxclients;i++)
+  {
+    ent = &g_entities[i];
+    save = &ent->client->unlaggedHist[level.unlaggedIndex];
     save->used = qfalse;
     if (!ent->r.linked || !(ent->r.contents & CONTENTS_BODY))
       continue;
@@ -1055,29 +1156,33 @@ void G_UnlaggedStore(void) {
 }
 
 /*
-==============
+ ==============
  G_UnlaggedClear
  
  Mark all unlaggedHist[] markers for this client invalid.  Useful for
  preventing teleporting and death.
-==============
+ ==============
  */
-void G_UnlaggedClear(gentity_t *ent) {
+void
+G_UnlaggedClear(gentity_t *ent)
+{
   int i;
 
-  for (i = 0; i < MAX_UNLAGGED_MARKERS; i++)
-    ent->client->unlaggedHist[ i ].used = qfalse;
+  for(i = 0;i < MAX_UNLAGGED_MARKERS;i++)
+    ent->client->unlaggedHist[i].used = qfalse;
 }
 
 /*
-==============
+ ==============
  G_UnlaggedCalc
 
  Loops through all active clients and calculates their predicted position
  for time then stores it in client->unlaggedCalc
-==============
+ ==============
  */
-void G_UnlaggedCalc(int time, gentity_t *rewindEnt) {
+void
+G_UnlaggedCalc(int time, gentity_t *rewindEnt)
+{
   int i = 0;
   gentity_t *ent;
   int startIndex = level.unlaggedIndex;
@@ -1089,19 +1194,22 @@ void G_UnlaggedCalc(int time, gentity_t *rewindEnt) {
     return;
 
   // clear any calculated values from a previous run
-  for (i = 0; i < level.maxclients; i++) {
-    ent = &g_entities[ i ];
+  for(i = 0;i < level.maxclients;i++)
+  {
+    ent = &g_entities[i];
     ent->client->unlaggedCalc.used = qfalse;
   }
 
-  for (i = 0; i < MAX_UNLAGGED_MARKERS; i++) {
-    if (level.unlaggedTimes[ startIndex ] <= time)
+  for(i = 0;i < MAX_UNLAGGED_MARKERS;i++)
+  {
+    if (level.unlaggedTimes[startIndex] <= time)
       break;
     stopIndex = startIndex;
     if (--startIndex < 0)
       startIndex = MAX_UNLAGGED_MARKERS - 1;
   }
-  if (i == MAX_UNLAGGED_MARKERS) {
+  if (i == MAX_UNLAGGED_MARKERS)
+  {
     // if we searched all markers and the oldest one still isn't old enough
     // just use the oldest marker with no lerping
     lerp = 0.0f;
@@ -1112,57 +1220,60 @@ void G_UnlaggedCalc(int time, gentity_t *rewindEnt) {
     return;
 
   // lerp between two markers
-  frameMsec = level.unlaggedTimes[ stopIndex ] -
-          level.unlaggedTimes[ startIndex ];
-  if (frameMsec > 0) {
-    lerp = (float) (time - level.unlaggedTimes[ startIndex ])
-            / (float) frameMsec;
+  frameMsec = level.unlaggedTimes[stopIndex] - level.unlaggedTimes[startIndex];
+  if (frameMsec > 0)
+  {
+    lerp = (float) (time - level.unlaggedTimes[startIndex]) / (float) frameMsec;
   }
 
-  for (i = 0; i < level.maxclients; i++) {
-    ent = &g_entities[ i ];
+  for(i = 0;i < level.maxclients;i++)
+  {
+    ent = &g_entities[i];
     if (ent == rewindEnt)
       continue;
     if (!ent->r.linked || !(ent->r.contents & CONTENTS_BODY))
       continue;
     if (ent->client->pers.connected != CON_CONNECTED)
       continue;
-    if (!ent->client->unlaggedHist[ startIndex ].used)
+    if (!ent->client->unlaggedHist[startIndex].used)
       continue;
-    if (!ent->client->unlaggedHist[ stopIndex ].used)
+    if (!ent->client->unlaggedHist[stopIndex].used)
       continue;
 
     // between two unlagged markers
     VectorLerp(lerp, ent->client->unlaggedHist[ startIndex ].mins,
-            ent->client->unlaggedHist[ stopIndex ].mins,
-            ent->client->unlaggedCalc.mins);
+        ent->client->unlaggedHist[ stopIndex ].mins,
+        ent->client->unlaggedCalc.mins);
     VectorLerp(lerp, ent->client->unlaggedHist[ startIndex ].maxs,
-            ent->client->unlaggedHist[ stopIndex ].maxs,
-            ent->client->unlaggedCalc.maxs);
+        ent->client->unlaggedHist[ stopIndex ].maxs,
+        ent->client->unlaggedCalc.maxs);
     VectorLerp(lerp, ent->client->unlaggedHist[ startIndex ].origin,
-            ent->client->unlaggedHist[ stopIndex ].origin,
-            ent->client->unlaggedCalc.origin);
+        ent->client->unlaggedHist[ stopIndex ].origin,
+        ent->client->unlaggedCalc.origin);
 
     ent->client->unlaggedCalc.used = qtrue;
   }
 }
 
 /*
-==============
+ ==============
  G_UnlaggedOff
 
  Reverses the changes made to all active clients by G_UnlaggedOn()
-==============
+ ==============
  */
-void G_UnlaggedOff(void) {
+void
+G_UnlaggedOff(void)
+{
   int i = 0;
   gentity_t *ent;
 
   if (!g_unlagged.integer)
     return;
 
-  for (i = 0; i < level.maxclients; i++) {
-    ent = &g_entities[ i ];
+  for(i = 0;i < level.maxclients;i++)
+  {
+    ent = &g_entities[i];
     if (!ent->client->unlaggedBackup.used)
       continue;
     VectorCopy(ent->client->unlaggedBackup.mins, ent->r.mins);
@@ -1174,7 +1285,7 @@ void G_UnlaggedOff(void) {
 }
 
 /*
-==============
+ ==============
  G_UnlaggedOn
 
  Called after G_UnlaggedCalc() to apply the calculated values to all active
@@ -1184,10 +1295,12 @@ void G_UnlaggedOff(void) {
  As an optimization, all clients that have an unlagged position that is
  not touchable at "range" from "muzzle" will be ignored.  This is required
  to prevent a huge amount of trap_LinkEntity() calls per user cmd.
-==============
+ ==============
  */
 
-void G_UnlaggedOn(gentity_t *attacker, vec3_t muzzle, float range) {
+void
+G_UnlaggedOn(gentity_t *attacker, vec3_t muzzle, float range)
+{
   int i = 0;
   gentity_t *ent;
   unlagged_t *calc;
@@ -1198,8 +1311,9 @@ void G_UnlaggedOn(gentity_t *attacker, vec3_t muzzle, float range) {
   if (!attacker->client->pers.useUnlagged)
     return;
 
-  for (i = 0; i < level.maxclients; i++) {
-    ent = &g_entities[ i ];
+  for(i = 0;i < level.maxclients;i++)
+  {
+    ent = &g_entities[i];
     calc = &ent->client->unlaggedCalc;
 
     if (!calc->used)
@@ -1210,7 +1324,8 @@ void G_UnlaggedOn(gentity_t *attacker, vec3_t muzzle, float range) {
       continue;
     if (VectorCompare(ent->r.currentOrigin, calc->origin))
       continue;
-    if (muzzle) {
+    if (muzzle)
+    {
       float r1 = Distance(calc->origin, calc->maxs);
       float r2 = Distance(calc->origin, calc->mins);
       float maxRadius = (r1 > r2) ? r1 : r2;
@@ -1234,7 +1349,7 @@ void G_UnlaggedOn(gentity_t *attacker, vec3_t muzzle, float range) {
 }
 
 /*
-==============
+ ==============
  G_UnlaggedDetectCollisions
 
  cgame prediction will predict a client's own position all the way up to
@@ -1253,9 +1368,11 @@ void G_UnlaggedOn(gentity_t *attacker, vec3_t muzzle, float range) {
  same cmd.
 
  NOTE: this must be called after Pmove() and G_UnlaggedCalc()
-==============
+ ==============
  */
-static void G_UnlaggedDetectCollisions(gentity_t *ent) {
+static void
+G_UnlaggedDetectCollisions(gentity_t *ent)
+{
   unlagged_t *calc;
   trace_t tr;
   float r1, r2;
@@ -1282,26 +1399,27 @@ static void G_UnlaggedDetectCollisions(gentity_t *ent) {
 
   G_UnlaggedOn(ent, ent->client->oldOrigin, range);
 
-  trap_Trace(&tr, ent->client->oldOrigin, ent->r.mins, ent->r.maxs,
-          ent->client->ps.origin, ent->s.number, MASK_PLAYERSOLID);
+  trap_Trace(&tr, ent->client->oldOrigin, ent->r.mins, ent->r.maxs, ent->client->ps.origin, ent->s.number, MASK_PLAYERSOLID);
   if (tr.entityNum >= 0 && tr.entityNum < MAX_CLIENTS)
-    g_entities[ tr.entityNum ].client->unlaggedCalc.used = qfalse;
+    g_entities[tr.entityNum].client->unlaggedCalc.used = qfalse;
 
   G_UnlaggedOff();
 }
 
 /*
-==============
-ClientThink
+ ==============
+ ClientThink
 
-This will be called once for each client frame, which will
-usually be a couple times for each server frame on fast clients.
+ This will be called once for each client frame, which will
+ usually be a couple times for each server frame on fast clients.
 
-If "g_synchronousClients 1" is set, this will be called exactly
-once for each server frame, which makes for smooth demo recording.
-==============
+ If "g_synchronousClients 1" is set, this will be called exactly
+ once for each server frame, which makes for smooth demo recording.
+ ==============
  */
-void ClientThink_real(gentity_t *ent) {
+void
+ClientThink_real(gentity_t *ent)
+{
   gclient_t *client;
   pmove_t pm;
   int oldEventSequence;
@@ -1318,12 +1436,14 @@ void ClientThink_real(gentity_t *ent) {
   ucmd = &ent->client->pers.cmd;
 
   // sanity check the command time to prevent speedup cheating
-  if (ucmd->serverTime > level.time + 200) {
+  if (ucmd->serverTime > level.time + 200)
+  {
     ucmd->serverTime = level.time + 200;
     //    G_Printf("serverTime <<<<<\n" );
   }
 
-  if (ucmd->serverTime < level.time - 1000) {
+  if (ucmd->serverTime < level.time - 1000)
+  {
     ucmd->serverTime = level.time - 1000;
     //    G_Printf("serverTime >>>>>\n" );
   }
@@ -1357,7 +1477,8 @@ void ClientThink_real(gentity_t *ent) {
   else if (pmove_msec.integer > 33)
     trap_Cvar_Set("pmove_msec", "33");
 
-  if (pmove_fixed.integer || client->pers.pmoveFixed) {
+  if (pmove_fixed.integer || client->pers.pmoveFixed)
+  {
     ucmd->serverTime = ((ucmd->serverTime + pmove_msec.integer - 1) / pmove_msec.integer) * pmove_msec.integer;
     //if (ucmd->serverTime - client->ps.commandTime <= 0)
     //  return;
@@ -1366,7 +1487,8 @@ void ClientThink_real(gentity_t *ent) {
   //
   // check for exiting intermission
   //
-  if (level.intermissiontime) {
+  if (level.intermissiontime)
+  {
     ClientIntermissionThink(client);
     return;
   }
@@ -1375,7 +1497,8 @@ void ClientThink_real(gentity_t *ent) {
     G_UpdatePTRConnection(client);
 
   // spectators don't do much
-  if (client->sess.sessionTeam == TEAM_SPECTATOR) {
+  if (client->sess.sessionTeam == TEAM_SPECTATOR)
+  {
     if (client->sess.spectatorState == SPECTATOR_SCOREBOARD)
       return;
 
@@ -1392,76 +1515,68 @@ void ClientThink_real(gentity_t *ent) {
 
   if (client->noclip)
     client->ps.pm_type = PM_NOCLIP;
-  else if (client->ps.stats[ STAT_HEALTH ] <= 0)
+  else if (client->ps.stats[STAT_HEALTH] <= 0)
     client->ps.pm_type = PM_DEAD;
-  else if (client->ps.stats[ STAT_STATE ] & SS_INFESTING ||
-          client->ps.stats[ STAT_STATE ] & SS_HOVELING)
+  else if (client->ps.stats[STAT_STATE] & SS_INFESTING || client->ps.stats[STAT_STATE] & SS_HOVELING)
     client->ps.pm_type = PM_FREEZE;
-  else if (client->ps.stats[ STAT_STATE ] & SS_BLOBLOCKED ||
-          client->ps.stats[ STAT_STATE ] & SS_GRABBED)
+  else if (client->ps.stats[STAT_STATE] & SS_BLOBLOCKED || client->ps.stats[STAT_STATE] & SS_GRABBED)
     client->ps.pm_type = PM_GRABBED;
-  else if (BG_InventoryContainsUpgrade(UP_JETPACK, client->ps.stats) && BG_UpgradeIsActive(UP_JETPACK, client->ps.stats))
-    client->ps.pm_type = PM_JETPACK;
+  /*else if (BG_InventoryContainsUpgrade(UP_JETPACK, client->ps.stats) && BG_UpgradeIsActive(UP_JETPACK, client->ps.stats))
+   client->ps.pm_type = PM_JETPACK;*/
   else
     client->ps.pm_type = PM_NORMAL;
 
-  if (client->ps.stats[ STAT_STATE ] & SS_GRABBED &&
-          client->grabExpiryTime < level.time)
-    client->ps.stats[ STAT_STATE ] &= ~SS_GRABBED;
+  if (client->ps.stats[STAT_STATE] & SS_GRABBED && client->grabExpiryTime < level.time)
+    client->ps.stats[STAT_STATE] &= ~SS_GRABBED;
 
-  if (client->ps.stats[ STAT_STATE ] & SS_BLOBLOCKED &&
-          client->lastLockTime + LOCKBLOB_LOCKTIME < level.time)
-    client->ps.stats[ STAT_STATE ] &= ~SS_BLOBLOCKED;
+  if (client->ps.stats[STAT_STATE] & SS_BLOBLOCKED && client->lastLockTime + LOCKBLOB_LOCKTIME < level.time)
+    client->ps.stats[STAT_STATE] &= ~SS_BLOBLOCKED;
 
-  if (client->ps.stats[ STAT_STATE ] & SS_SLOWLOCKED &&
-          client->lastSlowTime + ABUILDER_BLOB_TIME < level.time)
-    client->ps.stats[ STAT_STATE ] &= ~SS_SLOWLOCKED;
+  if (client->ps.stats[STAT_STATE] & SS_SLOWLOCKED && client->lastSlowTime + ABUILDER_BLOB_TIME < level.time)
+    client->ps.stats[STAT_STATE] &= ~SS_SLOWLOCKED;
 
-  client->ps.stats[ STAT_BOOSTTIME ] = level.time - client->lastBoostedTime;
+  client->ps.stats[STAT_BOOSTTIME] = level.time - client->lastBoostedTime;
 
-  if (client->ps.stats[ STAT_STATE ] & SS_BOOSTED &&
-          client->lastBoostedTime + BOOST_TIME < level.time)
-    client->ps.stats[ STAT_STATE ] &= ~SS_BOOSTED;
+  if (client->ps.stats[STAT_STATE] & SS_BOOSTED && client->lastBoostedTime + BOOST_TIME < level.time)
+    client->ps.stats[STAT_STATE] &= ~SS_BOOSTED;
 
-  if (client->ps.stats[ STAT_STATE ] & SS_POISONCLOUDED &&
-          client->lastPoisonCloudedTime + LEVEL1_PCLOUD_TIME < level.time)
-    client->ps.stats[ STAT_STATE ] &= ~SS_POISONCLOUDED;
+  if (client->ps.stats[STAT_STATE] & SS_POISONCLOUDED && client->lastPoisonCloudedTime + LEVEL1_PCLOUD_TIME < level.time)
+    client->ps.stats[STAT_STATE] &= ~SS_POISONCLOUDED;
 
-  if (client->ps.stats[ STAT_STATE ] & SS_POISONED &&
-          client->lastPoisonTime + ALIEN_POISON_TIME < level.time)
-    client->ps.stats[ STAT_STATE ] &= ~SS_POISONED;
+  if (client->ps.stats[STAT_STATE] & SS_POISONED && client->lastPoisonTime + ALIEN_POISON_TIME < level.time)
+    client->ps.stats[STAT_STATE] &= ~SS_POISONED;
 
   client->ps.gravity = g_gravity.value;
 
-  if (BG_InventoryContainsUpgrade(UP_MEDKIT, client->ps.stats) &&
-          BG_UpgradeIsActive(UP_MEDKIT, client->ps.stats)) {
+  if (BG_InventoryContainsUpgrade(UP_MEDKIT, client->ps.stats) && BG_UpgradeIsActive(UP_MEDKIT, client->ps.stats))
+  {
     //if currently using a medkit or have no need for a medkit now
-    if (client->ps.stats[ STAT_STATE ] & SS_MEDKIT_ACTIVE ||
-            (client->ps.stats[ STAT_HEALTH ] == client->ps.stats[ STAT_MAX_HEALTH ] &&
-            !(client->ps.stats[ STAT_STATE ] & SS_POISONED))) {
+    if (client->ps.stats[STAT_STATE] & SS_MEDKIT_ACTIVE || (client->ps.stats[STAT_HEALTH] == client->ps.stats[STAT_MAX_HEALTH]
+        && !(client->ps.stats[STAT_STATE] & SS_POISONED)))
+    {
       BG_DeactivateUpgrade(UP_MEDKIT, client->ps.stats);
-    } else if (client->ps.stats[ STAT_HEALTH ] > 0) {
+    }
+    else if (client->ps.stats[STAT_HEALTH] > 0)
+    {
       //remove anti toxin
       BG_DeactivateUpgrade(UP_MEDKIT, client->ps.stats);
       BG_RemoveUpgradeFromInventory(UP_MEDKIT, client->ps.stats);
 
-      client->ps.stats[ STAT_STATE ] &= ~SS_POISONED;
-      client->ps.stats[ STAT_STATE ] &= ~SS_POISONCLOUDED;
+      client->ps.stats[STAT_STATE] &= ~SS_POISONED;
+      client->ps.stats[STAT_STATE] &= ~SS_POISONCLOUDED;
       client->poisonImmunityTime = level.time + MEDKIT_POISON_IMMUNITY_TIME;
 
-      client->ps.stats[ STAT_STATE ] |= SS_MEDKIT_ACTIVE;
+      client->ps.stats[STAT_STATE] |= SS_MEDKIT_ACTIVE;
       client->lastMedKitTime = level.time;
-      client->medKitHealthToRestore =
-              client->ps.stats[ STAT_MAX_HEALTH ] - client->ps.stats[ STAT_HEALTH ];
-      client->medKitIncrementTime = level.time +
-              (MEDKIT_STARTUP_TIME / MEDKIT_STARTUP_SPEED);
+      client->medKitHealthToRestore = client->ps.stats[STAT_MAX_HEALTH] - client->ps.stats[STAT_HEALTH];
+      client->medKitIncrementTime = level.time + (MEDKIT_STARTUP_TIME / MEDKIT_STARTUP_SPEED);
 
       G_AddEvent(ent, EV_MEDKIT_USED, 0);
     }
   }
 
-  if (BG_InventoryContainsUpgrade(UP_GRENADE, client->ps.stats) &&
-          BG_UpgradeIsActive(UP_GRENADE, client->ps.stats)) {
+  if (BG_InventoryContainsUpgrade(UP_GRENADE, client->ps.stats) && BG_UpgradeIsActive(UP_GRENADE, client->ps.stats))
+  {
     int lastWeapon = ent->s.weapon;
 
     //remove grenade
@@ -1474,56 +1589,58 @@ void ClientThink_real(gentity_t *ent) {
     ent->s.weapon = lastWeapon;
   }
 
-
   /*if( BG_InventoryContainsUpgrade( UP_BOMB, client->ps.stats ) &&
-      BG_UpgradeIsActive( UP_BOMB, client->ps.stats ) )
-  {
-    int lastWeapon = ent->s.weapon;
+   BG_UpgradeIsActive( UP_BOMB, client->ps.stats ) )
+   {
+   int lastWeapon = ent->s.weapon;
 
-    //remove grenade
-    BG_DeactivateUpgrade( UP_BOMB, client->ps.stats );
-    BG_RemoveUpgradeFromInventory( UP_BOMB, client->ps.stats );
+   //remove grenade
+   BG_DeactivateUpgrade( UP_BOMB, client->ps.stats );
+   BG_RemoveUpgradeFromInventory( UP_BOMB, client->ps.stats );
 
-    //M-M-M-M-MONSTER HACK
-    ent->s.weapon = WP_BOMB;
-    FireWeapon( ent );
-    ent->s.weapon = lastWeapon;
-  }*/
+   //M-M-M-M-MONSTER HACK
+   ent->s.weapon = WP_BOMB;
+   FireWeapon( ent );
+   ent->s.weapon = lastWeapon;
+   }*/
 
   // set speed
-  client->ps.speed = g_speed.value * BG_FindSpeedForClass(client->ps.stats[ STAT_PCLASS ]);
+  client->ps.speed = g_speed.value * BG_FindSpeedForClass(client->ps.stats[STAT_PCLASS]);
 
   /*if(client->pers.hyperspeed == 1)
-  {
-    client->ps.speed = client->ps.speed * 5.5;
-  }*/
+   {
+   client->ps.speed = client->ps.speed * 5.5;
+   }*/
 
   if (client->lastCreepSlowTime + CREEP_TIMEOUT < level.time)
-    client->ps.stats[ STAT_STATE ] &= ~SS_CREEPSLOWED;
+    client->ps.stats[STAT_STATE] &= ~SS_CREEPSLOWED;
 
   //randomly disable the jet pack if damaged
-  if (BG_InventoryContainsUpgrade(UP_JETPACK, client->ps.stats) &&
-          BG_UpgradeIsActive(UP_JETPACK, client->ps.stats)) {
-    if (ent->lastDamageTime + JETPACK_DISABLE_TIME > level.time) {
-      if (random() > JETPACK_DISABLE_CHANCE)
-        client->ps.pm_type = PM_NORMAL;
-    }
+  /*if (BG_InventoryContainsUpgrade(UP_JETPACK, client->ps.stats) && BG_UpgradeIsActive(UP_JETPACK, client->ps.stats))
+   {
+   if (ent->lastDamageTime + JETPACK_DISABLE_TIME > level.time)
+   {
+   if (random() > JETPACK_DISABLE_CHANCE)
+   client->ps.pm_type = PM_NORMAL;
+   }
 
-    //switch jetpack off if no reactor
-    //if( !level.reactorPresent )
-    //  BG_DeactivateUpgrade( UP_JETPACK, client->ps.stats );
-  }
+   //switch jetpack off if no reactor
+   //if( !level.reactorPresent )
+   //  BG_DeactivateUpgrade( UP_JETPACK, client->ps.stats );
+   }*/
 
   // set up for pmove
   oldEventSequence = client->ps.eventSequence;
 
-  memset(&pm, 0, sizeof ( pm));
+  memset(&pm, 0, sizeof(pm));
 
-  if (!(ucmd->buttons & BUTTON_TALK) && !(client->ps.pm_flags & PMF_RESPAWNED)) {
-    switch (client->ps.weapon) {
+  if (!(ucmd->buttons & BUTTON_TALK) && !(client->ps.pm_flags & PMF_RESPAWNED))
+  {
+    switch(client->ps.weapon)
+    {
       case WP_ALEVEL0:
         if (client->ps.weaponTime <= 0)
-          pm.autoWeaponHit[ client->ps.weapon ] = CheckVenomAttack(ent);
+          pm.autoWeaponHit[client->ps.weapon] = CheckVenomAttack(ent);
         break;
 
       case WP_ALEVEL1:
@@ -1534,7 +1651,7 @@ void ClientThink_real(gentity_t *ent) {
       case WP_ALEVEL3:
       case WP_ALEVEL3_UPG:
         if (client->ps.weaponTime <= 0)
-          pm.autoWeaponHit[ client->ps.weapon ] = CheckPounceAttack(ent);
+          pm.autoWeaponHit[client->ps.weapon] = CheckPounceAttack(ent);
         break;
 
       default:
@@ -1542,7 +1659,8 @@ void ClientThink_real(gentity_t *ent) {
     }
   }
 
-  if (ent->flags & FL_FORCE_GESTURE) {
+  if (ent->flags & FL_FORCE_GESTURE)
+  {
     ent->flags &= ~FL_FORCE_GESTURE;
     ent->client->pers.cmd.buttons |= BUTTON_GESTURE;
   }
@@ -1554,8 +1672,7 @@ void ClientThink_real(gentity_t *ent) {
   if (pm.ps->pm_type == PM_DEAD)
     pm.tracemask = MASK_PLAYERSOLID; // & ~CONTENTS_BODY;
 
-  if (pm.ps->stats[ STAT_STATE ] & SS_INFESTING ||
-          pm.ps->stats[ STAT_STATE ] & SS_HOVELING)
+  if (pm.ps->stats[STAT_STATE] & SS_INFESTING || pm.ps->stats[STAT_STATE] & SS_HOVELING)
     pm.tracemask = MASK_PLAYERSOLID & ~CONTENTS_BODY;
   else
     pm.tracemask = MASK_PLAYERSOLID;
@@ -1622,7 +1739,7 @@ void ClientThink_real(gentity_t *ent) {
     ent->eventTime = level.time;
 
   // Don't think anymore if dead
-  if (client->ps.stats[ STAT_HEALTH ] <= 0)
+  if (client->ps.stats[STAT_HEALTH] <= 0)
     return;
 
   // swap and latch button actions
@@ -1630,37 +1747,44 @@ void ClientThink_real(gentity_t *ent) {
   client->buttons = ucmd->buttons;
   client->latched_buttons |= client->buttons & ~client->oldbuttons;
 
-  if ((client->buttons & BUTTON_GETFLAG) && !(client->oldbuttons & BUTTON_GETFLAG) &&
-          client->ps.stats[ STAT_HEALTH ] > 0) {
+  if ((client->buttons & BUTTON_GETFLAG) && !(client->oldbuttons & BUTTON_GETFLAG) && client->ps.stats[STAT_HEALTH] > 0)
+  {
     trace_t trace;
     vec3_t view, point;
     gentity_t *traceEnt;
 
-    if (client->ps.stats[ STAT_STATE ] & SS_HOVELING) {
+    if (client->ps.stats[STAT_STATE] & SS_HOVELING)
+    {
       gentity_t *hovel = client->hovel;
 
       //only let the player out if there is room
-      if (!AHovel_Blocked(hovel, ent, qtrue)) {
+      if (!AHovel_Blocked(hovel, ent, qtrue))
+      {
         //prevent lerping
         client->ps.eFlags ^= EF_TELEPORT_BIT;
         client->ps.eFlags &= ~EF_NODRAW;
         G_UnlaggedClear(ent);
 
         //client leaves hovel
-        client->ps.stats[ STAT_STATE ] &= ~SS_HOVELING;
+        client->ps.stats[STAT_STATE] &= ~SS_HOVELING;
 
         //hovel is empty
         G_SetBuildableAnim(hovel, BANIM_ATTACK2, qfalse);
         hovel->active = qfalse;
-      } else {
+      }
+      else
+      {
         //exit is blocked
         G_TriggerMenu(ent->client->ps.clientNum, MN_A_HOVEL_BLOCKED);
       }
-    } else {
+    }
+    else
+    {
 #define USE_OBJECT_RANGE 64
 
-      int entityList[ MAX_GENTITIES ];
-      vec3_t range = {USE_OBJECT_RANGE, USE_OBJECT_RANGE, USE_OBJECT_RANGE};
+      int entityList[MAX_GENTITIES];
+      vec3_t range =
+      { USE_OBJECT_RANGE, USE_OBJECT_RANGE, USE_OBJECT_RANGE };
       vec3_t mins, maxs;
       int i, num;
 
@@ -1669,31 +1793,38 @@ void ClientThink_real(gentity_t *ent) {
       VectorMA(client->ps.origin, USE_OBJECT_RANGE, view, point);
       trap_Trace(&trace, client->ps.origin, NULL, NULL, point, ent->s.number, MASK_SHOT);
 
-      traceEnt = &g_entities[ trace.entityNum ];
+      traceEnt = &g_entities[trace.entityNum];
 
-      if (traceEnt && traceEnt->biteam == client->ps.stats[ STAT_PTEAM ] && traceEnt->use)
+      if (traceEnt && traceEnt->biteam == client->ps.stats[STAT_PTEAM] && traceEnt->use)
         traceEnt->use(traceEnt, ent, ent); //other and activator are the same in this context
-      else {
+      else
+      {
         //no entity in front of player - do a small area search
 
         VectorAdd(client->ps.origin, range, maxs);
         VectorSubtract(client->ps.origin, range, mins);
 
         num = trap_EntitiesInBox(mins, maxs, entityList, MAX_GENTITIES);
-        for (i = 0; i < num; i++) {
-          traceEnt = &g_entities[ entityList[ i ] ];
+        for(i = 0;i < num;i++)
+        {
+          traceEnt = &g_entities[entityList[i]];
 
-          if (traceEnt && traceEnt->biteam == client->ps.stats[ STAT_PTEAM ] && traceEnt->use) {
+          if (traceEnt && traceEnt->biteam == client->ps.stats[STAT_PTEAM] && traceEnt->use)
+          {
             traceEnt->use(traceEnt, ent, ent); //other and activator are the same in this context
             break;
           }
         }
 
-        if (i == num && client->ps.stats[ STAT_PTEAM ] == PTE_ALIENS) {
-          if (BG_UpgradeClassAvailable(&client->ps)) {
+        if (i == num && client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
+        {
+          if (BG_UpgradeClassAvailable(&client->ps))
+          {
             //no nearby objects and alien - show class menu
             G_TriggerMenu(ent->client->ps.clientNum, MN_A_INFEST);
-          } else {
+          }
+          else
+          {
             //flash frags
             G_AddEvent(ent, EV_ALIEN_EVOLVE_FAILED, 0);
           }
@@ -1702,18 +1833,20 @@ void ClientThink_real(gentity_t *ent) {
     }
   }
 
-  if (level.framenum > client->retriggerArmouryMenu && client->retriggerArmouryMenu) {
+  if (level.framenum > client->retriggerArmouryMenu && client->retriggerArmouryMenu)
+  {
     G_TriggerMenu(client->ps.clientNum, MN_H_ARMOURY);
 
     client->retriggerArmouryMenu = 0;
   }
 
   // Give clients some credit periodically
-  if (ent->client->lastKillTime + FREEKILL_PERIOD < level.time) {
+  if (ent->client->lastKillTime + FREEKILL_PERIOD < level.time)
+  {
     //if( !g_suddenDeath.integer ) {
-    if (ent->client->ps.stats[ STAT_PTEAM ] == PTE_ALIENS)
+    if (ent->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
       G_AddCreditToClient(ent->client, FREEKILL_ALIEN, qtrue);
-    if (ent->client->ps.stats[ STAT_PTEAM ] == PTE_HUMANS)
+    if (ent->client->ps.stats[STAT_PTEAM] == PTE_HUMANS)
       G_AddCreditToClient(ent->client, FREEKILL_HUMAN, qtrue);
     //}
     ent->client->lastKillTime = level.time;
@@ -1722,9 +1855,10 @@ void ClientThink_real(gentity_t *ent) {
   // perform once-a-second actions
   ClientTimerActions(ent, msec);
 
-  if (ent->suicideTime > 0 && ent->suicideTime < level.time) {
+  if (ent->suicideTime > 0 && ent->suicideTime < level.time)
+  {
     ent->flags &= ~FL_GODMODE;
-    ent->client->ps.stats[ STAT_HEALTH ] = ent->health = 0;
+    ent->client->ps.stats[STAT_HEALTH] = ent->health = 0;
     player_die(ent, ent, ent, 100000, MOD_SUICIDE);
 
     ent->suicideTime = 0;
@@ -1732,13 +1866,15 @@ void ClientThink_real(gentity_t *ent) {
 }
 
 /*
-==================
-ClientThink
+ ==================
+ ClientThink
 
-A new command has arrived from the client
-==================
+ A new command has arrived from the client
+ ==================
  */
-void ClientThink(int clientNum) {
+void
+ClientThink(int clientNum)
+{
   gentity_t *ent;
 
   ent = g_entities + clientNum;
@@ -1748,11 +1884,24 @@ void ClientThink(int clientNum) {
   // phone jack if they don't get any for a while
   ent->client->lastCmdTime = level.time;
 
+  if (ent->client && g_survival.integer && ent->client->ps.stats[STAT_PTEAM] == PTE_HUMANS)
+  {
+    ent->s.constantLight = ent->client->ps.stats[STAT_HEALTH];
+  }
+
   if (!(ent->r.svFlags & SVF_BOT) && !g_synchronousClients.integer)
     ClientThink_real(ent);
 }
 
-void G_RunClient(gentity_t *ent) {
+void
+G_RunClient(gentity_t *ent)
+{
+
+  if (ent->client && g_survival.integer && ent->client->ps.stats[STAT_PTEAM] == PTE_HUMANS)
+  {
+    ent->s.constantLight = ent->client->ps.stats[STAT_HEALTH];
+  }
+
   if (!(ent->r.svFlags & SVF_BOT) && !g_synchronousClients.integer)
     return;
 
@@ -1761,44 +1910,50 @@ void G_RunClient(gentity_t *ent) {
 }
 
 /*
-==================
-SpectatorClientEndFrame
+ ==================
+ SpectatorClientEndFrame
 
-==================
+ ==================
  */
-void SpectatorClientEndFrame(gentity_t *ent) {
+void
+SpectatorClientEndFrame(gentity_t *ent)
+{
   gclient_t *cl;
   int clientNum, flags;
   int score, ping;
   vec3_t spawn_origin, spawn_angles;
 
   // if we are doing a chase cam or a remote view, grab the latest info
-  if (ent->client->sess.spectatorState == SPECTATOR_FOLLOW) {
+  if (ent->client->sess.spectatorState == SPECTATOR_FOLLOW)
+  {
     clientNum = ent->client->sess.spectatorClient;
 
-    if (clientNum >= 0) {
-      cl = &level.clients[ clientNum ];
+    if (clientNum >= 0)
+    {
+      cl = &level.clients[clientNum];
 
-      if (cl->pers.connected == CON_CONNECTED) {
+      if (cl->pers.connected == CON_CONNECTED)
+      {
 
-        if (cl -> sess.spectatorState != SPECTATOR_FOLLOW) {
-          flags = (cl->ps.eFlags & ~(EF_VOTED | EF_TEAMVOTED)) |
-                  (ent->client->ps.eFlags & (EF_VOTED | EF_TEAMVOTED));
-          score = ent->client->ps.persistant[ PERS_SCORE ];
+        if (cl -> sess.spectatorState != SPECTATOR_FOLLOW)
+        {
+          flags = (cl->ps.eFlags & ~(EF_VOTED | EF_TEAMVOTED)) | (ent->client->ps.eFlags & (EF_VOTED | EF_TEAMVOTED));
+          score = ent->client->ps.persistant[PERS_SCORE];
           ping = ent->client->ps.ping;
           ent->client->ps = cl->ps;
-          ent->client->ps.persistant[ PERS_SCORE ] = score;
+          ent->client->ps.persistant[PERS_SCORE] = score;
           ent->client->ps.ping = ping;
           ent->client->ps.eFlags = flags;
           ent->client->ps.pm_flags |= PMF_FOLLOW;
           ent->client->ps.pm_flags &= ~PMF_QUEUED;
-        } else //we are stickyspec-spectating someone who is spectating someone else
+        }
+        else //we are stickyspec-spectating someone who is spectating someone else
         {
           ent->client->ps.clientNum = (g_entities + clientNum)->s.number;
           ent->client->ps.commandTime = cl->ps.commandTime;
           ent->client->ps.weapon = 0;
           ent->client->ps.pm_flags |= PMF_FOLLOW;
-          ent->client->ps.stats[ STAT_PCLASS ] = PCL_NONE;
+          ent->client->ps.stats[STAT_PCLASS] = PCL_NONE;
 
           if (cl->pers.teamSelection == PTE_ALIENS)
             G_SelectAlienLockSpawnPoint(spawn_origin, spawn_angles);
@@ -1815,18 +1970,21 @@ void SpectatorClientEndFrame(gentity_t *ent) {
 }
 
 /*
-==============
-ClientEndFrame
+ ==============
+ ClientEndFrame
 
-Called at the end of each server frame for each connected client
-A fast client will have multiple ClientThink for each ClientEdFrame,
-while a slow client may have multiple ClientEndFrame between ClientThink.
-==============
+ Called at the end of each server frame for each connected client
+ A fast client will have multiple ClientThink for each ClientEdFrame,
+ while a slow client may have multiple ClientEndFrame between ClientThink.
+ ==============
  */
-void ClientEndFrame(gentity_t *ent) {
+void
+ClientEndFrame(gentity_t *ent)
+{
   clientPersistant_t *pers;
 
-  if (ent->client->sess.sessionTeam == TEAM_SPECTATOR) {
+  if (ent->client->sess.sessionTeam == TEAM_SPECTATOR)
+  {
     SpectatorClientEndFrame(ent);
     return;
   }
@@ -1834,8 +1992,8 @@ void ClientEndFrame(gentity_t *ent) {
   pers = &ent->client->pers;
 
   // save a copy of certain playerState values in case of SPECTATOR_FOLLOW 
-  pers->score = ent->client->ps.persistant[ PERS_SCORE ];
-  pers->credit = ent->client->ps.persistant[ PERS_CREDIT ];
+  pers->score = ent->client->ps.persistant[PERS_SCORE];
+  pers->credit = ent->client->ps.persistant[PERS_CREDIT];
 
   //
   // If the end of unit layout is displayed, don't give
@@ -1856,10 +2014,10 @@ void ClientEndFrame(gentity_t *ent) {
   else
     ent->s.eFlags &= ~EF_CONNECTION;
 
-  ent->client->ps.stats[ STAT_HEALTH ] = ent->health; // FIXME: get rid of ent->health...
+  ent->client->ps.stats[STAT_HEALTH] = ent->health; // FIXME: get rid of ent->health...
 
   // respawn if dead
-  if (ent->client->ps.stats[ STAT_HEALTH ] <= 0 && level.time >= ent->client->respawnTime)
+  if (ent->client->ps.stats[STAT_HEALTH] <= 0 && level.time >= ent->client->respawnTime)
     respawn(ent);
 
   G_SetClientSound(ent);
@@ -1872,5 +2030,4 @@ void ClientEndFrame(gentity_t *ent) {
 
   SendPendingPredictableEvents(&ent->client->ps);
 }
-
 

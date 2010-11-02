@@ -1169,6 +1169,7 @@ typedef struct {
 // Different eTypes may use the information in different ways
 // The messages are delta compressed, so it doesn't really matter if
 // the structure size is fairly large
+// To modify this structure you need recompile the tremded seems to be.
 
 typedef struct entityState_s {
 	int		number;			// entity index

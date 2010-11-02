@@ -239,11 +239,11 @@ void ScoreboardMessage(gentity_t *ent) {
             (ent->client->pers.teamSelection == PTE_NONE || cl->pers.teamSelection == ent->client->pers.teamSelection)) {
       weapon = cl->ps.weapon;
 
-      if (BG_InventoryContainsUpgrade(UP_BATTLESUIT, cl->ps.stats))
+      /*if (BG_InventoryContainsUpgrade(UP_BATTLESUIT, cl->ps.stats))
         upgrade = UP_BATTLESUIT;
       else if (BG_InventoryContainsUpgrade(UP_JETPACK, cl->ps.stats))
         upgrade = UP_JETPACK;
-      else if (BG_InventoryContainsUpgrade(UP_BATTPACK, cl->ps.stats))
+      else*/ if (BG_InventoryContainsUpgrade(UP_BATTPACK, cl->ps.stats))
         upgrade = UP_BATTPACK;
       else if (BG_InventoryContainsUpgrade(UP_HELMET, cl->ps.stats))
         upgrade = UP_HELMET;
@@ -2713,10 +2713,10 @@ void Cmd_Buy_f(gentity_t *ent) {
   } else if (upgrade != UP_NONE) {
 
     //ROTAX  
-    if (upgrade == UP_JETPACK) {
+    /*if (upgrade == UP_JETPACK) {
       trap_SendServerCommand(ent - g_entities, va("print \"You can't buy jetpack in Zombie mod\n\""));
       return;
-    }
+    }*/
 
     //already got this?
     if (BG_InventoryContainsUpgrade(upgrade, ent->client->ps.stats)) {
@@ -2736,11 +2736,11 @@ void Cmd_Buy_f(gentity_t *ent) {
       return;
     }
 
-    if (BG_FindTeamForUpgrade(upgrade) != WUT_HUMANS || upgrade == UP_BATTLESUIT) {
+    /*if (BG_FindTeamForUpgrade(upgrade) != WUT_HUMANS || upgrade == UP_BATTLESUIT) {
       //shouldn't need a fancy dialog
       trap_SendServerCommand(ent - g_entities, va("print \"You can't buy alien items\n\""));
       return;
-    }
+    }*/
 
     //are we /allowed/ to buy this?
     if (!BG_FindPurchasableForUpgrade(upgrade)) {
@@ -2754,11 +2754,11 @@ void Cmd_Buy_f(gentity_t *ent) {
       return;
     }
 
-    if (upgrade == UP_BATTLESUIT && ent->client->ps.pm_flags & PMF_DUCKED) {
+    /*if (upgrade == UP_BATTLESUIT && ent->client->ps.pm_flags & PMF_DUCKED) {
       trap_SendServerCommand(ent - g_entities,
               va("print \"You can't buy this item while crouching\n\""));
       return;
-    }
+    }*/
 
     if (upgrade == UP_AMMO) {
       G_GiveClientMaxAmmo(ent, buyingEnergyAmmo);
@@ -3038,9 +3038,9 @@ Cmd_Boost_f
 =================
  */
 void Cmd_Boost_f(gentity_t *ent) {
-  if (BG_InventoryContainsUpgrade(UP_JETPACK, ent->client->ps.stats) &&
+  /*if (BG_InventoryContainsUpgrade(UP_JETPACK, ent->client->ps.stats) &&
           BG_UpgradeIsActive(UP_JETPACK, ent->client->ps.stats))
-    return;
+    return;*/
 
   if (ent->client->pers.cmd.buttons & BUTTON_WALKING)
     return;
@@ -3271,8 +3271,8 @@ void G_StopFollowing(gentity_t *ent) {
   ent->client->ps.pm_flags &= ~PMF_FOLLOW;
 
   // Prevent spawning with bsuit in rare case
-  if (BG_InventoryContainsUpgrade(UP_BATTLESUIT, ent->client->ps.stats))
-    BG_RemoveUpgradeFromInventory(UP_BATTLESUIT, ent->client->ps.stats);
+  /*if (BG_InventoryContainsUpgrade(UP_BATTLESUIT, ent->client->ps.stats))
+    BG_RemoveUpgradeFromInventory(UP_BATTLESUIT, ent->client->ps.stats);*/
 
   ent->client->ps.stats[ STAT_STATE ] &= ~SS_WALLCLIMBING;
   ent->client->ps.stats[ STAT_STATE ] &= ~SS_WALLCLIMBINGCEILING;

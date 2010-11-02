@@ -735,7 +735,7 @@ void cancelBuildFire(gentity_t *ent) {
   //Reapir budy.
   if (ent->client->ps.stats[ STAT_PTEAM ] == PTE_HUMANS && g_survival.integer) {
     AngleVectors(ent->client->ps.viewangles, forward, NULL, NULL);
-    VectorMA(ent->client->ps.origin, 100, forward, end);
+    VectorMA(ent->client->ps.origin, 200, forward, end);
 
     trap_Trace(&tr, ent->client->ps.origin, NULL, NULL, end, ent->s.number, MASK_PLAYERSOLID);
     traceEnt = &g_entities[ tr.entityNum ];
@@ -755,10 +755,21 @@ void cancelBuildFire(gentity_t *ent) {
         return;
       }
 
+      if(ent->client->ps.persistant[ PERS_UNUSED ]<1)
+      {
+        G_AddEvent(ent, EV_BUILD_DELAY, ent->client->ps.clientNum);
+        trap_SendServerCommand(ent - g_entities, "print \"^2You need to pickup a medical supply.\n\"");
+        return;
+      }
 
-      traceEnt->health += 5;
-      if (ent->health < 100)
-        ent->health += 1;
+      if (traceEnt->health < 100)
+      {
+        traceEnt->health =
+            traceEnt->client->ps.stats[ STAT_HEALTH ] =
+                traceEnt->client->ps.stats[ STAT_MAX_HEALTH ];
+          G_AddEvent(traceEnt, EV_MEDKIT_USED, 0);
+          ent->client->ps.persistant[ PERS_UNUSED ] -= 1;
+      }
 
       ent->client->pers.statscounters.repairspoisons++;
       level.humanStatsCounters.repairspoisons++;
@@ -769,7 +780,9 @@ void cancelBuildFire(gentity_t *ent) {
       if (traceEnt->health == 100)
         G_AddEvent(ent, EV_BUILD_REPAIRED, 0);
       else
+      {
         G_AddEvent(ent, EV_BUILD_REPAIR, 0);
+      }
     }
   }
   if(g_survival.integer)
@@ -1036,8 +1049,8 @@ void poisonCloud(gentity_t *ent) {
       if (BG_InventoryContainsUpgrade(UP_LIGHTARMOUR, humanPlayer->client->ps.stats))
         continue;
 
-      if (BG_InventoryContainsUpgrade(UP_BATTLESUIT, humanPlayer->client->ps.stats))
-        continue;
+      /*if (BG_InventoryContainsUpgrade(UP_BATTLESUIT, humanPlayer->client->ps.stats))
+        continue;*/
 
       trap_Trace(&tr, muzzle, NULL, NULL, humanPlayer->s.origin, humanPlayer->s.number, MASK_SHOT);
 
