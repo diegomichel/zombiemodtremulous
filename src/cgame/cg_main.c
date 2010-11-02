@@ -871,6 +871,8 @@ static void CG_RegisterGraphics( void )
 
   cgs.media.laser          = trap_R_RegisterShader( "gfx/laser/laser" );
 
+  cgs.media.fire   = CG_RegisterParticleSystem( "onfirePS" );
+
   // register the inline models
   cgs.numInlineModels = trap_CM_NumInlineModels( );
 

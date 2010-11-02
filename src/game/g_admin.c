@@ -969,6 +969,7 @@ G_admin_ban_check(char *userinfo, char *reason, int rlen)
   ignoreIP = G_admin_permission_guid(guid, ADMF_BAN_IMMUNITY);
   for(i = 0;i < MAX_ADMIN_BANS && g_admin_bans[i];i++)
   {
+    G_Printf("HAII\n");
     // 0 is for perm ban
     if (g_admin_bans[i]->expires != 0 && (g_admin_bans[i]->expires - t) < 1)
       continue;

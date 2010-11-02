@@ -1123,6 +1123,19 @@ G_Damage(gentity_t *targ, gentity_t *inflictor, gentity_t *attacker, vec3_t dir,
   if (!targ->takedamage)
     return;
 
+  //Flamer will not have self damage.
+  if(targ->client->ps.stats[STAT_PTEAM] != PTE_ALIENS && (mod == MOD_FLAMER || mod == MOD_FLAMER_SPLASH))
+  {
+    return;
+  }
+  if(targ->client->ps.stats[STAT_PTEAM] == PTE_ALIENS
+      && (mod == MOD_FLAMER || mod == MOD_FLAMER_SPLASH)
+      && !(targ->client->ps.stats[STAT_STATE] & SS_POISONED))
+  {
+    targ->client->ps.stats[STAT_STATE] |= SS_ONFIRE;
+    targ->client->lastOnFireTime = level.time;
+  }
+
   if (targ == attacker && g_survival.integer)
   {
     //Do the damage
