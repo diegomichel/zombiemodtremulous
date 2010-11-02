@@ -1831,7 +1831,8 @@ FireWeapon(gentity_t *ent)
       break;
 
     case WP_BLASTER:
-      blasterFire(ent);
+      bulletFire(ent, 0, RIFLE_DMG, MOD_BLASTER);
+      //blasterFire(ent);
       break;
     case WP_MACHINEGUN:
       bulletFire(ent, RIFLE_SPREAD, RIFLE_DMG, MOD_MACHINEGUN);
@@ -1846,7 +1847,7 @@ FireWeapon(gentity_t *ent)
       flamerFire(ent);
       break;
     case WP_PULSE_RIFLE:
-      pulseRifleFire(ent);
+      bulletFire(ent, 0, RIFLE_DMG, MOD_PRIFLE);
       break;
     case WP_MASS_DRIVER:
       massDriverFire2(ent);
@@ -1858,7 +1859,7 @@ FireWeapon(gentity_t *ent)
       lasGunFire(ent);
       break;
     case WP_PAIN_SAW:
-      painSawFire(ent);
+      bulletFire(ent, 0, RIFLE_DMG*2, MOD_PAINSAW);
       break;
     case WP_GRENADE:
       throwGrenade(ent);
@@ -1867,7 +1868,7 @@ FireWeapon(gentity_t *ent)
       plantMine(ent);
       break;
     case WP_BOMB:
-      meleeAttack(ent, ZOMBIE_RANGE, LEVEL1_CLAW_WIDTH, LEVEL1_CLAW_DMG / 2, MOD_LEVEL1_CLAW);
+      meleeAttack(ent, ZOMBIE_RANGE*2, LEVEL1_CLAW_WIDTH, LEVEL1_CLAW_DMG/2, MOD_LEVEL1_CLAW);
       break;
     case WP_LOCKBLOB_LAUNCHER:
       lockBlobLauncherFire(ent);

@@ -3654,23 +3654,23 @@ UI_GetCurrentHumanStage(void)
 static void
 UI_LoadTremTeams(void)
 {
-  uiInfo.tremTeamCount = 4;
+  uiInfo.tremTeamCount = 3;
 
-  uiInfo.tremTeamList[0].text = String_Alloc("The Rebels");
-  uiInfo.tremTeamList[0].cmd = String_Alloc("cmd team aliens\n");
-  uiInfo.tremTeamList[0].infopane = UI_FindInfoPaneByName("alienteam");
+  //uiInfo.tremTeamList[0].text = String_Alloc("The Rebels");
+  //uiInfo.tremTeamList[0].cmd = String_Alloc("cmd team aliens\n");
+  //uiInfo.tremTeamList[0].infopane = UI_FindInfoPaneByName("alienteam");
 
-  uiInfo.tremTeamList[1].text = String_Alloc("The Federation");
-  uiInfo.tremTeamList[1].cmd = String_Alloc("cmd team humans\n");
-  uiInfo.tremTeamList[1].infopane = UI_FindInfoPaneByName("humanteam");
+  uiInfo.tremTeamList[0].text = String_Alloc("Survivors");
+  uiInfo.tremTeamList[0].cmd = String_Alloc("cmd team humans\n");
+  uiInfo.tremTeamList[0].infopane = UI_FindInfoPaneByName("humanteam");
 
-  uiInfo.tremTeamList[2].text = String_Alloc("Spectate");
-  uiInfo.tremTeamList[2].cmd = String_Alloc("cmd team spectate\n");
-  uiInfo.tremTeamList[2].infopane = UI_FindInfoPaneByName("spectateteam");
+  uiInfo.tremTeamList[1].text = String_Alloc("Spectate");
+  uiInfo.tremTeamList[1].cmd = String_Alloc("cmd team spectate\n");
+  uiInfo.tremTeamList[1].infopane = UI_FindInfoPaneByName("spectateteam");
 
-  uiInfo.tremTeamList[3].text = String_Alloc("Auto select");
-  uiInfo.tremTeamList[3].cmd = String_Alloc("cmd team auto\n");
-  uiInfo.tremTeamList[3].infopane = UI_FindInfoPaneByName("autoteam");
+  uiInfo.tremTeamList[2].text = String_Alloc("Auto select");
+  uiInfo.tremTeamList[2].cmd = String_Alloc("cmd team auto\n");
+  uiInfo.tremTeamList[2].infopane = UI_FindInfoPaneByName("autoteam");
 }
 
 /*

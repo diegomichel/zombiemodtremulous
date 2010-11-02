@@ -848,7 +848,7 @@ typedef struct {
   int             tremInfoPaneCount;
 
 //TA: tremulous menus
-  tremMenuItem_t  tremTeamList[ 4 ];
+  tremMenuItem_t  tremTeamList[ 4 ]; //FIXME: 3 teams now, even can remove one
   int             tremTeamCount;
   int             tremTeamIndex;
 

@@ -60,7 +60,15 @@ qboolean PM_SlideMove(qboolean gravity) {
   vec3_t endVelocity;
   vec3_t endClipVelocity;
 
-  numbumps = 4;
+//  if(pm->ps->stats[STAT_PTEAM] == PTE_ALIENS)
+//  {
+//    //Trying to reduce processing.
+//    numbumps = 2;
+//  }
+//  else
+//  {
+    numbumps = 4;
+//  }
 
   VectorCopy(pm->ps->velocity, primal_velocity);
 

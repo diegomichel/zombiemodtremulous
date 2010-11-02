@@ -1077,23 +1077,6 @@ nodeOutOfRange(vec3_t node)
 }
 
 qboolean
-aimNode(gentity_t *self)
-{
-  vec3_t dirToTarget, angleToTarget;
-  vec3_t top =
-  { 0, 0, 0 };
-  //self->nextnode[2] = self->s.pos.trBase[2];
-  VectorAdd(self->s.pos.trBase, top, top); //Add a to b result in C
-  VectorSubtract(self->nextnode, top, dirToTarget); //Substract b from a result in
-  VectorNormalize(dirToTarget);
-  vectoangles(dirToTarget, angleToTarget);
-  self->client->ps.delta_angles[0] = ANGLE2SHORT(angleToTarget[0]);
-  self->client->ps.delta_angles[1] = ANGLE2SHORT(angleToTarget[1]);
-  self->client->ps.delta_angles[2] = ANGLE2SHORT(angleToTarget[2]);
-  return qtrue;
-}
-
-qboolean
 visitedLastNode(gentity_t *self)
 {
   if (self->botnextpath == 0)
@@ -1116,59 +1099,6 @@ botReachedDestination(gentity_t *self)
   }
   return qfalse;
 }
-
-qboolean
-botLost(gentity_t *self)
-{
-  if (self->botnextpath == 0)
-    return qfalse;
-  return !canSeeNextNode(self->s.origin, self->nextnode, self);
-}
-
-qboolean
-canMakeWay(gentity_t *self)
-{
-  int cuadrado = 0;
-  int scale = 1;
-  VectorCopy(self->nextnode, self->lostnode);
-  do
-  {
-    VectorCopy(self->lostnode, self->nextnode);
-    cuadrado++;
-    switch(cuadrado)
-    {
-      case 1:
-        self->nextnode[1] += (BLOCKSIZE * scale);
-        self->nextnode[0] -= (BLOCKSIZE * scale);
-        break;
-      case 2:
-        self->nextnode[1] -= (BLOCKSIZE * scale);
-        self->nextnode[0] += (BLOCKSIZE * scale);
-        break;
-      case 3:
-        self->nextnode[1] += (BLOCKSIZE * scale);
-        self->nextnode[0] += (BLOCKSIZE * scale);
-        break;
-      case 4:
-        self->nextnode[1] -= (BLOCKSIZE * scale);
-        self->nextnode[0] -= (BLOCKSIZE * scale);
-        scale++;
-        break;
-
-      default:
-        break;
-    }
-  }
-  while(botLost(self) && cuadrado <= 16);
-
-  if (!botLost(self))
-  {
-    return qtrue;
-  }
-
-  return qfalse;
-}
-
 qboolean
 pointIsSolid(vec3_t point)
 {

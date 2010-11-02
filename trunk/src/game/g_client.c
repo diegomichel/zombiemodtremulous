@@ -738,6 +738,10 @@ BodySink(gentity_t *ent)
       }
       if (!level.intermissiontime)
       {
+        if ((level.time - level.startTime) > 600000 && randomitem == BA_I_SYRINX)
+        {
+          return;
+        }
         item = spawnItem(ent, randomitem);
       }
       level.spawnedCorpes--;
@@ -1763,6 +1767,8 @@ ClientSpawn(gentity_t *ent, gentity_t *spawn, vec3_t origin, vec3_t angles)
   ent->bs.isLongJumping = qfalse;
   ent->bs.isUsingLadder = qfalse;
 
+  ent->lastTimeSawEnemy = level.time;
+
   //TA: only start client if chosen a class and joined a team
   if (client->pers.classSelection == PCL_NONE && teamLocal == PTE_NONE)
   {
@@ -1840,7 +1846,7 @@ ClientSpawn(gentity_t *ent, gentity_t *spawn, vec3_t origin, vec3_t angles)
   eventSequence = client->ps.eventSequence;
   memset(client, 0, sizeof(*client));
 
-  if(ent->r.svFlags & SVF_BOT)
+  if (ent->r.svFlags & SVF_BOT)
   {
     botWalk(ent, 0);
     botJump(ent, 0);
@@ -1906,11 +1912,11 @@ ClientSpawn(gentity_t *ent, gentity_t *spawn, vec3_t origin, vec3_t angles)
   else
     client->pers.maxHealth = client->ps.stats[STAT_MAX_HEALTH] = 100;
 
-  if(ent->r.svFlags & SVF_BOT)
+  if (ent->r.svFlags & SVF_BOT)
   {
     //Sex request incrase hp depending on numClients.
     client->pers.maxHealth += (20 * (level.numConnectedClients - level.bots));
-//    G_Printf("New %s HP is %d\n", client->pers.netname, client->pers.maxHealth);
+    //    G_Printf("New %s HP is %d\n", client->pers.netname, client->pers.maxHealth);
   }
   // clear entity values
   if (ent->client->pers.classSelection == PCL_HUMAN)

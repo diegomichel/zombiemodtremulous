@@ -3569,7 +3569,7 @@ weaponAttributes_t bg_weapons[] =
         (1 << S1) | (1 << S2) | (1 << S3), //int  stages
         SLOT_WEAPON, //int       slots;
         "rifle", //char      *weaponName;
-        "Rifle", //char      *weaponHumanName;
+        "UMP .40", //char      *weaponHumanName;
         RIFLE_CLIPSIZE, //int       maxAmmo;
         RIFLE_MAXCLIPS, //int       maxClips;
         qfalse, //int       infiniteAmmo;
@@ -3593,7 +3593,7 @@ weaponAttributes_t bg_weapons[] =
         (1 << S1) | (1 << S2) | (1 << S3), //int  stages
         SLOT_WEAPON, //int       slots;
         "shotgun", //char      *weaponName;
-        "Shotgun", //char      *weaponHumanName;
+        "Winchester 97", //char      *weaponHumanName;
         SHOTGUN_SHELLS, //int       maxAmmo;
         SHOTGUN_MAXCLIPS, //int       maxClips;
         qfalse, //int       infiniteAmmo;
@@ -3689,7 +3689,7 @@ weaponAttributes_t bg_weapons[] =
         (1 << S1) | (1 << S2) | (1 << S3), //int  stages
         SLOT_WEAPON, //int       slots;
         "prifle", //char      *weaponName;
-        "Pulse Rifle", //char      *weaponHumanName;
+        "M4 Carbine", //char      *weaponHumanName;
         PRIFLE_CLIPS, //int       maxAmmo;
         PRIFLE_MAXCLIPS, //int       maxClips;
         qfalse, //int       infiniteAmmo;
@@ -3761,7 +3761,7 @@ weaponAttributes_t bg_weapons[] =
         (1 << S1) | (1 << S2) | (1 << S3), //int  stages
         SLOT_WEAPON, //int       slots;
         "psaw", //char      *weaponName;
-        "Pain Saw", //char      *weaponHumanName;
+        "Beretta 92", //char      *weaponHumanName;
         0, //int       maxAmmo;
         0, //int       maxClips;
         qtrue, //int       infiniteAmmo;

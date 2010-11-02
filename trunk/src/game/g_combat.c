@@ -1374,7 +1374,7 @@ G_Damage(gentity_t *targ, gentity_t *inflictor, gentity_t *attacker, vec3_t dir,
     }
 
     // check for godmode
-    if (targ->flags & FL_GODMODE && !g_devmapNoGod.integer && !g_survival.integer)
+    if (targ->flags & FL_GODMODE && !g_devmapNoGod.integer)// && !g_survival.integer)
       return;
 
     if (targ->s.eType == ET_BUILDABLE && g_cheats.integer && g_devmapNoStructDmg.integer)
