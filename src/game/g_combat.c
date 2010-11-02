@@ -145,7 +145,7 @@ player_die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
       if (self->r.svFlags & SVF_BOT)
       {
         self->botCommand = BOT_REGULAR;
-        self->botEnemy = NULL;
+        //        self->botEnemy = NULL;
       }
       self->client->pers.lastdeadtime = level.time - level.startTime;
     }
@@ -1123,6 +1123,34 @@ G_Damage(gentity_t *targ, gentity_t *inflictor, gentity_t *attacker, vec3_t dir,
 
   if (!targ->takedamage)
     return;
+
+  if (targ == attacker && g_survival.integer)
+  {
+    //Do the damage
+    take = 10;
+    targ->health = targ->health - take;
+
+    if (targ->client)
+      targ->client->ps.stats[STAT_HEALTH] = targ->health;
+
+    targ->lastDamageTime = level.time;
+
+    if (targ->health <= 0)
+    {
+      if (client)
+        targ->flags |= FL_NO_KNOCKBACK;
+
+      if (targ->health < -999)
+        targ->health = -999;
+
+      targ->enemy = attacker;
+      targ->die(targ, inflictor, attacker, take, mod);
+      return;
+    }
+    else if (targ->pain)
+      targ->pain(targ, attacker, take);
+    return;
+  }
 
   if (g_survival.integer && attacker && attacker->client && targ->s.eType == ET_BUILDABLE)
   {

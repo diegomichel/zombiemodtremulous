@@ -95,8 +95,9 @@ G_GiveClientMaxAmmo(gentity_t *ent, qboolean buyingEnergyAmmo)
     else
       weaponType = !BG_FindUsesEnergyForWeapon(i);
 
-    if (BG_InventoryContainsWeapon(i, ent->client->ps.stats) && weaponType && !BG_FindInfinteAmmoForWeapon(i) && !BG_WeaponIsFull(i, ent->client->ps.stats,
-        &ent->client->ps.ammo, ent->client->ps.powerups))
+    if (BG_InventoryContainsWeapon(i, ent->client->ps.stats) && weaponType
+        && !BG_FindInfinteAmmoForWeapon(i) && !BG_WeaponIsFull(
+      i, ent->client->ps.stats, &ent->client->ps.ammo, ent->client->ps.powerups))
     {
       BG_FindAmmoForWeapon(i, &maxAmmo, &maxClips);
 
@@ -436,11 +437,12 @@ massDriverFire(gentity_t *ent)
 }
 
 #define MDRIVER_IMPACTS 10
-void massDriverFire2( gentity_t *ent )
+void
+massDriverFire2(gentity_t *ent)
 {
-  trace_t   tr;
-  vec3_t    start;
-  vec3_t    end;
+  trace_t tr;
+  vec3_t start;
+  vec3_t end;
   gentity_t *tent;
   gentity_t *traceEnt;
   gentity_t *hits[MDRIVER_IMPACTS];
@@ -458,28 +460,27 @@ void massDriverFire2( gentity_t *ent )
 
   while(count < MDRIVER_IMPACTS)
   {
-    trap_Trace( &tr, start, NULL, NULL, end, ent->s.number, MASK_SHOT );
-    if( tr.surfaceFlags & SURF_NOIMPACT )
+    trap_Trace(&tr, start, NULL, NULL, end, ent->s.number, MASK_SHOT);
+    if (tr.surfaceFlags & SURF_NOIMPACT)
+    {
       impact = qfalse;
       break;
-    traceEnt = &g_entities[ tr.entityNum ];
+    }
+    traceEnt = &g_entities[tr.entityNum];
 
     /* reduce lag
-    if( traceEnt->takedamage && traceEnt->client )
-    {
-      tent = G_TempEntity( tr.endpos, EV_MISSILE_HIT );
-      tent->s.otherEntityNum = traceEnt->s.number;
-      tent->s.eventParm = DirToByte( tr.plane.normal );
-      tent->s.weapon = ent->s.weapon;
-      tent->s.generic1 = ent->s.generic1;
-    }*/
+     if( traceEnt->takedamage && traceEnt->client )
+     {
+     tent = G_TempEntity( tr.endpos, EV_MISSILE_HIT );
+     tent->s.otherEntityNum = traceEnt->s.number;
+     tent->s.eventParm = DirToByte( tr.plane.normal );
+     tent->s.weapon = ent->s.weapon;
+     tent->s.generic1 = ent->s.generic1;
+     }*/
 
-    G_Printf("Wahhh");
-
-    if( traceEnt->takedamage )
+    if (traceEnt->takedamage)
     {
-      G_Damage( traceEnt, ent, ent, forward, tr.endpos,
-        MDRIVER_DMG, 0, MOD_MDRIVER );
+      G_Damage(traceEnt, ent, ent, forward, tr.endpos, MDRIVER_DMG, 0, MOD_MDRIVER);
     }
     hits[count] = traceEnt;
     //VectorCopy(tr.endpos,start); tooo sloww
@@ -495,17 +496,16 @@ void massDriverFire2( gentity_t *ent )
   {
     hits[i]->r.contents = hits_contents[i];
   }
-  if(impact)//add miss event to last entity / wall hit
+  if (impact)//add miss event to last entity / wall hit
   {
     // snap the endpos to integers, but nudged towards the line
-    SnapVectorTowards( tr.endpos, muzzle );
-    tent = G_TempEntity( tr.endpos, EV_MISSILE_MISS );
-    tent->s.eventParm = DirToByte( tr.plane.normal );
+    SnapVectorTowards(tr.endpos, muzzle);
+    tent = G_TempEntity(tr.endpos, EV_MISSILE_MISS);
+    tent->s.eventParm = DirToByte(tr.plane.normal);
     tent->s.weapon = ent->s.weapon;
     tent->s.generic1 = ent->s.generic1; //weaponMode
   }
 }
-
 
 /*
  ======================================================================
@@ -632,9 +632,9 @@ void
 plantMine(gentity_t *ent)
 {
   gentity_t *m;
-  if(ent->numMines > 1)
+  if (ent->numMines > 1)
   {
-    trap_SendServerCommand( ent - g_entities, "print \"You cannot drop more than 2 mines.\n\"");
+    trap_SendServerCommand(ent - g_entities, "print \"You cannot drop more than 2 mines.\n\"");
     return;
   }
   ent->numMines++;
@@ -768,7 +768,8 @@ painSawFire(gentity_t *ent)
   }
 
   if (traceEnt->takedamage)
-    G_Damage(traceEnt, ent, ent, forward, tr.endpos, PAINSAW_DAMAGE, DAMAGE_NO_KNOCKBACK, MOD_PAINSAW);
+    G_Damage(
+      traceEnt, ent, ent, forward, tr.endpos, PAINSAW_DAMAGE, DAMAGE_NO_KNOCKBACK, MOD_PAINSAW);
 }
 
 /*
@@ -791,7 +792,9 @@ LCChargeFire(gentity_t *ent, qboolean secondary)
 
   if (secondary)
   {
-    m = fire_luciferCannon(ent, muzzle, forward, LCANNON_SECONDARY_DAMAGE, LCANNON_SECONDARY_RADIUS);
+    m
+        = fire_luciferCannon(
+          ent, muzzle, forward, LCANNON_SECONDARY_DAMAGE, LCANNON_SECONDARY_RADIUS);
     ent->client->ps.weaponTime = LCANNON_REPEAT;
   }
   else
@@ -916,8 +919,10 @@ cancelBuildFire(gentity_t *ent)
     if (!traceEnt->client)
       return;
 
-    if (tr.fraction < 1.0 && (traceEnt->client->ps.stats[STAT_PTEAM] == PTE_HUMANS) && (ent->client->ps.weapon >= WP_HBUILD2) && (ent->client->ps.weapon
-        <= WP_HBUILD) && traceEnt->health > 0 && traceEnt->client->ps.stats[STAT_HEALTH] > 0 && traceEnt->client->sess.sessionTeam != TEAM_SPECTATOR)
+    if (tr.fraction < 1.0 && (traceEnt->client->ps.stats[STAT_PTEAM] == PTE_HUMANS)
+        && (ent->client->ps.weapon >= WP_HBUILD2) && (ent->client->ps.weapon <= WP_HBUILD)
+        && traceEnt->health > 0 && traceEnt->client->ps.stats[STAT_HEALTH] > 0
+        && traceEnt->client->sess.sessionTeam != TEAM_SPECTATOR)
     {
       if (ent->client->ps.stats[STAT_MISC] > 0)
       {
@@ -928,13 +933,15 @@ cancelBuildFire(gentity_t *ent)
       if (ent->client->ps.persistant[PERS_UNUSED] < 1)
       {
         G_AddEvent(ent, EV_BUILD_DELAY, ent->client->ps.clientNum);
-        trap_SendServerCommand(ent - g_entities, "print \"^2You need to pickup a medical supply.\n\"");
+        trap_SendServerCommand(
+          ent - g_entities, "print \"^2You need to pickup a medical supply.\n\"");
         return;
       }
 
       if (traceEnt->health < 100)
       {
-        traceEnt->health = traceEnt->client->ps.stats[STAT_HEALTH] = traceEnt->client->ps.stats[STAT_MAX_HEALTH];
+        traceEnt->health = traceEnt->client->ps.stats[STAT_HEALTH]
+            = traceEnt->client->ps.stats[STAT_MAX_HEALTH];
         G_AddEvent(traceEnt, EV_MEDKIT_USED, 0);
         ent->client->ps.persistant[PERS_UNUSED] -= 1;
         ent->client->ps.persistant[PERS_SCORE] += 10;
@@ -958,7 +965,8 @@ cancelBuildFire(gentity_t *ent)
     return;
 
   //repair buildable
-  if (ent->client->ps.stats[STAT_PTEAM] == PTE_HUMANS || ent->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
+  if (ent->client->ps.stats[STAT_PTEAM] == PTE_HUMANS || ent->client->ps.stats[STAT_PTEAM]
+      == PTE_ALIENS)
   {
     AngleVectors(ent->client->ps.viewangles, forward, NULL, NULL);
     VectorMA(ent->client->ps.origin, 100, forward, end);
@@ -966,8 +974,9 @@ cancelBuildFire(gentity_t *ent)
     trap_Trace(&tr, ent->client->ps.origin, NULL, NULL, end, ent->s.number, MASK_PLAYERSOLID);
     traceEnt = &g_entities[tr.entityNum];
 
-    if (tr.fraction < 1.0 && (traceEnt->s.eType == ET_BUILDABLE) && (traceEnt->biteam == ent->client->ps.stats[STAT_PTEAM]) && ((ent->client->ps.weapon
-        >= WP_HBUILD2) && (ent->client->ps.weapon <= WP_HBUILD)) && traceEnt->spawned && traceEnt->health > 0)
+    if (tr.fraction < 1.0 && (traceEnt->s.eType == ET_BUILDABLE) && (traceEnt->biteam
+        == ent->client->ps.stats[STAT_PTEAM]) && ((ent->client->ps.weapon >= WP_HBUILD2)
+        && (ent->client->ps.weapon <= WP_HBUILD)) && traceEnt->spawned && traceEnt->health > 0)
     {
       if (ent->client->ps.stats[STAT_MISC] > 0)
       {
@@ -1029,7 +1038,8 @@ buildFire(gentity_t *ent, dynMenu_t menu)
        ent->client->ps.stats[ STAT_MISC ] +=
        BG_FindBuildDelayForWeapon( ent->s.weapon ) * 2;
        }*/
-      else if ((ent->client->ps.stats[STAT_PTEAM] == PTE_HUMANS || ent->client->ps.stats[STAT_PTEAM] == PTE_ALIENS) && !G_IsPowered(muzzle, biteam)
+      else if ((ent->client->ps.stats[STAT_PTEAM] == PTE_HUMANS
+          || ent->client->ps.stats[STAT_PTEAM] == PTE_ALIENS) && !G_IsPowered(muzzle, biteam)
           && (ent->client->ps.stats[STAT_BUILDABLE] & ~SB_VALID_TOGGLEBIT) != BA_H_REPEATER) //hack
       {
         ent->client->ps.stats[STAT_MISC] += BG_FindBuildDelayForWeapon(ent->s.weapon) * 2;
@@ -1299,8 +1309,9 @@ G_FindNewZapTarget(gentity_t *ent)
   {
     enemy = &g_entities[entityList[i]];
 
-    if (((enemy->client && enemy->client->ps.stats[STAT_PTEAM] == PTE_HUMANS) || (enemy->s.eType == ET_BUILDABLE
-        && BG_FindTeamForBuildable(enemy->s.modelindex) == BIT_HUMANS)) && enemy->health > 0)
+    if (((enemy->client && enemy->client->ps.stats[STAT_PTEAM] == PTE_HUMANS) || (enemy->s.eType
+        == ET_BUILDABLE && BG_FindTeamForBuildable(enemy->s.modelindex) == BIT_HUMANS))
+        && enemy->health > 0)
     {
       qboolean foundOldTarget = qfalse;
 
@@ -1489,7 +1500,9 @@ G_UpdateZaps(int msec)
           //do the damage
           if (damage)
           {
-            G_Damage(target, source, zap->creator, forward, target->s.origin, damage, DAMAGE_NO_KNOCKBACK | DAMAGE_NO_LOCDAMAGE, MOD_LEVEL2_ZAP);
+            G_Damage(
+              target, source, zap->creator, forward, target->s.origin, damage, DAMAGE_NO_KNOCKBACK
+                  | DAMAGE_NO_LOCDAMAGE, MOD_LEVEL2_ZAP);
             zap->damageUsed += damage;
           }
         }
@@ -1540,8 +1553,9 @@ areaZapFire(gentity_t *ent)
 
   traceEnt = &g_entities[tr.entityNum];
 
-  if (((traceEnt->client && traceEnt->client->ps.stats[STAT_PTEAM] == PTE_HUMANS) || (traceEnt->s.eType == ET_BUILDABLE && BG_FindTeamForBuildable(
-      traceEnt->s.modelindex) == BIT_HUMANS)) && traceEnt->health > 0)
+  if (((traceEnt->client && traceEnt->client->ps.stats[STAT_PTEAM] == PTE_HUMANS)
+      || (traceEnt->s.eType == ET_BUILDABLE && BG_FindTeamForBuildable(traceEnt->s.modelindex)
+          == BIT_HUMANS)) && traceEnt->health > 0)
   {
     G_CreateNewZap(ent, traceEnt);
   }
@@ -1598,11 +1612,13 @@ CheckPounceAttack(gentity_t *ent)
   if (!traceEnt->takedamage)
     return qfalse;
 
-  damage = (int) (((float) ent->client->pmext.pouncePayload / (float) LEVEL3_POUNCE_SPEED) * LEVEL3_POUNCE_DMG);
+  damage = (int) (((float) ent->client->pmext.pouncePayload / (float) LEVEL3_POUNCE_SPEED)
+      * LEVEL3_POUNCE_DMG);
 
   ent->client->pmext.pouncePayload = 0;
 
-  G_Damage(traceEnt, ent, ent, forward, tr.endpos, damage, DAMAGE_NO_KNOCKBACK | DAMAGE_NO_LOCDAMAGE, MOD_LEVEL3_POUNCE);
+  G_Damage(traceEnt, ent, ent, forward, tr.endpos, damage, DAMAGE_NO_KNOCKBACK
+      | DAMAGE_NO_LOCDAMAGE, MOD_LEVEL3_POUNCE);
 
   ent->client->allowedToPounce = qfalse;
 
@@ -1660,7 +1676,8 @@ ChargeAttack(gentity_t *ent, gentity_t *victim)
   if (!victim->takedamage)
     return;
 
-  damage = (int) (((float) ent->client->ps.stats[STAT_MISC] / (float) LEVEL4_CHARGE_TIME) * LEVEL4_CHARGE_DMG);
+  damage = (int) (((float) ent->client->ps.stats[STAT_MISC] / (float) LEVEL4_CHARGE_TIME)
+      * LEVEL4_CHARGE_DMG);
 
   G_Damage(victim, ent, ent, forward, victim->s.origin, damage, 0, MOD_LEVEL4_CHARGE);
 }

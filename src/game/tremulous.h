@@ -343,7 +343,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define HDM(d)                      ((int)((float)d*HUMAN_WDMG_MODIFIER))
 
 #define BLASTER_REPEAT              600
-#define BLASTER_K_SCALE             1.0f
+#define BLASTER_K_SCALE             2.0f
 #define BLASTER_SPREAD              200
 #define BLASTER_SPEED               1400
 #define BLASTER_DMG                 HDM(9)
@@ -351,7 +351,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define RIFLE_CLIPSIZE              30
 #define RIFLE_MAXCLIPS              6
 #define RIFLE_REPEAT                90
-#define RIFLE_K_SCALE               1.0f
+#define RIFLE_K_SCALE               2.0f
 #define RIFLE_RELOAD                2000
 #define RIFLE_PRICE                 0
 #define RIFLE_SPREAD                200
@@ -359,7 +359,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 #define PAINSAW_PRICE               100
 #define PAINSAW_REPEAT              75
-#define PAINSAW_K_SCALE             1.0f
+#define PAINSAW_K_SCALE             2.0f
 #define PAINSAW_DAMAGE              HDM(15)
 #define PAINSAW_RANGE               40.0f
 
@@ -375,7 +375,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define SHOTGUN_PELLETS             8 //used to sync server and client side
 #define SHOTGUN_MAXCLIPS            3
 #define SHOTGUN_REPEAT              1000
-#define SHOTGUN_K_SCALE             1.0f
+#define SHOTGUN_K_SCALE             2.0f
 #define SHOTGUN_RELOAD              2000
 #define SHOTGUN_SPREAD              200
 #define SHOTGUN_DMG                 HDM(7)
@@ -383,7 +383,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define LASGUN_PRICE                250
 #define LASGUN_AMMO                 200
 #define LASGUN_REPEAT               200
-#define LASGUN_K_SCALE              1.0f
+#define LASGUN_K_SCALE              2.0f
 #define LASGUN_RELOAD               2000
 #define LASGUN_DAMAGE               HDM(9)
 
@@ -392,13 +392,13 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define MDRIVER_MAXCLIPS            4
 #define MDRIVER_DMG                 HDM(38)
 #define MDRIVER_REPEAT              1000
-#define MDRIVER_K_SCALE             1.0f
+#define MDRIVER_K_SCALE             2.0f
 #define MDRIVER_RELOAD              2000
 
 #define CHAINGUN_PRICE              400
 #define CHAINGUN_BULLETS            300
 #define CHAINGUN_REPEAT             80
-#define CHAINGUN_K_SCALE            1.0f
+#define CHAINGUN_K_SCALE            2.0f
 #define CHAINGUN_SPREAD             200
 #define CHAINGUN_DMG                HDM(6)
 
@@ -442,8 +442,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define LAUNCHER_K_SCALE             0.1f
 #define LAUNCHER_CHARGEREPEAT        1000
 #define LAUNCHER_RELOAD              2000
-#define LAUNCHER_DAMAGE              HDM(100)
-#define LAUNCHER_RADIUS              150
+#define LAUNCHER_DAMAGE              HDM(175)
+#define LAUNCHER_RADIUS              120
 #define LAUNCHER_SECONDARY_DAMAGE    HDM(7)
 #define LAUNCHER_SECONDARY_RADIUS    75
 #define LAUNCHER_SPEED               1200

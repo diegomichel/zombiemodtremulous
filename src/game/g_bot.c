@@ -736,6 +736,7 @@ botAimAtTarget(gentity_t * self, gentity_t * target)
   vec3_t ideal_angles;
   vec3_t direction;
   vec3_t ideal_view;
+  vec3_t enemyOrigin;
   float ideal_yaw;
   float ideal_pitch;
   float current_yaw;
@@ -744,7 +745,14 @@ botAimAtTarget(gentity_t * self, gentity_t * target)
   qboolean viewchanged = qfalse;
   //TODO: Detect Ducking?
 
-  VectorSubtract(target->client->ps.origin, self->client->ps.origin, direction);
+  VectorCopy(target->client->ps.origin, enemyOrigin);
+
+  if((target->client->ps.pm_flags & PMF_DUCKED))
+  {
+    enemyOrigin[2]-=16; //min-cmin
+  }
+
+  VectorSubtract(enemyOrigin, self->client->ps.origin, direction);
 
   //ADD this if u dont want the zombie head flip
   /*if (Distance(target->client->ps.origin, self->client->ps.origin) < 50)
