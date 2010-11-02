@@ -1637,31 +1637,6 @@ float Q_acos(float c)
         }
         return angle;
 }
-
-
-/*
-=================
-AngleBetweenVectors
-
-returns the angle between two vectors normalized to the range [0 <= angle <= 180]
-=================
-*/
-float AngleBetweenVectors(const vec3_t a, const vec3_t b)
-{
-        vec_t           alen, blen;
-
-        alen = VectorLength(a);
-        blen = VectorLength(b);
-
-        if(!alen || !blen)
-                return 0;
-
-        // complete dot product of two vectors a, b is |a| * |b| * cos(angle)
-        // this results in:
-        //
-        // angle = acos( (a * b) / (|a| * |b|) )
-        return RAD2DEG(Q_acos(DotProduct(a, b) / (alen * blen)));
-}
 qboolean BoundsIntersectPoint(const vec3_t mins, const vec3_t maxs, const vec3_t origin)
 {
         if(origin[0] > maxs[0] ||

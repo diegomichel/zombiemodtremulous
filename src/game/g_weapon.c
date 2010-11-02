@@ -823,7 +823,6 @@ cancelBuildFire(gentity_t *ent)
   trace_t tr;
   gentity_t *traceEnt;
   int bHealth;
-  int team;
 
   if (ent->client->ps.stats[STAT_BUILDABLE] != BA_NONE)
   {

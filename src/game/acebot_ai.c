@@ -74,7 +74,6 @@ ACEAI_Think(gentity_t * self)
   int i;
   int clientNum;
   char userinfo[MAX_INFO_STRING];
-  char *team;
 
   if (!self->bs.state)
   {
@@ -222,7 +221,6 @@ ACEAI_PickLongRangeGoal(gentity_t * self)
   int currentNode, goalNode;
   gentity_t *goalEnt;
   gclient_t *cl;
-  gentity_t *ent;
   gentity_t *player;
   float cost;
 
@@ -327,7 +325,7 @@ void
 ACEAI_PickShortRangeGoal(gentity_t * self)
 {
   gentity_t *target;
-  float weight, bestWeight = 0.0f;
+  float bestWeight = 0.0f;
   gentity_t *best;
   float shortRange = 200;
 

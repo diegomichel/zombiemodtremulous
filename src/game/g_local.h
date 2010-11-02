@@ -2008,6 +2008,10 @@ void
 G_itemUse(gentity_t *self, gentity_t *other, gentity_t *activator);
 gentity_t *
 spawnItem(gentity_t *ent, buildable_t itemtype);
+void G_KillStructuresSurvival();
+
+//g_utils.c
+float AngleBetweenVectors(const vec3_t a, const vec3_t b);
 
 #if defined(ACEBOT)
 extern vmCvar_t ace_debug;
