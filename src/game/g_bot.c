@@ -25,6 +25,7 @@
 /* Current version: v0.01 */
 
 #include "g_local.h"
+#include "acebot.h"
 
 #ifndef RAND_MAX
 #define RAND_MAX 32768
@@ -425,30 +426,82 @@ G_BotThink(gentity_t * self)
   self->client->pers.cmd.rightmove = 0;
 
   // reset botEnemy if enemy is dead
-  if (self->botEnemy->health <= 0)
+  /*if (self->botEnemy->health <= 0)
+   {
+   self->botEnemy = NULL;
+   self->client->pers.cmd.buttons |= BUTTON_WALKING;
+   //&= ~BUTTON_WALKING;
+   }*/
+  if (ace_debug.integer)
   {
-    self->botEnemy = NULL;
-    self->client->pers.cmd.buttons |= BUTTON_WALKING;
-    //&= ~BUTTON_WALKING;
+    /*switch(self->botCommand) //Uncomment for debugging.
+    {
+      case BOT_FOLLOW_PATH:
+        trap_SendServerCommand(-1, va("print \"%s: BOT_FOLLOW_PATH\n\"", self->client->pers.netname));
+        break;
+      case BOT_REGULAR:
+        trap_SendServerCommand(-1, va("print \"%s: BOT_REGULAR\n\"", self->client->pers.netname));
+        break;
+      case BOT_IDLE:
+        trap_SendServerCommand(-1, va("print \"%s: BOT_IDLE\n\"", self->client->pers.netname));
+        break;
+    }*/
   }
 
   switch(self->botCommand)
   {
     case BOT_FOLLOW_PATH:
-      if (self->nextnodeset)
+      if (self->botEnemy->health <= 0 || self->botEnemy->client->ps.stats[STAT_HEALTH] <= 0)
       {
-        //        if(nextNodeVisible(self))
-        //        {
-        walkToNextNode(self);
-        //        }
-        //        else
-        //        {
-        //          G_LogPrintf("Node not visible to bot...\n");
-        //        }
-      }
-      else
-      {
+        trap_SendServerCommand(-1,
+            va("print \"%s: Enemy %s dead changin from FOLLOW_PATH TO REGULAR\n\"",
+                self->client->pers.netname, self->botEnemy->client->pers.netname));
 
+        self->botCommand = BOT_REGULAR;
+        self->botEnemy = NULL;
+        memset(&self->client->pers.cmd, 0, sizeof(self->client->pers.cmd));
+        break;
+      }
+      switch(self->botMetaMode)
+      {
+        /*case ATTACK_RAMBO:
+         if (!botTargetInRange(self, self->botEnemy))
+         {
+         ACEAI_Think(self);
+         }
+         else
+         {
+         if (ace_debug.integer)
+         {
+         G_Printf("Can see my enemy switch to bot regular.\n");
+         }
+         memset(&self->client->pers.cmd, 0, sizeof(self->client->pers.cmd));
+         self->botCommand = BOT_REGULAR;
+         }
+         break;*/
+        case ATTACK_RAMBO:
+        case ATTACK_CAMPER:
+        case ATTACK_ALL:
+          tempEntityIndex = botFindClosestEnemy(self, qfalse);
+          if (tempEntityIndex >= 0)
+          {
+            if (director_debug.integer)
+            {
+              G_Printf("Was following path and i found a enemy around so im gonna attack him.\n\n");
+            }
+            self->botEnemy = &g_entities[tempEntityIndex];
+            self->botEnemy->lastTimeSeen = level.time;
+            memset(&self->client->pers.cmd, 0, sizeof(self->client->pers.cmd));
+            self->botCommand = BOT_REGULAR;
+          }
+          else
+          {
+            ACEAI_Think(self);
+          }
+          break;
+        default:
+            ACEAI_Think(self);
+          break;
       }
       break;
 
@@ -478,18 +531,13 @@ G_BotThink(gentity_t * self)
         if (tempEntityIndex >= 0)
         {
           self->botEnemy = &g_entities[tempEntityIndex];
-          self->botEnemy->lastTimeSeen = level.time + 7000; //7 seconds to camp
+          self->botEnemy->lastTimeSeen = level.time;
         }
       }
-      /*if (!self->botEnemy && level.theCamper && level.theCamper->client) {
-       if (self->client->lastKillTime > 10000) {
-       self->botEnemy = level.theCamper;
-       }
-       }*/
       if (!self->botEnemy)
       {
 
-        if (Bot_Stuck(self, 50))
+        if (Bot_Stuck(self, 30))
         {
           self->client->ps.delta_angles[1] = ANGLE2SHORT(self->client->ps.delta_angles[1] - 45);
         }
@@ -512,25 +560,27 @@ G_BotThink(gentity_t * self)
           self->client->pers.hyperspeed = 0;
         // enemy!
         distance = botGetDistanceBetweenPlayer(self, self->botEnemy);
+
+        //VectorCopy(self->s.origin, self->s.pos.trBase);
         botAimAtTarget(self, self->botEnemy);
         if (distance > 50)
         {
           self->client->pers.cmd.forwardmove = forwardMove;
           if (g_survival.integer && (level.time - level.startTime) < 340000)
           {
-            self->client->pers.cmd.forwardmove = 90;
+            self->client->pers.cmd.forwardmove = 100;
           }
           if (g_survival.integer && (level.time - level.startTime) < 240000)
           {
-            self->client->pers.cmd.forwardmove = 80;
+            self->client->pers.cmd.forwardmove = 90;
           }
           if (g_survival.integer && (level.time - level.startTime) < 120000)
           {
-            self->client->pers.cmd.forwardmove = 70;
+            self->client->pers.cmd.forwardmove = 80;
           }
           if (g_survival.integer && (level.time - level.startTime) < 60000)
           {
-            self->client->pers.cmd.forwardmove = 60;
+            self->client->pers.cmd.forwardmove = 70;
           }
           self->client->pers.cmd.buttons &= ~BUTTON_WALKING;
           if (distance < 200)
@@ -708,45 +758,30 @@ botTargetInRange(gentity_t * self, gentity_t * target)
   //int myGunRange;
   //myGunRange = MGTURRET_RANGE * 3;
 
-  if (!self || !target)
-    return qfalse;
 
-  //ROTAX - niceni budov
+  if (!self || !target)
+  {
+    return qfalse;
+  }
+
   if (!self->client)
     return qfalse;
 
-  if (!target->client && g_ambush_att_buildables.integer == 0)
-  {
+  if (!target->client)
     return qfalse;
-  }
-
-  if (target->s.eType == ET_BUILDABLE && target->biteam == self->client->ps.stats[STAT_PTEAM] && g_ambush_att_buildables.integer == 1)
-    return qfalse;
-
-  if (target->client && target->client->ps.stats[STAT_STATE] & SS_HOVELING)
-    return qfalse;
-
   if (target->health <= 0)
     return qfalse;
-
-  if (target->s.eType == ET_BUILDABLE && self->botignorebuilds == 1)
-  {
+  if (target->client->ps.stats[STAT_HEALTH] <= 0)
     return qfalse;
-  }
+  if (target->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
+    return;
 
-  //BG_FindViewheightForClass(  self->client->ps.stats[ STAT_PCLASS ], &vh, NULL );
-  //top[2]=vh;
-  //VectorAdd( self->s.pos.trBase, top, top);
-  //draw line between us and the target and see what we hit
-  //trap_Trace( &trace, self->s.pos.trBase, NULL, NULL, target->s.pos.trBase, self->s.number, MASK_SHOT );
+  //To prevent stop following path when isnt need.
+  /*if (target->client->ps.origin[2] - self->client->ps.origin[2] >= 50 && self->botCommand == BOT_FOLLOW_PATH)
+   return qfalse;*/
 
   trap_Trace(&trace, muzzle, NULL, NULL, target->s.pos.trBase, self->s.number, MASK_SHOT);
   traceEnt = &g_entities[trace.entityNum];
-  //if( trace.fraction < 1.0 )
-  //{return qfalse;}
-  // check that we hit a human and not an object
-  //if( !traceEnt->client )
-  //      return qfalse;
 
   //check our target is in LOS
   if (!(traceEnt == target))
@@ -980,9 +1015,6 @@ botFindClosestEnemy(gentity_t * self, qboolean includeTeam)
   vec3_t mins, maxs;
   gentity_t *target;
 
-  if (g_ambush.integer == 1) //ROTAX
-    vectorRange = 1.0f * g_ambush_range.integer;
-
   if (level.numHumanSpawns < 1)
   {
     //Gonna try to chase enemys in long distances.
@@ -1002,27 +1034,16 @@ botFindClosestEnemy(gentity_t * self, qboolean includeTeam)
 
     if (target == self)
       continue;
-
+    if (!target->client)
+      continue;
     if (target->client->ps.stats[STAT_PTEAM] == self->client->ps.stats[STAT_PTEAM])
       continue;
-    //ROTAX - niceni budov
-    if (mega_wave < 2)
+
+    if (botTargetInRange(self, target))
     {
-      if (target->client)
-      {
-        if (botTargetInRange(self, target))
-        {
-          return entityList[i];
-        }
-      }
+      return entityList[i];
     }
-    else
-    {
-      if (botTargetInRange(self, target))
-      {
-        return entityList[i];
-      }
-    }
+
   }
 
   if (includeTeam)

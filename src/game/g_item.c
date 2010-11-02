@@ -51,7 +51,6 @@ G_giveHealth(gentity_t *player)
 void
 G_itemUse(gentity_t *self, gentity_t *other, gentity_t *activator)
 {
-  G_LogPrintf("Sum1 is tryign to pick me up imma dessapear.\n");
   switch(self->s.modelindex)
   {
     case BA_I_CHAINGUN:

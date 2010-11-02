@@ -38,6 +38,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define DEFAULT_VIEWHEIGHT      26
 #define CROUCH_VIEWHEIGHT       12
 #define DEAD_VIEWHEIGHT         -14 //TA: watch for mins[ 2 ] less than this causing
+#define STEPSIZE                        18
 
 //
 // config strings are a general means of communicating variable length strings
@@ -219,6 +220,7 @@ typedef enum {
   STAT_BUILDABLE, //TA: which ghost model to display for building
   STAT_BOOSTTIME, //TA: time left for boost (alien only)
   STAT_FALLDIST, //TA: the distance the player fell
+  STAT_JUMPSPEED,
   STAT_VIEWLOCK //TA: direction to lock the view in
 } statIndex_t;
 
@@ -1280,6 +1282,10 @@ typedef enum {
   ET_MODELDOOR,
   ET_LIGHTFLARE,
   ET_LEV2_ZAP_CHAIN,
+
+  ET_AI_NODE,                                     // AI visualization tool
+  ET_AI_LINK,
+
 
   ET_EVENTS // any of the EV_* events can be added freestanding
   // by setting eType to ET_EVENTS + eventNum

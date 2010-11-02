@@ -1,0 +1,17342 @@
+data
+export ROTACAK_ambush_rebuild_time_temp
+align 4
+LABELV ROTACAK_ambush_rebuild_time_temp
+byte 4 0
+export ROTACAK_ambush_stage
+align 4
+LABELV ROTACAK_ambush_stage
+byte 4 1
+export ROTACAK_ambush_kills
+align 4
+LABELV ROTACAK_ambush_kills
+byte 4 0
+export mega_wave
+align 4
+LABELV mega_wave
+byte 4 1
+align 4
+LABELV gameCvarTable
+address g_cheats
+address $83
+address $84
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+byte 4 0
+address $85
+address $86
+byte 4 68
+byte 4 0
+byte 4 0
+skip 4
+byte 4 0
+address $87
+address $88
+byte 4 64
+byte 4 0
+byte 4 0
+skip 4
+address g_restarted
+address $89
+address $90
+byte 4 64
+byte 4 0
+byte 4 0
+skip 4
+address g_lockTeamsAtStart
+address $91
+address $90
+byte 4 64
+byte 4 0
+byte 4 0
+skip 4
+byte 4 0
+address $92
+address $84
+byte 4 68
+byte 4 0
+byte 4 0
+skip 4
+byte 4 0
+address $93
+address $84
+byte 4 68
+byte 4 0
+byte 4 0
+skip 4
+byte 4 0
+address $94
+address $90
+byte 4 68
+byte 4 0
+byte 4 0
+skip 4
+byte 4 0
+address $95
+address $96
+byte 4 68
+byte 4 0
+byte 4 0
+skip 4
+address g_maxclients
+address $97
+address $98
+byte 4 37
+byte 4 0
+byte 4 0
+skip 4
+address g_maxGameClients
+address $99
+address $90
+byte 4 1029
+byte 4 0
+byte 4 1
+skip 4
+address g_timelimit
+address $100
+address $101
+byte 4 1029
+byte 4 0
+byte 4 1
+skip 4
+address g_suddenDeathTime
+address $102
+address $103
+byte 4 1029
+byte 4 0
+byte 4 1
+skip 4
+address g_suddenDeathMode
+address $104
+address $90
+byte 4 1029
+byte 4 0
+byte 4 1
+skip 4
+address g_suddenDeath
+address $105
+address $90
+byte 4 1028
+byte 4 0
+byte 4 1
+skip 4
+address g_synchronousClients
+address $106
+address $90
+byte 4 8
+byte 4 0
+byte 4 0
+skip 4
+address g_friendlyFire
+address $107
+address $90
+byte 4 5
+byte 4 0
+byte 4 1
+skip 4
+address g_friendlyFireAliens
+address $108
+address $90
+byte 4 1
+byte 4 0
+byte 4 1
+skip 4
+address g_friendlyFireHumans
+address $109
+address $90
+byte 4 1
+byte 4 0
+byte 4 1
+skip 4
+address g_retribution
+address $110
+address $90
+byte 4 1
+byte 4 0
+byte 4 1
+skip 4
+address g_friendlyBuildableFire
+address $111
+address $90
+byte 4 5
+byte 4 0
+byte 4 1
+skip 4
+address g_friendlyFireMovementAttacks
+address $112
+address $113
+byte 4 1
+byte 4 0
+byte 4 1
+skip 4
+address g_devmapNoGod
+address $114
+address $90
+byte 4 1
+byte 4 0
+byte 4 1
+skip 4
+address g_devmapNoStructDmg
+address $115
+address $90
+byte 4 1
+byte 4 0
+byte 4 1
+skip 4
+address g_teamAutoJoin
+address $116
+address $90
+byte 4 1
+skip 12
+address g_teamForceBalance
+address $117
+address $113
+byte 4 1
+skip 12
+address g_warmup
+address $118
+address $119
+byte 4 1
+byte 4 0
+byte 4 1
+skip 4
+address g_warmupMode
+address $120
+address $113
+byte 4 1
+byte 4 0
+byte 4 1
+skip 4
+address g_doWarmup
+address $121
+address $113
+byte 4 1
+byte 4 0
+byte 4 1
+skip 4
+address g_logFile
+address $122
+address $123
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_logFileSync
+address $124
+address $90
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_password
+address $125
+address $84
+byte 4 2
+byte 4 0
+byte 4 0
+skip 4
+address g_banIPs
+address $126
+address $84
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_filterBan
+address $127
+address $113
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_needpass
+address $128
+address $90
+byte 4 68
+byte 4 0
+byte 4 0
+skip 4
+address g_dedicated
+address $129
+address $90
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_speed
+address $130
+address $131
+byte 4 4
+byte 4 0
+byte 4 1
+skip 4
+address g_gravity
+address $132
+address $133
+byte 4 4
+byte 4 0
+byte 4 1
+skip 4
+address g_knockback
+address $134
+address $135
+byte 4 4
+byte 4 0
+byte 4 1
+skip 4
+address g_quadfactor
+address $136
+address $137
+byte 4 0
+byte 4 0
+byte 4 1
+skip 4
+address g_weaponRespawn
+address $138
+address $139
+byte 4 0
+byte 4 0
+byte 4 1
+skip 4
+address g_weaponTeamRespawn
+address $140
+address $103
+byte 4 0
+byte 4 0
+byte 4 1
+skip 4
+address g_inactivity
+address $141
+address $90
+byte 4 0
+byte 4 0
+byte 4 1
+skip 4
+address g_debugMove
+address $142
+address $90
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_debugDamage
+address $143
+address $90
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_debugAlloc
+address $144
+address $90
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_motd
+address $145
+address $84
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_blood
+address $146
+address $113
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_podiumDist
+address $147
+address $148
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_podiumDrop
+address $149
+address $150
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_allowVote
+address $151
+address $113
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_requireVoteReasons
+address $152
+address $90
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_voteLimit
+address $153
+address $139
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_voteMinTime
+address $154
+address $155
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_mapvoteMaxTime
+address $156
+address $157
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_suddenDeathVotePercent
+address $158
+address $159
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_suddenDeathVoteDelay
+address $160
+address $161
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_mapVotesPercent
+address $162
+address $163
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_designateVotes
+address $164
+address $90
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_listEntity
+address $165
+address $90
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_minCommandPeriod
+address $166
+address $167
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_minNameChangePeriod
+address $168
+address $139
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_maxNameChanges
+address $169
+address $139
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_newbieNumbering
+address $170
+address $90
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_newbieNamePrefix
+address $171
+address $172
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_smoothClients
+address $173
+address $113
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_clientUpgradeNotice
+address $174
+address $113
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address pmove_fixed
+address $175
+address $90
+byte 4 8
+byte 4 0
+byte 4 0
+skip 4
+address pmove_msec
+address $176
+address $98
+byte 4 8
+byte 4 0
+byte 4 0
+skip 4
+address g_humanBuildPoints
+address $177
+address $178
+byte 4 4
+byte 4 0
+byte 4 0
+skip 4
+address g_alienBuildPoints
+address $179
+address $178
+byte 4 4
+byte 4 0
+byte 4 0
+skip 4
+address g_humanStage
+address $180
+address $90
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_humanKills
+address $181
+address $90
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_humanMaxStage
+address $182
+address $183
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_humanStage2Threshold
+address $184
+address $185
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_humanStage3Threshold
+address $186
+address $187
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_alienStage
+address $188
+address $90
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_alienKills
+address $189
+address $90
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_alienMaxStage
+address $190
+address $183
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_alienStage2Threshold
+address $191
+address $185
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_alienStage3Threshold
+address $192
+address $187
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_teamImbalanceWarnings
+address $193
+address $103
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_unlagged
+address $194
+address $113
+byte 4 5
+byte 4 0
+byte 4 0
+skip 4
+address g_disabledEquipment
+address $195
+address $84
+byte 4 64
+byte 4 0
+byte 4 0
+skip 4
+address g_disabledClasses
+address $196
+address $84
+byte 4 64
+byte 4 0
+byte 4 0
+skip 4
+address g_disabledBuildables
+address $197
+address $84
+byte 4 64
+byte 4 0
+byte 4 0
+skip 4
+address g_chatTeamPrefix
+address $198
+address $113
+byte 4 1
+skip 12
+address g_actionPrefix
+address $199
+address $200
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_floodMaxDemerits
+address $201
+address $202
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_floodMinTime
+address $203
+address $204
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_markDeconstruct
+address $205
+address $90
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_deconDead
+address $206
+address $90
+byte 4 1
+byte 4 0
+byte 4 1
+skip 4
+address g_debugMapRotation
+address $207
+address $90
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_currentMapRotation
+address $208
+address $209
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_currentMap
+address $210
+address $90
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_nextMap
+address $211
+address $84
+byte 4 0
+byte 4 0
+byte 4 1
+skip 4
+address g_initialMapRotation
+address $212
+address $84
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_shove
+address $213
+address $214
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_layoutmaking
+address $215
+address $90
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_mapConfigs
+address $216
+address $84
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+byte 4 0
+address $217
+address $90
+byte 4 64
+byte 4 0
+byte 4 0
+skip 4
+address g_layouts
+address $218
+address $84
+byte 4 32
+byte 4 0
+byte 4 0
+skip 4
+address g_layoutAuto
+address $219
+address $113
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_admin
+address $220
+address $221
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_adminLog
+address $222
+address $223
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_adminParseSay
+address $224
+address $113
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_adminSayFilter
+address $225
+address $90
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_adminNameProtect
+address $226
+address $113
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_adminTempBan
+address $227
+address $228
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_adminMaxBan
+address $229
+address $230
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_adminMapLog
+address $231
+address $84
+byte 4 64
+byte 4 0
+byte 4 0
+skip 4
+address g_minLevelToJoinTeam
+address $232
+address $90
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_forceAutoSelect
+address $233
+address $90
+byte 4 1
+byte 4 0
+byte 4 1
+skip 4
+address g_privateMessages
+address $234
+address $113
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_decolourLogfiles
+address $235
+address $90
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_buildLogMaxLength
+address $236
+address $163
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_myStats
+address $237
+address $113
+byte 4 1
+byte 4 0
+byte 4 1
+skip 4
+address g_publicSayadmins
+address $238
+address $113
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_minLevelToSpecMM1
+address $239
+address $90
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_antiSpawnBlock
+address $240
+address $90
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_devmapKillerHP
+address $241
+address $90
+byte 4 1
+byte 4 0
+byte 4 1
+skip 4
+address g_tag
+address $242
+address $243
+byte 4 16
+byte 4 0
+byte 4 0
+skip 4
+address g_dretchPunt
+address $244
+address $113
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_msg
+address $245
+address $84
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_msgTime
+address $246
+address $90
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_rankings
+address $247
+address $90
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address g_allowShare
+address $248
+address $90
+byte 4 5
+byte 4 0
+byte 4 0
+skip 4
+address g_banNotice
+address $249
+address $84
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_ctn
+address $250
+address $113
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_survival
+address $251
+address $90
+byte 4 1025
+byte 4 0
+byte 4 0
+skip 4
+address g_ctnbuildlimit
+address $252
+address $139
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_antispawncamp
+address $253
+address $202
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address g_ctncapturetime
+address $254
+address $255
+byte 4 1
+byte 4 0
+byte 4 0
+skip 4
+address ace_debug
+address $256
+address $90
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address ace_showNodes
+address $257
+address $90
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address ace_showLinks
+address $258
+address $90
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address ace_showPath
+address $259
+address $90
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address ace_pickLongRangeGoal
+address $260
+address $113
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address ace_pickShortRangeGoal
+address $261
+address $113
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address ace_attackEnemies
+address $262
+address $113
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address ace_spSkill
+address $263
+address $137
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address ace_botsFile
+address $264
+address $137
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+address director_debug
+address $265
+address $90
+byte 4 0
+byte 4 0
+byte 4 0
+skip 4
+align 4
+LABELV gameCvarTableSize
+byte 4 143
+export vmMain
+code
+proc vmMain 12 12
+ADDRLP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+CNSTI4 0
+LTI4 $267
+ADDRLP4 0
+INDIRI4
+CNSTI4 9
+GTI4 $267
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRGP4 $279
+ADDP4
+INDIRP4
+JUMPV
+lit
+align 4
+LABELV $279
+address $269
+address $270
+address $271
+address $275
+address $273
+address $274
+address $276
+address $272
+address $277
+address $278
+code
+LABELV $269
+ADDRFP4 4
+INDIRI4
+ARGI4
+ADDRFP4 8
+INDIRI4
+ARGI4
+ADDRFP4 12
+INDIRI4
+ARGI4
+ADDRGP4 G_InitGame
+CALLV
+pop
+CNSTI4 0
+RETI4
+ADDRGP4 $266
+JUMPV
+LABELV $270
+ADDRFP4 4
+INDIRI4
+ARGI4
+ADDRGP4 G_ShutdownGame
+CALLV
+pop
+CNSTI4 0
+RETI4
+ADDRGP4 $266
+JUMPV
+LABELV $271
+ADDRFP4 4
+INDIRI4
+ARGI4
+ADDRFP4 8
+INDIRI4
+ARGI4
+ADDRLP4 4
+ADDRGP4 ClientConnect
+CALLP4
+ASGNP4
+ADDRLP4 4
+INDIRP4
+CVPU4 4
+CVUI4 4
+RETI4
+ADDRGP4 $266
+JUMPV
+LABELV $272
+ADDRFP4 4
+INDIRI4
+ARGI4
+ADDRGP4 ClientThink
+CALLV
+pop
+CNSTI4 0
+RETI4
+ADDRGP4 $266
+JUMPV
+LABELV $273
+ADDRFP4 4
+INDIRI4
+ARGI4
+ADDRGP4 ClientUserinfoChanged
+CALLV
+pop
+CNSTI4 0
+RETI4
+ADDRGP4 $266
+JUMPV
+LABELV $274
+ADDRFP4 4
+INDIRI4
+ARGI4
+ADDRGP4 ClientDisconnect
+CALLV
+pop
+CNSTI4 0
+RETI4
+ADDRGP4 $266
+JUMPV
+LABELV $275
+ADDRFP4 4
+INDIRI4
+ARGI4
+ADDRGP4 ClientBegin
+CALLV
+pop
+CNSTI4 0
+RETI4
+ADDRGP4 $266
+JUMPV
+LABELV $276
+ADDRFP4 4
+INDIRI4
+ARGI4
+ADDRGP4 ClientCommand
+CALLV
+pop
+CNSTI4 0
+RETI4
+ADDRGP4 $266
+JUMPV
+LABELV $277
+ADDRFP4 4
+INDIRI4
+ARGI4
+ADDRGP4 G_RunFrame
+CALLV
+pop
+CNSTI4 0
+RETI4
+ADDRGP4 $266
+JUMPV
+LABELV $278
+ADDRLP4 8
+ADDRGP4 ConsoleCommand
+CALLI4
+ASGNI4
+ADDRLP4 8
+INDIRI4
+RETI4
+ADDRGP4 $266
+JUMPV
+LABELV $267
+CNSTI4 -1
+RETI4
+LABELV $266
+endproc vmMain 12 12
+export G_Printf
+proc G_Printf 1028 12
+ADDRLP4 0
+ADDRFP4 0+4
+ASGNP4
+ADDRLP4 4
+ARGP4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 vsprintf
+CALLI4
+pop
+ADDRLP4 0
+CNSTP4 0
+ASGNP4
+ADDRLP4 4
+ARGP4
+ADDRGP4 trap_Printf
+CALLV
+pop
+LABELV $280
+endproc G_Printf 1028 12
+export G_Error
+proc G_Error 1028 12
+ADDRLP4 0
+ADDRFP4 0+4
+ASGNP4
+ADDRLP4 4
+ARGP4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 vsprintf
+CALLI4
+pop
+ADDRLP4 0
+CNSTP4 0
+ASGNP4
+ADDRLP4 4
+ARGP4
+ADDRGP4 trap_Error
+CALLV
+pop
+LABELV $282
+endproc G_Error 1028 12
+export G_FindTeams
+proc G_FindTeams 56 12
+ADDRLP4 24
+CNSTI4 0
+ASGNI4
+ADDRLP4 20
+ADDRLP4 24
+INDIRI4
+ASGNI4
+ADDRLP4 12
+ADDRLP4 24
+INDIRI4
+ASGNI4
+ADDRLP4 16
+CNSTI4 1
+ASGNI4
+ADDRLP4 4
+CNSTI4 2400
+ADDRLP4 16
+INDIRI4
+MULI4
+ADDRGP4 g_entities
+ADDP4
+ASGNP4
+ADDRGP4 $288
+JUMPV
+LABELV $285
+ADDRLP4 4
+INDIRP4
+CNSTI4 520
+ADDP4
+INDIRI4
+CNSTI4 0
+NEI4 $290
+ADDRGP4 $286
+JUMPV
+LABELV $290
+ADDRLP4 4
+INDIRP4
+CNSTI4 664
+ADDP4
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $292
+ADDRGP4 $286
+JUMPV
+LABELV $292
+ADDRLP4 4
+INDIRP4
+CNSTI4 536
+ADDP4
+INDIRI4
+CNSTI4 1024
+BANDI4
+CNSTI4 0
+EQI4 $294
+ADDRGP4 $286
+JUMPV
+LABELV $294
+ADDRLP4 4
+INDIRP4
+CNSTI4 888
+ADDP4
+ADDRLP4 4
+INDIRP4
+ASGNP4
+ADDRLP4 32
+CNSTI4 1
+ASGNI4
+ADDRLP4 20
+ADDRLP4 20
+INDIRI4
+ADDRLP4 32
+INDIRI4
+ADDI4
+ASGNI4
+ADDRLP4 12
+ADDRLP4 12
+INDIRI4
+ADDRLP4 32
+INDIRI4
+ADDI4
+ASGNI4
+ADDRLP4 8
+ADDRLP4 16
+INDIRI4
+ADDRLP4 32
+INDIRI4
+ADDI4
+ASGNI4
+ADDRLP4 0
+ADDRLP4 4
+INDIRP4
+CNSTI4 2400
+ADDP4
+ASGNP4
+ADDRGP4 $299
+JUMPV
+LABELV $296
+ADDRLP4 0
+INDIRP4
+CNSTI4 520
+ADDP4
+INDIRI4
+CNSTI4 0
+NEI4 $301
+ADDRGP4 $297
+JUMPV
+LABELV $301
+ADDRLP4 0
+INDIRP4
+CNSTI4 664
+ADDP4
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $303
+ADDRGP4 $297
+JUMPV
+LABELV $303
+ADDRLP4 0
+INDIRP4
+CNSTI4 536
+ADDP4
+INDIRI4
+CNSTI4 1024
+BANDI4
+CNSTI4 0
+EQI4 $305
+ADDRGP4 $297
+JUMPV
+LABELV $305
+ADDRLP4 36
+CNSTI4 664
+ASGNI4
+ADDRLP4 4
+INDIRP4
+ADDRLP4 36
+INDIRI4
+ADDP4
+INDIRP4
+ARGP4
+ADDRLP4 0
+INDIRP4
+ADDRLP4 36
+INDIRI4
+ADDP4
+INDIRP4
+ARGP4
+ADDRLP4 40
+ADDRGP4 strcmp
+CALLI4
+ASGNI4
+ADDRLP4 40
+INDIRI4
+CNSTI4 0
+NEI4 $307
+ADDRLP4 12
+ADDRLP4 12
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 44
+CNSTI4 884
+ASGNI4
+ADDRLP4 0
+INDIRP4
+ADDRLP4 44
+INDIRI4
+ADDP4
+ADDRLP4 4
+INDIRP4
+ADDRLP4 44
+INDIRI4
+ADDP4
+INDIRP4
+ASGNP4
+ADDRLP4 4
+INDIRP4
+CNSTI4 884
+ADDP4
+ADDRLP4 0
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CNSTI4 888
+ADDP4
+ADDRLP4 4
+INDIRP4
+ASGNP4
+ADDRLP4 48
+ADDRLP4 0
+INDIRP4
+CNSTI4 536
+ADDP4
+ASGNP4
+ADDRLP4 48
+INDIRP4
+ADDRLP4 48
+INDIRP4
+INDIRI4
+CNSTI4 1024
+BORI4
+ASGNI4
+ADDRLP4 0
+INDIRP4
+CNSTI4 660
+ADDP4
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $309
+ADDRLP4 52
+CNSTI4 660
+ASGNI4
+ADDRLP4 4
+INDIRP4
+ADDRLP4 52
+INDIRI4
+ADDP4
+ADDRLP4 0
+INDIRP4
+ADDRLP4 52
+INDIRI4
+ADDP4
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CNSTI4 660
+ADDP4
+CNSTP4 0
+ASGNP4
+LABELV $309
+LABELV $307
+LABELV $297
+ADDRLP4 8
+ADDRLP4 8
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 0
+ADDRLP4 0
+INDIRP4
+CNSTI4 2400
+ADDP4
+ASGNP4
+LABELV $299
+ADDRLP4 8
+INDIRI4
+ADDRGP4 level+12
+INDIRI4
+LTI4 $296
+LABELV $286
+ADDRLP4 16
+ADDRLP4 16
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 4
+ADDRLP4 4
+INDIRP4
+CNSTI4 2400
+ADDP4
+ASGNP4
+LABELV $288
+ADDRLP4 16
+INDIRI4
+ADDRGP4 level+12
+INDIRI4
+LTI4 $285
+ADDRGP4 $311
+ARGP4
+ADDRLP4 20
+INDIRI4
+ARGI4
+ADDRLP4 12
+INDIRI4
+ARGI4
+ADDRGP4 G_Printf
+CALLV
+pop
+LABELV $284
+endproc G_FindTeams 56 12
+export G_RemapTeamShaders
+proc G_RemapTeamShaders 0 0
+LABELV $312
+endproc G_RemapTeamShaders 0 0
+export G_RegisterCvars
+proc G_RegisterCvars 20 16
+ADDRLP4 8
+CNSTI4 0
+ASGNI4
+ADDRLP4 4
+CNSTI4 0
+ASGNI4
+ADDRLP4 0
+ADDRGP4 gameCvarTable
+ASGNP4
+ADDRGP4 $317
+JUMPV
+LABELV $314
+ADDRLP4 0
+INDIRP4
+INDIRP4
+ARGP4
+ADDRLP4 0
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRP4
+ARGP4
+ADDRLP4 0
+INDIRP4
+CNSTI4 8
+ADDP4
+INDIRP4
+ARGP4
+ADDRLP4 0
+INDIRP4
+CNSTI4 12
+ADDP4
+INDIRI4
+ARGI4
+ADDRGP4 trap_Cvar_Register
+CALLV
+pop
+ADDRLP4 0
+INDIRP4
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $318
+ADDRLP4 0
+INDIRP4
+CNSTI4 16
+ADDP4
+ADDRLP4 0
+INDIRP4
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRI4
+ASGNI4
+LABELV $318
+ADDRLP4 0
+INDIRP4
+CNSTI4 24
+ADDP4
+INDIRI4
+CNSTI4 0
+EQI4 $320
+ADDRLP4 8
+CNSTI4 1
+ASGNI4
+LABELV $320
+LABELV $315
+ADDRLP4 4
+ADDRLP4 4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 0
+ADDRLP4 0
+INDIRP4
+CNSTI4 28
+ADDP4
+ASGNP4
+LABELV $317
+ADDRLP4 4
+INDIRI4
+ADDRGP4 gameCvarTableSize
+INDIRI4
+LTI4 $314
+ADDRLP4 8
+INDIRI4
+CNSTI4 0
+EQI4 $322
+ADDRGP4 G_RemapTeamShaders
+CALLV
+pop
+LABELV $322
+LABELV $313
+endproc G_RegisterCvars 20 16
+export G_UpdateCvars
+proc G_UpdateCvars 28 12
+ADDRLP4 8
+CNSTI4 0
+ASGNI4
+ADDRLP4 4
+CNSTI4 0
+ASGNI4
+ADDRLP4 0
+ADDRGP4 gameCvarTable
+ASGNP4
+ADDRGP4 $328
+JUMPV
+LABELV $325
+ADDRLP4 0
+INDIRP4
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $329
+ADDRLP4 0
+INDIRP4
+INDIRP4
+ARGP4
+ADDRGP4 trap_Cvar_Update
+CALLV
+pop
+ADDRLP4 0
+INDIRP4
+CNSTI4 16
+ADDP4
+INDIRI4
+ADDRLP4 0
+INDIRP4
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRI4
+EQI4 $331
+ADDRLP4 0
+INDIRP4
+CNSTI4 16
+ADDP4
+ADDRLP4 0
+INDIRP4
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRI4
+ASGNI4
+ADDRLP4 0
+INDIRP4
+CNSTI4 20
+ADDP4
+INDIRI4
+CNSTI4 0
+EQI4 $333
+ADDRGP4 $335
+ARGP4
+ADDRLP4 0
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRP4
+ARGP4
+ADDRLP4 0
+INDIRP4
+INDIRP4
+CNSTI4 16
+ADDP4
+ARGP4
+ADDRLP4 24
+ADDRGP4 va
+CALLP4
+ASGNP4
+CNSTI4 -1
+ARGI4
+ADDRLP4 24
+INDIRP4
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+ADDRGP4 CalculateRanks
+CALLV
+pop
+LABELV $333
+ADDRLP4 0
+INDIRP4
+CNSTI4 24
+ADDP4
+INDIRI4
+CNSTI4 0
+EQI4 $336
+ADDRLP4 8
+CNSTI4 1
+ASGNI4
+LABELV $336
+LABELV $331
+LABELV $329
+LABELV $326
+ADDRLP4 4
+ADDRLP4 4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 0
+ADDRLP4 0
+INDIRP4
+CNSTI4 28
+ADDP4
+ASGNP4
+LABELV $328
+ADDRLP4 4
+INDIRI4
+ADDRGP4 gameCvarTableSize
+INDIRI4
+LTI4 $325
+ADDRLP4 8
+INDIRI4
+CNSTI4 0
+EQI4 $338
+ADDRGP4 G_RemapTeamShaders
+CALLV
+pop
+LABELV $338
+LABELV $324
+endproc G_UpdateCvars 28 12
+export G_MapConfigs
+proc G_MapConfigs 12 12
+ADDRGP4 g_mapConfigs+16
+INDIRI1
+CVII4 1
+CNSTI4 0
+NEI4 $341
+ADDRGP4 $340
+JUMPV
+LABELV $341
+ADDRGP4 $217
+ARGP4
+ADDRLP4 0
+ADDRGP4 trap_Cvar_VariableIntegerValue
+CALLI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+CNSTI4 0
+EQI4 $344
+ADDRGP4 $340
+JUMPV
+LABELV $344
+ADDRGP4 $346
+ARGP4
+ADDRGP4 g_mapConfigs+16
+ARGP4
+ADDRLP4 4
+ADDRGP4 va
+CALLP4
+ASGNP4
+CNSTI4 2
+ARGI4
+ADDRLP4 4
+INDIRP4
+ARGP4
+ADDRGP4 trap_SendConsoleCommand
+CALLV
+pop
+ADDRGP4 $348
+ARGP4
+ADDRGP4 g_mapConfigs+16
+ARGP4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRLP4 8
+ADDRGP4 va
+CALLP4
+ASGNP4
+CNSTI4 2
+ARGI4
+ADDRLP4 8
+INDIRP4
+ARGP4
+ADDRGP4 trap_SendConsoleCommand
+CALLV
+pop
+ADDRGP4 $217
+ARGP4
+ADDRGP4 $113
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+LABELV $340
+endproc G_MapConfigs 12 12
+lit
+align 1
+LABELV $389
+byte 1 0
+skip 255
+align 1
+LABELV $410
+byte 1 0
+skip 255
+export G_InitGame
+code
+proc G_InitGame 1336 28
+ADDRFP4 4
+INDIRI4
+CVIU4 4
+ARGU4
+ADDRGP4 srand
+CALLV
+pop
+ADDRGP4 G_RegisterCvars
+CALLV
+pop
+ADDRGP4 $351
+ARGP4
+ADDRGP4 G_Printf
+CALLV
+pop
+ADDRGP4 $352
+ARGP4
+ADDRGP4 $86
+ARGP4
+ADDRGP4 G_Printf
+CALLV
+pop
+ADDRGP4 $353
+ARGP4
+ADDRGP4 $88
+ARGP4
+ADDRGP4 G_Printf
+CALLV
+pop
+ADDRGP4 G_ProcessIPBans
+CALLV
+pop
+ADDRGP4 G_InitMemory
+CALLV
+pop
+ADDRGP4 level
+ARGP4
+CNSTI4 0
+ARGI4
+CNSTI4 190180
+ARGI4
+ADDRGP4 memset
+CALLP4
+pop
+ADDRGP4 level+28
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRGP4 level+40
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 260
+ADDRGP4 level+40
+INDIRI4
+ASGNI4
+ADDRGP4 level+189832
+ADDRLP4 260
+INDIRI4
+ASGNI4
+ADDRGP4 level+189828
+ADDRLP4 260
+INDIRI4
+ASGNI4
+ADDRGP4 level+189824
+ADDRLP4 260
+INDIRI4
+ASGNI4
+ADDRGP4 level+189820
+ADDRLP4 260
+INDIRI4
+ASGNI4
+ADDRGP4 level+172928
+CNSTI4 100
+ASGNI4
+ADDRGP4 level+173904
+CNSTP4 0
+ASGNP4
+ADDRGP4 $364
+ARGP4
+ADDRLP4 264
+ADDRGP4 G_SoundIndex
+CALLI4
+ASGNI4
+ADDRGP4 level+174212
+ADDRLP4 264
+INDIRI4
+ASGNI4
+ADDRGP4 $95
+ARGP4
+ADDRGP4 $96
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+ADDRGP4 g_logFile+16
+INDIRI1
+CVII4 1
+CNSTI4 0
+EQI4 $365
+ADDRGP4 g_logFileSync+12
+INDIRI4
+CNSTI4 0
+EQI4 $368
+ADDRGP4 g_logFile+16
+ARGP4
+ADDRGP4 level+16
+ARGP4
+CNSTI4 3
+ARGI4
+ADDRGP4 trap_FS_FOpenFile
+CALLI4
+pop
+ADDRGP4 $369
+JUMPV
+LABELV $368
+ADDRGP4 g_logFile+16
+ARGP4
+ADDRGP4 level+16
+ARGP4
+CNSTI4 2
+ARGI4
+ADDRGP4 trap_FS_FOpenFile
+CALLI4
+pop
+LABELV $369
+ADDRGP4 level+16
+INDIRI4
+CNSTI4 0
+NEI4 $375
+ADDRGP4 $378
+ARGP4
+ADDRGP4 g_logFile+16
+ARGP4
+ADDRGP4 G_Printf
+CALLV
+pop
+ADDRGP4 $366
+JUMPV
+LABELV $375
+ADDRLP4 304
+ARGP4
+CNSTI4 1024
+ARGI4
+ADDRGP4 trap_GetServerinfo
+CALLV
+pop
+ADDRGP4 $380
+ARGP4
+ADDRGP4 G_LogPrintf
+CALLV
+pop
+ADDRGP4 $381
+ARGP4
+ADDRLP4 304
+ARGP4
+ADDRGP4 G_LogPrintf
+CALLV
+pop
+ADDRLP4 268
+ARGP4
+ADDRLP4 1332
+ADDRGP4 trap_RealTime
+CALLI4
+ASGNI4
+ADDRLP4 1328
+ADDRLP4 1332
+INDIRI4
+ASGNI4
+ADDRGP4 $382
+ARGP4
+ADDRLP4 268+20
+INDIRI4
+CNSTI4 1900
+ADDI4
+ARGI4
+ADDRLP4 268+16
+INDIRI4
+CNSTI4 1
+ADDI4
+ARGI4
+ADDRLP4 268+12
+INDIRI4
+ARGI4
+ADDRLP4 268+8
+INDIRI4
+ARGI4
+ADDRLP4 268+4
+INDIRI4
+ARGI4
+ADDRLP4 268
+INDIRI4
+ARGI4
+ADDRGP4 G_LogPrintf
+CALLV
+pop
+ADDRGP4 $366
+JUMPV
+LABELV $365
+ADDRGP4 $388
+ARGP4
+ADDRGP4 G_Printf
+CALLV
+pop
+LABELV $366
+ADDRLP4 268
+ADDRGP4 $389
+INDIRB
+ASGNB 256
+ADDRGP4 $390
+ARGP4
+ADDRLP4 268
+ARGP4
+CNSTI4 256
+ARGI4
+ADDRGP4 trap_Cvar_VariableStringBuffer
+CALLV
+pop
+ADDRLP4 268
+ARGP4
+ADDRGP4 G_MapConfigs
+CALLV
+pop
+ADDRGP4 $217
+ARGP4
+ADDRGP4 $90
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+ADDRGP4 g_admin+16
+INDIRI1
+CVII4 1
+CNSTI4 0
+EQI4 $391
+CNSTP4 0
+ARGP4
+CNSTI4 0
+ARGI4
+ADDRGP4 G_admin_readconfig
+CALLI4
+pop
+LABELV $391
+ADDRGP4 g_entities
+ARGP4
+CNSTI4 0
+ARGI4
+CNSTI4 2457600
+ARGI4
+ADDRGP4 memset
+CALLP4
+pop
+ADDRGP4 level+4
+ADDRGP4 g_entities
+ASGNP4
+ADDRGP4 level+20
+ADDRGP4 g_maxclients+12
+INDIRI4
+ASGNI4
+ADDRGP4 g_clients
+ARGP4
+CNSTI4 0
+ARGI4
+CNSTI4 120320
+ARGI4
+ADDRGP4 memset
+CALLP4
+pop
+ADDRGP4 level
+ADDRGP4 g_clients
+ASGNP4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $400
+JUMPV
+LABELV $397
+CNSTI4 2400
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 g_entities+516
+ADDP4
+CNSTI4 1880
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 level
+INDIRP4
+ADDP4
+ASGNP4
+LABELV $398
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $400
+ADDRLP4 0
+INDIRI4
+ADDRGP4 level+20
+INDIRI4
+LTI4 $397
+ADDRGP4 level+12
+CNSTI4 64
+ASGNI4
+ADDRGP4 level+4
+INDIRP4
+ARGP4
+ADDRGP4 level+12
+INDIRI4
+ARGI4
+CNSTI4 2400
+ARGI4
+ADDRGP4 level
+INDIRP4
+ARGP4
+CNSTI4 1880
+ARGI4
+ADDRGP4 trap_LocateGameData
+CALLV
+pop
+CNSTI4 22
+ARGI4
+ADDRGP4 $90
+ARGP4
+ADDRGP4 trap_SetConfigstring
+CALLV
+pop
+ADDRGP4 G_admin_maplog_update
+CALLV
+pop
+ADDRGP4 G_LayoutSelect
+CALLV
+pop
+ADDRGP4 level+189904
+ARGP4
+ADDRGP4 $409
+ARGP4
+ADDRLP4 272
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 272
+INDIRI4
+CNSTI4 0
+NEI4 $406
+ADDRLP4 276
+ADDRGP4 $410
+INDIRB
+ASGNB 256
+ADDRGP4 $251
+ARGP4
+ADDRGP4 $113
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+ADDRGP4 $411
+ARGP4
+ADDRGP4 G_Printf
+CALLV
+pop
+ADDRGP4 level+52
+CNSTI4 30000
+ASGNI4
+ADDRGP4 level+52+4
+CNSTI4 60000
+ASGNI4
+ADDRGP4 level+52+8
+CNSTI4 90000
+ASGNI4
+ADDRLP4 0
+CNSTI4 2
+ASGNI4
+ADDRGP4 $390
+ARGP4
+ADDRLP4 276
+ARGP4
+CNSTI4 256
+ARGI4
+ADDRGP4 trap_Cvar_VariableStringBuffer
+CALLV
+pop
+ADDRGP4 $419
+ARGP4
+ADDRLP4 276
+ARGP4
+ADDRLP4 532
+ADDRGP4 va
+CALLP4
+ASGNP4
+ADDRLP4 532
+INDIRP4
+ARGP4
+ADDRLP4 536
+ADDRGP4 trap_mysql_runquery
+CALLI4
+ASGNI4
+ADDRLP4 536
+INDIRI4
+CNSTI4 1
+NEI4 $407
+ADDRGP4 $421
+JUMPV
+LABELV $420
+ADDRGP4 $423
+ARGP4
+ADDRLP4 4
+ARGP4
+CNSTI4 255
+ARGI4
+ADDRGP4 trap_mysql_fetchfieldbyName
+CALLV
+pop
+ADDRLP4 4
+ARGP4
+ADDRLP4 540
+ADDRGP4 atoi
+CALLI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRGP4 level+52
+ADDP4
+ADDRLP4 540
+INDIRI4
+ASGNI4
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+SUBI4
+ASGNI4
+LABELV $421
+ADDRLP4 540
+ADDRGP4 trap_mysql_fetchrow
+CALLI4
+ASGNI4
+ADDRLP4 540
+INDIRI4
+CNSTI4 1
+EQI4 $420
+ADDRGP4 trap_mysql_finishquery
+CALLV
+pop
+ADDRGP4 $407
+JUMPV
+LABELV $406
+ADDRGP4 $251
+ARGP4
+ADDRGP4 $90
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+LABELV $407
+ADDRGP4 G_SpawnEntitiesFromString
+CALLV
+pop
+ADDRGP4 G_LayoutLoad
+CALLV
+pop
+ADDRGP4 BG_InitAllowedGameElements
+CALLV
+pop
+ADDRGP4 G_FindTeams
+CALLV
+pop
+ADDRGP4 BG_InitClassOverrides
+CALLV
+pop
+ADDRGP4 BG_InitBuildableOverrides
+CALLV
+pop
+ADDRGP4 G_InitDamageLocations
+CALLV
+pop
+ADDRGP4 G_InitMapRotations
+CALLV
+pop
+ADDRGP4 level+189292
+ARGP4
+ADDRGP4 G_InitSpawnQueue
+CALLV
+pop
+ADDRGP4 level+189556
+ARGP4
+ADDRGP4 G_InitSpawnQueue
+CALLV
+pop
+ADDRGP4 g_debugMapRotation+12
+INDIRI4
+CNSTI4 0
+EQI4 $427
+ADDRGP4 G_PrintRotations
+CALLV
+pop
+LABELV $427
+ADDRGP4 $430
+ARGP4
+CNSTI4 0
+ARGI4
+ADDRLP4 276
+ADDRGP4 va
+CALLP4
+ASGNP4
+ADDRGP4 $188
+ARGP4
+ADDRLP4 276
+INDIRP4
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+ADDRGP4 $430
+ARGP4
+CNSTI4 0
+ARGI4
+ADDRLP4 280
+ADDRGP4 va
+CALLP4
+ASGNP4
+ADDRGP4 $180
+ARGP4
+ADDRLP4 280
+INDIRP4
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+ADDRGP4 $189
+ARGP4
+CNSTP4 0
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+ADDRGP4 $181
+ARGP4
+CNSTP4 0
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+ADDRGP4 $105
+ARGP4
+CNSTP4 0
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+ADDRGP4 level+189280
+CNSTI4 60000
+ADDRGP4 g_suddenDeathTime+12
+INDIRI4
+MULI4
+ASGNI4
+ADDRGP4 $433
+ARGP4
+ADDRGP4 $90
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+ADDRGP4 $250
+ARGP4
+ADDRGP4 $90
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+ADDRGP4 $107
+ARGP4
+ADDRGP4 $113
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+ADDRGP4 $108
+ARGP4
+ADDRGP4 $113
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+ADDRLP4 284
+CNSTI4 0
+ASGNI4
+ADDRGP4 ROTACAK_ambush_rebuild_time_temp
+ADDRLP4 284
+INDIRI4
+ASGNI4
+ADDRGP4 ROTACAK_ambush_stage
+CNSTI4 1
+ASGNI4
+ADDRGP4 ROTACAK_ambush_kills
+ADDRLP4 284
+INDIRI4
+ASGNI4
+ADDRGP4 level+190004
+ADDRLP4 284
+INDIRI4
+ASGNI4
+ADDRGP4 $436
+ARGP4
+ADDRLP4 288
+ADDRGP4 trap_Cvar_VariableIntegerValue
+CALLI4
+ASGNI4
+ADDRGP4 level+190008
+ADDRLP4 288
+INDIRI4
+ASGNI4
+ADDRGP4 $437
+ARGP4
+ADDRGP4 G_Printf
+CALLV
+pop
+ADDRGP4 G_RemapTeamShaders
+CALLV
+pop
+ADDRGP4 G_CountSpawns
+CALLV
+pop
+ADDRGP4 G_ResetPTRConnections
+CALLV
+pop
+ADDRGP4 g_lockTeamsAtStart+12
+INDIRI4
+CNSTI4 0
+EQI4 $438
+ADDRGP4 level+189844
+CNSTI4 1
+ASGNI4
+ADDRGP4 level+189848
+CNSTI4 1
+ASGNI4
+ADDRGP4 $91
+ARGP4
+ADDRGP4 $90
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+LABELV $438
+ADDRGP4 ACEND_InitNodes
+CALLI4
+pop
+LABELV $350
+endproc G_InitGame 1336 28
+proc G_ClearVotes 0 8
+ADDRGP4 level+176268
+CNSTI4 0
+ASGNI4
+CNSTI4 8
+ARGI4
+ADDRGP4 $84
+ARGP4
+ADDRGP4 trap_SetConfigstring
+CALLV
+pop
+CNSTI4 9
+ARGI4
+ADDRGP4 $84
+ARGP4
+ADDRGP4 trap_SetConfigstring
+CALLV
+pop
+ADDRGP4 level+180384
+CNSTI4 0
+ASGNI4
+CNSTI4 12
+ARGI4
+ADDRGP4 $84
+ARGP4
+ADDRGP4 trap_SetConfigstring
+CALLV
+pop
+CNSTI4 14
+ARGI4
+ADDRGP4 $84
+ARGP4
+ADDRGP4 trap_SetConfigstring
+CALLV
+pop
+ADDRGP4 level+180384+4
+CNSTI4 0
+ASGNI4
+CNSTI4 13
+ARGI4
+ADDRGP4 $84
+ARGP4
+ADDRGP4 trap_SetConfigstring
+CALLV
+pop
+CNSTI4 15
+ARGI4
+ADDRGP4 $84
+ARGP4
+ADDRGP4 trap_SetConfigstring
+CALLV
+pop
+LABELV $443
+endproc G_ClearVotes 0 8
+export G_ShutdownGame
+proc G_ShutdownGame 0 8
+ADDRGP4 G_ClearVotes
+CALLV
+pop
+ADDRGP4 $449
+ARGP4
+ADDRGP4 G_Printf
+CALLV
+pop
+ADDRGP4 level+16
+INDIRI4
+CNSTI4 0
+EQI4 $450
+ADDRGP4 $453
+ARGP4
+ADDRGP4 G_LogPrintf
+CALLV
+pop
+ADDRGP4 $380
+ARGP4
+ADDRGP4 G_LogPrintf
+CALLV
+pop
+ADDRGP4 level+16
+INDIRI4
+ARGI4
+ADDRGP4 trap_FS_FCloseFile
+CALLV
+pop
+LABELV $450
+ADDRGP4 G_WriteSessionData
+CALLV
+pop
+ADDRGP4 G_admin_cleanup
+CALLV
+pop
+ADDRGP4 G_admin_namelog_cleanup
+CALLV
+pop
+ADDRGP4 level+173936
+CNSTI4 0
+ASGNI4
+ADDRGP4 level+189968
+CNSTI4 0
+ASGNI4
+CNSTI4 27
+ARGI4
+ADDRGP4 $84
+ARGP4
+ADDRGP4 trap_SetConfigstring
+CALLV
+pop
+LABELV $448
+endproc G_ShutdownGame 0 8
+export Com_Error
+proc Com_Error 1028 12
+ADDRLP4 0
+ADDRFP4 4+4
+ASGNP4
+ADDRLP4 4
+ARGP4
+ADDRFP4 4
+INDIRP4
+ARGP4
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 vsprintf
+CALLI4
+pop
+ADDRLP4 0
+CNSTP4 0
+ASGNP4
+ADDRGP4 $459
+ARGP4
+ADDRLP4 4
+ARGP4
+ADDRGP4 G_Error
+CALLV
+pop
+LABELV $457
+endproc Com_Error 1028 12
+export Com_Printf
+proc Com_Printf 1028 12
+ADDRLP4 0
+ADDRFP4 0+4
+ASGNP4
+ADDRLP4 4
+ARGP4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 vsprintf
+CALLI4
+pop
+ADDRLP4 0
+CNSTP4 0
+ASGNP4
+ADDRGP4 $459
+ARGP4
+ADDRLP4 4
+ARGP4
+ADDRGP4 G_Printf
+CALLV
+pop
+LABELV $460
+endproc Com_Printf 1028 12
+export SortRanks
+proc SortRanks 24 0
+ADDRLP4 8
+CNSTI4 1880
+ASGNI4
+ADDRLP4 12
+ADDRGP4 level
+INDIRP4
+ASGNP4
+ADDRLP4 0
+ADDRLP4 8
+INDIRI4
+ADDRFP4 0
+INDIRP4
+INDIRI4
+MULI4
+ADDRLP4 12
+INDIRP4
+ADDP4
+ASGNP4
+ADDRLP4 4
+ADDRLP4 8
+INDIRI4
+ADDRFP4 4
+INDIRP4
+INDIRI4
+MULI4
+ADDRLP4 12
+INDIRP4
+ADDP4
+ASGNP4
+ADDRLP4 16
+CNSTI4 652
+ASGNI4
+ADDRLP4 0
+INDIRP4
+ADDRLP4 16
+INDIRI4
+ADDP4
+INDIRI4
+ADDRLP4 4
+INDIRP4
+ADDRLP4 16
+INDIRI4
+ADDP4
+INDIRI4
+LEI4 $463
+CNSTI4 -1
+RETI4
+ADDRGP4 $462
+JUMPV
+LABELV $463
+ADDRLP4 20
+CNSTI4 652
+ASGNI4
+ADDRLP4 0
+INDIRP4
+ADDRLP4 20
+INDIRI4
+ADDP4
+INDIRI4
+ADDRLP4 4
+INDIRP4
+ADDRLP4 20
+INDIRI4
+ADDP4
+INDIRI4
+GEI4 $465
+CNSTI4 1
+RETI4
+ADDRGP4 $462
+JUMPV
+LABELV $465
+CNSTI4 0
+RETI4
+LABELV $462
+endproc SortRanks 24 0
+export G_InitSpawnQueue
+proc G_InitSpawnQueue 20 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRLP4 8
+CNSTI4 0
+ASGNI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 256
+ADDP4
+ADDRLP4 8
+INDIRI4
+ASGNI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 260
+ADDP4
+ADDRLP4 8
+INDIRI4
+ASGNI4
+ADDRLP4 12
+ADDRFP4 0
+INDIRP4
+CNSTI4 260
+ADDP4
+ASGNP4
+ADDRLP4 16
+CNSTI4 64
+ASGNI4
+ADDRLP4 12
+INDIRP4
+ADDRLP4 12
+INDIRP4
+INDIRI4
+ADDRLP4 16
+INDIRI4
+ADDI4
+CNSTI4 1
+SUBI4
+ADDRLP4 16
+INDIRI4
+MODI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+LABELV $468
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 0
+INDIRP4
+ADDP4
+CNSTI4 -1
+ASGNI4
+LABELV $469
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+CNSTI4 64
+LTI4 $468
+LABELV $467
+endproc G_InitSpawnQueue 20 0
+export G_GetSpawnQueueLength
+proc G_GetSpawnQueueLength 8 0
+ADDRLP4 4
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRLP4 0
+ADDRLP4 4
+INDIRP4
+CNSTI4 260
+ADDP4
+INDIRI4
+ADDRLP4 4
+INDIRP4
+CNSTI4 256
+ADDP4
+INDIRI4
+SUBI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRGP4 $474
+JUMPV
+LABELV $473
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 64
+ADDI4
+ASGNI4
+LABELV $474
+ADDRLP4 0
+INDIRI4
+CNSTI4 0
+LTI4 $473
+ADDRGP4 $477
+JUMPV
+LABELV $476
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 64
+SUBI4
+ASGNI4
+LABELV $477
+ADDRLP4 0
+INDIRI4
+CNSTI4 64
+GEI4 $476
+ADDRLP4 0
+INDIRI4
+RETI4
+LABELV $472
+endproc G_GetSpawnQueueLength 8 0
+export G_PopSpawnQueue
+proc G_PopSpawnQueue 24 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRLP4 0
+ADDRFP4 0
+INDIRP4
+CNSTI4 256
+ADDP4
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 0
+INDIRP4
+ADDP4
+INDIRI4
+ASGNI4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRLP4 8
+ADDRGP4 G_GetSpawnQueueLength
+CALLI4
+ASGNI4
+ADDRLP4 8
+INDIRI4
+CNSTI4 0
+LEI4 $480
+ADDRFP4 0
+INDIRP4
+CNSTI4 256
+ADDP4
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 0
+INDIRP4
+ADDP4
+CNSTI4 -1
+ASGNI4
+ADDRLP4 16
+ADDRFP4 0
+INDIRP4
+CNSTI4 256
+ADDP4
+ASGNP4
+ADDRLP4 16
+INDIRP4
+ADDRLP4 16
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDI4
+CNSTI4 64
+MODI4
+ASGNI4
+ADDRLP4 20
+CNSTI4 2400
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 g_entities+516
+ADDP4
+INDIRP4
+CNSTI4 12
+ADDP4
+ASGNP4
+ADDRLP4 20
+INDIRP4
+ADDRLP4 20
+INDIRP4
+INDIRI4
+CNSTI4 -8193
+BANDI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+RETI4
+ADDRGP4 $479
+JUMPV
+LABELV $480
+CNSTI4 -1
+RETI4
+LABELV $479
+endproc G_PopSpawnQueue 24 4
+export G_PeekSpawnQueue
+proc G_PeekSpawnQueue 4 0
+ADDRLP4 0
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CNSTI4 256
+ADDP4
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRLP4 0
+INDIRP4
+ADDP4
+INDIRI4
+RETI4
+LABELV $483
+endproc G_PeekSpawnQueue 4 0
+export G_SearchSpawnQueue
+proc G_SearchSpawnQueue 4 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRFP4 4
+ADDRFP4 4
+INDIRI4
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+LABELV $485
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 0
+INDIRP4
+ADDP4
+INDIRI4
+ADDRFP4 4
+INDIRI4
+NEI4 $489
+CNSTI4 1
+RETI4
+ADDRGP4 $484
+JUMPV
+LABELV $489
+LABELV $486
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+CNSTI4 64
+LTI4 $485
+CNSTI4 0
+RETI4
+LABELV $484
+endproc G_SearchSpawnQueue 4 0
+export G_PushSpawnQueue
+proc G_PushSpawnQueue 16 8
+ADDRFP4 0
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRFP4 4
+ADDRFP4 4
+INDIRI4
+ASGNI4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRFP4 4
+INDIRI4
+ARGI4
+ADDRLP4 0
+ADDRGP4 G_SearchSpawnQueue
+CALLI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+CNSTI4 0
+EQI4 $492
+CNSTI4 0
+RETI4
+ADDRGP4 $491
+JUMPV
+LABELV $492
+ADDRLP4 4
+ADDRFP4 0
+INDIRP4
+CNSTI4 260
+ADDP4
+ASGNP4
+ADDRLP4 4
+INDIRP4
+ADDRLP4 4
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDI4
+CNSTI4 64
+MODI4
+ASGNI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 260
+ADDP4
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 0
+INDIRP4
+ADDP4
+ADDRFP4 4
+INDIRI4
+ASGNI4
+ADDRLP4 12
+CNSTI4 2400
+ADDRFP4 4
+INDIRI4
+MULI4
+ADDRGP4 g_entities+516
+ADDP4
+INDIRP4
+CNSTI4 12
+ADDP4
+ASGNP4
+ADDRLP4 12
+INDIRP4
+ADDRLP4 12
+INDIRP4
+INDIRI4
+CNSTI4 8192
+BORI4
+ASGNI4
+CNSTI4 1
+RETI4
+LABELV $491
+endproc G_PushSpawnQueue 16 8
+export G_RemoveFromSpawnQueue
+proc G_RemoveFromSpawnQueue 20 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRFP4 4
+ADDRFP4 4
+INDIRI4
+ASGNI4
+ADDRLP4 0
+ADDRFP4 0
+INDIRP4
+CNSTI4 256
+ADDP4
+INDIRI4
+ASGNI4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRLP4 4
+ADDRGP4 G_GetSpawnQueueLength
+CALLI4
+ASGNI4
+ADDRLP4 4
+INDIRI4
+CNSTI4 0
+EQI4 $496
+LABELV $498
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 0
+INDIRP4
+ADDP4
+INDIRI4
+ADDRFP4 4
+INDIRI4
+NEI4 $501
+LABELV $503
+ADDRLP4 12
+CNSTI4 2
+ASGNI4
+ADDRLP4 0
+INDIRI4
+ADDRLP4 12
+INDIRI4
+LSHI4
+ADDRFP4 0
+INDIRP4
+ADDP4
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+CNSTI4 64
+MODI4
+ADDRLP4 12
+INDIRI4
+LSHI4
+ADDRFP4 0
+INDIRP4
+ADDP4
+INDIRI4
+ASGNI4
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+CNSTI4 64
+MODI4
+ASGNI4
+LABELV $504
+ADDRLP4 0
+INDIRI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 260
+ADDP4
+INDIRI4
+CNSTI4 1
+ADDI4
+CNSTI4 64
+MODI4
+NEI4 $503
+ADDRLP4 8
+ADDRFP4 0
+INDIRP4
+CNSTI4 260
+ADDP4
+ASGNP4
+ADDRLP4 12
+CNSTI4 64
+ASGNI4
+ADDRLP4 8
+INDIRP4
+ADDRLP4 8
+INDIRP4
+INDIRI4
+ADDRLP4 12
+INDIRI4
+ADDI4
+CNSTI4 1
+SUBI4
+ADDRLP4 12
+INDIRI4
+MODI4
+ASGNI4
+ADDRLP4 16
+CNSTI4 2400
+ADDRFP4 4
+INDIRI4
+MULI4
+ADDRGP4 g_entities+516
+ADDP4
+INDIRP4
+CNSTI4 12
+ADDP4
+ASGNP4
+ADDRLP4 16
+INDIRP4
+ADDRLP4 16
+INDIRP4
+INDIRI4
+CNSTI4 -8193
+BANDI4
+ASGNI4
+CNSTI4 1
+RETI4
+ADDRGP4 $495
+JUMPV
+LABELV $501
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+CNSTI4 64
+MODI4
+ASGNI4
+LABELV $499
+ADDRLP4 0
+INDIRI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 260
+ADDP4
+INDIRI4
+CNSTI4 1
+ADDI4
+CNSTI4 64
+MODI4
+NEI4 $498
+LABELV $496
+CNSTI4 0
+RETI4
+LABELV $495
+endproc G_RemoveFromSpawnQueue 20 4
+export G_GetPosInSpawnQueue
+proc G_GetPosInSpawnQueue 8 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRFP4 4
+ADDRFP4 4
+INDIRI4
+ASGNI4
+ADDRLP4 0
+ADDRFP4 0
+INDIRP4
+CNSTI4 256
+ADDP4
+INDIRI4
+ASGNI4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRLP4 4
+ADDRGP4 G_GetSpawnQueueLength
+CALLI4
+ASGNI4
+ADDRLP4 4
+INDIRI4
+CNSTI4 0
+EQI4 $508
+LABELV $510
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 0
+INDIRP4
+ADDP4
+INDIRI4
+ADDRFP4 4
+INDIRI4
+NEI4 $513
+ADDRLP4 0
+INDIRI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 256
+ADDP4
+INDIRI4
+GEI4 $515
+ADDRLP4 0
+INDIRI4
+CNSTI4 64
+ADDI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 256
+ADDP4
+INDIRI4
+SUBI4
+RETI4
+ADDRGP4 $507
+JUMPV
+LABELV $515
+ADDRLP4 0
+INDIRI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 256
+ADDP4
+INDIRI4
+SUBI4
+RETI4
+ADDRGP4 $507
+JUMPV
+LABELV $513
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+CNSTI4 64
+MODI4
+ASGNI4
+LABELV $511
+ADDRLP4 0
+INDIRI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 260
+ADDP4
+INDIRI4
+CNSTI4 1
+ADDI4
+CNSTI4 64
+MODI4
+NEI4 $510
+LABELV $508
+CNSTI4 -1
+RETI4
+LABELV $507
+endproc G_GetPosInSpawnQueue 8 4
+export G_PrintSpawnQueue
+proc G_PrintSpawnQueue 16 16
+ADDRFP4 0
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRLP4 0
+ADDRFP4 0
+INDIRP4
+CNSTI4 256
+ADDP4
+INDIRI4
+ASGNI4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRLP4 8
+ADDRGP4 G_GetSpawnQueueLength
+CALLI4
+ASGNI4
+ADDRLP4 4
+ADDRLP4 8
+INDIRI4
+ASGNI4
+ADDRGP4 $518
+ARGP4
+ADDRLP4 4
+INDIRI4
+ARGI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 256
+ADDP4
+INDIRI4
+ARGI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 260
+ADDP4
+INDIRI4
+ARGI4
+ADDRGP4 G_Printf
+CALLV
+pop
+ADDRLP4 4
+INDIRI4
+CNSTI4 0
+LEI4 $519
+LABELV $521
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 0
+INDIRP4
+ADDP4
+INDIRI4
+CNSTI4 -1
+NEI4 $524
+ADDRGP4 $526
+ARGP4
+ADDRGP4 G_Printf
+CALLV
+pop
+ADDRGP4 $525
+JUMPV
+LABELV $524
+ADDRGP4 $527
+ARGP4
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRFP4 0
+INDIRP4
+ADDP4
+INDIRI4
+ARGI4
+ADDRGP4 G_Printf
+CALLV
+pop
+LABELV $525
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+CNSTI4 64
+MODI4
+ASGNI4
+LABELV $522
+ADDRLP4 0
+INDIRI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 260
+ADDP4
+INDIRI4
+CNSTI4 1
+ADDI4
+CNSTI4 64
+MODI4
+NEI4 $521
+LABELV $519
+ADDRGP4 $528
+ARGP4
+ADDRGP4 G_Printf
+CALLV
+pop
+LABELV $517
+endproc G_PrintSpawnQueue 16 16
+export G_SpawnClients
+proc G_SpawnClients 68 20
+ADDRLP4 0
+CNSTP4 0
+ASGNP4
+ADDRLP4 4
+CNSTI4 0
+ASGNI4
+ADDRGP4 g_doWarmup+12
+INDIRI4
+CNSTI4 0
+EQI4 $530
+ADDRGP4 g_warmupMode+12
+INDIRI4
+CNSTI4 1
+EQI4 $538
+ADDRGP4 g_warmupMode+12
+INDIRI4
+CNSTI4 2
+NEI4 $530
+LABELV $538
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+SUBI4
+CNSTI4 1000
+ADDRGP4 g_warmup+12
+INDIRI4
+MULI4
+GEI4 $530
+ADDRGP4 $529
+JUMPV
+LABELV $530
+ADDRFP4 0
+INDIRI4
+CNSTI4 1
+NEI4 $539
+ADDRLP4 0
+ADDRGP4 level+189292
+ASGNP4
+ADDRLP4 4
+ADDRGP4 level+185088
+INDIRI4
+ASGNI4
+ADDRGP4 $540
+JUMPV
+LABELV $539
+ADDRFP4 0
+INDIRI4
+CNSTI4 2
+NEI4 $543
+ADDRLP4 0
+ADDRGP4 level+189556
+ASGNP4
+ADDRLP4 4
+ADDRGP4 level+185092
+INDIRI4
+ASGNI4
+LABELV $543
+LABELV $540
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRLP4 44
+ADDRGP4 G_GetSpawnQueueLength
+CALLI4
+ASGNI4
+ADDRLP4 48
+CNSTI4 0
+ASGNI4
+ADDRLP4 44
+INDIRI4
+ADDRLP4 48
+INDIRI4
+LEI4 $547
+ADDRLP4 4
+INDIRI4
+ADDRLP4 48
+INDIRI4
+LEI4 $547
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRLP4 52
+ADDRGP4 G_PeekSpawnQueue
+CALLI4
+ASGNI4
+ADDRLP4 12
+ADDRLP4 52
+INDIRI4
+ASGNI4
+ADDRLP4 8
+CNSTI4 2400
+ADDRLP4 12
+INDIRI4
+MULI4
+ADDRGP4 g_entities
+ADDP4
+ASGNP4
+ADDRFP4 0
+INDIRI4
+ARGI4
+ADDRLP4 56
+ADDRLP4 8
+INDIRP4
+ASGNP4
+ADDRLP4 56
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CNSTI4 684
+ADDP4
+ARGP4
+ADDRLP4 20
+ARGP4
+ADDRLP4 32
+ARGP4
+ADDRLP4 56
+INDIRP4
+ARGP4
+ADDRLP4 60
+ADDRGP4 G_SelectTremulousSpawnPoint
+CALLP4
+ASGNP4
+ADDRLP4 16
+ADDRLP4 60
+INDIRP4
+ASGNP4
+ADDRLP4 60
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $549
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRLP4 64
+ADDRGP4 G_PopSpawnQueue
+CALLI4
+ASGNI4
+ADDRLP4 12
+ADDRLP4 64
+INDIRI4
+ASGNI4
+ADDRLP4 12
+INDIRI4
+CNSTI4 0
+GEI4 $551
+ADDRGP4 $529
+JUMPV
+LABELV $551
+ADDRLP4 8
+CNSTI4 2400
+ADDRLP4 12
+INDIRI4
+MULI4
+ADDRGP4 g_entities
+ADDP4
+ASGNP4
+ADDRLP4 8
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CNSTI4 876
+ADDP4
+CNSTI4 0
+ASGNI4
+ADDRLP4 12
+INDIRI4
+ARGI4
+ADDRGP4 ClientUserinfoChanged
+CALLV
+pop
+ADDRLP4 8
+INDIRP4
+ARGP4
+ADDRLP4 16
+INDIRP4
+ARGP4
+ADDRLP4 20
+ARGP4
+ADDRLP4 32
+ARGP4
+ADDRGP4 ClientSpawn
+CALLV
+pop
+LABELV $549
+LABELV $547
+LABELV $529
+endproc G_SpawnClients 68 20
+export botAttack
+proc botAttack 36 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRFP4 4
+ADDRFP4 4
+INDIRI4
+ASGNI4
+ADDRLP4 8
+CNSTI4 0
+ASGNI4
+ADDRFP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $554
+ADDRGP4 $553
+JUMPV
+LABELV $554
+ADDRLP4 20
+CNSTI4 0
+ASGNI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CNSTI4 184
+ADDP4
+INDIRI4
+ADDRLP4 20
+INDIRI4
+LEI4 $558
+ADDRFP4 0
+INDIRP4
+CNSTI4 812
+ADDP4
+INDIRI4
+ADDRLP4 20
+INDIRI4
+GTI4 $556
+LABELV $558
+ADDRGP4 $553
+JUMPV
+LABELV $556
+ADDRFP4 4
+INDIRI4
+CNSTI4 1
+EQI4 $561
+ADDRFP4 4
+INDIRI4
+CNSTI4 2
+EQI4 $562
+ADDRFP4 4
+INDIRI4
+CNSTI4 3
+EQI4 $563
+ADDRGP4 $559
+JUMPV
+LABELV $561
+ADDRLP4 12
+CNSTI4 10
+ASGNI4
+ADDRGP4 $560
+JUMPV
+LABELV $562
+ADDRLP4 12
+CNSTI4 10
+ASGNI4
+ADDRGP4 $560
+JUMPV
+LABELV $563
+ADDRLP4 12
+ADDRGP4 level+190008
+INDIRI4
+ASGNI4
+LABELV $559
+LABELV $560
+ADDRLP4 4
+CNSTI4 0
+ASGNI4
+ADDRGP4 $568
+JUMPV
+LABELV $565
+ADDRLP4 0
+CNSTI4 2400
+ADDRLP4 4
+INDIRI4
+MULI4
+ADDRGP4 g_entities
+ADDP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $570
+ADDRGP4 $566
+JUMPV
+LABELV $570
+ADDRLP4 0
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $572
+ADDRGP4 $566
+JUMPV
+LABELV $572
+ADDRLP4 0
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CNSTI4 876
+ADDP4
+INDIRI4
+CNSTI4 1
+NEI4 $574
+ADDRGP4 $566
+JUMPV
+LABELV $574
+ADDRLP4 0
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CNSTI4 216
+ADDP4
+INDIRI4
+CNSTI4 2
+NEI4 $576
+ADDRGP4 $566
+JUMPV
+LABELV $576
+ADDRLP4 32
+CNSTI4 0
+ASGNI4
+ADDRLP4 0
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CNSTI4 184
+ADDP4
+INDIRI4
+ADDRLP4 32
+INDIRI4
+LEI4 $580
+ADDRLP4 0
+INDIRP4
+CNSTI4 812
+ADDP4
+INDIRI4
+ADDRLP4 32
+INDIRI4
+GTI4 $578
+LABELV $580
+ADDRGP4 $566
+JUMPV
+LABELV $578
+ADDRLP4 0
+INDIRP4
+CNSTI4 908
+ADDP4
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $581
+ADDRGP4 $566
+JUMPV
+LABELV $581
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 ACESP_SetupBotState
+CALLI4
+pop
+ADDRLP4 0
+INDIRP4
+CNSTI4 904
+ADDP4
+CNSTI4 11
+ASGNI4
+ADDRLP4 0
+INDIRP4
+CNSTI4 908
+ADDP4
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CNSTI4 2348
+ADDP4
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CNSTI4 2344
+ADDP4
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CNSTI4 936
+ADDP4
+ADDRFP4 4
+INDIRI4
+ASGNI4
+ADDRLP4 8
+ADDRLP4 8
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 8
+INDIRI4
+ADDRLP4 12
+INDIRI4
+LTI4 $583
+ADDRGP4 $567
+JUMPV
+LABELV $583
+LABELV $566
+ADDRLP4 4
+ADDRLP4 4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $568
+ADDRLP4 4
+INDIRI4
+ADDRGP4 level+190008
+INDIRI4
+LTI4 $565
+LABELV $567
+LABELV $553
+endproc botAttack 36 4
+export G_Director
+proc G_Director 48 8
+ADDRGP4 level+28
+INDIRI4
+CNSTI4 1000
+MODI4
+CNSTI4 15
+MODI4
+CNSTI4 0
+EQI4 $586
+ADDRGP4 $585
+JUMPV
+LABELV $586
+ADDRLP4 24
+CNSTP4 0
+ASGNP4
+ADDRLP4 20
+ADDRLP4 24
+INDIRP4
+ASGNP4
+ADDRLP4 16
+ADDRLP4 24
+INDIRP4
+ASGNP4
+ADDRGP4 g_survival+12
+INDIRI4
+CNSTI4 0
+NEI4 $589
+ADDRGP4 $585
+JUMPV
+LABELV $589
+ADDRLP4 12
+ADDRGP4 level+190008
+INDIRI4
+ASGNI4
+ADDRGP4 $595
+JUMPV
+LABELV $592
+ADDRLP4 8
+CNSTI4 2400
+ADDRLP4 12
+INDIRI4
+MULI4
+ADDRGP4 g_entities
+ADDP4
+ASGNP4
+ADDRLP4 8
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $599
+ADDRGP4 $593
+JUMPV
+LABELV $599
+ADDRLP4 8
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $601
+ADDRGP4 $593
+JUMPV
+LABELV $601
+ADDRLP4 8
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CNSTI4 876
+ADDP4
+INDIRI4
+CNSTI4 1
+NEI4 $603
+ADDRGP4 $593
+JUMPV
+LABELV $603
+ADDRLP4 8
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CNSTI4 216
+ADDP4
+INDIRI4
+CNSTI4 1
+NEI4 $605
+ADDRGP4 $593
+JUMPV
+LABELV $605
+ADDRLP4 32
+CNSTI4 0
+ASGNI4
+ADDRLP4 8
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CNSTI4 184
+ADDP4
+INDIRI4
+ADDRLP4 32
+INDIRI4
+LEI4 $609
+ADDRLP4 8
+INDIRP4
+CNSTI4 812
+ADDP4
+INDIRI4
+ADDRLP4 32
+INDIRI4
+GTI4 $607
+LABELV $609
+ADDRGP4 $593
+JUMPV
+LABELV $607
+ADDRLP4 16
+ADDRLP4 8
+INDIRP4
+ASGNP4
+ADDRLP4 4
+ADDRGP4 level+190008
+INDIRI4
+ASGNI4
+ADDRGP4 $613
+JUMPV
+LABELV $610
+ADDRLP4 0
+CNSTI4 2400
+ADDRLP4 4
+INDIRI4
+MULI4
+ADDRGP4 g_entities
+ADDP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $617
+ADDRGP4 $611
+JUMPV
+LABELV $617
+ADDRLP4 0
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $619
+ADDRGP4 $611
+JUMPV
+LABELV $619
+ADDRLP4 12
+INDIRI4
+ADDRLP4 4
+INDIRI4
+NEI4 $621
+ADDRGP4 $611
+JUMPV
+LABELV $621
+ADDRLP4 0
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CNSTI4 876
+ADDP4
+INDIRI4
+CNSTI4 1
+NEI4 $623
+ADDRGP4 $611
+JUMPV
+LABELV $623
+ADDRLP4 0
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CNSTI4 216
+ADDP4
+INDIRI4
+CNSTI4 1
+NEI4 $625
+ADDRGP4 $611
+JUMPV
+LABELV $625
+ADDRLP4 40
+CNSTI4 0
+ASGNI4
+ADDRLP4 0
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CNSTI4 184
+ADDP4
+INDIRI4
+ADDRLP4 40
+INDIRI4
+LEI4 $629
+ADDRLP4 0
+INDIRP4
+CNSTI4 812
+ADDP4
+INDIRI4
+ADDRLP4 40
+INDIRI4
+GTI4 $627
+LABELV $629
+ADDRGP4 $611
+JUMPV
+LABELV $627
+ADDRLP4 8
+INDIRP4
+ARGP4
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRLP4 44
+ADDRGP4 G_Visible
+CALLI4
+ASGNI4
+ADDRLP4 44
+INDIRI4
+CNSTI4 0
+EQI4 $630
+ADDRLP4 16
+CNSTP4 0
+ASGNP4
+ADDRGP4 $612
+JUMPV
+LABELV $630
+LABELV $611
+ADDRLP4 4
+ADDRLP4 4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $613
+ADDRLP4 4
+INDIRI4
+ADDRGP4 level+190008
+INDIRI4
+ADDRGP4 level+173940
+INDIRI4
+ADDI4
+LTI4 $610
+LABELV $612
+ADDRLP4 16
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $632
+ADDRGP4 $594
+JUMPV
+LABELV $632
+LABELV $593
+ADDRLP4 12
+ADDRLP4 12
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $595
+ADDRLP4 12
+INDIRI4
+ADDRGP4 level+190008
+INDIRI4
+ADDRGP4 level+173940
+INDIRI4
+ADDI4
+LTI4 $592
+LABELV $594
+ADDRLP4 16
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $634
+ADDRLP4 16
+INDIRP4
+ARGP4
+CNSTI4 1
+ARGI4
+ADDRGP4 botAttack
+CALLV
+pop
+LABELV $634
+ADDRLP4 12
+ADDRGP4 level+190008
+INDIRI4
+ASGNI4
+ADDRGP4 $639
+JUMPV
+LABELV $636
+ADDRLP4 8
+CNSTI4 2400
+ADDRLP4 12
+INDIRI4
+MULI4
+ADDRGP4 g_entities
+ADDP4
+ASGNP4
+ADDRLP4 8
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $643
+ADDRGP4 $637
+JUMPV
+LABELV $643
+ADDRLP4 8
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $645
+ADDRGP4 $637
+JUMPV
+LABELV $645
+ADDRLP4 8
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CNSTI4 876
+ADDP4
+INDIRI4
+CNSTI4 1
+NEI4 $647
+ADDRGP4 $637
+JUMPV
+LABELV $647
+ADDRLP4 8
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CNSTI4 216
+ADDP4
+INDIRI4
+CNSTI4 1
+NEI4 $649
+ADDRGP4 $637
+JUMPV
+LABELV $649
+ADDRLP4 32
+CNSTI4 0
+ASGNI4
+ADDRLP4 8
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CNSTI4 184
+ADDP4
+INDIRI4
+ADDRLP4 32
+INDIRI4
+LEI4 $653
+ADDRLP4 8
+INDIRP4
+CNSTI4 812
+ADDP4
+INDIRI4
+ADDRLP4 32
+INDIRI4
+GTI4 $651
+LABELV $653
+ADDRGP4 $637
+JUMPV
+LABELV $651
+ADDRLP4 8
+INDIRP4
+CNSTI4 2264
+ADDP4
+INDIRI4
+CNSTI4 0
+NEI4 $654
+ADDRLP4 8
+INDIRP4
+CNSTI4 2264
+ADDP4
+ADDRGP4 level+28
+INDIRI4
+CNSTI4 20000
+ADDI4
+ASGNI4
+ADDRGP4 $637
+JUMPV
+LABELV $654
+ADDRLP4 8
+INDIRP4
+CNSTI4 2264
+ADDP4
+INDIRI4
+CNSTI4 15000
+ADDI4
+ADDRGP4 level+28
+INDIRI4
+GEI4 $657
+ADDRLP4 8
+INDIRP4
+CNSTI4 2264
+ADDP4
+ADDRGP4 level+28
+INDIRI4
+ASGNI4
+ADDRLP4 20
+ADDRLP4 8
+INDIRP4
+ASGNP4
+ADDRGP4 $638
+JUMPV
+LABELV $657
+LABELV $637
+ADDRLP4 12
+ADDRLP4 12
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $639
+ADDRLP4 12
+INDIRI4
+ADDRGP4 level+190008
+INDIRI4
+ADDRGP4 level+173940
+INDIRI4
+ADDI4
+LTI4 $636
+LABELV $638
+ADDRLP4 20
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $661
+ADDRLP4 16
+INDIRP4
+ARGP4
+CNSTI4 2
+ARGI4
+ADDRGP4 botAttack
+CALLV
+pop
+LABELV $661
+ADDRGP4 level+28
+INDIRI4
+CNSTI4 1000
+MODI4
+CNSTI4 120
+MODI4
+CNSTI4 0
+NEI4 $663
+ADDRLP4 12
+ADDRGP4 level+190008
+INDIRI4
+ASGNI4
+ADDRGP4 $669
+JUMPV
+LABELV $666
+ADDRLP4 8
+CNSTI4 2400
+ADDRLP4 12
+INDIRI4
+MULI4
+ADDRGP4 g_entities
+ADDP4
+ASGNP4
+ADDRLP4 8
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $673
+ADDRGP4 $667
+JUMPV
+LABELV $673
+ADDRLP4 8
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $675
+ADDRGP4 $667
+JUMPV
+LABELV $675
+ADDRLP4 8
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CNSTI4 876
+ADDP4
+INDIRI4
+CNSTI4 1
+NEI4 $677
+ADDRGP4 $667
+JUMPV
+LABELV $677
+ADDRLP4 8
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CNSTI4 216
+ADDP4
+INDIRI4
+CNSTI4 1
+NEI4 $679
+ADDRGP4 $667
+JUMPV
+LABELV $679
+ADDRLP4 32
+CNSTI4 0
+ASGNI4
+ADDRLP4 8
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CNSTI4 184
+ADDP4
+INDIRI4
+ADDRLP4 32
+INDIRI4
+LEI4 $683
+ADDRLP4 8
+INDIRP4
+CNSTI4 812
+ADDP4
+INDIRI4
+ADDRLP4 32
+INDIRI4
+GTI4 $681
+LABELV $683
+ADDRGP4 $667
+JUMPV
+LABELV $681
+ADDRLP4 0
+ADDRLP4 8
+INDIRP4
+ASGNP4
+ADDRGP4 $668
+JUMPV
+LABELV $667
+ADDRLP4 12
+ADDRLP4 12
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $669
+ADDRLP4 12
+INDIRI4
+ADDRGP4 level+190008
+INDIRI4
+ADDRGP4 level+173940
+INDIRI4
+ADDI4
+LTI4 $666
+LABELV $668
+ADDRLP4 0
+INDIRP4
+ARGP4
+CNSTI4 3
+ARGI4
+ADDRGP4 botAttack
+CALLV
+pop
+LABELV $663
+LABELV $585
+endproc G_Director 48 8
+export G_addBot
+proc G_addBot 4 16
+ADDRGP4 level+185088
+INDIRI4
+CNSTI4 1
+GEI4 $685
+ADDRGP4 $684
+JUMPV
+LABELV $685
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+SUBI4
+CNSTI4 92000
+GEI4 $688
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+SUBI4
+CNSTI4 90000
+LEI4 $688
+ADDRGP4 g_survival+12
+INDIRI4
+CNSTI4 0
+EQI4 $694
+ADDRGP4 G_KillStructuresSurvival
+CALLI4
+pop
+CNSTI4 -1
+ARGI4
+ADDRGP4 $697
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+LABELV $694
+LABELV $688
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+SUBI4
+CNSTI4 10000
+GEI4 $698
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+SUBI4
+CNSTI4 9000
+LEI4 $698
+ADDRGP4 g_survival+12
+INDIRI4
+CNSTI4 0
+EQI4 $704
+CNSTI4 -1
+ARGI4
+ADDRGP4 $707
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+ADDRGP4 $705
+JUMPV
+LABELV $704
+CNSTI4 -1
+ARGI4
+ADDRGP4 $708
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+LABELV $705
+LABELV $698
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+SUBI4
+CNSTI4 6000
+GEI4 $709
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+SUBI4
+CNSTI4 5000
+LEI4 $709
+CNSTI4 -1
+ARGI4
+ADDRGP4 $715
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+LABELV $709
+ADDRGP4 level+189992
+INDIRI4
+ADDRGP4 level+28
+INDIRI4
+LEI4 $716
+ADDRGP4 $684
+JUMPV
+LABELV $716
+ADDRGP4 g_survival+12
+INDIRI4
+CNSTI4 0
+EQI4 $720
+ADDRGP4 level+189992
+ADDRGP4 level+28
+INDIRI4
+CNSTI4 30000
+ADDI4
+ASGNI4
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+SUBI4
+CNSTI4 1000
+DIVI4
+CNSTI4 60
+DIVI4
+CNSTI4 4
+LEI4 $725
+ADDRGP4 level+189992
+ADDRGP4 level+28
+INDIRI4
+CNSTI4 10000
+ADDI4
+ASGNI4
+LABELV $725
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+SUBI4
+CNSTI4 1000
+DIVI4
+CNSTI4 60
+DIVI4
+CNSTI4 6
+LEI4 $721
+ADDRGP4 level+189992
+ADDRGP4 level+28
+INDIRI4
+CNSTI4 5000
+ADDI4
+ASGNI4
+ADDRGP4 $721
+JUMPV
+LABELV $720
+ADDRGP4 level+189992
+ADDRGP4 level+28
+INDIRI4
+CNSTI4 2000
+ADDI4
+ASGNI4
+LABELV $721
+ADDRLP4 0
+ADDRGP4 level+189996
+ASGNP4
+ADDRLP4 0
+INDIRP4
+ADDRLP4 0
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRGP4 level+190004
+INDIRI4
+CNSTI4 40
+GEI4 $740
+ADDRGP4 $743
+ARGP4
+CNSTI4 1
+ARGI4
+ADDRGP4 level+189996
+INDIRI4
+ARGI4
+CNSTP4 0
+ARGP4
+ADDRGP4 G_BotAdd
+CALLV
+pop
+LABELV $740
+LABELV $684
+endproc G_addBot 4 16
+export G_CalculateSurvivalRecords
+proc G_CalculateSurvivalRecords 8 8
+ADDRGP4 g_survival+12
+INDIRI4
+CNSTI4 0
+EQI4 $746
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+LABELV $749
+ADDRLP4 4
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ASGNI4
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+SUBI4
+ADDRLP4 4
+INDIRI4
+ADDRGP4 level+52
+ADDP4
+INDIRI4
+LEI4 $753
+ADDRLP4 4
+INDIRI4
+ADDRGP4 level+64
+ADDP4
+INDIRI4
+CNSTI4 1
+GEI4 $753
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRGP4 level+64
+ADDP4
+CNSTI4 1
+ASGNI4
+ADDRLP4 0
+INDIRI4
+CNSTI4 0
+NEI4 $760
+CNSTI4 -1
+ARGI4
+ADDRGP4 $762
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+LABELV $760
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+NEI4 $763
+CNSTI4 -1
+ARGI4
+ADDRGP4 $765
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+LABELV $763
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+NEI4 $766
+CNSTI4 -1
+ARGI4
+ADDRGP4 $768
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+LABELV $766
+LABELV $753
+LABELV $750
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+CNSTI4 3
+LTI4 $749
+LABELV $746
+LABELV $745
+endproc G_CalculateSurvivalRecords 8 8
+export G_UpdateCamper
+proc G_UpdateCamper 0 0
+LABELV $769
+endproc G_UpdateCamper 0 0
+export G_CountSpawns
+proc G_CountSpawns 24 12
+ADDRGP4 level+185088
+CNSTI4 0
+ASGNI4
+ADDRGP4 level+185092
+CNSTI4 0
+ASGNI4
+ADDRGP4 g_layoutmaking+12
+INDIRI4
+CNSTI4 1
+NEI4 $773
+ADDRGP4 level+185088
+CNSTI4 1
+ASGNI4
+ADDRGP4 level+185092
+CNSTI4 1
+ASGNI4
+LABELV $773
+ADDRLP4 4
+CNSTI4 1
+ASGNI4
+ADDRLP4 0
+CNSTI4 2400
+ADDRLP4 4
+INDIRI4
+MULI4
+ADDRGP4 g_entities
+ADDP4
+ASGNP4
+ADDRGP4 $781
+JUMPV
+LABELV $778
+ADDRLP4 0
+INDIRP4
+CNSTI4 520
+ADDP4
+INDIRI4
+CNSTI4 0
+NEI4 $783
+ADDRGP4 $779
+JUMPV
+LABELV $783
+ADDRLP4 0
+INDIRP4
+CNSTI4 160
+ADDP4
+INDIRI4
+CNSTI4 9
+NEI4 $789
+ADDRLP4 0
+INDIRP4
+CNSTI4 812
+ADDP4
+INDIRI4
+CNSTI4 0
+LEI4 $789
+ADDRLP4 0
+INDIRP4
+CNSTI4 956
+ADDP4
+INDIRI4
+CNSTI4 1
+EQI4 $787
+LABELV $789
+ADDRLP4 0
+INDIRP4
+CNSTI4 160
+ADDP4
+INDIRI4
+CNSTI4 1
+NEI4 $785
+ADDRLP4 0
+INDIRP4
+CNSTI4 812
+ADDP4
+INDIRI4
+CNSTI4 0
+LEI4 $785
+LABELV $787
+ADDRLP4 16
+ADDRGP4 level+185088
+ASGNP4
+ADDRLP4 16
+INDIRP4
+ADDRLP4 16
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $785
+ADDRLP4 0
+INDIRP4
+CNSTI4 160
+ADDP4
+INDIRI4
+CNSTI4 9
+NEI4 $791
+ADDRLP4 0
+INDIRP4
+CNSTI4 812
+ADDP4
+INDIRI4
+CNSTI4 0
+LEI4 $791
+ADDRLP4 0
+INDIRP4
+CNSTI4 956
+ADDP4
+INDIRI4
+CNSTI4 2
+NEI4 $791
+ADDRLP4 20
+ADDRGP4 level+185092
+ASGNP4
+ADDRLP4 20
+INDIRP4
+ADDRLP4 20
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $791
+LABELV $779
+ADDRLP4 4
+ADDRLP4 4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 0
+ADDRLP4 0
+INDIRP4
+CNSTI4 2400
+ADDP4
+ASGNP4
+LABELV $781
+ADDRLP4 4
+INDIRI4
+ADDRGP4 level+12
+INDIRI4
+LTI4 $778
+ADDRGP4 $794
+ARGP4
+ADDRGP4 level+185088
+INDIRI4
+ARGI4
+ADDRGP4 level+185092
+INDIRI4
+ARGI4
+ADDRLP4 8
+ADDRGP4 va
+CALLP4
+ASGNP4
+CNSTI4 30
+ARGI4
+ADDRLP4 8
+INDIRP4
+ARGP4
+ADDRGP4 trap_SetConfigstring
+CALLV
+pop
+LABELV $770
+endproc G_CountSpawns 24 12
+export G_TimeTilSuddenDeath
+proc G_TimeTilSuddenDeath 4 0
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 g_suddenDeathTime+12
+INDIRI4
+ADDRLP4 0
+INDIRI4
+NEI4 $804
+ADDRGP4 level+189280
+INDIRI4
+ADDRLP4 0
+INDIRI4
+EQI4 $803
+LABELV $804
+ADDRGP4 level+189280
+INDIRI4
+CNSTI4 0
+GEI4 $798
+LABELV $803
+CNSTI4 999999999
+RETI4
+ADDRGP4 $797
+JUMPV
+LABELV $798
+ADDRGP4 level+189280
+INDIRI4
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+SUBI4
+SUBI4
+RETI4
+LABELV $797
+endproc G_TimeTilSuddenDeath 4 0
+export G_CalculateBuildPoints
+proc G_CalculateBuildPoints 84 28
+ADDRLP4 12
+ADDRGP4 g_humanBuildPoints+12
+INDIRI4
+ASGNI4
+ADDRLP4 16
+ADDRGP4 g_alienBuildPoints+12
+INDIRI4
+ASGNI4
+ADDRLP4 20
+CNSTI4 0
+ASGNI4
+ADDRGP4 g_suddenDeath+12
+INDIRI4
+ADDRLP4 20
+INDIRI4
+NEI4 $811
+ADDRGP4 level+189276
+INDIRI4
+ADDRLP4 20
+INDIRI4
+EQI4 $811
+ADDRGP4 level+189276
+CNSTI4 0
+ASGNI4
+ADDRGP4 level+189284
+CNSTI4 0
+ASGNI4
+ADDRGP4 level+189280
+CNSTI4 -1
+ASGNI4
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+SUBI4
+CNSTI4 60000
+ADDRGP4 g_suddenDeathTime+12
+INDIRI4
+MULI4
+GEI4 $818
+ADDRGP4 level+189280
+CNSTI4 60000
+ADDRGP4 g_suddenDeathTime+12
+INDIRI4
+MULI4
+ASGNI4
+ADDRGP4 $819
+JUMPV
+LABELV $818
+ADDRGP4 level+189280
+CNSTI4 -1
+ASGNI4
+LABELV $819
+LABELV $811
+ADDRGP4 level+189276
+INDIRI4
+CNSTI4 0
+NEI4 $826
+ADDRGP4 g_suddenDeath+12
+INDIRI4
+CNSTI4 0
+NEI4 $832
+ADDRLP4 24
+ADDRGP4 G_TimeTilSuddenDeath
+CALLI4
+ASGNI4
+ADDRLP4 24
+INDIRI4
+CNSTI4 0
+GTI4 $829
+LABELV $832
+ADDRGP4 level+189284
+INDIRI4
+CNSTI4 2
+GEI4 $830
+CNSTI4 -1
+ARGI4
+ADDRGP4 $836
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+ADDRGP4 $837
+ARGP4
+ADDRGP4 g_suddenDeathMode+12
+INDIRI4
+ARGI4
+ADDRGP4 G_LogPrintf
+CALLV
+pop
+ADDRLP4 28
+CNSTI4 0
+ASGNI4
+ADDRLP4 12
+ADDRLP4 28
+INDIRI4
+ASGNI4
+ADDRLP4 16
+ADDRLP4 28
+INDIRI4
+ASGNI4
+ADDRGP4 g_suddenDeathMode+12
+INDIRI4
+CNSTI4 2
+NEI4 $839
+ADDRLP4 8
+CNSTI4 1
+ASGNI4
+ADDRLP4 0
+CNSTI4 2400
+ADDRLP4 8
+INDIRI4
+MULI4
+ADDRGP4 g_entities
+ADDP4
+ASGNP4
+ADDRGP4 $845
+JUMPV
+LABELV $842
+ADDRLP4 0
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRI4
+CNSTI4 3
+EQI4 $847
+ADDRGP4 $843
+JUMPV
+LABELV $847
+ADDRLP4 0
+INDIRP4
+CNSTI4 160
+ADDP4
+INDIRI4
+ARGI4
+ADDRLP4 32
+ADDRGP4 BG_FindReplaceableTestForBuildable
+CALLI4
+ASGNI4
+ADDRLP4 32
+INDIRI4
+CNSTI4 0
+EQI4 $849
+ADDRLP4 36
+ADDRLP4 0
+INDIRP4
+CNSTI4 956
+ADDP4
+INDIRI4
+ASGNI4
+ADDRLP4 36
+INDIRI4
+CNSTI4 2
+NEI4 $851
+ADDRLP4 0
+INDIRP4
+CNSTI4 160
+ADDP4
+INDIRI4
+ARGI4
+ADDRLP4 40
+ADDRGP4 BG_FindBuildPointsForBuildable
+CALLI4
+ASGNI4
+ADDRLP4 12
+ADDRLP4 12
+INDIRI4
+ADDRLP4 40
+INDIRI4
+ADDI4
+ASGNI4
+ADDRGP4 $852
+JUMPV
+LABELV $851
+ADDRLP4 36
+INDIRI4
+CNSTI4 1
+NEI4 $853
+ADDRLP4 0
+INDIRP4
+CNSTI4 160
+ADDP4
+INDIRI4
+ARGI4
+ADDRLP4 44
+ADDRGP4 BG_FindBuildPointsForBuildable
+CALLI4
+ASGNI4
+ADDRLP4 16
+ADDRLP4 16
+INDIRI4
+ADDRLP4 44
+INDIRI4
+ADDI4
+ASGNI4
+LABELV $853
+LABELV $852
+LABELV $849
+LABELV $843
+ADDRLP4 8
+ADDRLP4 8
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 0
+ADDRLP4 0
+INDIRP4
+CNSTI4 2400
+ADDP4
+ASGNP4
+LABELV $845
+ADDRLP4 8
+INDIRI4
+ADDRGP4 level+12
+INDIRI4
+LTI4 $842
+LABELV $839
+ADDRGP4 level+189272
+ADDRLP4 12
+INDIRI4
+ASGNI4
+ADDRGP4 level+189268
+ADDRLP4 16
+INDIRI4
+ASGNI4
+ADDRGP4 level+189280
+ADDRGP4 level+28
+INDIRI4
+ASGNI4
+ADDRGP4 level+189276
+CNSTI4 1
+ASGNI4
+ADDRGP4 $105
+ARGP4
+ADDRGP4 $113
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+ADDRGP4 level+189284
+CNSTI4 2
+ASGNI4
+ADDRGP4 $830
+JUMPV
+LABELV $829
+ADDRLP4 28
+ADDRGP4 G_TimeTilSuddenDeath
+CALLI4
+ASGNI4
+ADDRLP4 28
+INDIRI4
+CNSTI4 60000
+GTI4 $861
+ADDRGP4 level+189284
+INDIRI4
+CNSTI4 1
+GEI4 $861
+ADDRLP4 32
+ADDRGP4 G_TimeTilSuddenDeath
+CALLI4
+ASGNI4
+ADDRGP4 $864
+ARGP4
+ADDRLP4 32
+INDIRI4
+CNSTI4 1000
+DIVI4
+ARGI4
+ADDRLP4 36
+ADDRGP4 va
+CALLP4
+ASGNP4
+CNSTI4 -1
+ARGI4
+ADDRLP4 36
+INDIRP4
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+ADDRGP4 level+189284
+CNSTI4 1
+ASGNI4
+LABELV $861
+LABELV $830
+LABELV $826
+ADDRGP4 g_suddenDeath+12
+INDIRI4
+CNSTI4 0
+EQI4 $866
+ADDRLP4 12
+ADDRGP4 level+189272
+INDIRI4
+ASGNI4
+ADDRLP4 16
+ADDRGP4 level+189268
+INDIRI4
+ASGNI4
+ADDRGP4 $867
+JUMPV
+LABELV $866
+ADDRLP4 12
+ADDRGP4 g_humanBuildPoints+12
+INDIRI4
+ASGNI4
+ADDRLP4 16
+ADDRGP4 g_alienBuildPoints+12
+INDIRI4
+ASGNI4
+LABELV $867
+ADDRGP4 level+185136
+ADDRLP4 12
+INDIRI4
+ASGNI4
+ADDRGP4 level+185132
+ADDRLP4 12
+INDIRI4
+ASGNI4
+ADDRGP4 level+185128
+ADDRLP4 16
+INDIRI4
+ASGNI4
+ADDRGP4 level+189248
+CNSTI4 0
+ASGNI4
+ADDRGP4 level+189252
+CNSTI4 0
+ASGNI4
+ADDRLP4 8
+CNSTI4 1
+ASGNI4
+ADDRLP4 0
+CNSTI4 2400
+ADDRLP4 8
+INDIRI4
+MULI4
+ADDRGP4 g_entities
+ADDP4
+ASGNP4
+ADDRGP4 $881
+JUMPV
+LABELV $878
+ADDRLP4 0
+INDIRP4
+CNSTI4 520
+ADDP4
+INDIRI4
+CNSTI4 0
+NEI4 $883
+ADDRGP4 $879
+JUMPV
+LABELV $883
+ADDRLP4 0
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRI4
+CNSTI4 3
+EQI4 $885
+ADDRGP4 $879
+JUMPV
+LABELV $885
+ADDRLP4 4
+ADDRLP4 0
+INDIRP4
+CNSTI4 160
+ADDP4
+INDIRI4
+ASGNI4
+ADDRLP4 4
+INDIRI4
+CNSTI4 0
+EQI4 $887
+ADDRLP4 4
+INDIRI4
+CNSTI4 15
+NEI4 $889
+ADDRLP4 32
+CNSTI4 0
+ASGNI4
+ADDRLP4 0
+INDIRP4
+CNSTI4 992
+ADDP4
+INDIRI4
+ADDRLP4 32
+INDIRI4
+EQI4 $889
+ADDRLP4 0
+INDIRP4
+CNSTI4 812
+ADDP4
+INDIRI4
+ADDRLP4 32
+INDIRI4
+LEI4 $889
+ADDRGP4 level+189248
+CNSTI4 1
+ASGNI4
+LABELV $889
+ADDRLP4 4
+INDIRI4
+CNSTI4 2
+NEI4 $892
+ADDRLP4 40
+CNSTI4 0
+ASGNI4
+ADDRLP4 0
+INDIRP4
+CNSTI4 992
+ADDP4
+INDIRI4
+ADDRLP4 40
+INDIRI4
+EQI4 $892
+ADDRLP4 0
+INDIRP4
+CNSTI4 812
+ADDP4
+INDIRI4
+ADDRLP4 40
+INDIRI4
+LEI4 $892
+ADDRGP4 level+189252
+CNSTI4 1
+ASGNI4
+LABELV $892
+ADDRGP4 g_suddenDeath+12
+INDIRI4
+CNSTI4 0
+EQI4 $898
+ADDRLP4 4
+INDIRI4
+ARGI4
+ADDRLP4 44
+ADDRGP4 BG_FindReplaceableTestForBuildable
+CALLI4
+ASGNI4
+ADDRLP4 44
+INDIRI4
+CNSTI4 0
+EQI4 $895
+LABELV $898
+ADDRLP4 0
+INDIRP4
+CNSTI4 956
+ADDP4
+INDIRI4
+CNSTI4 2
+NEI4 $899
+ADDRLP4 4
+INDIRI4
+ARGI4
+ADDRLP4 48
+ADDRGP4 BG_FindBuildPointsForBuildable
+CALLI4
+ASGNI4
+ADDRLP4 52
+ADDRGP4 level+185132
+ASGNP4
+ADDRLP4 52
+INDIRP4
+ADDRLP4 52
+INDIRP4
+INDIRI4
+ADDRLP4 48
+INDIRI4
+SUBI4
+ASGNI4
+ADDRLP4 0
+INDIRP4
+CNSTI4 972
+ADDP4
+INDIRI4
+CNSTI4 0
+EQI4 $900
+ADDRLP4 4
+INDIRI4
+ARGI4
+ADDRLP4 56
+ADDRGP4 BG_FindBuildPointsForBuildable
+CALLI4
+ASGNI4
+ADDRLP4 60
+ADDRGP4 level+185136
+ASGNP4
+ADDRLP4 60
+INDIRP4
+ADDRLP4 60
+INDIRP4
+INDIRI4
+ADDRLP4 56
+INDIRI4
+SUBI4
+ASGNI4
+ADDRGP4 $900
+JUMPV
+LABELV $899
+ADDRLP4 4
+INDIRI4
+ARGI4
+ADDRLP4 48
+ADDRGP4 BG_FindBuildPointsForBuildable
+CALLI4
+ASGNI4
+ADDRLP4 52
+ADDRGP4 level+185128
+ASGNP4
+ADDRLP4 52
+INDIRP4
+ADDRLP4 52
+INDIRP4
+INDIRI4
+ADDRLP4 48
+INDIRI4
+SUBI4
+ASGNI4
+LABELV $900
+LABELV $895
+LABELV $887
+LABELV $879
+ADDRLP4 8
+ADDRLP4 8
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 0
+ADDRLP4 0
+INDIRP4
+CNSTI4 2400
+ADDP4
+ASGNP4
+LABELV $881
+ADDRLP4 8
+INDIRI4
+ADDRGP4 level+12
+INDIRI4
+LTI4 $878
+ADDRGP4 level+185132
+INDIRI4
+CNSTI4 0
+GEI4 $906
+ADDRLP4 12
+ADDRLP4 12
+INDIRI4
+ADDRGP4 level+185132
+INDIRI4
+SUBI4
+ASGNI4
+ADDRLP4 28
+ADDRGP4 level+185136
+ASGNP4
+ADDRLP4 28
+INDIRP4
+ADDRLP4 28
+INDIRP4
+INDIRI4
+ADDRGP4 level+185132
+INDIRI4
+SUBI4
+ASGNI4
+ADDRGP4 level+185132
+CNSTI4 0
+ASGNI4
+LABELV $906
+ADDRGP4 level+185128
+INDIRI4
+CNSTI4 0
+GEI4 $913
+ADDRLP4 16
+ADDRLP4 16
+INDIRI4
+ADDRGP4 level+185128
+INDIRI4
+SUBI4
+ASGNI4
+ADDRGP4 level+185128
+CNSTI4 0
+ASGNI4
+LABELV $913
+ADDRGP4 $918
+ARGP4
+ADDRGP4 level+185128
+INDIRI4
+ARGI4
+ADDRLP4 16
+INDIRI4
+ARGI4
+ADDRGP4 level+185132
+INDIRI4
+ARGI4
+ADDRLP4 12
+INDIRI4
+ARGI4
+ADDRGP4 level+185136
+INDIRI4
+ARGI4
+ADDRLP4 28
+ADDRGP4 va
+CALLP4
+ASGNP4
+CNSTI4 28
+ARGI4
+ADDRLP4 28
+INDIRP4
+ARGP4
+ADDRGP4 trap_SetConfigstring
+CALLV
+pop
+ADDRLP4 32
+ADDRGP4 level+185104
+INDIRF4
+CNSTF4 1084227584
+DIVF4
+ASGNF4
+ADDRLP4 36
+ADDRGP4 level+185112
+INDIRF4
+CNSTF4 1084227584
+DIVF4
+ASGNF4
+ADDRLP4 32
+INDIRF4
+CNSTF4 1036831949
+GEF4 $924
+ADDRLP4 32
+CNSTF4 1036831949
+ASGNF4
+LABELV $924
+ADDRLP4 36
+INDIRF4
+CNSTF4 1036831949
+GEF4 $926
+ADDRLP4 36
+CNSTF4 1036831949
+ASGNF4
+LABELV $926
+ADDRLP4 48
+CNSTI4 0
+ASGNI4
+ADDRGP4 g_alienStage+12
+INDIRI4
+ADDRLP4 48
+INDIRI4
+NEI4 $928
+ADDRGP4 g_alienMaxStage+12
+INDIRI4
+ADDRLP4 48
+INDIRI4
+LEI4 $928
+ADDRGP4 g_alienStage2Threshold+12
+INDIRI4
+CVIF4 4
+ADDRLP4 32
+INDIRF4
+MULF4
+ARGF4
+ADDRLP4 52
+ADDRGP4 ceil
+CALLF4
+ASGNF4
+ADDRLP4 40
+ADDRLP4 52
+INDIRF4
+CVFI4 4
+ASGNI4
+ADDRGP4 $929
+JUMPV
+LABELV $928
+ADDRLP4 56
+CNSTI4 1
+ASGNI4
+ADDRGP4 g_alienStage+12
+INDIRI4
+ADDRLP4 56
+INDIRI4
+NEI4 $933
+ADDRGP4 g_alienMaxStage+12
+INDIRI4
+ADDRLP4 56
+INDIRI4
+LEI4 $933
+ADDRGP4 g_alienStage3Threshold+12
+INDIRI4
+CVIF4 4
+ADDRLP4 32
+INDIRF4
+MULF4
+ARGF4
+ADDRLP4 60
+ADDRGP4 ceil
+CALLF4
+ASGNF4
+ADDRLP4 40
+ADDRLP4 60
+INDIRF4
+CVFI4 4
+ASGNI4
+ADDRGP4 $934
+JUMPV
+LABELV $933
+ADDRLP4 40
+CNSTI4 -1
+ASGNI4
+LABELV $934
+LABELV $929
+ADDRLP4 64
+CNSTI4 0
+ASGNI4
+ADDRGP4 g_humanStage+12
+INDIRI4
+ADDRLP4 64
+INDIRI4
+NEI4 $938
+ADDRGP4 g_humanMaxStage+12
+INDIRI4
+ADDRLP4 64
+INDIRI4
+LEI4 $938
+ADDRGP4 g_humanStage2Threshold+12
+INDIRI4
+CVIF4 4
+ADDRLP4 36
+INDIRF4
+MULF4
+ARGF4
+ADDRLP4 68
+ADDRGP4 ceil
+CALLF4
+ASGNF4
+ADDRLP4 44
+ADDRLP4 68
+INDIRF4
+CVFI4 4
+ASGNI4
+ADDRGP4 $939
+JUMPV
+LABELV $938
+ADDRLP4 72
+CNSTI4 1
+ASGNI4
+ADDRGP4 g_humanStage+12
+INDIRI4
+ADDRLP4 72
+INDIRI4
+NEI4 $943
+ADDRGP4 g_humanMaxStage+12
+INDIRI4
+ADDRLP4 72
+INDIRI4
+LEI4 $943
+ADDRGP4 g_humanStage3Threshold+12
+INDIRI4
+CVIF4 4
+ADDRLP4 36
+INDIRF4
+MULF4
+ARGF4
+ADDRLP4 76
+ADDRGP4 ceil
+CALLF4
+ASGNF4
+ADDRLP4 44
+ADDRLP4 76
+INDIRF4
+CVFI4 4
+ASGNI4
+ADDRGP4 $944
+JUMPV
+LABELV $943
+ADDRLP4 44
+CNSTI4 -1
+ASGNI4
+LABELV $944
+LABELV $939
+ADDRGP4 $948
+ARGP4
+ADDRGP4 g_alienStage+12
+INDIRI4
+ARGI4
+ADDRGP4 g_humanStage+12
+INDIRI4
+ARGI4
+ADDRGP4 g_alienKills+12
+INDIRI4
+ARGI4
+ADDRGP4 g_humanKills+12
+INDIRI4
+ARGI4
+ADDRLP4 40
+INDIRI4
+ARGI4
+ADDRLP4 44
+INDIRI4
+ARGI4
+ADDRLP4 80
+ADDRGP4 va
+CALLP4
+ASGNP4
+CNSTI4 29
+ARGI4
+ADDRLP4 80
+INDIRP4
+ARGP4
+ADDRGP4 trap_SetConfigstring
+CALLV
+pop
+LABELV $808
+endproc G_CalculateBuildPoints 84 28
+data
+align 4
+LABELV $956
+byte 4 1
+align 4
+LABELV $957
+byte 4 1
+export G_CalculateStages
+code
+proc G_CalculateStages 48 8
+ADDRLP4 0
+ADDRGP4 level+185104
+INDIRF4
+CNSTF4 1084227584
+DIVF4
+ASGNF4
+ADDRLP4 4
+ADDRGP4 level+185112
+INDIRF4
+CNSTF4 1084227584
+DIVF4
+ASGNF4
+ADDRLP4 0
+INDIRF4
+CNSTF4 1036831949
+GEF4 $958
+ADDRLP4 0
+CNSTF4 1036831949
+ASGNF4
+LABELV $958
+ADDRLP4 4
+INDIRF4
+CNSTF4 1036831949
+GEF4 $960
+ADDRLP4 4
+CNSTF4 1036831949
+ASGNF4
+LABELV $960
+ADDRGP4 g_alienStage2Threshold+12
+INDIRI4
+CVIF4 4
+ADDRLP4 0
+INDIRF4
+MULF4
+ARGF4
+ADDRLP4 8
+ADDRGP4 ceil
+CALLF4
+ASGNF4
+ADDRGP4 g_alienKills+12
+INDIRI4
+ADDRLP4 8
+INDIRF4
+CVFI4 4
+LTI4 $962
+ADDRLP4 12
+CNSTI4 0
+ASGNI4
+ADDRGP4 g_alienStage+12
+INDIRI4
+ADDRLP4 12
+INDIRI4
+NEI4 $962
+ADDRGP4 g_alienMaxStage+12
+INDIRI4
+ADDRLP4 12
+INDIRI4
+LEI4 $962
+ADDRGP4 $430
+ARGP4
+CNSTI4 1
+ARGI4
+ADDRLP4 16
+ADDRGP4 va
+CALLP4
+ASGNP4
+ADDRGP4 $188
+ARGP4
+ADDRLP4 16
+INDIRP4
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+ADDRGP4 level+189820
+ADDRGP4 level+28
+INDIRI4
+ASGNI4
+ADDRGP4 $956
+ADDRGP4 g_alienStage+4
+INDIRI4
+ASGNI4
+ADDRGP4 $971
+ARGP4
+ADDRGP4 G_LogPrintf
+CALLV
+pop
+ADDRGP4 g_humanStage2Threshold+12
+INDIRI4
+CVIF4 4
+ADDRLP4 4
+INDIRF4
+MULF4
+ARGF4
+ADDRLP4 20
+ADDRGP4 ceil
+CALLF4
+ASGNF4
+ADDRGP4 g_humanKills+12
+ADDRLP4 20
+INDIRF4
+CVFI4 4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $962
+ADDRGP4 g_alienStage3Threshold+12
+INDIRI4
+CVIF4 4
+ADDRLP4 0
+INDIRF4
+MULF4
+ARGF4
+ADDRLP4 16
+ADDRGP4 ceil
+CALLF4
+ASGNF4
+ADDRGP4 g_alienKills+12
+INDIRI4
+ADDRLP4 16
+INDIRF4
+CVFI4 4
+LTI4 $974
+ADDRLP4 20
+CNSTI4 1
+ASGNI4
+ADDRGP4 g_alienStage+12
+INDIRI4
+ADDRLP4 20
+INDIRI4
+NEI4 $974
+ADDRGP4 g_alienMaxStage+12
+INDIRI4
+ADDRLP4 20
+INDIRI4
+LEI4 $974
+ADDRGP4 $430
+ARGP4
+CNSTI4 2
+ARGI4
+ADDRLP4 24
+ADDRGP4 va
+CALLP4
+ASGNP4
+ADDRGP4 $188
+ARGP4
+ADDRLP4 24
+INDIRP4
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+ADDRGP4 level+189824
+ADDRGP4 level+28
+INDIRI4
+ASGNI4
+ADDRGP4 $956
+ADDRGP4 g_alienStage+4
+INDIRI4
+ASGNI4
+ADDRGP4 $983
+ARGP4
+ADDRGP4 G_LogPrintf
+CALLV
+pop
+ADDRGP4 g_humanStage3Threshold+12
+INDIRI4
+CVIF4 4
+ADDRLP4 4
+INDIRF4
+MULF4
+ARGF4
+ADDRLP4 28
+ADDRGP4 ceil
+CALLF4
+ASGNF4
+ADDRGP4 g_humanKills+12
+ADDRLP4 28
+INDIRF4
+CVFI4 4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $974
+ADDRGP4 g_humanStage2Threshold+12
+INDIRI4
+CVIF4 4
+ADDRLP4 4
+INDIRF4
+MULF4
+ARGF4
+ADDRLP4 24
+ADDRGP4 ceil
+CALLF4
+ASGNF4
+ADDRGP4 g_humanKills+12
+INDIRI4
+ADDRLP4 24
+INDIRF4
+CVFI4 4
+LTI4 $986
+ADDRLP4 28
+CNSTI4 0
+ASGNI4
+ADDRGP4 g_humanStage+12
+INDIRI4
+ADDRLP4 28
+INDIRI4
+NEI4 $986
+ADDRGP4 g_humanMaxStage+12
+INDIRI4
+ADDRLP4 28
+INDIRI4
+LEI4 $986
+ADDRGP4 $430
+ARGP4
+CNSTI4 1
+ARGI4
+ADDRLP4 32
+ADDRGP4 va
+CALLP4
+ASGNP4
+ADDRGP4 $180
+ARGP4
+ADDRLP4 32
+INDIRP4
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+ADDRGP4 level+189828
+ADDRGP4 level+28
+INDIRI4
+ASGNI4
+ADDRGP4 $957
+ADDRGP4 g_humanStage+4
+INDIRI4
+ASGNI4
+ADDRGP4 $995
+ARGP4
+ADDRGP4 G_LogPrintf
+CALLV
+pop
+ADDRGP4 g_alienStage2Threshold+12
+INDIRI4
+CVIF4 4
+ADDRLP4 0
+INDIRF4
+MULF4
+ARGF4
+ADDRLP4 36
+ADDRGP4 ceil
+CALLF4
+ASGNF4
+ADDRGP4 g_alienKills+12
+ADDRLP4 36
+INDIRF4
+CVFI4 4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $986
+ADDRGP4 g_humanStage3Threshold+12
+INDIRI4
+CVIF4 4
+ADDRLP4 4
+INDIRF4
+MULF4
+ARGF4
+ADDRLP4 32
+ADDRGP4 ceil
+CALLF4
+ASGNF4
+ADDRGP4 g_humanKills+12
+INDIRI4
+ADDRLP4 32
+INDIRF4
+CVFI4 4
+LTI4 $998
+ADDRLP4 36
+CNSTI4 1
+ASGNI4
+ADDRGP4 g_humanStage+12
+INDIRI4
+ADDRLP4 36
+INDIRI4
+NEI4 $998
+ADDRGP4 g_humanMaxStage+12
+INDIRI4
+ADDRLP4 36
+INDIRI4
+LEI4 $998
+ADDRGP4 $430
+ARGP4
+CNSTI4 2
+ARGI4
+ADDRLP4 40
+ADDRGP4 va
+CALLP4
+ASGNP4
+ADDRGP4 $180
+ARGP4
+ADDRLP4 40
+INDIRP4
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+ADDRGP4 level+189832
+ADDRGP4 level+28
+INDIRI4
+ASGNI4
+ADDRGP4 $1006
+ARGP4
+ADDRGP4 G_LogPrintf
+CALLV
+pop
+ADDRGP4 $957
+ADDRGP4 g_humanStage+4
+INDIRI4
+ASGNI4
+ADDRGP4 g_alienStage3Threshold+12
+INDIRI4
+CVIF4 4
+ADDRLP4 0
+INDIRF4
+MULF4
+ARGF4
+ADDRLP4 44
+ADDRGP4 ceil
+CALLF4
+ASGNF4
+ADDRGP4 g_alienKills+12
+ADDRLP4 44
+INDIRF4
+CVFI4 4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $998
+ADDRGP4 g_alienStage+4
+INDIRI4
+ADDRGP4 $956
+INDIRI4
+LEI4 $1010
+CNSTI4 1
+ARGI4
+ADDRGP4 g_alienStage+12
+INDIRI4
+ARGI4
+ADDRGP4 G_Checktrigger_stages
+CALLV
+pop
+ADDRGP4 g_alienStage+12
+INDIRI4
+CNSTI4 1
+NEI4 $1014
+ADDRGP4 level+189820
+ADDRGP4 level+28
+INDIRI4
+ASGNI4
+ADDRGP4 $1015
+JUMPV
+LABELV $1014
+ADDRGP4 g_alienStage+12
+INDIRI4
+CNSTI4 2
+NEI4 $1019
+ADDRGP4 level+189824
+ADDRGP4 level+28
+INDIRI4
+ASGNI4
+LABELV $1019
+LABELV $1015
+ADDRGP4 $956
+ADDRGP4 g_alienStage+4
+INDIRI4
+ASGNI4
+LABELV $1010
+ADDRGP4 g_humanStage+4
+INDIRI4
+ADDRGP4 $957
+INDIRI4
+LEI4 $1025
+CNSTI4 2
+ARGI4
+ADDRGP4 g_humanStage+12
+INDIRI4
+ARGI4
+ADDRGP4 G_Checktrigger_stages
+CALLV
+pop
+ADDRGP4 g_humanStage+12
+INDIRI4
+CNSTI4 1
+NEI4 $1029
+ADDRGP4 level+189828
+ADDRGP4 level+28
+INDIRI4
+ASGNI4
+ADDRGP4 $1030
+JUMPV
+LABELV $1029
+ADDRGP4 g_humanStage+12
+INDIRI4
+CNSTI4 2
+NEI4 $1034
+ADDRGP4 level+189832
+ADDRGP4 level+28
+INDIRI4
+ASGNI4
+LABELV $1034
+LABELV $1030
+ADDRGP4 $957
+ADDRGP4 g_humanStage+4
+INDIRI4
+ASGNI4
+LABELV $1025
+LABELV $953
+endproc G_CalculateStages 48 8
+export G_CalculateAvgPlayers
+proc G_CalculateAvgPlayers 8 8
+ADDRGP4 level+185096
+INDIRI4
+CNSTI4 0
+NEI4 $1041
+ADDRGP4 level+185108
+CNSTI4 0
+ASGNI4
+ADDRGP4 $189
+ARGP4
+ADDRGP4 $90
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+LABELV $1041
+ADDRGP4 level+185100
+INDIRI4
+CNSTI4 0
+NEI4 $1045
+ADDRGP4 level+185116
+CNSTI4 0
+ASGNI4
+ADDRGP4 $181
+ARGP4
+ADDRGP4 $90
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+LABELV $1045
+ADDRGP4 level+185104
+ADDRGP4 level+185104
+INDIRF4
+ADDRGP4 level+185108
+INDIRI4
+CVIF4 4
+MULF4
+ADDRGP4 level+185096
+INDIRI4
+CVIF4 4
+ADDF4
+ADDRGP4 level+185108
+INDIRI4
+CNSTI4 1
+ADDI4
+CVIF4 4
+DIVF4
+ASGNF4
+ADDRLP4 0
+ADDRGP4 level+185108
+ASGNP4
+ADDRLP4 0
+INDIRP4
+ADDRLP4 0
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRGP4 level+185112
+ADDRGP4 level+185112
+INDIRF4
+ADDRGP4 level+185116
+INDIRI4
+CVIF4 4
+MULF4
+ADDRGP4 level+185100
+INDIRI4
+CVIF4 4
+ADDF4
+ADDRGP4 level+185116
+INDIRI4
+CNSTI4 1
+ADDI4
+CVIF4 4
+DIVF4
+ASGNF4
+ADDRLP4 4
+ADDRGP4 level+185116
+ASGNP4
+ADDRLP4 4
+INDIRP4
+ADDRLP4 4
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1040
+endproc G_CalculateAvgPlayers 8 8
+lit
+align 1
+LABELV $1062
+byte 1 0
+skip 64
+export CalculateRanks
+code
+proc CalculateRanks 104 16
+ADDRLP4 4
+ADDRGP4 $1062
+INDIRB
+ASGNB 65
+ADDRLP4 72
+CNSTI4 0
+ASGNI4
+ADDRGP4 level+173940
+CNSTI4 0
+ASGNI4
+ADDRGP4 level+173944
+CNSTI4 0
+ASGNI4
+ADDRGP4 level+173948
+CNSTI4 0
+ASGNI4
+ADDRGP4 level+176284
+CNSTI4 0
+ASGNI4
+ADDRGP4 level+185096
+CNSTI4 0
+ASGNI4
+ADDRGP4 level+185100
+CNSTI4 0
+ASGNI4
+ADDRGP4 level+185120
+CNSTI4 0
+ASGNI4
+ADDRGP4 level+185124
+CNSTI4 0
+ASGNI4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1074
+JUMPV
+LABELV $1071
+ADDRLP4 0
+INDIRI4
+ADDRLP4 4
+ADDP4
+CNSTI1 45
+ASGNI1
+CNSTI4 1880
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 level
+INDIRP4
+ADDP4
+CNSTI4 472
+ADDP4
+INDIRI4
+CNSTI4 0
+EQI4 $1076
+ADDRGP4 level+173940
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRGP4 level+173952
+ADDP4
+ADDRLP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 76
+ADDRGP4 level+173940
+ASGNP4
+ADDRLP4 76
+INDIRP4
+ADDRLP4 76
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+ADDRLP4 4
+ADDP4
+CNSTI4 1880
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 level
+INDIRP4
+ADDP4
+CNSTI4 628
+ADDP4
+INDIRI4
+CNSTI4 48
+ADDI4
+CVII1 4
+ASGNI1
+CNSTI4 1880
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 level
+INDIRP4
+ADDP4
+CNSTI4 472
+ADDP4
+INDIRI4
+CNSTI4 2
+EQI4 $1081
+ADDRGP4 $1072
+JUMPV
+LABELV $1081
+ADDRLP4 84
+ADDRGP4 level+176284
+ASGNP4
+ADDRLP4 84
+INDIRP4
+ADDRLP4 84
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+CNSTI4 1880
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 level
+INDIRP4
+ADDP4
+CNSTI4 628
+ADDP4
+INDIRI4
+CNSTI4 0
+EQI4 $1084
+ADDRLP4 88
+ADDRGP4 level+173948
+ASGNP4
+ADDRLP4 88
+INDIRP4
+ADDRLP4 88
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+CNSTI4 1880
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 level
+INDIRP4
+ADDP4
+CNSTI4 876
+ADDP4
+INDIRI4
+CNSTI4 1
+EQI4 $1087
+ADDRLP4 92
+ADDRGP4 level+173944
+ASGNP4
+ADDRLP4 92
+INDIRP4
+ADDRLP4 92
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1087
+CNSTI4 1880
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 level
+INDIRP4
+ADDP4
+CNSTI4 628
+ADDP4
+INDIRI4
+CNSTI4 1
+NEI4 $1090
+ADDRLP4 96
+ADDRGP4 level+185096
+ASGNP4
+ADDRLP4 96
+INDIRP4
+ADDRLP4 96
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+CNSTI4 1880
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 level
+INDIRP4
+ADDP4
+CNSTI4 876
+ADDP4
+INDIRI4
+CNSTI4 1
+EQI4 $1091
+ADDRLP4 100
+ADDRGP4 level+185120
+ASGNP4
+ADDRLP4 100
+INDIRP4
+ADDRLP4 100
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRGP4 $1091
+JUMPV
+LABELV $1090
+CNSTI4 1880
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 level
+INDIRP4
+ADDP4
+CNSTI4 628
+ADDP4
+INDIRI4
+CNSTI4 2
+NEI4 $1096
+ADDRLP4 96
+ADDRGP4 level+185100
+ASGNP4
+ADDRLP4 96
+INDIRP4
+ADDRLP4 96
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+CNSTI4 1880
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 level
+INDIRP4
+ADDP4
+CNSTI4 876
+ADDP4
+INDIRI4
+CNSTI4 1
+EQI4 $1099
+ADDRLP4 100
+ADDRGP4 level+185124
+ASGNP4
+ADDRLP4 100
+INDIRP4
+ADDRLP4 100
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1099
+LABELV $1096
+LABELV $1091
+LABELV $1084
+LABELV $1076
+LABELV $1072
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1074
+ADDRLP4 0
+INDIRI4
+ADDRGP4 level+20
+INDIRI4
+LTI4 $1071
+ADDRGP4 level+180408
+ADDRGP4 level+185100
+INDIRI4
+ASGNI4
+ADDRGP4 level+180408+4
+ADDRGP4 level+185096
+INDIRI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+ADDRLP4 4
+ADDP4
+CNSTI1 0
+ASGNI1
+ADDRGP4 $93
+ARGP4
+ADDRLP4 4
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+ADDRGP4 g_friendlyFire+8
+INDIRF4
+CNSTF4 0
+LEF4 $1107
+ADDRLP4 72
+ADDRLP4 72
+INDIRI4
+CNSTI4 3
+BORI4
+ASGNI4
+LABELV $1107
+ADDRGP4 g_friendlyFireHumans+8
+INDIRF4
+CNSTF4 0
+LEF4 $1110
+ADDRLP4 72
+ADDRLP4 72
+INDIRI4
+CNSTI4 1
+BORI4
+ASGNI4
+LABELV $1110
+ADDRGP4 g_friendlyFireAliens+8
+INDIRF4
+CNSTF4 0
+LEF4 $1113
+ADDRLP4 72
+ADDRLP4 72
+INDIRI4
+CNSTI4 2
+BORI4
+ASGNI4
+LABELV $1113
+ADDRGP4 g_friendlyBuildableFire+8
+INDIRF4
+CNSTF4 0
+LEF4 $1116
+ADDRLP4 72
+ADDRLP4 72
+INDIRI4
+CNSTI4 4
+BORI4
+ASGNI4
+LABELV $1116
+ADDRGP4 $1119
+ARGP4
+ADDRLP4 72
+INDIRI4
+ARGI4
+ADDRLP4 76
+ADDRGP4 va
+CALLP4
+ASGNP4
+ADDRGP4 $94
+ARGP4
+ADDRLP4 76
+INDIRP4
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+ADDRGP4 level+173952
+ARGP4
+ADDRGP4 level+173940
+INDIRI4
+ARGI4
+CNSTI4 4
+ARGI4
+ADDRGP4 SortRanks
+ARGP4
+ADDRGP4 qsort
+CALLV
+pop
+ADDRGP4 CheckExitRules
+CALLV
+pop
+ADDRGP4 level+185040
+INDIRI4
+CNSTI4 0
+EQI4 $1123
+ADDRGP4 SendScoreboardMessageToAllClients
+CALLV
+pop
+LABELV $1123
+LABELV $1061
+endproc CalculateRanks 104 16
+export SendScoreboardMessageToAllClients
+proc SendScoreboardMessageToAllClients 4 4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1130
+JUMPV
+LABELV $1127
+CNSTI4 1880
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 level
+INDIRP4
+ADDP4
+CNSTI4 472
+ADDP4
+INDIRI4
+CNSTI4 2
+NEI4 $1132
+CNSTI4 2400
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 g_entities
+ADDP4
+ARGP4
+ADDRGP4 ScoreboardMessage
+CALLV
+pop
+LABELV $1132
+LABELV $1128
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1130
+ADDRLP4 0
+INDIRI4
+ADDRGP4 level+20
+INDIRI4
+LTI4 $1127
+LABELV $1126
+endproc SendScoreboardMessageToAllClients 4 4
+export MoveClientToIntermission
+proc MoveClientToIntermission 0 12
+ADDRFP4 0
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CNSTI4 888
+ADDP4
+INDIRI4
+CNSTI4 3
+NEI4 $1135
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRGP4 G_StopFollowing
+CALLV
+pop
+LABELV $1135
+ADDRFP4 0
+INDIRP4
+CNSTI4 92
+ADDP4
+ADDRGP4 level+185056
+INDIRB
+ASGNB 12
+ADDRFP4 0
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CNSTI4 20
+ADDP4
+ADDRGP4 level+185056
+INDIRB
+ASGNB 12
+ADDRFP4 0
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CNSTI4 152
+ADDP4
+ADDRGP4 level+185068
+INDIRB
+ASGNB 12
+ADDRFP4 0
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CNSTI4 4
+ADDP4
+CNSTI4 7
+ASGNI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CNSTI4 312
+ADDP4
+ARGP4
+CNSTI4 0
+ARGI4
+CNSTI4 64
+ARGI4
+ADDRGP4 memset
+CALLP4
+pop
+ADDRFP4 0
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CNSTI4 104
+ADDP4
+CNSTI4 0
+ASGNI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 8
+ADDP4
+CNSTI4 0
+ASGNI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 4
+ADDP4
+CNSTI4 0
+ASGNI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 160
+ADDP4
+CNSTI4 0
+ASGNI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 156
+ADDP4
+CNSTI4 0
+ASGNI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 180
+ADDP4
+CNSTI4 0
+ASGNI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 460
+ADDP4
+CNSTI4 0
+ASGNI4
+LABELV $1134
+endproc MoveClientToIntermission 0 12
+export FindIntermissionPoint
+proc FindIntermissionPoint 32 12
+CNSTP4 0
+ARGP4
+CNSTI4 524
+ARGI4
+ADDRGP4 $1141
+ARGP4
+ADDRLP4 20
+ADDRGP4 G_Find
+CALLP4
+ASGNP4
+ADDRLP4 0
+ADDRLP4 20
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $1142
+ADDRGP4 vec3_origin
+ARGP4
+ADDRGP4 level+185056
+ARGP4
+ADDRGP4 level+185068
+ARGP4
+ADDRGP4 G_SelectSpawnPoint
+CALLP4
+pop
+ADDRGP4 $1143
+JUMPV
+LABELV $1142
+ADDRGP4 level+185056
+ADDRLP4 0
+INDIRP4
+CNSTI4 92
+ADDP4
+INDIRB
+ASGNB 12
+ADDRGP4 level+185068
+ADDRLP4 0
+INDIRP4
+CNSTI4 116
+ADDP4
+INDIRB
+ASGNB 12
+ADDRLP4 0
+INDIRP4
+CNSTI4 656
+ADDP4
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $1148
+ADDRLP4 0
+INDIRP4
+CNSTI4 656
+ADDP4
+INDIRP4
+ARGP4
+ADDRLP4 24
+ADDRGP4 G_PickTarget
+CALLP4
+ASGNP4
+ADDRLP4 4
+ADDRLP4 24
+INDIRP4
+ASGNP4
+ADDRLP4 4
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $1150
+ADDRLP4 28
+ADDRLP4 4
+INDIRP4
+ASGNP4
+ADDRLP4 8
+ADDRLP4 28
+INDIRP4
+CNSTI4 92
+ADDP4
+INDIRF4
+ADDRGP4 level+185056
+INDIRF4
+SUBF4
+ASGNF4
+ADDRLP4 8+4
+ADDRLP4 28
+INDIRP4
+CNSTI4 96
+ADDP4
+INDIRF4
+ADDRGP4 level+185056+4
+INDIRF4
+SUBF4
+ASGNF4
+ADDRLP4 8+8
+ADDRLP4 4
+INDIRP4
+CNSTI4 100
+ADDP4
+INDIRF4
+ADDRGP4 level+185056+8
+INDIRF4
+SUBF4
+ASGNF4
+ADDRLP4 8
+ARGP4
+ADDRGP4 level+185068
+ARGP4
+ADDRGP4 vectoangles
+CALLV
+pop
+LABELV $1150
+LABELV $1148
+LABELV $1143
+LABELV $1140
+endproc FindIntermissionPoint 32 12
+export BeginIntermission
+proc BeginIntermission 8 4
+ADDRGP4 level+185040
+INDIRI4
+CNSTI4 0
+EQI4 $1161
+ADDRGP4 $1160
+JUMPV
+LABELV $1161
+ADDRGP4 level+189984
+CNSTI4 99
+ASGNI4
+ADDRGP4 level+185040
+ADDRGP4 level+28
+INDIRI4
+ASGNI4
+ADDRGP4 G_ClearVotes
+CALLV
+pop
+ADDRGP4 FindIntermissionPoint
+CALLV
+pop
+ADDRLP4 4
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1170
+JUMPV
+LABELV $1167
+ADDRLP4 0
+CNSTI4 2400
+ADDRLP4 4
+INDIRI4
+MULI4
+ADDRGP4 g_entities
+ADDP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CNSTI4 520
+ADDP4
+INDIRI4
+CNSTI4 0
+NEI4 $1172
+ADDRGP4 $1168
+JUMPV
+LABELV $1172
+ADDRLP4 0
+INDIRP4
+CNSTI4 812
+ADDP4
+INDIRI4
+CNSTI4 0
+GTI4 $1174
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 respawn
+CALLV
+pop
+LABELV $1174
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 MoveClientToIntermission
+CALLV
+pop
+LABELV $1168
+ADDRLP4 4
+ADDRLP4 4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1170
+ADDRLP4 4
+INDIRI4
+ADDRGP4 level+20
+INDIRI4
+LTI4 $1167
+ADDRGP4 SendScoreboardMessageToAllClients
+CALLV
+pop
+LABELV $1160
+endproc BeginIntermission 8 4
+export ExitLevel
+proc ExitLevel 32 8
+ADDRGP4 $1178
+JUMPV
+LABELV $1177
+ADDRGP4 level+189972
+ADDRGP4 level+189972
+INDIRP4
+CNSTI4 100
+ADDP4
+INDIRP4
+ASGNP4
+ADDRGP4 $1184
+JUMPV
+LABELV $1183
+ADDRLP4 0
+ADDRLP4 0
+INDIRP4
+CNSTI4 104
+ADDP4
+INDIRP4
+ASGNP4
+ADDRLP4 4
+INDIRP4
+ARGP4
+ADDRGP4 G_Free
+CALLV
+pop
+LABELV $1184
+ADDRLP4 4
+ADDRLP4 0
+INDIRP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $1183
+LABELV $1178
+ADDRLP4 16
+ADDRGP4 level+189972
+INDIRP4
+ASGNP4
+ADDRLP4 0
+ADDRLP4 16
+INDIRP4
+ASGNP4
+ADDRLP4 16
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $1177
+ADDRGP4 g_nextMap+16
+ARGP4
+ADDRLP4 20
+ADDRGP4 G_MapExists
+CALLI4
+ASGNI4
+ADDRLP4 20
+INDIRI4
+CNSTI4 0
+EQI4 $1186
+ADDRGP4 $1189
+ARGP4
+ADDRGP4 g_nextMap+16
+ARGP4
+ADDRLP4 24
+ADDRGP4 va
+CALLP4
+ASGNP4
+CNSTI4 2
+ARGI4
+ADDRLP4 24
+INDIRP4
+ARGP4
+ADDRGP4 trap_SendConsoleCommand
+CALLV
+pop
+ADDRGP4 $1187
+JUMPV
+LABELV $1186
+ADDRLP4 28
+ADDRGP4 G_MapRotationActive
+CALLI4
+ASGNI4
+ADDRLP4 28
+INDIRI4
+CNSTI4 0
+EQI4 $1191
+ADDRGP4 G_AdvanceMapRotation
+CALLI4
+pop
+ADDRGP4 $1192
+JUMPV
+LABELV $1191
+CNSTI4 2
+ARGI4
+ADDRGP4 $1193
+ARGP4
+ADDRGP4 trap_SendConsoleCommand
+CALLV
+pop
+LABELV $1192
+LABELV $1187
+ADDRGP4 $211
+ARGP4
+ADDRGP4 $84
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+ADDRGP4 level+173936
+CNSTI4 1
+ASGNI4
+ADDRGP4 level+185044
+CNSTP4 0
+ASGNP4
+ADDRGP4 level+185040
+CNSTI4 0
+ASGNI4
+ADDRLP4 8
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1200
+JUMPV
+LABELV $1197
+ADDRLP4 12
+CNSTI4 1880
+ADDRLP4 8
+INDIRI4
+MULI4
+ADDRGP4 level
+INDIRP4
+ADDP4
+ASGNP4
+ADDRLP4 12
+INDIRP4
+CNSTI4 472
+ADDP4
+INDIRI4
+CNSTI4 2
+EQI4 $1202
+ADDRGP4 $1198
+JUMPV
+LABELV $1202
+ADDRLP4 12
+INDIRP4
+CNSTI4 248
+ADDP4
+CNSTI4 0
+ASGNI4
+LABELV $1198
+ADDRLP4 8
+ADDRLP4 8
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1200
+ADDRLP4 8
+INDIRI4
+ADDRGP4 g_maxclients+12
+INDIRI4
+LTI4 $1197
+ADDRGP4 G_WriteSessionData
+CALLV
+pop
+ADDRLP4 8
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1207
+JUMPV
+LABELV $1204
+CNSTI4 1880
+ADDRLP4 8
+INDIRI4
+MULI4
+ADDRGP4 level
+INDIRP4
+ADDP4
+CNSTI4 472
+ADDP4
+INDIRI4
+CNSTI4 2
+NEI4 $1209
+CNSTI4 1880
+ADDRLP4 8
+INDIRI4
+MULI4
+ADDRGP4 level
+INDIRP4
+ADDP4
+CNSTI4 472
+ADDP4
+CNSTI4 1
+ASGNI4
+LABELV $1209
+LABELV $1205
+ADDRLP4 8
+ADDRLP4 8
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1207
+ADDRLP4 8
+INDIRI4
+ADDRGP4 g_maxclients+12
+INDIRI4
+LTI4 $1204
+LABELV $1176
+endproc ExitLevel 32 8
+export G_AdminsPrintf
+proc G_AdminsPrintf 1044 12
+ADDRLP4 1032
+ADDRFP4 0+4
+ASGNP4
+ADDRLP4 8
+ARGP4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRLP4 1032
+INDIRP4
+ARGP4
+ADDRGP4 vsprintf
+CALLI4
+pop
+ADDRLP4 1032
+CNSTP4 0
+ASGNP4
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1216
+JUMPV
+LABELV $1213
+ADDRLP4 4
+CNSTI4 2400
+ADDRLP4 0
+INDIRI4
+MULI4
+ADDRGP4 g_entities
+ADDP4
+ASGNP4
+ADDRLP4 4
+INDIRP4
+ARGP4
+ADDRGP4 $1220
+ARGP4
+ADDRLP4 1036
+ADDRGP4 G_admin_permission
+CALLI4
+ASGNI4
+ADDRLP4 1036
+INDIRI4
+CNSTI4 0
+EQI4 $1218
+ADDRGP4 $1221
+ARGP4
+ADDRLP4 8
+ARGP4
+ADDRLP4 1040
+ADDRGP4 va
+CALLP4
+ASGNP4
+ADDRLP4 4
+INDIRP4
+CVPU4 4
+ADDRGP4 g_entities
+CVPU4 4
+SUBU4
+CVUI4 4
+CNSTI4 2400
+DIVI4
+ARGI4
+ADDRLP4 1040
+INDIRP4
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+LABELV $1218
+LABELV $1214
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1216
+ADDRLP4 0
+INDIRI4
+ADDRGP4 level+20
+INDIRI4
+LTI4 $1213
+ADDRGP4 $459
+ARGP4
+ADDRLP4 8
+ARGP4
+ADDRGP4 G_LogPrintf
+CALLV
+pop
+LABELV $1211
+endproc G_AdminsPrintf 1044 12
+export G_LogPrintf
+proc G_LogPrintf 2092 24
+ADDRLP4 0
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+SUBI4
+CNSTI4 1000
+DIVI4
+ASGNI4
+ADDRLP4 2068
+CNSTI4 60
+ASGNI4
+ADDRLP4 1032
+ADDRLP4 0
+INDIRI4
+ADDRLP4 2068
+INDIRI4
+DIVI4
+ASGNI4
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+ADDRLP4 2068
+INDIRI4
+ADDRLP4 1032
+INDIRI4
+MULI4
+SUBI4
+ASGNI4
+ADDRLP4 2080
+CNSTI4 10
+ASGNI4
+ADDRLP4 1036
+ADDRLP4 0
+INDIRI4
+ADDRLP4 2080
+INDIRI4
+DIVI4
+ASGNI4
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+ADDRLP4 2080
+INDIRI4
+ADDRLP4 1036
+INDIRI4
+MULI4
+SUBI4
+ASGNI4
+ADDRLP4 4
+ARGP4
+CNSTI4 1024
+ARGI4
+ADDRGP4 $1225
+ARGP4
+ADDRLP4 1032
+INDIRI4
+ARGI4
+ADDRLP4 1036
+INDIRI4
+ARGI4
+ADDRLP4 0
+INDIRI4
+ARGI4
+ADDRGP4 Com_sprintf
+CALLV
+pop
+ADDRLP4 1028
+ADDRFP4 0+4
+ASGNP4
+ADDRLP4 4+7
+ARGP4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRLP4 1028
+INDIRP4
+ARGP4
+ADDRGP4 vsprintf
+CALLI4
+pop
+ADDRLP4 1028
+CNSTP4 0
+ASGNP4
+ADDRGP4 g_dedicated+12
+INDIRI4
+CNSTI4 0
+EQI4 $1228
+ADDRGP4 $459
+ARGP4
+ADDRLP4 4+7
+ARGP4
+ADDRGP4 G_Printf
+CALLV
+pop
+LABELV $1228
+ADDRGP4 level+16
+INDIRI4
+CNSTI4 0
+NEI4 $1232
+ADDRGP4 $1222
+JUMPV
+LABELV $1232
+ADDRGP4 g_decolourLogfiles+12
+INDIRI4
+CNSTI4 0
+EQI4 $1235
+ADDRLP4 4
+ARGP4
+ADDRLP4 1040
+ARGP4
+ADDRGP4 G_DecolorString
+CALLV
+pop
+ADDRLP4 1040
+ARGP4
+ADDRLP4 2088
+ADDRGP4 strlen
+CALLI4
+ASGNI4
+ADDRLP4 1040
+ARGP4
+ADDRLP4 2088
+INDIRI4
+ARGI4
+ADDRGP4 level+16
+INDIRI4
+ARGI4
+ADDRGP4 trap_FS_Write
+CALLV
+pop
+ADDRGP4 $1236
+JUMPV
+LABELV $1235
+ADDRLP4 4
+ARGP4
+ADDRLP4 2088
+ADDRGP4 strlen
+CALLI4
+ASGNI4
+ADDRLP4 4
+ARGP4
+ADDRLP4 2088
+INDIRI4
+ARGI4
+ADDRGP4 level+16
+INDIRI4
+ARGI4
+ADDRGP4 trap_FS_Write
+CALLV
+pop
+LABELV $1236
+LABELV $1222
+endproc G_LogPrintf 2092 24
+export G_LogPrintfColoured
+proc G_LogPrintfColoured 1068 24
+ADDRLP4 0
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+SUBI4
+CNSTI4 1000
+DIVI4
+ASGNI4
+ADDRLP4 1044
+CNSTI4 60
+ASGNI4
+ADDRLP4 1032
+ADDRLP4 0
+INDIRI4
+ADDRLP4 1044
+INDIRI4
+DIVI4
+ASGNI4
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+ADDRLP4 1044
+INDIRI4
+ADDRLP4 1032
+INDIRI4
+MULI4
+SUBI4
+ASGNI4
+ADDRLP4 1056
+CNSTI4 10
+ASGNI4
+ADDRLP4 1036
+ADDRLP4 0
+INDIRI4
+ADDRLP4 1056
+INDIRI4
+DIVI4
+ASGNI4
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+ADDRLP4 1056
+INDIRI4
+ADDRLP4 1036
+INDIRI4
+MULI4
+SUBI4
+ASGNI4
+ADDRLP4 4
+ARGP4
+CNSTI4 1024
+ARGI4
+ADDRGP4 $1225
+ARGP4
+ADDRLP4 1032
+INDIRI4
+ARGI4
+ADDRLP4 1036
+INDIRI4
+ARGI4
+ADDRLP4 0
+INDIRI4
+ARGI4
+ADDRGP4 Com_sprintf
+CALLV
+pop
+ADDRLP4 1028
+ADDRFP4 0+4
+ASGNP4
+ADDRLP4 4+7
+ARGP4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRLP4 1028
+INDIRP4
+ARGP4
+ADDRGP4 vsprintf
+CALLI4
+pop
+ADDRLP4 1028
+CNSTP4 0
+ASGNP4
+ADDRGP4 g_dedicated+12
+INDIRI4
+CNSTI4 0
+EQI4 $1245
+ADDRGP4 $459
+ARGP4
+ADDRLP4 4+7
+ARGP4
+ADDRGP4 G_Printf
+CALLV
+pop
+LABELV $1245
+ADDRGP4 level+16
+INDIRI4
+CNSTI4 0
+NEI4 $1249
+ADDRGP4 $1240
+JUMPV
+LABELV $1249
+ADDRLP4 4
+ARGP4
+ADDRLP4 1064
+ADDRGP4 strlen
+CALLI4
+ASGNI4
+ADDRLP4 4
+ARGP4
+ADDRLP4 1064
+INDIRI4
+ARGI4
+ADDRGP4 level+16
+INDIRI4
+ARGI4
+ADDRGP4 trap_FS_Write
+CALLV
+pop
+LABELV $1240
+endproc G_LogPrintfColoured 1068 24
+export G_LogOnlyPrintf
+proc G_LogOnlyPrintf 2092 24
+ADDRLP4 0
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+SUBI4
+CNSTI4 1000
+DIVI4
+ASGNI4
+ADDRLP4 2068
+CNSTI4 60
+ASGNI4
+ADDRLP4 1032
+ADDRLP4 0
+INDIRI4
+ADDRLP4 2068
+INDIRI4
+DIVI4
+ASGNI4
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+ADDRLP4 2068
+INDIRI4
+ADDRLP4 1032
+INDIRI4
+MULI4
+SUBI4
+ASGNI4
+ADDRLP4 2080
+CNSTI4 10
+ASGNI4
+ADDRLP4 1036
+ADDRLP4 0
+INDIRI4
+ADDRLP4 2080
+INDIRI4
+DIVI4
+ASGNI4
+ADDRLP4 0
+ADDRLP4 0
+INDIRI4
+ADDRLP4 2080
+INDIRI4
+ADDRLP4 1036
+INDIRI4
+MULI4
+SUBI4
+ASGNI4
+ADDRLP4 4
+ARGP4
+CNSTI4 1024
+ARGI4
+ADDRGP4 $1225
+ARGP4
+ADDRLP4 1032
+INDIRI4
+ARGI4
+ADDRLP4 1036
+INDIRI4
+ARGI4
+ADDRLP4 0
+INDIRI4
+ARGI4
+ADDRGP4 Com_sprintf
+CALLV
+pop
+ADDRLP4 1028
+ADDRFP4 0+4
+ASGNP4
+ADDRLP4 4+7
+ARGP4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRLP4 1028
+INDIRP4
+ARGP4
+ADDRGP4 vsprintf
+CALLI4
+pop
+ADDRLP4 1028
+CNSTP4 0
+ASGNP4
+ADDRGP4 level+16
+INDIRI4
+CNSTI4 0
+NEI4 $1258
+ADDRGP4 $1253
+JUMPV
+LABELV $1258
+ADDRGP4 g_decolourLogfiles+12
+INDIRI4
+CNSTI4 0
+EQI4 $1261
+ADDRLP4 4
+ARGP4
+ADDRLP4 1040
+ARGP4
+ADDRGP4 G_DecolorString
+CALLV
+pop
+ADDRLP4 1040
+ARGP4
+ADDRLP4 2088
+ADDRGP4 strlen
+CALLI4
+ASGNI4
+ADDRLP4 1040
+ARGP4
+ADDRLP4 2088
+INDIRI4
+ARGI4
+ADDRGP4 level+16
+INDIRI4
+ARGI4
+ADDRGP4 trap_FS_Write
+CALLV
+pop
+ADDRGP4 $1262
+JUMPV
+LABELV $1261
+ADDRLP4 4
+ARGP4
+ADDRLP4 2088
+ADDRGP4 strlen
+CALLI4
+ASGNI4
+ADDRLP4 4
+ARGP4
+ADDRLP4 2088
+INDIRI4
+ARGI4
+ADDRGP4 level+16
+INDIRI4
+ARGI4
+ADDRGP4 trap_FS_Write
+CALLV
+pop
+LABELV $1262
+LABELV $1253
+endproc G_LogOnlyPrintf 2092 24
+export G_SendGameStat
+proc G_SendGameStat 10300 72
+ADDRGP4 $390
+ARGP4
+ADDRLP4 9233
+ARGP4
+CNSTI4 1024
+ARGI4
+ADDRGP4 trap_Cvar_VariableStringBuffer
+CALLV
+pop
+ADDRLP4 10260
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 10260
+INDIRI4
+CNSTI4 0
+EQI4 $1272
+ADDRLP4 10260
+INDIRI4
+CNSTI4 1
+EQI4 $1270
+ADDRLP4 10260
+INDIRI4
+CNSTI4 2
+EQI4 $1271
+ADDRGP4 $1266
+JUMPV
+LABELV $1270
+ADDRLP4 1040
+CNSTI1 65
+ASGNI1
+ADDRGP4 $1268
+JUMPV
+LABELV $1271
+ADDRLP4 1040
+CNSTI1 72
+ASGNI1
+ADDRGP4 $1268
+JUMPV
+LABELV $1272
+ADDRLP4 1040
+CNSTI1 76
+ASGNI1
+LABELV $1268
+ADDRLP4 10268
+ADDRGP4 G_TimeTilSuddenDeath
+CALLI4
+ASGNI4
+ADDRLP4 1041
+ARGP4
+CNSTI4 8192
+ARGI4
+ADDRGP4 $1273
+ARGP4
+ADDRGP4 $1274
+ARGP4
+ADDRGP4 g_tag+16
+ARGP4
+ADDRLP4 1040
+INDIRI1
+CVII4 1
+ARGI4
+ADDRGP4 level+185104
+INDIRF4
+ARGF4
+ADDRGP4 level+185112
+INDIRF4
+ARGF4
+ADDRLP4 9233
+ARGP4
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+SUBI4
+ARGI4
+ADDRLP4 10268
+INDIRI4
+ARGI4
+ADDRGP4 g_alienStage+12
+INDIRI4
+ARGI4
+ADDRGP4 level+189820
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+SUBI4
+ARGI4
+ADDRGP4 level+189824
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+SUBI4
+ARGI4
+ADDRGP4 g_humanStage+12
+INDIRI4
+ARGI4
+ADDRGP4 level+189828
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+SUBI4
+ARGI4
+ADDRGP4 level+189832
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+SUBI4
+ARGI4
+ADDRGP4 level+173940
+INDIRI4
+ARGI4
+ADDRGP4 Com_sprintf
+CALLV
+pop
+ADDRLP4 1041
+ARGP4
+ADDRLP4 10272
+ADDRGP4 strlen
+CALLI4
+ASGNI4
+ADDRLP4 8
+ADDRLP4 10272
+INDIRI4
+ASGNI4
+ADDRLP4 4
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1294
+JUMPV
+LABELV $1291
+ADDRLP4 0
+CNSTI4 1880
+ADDRLP4 4
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRGP4 level+173952
+ADDP4
+INDIRI4
+MULI4
+ADDRGP4 level
+INDIRP4
+ADDP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CNSTI4 472
+ADDP4
+INDIRI4
+CNSTI4 1
+NEI4 $1297
+ADDRLP4 10276
+CNSTI4 -1
+ASGNI4
+ADDRGP4 $1298
+JUMPV
+LABELV $1297
+ADDRLP4 0
+INDIRP4
+CNSTI4 452
+ADDP4
+INDIRI4
+CNSTI4 999
+GEI4 $1300
+ADDRLP4 10280
+ADDRLP4 0
+INDIRP4
+CNSTI4 452
+ADDP4
+INDIRI4
+ASGNI4
+ADDRGP4 $1301
+JUMPV
+LABELV $1300
+ADDRLP4 10280
+CNSTI4 999
+ASGNI4
+LABELV $1301
+ADDRLP4 10276
+ADDRLP4 10280
+INDIRI4
+ASGNI4
+LABELV $1298
+ADDRLP4 10284
+ADDRLP4 0
+INDIRP4
+CNSTI4 216
+ADDP4
+INDIRI4
+ASGNI4
+ADDRLP4 10284
+INDIRI4
+CNSTI4 0
+EQI4 $1307
+ADDRLP4 10284
+INDIRI4
+CNSTI4 1
+EQI4 $1305
+ADDRLP4 10284
+INDIRI4
+CNSTI4 2
+EQI4 $1306
+ADDRGP4 $1266
+JUMPV
+LABELV $1305
+ADDRLP4 1040
+CNSTI1 65
+ASGNI1
+ADDRGP4 $1303
+JUMPV
+LABELV $1306
+ADDRLP4 1040
+CNSTI1 72
+ASGNI1
+ADDRGP4 $1303
+JUMPV
+LABELV $1307
+ADDRLP4 1040
+CNSTI1 83
+ASGNI1
+LABELV $1303
+ADDRLP4 12
+ARGP4
+CNSTI4 1024
+ARGI4
+ADDRGP4 $1308
+ARGP4
+ADDRLP4 0
+INDIRP4
+CNSTI4 516
+ADDP4
+ARGP4
+ADDRLP4 1040
+INDIRI1
+CVII4 1
+ARGI4
+ADDRLP4 0
+INDIRP4
+CNSTI4 248
+ADDP4
+INDIRI4
+ARGI4
+ADDRLP4 10276
+INDIRI4
+ARGI4
+ADDRGP4 level+28
+INDIRI4
+ADDRLP4 0
+INDIRP4
+CNSTI4 556
+ADDP4
+INDIRI4
+SUBI4
+CNSTI4 60000
+DIVI4
+ARGI4
+ADDRGP4 Com_sprintf
+CALLV
+pop
+ADDRLP4 12
+ARGP4
+ADDRLP4 10296
+ADDRGP4 strlen
+CALLI4
+ASGNI4
+ADDRLP4 1036
+ADDRLP4 10296
+INDIRI4
+ASGNI4
+ADDRLP4 8
+INDIRI4
+ADDRLP4 1036
+INDIRI4
+ADDI4
+CNSTI4 8192
+LTI4 $1310
+ADDRGP4 $1293
+JUMPV
+LABELV $1310
+ADDRLP4 8
+INDIRI4
+ADDRLP4 1041
+ADDP4
+ARGP4
+ADDRLP4 12
+ARGP4
+ADDRGP4 strcpy
+CALLP4
+pop
+ADDRLP4 8
+ADDRLP4 8
+INDIRI4
+ADDRLP4 1036
+INDIRI4
+ADDI4
+ASGNI4
+LABELV $1292
+ADDRLP4 4
+ADDRLP4 4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1294
+ADDRLP4 4
+INDIRI4
+ADDRGP4 level+173940
+INDIRI4
+LTI4 $1291
+LABELV $1293
+ADDRLP4 1041
+ARGP4
+ADDRGP4 trap_SendGameStat
+CALLV
+pop
+LABELV $1266
+endproc G_SendGameStat 10300 72
+export LogExit
+proc LogExit 28 20
+ADDRGP4 $1313
+ARGP4
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRGP4 G_LogPrintf
+CALLV
+pop
+ADDRGP4 level+185036
+ADDRGP4 level+28
+INDIRI4
+ASGNI4
+CNSTI4 22
+ARGI4
+ADDRGP4 $113
+ARGP4
+ADDRGP4 trap_SetConfigstring
+CALLV
+pop
+ADDRLP4 12
+ADDRGP4 level+173940
+INDIRI4
+ASGNI4
+ADDRLP4 12
+INDIRI4
+CNSTI4 32
+LEI4 $1317
+ADDRLP4 12
+CNSTI4 32
+ASGNI4
+LABELV $1317
+ADDRLP4 4
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1322
+JUMPV
+LABELV $1319
+ADDRLP4 0
+CNSTI4 1880
+ADDRLP4 4
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRGP4 level+173952
+ADDP4
+INDIRI4
+MULI4
+ADDRGP4 level
+INDIRP4
+ADDP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CNSTI4 216
+ADDP4
+INDIRI4
+CNSTI4 0
+NEI4 $1324
+ADDRGP4 $1320
+JUMPV
+LABELV $1324
+ADDRLP4 0
+INDIRP4
+CNSTI4 472
+ADDP4
+INDIRI4
+CNSTI4 1
+NEI4 $1326
+ADDRGP4 $1320
+JUMPV
+LABELV $1326
+ADDRLP4 0
+INDIRP4
+CNSTI4 452
+ADDP4
+INDIRI4
+CNSTI4 999
+GEI4 $1329
+ADDRLP4 20
+ADDRLP4 0
+INDIRP4
+CNSTI4 452
+ADDP4
+INDIRI4
+ASGNI4
+ADDRGP4 $1330
+JUMPV
+LABELV $1329
+ADDRLP4 20
+CNSTI4 999
+ASGNI4
+LABELV $1330
+ADDRLP4 16
+ADDRLP4 20
+INDIRI4
+ASGNI4
+ADDRGP4 $1331
+ARGP4
+ADDRLP4 0
+INDIRP4
+CNSTI4 248
+ADDP4
+INDIRI4
+ARGI4
+ADDRLP4 16
+INDIRI4
+ARGI4
+ADDRLP4 4
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRGP4 level+173952
+ADDP4
+INDIRI4
+ARGI4
+ADDRLP4 0
+INDIRP4
+CNSTI4 516
+ADDP4
+ARGP4
+ADDRGP4 G_LogPrintf
+CALLV
+pop
+LABELV $1320
+ADDRLP4 4
+ADDRLP4 4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1322
+ADDRLP4 4
+INDIRI4
+ADDRLP4 12
+INDIRI4
+LTI4 $1319
+ADDRLP4 4
+CNSTI4 1
+ASGNI4
+ADDRLP4 8
+CNSTI4 2400
+ADDRLP4 4
+INDIRI4
+MULI4
+ADDRGP4 g_entities
+ADDP4
+ASGNP4
+ADDRGP4 $1336
+JUMPV
+LABELV $1333
+ADDRLP4 8
+INDIRP4
+CNSTI4 520
+ADDP4
+INDIRI4
+CNSTI4 0
+NEI4 $1338
+ADDRGP4 $1334
+JUMPV
+LABELV $1338
+ADDRLP4 8
+INDIRP4
+CNSTI4 524
+ADDP4
+INDIRP4
+ARGP4
+ADDRGP4 $1342
+ARGP4
+ADDRLP4 16
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 16
+INDIRI4
+CNSTI4 0
+NEI4 $1340
+ADDRGP4 level+189264
+INDIRI4
+ADDRLP4 8
+INDIRP4
+CNSTI4 948
+ADDP4
+INDIRI4
+NEI4 $1343
+ADDRLP4 8
+INDIRP4
+ARGP4
+ADDRLP4 8
+INDIRP4
+ARGP4
+ADDRLP4 8
+INDIRP4
+ARGP4
+ADDRLP4 8
+INDIRP4
+CNSTI4 788
+ADDP4
+INDIRP4
+CALLV
+pop
+LABELV $1343
+LABELV $1340
+LABELV $1334
+ADDRLP4 4
+ADDRLP4 4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 8
+ADDRLP4 8
+INDIRP4
+CNSTI4 2400
+ADDP4
+ASGNP4
+LABELV $1336
+ADDRLP4 4
+INDIRI4
+ADDRGP4 level+12
+INDIRI4
+LTI4 $1333
+ADDRGP4 level+189264
+INDIRI4
+ARGI4
+ADDRGP4 G_SendGameStat
+CALLV
+pop
+LABELV $1312
+endproc LogExit 28 20
+export CheckIntermissionExit
+proc CheckIntermissionExit 36 8
+ADDRGP4 level+173940
+INDIRI4
+CNSTI4 0
+NEI4 $1348
+ADDRGP4 ExitLevel
+CALLV
+pop
+ADDRGP4 $1347
+JUMPV
+LABELV $1348
+ADDRLP4 24
+CNSTI4 0
+ASGNI4
+ADDRLP4 12
+ADDRLP4 24
+INDIRI4
+ASGNI4
+ADDRLP4 16
+ADDRLP4 24
+INDIRI4
+ASGNI4
+ADDRLP4 20
+ADDRLP4 24
+INDIRI4
+ASGNI4
+ADDRLP4 8
+ADDRLP4 24
+INDIRI4
+ASGNI4
+ADDRLP4 4
+ADDRLP4 24
+INDIRI4
+ASGNI4
+ADDRGP4 $1354
+JUMPV
+LABELV $1351
+ADDRLP4 0
+CNSTI4 1880
+ADDRLP4 4
+INDIRI4
+MULI4
+ADDRGP4 level
+INDIRP4
+ADDP4
+ASGNP4
+ADDRLP4 0
+INDIRP4
+CNSTI4 472
+ADDP4
+INDIRI4
+CNSTI4 2
+EQI4 $1356
+ADDRGP4 $1352
+JUMPV
+LABELV $1356
+ADDRLP4 0
+INDIRP4
+CNSTI4 216
+ADDP4
+INDIRI4
+CNSTI4 0
+NEI4 $1358
+ADDRGP4 $1352
+JUMPV
+LABELV $1358
+ADDRLP4 0
+INDIRP4
+CNSTI4 916
+ADDP4
+INDIRI4
+CNSTI4 0
+EQI4 $1360
+ADDRLP4 12
+ADDRLP4 12
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 4
+INDIRI4
+CNSTI4 16
+GEI4 $1361
+ADDRLP4 20
+ADDRLP4 20
+INDIRI4
+CNSTI4 1
+ADDRLP4 4
+INDIRI4
+LSHI4
+BORI4
+ASGNI4
+ADDRGP4 $1361
+JUMPV
+LABELV $1360
+ADDRLP4 16
+ADDRLP4 16
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1361
+ADDRLP4 8
+ADDRLP4 8
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1352
+ADDRLP4 4
+ADDRLP4 4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1354
+ADDRLP4 4
+INDIRI4
+ADDRGP4 g_maxclients+12
+INDIRI4
+LTI4 $1351
+ADDRGP4 $430
+ARGP4
+ADDRLP4 20
+INDIRI4
+ARGI4
+ADDRLP4 28
+ADDRGP4 va
+CALLP4
+ASGNP4
+CNSTI4 26
+ARGI4
+ADDRLP4 28
+INDIRP4
+ARGP4
+ADDRGP4 trap_SetConfigstring
+CALLV
+pop
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+185040
+INDIRI4
+CNSTI4 5000
+ADDI4
+GEI4 $1364
+ADDRGP4 $1347
+JUMPV
+LABELV $1364
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+185040
+INDIRI4
+CNSTI4 20000
+ADDI4
+LEI4 $1368
+ADDRGP4 ExitLevel
+CALLV
+pop
+ADDRGP4 $1347
+JUMPV
+LABELV $1368
+ADDRLP4 32
+CNSTI4 0
+ASGNI4
+ADDRLP4 12
+INDIRI4
+ADDRLP4 32
+INDIRI4
+NEI4 $1372
+ADDRLP4 8
+INDIRI4
+ADDRLP4 32
+INDIRI4
+EQI4 $1372
+ADDRGP4 level+185048
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1347
+JUMPV
+LABELV $1372
+ADDRLP4 16
+INDIRI4
+CNSTI4 0
+NEI4 $1375
+ADDRGP4 ExitLevel
+CALLV
+pop
+ADDRGP4 $1347
+JUMPV
+LABELV $1375
+ADDRGP4 level+185048
+INDIRI4
+CNSTI4 0
+NEI4 $1377
+ADDRGP4 level+185048
+CNSTI4 1
+ASGNI4
+ADDRGP4 level+185052
+ADDRGP4 level+28
+INDIRI4
+ASGNI4
+LABELV $1377
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+185052
+INDIRI4
+CNSTI4 30000
+ADDI4
+GEI4 $1383
+ADDRGP4 $1347
+JUMPV
+LABELV $1383
+ADDRGP4 ExitLevel
+CALLV
+pop
+LABELV $1347
+endproc CheckIntermissionExit 36 8
+export ScoreIsTied
+proc ScoreIsTied 24 0
+ADDRGP4 level+173948
+INDIRI4
+CNSTI4 2
+GEI4 $1388
+CNSTI4 0
+RETI4
+ADDRGP4 $1387
+JUMPV
+LABELV $1388
+ADDRLP4 12
+CNSTI4 1880
+ASGNI4
+ADDRLP4 16
+ADDRGP4 level
+INDIRP4
+ASGNP4
+ADDRLP4 20
+CNSTI4 248
+ASGNI4
+ADDRLP4 0
+ADDRLP4 12
+INDIRI4
+ADDRGP4 level+173952
+INDIRI4
+MULI4
+ADDRLP4 16
+INDIRP4
+ADDP4
+ADDRLP4 20
+INDIRI4
+ADDP4
+INDIRI4
+ASGNI4
+ADDRLP4 4
+ADDRLP4 12
+INDIRI4
+ADDRGP4 level+173952+4
+INDIRI4
+MULI4
+ADDRLP4 16
+INDIRP4
+ADDP4
+ADDRLP4 20
+INDIRI4
+ADDP4
+INDIRI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+ADDRLP4 4
+INDIRI4
+NEI4 $1395
+ADDRLP4 8
+CNSTI4 1
+ASGNI4
+ADDRGP4 $1396
+JUMPV
+LABELV $1395
+ADDRLP4 8
+CNSTI4 0
+ASGNI4
+LABELV $1396
+ADDRLP4 8
+INDIRI4
+RETI4
+LABELV $1387
+endproc ScoreIsTied 24 0
+export CheckExitRules
+proc CheckExitRules 8 8
+ADDRGP4 level+185040
+INDIRI4
+CNSTI4 0
+EQI4 $1398
+ADDRGP4 CheckIntermissionExit
+CALLV
+pop
+ADDRGP4 $1397
+JUMPV
+LABELV $1398
+ADDRGP4 level+185036
+INDIRI4
+CNSTI4 0
+EQI4 $1401
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+185036
+INDIRI4
+SUBI4
+CNSTI4 1000
+LTI4 $1397
+ADDRGP4 level+185036
+CNSTI4 0
+ASGNI4
+ADDRGP4 BeginIntermission
+CALLV
+pop
+ADDRGP4 $1397
+JUMPV
+LABELV $1401
+ADDRGP4 g_timelimit+12
+INDIRI4
+CNSTI4 0
+EQI4 $1409
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+SUBI4
+CNSTI4 60000
+ADDRGP4 g_timelimit+12
+INDIRI4
+MULI4
+LTI4 $1412
+ADDRGP4 level+189264
+CNSTI4 0
+ASGNI4
+CNSTI4 -1
+ARGI4
+ADDRGP4 $1418
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+CNSTI4 27
+ARGI4
+ADDRGP4 $1419
+ARGP4
+ADDRGP4 trap_SetConfigstring
+CALLV
+pop
+ADDRGP4 $1420
+ARGP4
+ADDRGP4 LogExit
+CALLV
+pop
+ADDRGP4 $1421
+ARGP4
+ADDRGP4 G_admin_maplog_result
+CALLV
+pop
+ADDRGP4 $1397
+JUMPV
+LABELV $1412
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+SUBI4
+CNSTI4 60000
+ADDRGP4 g_timelimit+12
+INDIRI4
+MULI4
+CNSTI4 300000
+SUBI4
+LTI4 $1422
+ADDRGP4 level+189288
+INDIRI4
+CNSTI4 1
+GEI4 $1422
+CNSTI4 -1
+ARGI4
+ADDRGP4 $1428
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+ADDRGP4 level+189288
+CNSTI4 1
+ASGNI4
+ADDRGP4 $1423
+JUMPV
+LABELV $1422
+ADDRLP4 0
+CNSTI4 60000
+ASGNI4
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+SUBI4
+ADDRLP4 0
+INDIRI4
+ADDRGP4 g_timelimit+12
+INDIRI4
+MULI4
+ADDRLP4 0
+INDIRI4
+SUBI4
+LTI4 $1430
+ADDRGP4 level+189288
+INDIRI4
+CNSTI4 2
+GEI4 $1430
+CNSTI4 -1
+ARGI4
+ADDRGP4 $1436
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+ADDRGP4 level+189288
+CNSTI4 2
+ASGNI4
+LABELV $1430
+LABELV $1423
+LABELV $1409
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 level+189840
+INDIRI4
+ADDRLP4 0
+INDIRI4
+NEI4 $1445
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+CNSTI4 1000
+ADDI4
+LEI4 $1438
+ADDRGP4 level+185088
+INDIRI4
+ADDRLP4 0
+INDIRI4
+NEI4 $1438
+ADDRGP4 level+185120
+INDIRI4
+ADDRLP4 0
+INDIRI4
+NEI4 $1438
+LABELV $1445
+ADDRGP4 level+189264
+CNSTI4 2
+ASGNI4
+CNSTI4 -1
+ARGI4
+ADDRGP4 $1447
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+CNSTI4 27
+ARGI4
+ADDRGP4 $1448
+ARGP4
+ADDRGP4 trap_SetConfigstring
+CALLV
+pop
+ADDRGP4 $1449
+ARGP4
+ADDRGP4 LogExit
+CALLV
+pop
+ADDRGP4 $1450
+ARGP4
+ADDRGP4 G_admin_maplog_result
+CALLV
+pop
+ADDRGP4 $1439
+JUMPV
+LABELV $1438
+ADDRLP4 4
+CNSTI4 0
+ASGNI4
+ADDRGP4 level+189836
+INDIRI4
+ADDRLP4 4
+INDIRI4
+NEI4 $1458
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+CNSTI4 1000
+ADDI4
+LEI4 $1451
+ADDRGP4 level+185092
+INDIRI4
+ADDRLP4 4
+INDIRI4
+NEI4 $1451
+ADDRGP4 level+185124
+INDIRI4
+ADDRLP4 4
+INDIRI4
+NEI4 $1451
+LABELV $1458
+ADDRGP4 level+189264
+CNSTI4 1
+ASGNI4
+ADDRGP4 g_survival+12
+INDIRI4
+CNSTI4 0
+EQI4 $1460
+ADDRGP4 level+64
+INDIRI4
+CNSTI4 0
+LEI4 $1463
+ADDRGP4 level+76
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+SUBI4
+ASGNI4
+CNSTI4 -1
+ARGI4
+ADDRGP4 $1469
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+ADDRGP4 $1461
+JUMPV
+LABELV $1463
+CNSTI4 -1
+ARGI4
+ADDRGP4 $1470
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+ADDRGP4 $1461
+JUMPV
+LABELV $1460
+CNSTI4 -1
+ARGI4
+ADDRGP4 $1471
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+LABELV $1461
+CNSTI4 27
+ARGI4
+ADDRGP4 $1472
+ARGP4
+ADDRGP4 trap_SetConfigstring
+CALLV
+pop
+ADDRGP4 $1473
+ARGP4
+ADDRGP4 LogExit
+CALLV
+pop
+ADDRGP4 $1474
+ARGP4
+ADDRGP4 G_admin_maplog_result
+CALLV
+pop
+LABELV $1451
+LABELV $1439
+LABELV $1397
+endproc CheckExitRules 8 8
+export CheckVote
+proc CheckVote 32 12
+ADDRLP4 0
+ADDRGP4 level+176264
+INDIRI4
+ASGNI4
+ADDRGP4 level+176272
+INDIRI4
+CNSTI4 0
+EQI4 $1477
+ADDRGP4 level+176272
+INDIRI4
+ADDRGP4 level+28
+INDIRI4
+GEI4 $1477
+ADDRGP4 level+176272
+CNSTI4 0
+ASGNI4
+ADDRGP4 level+174216
+ARGP4
+ADDRGP4 $1486
+ARGP4
+ADDRLP4 8
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 8
+INDIRI4
+CNSTI4 0
+NEI4 $1483
+ADDRGP4 $1487
+ARGP4
+ADDRGP4 G_admin_maplog_result
+CALLV
+pop
+ADDRGP4 $1484
+JUMPV
+LABELV $1483
+ADDRGP4 level+174216
+ARGP4
+ADDRGP4 $1491
+ARGP4
+CNSTI4 3
+ARGI4
+ADDRLP4 12
+ADDRGP4 Q_stricmpn
+CALLI4
+ASGNI4
+ADDRLP4 12
+INDIRI4
+CNSTI4 0
+NEI4 $1488
+ADDRGP4 $1492
+ARGP4
+ADDRGP4 G_admin_maplog_result
+CALLV
+pop
+LABELV $1488
+LABELV $1484
+ADDRGP4 level+174216
+ARGP4
+ADDRGP4 $1496
+ARGP4
+ADDRLP4 16
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 16
+INDIRI4
+CNSTI4 0
+NEI4 $1493
+ADDRGP4 level+189280
+ADDRGP4 level+28
+INDIRI4
+CNSTI4 1000
+ADDRGP4 g_suddenDeathVoteDelay+12
+INDIRI4
+MULI4
+ADDI4
+ADDRGP4 level+40
+INDIRI4
+SUBI4
+ASGNI4
+ADDRGP4 level+174216
+CNSTI1 0
+ASGNI1
+ADDRGP4 g_suddenDeathVoteDelay+12
+INDIRI4
+CNSTI4 0
+EQI4 $1502
+ADDRGP4 $1505
+ARGP4
+ADDRGP4 g_suddenDeathVoteDelay+12
+INDIRI4
+ARGI4
+ADDRLP4 20
+ADDRGP4 va
+CALLP4
+ASGNP4
+CNSTI4 -1
+ARGI4
+ADDRLP4 20
+INDIRP4
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+LABELV $1502
+LABELV $1493
+ADDRGP4 level+174216
+INDIRI1
+CVII4 1
+CNSTI4 0
+EQI4 $1507
+ADDRGP4 $1510
+ARGP4
+ADDRGP4 level+174216
+ARGP4
+ADDRLP4 20
+ADDRGP4 va
+CALLP4
+ASGNP4
+CNSTI4 2
+ARGI4
+ADDRLP4 20
+INDIRP4
+ARGP4
+ADDRGP4 trap_SendConsoleCommand
+CALLV
+pop
+LABELV $1507
+ADDRGP4 level+174216
+ARGP4
+ADDRGP4 $1486
+ARGP4
+ADDRLP4 24
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 24
+INDIRI4
+CNSTI4 0
+EQI4 $1516
+ADDRGP4 level+174216
+ARGP4
+ADDRGP4 $1491
+ARGP4
+CNSTI4 3
+ARGI4
+ADDRLP4 28
+ADDRGP4 Q_stricmpn
+CALLI4
+ASGNI4
+ADDRLP4 28
+INDIRI4
+CNSTI4 0
+NEI4 $1512
+LABELV $1516
+ADDRGP4 level+173936
+CNSTI4 1
+ASGNI4
+LABELV $1512
+LABELV $1477
+ADDRGP4 level+176268
+INDIRI4
+CNSTI4 0
+NEI4 $1518
+ADDRGP4 $1475
+JUMPV
+LABELV $1518
+ADDRGP4 level+176276
+INDIRI4
+ADDRGP4 level+176280
+INDIRI4
+ADDI4
+CNSTI4 0
+LEI4 $1521
+ADDRLP4 4
+CNSTI4 100
+ADDRGP4 level+176276
+INDIRI4
+MULI4
+ADDRGP4 level+176276
+INDIRI4
+ADDRGP4 level+176280
+INDIRI4
+ADDI4
+DIVI4
+ASGNI4
+ADDRGP4 $1522
+JUMPV
+LABELV $1521
+ADDRLP4 4
+CNSTI4 0
+ASGNI4
+LABELV $1522
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+176268
+INDIRI4
+SUBI4
+CNSTI4 30000
+GEI4 $1535
+ADDRGP4 level+176276
+INDIRI4
+ADDRGP4 level+176280
+INDIRI4
+ADDI4
+ADDRGP4 level+173940
+INDIRI4
+NEI4 $1528
+LABELV $1535
+ADDRLP4 4
+INDIRI4
+ADDRLP4 0
+INDIRI4
+GTI4 $1539
+ADDRGP4 level+176280
+INDIRI4
+CNSTI4 0
+NEI4 $1536
+LABELV $1539
+ADDRGP4 $1540
+ARGP4
+ADDRGP4 level+176276
+INDIRI4
+ARGI4
+ADDRGP4 level+176280
+INDIRI4
+ARGI4
+ADDRLP4 8
+ADDRGP4 va
+CALLP4
+ASGNP4
+CNSTI4 -1
+ARGI4
+ADDRLP4 8
+INDIRP4
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+ADDRGP4 $1543
+ARGP4
+ADDRGP4 level+176276
+INDIRI4
+ARGI4
+ADDRGP4 level+176280
+INDIRI4
+ARGI4
+ADDRGP4 G_LogPrintf
+CALLV
+pop
+ADDRGP4 level+176272
+ADDRGP4 level+28
+INDIRI4
+CNSTI4 3000
+ADDI4
+ASGNI4
+ADDRGP4 $1529
+JUMPV
+LABELV $1536
+ADDRGP4 $1548
+ARGP4
+ADDRGP4 level+176276
+INDIRI4
+ARGI4
+ADDRGP4 level+176280
+INDIRI4
+ARGI4
+ADDRLP4 8
+ADDRGP4 va
+CALLP4
+ASGNP4
+CNSTI4 -1
+ARGI4
+ADDRLP4 8
+INDIRP4
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+ADDRGP4 $1551
+ARGP4
+ADDRGP4 level+176276
+INDIRI4
+ARGI4
+ADDRGP4 level+176280
+INDIRI4
+ARGI4
+ADDRGP4 G_LogPrintf
+CALLV
+pop
+ADDRGP4 $1529
+JUMPV
+LABELV $1528
+ADDRGP4 level+176276
+INDIRI4
+ADDRGP4 level+173940
+INDIRI4
+CVIF4 4
+ADDRLP4 0
+INDIRI4
+CVIF4 4
+CNSTF4 1120403456
+DIVF4
+MULF4
+CVFI4 4
+LEI4 $1554
+ADDRGP4 $1540
+ARGP4
+ADDRGP4 level+176276
+INDIRI4
+ARGI4
+ADDRGP4 level+176280
+INDIRI4
+ARGI4
+ADDRLP4 8
+ADDRGP4 va
+CALLP4
+ASGNP4
+CNSTI4 -1
+ARGI4
+ADDRLP4 8
+INDIRP4
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+ADDRGP4 $1560
+ARGP4
+ADDRGP4 level+176276
+INDIRI4
+ARGI4
+ADDRGP4 level+176280
+INDIRI4
+ARGI4
+ADDRGP4 G_LogPrintf
+CALLV
+pop
+ADDRGP4 level+176272
+ADDRGP4 level+28
+INDIRI4
+CNSTI4 3000
+ADDI4
+ASGNI4
+ADDRGP4 $1555
+JUMPV
+LABELV $1554
+ADDRLP4 8
+CNSTF4 1120403456
+ASGNF4
+ADDRGP4 level+176280
+INDIRI4
+ADDRGP4 level+173940
+INDIRI4
+CVIF4 4
+ADDRLP4 8
+INDIRF4
+ADDRLP4 0
+INDIRI4
+CVIF4 4
+SUBF4
+ADDRLP4 8
+INDIRF4
+DIVF4
+MULF4
+CVFI4 4
+LEI4 $1475
+ADDRGP4 $1548
+ARGP4
+ADDRGP4 level+176276
+INDIRI4
+ARGI4
+ADDRGP4 level+176280
+INDIRI4
+ARGI4
+ADDRLP4 12
+ADDRGP4 va
+CALLP4
+ASGNP4
+CNSTI4 -1
+ARGI4
+ADDRLP4 12
+INDIRP4
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+ADDRGP4 $1571
+ARGP4
+ADDRGP4 G_LogPrintf
+CALLV
+pop
+LABELV $1566
+LABELV $1555
+LABELV $1529
+ADDRGP4 level+176268
+CNSTI4 0
+ASGNI4
+CNSTI4 8
+ARGI4
+ADDRGP4 $84
+ARGP4
+ADDRGP4 trap_SetConfigstring
+CALLV
+pop
+CNSTI4 9
+ARGI4
+ADDRGP4 $84
+ARGP4
+ADDRGP4 trap_SetConfigstring
+CALLV
+pop
+LABELV $1475
+endproc CheckVote 32 12
+export CheckTeamVote
+proc CheckTeamVote 32 12
+ADDRFP4 0
+INDIRI4
+CNSTI4 2
+NEI4 $1574
+ADDRLP4 0
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1575
+JUMPV
+LABELV $1574
+ADDRFP4 0
+INDIRI4
+CNSTI4 1
+NEI4 $1573
+ADDRLP4 0
+CNSTI4 1
+ASGNI4
+LABELV $1577
+LABELV $1575
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRGP4 level+180384
+ADDP4
+INDIRI4
+CNSTI4 0
+NEI4 $1578
+ADDRGP4 $1573
+JUMPV
+LABELV $1578
+ADDRGP4 level+28
+INDIRI4
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRGP4 level+180384
+ADDP4
+INDIRI4
+SUBI4
+CNSTI4 30000
+LTI4 $1581
+ADDRLP4 4
+CNSTI4 2
+ASGNI4
+ADDRLP4 8
+ADDRLP4 0
+INDIRI4
+ADDRLP4 4
+INDIRI4
+LSHI4
+ASGNI4
+ADDRLP4 8
+INDIRI4
+ADDRGP4 level+180392
+ADDP4
+INDIRI4
+ADDRLP4 8
+INDIRI4
+ADDRGP4 level+180400
+ADDP4
+INDIRI4
+LEI4 $1585
+ADDRLP4 8
+INDIRI4
+ADDRGP4 level+180392
+ADDP4
+INDIRI4
+ADDRLP4 4
+INDIRI4
+LTI4 $1585
+ADDRGP4 $1590
+ARGP4
+ADDRLP4 12
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ASGNI4
+ADDRLP4 12
+INDIRI4
+ADDRGP4 level+180392
+ADDP4
+INDIRI4
+ARGI4
+ADDRLP4 12
+INDIRI4
+ADDRGP4 level+180400
+ADDP4
+INDIRI4
+ARGI4
+ADDRLP4 16
+ADDRGP4 va
+CALLP4
+ASGNP4
+CNSTI4 -1
+ARGI4
+ADDRLP4 16
+INDIRP4
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+ADDRGP4 $1510
+ARGP4
+ADDRLP4 0
+INDIRI4
+CNSTI4 10
+LSHI4
+ADDRGP4 level+176288
+ADDP4
+ARGP4
+ADDRLP4 20
+ADDRGP4 va
+CALLP4
+ASGNP4
+CNSTI4 2
+ARGI4
+ADDRLP4 20
+INDIRP4
+ARGP4
+ADDRGP4 trap_SendConsoleCommand
+CALLV
+pop
+ADDRGP4 $1582
+JUMPV
+LABELV $1585
+ADDRGP4 $1594
+ARGP4
+ADDRLP4 12
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ASGNI4
+ADDRLP4 12
+INDIRI4
+ADDRGP4 level+180392
+ADDP4
+INDIRI4
+ARGI4
+ADDRLP4 12
+INDIRI4
+ADDRGP4 level+180400
+ADDP4
+INDIRI4
+ARGI4
+ADDRLP4 16
+ADDRGP4 va
+CALLP4
+ASGNP4
+CNSTI4 -1
+ARGI4
+ADDRLP4 16
+INDIRP4
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+ADDRGP4 $1597
+ARGP4
+ADDRLP4 20
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ASGNI4
+ADDRLP4 20
+INDIRI4
+ADDRGP4 level+180392
+ADDP4
+INDIRI4
+ARGI4
+ADDRLP4 20
+INDIRI4
+ADDRGP4 level+180400
+ADDP4
+INDIRI4
+ARGI4
+ADDRGP4 G_LogPrintf
+CALLV
+pop
+ADDRGP4 $1582
+JUMPV
+LABELV $1581
+ADDRLP4 4
+CNSTI4 2
+ASGNI4
+ADDRLP4 8
+ADDRLP4 0
+INDIRI4
+ADDRLP4 4
+INDIRI4
+LSHI4
+ASGNI4
+ADDRLP4 8
+INDIRI4
+ADDRGP4 level+180392
+ADDP4
+INDIRI4
+ADDRLP4 8
+INDIRI4
+ADDRGP4 level+180408
+ADDP4
+INDIRI4
+ADDRLP4 4
+INDIRI4
+DIVI4
+LEI4 $1600
+ADDRGP4 $1590
+ARGP4
+ADDRLP4 12
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ASGNI4
+ADDRLP4 12
+INDIRI4
+ADDRGP4 level+180392
+ADDP4
+INDIRI4
+ARGI4
+ADDRLP4 12
+INDIRI4
+ADDRGP4 level+180400
+ADDP4
+INDIRI4
+ARGI4
+ADDRLP4 16
+ADDRGP4 va
+CALLP4
+ASGNP4
+CNSTI4 -1
+ARGI4
+ADDRLP4 16
+INDIRP4
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+ADDRGP4 $1606
+ARGP4
+ADDRLP4 20
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ASGNI4
+ADDRLP4 20
+INDIRI4
+ADDRGP4 level+180392
+ADDP4
+INDIRI4
+ARGI4
+ADDRLP4 20
+INDIRI4
+ADDRGP4 level+180400
+ADDP4
+INDIRI4
+ARGI4
+ADDRGP4 G_LogPrintf
+CALLV
+pop
+ADDRGP4 $1510
+ARGP4
+ADDRLP4 0
+INDIRI4
+CNSTI4 10
+LSHI4
+ADDRGP4 level+176288
+ADDP4
+ARGP4
+ADDRLP4 24
+ADDRGP4 va
+CALLP4
+ASGNP4
+CNSTI4 2
+ARGI4
+ADDRLP4 24
+INDIRP4
+ARGP4
+ADDRGP4 trap_SendConsoleCommand
+CALLV
+pop
+ADDRGP4 $1601
+JUMPV
+LABELV $1600
+ADDRLP4 12
+CNSTI4 2
+ASGNI4
+ADDRLP4 16
+ADDRLP4 0
+INDIRI4
+ADDRLP4 12
+INDIRI4
+LSHI4
+ASGNI4
+ADDRLP4 16
+INDIRI4
+ADDRGP4 level+180400
+ADDP4
+INDIRI4
+ADDRLP4 16
+INDIRI4
+ADDRGP4 level+180408
+ADDP4
+INDIRI4
+ADDRLP4 12
+INDIRI4
+DIVI4
+LTI4 $1573
+ADDRGP4 $1594
+ARGP4
+ADDRLP4 20
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ASGNI4
+ADDRLP4 20
+INDIRI4
+ADDRGP4 level+180392
+ADDP4
+INDIRI4
+ARGI4
+ADDRLP4 20
+INDIRI4
+ADDRGP4 level+180400
+ADDP4
+INDIRI4
+ARGI4
+ADDRLP4 24
+ADDRGP4 va
+CALLP4
+ASGNP4
+CNSTI4 -1
+ARGI4
+ADDRLP4 24
+INDIRP4
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+ADDRGP4 $1597
+ARGP4
+ADDRLP4 28
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ASGNI4
+ADDRLP4 28
+INDIRI4
+ADDRGP4 level+180392
+ADDP4
+INDIRI4
+ARGI4
+ADDRLP4 28
+INDIRI4
+ADDRGP4 level+180400
+ADDP4
+INDIRI4
+ARGI4
+ADDRGP4 G_LogPrintf
+CALLV
+pop
+LABELV $1611
+LABELV $1601
+LABELV $1582
+ADDRLP4 0
+INDIRI4
+CNSTI4 2
+LSHI4
+ADDRGP4 level+180384
+ADDP4
+CNSTI4 0
+ASGNI4
+ADDRLP4 0
+INDIRI4
+CNSTI4 12
+ADDI4
+ARGI4
+ADDRGP4 $84
+ARGP4
+ADDRGP4 trap_SetConfigstring
+CALLV
+pop
+ADDRLP4 0
+INDIRI4
+CNSTI4 14
+ADDI4
+ARGI4
+ADDRGP4 $84
+ARGP4
+ADDRGP4 trap_SetConfigstring
+CALLV
+pop
+LABELV $1573
+endproc CheckTeamVote 32 12
+export CheckMsgTimer
+proc CheckMsgTimer 1040 12
+ADDRGP4 g_msgTime+12
+INDIRI4
+CNSTI4 0
+NEI4 $1620
+ADDRGP4 $1619
+JUMPV
+LABELV $1620
+ADDRGP4 g_msgTime+12
+INDIRI4
+ARGI4
+ADDRLP4 0
+ADDRGP4 abs
+CALLI4
+ASGNI4
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+189988
+INDIRI4
+SUBI4
+CNSTI4 60000
+ADDRLP4 0
+INDIRI4
+MULI4
+GEI4 $1623
+ADDRGP4 $1619
+JUMPV
+LABELV $1623
+ADDRLP4 4
+CNSTI4 0
+ASGNI4
+ADDRGP4 level+189988
+INDIRI4
+ADDRLP4 4
+INDIRI4
+EQI4 $1628
+ADDRGP4 g_msgTime+12
+INDIRI4
+ADDRLP4 4
+INDIRI4
+GEI4 $1628
+ADDRGP4 $1619
+JUMPV
+LABELV $1628
+ADDRGP4 level+189988
+ADDRGP4 level+28
+INDIRI4
+ASGNI4
+ADDRGP4 g_msg+16
+INDIRI1
+CVII4 1
+CNSTI4 0
+EQI4 $1634
+ADDRLP4 8
+ARGP4
+ADDRGP4 g_msg+16
+ARGP4
+CNSTI4 1024
+ARGI4
+ADDRGP4 Q_strncpyz
+CALLV
+pop
+ADDRLP4 8
+ARGP4
+ADDRGP4 G_ParseEscapedString
+CALLV
+pop
+ADDRGP4 $1638
+ARGP4
+ADDRLP4 8
+ARGP4
+ADDRLP4 1032
+ADDRGP4 va
+CALLP4
+ASGNP4
+CNSTI4 -1
+ARGI4
+ADDRLP4 1032
+INDIRP4
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+ADDRGP4 $1639
+ARGP4
+ADDRLP4 8
+ARGP4
+ADDRLP4 1036
+ADDRGP4 va
+CALLP4
+ASGNP4
+CNSTI4 -1
+ARGI4
+ADDRLP4 1036
+INDIRP4
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+LABELV $1634
+LABELV $1619
+endproc CheckMsgTimer 1040 12
+data
+align 4
+LABELV $1641
+byte 4 0
+export CheckCountdown
+code
+proc CheckCountdown 20 16
+ADDRLP4 0
+ADDRGP4 g_warmup+12
+INDIRI4
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+40
+INDIRI4
+SUBI4
+CNSTI4 1000
+DIVI4
+SUBI4
+ASGNI4
+ADDRLP4 4
+CNSTI4 0
+ASGNI4
+ADDRGP4 g_doWarmup+12
+INDIRI4
+ADDRLP4 4
+INDIRI4
+EQI4 $1648
+ADDRLP4 0
+INDIRI4
+ADDRLP4 4
+INDIRI4
+GEI4 $1645
+LABELV $1648
+ADDRGP4 $1640
+JUMPV
+LABELV $1645
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 $1641
+INDIRI4
+SUBI4
+CNSTI4 1000
+GEI4 $1649
+ADDRGP4 $1640
+JUMPV
+LABELV $1649
+ADDRGP4 $1641
+ADDRGP4 level+28
+INDIRI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+CNSTI4 0
+LEI4 $1653
+ADDRGP4 $1655
+ARGP4
+ADDRLP4 12
+ADDRLP4 0
+INDIRI4
+CNSTI4 7
+MODI4
+ASGNI4
+ADDRLP4 12
+INDIRI4
+ARGI4
+ADDRLP4 0
+INDIRI4
+ARGI4
+ADDRLP4 12
+INDIRI4
+ARGI4
+ADDRLP4 16
+ADDRGP4 va
+CALLP4
+ASGNP4
+CNSTI4 -1
+ARGI4
+ADDRLP4 16
+INDIRP4
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+ADDRGP4 $1654
+JUMPV
+LABELV $1653
+ADDRLP4 0
+INDIRI4
+CNSTI4 0
+NEI4 $1656
+CNSTI4 -1
+ARGI4
+ADDRGP4 $1658
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+LABELV $1656
+LABELV $1654
+LABELV $1640
+endproc CheckCountdown 20 16
+data
+align 4
+LABELV $1660
+byte 4 -1
+align 4
+LABELV $1661
+byte 4 -1
+align 4
+LABELV $1662
+byte 4 -1
+export CheckCvars
+code
+proc CheckCvars 8 8
+ADDRGP4 g_password+4
+INDIRI4
+ADDRGP4 $1660
+INDIRI4
+EQI4 $1663
+ADDRGP4 $1660
+ADDRGP4 g_password+4
+INDIRI4
+ASGNI4
+ADDRGP4 g_password+16
+INDIRI1
+CVII4 1
+CNSTI4 0
+EQI4 $1667
+ADDRGP4 g_password+16
+ARGP4
+ADDRGP4 $1671
+ARGP4
+ADDRLP4 0
+ADDRGP4 Q_stricmp
+CALLI4
+ASGNI4
+ADDRLP4 0
+INDIRI4
+CNSTI4 0
+EQI4 $1667
+ADDRGP4 $128
+ARGP4
+ADDRGP4 $113
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+ADDRGP4 $1668
+JUMPV
+LABELV $1667
+ADDRGP4 $128
+ARGP4
+ADDRGP4 $90
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+LABELV $1668
+LABELV $1663
+ADDRGP4 g_markDeconstruct+4
+INDIRI4
+ADDRGP4 $1661
+INDIRI4
+EQI4 $1672
+ADDRGP4 $1661
+ADDRGP4 g_markDeconstruct+4
+INDIRI4
+ASGNI4
+ADDRLP4 4
+CNSTI4 1
+ASGNI4
+ADDRLP4 0
+CNSTI4 2400
+ADDRLP4 4
+INDIRI4
+MULI4
+ADDRGP4 g_entities
+ADDP4
+ASGNP4
+ADDRGP4 $1679
+JUMPV
+LABELV $1676
+ADDRLP4 0
+INDIRP4
+CNSTI4 520
+ADDP4
+INDIRI4
+CNSTI4 0
+NEI4 $1681
+ADDRGP4 $1677
+JUMPV
+LABELV $1681
+ADDRLP4 0
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRI4
+CNSTI4 3
+EQI4 $1683
+ADDRGP4 $1677
+JUMPV
+LABELV $1683
+ADDRLP4 0
+INDIRP4
+CNSTI4 1008
+ADDP4
+CNSTI4 0
+ASGNI4
+LABELV $1677
+ADDRLP4 4
+ADDRLP4 4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 0
+ADDRLP4 0
+INDIRP4
+CNSTI4 2400
+ADDP4
+ASGNP4
+LABELV $1679
+ADDRLP4 4
+INDIRI4
+ADDRGP4 level+12
+INDIRI4
+LTI4 $1676
+LABELV $1672
+ADDRGP4 g_suddenDeathTime+4
+INDIRI4
+ADDRGP4 $1662
+INDIRI4
+EQI4 $1685
+ADDRGP4 $1662
+ADDRGP4 g_suddenDeathTime+4
+INDIRI4
+ASGNI4
+ADDRGP4 level+189280
+CNSTI4 60000
+ADDRGP4 g_suddenDeathTime+12
+INDIRI4
+MULI4
+ASGNI4
+LABELV $1685
+ADDRLP4 0
+ADDRGP4 trap_Milliseconds
+CALLI4
+ASGNI4
+ADDRGP4 level+36
+ADDRLP4 0
+INDIRI4
+ASGNI4
+LABELV $1659
+endproc CheckCvars 8 8
+export G_RunThink
+proc G_RunThink 8 4
+ADDRFP4 0
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRLP4 0
+ADDRFP4 0
+INDIRP4
+CNSTI4 768
+ADDP4
+INDIRI4
+CVIF4 4
+ASGNF4
+ADDRLP4 0
+INDIRF4
+CNSTF4 0
+GTF4 $1693
+ADDRGP4 $1692
+JUMPV
+LABELV $1693
+ADDRLP4 0
+INDIRF4
+ADDRGP4 level+28
+INDIRI4
+CVIF4 4
+LEF4 $1695
+ADDRGP4 $1692
+JUMPV
+LABELV $1695
+ADDRFP4 0
+INDIRP4
+CNSTI4 768
+ADDP4
+CNSTI4 0
+ASGNI4
+ADDRFP4 0
+INDIRP4
+CNSTI4 772
+ADDP4
+INDIRP4
+CVPU4 4
+CNSTU4 0
+NEU4 $1698
+ADDRGP4 $1700
+ARGP4
+ADDRGP4 G_Error
+CALLV
+pop
+LABELV $1698
+ADDRFP4 0
+INDIRP4
+ARGP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 772
+ADDP4
+INDIRP4
+CALLV
+pop
+LABELV $1692
+endproc G_RunThink 8 4
+export G_EvaluateAcceleration
+proc G_EvaluateAcceleration 48 0
+ADDRFP4 0
+ADDRFP4 0
+INDIRP4
+ASGNP4
+ADDRFP4 4
+ADDRFP4 4
+INDIRI4
+ASGNI4
+ADDRLP4 0
+ADDRFP4 0
+INDIRP4
+CNSTI4 36
+ADDP4
+INDIRF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 704
+ADDP4
+INDIRF4
+SUBF4
+ASGNF4
+ADDRLP4 0+4
+ADDRFP4 0
+INDIRP4
+CNSTI4 40
+ADDP4
+INDIRF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 708
+ADDP4
+INDIRF4
+SUBF4
+ASGNF4
+ADDRLP4 0+8
+ADDRFP4 0
+INDIRP4
+CNSTI4 44
+ADDP4
+INDIRF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 712
+ADDP4
+INDIRF4
+SUBF4
+ASGNF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 716
+ADDP4
+ADDRLP4 0
+INDIRF4
+CNSTF4 1065353216
+ADDRFP4 4
+INDIRI4
+CVIF4 4
+DIVF4
+MULF4
+ASGNF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 720
+ADDP4
+ADDRLP4 0+4
+INDIRF4
+CNSTF4 1065353216
+ADDRFP4 4
+INDIRI4
+CVIF4 4
+DIVF4
+MULF4
+ASGNF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 724
+ADDP4
+ADDRLP4 0+8
+INDIRF4
+CNSTF4 1065353216
+ADDRFP4 4
+INDIRI4
+CVIF4 4
+DIVF4
+MULF4
+ASGNF4
+ADDRLP4 12
+ADDRFP4 0
+INDIRP4
+CNSTI4 716
+ADDP4
+INDIRF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 728
+ADDP4
+INDIRF4
+SUBF4
+ASGNF4
+ADDRLP4 12+4
+ADDRFP4 0
+INDIRP4
+CNSTI4 720
+ADDP4
+INDIRF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 732
+ADDP4
+INDIRF4
+SUBF4
+ASGNF4
+ADDRLP4 12+8
+ADDRFP4 0
+INDIRP4
+CNSTI4 724
+ADDP4
+INDIRF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 736
+ADDP4
+INDIRF4
+SUBF4
+ASGNF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 740
+ADDP4
+ADDRLP4 12
+INDIRF4
+CNSTF4 1065353216
+ADDRFP4 4
+INDIRI4
+CVIF4 4
+DIVF4
+MULF4
+ASGNF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 744
+ADDP4
+ADDRLP4 12+4
+INDIRF4
+CNSTF4 1065353216
+ADDRFP4 4
+INDIRI4
+CVIF4 4
+DIVF4
+MULF4
+ASGNF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 748
+ADDP4
+ADDRLP4 12+8
+INDIRF4
+CNSTF4 1065353216
+ADDRFP4 4
+INDIRI4
+CVIF4 4
+DIVF4
+MULF4
+ASGNF4
+ADDRFP4 0
+INDIRP4
+CNSTI4 704
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 36
+ADDP4
+INDIRB
+ASGNB 12
+ADDRFP4 0
+INDIRP4
+CNSTI4 728
+ADDP4
+ADDRFP4 0
+INDIRP4
+CNSTI4 716
+ADDP4
+INDIRB
+ASGNB 12
+LABELV $1701
+endproc G_EvaluateAcceleration 48 0
+export G_RunFrame
+proc G_RunFrame 44 12
+ADDRFP4 0
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRGP4 level+173936
+INDIRI4
+CNSTI4 0
+EQI4 $1711
+ADDRGP4 $1710
+JUMPV
+LABELV $1711
+ADDRGP4 level+189852
+INDIRI4
+CNSTI4 0
+EQI4 $1714
+ADDRGP4 level+189856
+ADDRFP4 0
+INDIRI4
+ADDRGP4 level+28
+INDIRI4
+SUBI4
+ASGNI4
+ADDRGP4 level+189856
+INDIRI4
+CNSTI4 3000
+MODI4
+CNSTI4 0
+NEI4 $1719
+CNSTI4 -1
+ARGI4
+ADDRGP4 $1722
+ARGP4
+ADDRGP4 trap_SendServerCommand
+CALLV
+pop
+LABELV $1719
+ADDRLP4 4
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1726
+JUMPV
+LABELV $1723
+CNSTI4 1880
+ADDRLP4 4
+INDIRI4
+MULI4
+ADDRGP4 level
+INDIRP4
+ADDP4
+ADDRFP4 0
+INDIRI4
+ASGNI4
+LABELV $1724
+ADDRLP4 4
+ADDRLP4 4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+LABELV $1726
+ADDRLP4 4
+INDIRI4
+ADDRGP4 level+20
+INDIRI4
+LTI4 $1723
+ADDRGP4 $1710
+JUMPV
+LABELV $1714
+ADDRGP4 CheckMsgTimer
+CALLV
+pop
+ADDRGP4 CheckCountdown
+CALLV
+pop
+ADDRLP4 20
+ADDRGP4 level+24
+ASGNP4
+ADDRLP4 20
+INDIRP4
+ADDRLP4 20
+INDIRP4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRGP4 level+32
+ADDRGP4 level+28
+INDIRI4
+ASGNI4
+ADDRGP4 level+28
+ADDRFP4 0
+INDIRI4
+ASGNI4
+ADDRLP4 8
+ADDRGP4 level+28
+INDIRI4
+ADDRGP4 level+32
+INDIRI4
+SUBI4
+ASGNI4
+ADDRGP4 level+24
+INDIRI4
+CVIU4 4
+ARGU4
+ADDRGP4 srand
+CALLV
+pop
+ADDRGP4 G_UpdateCvars
+CALLV
+pop
+ADDRLP4 24
+ADDRGP4 trap_Milliseconds
+CALLI4
+ASGNI4
+ADDRLP4 12
+ADDRLP4 24
+INDIRI4
+ASGNI4
+ADDRLP4 0
+ADDRGP4 g_entities
+ASGNP4
+ADDRLP4 4
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1738
+JUMPV
+LABELV $1735
+ADDRLP4 0
+INDIRP4
+CNSTI4 520
+ADDP4
+INDIRI4
+CNSTI4 0
+NEI4 $1740
+ADDRGP4 $1736
+JUMPV
+LABELV $1740
+ADDRGP4 level+28
+INDIRI4
+ADDRLP4 0
+INDIRP4
+CNSTI4 552
+ADDP4
+INDIRI4
+SUBI4
+CNSTI4 300
+LEI4 $1742
+ADDRLP4 0
+INDIRP4
+CNSTI4 180
+ADDP4
+INDIRI4
+CNSTI4 0
+EQI4 $1745
+ADDRLP4 0
+INDIRP4
+CNSTI4 180
+ADDP4
+CNSTI4 0
+ASGNI4
+ADDRLP4 0
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CVPU4 4
+CNSTU4 0
+EQU4 $1747
+ADDRLP4 0
+INDIRP4
+CNSTI4 516
+ADDP4
+INDIRP4
+CNSTI4 128
+ADDP4
+CNSTI4 0
+ASGNI4
+LABELV $1747
+LABELV $1745
+ADDRLP4 0
+INDIRP4
+CNSTI4 556
+ADDP4
+INDIRI4
+CNSTI4 0
+EQI4 $1749
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 G_FreeEntity
+CALLV
+pop
+ADDRGP4 $1736
+JUMPV
+LABELV $1749
+ADDRLP4 0
+INDIRP4
+CNSTI4 560
+ADDP4
+INDIRI4
+CNSTI4 0
+EQI4 $1751
+ADDRLP4 0
+INDIRP4
+CNSTI4 560
+ADDP4
+CNSTI4 0
+ASGNI4
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 trap_UnlinkEntity
+CALLV
+pop
+LABELV $1751
+LABELV $1742
+ADDRLP4 0
+INDIRP4
+CNSTI4 556
+ADDP4
+INDIRI4
+CNSTI4 0
+EQI4 $1753
+ADDRGP4 $1736
+JUMPV
+LABELV $1753
+ADDRLP4 0
+INDIRP4
+CNSTI4 700
+ADDP4
+INDIRI4
+CNSTI4 0
+EQI4 $1755
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRLP4 8
+INDIRI4
+ARGI4
+ADDRGP4 G_EvaluateAcceleration
+CALLV
+pop
+LABELV $1755
+ADDRLP4 32
+CNSTI4 0
+ASGNI4
+ADDRLP4 0
+INDIRP4
+CNSTI4 416
+ADDP4
+INDIRI4
+ADDRLP4 32
+INDIRI4
+NEI4 $1757
+ADDRLP4 0
+INDIRP4
+CNSTI4 532
+ADDP4
+INDIRI4
+ADDRLP4 32
+INDIRI4
+EQI4 $1757
+ADDRGP4 $1736
+JUMPV
+LABELV $1757
+ADDRLP4 36
+CNSTI4 4
+ASGNI4
+ADDRLP4 0
+INDIRP4
+ADDRLP4 36
+INDIRI4
+ADDP4
+INDIRI4
+ADDRLP4 36
+INDIRI4
+NEI4 $1759
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 G_RunMissile
+CALLV
+pop
+ADDRGP4 $1736
+JUMPV
+LABELV $1759
+ADDRLP4 0
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRI4
+CNSTI4 3
+NEI4 $1761
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRLP4 8
+INDIRI4
+ARGI4
+ADDRGP4 G_BuildableThink
+CALLV
+pop
+ADDRGP4 $1736
+JUMPV
+LABELV $1761
+ADDRLP4 0
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRI4
+CNSTI4 13
+EQI4 $1765
+ADDRLP4 0
+INDIRP4
+CNSTI4 564
+ADDP4
+INDIRI4
+CNSTI4 0
+EQI4 $1763
+LABELV $1765
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRLP4 8
+INDIRI4
+ARGI4
+ADDRGP4 G_Physics
+CALLV
+pop
+ADDRGP4 $1736
+JUMPV
+LABELV $1763
+ADDRLP4 0
+INDIRP4
+CNSTI4 4
+ADDP4
+INDIRI4
+CNSTI4 5
+NEI4 $1766
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 G_RunMover
+CALLV
+pop
+ADDRGP4 $1736
+JUMPV
+LABELV $1766
+ADDRLP4 4
+INDIRI4
+CNSTI4 64
+GEI4 $1768
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 G_RunClient
+CALLV
+pop
+ADDRGP4 $1736
+JUMPV
+LABELV $1768
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 G_RunThink
+CALLV
+pop
+LABELV $1736
+ADDRLP4 4
+ADDRLP4 4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 0
+ADDRLP4 0
+INDIRP4
+CNSTI4 2400
+ADDP4
+ASGNP4
+LABELV $1738
+ADDRLP4 4
+INDIRI4
+ADDRGP4 level+12
+INDIRI4
+LTI4 $1735
+ADDRLP4 28
+ADDRGP4 trap_Milliseconds
+CALLI4
+ASGNI4
+ADDRLP4 16
+ADDRLP4 28
+INDIRI4
+ASGNI4
+ADDRLP4 32
+ADDRGP4 trap_Milliseconds
+CALLI4
+ASGNI4
+ADDRLP4 12
+ADDRLP4 32
+INDIRI4
+ASGNI4
+ADDRLP4 0
+ADDRGP4 g_entities
+ASGNP4
+ADDRLP4 4
+CNSTI4 0
+ASGNI4
+ADDRGP4 $1773
+JUMPV
+LABELV $1770
+ADDRLP4 0
+INDIRP4
+CNSTI4 520
+ADDP4
+INDIRI4
+CNSTI4 0
+EQI4 $1775
+ADDRLP4 0
+INDIRP4
+ARGP4
+ADDRGP4 ClientEndFrame
+CALLV
+pop
+LABELV $1775
+LABELV $1771
+ADDRLP4 4
+ADDRLP4 4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 0
+ADDRLP4 0
+INDIRP4
+CNSTI4 2400
+ADDP4
+ASGNP4
+LABELV $1773
+ADDRLP4 4
+INDIRI4
+ADDRGP4 level+20
+INDIRI4
+LTI4 $1770
+ADDRGP4 G_UnlaggedStore
+CALLV
+pop
+ADDRLP4 36
+ADDRGP4 trap_Milliseconds
+CALLI4
+ASGNI4
+ADDRLP4 16
+ADDRLP4 36
+INDIRI4
+ASGNI4
+ADDRGP4 G_CountSpawns
+CALLV
+pop
+ADDRGP4 G_CalculateBuildPoints
+CALLV
+pop
+ADDRGP4 G_CalculateStages
+CALLV
+pop
+CNSTI4 1
+ARGI4
+ADDRGP4 G_SpawnClients
+CALLV
+pop
+CNSTI4 2
+ARGI4
+ADDRGP4 G_SpawnClients
+CALLV
+pop
+ADDRGP4 G_CalculateAvgPlayers
+CALLV
+pop
+ADDRLP4 8
+INDIRI4
+ARGI4
+ADDRGP4 G_UpdateZaps
+CALLV
+pop
+ADDRGP4 CheckExitRules
+CALLV
+pop
+ADDRGP4 CheckTeamStatus
+CALLV
+pop
+ADDRGP4 CheckVote
+CALLV
+pop
+CNSTI4 2
+ARGI4
+ADDRGP4 CheckTeamVote
+CALLV
+pop
+CNSTI4 1
+ARGI4
+ADDRGP4 CheckTeamVote
+CALLV
+pop
+ADDRGP4 G_CalculateSurvivalRecords
+CALLV
+pop
+ADDRGP4 CheckCvars
+CALLV
+pop
+ADDRGP4 g_listEntity+12
+INDIRI4
+CNSTI4 0
+EQI4 $1777
+ADDRLP4 4
+CNSTI4 0
+ASGNI4
+LABELV $1780
+ADDRGP4 $1784
+ARGP4
+ADDRLP4 4
+INDIRI4
+ARGI4
+CNSTI4 2400
+ADDRLP4 4
+INDIRI4
+MULI4
+ADDRGP4 g_entities+524
+ADDP4
+INDIRP4
+ARGP4
+ADDRGP4 G_Printf
+CALLV
+pop
+LABELV $1781
+ADDRLP4 4
+ADDRLP4 4
+INDIRI4
+CNSTI4 1
+ADDI4
+ASGNI4
+ADDRLP4 4
+INDIRI4
+CNSTI4 1024
+LTI4 $1780
+ADDRGP4 $165
+ARGP4
+ADDRGP4 $90
+ARGP4
+ADDRGP4 trap_Cvar_Set
+CALLV
+pop
+LABELV $1777
+ADDRGP4 level+189856
+CNSTI4 0
+ASGNI4
+LABELV $1710
+endproc G_RunFrame 44 12
+import G_KillStructuresSurvival
+import ACESP_SetupBotState
+import ACEND_InitNodes
+bss
+export g_tag
+align 4
+LABELV g_tag
+skip 272
+export g_listEntity
+align 4
+LABELV g_listEntity
+skip 272
+export g_podiumDrop
+align 4
+LABELV g_podiumDrop
+skip 272
+export g_podiumDist
+align 4
+LABELV g_podiumDist
+skip 272
+export g_logFileSync
+align 4
+LABELV g_logFileSync
+skip 272
+export g_logFile
+align 4
+LABELV g_logFile
+skip 272
+export g_capturelimit
+align 4
+LABELV g_capturelimit
+skip 272
+export g_fraglimit
+align 4
+LABELV g_fraglimit
+skip 272
+export g_clients
+align 4
+LABELV g_clients
+skip 120320
+export director_debug
+align 4
+LABELV director_debug
+skip 272
+export ace_botsFile
+align 4
+LABELV ace_botsFile
+skip 272
+export ace_spSkill
+align 4
+LABELV ace_spSkill
+skip 272
+export ace_attackEnemies
+align 4
+LABELV ace_attackEnemies
+skip 272
+export ace_pickShortRangeGoal
+align 4
+LABELV ace_pickShortRangeGoal
+skip 272
+export ace_pickLongRangeGoal
+align 4
+LABELV ace_pickLongRangeGoal
+skip 272
+export ace_showPath
+align 4
+LABELV ace_showPath
+skip 272
+export ace_showLinks
+align 4
+LABELV ace_showLinks
+skip 272
+export ace_showNodes
+align 4
+LABELV ace_showNodes
+skip 272
+export ace_debug
+align 4
+LABELV ace_debug
+skip 272
+import spawnItem
+import G_itemUse
+import G_itemThink
+import syrinxSpawn
+import selectBetterWay
+import drawRedBall
+import G_FindRadius
+import G_ProjectSource
+import pointBehindWall
+import spawnGridNode
+import convertGridToWorld
+import convertWorldToGrid
+import fillGrid
+import WallInFront
+import trap_mysql_reconnect
+import trap_mysql_fetchfieldbyName
+import trap_mysql_fetchfieldbyID
+import trap_mysql_fetchrow
+import trap_mysql_finishquery
+import trap_mysql_runquery
+import trap_SendGameStat
+import trap_SnapVector
+import trap_GetEntityToken
+import trap_GetUsercmd
+import trap_BotFreeClient
+import trap_BotAllocateClient
+import trap_EntityContact
+import trap_EntitiesInBox
+import trap_UnlinkEntity
+import trap_LinkEntity
+import trap_AreasConnected
+import trap_AdjustAreaPortalState
+import trap_InPVSIgnorePortals
+import trap_InPVS
+import trap_PointContents
+import trap_Trace
+import trap_SetBrushModel
+import trap_GetServerinfo
+import trap_SetUserinfo
+import trap_GetUserinfo
+import trap_GetConfigstring
+import trap_SetConfigstring
+import trap_SendServerCommand
+import trap_DropClient
+import trap_LocateGameData
+import trap_Cvar_VariableStringBuffer
+import trap_Cvar_VariableValue
+import trap_Cvar_VariableIntegerValue
+import trap_Cvar_Set
+import trap_Cvar_Update
+import trap_Cvar_Register
+import trap_SendConsoleCommand
+import trap_FS_Seek
+import trap_FS_GetFileList
+import trap_FS_FCloseFile
+import trap_FS_Write
+import trap_FS_Read
+import trap_FS_FOpenFile
+import trap_Args
+import trap_Argv
+import trap_Argc
+import trap_RealTime
+import trap_Milliseconds
+import trap_Error
+import trap_Printf
+export g_antispawncamp
+align 4
+LABELV g_antispawncamp
+skip 272
+export g_bot_lcannon
+align 4
+LABELV g_bot_lcannon
+skip 272
+export g_bot_flamer
+align 4
+LABELV g_bot_flamer
+skip 272
+export g_bot_prifle
+align 4
+LABELV g_bot_prifle
+skip 272
+export g_bot_chaingun
+align 4
+LABELV g_bot_chaingun
+skip 272
+export g_bot_mdriver
+align 4
+LABELV g_bot_mdriver
+skip 272
+export g_bot_lasgun
+align 4
+LABELV g_bot_lasgun
+skip 272
+export g_bot_psaw
+align 4
+LABELV g_bot_psaw
+skip 272
+export g_bot_shotgun
+align 4
+LABELV g_bot_shotgun
+skip 272
+export g_bot_mgun
+align 4
+LABELV g_bot_mgun
+skip 272
+export g_bot
+align 4
+LABELV g_bot
+skip 272
+export g_ambush_turnangle
+align 4
+LABELV g_ambush_turnangle
+skip 272
+export g_ambush_range
+align 4
+LABELV g_ambush_range
+skip 272
+export g_ambush_att_buildables
+align 4
+LABELV g_ambush_att_buildables
+skip 272
+export g_ambush_kill_spawns
+align 4
+LABELV g_ambush_kill_spawns
+skip 272
+export g_ambush
+align 4
+LABELV g_ambush
+skip 272
+export g_ambush_no_egg_ffoff
+align 4
+LABELV g_ambush_no_egg_ffoff
+skip 272
+export g_ambush_stage_suicide
+align 4
+LABELV g_ambush_stage_suicide
+skip 272
+export g_ambush_sec_to_start
+align 4
+LABELV g_ambush_sec_to_start
+skip 272
+export g_ambush_rebuild_time
+align 4
+LABELV g_ambush_rebuild_time
+skip 272
+export g_ambush_dodge_random
+align 4
+LABELV g_ambush_dodge_random
+skip 272
+export g_ambush_dodge
+align 4
+LABELV g_ambush_dodge
+skip 272
+export g_ambush_tyrants_to_win
+align 4
+LABELV g_ambush_tyrants_to_win
+skip 272
+export g_ambush_dragon2_s8
+align 4
+LABELV g_ambush_dragon2_s8
+skip 272
+export g_ambush_dragon_s7
+align 4
+LABELV g_ambush_dragon_s7
+skip 272
+export g_ambush_marauder2_s6
+align 4
+LABELV g_ambush_marauder2_s6
+skip 272
+export g_ambush_marauder_s5
+align 4
+LABELV g_ambush_marauder_s5
+skip 272
+export g_ambush_basilisk2_s4
+align 4
+LABELV g_ambush_basilisk2_s4
+skip 272
+export g_ambush_basilisk_s3
+align 4
+LABELV g_ambush_basilisk_s3
+skip 272
+export g_ambush_dretch_s2
+align 4
+LABELV g_ambush_dretch_s2
+skip 272
+export g_ambush_granger_s1
+align 4
+LABELV g_ambush_granger_s1
+skip 272
+export g_buildLogMaxLength
+align 4
+LABELV g_buildLogMaxLength
+skip 272
+export g_survival
+align 4
+LABELV g_survival
+skip 272
+export g_ctncapturetime
+align 4
+LABELV g_ctncapturetime
+skip 272
+export g_ctnbuildlimit
+align 4
+LABELV g_ctnbuildlimit
+skip 272
+export g_ctn
+align 4
+LABELV g_ctn
+skip 272
+export g_msgTime
+align 4
+LABELV g_msgTime
+skip 272
+export g_msg
+align 4
+LABELV g_msg
+skip 272
+export g_mapvoteMaxTime
+align 4
+LABELV g_mapvoteMaxTime
+skip 272
+export g_voteMinTime
+align 4
+LABELV g_voteMinTime
+skip 272
+export g_devmapNoStructDmg
+align 4
+LABELV g_devmapNoStructDmg
+skip 272
+export g_devmapNoGod
+align 4
+LABELV g_devmapNoGod
+skip 272
+export g_dretchPunt
+align 4
+LABELV g_dretchPunt
+skip 272
+export g_antiSpawnBlock
+align 4
+LABELV g_antiSpawnBlock
+skip 272
+export g_myStats
+align 4
+LABELV g_myStats
+skip 272
+export g_publicSayadmins
+align 4
+LABELV g_publicSayadmins
+skip 272
+export g_decolourLogfiles
+align 4
+LABELV g_decolourLogfiles
+skip 272
+export g_privateMessages
+align 4
+LABELV g_privateMessages
+skip 272
+export g_devmapKillerHP
+align 4
+LABELV g_devmapKillerHP
+skip 272
+export g_banNotice
+align 4
+LABELV g_banNotice
+skip 272
+export g_minLevelToSpecMM1
+align 4
+LABELV g_minLevelToSpecMM1
+skip 272
+export g_forceAutoSelect
+align 4
+LABELV g_forceAutoSelect
+skip 272
+export g_minLevelToJoinTeam
+align 4
+LABELV g_minLevelToJoinTeam
+skip 272
+export g_adminMapLog
+align 4
+LABELV g_adminMapLog
+skip 272
+export g_adminMaxBan
+align 4
+LABELV g_adminMaxBan
+skip 272
+export g_adminTempBan
+align 4
+LABELV g_adminTempBan
+skip 272
+export g_adminNameProtect
+align 4
+LABELV g_adminNameProtect
+skip 272
+export g_adminSayFilter
+align 4
+LABELV g_adminSayFilter
+skip 272
+export g_adminParseSay
+align 4
+LABELV g_adminParseSay
+skip 272
+export g_adminLog
+align 4
+LABELV g_adminLog
+skip 272
+export g_admin
+align 4
+LABELV g_admin
+skip 272
+export g_layoutAuto
+align 4
+LABELV g_layoutAuto
+skip 272
+export g_layouts
+align 4
+LABELV g_layouts
+skip 272
+export g_mapConfigs
+align 4
+LABELV g_mapConfigs
+skip 272
+export g_shove
+align 4
+LABELV g_shove
+skip 272
+export g_floodMinTime
+align 4
+LABELV g_floodMinTime
+skip 272
+export g_floodMaxDemerits
+align 4
+LABELV g_floodMaxDemerits
+skip 272
+export g_actionPrefix
+align 4
+LABELV g_actionPrefix
+skip 272
+export g_chatTeamPrefix
+align 4
+LABELV g_chatTeamPrefix
+skip 272
+export g_initialMapRotation
+align 4
+LABELV g_initialMapRotation
+skip 272
+export g_nextMap
+align 4
+LABELV g_nextMap
+skip 272
+export g_currentMap
+align 4
+LABELV g_currentMap
+skip 272
+export g_currentMapRotation
+align 4
+LABELV g_currentMapRotation
+skip 272
+export g_debugMapRotation
+align 4
+LABELV g_debugMapRotation
+skip 272
+export g_deconDead
+align 4
+LABELV g_deconDead
+skip 272
+export g_markDeconstruct
+align 4
+LABELV g_markDeconstruct
+skip 272
+export g_disabledBuildables
+align 4
+LABELV g_disabledBuildables
+skip 272
+export g_disabledClasses
+align 4
+LABELV g_disabledClasses
+skip 272
+export g_disabledEquipment
+align 4
+LABELV g_disabledEquipment
+skip 272
+export g_unlagged
+align 4
+LABELV g_unlagged
+skip 272
+export g_teamImbalanceWarnings
+align 4
+LABELV g_teamImbalanceWarnings
+skip 272
+export g_alienStage3Threshold
+align 4
+LABELV g_alienStage3Threshold
+skip 272
+export g_alienStage2Threshold
+align 4
+LABELV g_alienStage2Threshold
+skip 272
+export g_alienMaxStage
+align 4
+LABELV g_alienMaxStage
+skip 272
+export g_alienKills
+align 4
+LABELV g_alienKills
+skip 272
+export g_alienStage
+align 4
+LABELV g_alienStage
+skip 272
+export g_humanStage3Threshold
+align 4
+LABELV g_humanStage3Threshold
+skip 272
+export g_humanStage2Threshold
+align 4
+LABELV g_humanStage2Threshold
+skip 272
+export g_humanMaxStage
+align 4
+LABELV g_humanMaxStage
+skip 272
+export g_humanKills
+align 4
+LABELV g_humanKills
+skip 272
+export g_humanStage
+align 4
+LABELV g_humanStage
+skip 272
+export g_alienBuildPoints
+align 4
+LABELV g_alienBuildPoints
+skip 272
+export g_humanBuildPoints
+align 4
+LABELV g_humanBuildPoints
+skip 272
+import g_singlePlayer
+import g_enableBreath
+import g_enableDust
+export g_allowShare
+align 4
+LABELV g_allowShare
+skip 272
+export g_rankings
+align 4
+LABELV g_rankings
+skip 272
+export pmove_msec
+align 4
+LABELV pmove_msec
+skip 272
+export pmove_fixed
+align 4
+LABELV pmove_fixed
+skip 272
+export g_clientUpgradeNotice
+align 4
+LABELV g_clientUpgradeNotice
+skip 272
+export g_smoothClients
+align 4
+LABELV g_smoothClients
+skip 272
+export g_filterBan
+align 4
+LABELV g_filterBan
+skip 272
+export g_banIPs
+align 4
+LABELV g_banIPs
+skip 272
+export g_teamForceBalance
+align 4
+LABELV g_teamForceBalance
+skip 272
+export g_teamAutoJoin
+align 4
+LABELV g_teamAutoJoin
+skip 272
+export g_designateVotes
+align 4
+LABELV g_designateVotes
+skip 272
+export g_mapVotesPercent
+align 4
+LABELV g_mapVotesPercent
+skip 272
+export g_suddenDeathVoteDelay
+align 4
+LABELV g_suddenDeathVoteDelay
+skip 272
+export g_suddenDeathVotePercent
+align 4
+LABELV g_suddenDeathVotePercent
+skip 272
+export g_voteLimit
+align 4
+LABELV g_voteLimit
+skip 272
+export g_requireVoteReasons
+align 4
+LABELV g_requireVoteReasons
+skip 272
+export g_allowVote
+align 4
+LABELV g_allowVote
+skip 272
+export g_blood
+align 4
+LABELV g_blood
+skip 272
+export g_doWarmup
+align 4
+LABELV g_doWarmup
+skip 272
+export g_warmupMode
+align 4
+LABELV g_warmupMode
+skip 272
+export g_warmup
+align 4
+LABELV g_warmup
+skip 272
+export g_motd
+align 4
+LABELV g_motd
+skip 272
+export g_synchronousClients
+align 4
+LABELV g_synchronousClients
+skip 272
+export g_weaponTeamRespawn
+align 4
+LABELV g_weaponTeamRespawn
+skip 272
+export g_weaponRespawn
+align 4
+LABELV g_weaponRespawn
+skip 272
+export g_debugDamage
+align 4
+LABELV g_debugDamage
+skip 272
+export g_debugAlloc
+align 4
+LABELV g_debugAlloc
+skip 272
+export g_debugMove
+align 4
+LABELV g_debugMove
+skip 272
+export g_inactivity
+align 4
+LABELV g_inactivity
+skip 272
+export g_quadfactor
+align 4
+LABELV g_quadfactor
+skip 272
+export g_knockback
+align 4
+LABELV g_knockback
+skip 272
+export g_speed
+align 4
+LABELV g_speed
+skip 272
+export g_gravity
+align 4
+LABELV g_gravity
+skip 272
+export g_needpass
+align 4
+LABELV g_needpass
+skip 272
+export g_password
+align 4
+LABELV g_password
+skip 272
+export g_friendlyBuildableFire
+align 4
+LABELV g_friendlyBuildableFire
+skip 272
+export g_friendlyFireMovementAttacks
+align 4
+LABELV g_friendlyFireMovementAttacks
+skip 272
+export g_retribution
+align 4
+LABELV g_retribution
+skip 272
+export g_friendlyFireAliens
+align 4
+LABELV g_friendlyFireAliens
+skip 272
+export g_friendlyFireHumans
+align 4
+LABELV g_friendlyFireHumans
+skip 272
+export g_friendlyFire
+align 4
+LABELV g_friendlyFire
+skip 272
+export g_layoutmaking
+align 4
+LABELV g_layoutmaking
+skip 272
+export g_suddenDeathMode
+align 4
+LABELV g_suddenDeathMode
+skip 272
+export g_suddenDeath
+align 4
+LABELV g_suddenDeath
+skip 272
+export g_suddenDeathTime
+align 4
+LABELV g_suddenDeathTime
+skip 272
+export g_timelimit
+align 4
+LABELV g_timelimit
+skip 272
+export g_newbieNamePrefix
+align 4
+LABELV g_newbieNamePrefix
+skip 272
+export g_newbieNumbering
+align 4
+LABELV g_newbieNumbering
+skip 272
+export g_maxNameChanges
+align 4
+LABELV g_maxNameChanges
+skip 272
+export g_minNameChangePeriod
+align 4
+LABELV g_minNameChangePeriod
+skip 272
+export g_minCommandPeriod
+align 4
+LABELV g_minCommandPeriod
+skip 272
+export g_lockTeamsAtStart
+align 4
+LABELV g_lockTeamsAtStart
+skip 272
+export g_restarted
+align 4
+LABELV g_restarted
+skip 272
+export g_maxGameClients
+align 4
+LABELV g_maxGameClients
+skip 272
+export g_maxclients
+align 4
+LABELV g_maxclients
+skip 272
+export g_cheats
+align 4
+LABELV g_cheats
+skip 272
+export g_dedicated
+align 4
+LABELV g_dedicated
+skip 272
+export g_entities
+align 4
+LABELV g_entities
+skip 2457600
+export level
+align 4
+LABELV level
+skip 190180
+import G_FindConnectionForCode
+import G_ResetPTRConnections
+import G_GenerateNewConnection
+import G_UpdatePTRConnection
+import G_GetCurrentMap
+import G_MapExists
+import G_InitMapRotations
+import G_MapRotationActive
+import G_StopMapRotation
+import G_StartMapRotation
+import G_AdvanceMapRotation
+import G_PrintRotations
+import G_WriteSessionData
+import G_InitSessionData
+import G_ReadSessionData
+import Svcmd_GameMem_f
+import G_DefragmentMemory
+import G_Free
+import G_InitMemory
+import G_Alloc
+import CheckTeamStatus
+import TeamplayInfoMessage
+import Team_GetLocationMsg
+import Team_GetLocation
+import OnSameTeam
+import G_RunClient
+import ClientEndFrame
+import ClientThink
+import G_UnlaggedOff
+import G_UnlaggedOn
+import G_UnlaggedCalc
+import G_UnlaggedClear
+import G_UnlaggedStore
+import ClientCommand
+import ClientBegin
+import ClientDisconnect
+import ClientUserinfoChanged
+import ClientConnect
+import G_Flood_Limited
+import ScoreboardMessage
+import FireWeapon3
+import FireWeapon2
+import FireWeapon
+import G_FilterPacket
+import G_ProcessIPBans
+import ConsoleCommand
+import G_NextNewbieName
+import SpotWouldTelefrag
+import player_die
+import ClientSpawn
+import respawn
+import SpawnCorpse
+import G_SelectHumanLockSpawnPoint
+import G_SelectAlienLockSpawnPoint
+import G_SelectSpawnPoint
+import G_SelectTremulousSpawnPoint
+import G_SetClientViewAngle
+import TeamCount
+import G_AddCreditToClient
+import G_UpdateZaps
+import ChargeAttack
+import CheckPounceAttack
+import CheckGrabAttack
+import CheckVenomAttack
+import SnapVectorTowards
+import CalcMuzzlePoint
+import G_GiveClientMaxAmmo
+import G_ForceWeaponChange
+import ShineTorch
+import TeleportPlayer
+import TeleportZombie
+import G_Checktrigger_stages
+import trigger_teleporter_touch
+import manualTriggerSpectator
+import Touch_DoorTrigger
+import G_RunMover
+import launch_bomb
+import launch_grenade
+import fire_hive
+import fire_bounceBall
+import fire_slowBlob
+import fire_paraLockBlob
+import fire_lockblob
+import fire_luciferCannon
+import fire_pulseRifle
+import fire_blaster
+import fire_flamer
+import G_RunMissile
+import G_InitDamageLocations
+import AddScore
+import body_die
+import G_SelectiveRadiusDamage
+import G_RadiusDamage
+import G_SelectiveDamage
+import G_Damage
+import CanDamage
+import G_ClosestEnt
+import G_Visible
+import Distance2d
+import G_CloseMenus
+import G_TriggerMenu
+import G_ClientIsLagging
+import BuildShaderStateConfig
+import AddRemap
+import G_SetOrigin
+import G_BroadcastEvent
+import G_AddEvent
+import G_AddPredictableEvent
+import vectoyaw
+import vtos
+import tv
+import G_TouchSolids
+import G_TouchTriggers
+import G_EntitiesFree
+import G_FreeEntity
+import G_Sound
+import G_TempEntity
+import G_Spawn
+import G_InitGentity
+import G_SetMovedir
+import G_UseTargets
+import G_PickTarget
+import G_Find
+import G_KillBox
+import G_TeamCommand
+import G_SoundIndex
+import G_ModelIndex
+import G_ShaderIndex
+import G_ParticleSystemIndex
+import G_FindBuildLogName
+import G_CountBuildLog
+import G_LogBuild
+import G_RevertCanFit
+import G_CommitRevertedBuildable
+import G_SpawnRevertedBuildable
+import G_InstantBuild
+import G_BaseSelfDestruct
+import G_LayoutLoad
+import G_LayoutSelect
+import G_LayoutList
+import G_LayoutSave
+import G_CheckDBProtection
+import FinishSpawningBuildable
+import G_SpawnBuildable
+import G_SetIdleBuildableAnim
+import G_SetBuildableAnim
+import G_BuildIfValid
+import G_BuildingExists
+import G_CanBuild
+import G_ArmoryRange
+import G_BuildableRange
+import G_BuildableThink
+import G_IsOvermindBuilt
+import G_IsDCCBuilt
+import G_IsPowered
+import G_CheckSpawnPoint
+import AHovel_Blocked
+import G_Physics
+import G_CP
+import G_WordWrap
+import Cmd_Builder_f
+import Cmd_TeamVote_f
+import Cmd_Donate_f
+import Cmd_Share_f
+import G_statsString
+import G_PrivateMessage
+import G_SanitiseString
+import G_ChangeTeam
+import G_LeaveTeam
+import G_ParseEscapedString
+import G_DecolorString
+import G_SayConcatArgs
+import G_SayArgv
+import G_SayArgc
+import G_Say
+import G_ClientNumbersFromString
+import G_MatchOnePlayer
+import G_ToggleFollow
+import G_FollowNewClient
+import G_StopFollowing
+import G_StopFromFollowing
+import Cmd_Score_f
+import botShootIfTargetInRange
+import botGetDistanceBetweenPlayer
+import botTargetInRange
+import botFindClosestEnemy
+import botAimAtTarget
+import G_BotSpectatorThink
+import G_BotThink
+import G_BotCmd
+import G_BotDel
+import G_BotAdd
+import G_NewString
+import G_SpawnEntitiesFromString
+import G_SpawnVector
+import G_SpawnInt
+import G_SpawnFloat
+import G_SpawnString
+import G_admin_namelog_cleanup
+import G_admin_cleanup
+import G_admin_duration
+import G_admin_buffer_end
+import G_admin_buffer_begin
+import G_admin_buffer_print
+import G_admin_print
+import G_setnextnode
+import G_drawnodes
+import G_reconnectdb
+import G_switchnodes
+import G_admin_botcmd
+import G_admin_bot
+import G_set_survival_stage
+import G_admin_findpath
+import G_admin_printpath
+import G_admin_printgrid
+import G_admin_switch
+import G_admin_cp
+import G_admin_designate
+import G_admin_warn
+import G_admin_putmespec
+import G_admin_L1
+import G_admin_L0
+import G_admin_pause
+import G_admin_revert
+import G_admin_buildlog
+import G_admin_info
+import G_admin_unlock
+import G_admin_lock
+import G_admin_namelog
+import G_admin_nextmap
+import G_admin_restart
+import G_admin_rename
+import G_admin_register
+import G_admin_spec999
+import G_admin_passvote
+import G_admin_cancelvote
+import G_admin_allready
+import G_admin_admintest
+import G_admin_help
+import G_admin_showbans
+import G_admin_denybuild
+import G_admin_mute
+import G_admin_layoutsave
+import G_admin_maplog
+import G_admin_maplog_update
+import G_admin_devmap
+import G_admin_map
+import G_admin_listrotation
+import G_admin_listmaps
+import G_admin_listplayers
+import G_admin_listlayouts
+import G_admin_listadmins
+import G_admin_putteam
+import G_admin_unban
+import G_admin_ban
+import G_admin_subnetban
+import G_admin_adjustban
+import G_admin_kick
+import G_admin_setlevel
+import G_admin_time
+import G_admin_adminPrintName
+import G_admin_set_adminname
+import G_admin_level
+import G_admin_maplog_result
+import G_admin_namelog_update
+import G_admin_name_check
+import G_admin_permission
+import G_admin_readconfig
+import G_admin_cmd_check
+import G_admin_ban_check
+import BG_ClientListParse
+import BG_ClientListString
+import BG_ClientListRemove
+import BG_ClientListAdd
+import BG_ClientListTest
+import BG_UpgradeClassAvailable
+import BG_BuildableIsAllowed
+import BG_ClassIsAllowed
+import BG_UpgradeIsAllowed
+import BG_WeaponIsAllowed
+import BG_InitAllowedGameElements
+import BG_ParseCSVBuildableList
+import BG_ParseCSVClassList
+import BG_ParseCSVEquipmentList
+import atoi_neg
+import atof_neg
+import BG_PlayerTouchesItem
+import BG_PlayerStateToEntityStateExtraPolate
+import BG_PlayerStateToEntityState
+import BG_AddPredictableEventToPlayerstate
+import BG_EvaluateTrajectoryDelta
+import BG_EvaluateTrajectory
+import BG_FindTeamForUpgrade
+import BG_FindUsableForUpgrade
+import BG_FindPurchasableForUpgrade
+import BG_FindIconForUpgrade
+import BG_FindHumanNameForUpgrade
+import BG_FindUpgradeNumForName
+import BG_FindNameForUpgrade
+import BG_FindSlotsForUpgrade
+import BG_FindStagesForUpgrade
+import BG_FindPriceForUpgrade
+import BG_FindTeamForWeapon
+import BG_FindBuildDelayForWeapon
+import BG_FindLongRangedForWeapon
+import BG_FindPurchasableForWeapon
+import BG_FindZoomFovForWeapon
+import BG_WeaponCanZoom
+import BG_WeaponHasThirdMode
+import BG_WeaponHasAltMode
+import BG_FindKnockbackScaleForWeapon
+import BG_FindReloadTimeForWeapon
+import BG_FindRepeatRate3ForWeapon
+import BG_FindRepeatRate2ForWeapon
+import BG_FindRepeatRate1ForWeapon
+import BG_FindUsesEnergyForWeapon
+import BG_FindInfinteAmmoForWeapon
+import BG_FindAmmoForWeapon
+import BG_FindCrosshairSizeForWeapon
+import BG_FindCrosshairForWeapon
+import BG_FindIconForWeapon
+import BG_FindModelsForWeapon
+import BG_FindHumanNameForWeapon
+import BG_FindWeaponNumForName
+import BG_FindNameForWeapon
+import BG_FindSlotsForWeapon
+import BG_FindStagesForWeapon
+import BG_FindPriceForWeapon
+import BG_InitClassOverrides
+import BG_FindValueOfClass
+import BG_FindCostOfClass
+import BG_ClassCanEvolveFromTo
+import BG_FindBuildDistForClass
+import BG_FindStartWeaponForClass
+import BG_ClassHasAbility
+import BG_FindSteptimeForClass
+import BG_FindKnockbackScaleForClass
+import BG_FindJumpMagnitudeForClass
+import BG_FindStopSpeedForClass
+import BG_FindFrictionForClass
+import BG_FindAirAccelerationForClass
+import BG_FindAccelerationForClass
+import BG_FindSpeedForClass
+import BG_FindBobCycleForClass
+import BG_FindBobForClass
+import BG_FindFovForClass
+import BG_FindRegenRateForClass
+import BG_FindFallDamageForClass
+import BG_FindHealthForClass
+import BG_FindViewheightForClass
+import BG_FindZOffsetForClass
+import BG_FindBBoxForClass
+import BG_FindSpriteHeightForClass
+import BG_FindStagesForClass
+import BG_FindHudNameForClass
+import BG_FindShadowScaleForClass
+import BG_FindSkinNameForClass
+import BG_FindModelScaleForClass
+import BG_FindModelNameForClass
+import BG_FindHumanNameForClassNum
+import BG_FindNameForClassNum
+import BG_FindClassNumForName
+import BG_InitBuildableOverrides
+import BG_FindTransparentTestForBuildable
+import BG_FindReplaceableTestForBuildable
+import BG_FindUniqueTestForBuildable
+import BG_FindDCCTestForBuildable
+import BG_FindCreepSizeForBuildable
+import BG_FindCreepTestForBuildable
+import BG_FindInvertNormalForBuildable
+import BG_FindMinNormalForBuildable
+import BG_FindProjTypeForBuildable
+import BG_FindFireSpeedForBuildable
+import BG_FindRangeForBuildable
+import BG_FindUsableForBuildable
+import BG_FindBuildTimeForBuildable
+import BG_FindNextThinkForBuildable
+import BG_FindAnimForBuildable
+import BG_FindBuildWeaponForBuildable
+import BG_FindTeamForBuildable
+import BG_FindMODForBuildable
+import BG_FindSplashRadiusForBuildable
+import BG_FindSplashDamageForBuildable
+import BG_FindStagesForBuildable
+import BG_FindBuildPointsForBuildable
+import BG_FindBounceForBuildable
+import BG_FindTrajectoryForBuildable
+import BG_FindRegenRateForBuildable
+import BG_FindHealthForBuildable
+import BG_FindZOffsetForBuildable
+import BG_FindBBoxForBuildable
+import BG_FindModelScaleForBuildable
+import BG_FindModelsForBuildable
+import BG_FindEntityNameForBuildable
+import BG_FindHumanNameForBuildable
+import BG_FindNameForBuildable
+import BG_FindBuildNumForEntityName
+import BG_FindBuildNumForName
+import BG_GetValueOfEquipment
+import BG_GetValueOfHuman
+import BG_PositionBuildableRelativeToPlayer
+import BG_RotateAxis
+import BG_UpgradeIsActive
+import BG_DeactivateUpgrade
+import BG_ActivateUpgrade
+import BG_InventoryContainsUpgrade
+import BG_RemoveUpgradeFromInventory
+import BG_AddUpgradeToInventory
+import BG_InventoryContainsWeapon
+import BG_RemoveWeaponFromInventory
+import BG_AddWeaponToInventory
+import BG_WeaponIsFull
+import BG_PackAmmoArray
+import BG_UnpackAmmoArray
+import Pmove
+import PM_UpdateViewAngles
+import Info_NextPair
+import Info_Validate
+import Info_SetValueForKey_Big
+import Info_SetValueForKey
+import Info_RemoveKey_big
+import Info_RemoveKey
+import Info_ValueForKey
+import Com_TruncateLongString
+import va
+import Q_CleanStr
+import Q_PrintStrlen
+import Q_strcat
+import Q_strncpyz
+import Q_strrchr
+import Q_strupr
+import Q_strlwr
+import Q_stricmpn
+import Q_strncmp
+import Q_stricmp
+import Q_isdigit
+import Q_isalpha
+import Q_isupper
+import Q_islower
+import Q_isprint
+import Com_RandomBytes
+import Com_SkipCharset
+import Com_SkipTokens
+import Com_sprintf
+import Parse3DMatrix
+import Parse2DMatrix
+import Parse1DMatrix
+import SkipRestOfLine
+import SkipBracedSection
+import COM_MatchToken
+import COM_ParseWarning
+import COM_ParseError
+import COM_Compress
+import COM_ParseExt
+import COM_Parse
+import COM_GetCurrentParseLine
+import COM_BeginParseSession
+import COM_DefaultExtension
+import COM_StripExtension
+import COM_SkipPath
+import Com_Clamp
+import BoundsIntersectPoint
+import DistanceBetweenLineSegments
+import DistanceBetweenLineSegmentsSquared
+import VectorMaxComponent
+import VectorMinComponent
+import pointToLineDistance
+import VectorDistance
+import ProjectPointOntoVector
+import GetPerpendicularViewVector
+import Q_isnan
+import PerpendicularVector
+import VectorToAngles
+import AngleVectors
+import VectorMatrixMultiply
+import MatrixMultiply
+import MakeNormalVectors
+import RotateAroundDirection
+import RotatePointAroundVector
+import ProjectPointOnPlane
+import PlaneFromPoints
+import AngleDelta
+import AngleNormalize180
+import AngleNormalize360
+import AnglesSubtract
+import AngleSubtract
+import LerpAngle
+import AngleMod
+import BoxOnPlaneSide
+import SetPlaneSignbits
+import AxisCopy
+import AxisClear
+import AxisToAngles
+import AnglesToAxis
+import vectoangles
+import Q_crandom
+import Q_random
+import Q_rand
+import Q_acos
+import Q_log2
+import VectorRotate
+import Vector4Scale
+import VectorNormalize2
+import VectorNormalize
+import CrossProduct
+import VectorInverse
+import VectorNormalizeFast
+import DistanceSquared
+import Distance
+import VectorLengthSquared
+import VectorLength
+import VectorCompare
+import AddPointToBounds
+import ClearBounds
+import RadiusFromBounds
+import NormalizeColor
+import ColorBytes4
+import ColorBytes3
+import _VectorMA
+import _VectorScale
+import _VectorCopy
+import _VectorAdd
+import _VectorSubtract
+import _DotProduct
+import ByteToDir
+import DirToByte
+import ClampShort
+import ClampChar
+import Q_rsqrt
+import Q_fabs
+import axisDefault
+import vec3_origin
+import g_color_table
+import colorDkGrey
+import colorMdGrey
+import colorLtGrey
+import colorWhite
+import colorCyan
+import colorMagenta
+import colorYellow
+import colorBlue
+import colorGreen
+import colorRed
+import colorBlack
+import bytedirs
+import Hunk_Alloc
+import FloatSwap
+import LongSwap
+import ShortSwap
+import rint
+import pow
+import acos
+import fabs
+import abs
+import tan
+import atan2
+import cos
+import sin
+import sqrt
+import floor
+import ceil
+import memcpy
+import memset
+import memmove
+import sscanf
+import vsprintf
+import _atoi
+import atoi
+import _atof
+import atof
+import toupper
+import tolower
+import strncpy
+import strstr
+import strrchr
+import strchr
+import strcmp
+import strcpy
+import strcat
+import strlen
+import rand
+import srand
+import qsort
+lit
+align 1
+LABELV $1784
+byte 1 37
+byte 1 52
+byte 1 105
+byte 1 58
+byte 1 32
+byte 1 37
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $1722
+byte 1 99
+byte 1 112
+byte 1 32
+byte 1 34
+byte 1 84
+byte 1 104
+byte 1 101
+byte 1 32
+byte 1 103
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 32
+byte 1 104
+byte 1 97
+byte 1 115
+byte 1 32
+byte 1 98
+byte 1 101
+byte 1 101
+byte 1 110
+byte 1 32
+byte 1 112
+byte 1 97
+byte 1 117
+byte 1 115
+byte 1 101
+byte 1 100
+byte 1 46
+byte 1 32
+byte 1 80
+byte 1 108
+byte 1 101
+byte 1 97
+byte 1 115
+byte 1 101
+byte 1 32
+byte 1 119
+byte 1 97
+byte 1 105
+byte 1 116
+byte 1 46
+byte 1 34
+byte 1 0
+align 1
+LABELV $1700
+byte 1 78
+byte 1 85
+byte 1 76
+byte 1 76
+byte 1 32
+byte 1 101
+byte 1 110
+byte 1 116
+byte 1 45
+byte 1 62
+byte 1 116
+byte 1 104
+byte 1 105
+byte 1 110
+byte 1 107
+byte 1 0
+align 1
+LABELV $1671
+byte 1 110
+byte 1 111
+byte 1 110
+byte 1 101
+byte 1 0
+align 1
+LABELV $1658
+byte 1 99
+byte 1 112
+byte 1 32
+byte 1 34
+byte 1 94
+byte 1 50
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 32
+byte 1 71
+byte 1 79
+byte 1 33
+byte 1 32
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 94
+byte 1 55
+byte 1 34
+byte 1 0
+align 1
+LABELV $1655
+byte 1 99
+byte 1 112
+byte 1 32
+byte 1 34
+byte 1 94
+byte 1 49
+byte 1 87
+byte 1 97
+byte 1 114
+byte 1 109
+byte 1 117
+byte 1 112
+byte 1 32
+byte 1 84
+byte 1 105
+byte 1 109
+byte 1 101
+byte 1 58
+byte 1 94
+byte 1 55
+byte 1 10
+byte 1 94
+byte 1 37
+byte 1 105
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 32
+byte 1 94
+byte 1 55
+byte 1 37
+byte 1 105
+byte 1 32
+byte 1 94
+byte 1 37
+byte 1 105
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 34
+byte 1 0
+align 1
+LABELV $1639
+byte 1 112
+byte 1 114
+byte 1 105
+byte 1 110
+byte 1 116
+byte 1 32
+byte 1 34
+byte 1 37
+byte 1 115
+byte 1 10
+byte 1 34
+byte 1 0
+align 1
+LABELV $1638
+byte 1 99
+byte 1 112
+byte 1 32
+byte 1 34
+byte 1 37
+byte 1 115
+byte 1 34
+byte 1 0
+align 1
+LABELV $1606
+byte 1 84
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 118
+byte 1 111
+byte 1 116
+byte 1 101
+byte 1 58
+byte 1 32
+byte 1 84
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 32
+byte 1 118
+byte 1 111
+byte 1 116
+byte 1 101
+byte 1 32
+byte 1 112
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 101
+byte 1 100
+byte 1 32
+byte 1 40
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 45
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 41
+byte 1 10
+byte 1 0
+align 1
+LABELV $1597
+byte 1 84
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 118
+byte 1 111
+byte 1 116
+byte 1 101
+byte 1 58
+byte 1 32
+byte 1 84
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 32
+byte 1 118
+byte 1 111
+byte 1 116
+byte 1 101
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 105
+byte 1 108
+byte 1 101
+byte 1 100
+byte 1 32
+byte 1 40
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 45
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 41
+byte 1 10
+byte 1 0
+align 1
+LABELV $1594
+byte 1 112
+byte 1 114
+byte 1 105
+byte 1 110
+byte 1 116
+byte 1 32
+byte 1 34
+byte 1 84
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 32
+byte 1 118
+byte 1 111
+byte 1 116
+byte 1 101
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 105
+byte 1 108
+byte 1 101
+byte 1 100
+byte 1 32
+byte 1 32
+byte 1 40
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 45
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 41
+byte 1 10
+byte 1 34
+byte 1 0
+align 1
+LABELV $1590
+byte 1 112
+byte 1 114
+byte 1 105
+byte 1 110
+byte 1 116
+byte 1 32
+byte 1 34
+byte 1 84
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 32
+byte 1 118
+byte 1 111
+byte 1 116
+byte 1 101
+byte 1 32
+byte 1 112
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 101
+byte 1 100
+byte 1 32
+byte 1 32
+byte 1 40
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 45
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 41
+byte 1 10
+byte 1 34
+byte 1 0
+align 1
+LABELV $1571
+byte 1 86
+byte 1 111
+byte 1 116
+byte 1 101
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 105
+byte 1 108
+byte 1 101
+byte 1 100
+byte 1 10
+byte 1 0
+align 1
+LABELV $1560
+byte 1 86
+byte 1 111
+byte 1 116
+byte 1 101
+byte 1 58
+byte 1 32
+byte 1 86
+byte 1 111
+byte 1 116
+byte 1 101
+byte 1 32
+byte 1 112
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 101
+byte 1 100
+byte 1 32
+byte 1 40
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 45
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 41
+byte 1 10
+byte 1 0
+align 1
+LABELV $1551
+byte 1 86
+byte 1 111
+byte 1 116
+byte 1 101
+byte 1 58
+byte 1 32
+byte 1 86
+byte 1 111
+byte 1 116
+byte 1 101
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 105
+byte 1 108
+byte 1 101
+byte 1 100
+byte 1 32
+byte 1 40
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 45
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 41
+byte 1 10
+byte 1 0
+align 1
+LABELV $1548
+byte 1 112
+byte 1 114
+byte 1 105
+byte 1 110
+byte 1 116
+byte 1 32
+byte 1 34
+byte 1 86
+byte 1 111
+byte 1 116
+byte 1 101
+byte 1 32
+byte 1 102
+byte 1 97
+byte 1 105
+byte 1 108
+byte 1 101
+byte 1 100
+byte 1 32
+byte 1 40
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 45
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 41
+byte 1 10
+byte 1 34
+byte 1 0
+align 1
+LABELV $1543
+byte 1 86
+byte 1 111
+byte 1 116
+byte 1 101
+byte 1 58
+byte 1 32
+byte 1 86
+byte 1 111
+byte 1 116
+byte 1 101
+byte 1 32
+byte 1 112
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 101
+byte 1 100
+byte 1 32
+byte 1 40
+byte 1 37
+byte 1 100
+byte 1 45
+byte 1 37
+byte 1 100
+byte 1 41
+byte 1 10
+byte 1 0
+align 1
+LABELV $1540
+byte 1 112
+byte 1 114
+byte 1 105
+byte 1 110
+byte 1 116
+byte 1 32
+byte 1 34
+byte 1 86
+byte 1 111
+byte 1 116
+byte 1 101
+byte 1 32
+byte 1 112
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 101
+byte 1 100
+byte 1 32
+byte 1 40
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 45
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 41
+byte 1 10
+byte 1 34
+byte 1 0
+align 1
+LABELV $1510
+byte 1 37
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $1505
+byte 1 99
+byte 1 112
+byte 1 32
+byte 1 34
+byte 1 83
+byte 1 117
+byte 1 100
+byte 1 100
+byte 1 101
+byte 1 110
+byte 1 32
+byte 1 68
+byte 1 101
+byte 1 97
+byte 1 116
+byte 1 104
+byte 1 32
+byte 1 119
+byte 1 105
+byte 1 108
+byte 1 108
+byte 1 32
+byte 1 98
+byte 1 101
+byte 1 103
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 115
+byte 1 101
+byte 1 99
+byte 1 111
+byte 1 110
+byte 1 100
+byte 1 115
+byte 1 10
+byte 1 34
+byte 1 0
+align 1
+LABELV $1496
+byte 1 115
+byte 1 117
+byte 1 100
+byte 1 100
+byte 1 101
+byte 1 110
+byte 1 100
+byte 1 101
+byte 1 97
+byte 1 116
+byte 1 104
+byte 1 0
+align 1
+LABELV $1492
+byte 1 109
+byte 1 0
+align 1
+LABELV $1491
+byte 1 109
+byte 1 97
+byte 1 112
+byte 1 0
+align 1
+LABELV $1487
+byte 1 114
+byte 1 0
+align 1
+LABELV $1486
+byte 1 109
+byte 1 97
+byte 1 112
+byte 1 95
+byte 1 114
+byte 1 101
+byte 1 115
+byte 1 116
+byte 1 97
+byte 1 114
+byte 1 116
+byte 1 0
+align 1
+LABELV $1474
+byte 1 97
+byte 1 0
+align 1
+LABELV $1473
+byte 1 65
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 115
+byte 1 32
+byte 1 119
+byte 1 105
+byte 1 110
+byte 1 46
+byte 1 0
+align 1
+LABELV $1472
+byte 1 65
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 115
+byte 1 32
+byte 1 87
+byte 1 105
+byte 1 110
+byte 1 0
+align 1
+LABELV $1471
+byte 1 112
+byte 1 114
+byte 1 105
+byte 1 110
+byte 1 116
+byte 1 32
+byte 1 34
+byte 1 87
+byte 1 116
+byte 1 102
+byte 1 32
+byte 1 116
+byte 1 104
+byte 1 101
+byte 1 32
+byte 1 110
+byte 1 111
+byte 1 111
+byte 1 98
+byte 1 115
+byte 1 32
+byte 1 104
+byte 1 97
+byte 1 118
+byte 1 101
+byte 1 32
+byte 1 106
+byte 1 117
+byte 1 115
+byte 1 116
+byte 1 32
+byte 1 114
+byte 1 117
+byte 1 105
+byte 1 110
+byte 1 101
+byte 1 100
+byte 1 32
+byte 1 105
+byte 1 116
+byte 1 33
+byte 1 10
+byte 1 34
+byte 1 0
+align 1
+LABELV $1470
+byte 1 112
+byte 1 114
+byte 1 105
+byte 1 110
+byte 1 116
+byte 1 32
+byte 1 34
+byte 1 71
+byte 1 111
+byte 1 111
+byte 1 100
+byte 1 32
+byte 1 76
+byte 1 117
+byte 1 99
+byte 1 107
+byte 1 32
+byte 1 110
+byte 1 101
+byte 1 120
+byte 1 116
+byte 1 32
+byte 1 116
+byte 1 105
+byte 1 109
+byte 1 101
+byte 1 46
+byte 1 10
+byte 1 34
+byte 1 0
+align 1
+LABELV $1469
+byte 1 112
+byte 1 114
+byte 1 105
+byte 1 110
+byte 1 116
+byte 1 32
+byte 1 34
+byte 1 78
+byte 1 101
+byte 1 119
+byte 1 32
+byte 1 82
+byte 1 101
+byte 1 99
+byte 1 111
+byte 1 114
+byte 1 100
+byte 1 46
+byte 1 10
+byte 1 34
+byte 1 0
+align 1
+LABELV $1450
+byte 1 104
+byte 1 0
+align 1
+LABELV $1449
+byte 1 72
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 115
+byte 1 32
+byte 1 119
+byte 1 105
+byte 1 110
+byte 1 46
+byte 1 0
+align 1
+LABELV $1448
+byte 1 72
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 115
+byte 1 32
+byte 1 87
+byte 1 105
+byte 1 110
+byte 1 0
+align 1
+LABELV $1447
+byte 1 112
+byte 1 114
+byte 1 105
+byte 1 110
+byte 1 116
+byte 1 32
+byte 1 34
+byte 1 71
+byte 1 111
+byte 1 111
+byte 1 100
+byte 1 32
+byte 1 74
+byte 1 111
+byte 1 98
+byte 1 33
+byte 1 10
+byte 1 34
+byte 1 0
+align 1
+LABELV $1436
+byte 1 99
+byte 1 112
+byte 1 32
+byte 1 34
+byte 1 49
+byte 1 32
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 117
+byte 1 116
+byte 1 101
+byte 1 32
+byte 1 114
+byte 1 101
+byte 1 109
+byte 1 97
+byte 1 105
+byte 1 110
+byte 1 105
+byte 1 110
+byte 1 103
+byte 1 33
+byte 1 34
+byte 1 0
+align 1
+LABELV $1428
+byte 1 99
+byte 1 112
+byte 1 32
+byte 1 34
+byte 1 53
+byte 1 32
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 117
+byte 1 116
+byte 1 101
+byte 1 115
+byte 1 32
+byte 1 114
+byte 1 101
+byte 1 109
+byte 1 97
+byte 1 105
+byte 1 110
+byte 1 105
+byte 1 110
+byte 1 103
+byte 1 33
+byte 1 34
+byte 1 0
+align 1
+LABELV $1421
+byte 1 116
+byte 1 0
+align 1
+LABELV $1420
+byte 1 84
+byte 1 105
+byte 1 109
+byte 1 101
+byte 1 108
+byte 1 105
+byte 1 109
+byte 1 105
+byte 1 116
+byte 1 32
+byte 1 104
+byte 1 105
+byte 1 116
+byte 1 46
+byte 1 0
+align 1
+LABELV $1419
+byte 1 83
+byte 1 116
+byte 1 97
+byte 1 108
+byte 1 101
+byte 1 109
+byte 1 97
+byte 1 116
+byte 1 101
+byte 1 0
+align 1
+LABELV $1418
+byte 1 112
+byte 1 114
+byte 1 105
+byte 1 110
+byte 1 116
+byte 1 32
+byte 1 34
+byte 1 84
+byte 1 105
+byte 1 109
+byte 1 101
+byte 1 108
+byte 1 105
+byte 1 109
+byte 1 105
+byte 1 116
+byte 1 32
+byte 1 104
+byte 1 105
+byte 1 116
+byte 1 10
+byte 1 34
+byte 1 0
+align 1
+LABELV $1342
+byte 1 116
+byte 1 114
+byte 1 105
+byte 1 103
+byte 1 103
+byte 1 101
+byte 1 114
+byte 1 95
+byte 1 119
+byte 1 105
+byte 1 110
+byte 1 0
+align 1
+LABELV $1331
+byte 1 115
+byte 1 99
+byte 1 111
+byte 1 114
+byte 1 101
+byte 1 58
+byte 1 32
+byte 1 37
+byte 1 105
+byte 1 32
+byte 1 32
+byte 1 112
+byte 1 105
+byte 1 110
+byte 1 103
+byte 1 58
+byte 1 32
+byte 1 37
+byte 1 105
+byte 1 32
+byte 1 32
+byte 1 99
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 116
+byte 1 58
+byte 1 32
+byte 1 37
+byte 1 105
+byte 1 32
+byte 1 37
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $1313
+byte 1 69
+byte 1 120
+byte 1 105
+byte 1 116
+byte 1 58
+byte 1 32
+byte 1 37
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $1308
+byte 1 32
+byte 1 34
+byte 1 37
+byte 1 115
+byte 1 34
+byte 1 32
+byte 1 37
+byte 1 99
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 0
+align 1
+LABELV $1274
+byte 1 116
+byte 1 114
+byte 1 101
+byte 1 109
+byte 1 117
+byte 1 108
+byte 1 111
+byte 1 117
+byte 1 115
+byte 1 32
+byte 1 49
+byte 1 46
+byte 1 49
+byte 1 46
+byte 1 48
+byte 1 0
+align 1
+LABELV $1273
+byte 1 37
+byte 1 115
+byte 1 32
+byte 1 37
+byte 1 115
+byte 1 32
+byte 1 84
+byte 1 58
+byte 1 37
+byte 1 99
+byte 1 32
+byte 1 65
+byte 1 58
+byte 1 37
+byte 1 102
+byte 1 32
+byte 1 72
+byte 1 58
+byte 1 37
+byte 1 102
+byte 1 32
+byte 1 77
+byte 1 58
+byte 1 37
+byte 1 115
+byte 1 32
+byte 1 68
+byte 1 58
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 83
+byte 1 68
+byte 1 58
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 65
+byte 1 83
+byte 1 58
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 65
+byte 1 83
+byte 1 50
+byte 1 84
+byte 1 58
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 65
+byte 1 83
+byte 1 51
+byte 1 84
+byte 1 58
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 72
+byte 1 83
+byte 1 58
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 72
+byte 1 83
+byte 1 50
+byte 1 84
+byte 1 58
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 72
+byte 1 83
+byte 1 51
+byte 1 84
+byte 1 58
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 67
+byte 1 76
+byte 1 58
+byte 1 37
+byte 1 100
+byte 1 0
+align 1
+LABELV $1225
+byte 1 37
+byte 1 51
+byte 1 105
+byte 1 58
+byte 1 37
+byte 1 105
+byte 1 37
+byte 1 105
+byte 1 32
+byte 1 0
+align 1
+LABELV $1221
+byte 1 112
+byte 1 114
+byte 1 105
+byte 1 110
+byte 1 116
+byte 1 32
+byte 1 34
+byte 1 94
+byte 1 54
+byte 1 91
+byte 1 65
+byte 1 100
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 115
+byte 1 93
+byte 1 94
+byte 1 55
+byte 1 32
+byte 1 37
+byte 1 115
+byte 1 34
+byte 1 0
+align 1
+LABELV $1220
+byte 1 65
+byte 1 68
+byte 1 77
+byte 1 73
+byte 1 78
+byte 1 67
+byte 1 72
+byte 1 65
+byte 1 84
+byte 1 0
+align 1
+LABELV $1193
+byte 1 109
+byte 1 97
+byte 1 112
+byte 1 95
+byte 1 114
+byte 1 101
+byte 1 115
+byte 1 116
+byte 1 97
+byte 1 114
+byte 1 116
+byte 1 10
+byte 1 0
+align 1
+LABELV $1189
+byte 1 33
+byte 1 109
+byte 1 97
+byte 1 112
+byte 1 32
+byte 1 37
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $1141
+byte 1 105
+byte 1 110
+byte 1 102
+byte 1 111
+byte 1 95
+byte 1 112
+byte 1 108
+byte 1 97
+byte 1 121
+byte 1 101
+byte 1 114
+byte 1 95
+byte 1 105
+byte 1 110
+byte 1 116
+byte 1 101
+byte 1 114
+byte 1 109
+byte 1 105
+byte 1 115
+byte 1 115
+byte 1 105
+byte 1 111
+byte 1 110
+byte 1 0
+align 1
+LABELV $1119
+byte 1 37
+byte 1 105
+byte 1 0
+align 1
+LABELV $1006
+byte 1 83
+byte 1 116
+byte 1 97
+byte 1 103
+byte 1 101
+byte 1 58
+byte 1 32
+byte 1 72
+byte 1 32
+byte 1 51
+byte 1 58
+byte 1 32
+byte 1 72
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 115
+byte 1 32
+byte 1 114
+byte 1 101
+byte 1 97
+byte 1 99
+byte 1 104
+byte 1 101
+byte 1 100
+byte 1 32
+byte 1 83
+byte 1 116
+byte 1 97
+byte 1 103
+byte 1 101
+byte 1 32
+byte 1 51
+byte 1 10
+byte 1 0
+align 1
+LABELV $995
+byte 1 83
+byte 1 116
+byte 1 97
+byte 1 103
+byte 1 101
+byte 1 58
+byte 1 32
+byte 1 72
+byte 1 32
+byte 1 50
+byte 1 58
+byte 1 32
+byte 1 72
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 115
+byte 1 32
+byte 1 114
+byte 1 101
+byte 1 97
+byte 1 99
+byte 1 104
+byte 1 101
+byte 1 100
+byte 1 32
+byte 1 83
+byte 1 116
+byte 1 97
+byte 1 103
+byte 1 101
+byte 1 32
+byte 1 50
+byte 1 10
+byte 1 0
+align 1
+LABELV $983
+byte 1 83
+byte 1 116
+byte 1 97
+byte 1 103
+byte 1 101
+byte 1 58
+byte 1 32
+byte 1 65
+byte 1 32
+byte 1 51
+byte 1 58
+byte 1 32
+byte 1 65
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 115
+byte 1 32
+byte 1 114
+byte 1 101
+byte 1 97
+byte 1 99
+byte 1 104
+byte 1 101
+byte 1 100
+byte 1 32
+byte 1 83
+byte 1 116
+byte 1 97
+byte 1 103
+byte 1 101
+byte 1 32
+byte 1 51
+byte 1 10
+byte 1 0
+align 1
+LABELV $971
+byte 1 83
+byte 1 116
+byte 1 97
+byte 1 103
+byte 1 101
+byte 1 58
+byte 1 32
+byte 1 65
+byte 1 32
+byte 1 50
+byte 1 58
+byte 1 32
+byte 1 65
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 115
+byte 1 32
+byte 1 114
+byte 1 101
+byte 1 97
+byte 1 99
+byte 1 104
+byte 1 101
+byte 1 100
+byte 1 32
+byte 1 83
+byte 1 116
+byte 1 97
+byte 1 103
+byte 1 101
+byte 1 32
+byte 1 50
+byte 1 10
+byte 1 0
+align 1
+LABELV $948
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 0
+align 1
+LABELV $918
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 0
+align 1
+LABELV $864
+byte 1 99
+byte 1 112
+byte 1 32
+byte 1 34
+byte 1 83
+byte 1 117
+byte 1 100
+byte 1 100
+byte 1 101
+byte 1 110
+byte 1 32
+byte 1 68
+byte 1 101
+byte 1 97
+byte 1 116
+byte 1 104
+byte 1 32
+byte 1 105
+byte 1 110
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 115
+byte 1 101
+byte 1 99
+byte 1 111
+byte 1 110
+byte 1 100
+byte 1 115
+byte 1 33
+byte 1 34
+byte 1 0
+align 1
+LABELV $837
+byte 1 66
+byte 1 101
+byte 1 103
+byte 1 105
+byte 1 110
+byte 1 110
+byte 1 105
+byte 1 110
+byte 1 103
+byte 1 32
+byte 1 83
+byte 1 117
+byte 1 100
+byte 1 100
+byte 1 101
+byte 1 110
+byte 1 32
+byte 1 68
+byte 1 101
+byte 1 97
+byte 1 116
+byte 1 104
+byte 1 32
+byte 1 40
+byte 1 77
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 41
+byte 1 10
+byte 1 0
+align 1
+LABELV $836
+byte 1 99
+byte 1 112
+byte 1 32
+byte 1 34
+byte 1 83
+byte 1 117
+byte 1 100
+byte 1 100
+byte 1 101
+byte 1 110
+byte 1 32
+byte 1 68
+byte 1 101
+byte 1 97
+byte 1 116
+byte 1 104
+byte 1 33
+byte 1 34
+byte 1 0
+align 1
+LABELV $794
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 37
+byte 1 100
+byte 1 0
+align 1
+LABELV $768
+byte 1 99
+byte 1 112
+byte 1 32
+byte 1 34
+byte 1 94
+byte 1 55
+byte 1 78
+byte 1 101
+byte 1 119
+byte 1 32
+byte 1 71
+byte 1 111
+byte 1 108
+byte 1 100
+byte 1 32
+byte 1 82
+byte 1 101
+byte 1 99
+byte 1 111
+byte 1 114
+byte 1 100
+byte 1 33
+byte 1 10
+byte 1 34
+byte 1 0
+align 1
+LABELV $765
+byte 1 99
+byte 1 112
+byte 1 32
+byte 1 34
+byte 1 94
+byte 1 55
+byte 1 78
+byte 1 101
+byte 1 119
+byte 1 32
+byte 1 83
+byte 1 105
+byte 1 108
+byte 1 118
+byte 1 101
+byte 1 114
+byte 1 32
+byte 1 82
+byte 1 101
+byte 1 99
+byte 1 111
+byte 1 114
+byte 1 100
+byte 1 33
+byte 1 10
+byte 1 34
+byte 1 0
+align 1
+LABELV $762
+byte 1 99
+byte 1 112
+byte 1 32
+byte 1 34
+byte 1 94
+byte 1 55
+byte 1 78
+byte 1 101
+byte 1 119
+byte 1 32
+byte 1 66
+byte 1 114
+byte 1 111
+byte 1 110
+byte 1 122
+byte 1 101
+byte 1 32
+byte 1 82
+byte 1 101
+byte 1 99
+byte 1 111
+byte 1 114
+byte 1 100
+byte 1 33
+byte 1 10
+byte 1 34
+byte 1 0
+align 1
+LABELV $743
+byte 1 94
+byte 1 49
+byte 1 90
+byte 1 111
+byte 1 109
+byte 1 98
+byte 1 105
+byte 1 101
+byte 1 0
+align 1
+LABELV $715
+byte 1 99
+byte 1 112
+byte 1 32
+byte 1 34
+byte 1 94
+byte 1 55
+byte 1 65
+byte 1 100
+byte 1 100
+byte 1 32
+byte 1 94
+byte 1 55
+byte 1 123
+byte 1 94
+byte 1 49
+byte 1 90
+byte 1 94
+byte 1 55
+byte 1 125
+byte 1 32
+byte 1 110
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 32
+byte 1 105
+byte 1 102
+byte 1 32
+byte 1 121
+byte 1 111
+byte 1 117
+byte 1 32
+byte 1 108
+byte 1 105
+byte 1 107
+byte 1 101
+byte 1 32
+byte 1 116
+byte 1 104
+byte 1 105
+byte 1 115
+byte 1 32
+byte 1 115
+byte 1 101
+byte 1 114
+byte 1 118
+byte 1 101
+byte 1 114
+byte 1 34
+byte 1 0
+align 1
+LABELV $708
+byte 1 99
+byte 1 112
+byte 1 32
+byte 1 34
+byte 1 94
+byte 1 50
+byte 1 67
+byte 1 108
+byte 1 101
+byte 1 97
+byte 1 110
+byte 1 32
+byte 1 116
+byte 1 104
+byte 1 101
+byte 1 32
+byte 1 77
+byte 1 97
+byte 1 112
+byte 1 32
+byte 1 109
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 33
+byte 1 34
+byte 1 0
+align 1
+LABELV $707
+byte 1 99
+byte 1 112
+byte 1 32
+byte 1 34
+byte 1 94
+byte 1 49
+byte 1 83
+byte 1 117
+byte 1 114
+byte 1 118
+byte 1 105
+byte 1 118
+byte 1 97
+byte 1 108
+byte 1 32
+byte 1 77
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 33
+byte 1 34
+byte 1 0
+align 1
+LABELV $697
+byte 1 99
+byte 1 112
+byte 1 32
+byte 1 34
+byte 1 94
+byte 1 50
+byte 1 83
+byte 1 112
+byte 1 97
+byte 1 119
+byte 1 110
+byte 1 115
+byte 1 32
+byte 1 68
+byte 1 111
+byte 1 119
+byte 1 110
+byte 1 33
+byte 1 34
+byte 1 0
+align 1
+LABELV $528
+byte 1 10
+byte 1 0
+align 1
+LABELV $527
+byte 1 37
+byte 1 100
+byte 1 58
+byte 1 0
+align 1
+LABELV $526
+byte 1 42
+byte 1 58
+byte 1 0
+align 1
+LABELV $518
+byte 1 108
+byte 1 58
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 102
+byte 1 58
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 98
+byte 1 58
+byte 1 37
+byte 1 100
+byte 1 32
+byte 1 32
+byte 1 32
+byte 1 32
+byte 1 58
+byte 1 0
+align 1
+LABELV $459
+byte 1 37
+byte 1 115
+byte 1 0
+align 1
+LABELV $453
+byte 1 83
+byte 1 104
+byte 1 117
+byte 1 116
+byte 1 100
+byte 1 111
+byte 1 119
+byte 1 110
+byte 1 71
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 58
+byte 1 10
+byte 1 0
+align 1
+LABELV $449
+byte 1 61
+byte 1 61
+byte 1 61
+byte 1 61
+byte 1 32
+byte 1 83
+byte 1 104
+byte 1 117
+byte 1 116
+byte 1 100
+byte 1 111
+byte 1 119
+byte 1 110
+byte 1 71
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 32
+byte 1 61
+byte 1 61
+byte 1 61
+byte 1 61
+byte 1 10
+byte 1 0
+align 1
+LABELV $437
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 10
+byte 1 0
+align 1
+LABELV $436
+byte 1 115
+byte 1 118
+byte 1 95
+byte 1 112
+byte 1 114
+byte 1 105
+byte 1 118
+byte 1 97
+byte 1 116
+byte 1 101
+byte 1 99
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 116
+byte 1 115
+byte 1 0
+align 1
+LABELV $433
+byte 1 103
+byte 1 95
+byte 1 97
+byte 1 109
+byte 1 98
+byte 1 117
+byte 1 115
+byte 1 104
+byte 1 0
+align 1
+LABELV $430
+byte 1 37
+byte 1 100
+byte 1 0
+align 1
+LABELV $423
+byte 1 116
+byte 1 105
+byte 1 109
+byte 1 101
+byte 1 0
+align 1
+LABELV $419
+byte 1 83
+byte 1 69
+byte 1 76
+byte 1 69
+byte 1 67
+byte 1 84
+byte 1 32
+byte 1 116
+byte 1 105
+byte 1 109
+byte 1 101
+byte 1 32
+byte 1 70
+byte 1 82
+byte 1 79
+byte 1 77
+byte 1 32
+byte 1 103
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 115
+byte 1 32
+byte 1 87
+byte 1 72
+byte 1 69
+byte 1 82
+byte 1 69
+byte 1 32
+byte 1 109
+byte 1 97
+byte 1 112
+byte 1 32
+byte 1 61
+byte 1 32
+byte 1 34
+byte 1 37
+byte 1 115
+byte 1 34
+byte 1 32
+byte 1 79
+byte 1 82
+byte 1 68
+byte 1 69
+byte 1 82
+byte 1 32
+byte 1 66
+byte 1 89
+byte 1 32
+byte 1 116
+byte 1 105
+byte 1 109
+byte 1 101
+byte 1 32
+byte 1 100
+byte 1 101
+byte 1 115
+byte 1 99
+byte 1 32
+byte 1 76
+byte 1 73
+byte 1 77
+byte 1 73
+byte 1 84
+byte 1 32
+byte 1 51
+byte 1 0
+align 1
+LABELV $411
+byte 1 83
+byte 1 117
+byte 1 114
+byte 1 118
+byte 1 105
+byte 1 118
+byte 1 97
+byte 1 108
+byte 1 32
+byte 1 77
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 32
+byte 1 111
+byte 1 110
+byte 1 46
+byte 1 10
+byte 1 0
+align 1
+LABELV $409
+byte 1 115
+byte 1 117
+byte 1 114
+byte 1 118
+byte 1 105
+byte 1 118
+byte 1 97
+byte 1 108
+byte 1 0
+align 1
+LABELV $390
+byte 1 109
+byte 1 97
+byte 1 112
+byte 1 110
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 0
+align 1
+LABELV $388
+byte 1 78
+byte 1 111
+byte 1 116
+byte 1 32
+byte 1 108
+byte 1 111
+byte 1 103
+byte 1 103
+byte 1 105
+byte 1 110
+byte 1 103
+byte 1 32
+byte 1 116
+byte 1 111
+byte 1 32
+byte 1 100
+byte 1 105
+byte 1 115
+byte 1 107
+byte 1 10
+byte 1 0
+align 1
+LABELV $382
+byte 1 82
+byte 1 101
+byte 1 97
+byte 1 108
+byte 1 84
+byte 1 105
+byte 1 109
+byte 1 101
+byte 1 58
+byte 1 32
+byte 1 37
+byte 1 48
+byte 1 52
+byte 1 105
+byte 1 47
+byte 1 37
+byte 1 48
+byte 1 50
+byte 1 105
+byte 1 47
+byte 1 37
+byte 1 48
+byte 1 50
+byte 1 105
+byte 1 32
+byte 1 37
+byte 1 48
+byte 1 50
+byte 1 105
+byte 1 58
+byte 1 37
+byte 1 48
+byte 1 50
+byte 1 105
+byte 1 58
+byte 1 37
+byte 1 48
+byte 1 50
+byte 1 105
+byte 1 10
+byte 1 0
+align 1
+LABELV $381
+byte 1 73
+byte 1 110
+byte 1 105
+byte 1 116
+byte 1 71
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 58
+byte 1 32
+byte 1 37
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $380
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 10
+byte 1 0
+align 1
+LABELV $378
+byte 1 87
+byte 1 65
+byte 1 82
+byte 1 78
+byte 1 73
+byte 1 78
+byte 1 71
+byte 1 58
+byte 1 32
+byte 1 67
+byte 1 111
+byte 1 117
+byte 1 108
+byte 1 100
+byte 1 110
+byte 1 39
+byte 1 116
+byte 1 32
+byte 1 111
+byte 1 112
+byte 1 101
+byte 1 110
+byte 1 32
+byte 1 108
+byte 1 111
+byte 1 103
+byte 1 102
+byte 1 105
+byte 1 108
+byte 1 101
+byte 1 58
+byte 1 32
+byte 1 37
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $364
+byte 1 115
+byte 1 111
+byte 1 117
+byte 1 110
+byte 1 100
+byte 1 47
+byte 1 109
+byte 1 105
+byte 1 115
+byte 1 99
+byte 1 47
+byte 1 102
+byte 1 114
+byte 1 121
+byte 1 46
+byte 1 119
+byte 1 97
+byte 1 118
+byte 1 0
+align 1
+LABELV $353
+byte 1 103
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 100
+byte 1 97
+byte 1 116
+byte 1 101
+byte 1 58
+byte 1 32
+byte 1 37
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $352
+byte 1 103
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 110
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 58
+byte 1 32
+byte 1 37
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $351
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 32
+byte 1 71
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 32
+byte 1 73
+byte 1 110
+byte 1 105
+byte 1 116
+byte 1 105
+byte 1 97
+byte 1 108
+byte 1 105
+byte 1 122
+byte 1 97
+byte 1 116
+byte 1 105
+byte 1 111
+byte 1 110
+byte 1 32
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 45
+byte 1 10
+byte 1 0
+align 1
+LABELV $348
+byte 1 101
+byte 1 120
+byte 1 101
+byte 1 99
+byte 1 32
+byte 1 34
+byte 1 37
+byte 1 115
+byte 1 47
+byte 1 37
+byte 1 115
+byte 1 46
+byte 1 99
+byte 1 102
+byte 1 103
+byte 1 34
+byte 1 10
+byte 1 0
+align 1
+LABELV $346
+byte 1 101
+byte 1 120
+byte 1 101
+byte 1 99
+byte 1 32
+byte 1 34
+byte 1 37
+byte 1 115
+byte 1 47
+byte 1 100
+byte 1 101
+byte 1 102
+byte 1 97
+byte 1 117
+byte 1 108
+byte 1 116
+byte 1 46
+byte 1 99
+byte 1 102
+byte 1 103
+byte 1 34
+byte 1 10
+byte 1 0
+align 1
+LABELV $335
+byte 1 112
+byte 1 114
+byte 1 105
+byte 1 110
+byte 1 116
+byte 1 32
+byte 1 34
+byte 1 83
+byte 1 101
+byte 1 114
+byte 1 118
+byte 1 101
+byte 1 114
+byte 1 58
+byte 1 32
+byte 1 37
+byte 1 115
+byte 1 32
+byte 1 99
+byte 1 104
+byte 1 97
+byte 1 110
+byte 1 103
+byte 1 101
+byte 1 100
+byte 1 32
+byte 1 116
+byte 1 111
+byte 1 32
+byte 1 37
+byte 1 115
+byte 1 10
+byte 1 34
+byte 1 0
+align 1
+LABELV $311
+byte 1 37
+byte 1 105
+byte 1 32
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 115
+byte 1 32
+byte 1 119
+byte 1 105
+byte 1 116
+byte 1 104
+byte 1 32
+byte 1 37
+byte 1 105
+byte 1 32
+byte 1 101
+byte 1 110
+byte 1 116
+byte 1 105
+byte 1 116
+byte 1 105
+byte 1 101
+byte 1 115
+byte 1 10
+byte 1 0
+align 1
+LABELV $265
+byte 1 100
+byte 1 105
+byte 1 114
+byte 1 101
+byte 1 99
+byte 1 116
+byte 1 111
+byte 1 114
+byte 1 95
+byte 1 100
+byte 1 101
+byte 1 98
+byte 1 117
+byte 1 103
+byte 1 0
+align 1
+LABELV $264
+byte 1 103
+byte 1 95
+byte 1 98
+byte 1 111
+byte 1 116
+byte 1 115
+byte 1 70
+byte 1 105
+byte 1 108
+byte 1 101
+byte 1 0
+align 1
+LABELV $263
+byte 1 103
+byte 1 95
+byte 1 115
+byte 1 112
+byte 1 83
+byte 1 107
+byte 1 105
+byte 1 108
+byte 1 108
+byte 1 0
+align 1
+LABELV $262
+byte 1 97
+byte 1 99
+byte 1 101
+byte 1 95
+byte 1 97
+byte 1 116
+byte 1 116
+byte 1 97
+byte 1 99
+byte 1 107
+byte 1 69
+byte 1 110
+byte 1 101
+byte 1 109
+byte 1 105
+byte 1 101
+byte 1 115
+byte 1 0
+align 1
+LABELV $261
+byte 1 97
+byte 1 99
+byte 1 101
+byte 1 95
+byte 1 112
+byte 1 105
+byte 1 99
+byte 1 107
+byte 1 83
+byte 1 104
+byte 1 111
+byte 1 114
+byte 1 116
+byte 1 82
+byte 1 97
+byte 1 110
+byte 1 103
+byte 1 101
+byte 1 71
+byte 1 111
+byte 1 97
+byte 1 108
+byte 1 0
+align 1
+LABELV $260
+byte 1 97
+byte 1 99
+byte 1 101
+byte 1 95
+byte 1 112
+byte 1 105
+byte 1 99
+byte 1 107
+byte 1 76
+byte 1 111
+byte 1 110
+byte 1 103
+byte 1 82
+byte 1 97
+byte 1 110
+byte 1 103
+byte 1 101
+byte 1 71
+byte 1 111
+byte 1 97
+byte 1 108
+byte 1 0
+align 1
+LABELV $259
+byte 1 97
+byte 1 99
+byte 1 101
+byte 1 95
+byte 1 115
+byte 1 104
+byte 1 111
+byte 1 119
+byte 1 80
+byte 1 97
+byte 1 116
+byte 1 104
+byte 1 0
+align 1
+LABELV $258
+byte 1 97
+byte 1 99
+byte 1 101
+byte 1 95
+byte 1 115
+byte 1 104
+byte 1 111
+byte 1 119
+byte 1 76
+byte 1 105
+byte 1 110
+byte 1 107
+byte 1 115
+byte 1 0
+align 1
+LABELV $257
+byte 1 97
+byte 1 99
+byte 1 101
+byte 1 95
+byte 1 115
+byte 1 104
+byte 1 111
+byte 1 119
+byte 1 78
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 115
+byte 1 0
+align 1
+LABELV $256
+byte 1 97
+byte 1 99
+byte 1 101
+byte 1 95
+byte 1 100
+byte 1 101
+byte 1 98
+byte 1 117
+byte 1 103
+byte 1 0
+align 1
+LABELV $255
+byte 1 49
+byte 1 48
+byte 1 48
+byte 1 48
+byte 1 48
+byte 1 0
+align 1
+LABELV $254
+byte 1 103
+byte 1 95
+byte 1 99
+byte 1 116
+byte 1 110
+byte 1 99
+byte 1 97
+byte 1 112
+byte 1 116
+byte 1 117
+byte 1 114
+byte 1 101
+byte 1 116
+byte 1 105
+byte 1 109
+byte 1 101
+byte 1 0
+align 1
+LABELV $253
+byte 1 103
+byte 1 95
+byte 1 97
+byte 1 110
+byte 1 116
+byte 1 105
+byte 1 115
+byte 1 112
+byte 1 97
+byte 1 119
+byte 1 110
+byte 1 99
+byte 1 97
+byte 1 109
+byte 1 112
+byte 1 0
+align 1
+LABELV $252
+byte 1 103
+byte 1 95
+byte 1 99
+byte 1 116
+byte 1 110
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 108
+byte 1 105
+byte 1 109
+byte 1 105
+byte 1 116
+byte 1 0
+align 1
+LABELV $251
+byte 1 103
+byte 1 95
+byte 1 115
+byte 1 117
+byte 1 114
+byte 1 118
+byte 1 105
+byte 1 118
+byte 1 97
+byte 1 108
+byte 1 0
+align 1
+LABELV $250
+byte 1 103
+byte 1 95
+byte 1 99
+byte 1 116
+byte 1 110
+byte 1 0
+align 1
+LABELV $249
+byte 1 103
+byte 1 95
+byte 1 98
+byte 1 97
+byte 1 110
+byte 1 78
+byte 1 111
+byte 1 116
+byte 1 105
+byte 1 99
+byte 1 101
+byte 1 0
+align 1
+LABELV $248
+byte 1 103
+byte 1 95
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 111
+byte 1 119
+byte 1 83
+byte 1 104
+byte 1 97
+byte 1 114
+byte 1 101
+byte 1 0
+align 1
+LABELV $247
+byte 1 103
+byte 1 95
+byte 1 114
+byte 1 97
+byte 1 110
+byte 1 107
+byte 1 105
+byte 1 110
+byte 1 103
+byte 1 115
+byte 1 0
+align 1
+LABELV $246
+byte 1 103
+byte 1 95
+byte 1 109
+byte 1 115
+byte 1 103
+byte 1 84
+byte 1 105
+byte 1 109
+byte 1 101
+byte 1 0
+align 1
+LABELV $245
+byte 1 103
+byte 1 95
+byte 1 109
+byte 1 115
+byte 1 103
+byte 1 0
+align 1
+LABELV $244
+byte 1 103
+byte 1 95
+byte 1 100
+byte 1 114
+byte 1 101
+byte 1 116
+byte 1 99
+byte 1 104
+byte 1 80
+byte 1 117
+byte 1 110
+byte 1 116
+byte 1 0
+align 1
+LABELV $243
+byte 1 109
+byte 1 97
+byte 1 105
+byte 1 110
+byte 1 0
+align 1
+LABELV $242
+byte 1 103
+byte 1 95
+byte 1 116
+byte 1 97
+byte 1 103
+byte 1 0
+align 1
+LABELV $241
+byte 1 103
+byte 1 95
+byte 1 100
+byte 1 101
+byte 1 118
+byte 1 109
+byte 1 97
+byte 1 112
+byte 1 75
+byte 1 105
+byte 1 108
+byte 1 108
+byte 1 101
+byte 1 114
+byte 1 72
+byte 1 80
+byte 1 0
+align 1
+LABELV $240
+byte 1 103
+byte 1 95
+byte 1 97
+byte 1 110
+byte 1 116
+byte 1 105
+byte 1 83
+byte 1 112
+byte 1 97
+byte 1 119
+byte 1 110
+byte 1 66
+byte 1 108
+byte 1 111
+byte 1 99
+byte 1 107
+byte 1 0
+align 1
+LABELV $239
+byte 1 103
+byte 1 95
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 76
+byte 1 101
+byte 1 118
+byte 1 101
+byte 1 108
+byte 1 84
+byte 1 111
+byte 1 83
+byte 1 112
+byte 1 101
+byte 1 99
+byte 1 77
+byte 1 77
+byte 1 49
+byte 1 0
+align 1
+LABELV $238
+byte 1 103
+byte 1 95
+byte 1 112
+byte 1 117
+byte 1 98
+byte 1 108
+byte 1 105
+byte 1 99
+byte 1 83
+byte 1 97
+byte 1 121
+byte 1 97
+byte 1 100
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 115
+byte 1 0
+align 1
+LABELV $237
+byte 1 103
+byte 1 95
+byte 1 109
+byte 1 121
+byte 1 83
+byte 1 116
+byte 1 97
+byte 1 116
+byte 1 115
+byte 1 0
+align 1
+LABELV $236
+byte 1 103
+byte 1 95
+byte 1 98
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 76
+byte 1 111
+byte 1 103
+byte 1 77
+byte 1 97
+byte 1 120
+byte 1 76
+byte 1 101
+byte 1 110
+byte 1 103
+byte 1 116
+byte 1 104
+byte 1 0
+align 1
+LABELV $235
+byte 1 103
+byte 1 95
+byte 1 100
+byte 1 101
+byte 1 99
+byte 1 111
+byte 1 108
+byte 1 111
+byte 1 117
+byte 1 114
+byte 1 76
+byte 1 111
+byte 1 103
+byte 1 102
+byte 1 105
+byte 1 108
+byte 1 101
+byte 1 115
+byte 1 0
+align 1
+LABELV $234
+byte 1 103
+byte 1 95
+byte 1 112
+byte 1 114
+byte 1 105
+byte 1 118
+byte 1 97
+byte 1 116
+byte 1 101
+byte 1 77
+byte 1 101
+byte 1 115
+byte 1 115
+byte 1 97
+byte 1 103
+byte 1 101
+byte 1 115
+byte 1 0
+align 1
+LABELV $233
+byte 1 103
+byte 1 95
+byte 1 102
+byte 1 111
+byte 1 114
+byte 1 99
+byte 1 101
+byte 1 65
+byte 1 117
+byte 1 116
+byte 1 111
+byte 1 83
+byte 1 101
+byte 1 108
+byte 1 101
+byte 1 99
+byte 1 116
+byte 1 0
+align 1
+LABELV $232
+byte 1 103
+byte 1 95
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 76
+byte 1 101
+byte 1 118
+byte 1 101
+byte 1 108
+byte 1 84
+byte 1 111
+byte 1 74
+byte 1 111
+byte 1 105
+byte 1 110
+byte 1 84
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 0
+align 1
+LABELV $231
+byte 1 103
+byte 1 95
+byte 1 97
+byte 1 100
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 77
+byte 1 97
+byte 1 112
+byte 1 76
+byte 1 111
+byte 1 103
+byte 1 0
+align 1
+LABELV $230
+byte 1 50
+byte 1 119
+byte 1 0
+align 1
+LABELV $229
+byte 1 103
+byte 1 95
+byte 1 97
+byte 1 100
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 77
+byte 1 97
+byte 1 120
+byte 1 66
+byte 1 97
+byte 1 110
+byte 1 0
+align 1
+LABELV $228
+byte 1 50
+byte 1 109
+byte 1 0
+align 1
+LABELV $227
+byte 1 103
+byte 1 95
+byte 1 97
+byte 1 100
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 84
+byte 1 101
+byte 1 109
+byte 1 112
+byte 1 66
+byte 1 97
+byte 1 110
+byte 1 0
+align 1
+LABELV $226
+byte 1 103
+byte 1 95
+byte 1 97
+byte 1 100
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 78
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 80
+byte 1 114
+byte 1 111
+byte 1 116
+byte 1 101
+byte 1 99
+byte 1 116
+byte 1 0
+align 1
+LABELV $225
+byte 1 103
+byte 1 95
+byte 1 97
+byte 1 100
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 83
+byte 1 97
+byte 1 121
+byte 1 70
+byte 1 105
+byte 1 108
+byte 1 116
+byte 1 101
+byte 1 114
+byte 1 0
+align 1
+LABELV $224
+byte 1 103
+byte 1 95
+byte 1 97
+byte 1 100
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 80
+byte 1 97
+byte 1 114
+byte 1 115
+byte 1 101
+byte 1 83
+byte 1 97
+byte 1 121
+byte 1 0
+align 1
+LABELV $223
+byte 1 97
+byte 1 100
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 46
+byte 1 108
+byte 1 111
+byte 1 103
+byte 1 0
+align 1
+LABELV $222
+byte 1 103
+byte 1 95
+byte 1 97
+byte 1 100
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 76
+byte 1 111
+byte 1 103
+byte 1 0
+align 1
+LABELV $221
+byte 1 97
+byte 1 100
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 46
+byte 1 100
+byte 1 97
+byte 1 116
+byte 1 0
+align 1
+LABELV $220
+byte 1 103
+byte 1 95
+byte 1 97
+byte 1 100
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 0
+align 1
+LABELV $219
+byte 1 103
+byte 1 95
+byte 1 108
+byte 1 97
+byte 1 121
+byte 1 111
+byte 1 117
+byte 1 116
+byte 1 65
+byte 1 117
+byte 1 116
+byte 1 111
+byte 1 0
+align 1
+LABELV $218
+byte 1 103
+byte 1 95
+byte 1 108
+byte 1 97
+byte 1 121
+byte 1 111
+byte 1 117
+byte 1 116
+byte 1 115
+byte 1 0
+align 1
+LABELV $217
+byte 1 103
+byte 1 95
+byte 1 109
+byte 1 97
+byte 1 112
+byte 1 67
+byte 1 111
+byte 1 110
+byte 1 102
+byte 1 105
+byte 1 103
+byte 1 115
+byte 1 76
+byte 1 111
+byte 1 97
+byte 1 100
+byte 1 101
+byte 1 100
+byte 1 0
+align 1
+LABELV $216
+byte 1 103
+byte 1 95
+byte 1 109
+byte 1 97
+byte 1 112
+byte 1 67
+byte 1 111
+byte 1 110
+byte 1 102
+byte 1 105
+byte 1 103
+byte 1 115
+byte 1 0
+align 1
+LABELV $215
+byte 1 103
+byte 1 95
+byte 1 108
+byte 1 97
+byte 1 121
+byte 1 111
+byte 1 117
+byte 1 116
+byte 1 109
+byte 1 97
+byte 1 107
+byte 1 105
+byte 1 110
+byte 1 103
+byte 1 0
+align 1
+LABELV $214
+byte 1 49
+byte 1 53
+byte 1 0
+align 1
+LABELV $213
+byte 1 103
+byte 1 95
+byte 1 115
+byte 1 104
+byte 1 111
+byte 1 118
+byte 1 101
+byte 1 0
+align 1
+LABELV $212
+byte 1 103
+byte 1 95
+byte 1 105
+byte 1 110
+byte 1 105
+byte 1 116
+byte 1 105
+byte 1 97
+byte 1 108
+byte 1 77
+byte 1 97
+byte 1 112
+byte 1 82
+byte 1 111
+byte 1 116
+byte 1 97
+byte 1 116
+byte 1 105
+byte 1 111
+byte 1 110
+byte 1 0
+align 1
+LABELV $211
+byte 1 103
+byte 1 95
+byte 1 110
+byte 1 101
+byte 1 120
+byte 1 116
+byte 1 77
+byte 1 97
+byte 1 112
+byte 1 0
+align 1
+LABELV $210
+byte 1 103
+byte 1 95
+byte 1 99
+byte 1 117
+byte 1 114
+byte 1 114
+byte 1 101
+byte 1 110
+byte 1 116
+byte 1 77
+byte 1 97
+byte 1 112
+byte 1 0
+align 1
+LABELV $209
+byte 1 45
+byte 1 49
+byte 1 0
+align 1
+LABELV $208
+byte 1 103
+byte 1 95
+byte 1 99
+byte 1 117
+byte 1 114
+byte 1 114
+byte 1 101
+byte 1 110
+byte 1 116
+byte 1 77
+byte 1 97
+byte 1 112
+byte 1 82
+byte 1 111
+byte 1 116
+byte 1 97
+byte 1 116
+byte 1 105
+byte 1 111
+byte 1 110
+byte 1 0
+align 1
+LABELV $207
+byte 1 103
+byte 1 95
+byte 1 100
+byte 1 101
+byte 1 98
+byte 1 117
+byte 1 103
+byte 1 77
+byte 1 97
+byte 1 112
+byte 1 82
+byte 1 111
+byte 1 116
+byte 1 97
+byte 1 116
+byte 1 105
+byte 1 111
+byte 1 110
+byte 1 0
+align 1
+LABELV $206
+byte 1 103
+byte 1 95
+byte 1 100
+byte 1 101
+byte 1 99
+byte 1 111
+byte 1 110
+byte 1 68
+byte 1 101
+byte 1 97
+byte 1 100
+byte 1 0
+align 1
+LABELV $205
+byte 1 103
+byte 1 95
+byte 1 109
+byte 1 97
+byte 1 114
+byte 1 107
+byte 1 68
+byte 1 101
+byte 1 99
+byte 1 111
+byte 1 110
+byte 1 115
+byte 1 116
+byte 1 114
+byte 1 117
+byte 1 99
+byte 1 116
+byte 1 0
+align 1
+LABELV $204
+byte 1 50
+byte 1 48
+byte 1 48
+byte 1 48
+byte 1 0
+align 1
+LABELV $203
+byte 1 103
+byte 1 95
+byte 1 102
+byte 1 108
+byte 1 111
+byte 1 111
+byte 1 100
+byte 1 77
+byte 1 105
+byte 1 110
+byte 1 84
+byte 1 105
+byte 1 109
+byte 1 101
+byte 1 0
+align 1
+LABELV $202
+byte 1 53
+byte 1 48
+byte 1 48
+byte 1 48
+byte 1 0
+align 1
+LABELV $201
+byte 1 103
+byte 1 95
+byte 1 102
+byte 1 108
+byte 1 111
+byte 1 111
+byte 1 100
+byte 1 77
+byte 1 97
+byte 1 120
+byte 1 68
+byte 1 101
+byte 1 109
+byte 1 101
+byte 1 114
+byte 1 105
+byte 1 116
+byte 1 115
+byte 1 0
+align 1
+LABELV $200
+byte 1 42
+byte 1 32
+byte 1 0
+align 1
+LABELV $199
+byte 1 103
+byte 1 95
+byte 1 97
+byte 1 99
+byte 1 116
+byte 1 105
+byte 1 111
+byte 1 110
+byte 1 80
+byte 1 114
+byte 1 101
+byte 1 102
+byte 1 105
+byte 1 120
+byte 1 0
+align 1
+LABELV $198
+byte 1 103
+byte 1 95
+byte 1 99
+byte 1 104
+byte 1 97
+byte 1 116
+byte 1 84
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 80
+byte 1 114
+byte 1 101
+byte 1 102
+byte 1 105
+byte 1 120
+byte 1 0
+align 1
+LABELV $197
+byte 1 103
+byte 1 95
+byte 1 100
+byte 1 105
+byte 1 115
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 100
+byte 1 66
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 115
+byte 1 0
+align 1
+LABELV $196
+byte 1 103
+byte 1 95
+byte 1 100
+byte 1 105
+byte 1 115
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 100
+byte 1 67
+byte 1 108
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 101
+byte 1 115
+byte 1 0
+align 1
+LABELV $195
+byte 1 103
+byte 1 95
+byte 1 100
+byte 1 105
+byte 1 115
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 100
+byte 1 69
+byte 1 113
+byte 1 117
+byte 1 105
+byte 1 112
+byte 1 109
+byte 1 101
+byte 1 110
+byte 1 116
+byte 1 0
+align 1
+LABELV $194
+byte 1 103
+byte 1 95
+byte 1 117
+byte 1 110
+byte 1 108
+byte 1 97
+byte 1 103
+byte 1 103
+byte 1 101
+byte 1 100
+byte 1 0
+align 1
+LABELV $193
+byte 1 103
+byte 1 95
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 73
+byte 1 109
+byte 1 98
+byte 1 97
+byte 1 108
+byte 1 97
+byte 1 110
+byte 1 99
+byte 1 101
+byte 1 87
+byte 1 97
+byte 1 114
+byte 1 110
+byte 1 105
+byte 1 110
+byte 1 103
+byte 1 115
+byte 1 0
+align 1
+LABELV $192
+byte 1 103
+byte 1 95
+byte 1 97
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 83
+byte 1 116
+byte 1 97
+byte 1 103
+byte 1 101
+byte 1 51
+byte 1 84
+byte 1 104
+byte 1 114
+byte 1 101
+byte 1 115
+byte 1 104
+byte 1 111
+byte 1 108
+byte 1 100
+byte 1 0
+align 1
+LABELV $191
+byte 1 103
+byte 1 95
+byte 1 97
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 83
+byte 1 116
+byte 1 97
+byte 1 103
+byte 1 101
+byte 1 50
+byte 1 84
+byte 1 104
+byte 1 114
+byte 1 101
+byte 1 115
+byte 1 104
+byte 1 111
+byte 1 108
+byte 1 100
+byte 1 0
+align 1
+LABELV $190
+byte 1 103
+byte 1 95
+byte 1 97
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 77
+byte 1 97
+byte 1 120
+byte 1 83
+byte 1 116
+byte 1 97
+byte 1 103
+byte 1 101
+byte 1 0
+align 1
+LABELV $189
+byte 1 103
+byte 1 95
+byte 1 97
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 75
+byte 1 105
+byte 1 108
+byte 1 108
+byte 1 115
+byte 1 0
+align 1
+LABELV $188
+byte 1 103
+byte 1 95
+byte 1 97
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 83
+byte 1 116
+byte 1 97
+byte 1 103
+byte 1 101
+byte 1 0
+align 1
+LABELV $187
+byte 1 52
+byte 1 48
+byte 1 0
+align 1
+LABELV $186
+byte 1 103
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 83
+byte 1 116
+byte 1 97
+byte 1 103
+byte 1 101
+byte 1 51
+byte 1 84
+byte 1 104
+byte 1 114
+byte 1 101
+byte 1 115
+byte 1 104
+byte 1 111
+byte 1 108
+byte 1 100
+byte 1 0
+align 1
+LABELV $185
+byte 1 50
+byte 1 48
+byte 1 0
+align 1
+LABELV $184
+byte 1 103
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 83
+byte 1 116
+byte 1 97
+byte 1 103
+byte 1 101
+byte 1 50
+byte 1 84
+byte 1 104
+byte 1 114
+byte 1 101
+byte 1 115
+byte 1 104
+byte 1 111
+byte 1 108
+byte 1 100
+byte 1 0
+align 1
+LABELV $183
+byte 1 50
+byte 1 0
+align 1
+LABELV $182
+byte 1 103
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 77
+byte 1 97
+byte 1 120
+byte 1 83
+byte 1 116
+byte 1 97
+byte 1 103
+byte 1 101
+byte 1 0
+align 1
+LABELV $181
+byte 1 103
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 75
+byte 1 105
+byte 1 108
+byte 1 108
+byte 1 115
+byte 1 0
+align 1
+LABELV $180
+byte 1 103
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 83
+byte 1 116
+byte 1 97
+byte 1 103
+byte 1 101
+byte 1 0
+align 1
+LABELV $179
+byte 1 103
+byte 1 95
+byte 1 97
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 66
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 80
+byte 1 111
+byte 1 105
+byte 1 110
+byte 1 116
+byte 1 115
+byte 1 0
+align 1
+LABELV $178
+byte 1 49
+byte 1 48
+byte 1 48
+byte 1 0
+align 1
+LABELV $177
+byte 1 103
+byte 1 95
+byte 1 104
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 66
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 80
+byte 1 111
+byte 1 105
+byte 1 110
+byte 1 116
+byte 1 115
+byte 1 0
+align 1
+LABELV $176
+byte 1 112
+byte 1 109
+byte 1 111
+byte 1 118
+byte 1 101
+byte 1 95
+byte 1 109
+byte 1 115
+byte 1 101
+byte 1 99
+byte 1 0
+align 1
+LABELV $175
+byte 1 112
+byte 1 109
+byte 1 111
+byte 1 118
+byte 1 101
+byte 1 95
+byte 1 102
+byte 1 105
+byte 1 120
+byte 1 101
+byte 1 100
+byte 1 0
+align 1
+LABELV $174
+byte 1 103
+byte 1 95
+byte 1 99
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 116
+byte 1 85
+byte 1 112
+byte 1 103
+byte 1 114
+byte 1 97
+byte 1 100
+byte 1 101
+byte 1 78
+byte 1 111
+byte 1 116
+byte 1 105
+byte 1 99
+byte 1 101
+byte 1 0
+align 1
+LABELV $173
+byte 1 103
+byte 1 95
+byte 1 115
+byte 1 109
+byte 1 111
+byte 1 111
+byte 1 116
+byte 1 104
+byte 1 67
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 116
+byte 1 115
+byte 1 0
+align 1
+LABELV $172
+byte 1 78
+byte 1 101
+byte 1 119
+byte 1 98
+byte 1 105
+byte 1 101
+byte 1 35
+byte 1 0
+align 1
+LABELV $171
+byte 1 103
+byte 1 95
+byte 1 110
+byte 1 101
+byte 1 119
+byte 1 98
+byte 1 105
+byte 1 101
+byte 1 78
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 80
+byte 1 114
+byte 1 101
+byte 1 102
+byte 1 105
+byte 1 120
+byte 1 0
+align 1
+LABELV $170
+byte 1 103
+byte 1 95
+byte 1 110
+byte 1 101
+byte 1 119
+byte 1 98
+byte 1 105
+byte 1 101
+byte 1 78
+byte 1 117
+byte 1 109
+byte 1 98
+byte 1 101
+byte 1 114
+byte 1 105
+byte 1 110
+byte 1 103
+byte 1 0
+align 1
+LABELV $169
+byte 1 103
+byte 1 95
+byte 1 109
+byte 1 97
+byte 1 120
+byte 1 78
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 67
+byte 1 104
+byte 1 97
+byte 1 110
+byte 1 103
+byte 1 101
+byte 1 115
+byte 1 0
+align 1
+LABELV $168
+byte 1 103
+byte 1 95
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 78
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 67
+byte 1 104
+byte 1 97
+byte 1 110
+byte 1 103
+byte 1 101
+byte 1 80
+byte 1 101
+byte 1 114
+byte 1 105
+byte 1 111
+byte 1 100
+byte 1 0
+align 1
+LABELV $167
+byte 1 53
+byte 1 48
+byte 1 48
+byte 1 0
+align 1
+LABELV $166
+byte 1 103
+byte 1 95
+byte 1 109
+byte 1 105
+byte 1 110
+byte 1 67
+byte 1 111
+byte 1 109
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 100
+byte 1 80
+byte 1 101
+byte 1 114
+byte 1 105
+byte 1 111
+byte 1 100
+byte 1 0
+align 1
+LABELV $165
+byte 1 103
+byte 1 95
+byte 1 108
+byte 1 105
+byte 1 115
+byte 1 116
+byte 1 69
+byte 1 110
+byte 1 116
+byte 1 105
+byte 1 116
+byte 1 121
+byte 1 0
+align 1
+LABELV $164
+byte 1 103
+byte 1 95
+byte 1 100
+byte 1 101
+byte 1 115
+byte 1 105
+byte 1 103
+byte 1 110
+byte 1 97
+byte 1 116
+byte 1 101
+byte 1 86
+byte 1 111
+byte 1 116
+byte 1 101
+byte 1 115
+byte 1 0
+align 1
+LABELV $163
+byte 1 53
+byte 1 48
+byte 1 0
+align 1
+LABELV $162
+byte 1 103
+byte 1 95
+byte 1 109
+byte 1 97
+byte 1 112
+byte 1 86
+byte 1 111
+byte 1 116
+byte 1 101
+byte 1 115
+byte 1 80
+byte 1 101
+byte 1 114
+byte 1 99
+byte 1 101
+byte 1 110
+byte 1 116
+byte 1 0
+align 1
+LABELV $161
+byte 1 49
+byte 1 56
+byte 1 48
+byte 1 0
+align 1
+LABELV $160
+byte 1 103
+byte 1 95
+byte 1 115
+byte 1 117
+byte 1 100
+byte 1 100
+byte 1 101
+byte 1 110
+byte 1 68
+byte 1 101
+byte 1 97
+byte 1 116
+byte 1 104
+byte 1 86
+byte 1 111
+byte 1 116
+byte 1 101
+byte 1 68
+byte 1 101
+byte 1 108
+byte 1 97
+byte 1 121
+byte 1 0
+align 1
+LABELV $159
+byte 1 55
+byte 1 52
+byte 1 0
+align 1
+LABELV $158
+byte 1 103
+byte 1 95
+byte 1 115
+byte 1 117
+byte 1 100
+byte 1 100
+byte 1 101
+byte 1 110
+byte 1 68
+byte 1 101
+byte 1 97
+byte 1 116
+byte 1 104
+byte 1 86
+byte 1 111
+byte 1 116
+byte 1 101
+byte 1 80
+byte 1 101
+byte 1 114
+byte 1 99
+byte 1 101
+byte 1 110
+byte 1 116
+byte 1 0
+align 1
+LABELV $157
+byte 1 50
+byte 1 52
+byte 1 48
+byte 1 0
+align 1
+LABELV $156
+byte 1 103
+byte 1 95
+byte 1 109
+byte 1 97
+byte 1 112
+byte 1 118
+byte 1 111
+byte 1 116
+byte 1 101
+byte 1 77
+byte 1 97
+byte 1 120
+byte 1 84
+byte 1 105
+byte 1 109
+byte 1 101
+byte 1 0
+align 1
+LABELV $155
+byte 1 49
+byte 1 50
+byte 1 48
+byte 1 0
+align 1
+LABELV $154
+byte 1 103
+byte 1 95
+byte 1 118
+byte 1 111
+byte 1 116
+byte 1 101
+byte 1 77
+byte 1 105
+byte 1 110
+byte 1 84
+byte 1 105
+byte 1 109
+byte 1 101
+byte 1 0
+align 1
+LABELV $153
+byte 1 103
+byte 1 95
+byte 1 118
+byte 1 111
+byte 1 116
+byte 1 101
+byte 1 76
+byte 1 105
+byte 1 109
+byte 1 105
+byte 1 116
+byte 1 0
+align 1
+LABELV $152
+byte 1 103
+byte 1 95
+byte 1 114
+byte 1 101
+byte 1 113
+byte 1 117
+byte 1 105
+byte 1 114
+byte 1 101
+byte 1 86
+byte 1 111
+byte 1 116
+byte 1 101
+byte 1 82
+byte 1 101
+byte 1 97
+byte 1 115
+byte 1 111
+byte 1 110
+byte 1 115
+byte 1 0
+align 1
+LABELV $151
+byte 1 103
+byte 1 95
+byte 1 97
+byte 1 108
+byte 1 108
+byte 1 111
+byte 1 119
+byte 1 86
+byte 1 111
+byte 1 116
+byte 1 101
+byte 1 0
+align 1
+LABELV $150
+byte 1 55
+byte 1 48
+byte 1 0
+align 1
+LABELV $149
+byte 1 103
+byte 1 95
+byte 1 112
+byte 1 111
+byte 1 100
+byte 1 105
+byte 1 117
+byte 1 109
+byte 1 68
+byte 1 114
+byte 1 111
+byte 1 112
+byte 1 0
+align 1
+LABELV $148
+byte 1 56
+byte 1 48
+byte 1 0
+align 1
+LABELV $147
+byte 1 103
+byte 1 95
+byte 1 112
+byte 1 111
+byte 1 100
+byte 1 105
+byte 1 117
+byte 1 109
+byte 1 68
+byte 1 105
+byte 1 115
+byte 1 116
+byte 1 0
+align 1
+LABELV $146
+byte 1 99
+byte 1 111
+byte 1 109
+byte 1 95
+byte 1 98
+byte 1 108
+byte 1 111
+byte 1 111
+byte 1 100
+byte 1 0
+align 1
+LABELV $145
+byte 1 103
+byte 1 95
+byte 1 109
+byte 1 111
+byte 1 116
+byte 1 100
+byte 1 0
+align 1
+LABELV $144
+byte 1 103
+byte 1 95
+byte 1 100
+byte 1 101
+byte 1 98
+byte 1 117
+byte 1 103
+byte 1 65
+byte 1 108
+byte 1 108
+byte 1 111
+byte 1 99
+byte 1 0
+align 1
+LABELV $143
+byte 1 103
+byte 1 95
+byte 1 100
+byte 1 101
+byte 1 98
+byte 1 117
+byte 1 103
+byte 1 68
+byte 1 97
+byte 1 109
+byte 1 97
+byte 1 103
+byte 1 101
+byte 1 0
+align 1
+LABELV $142
+byte 1 103
+byte 1 95
+byte 1 100
+byte 1 101
+byte 1 98
+byte 1 117
+byte 1 103
+byte 1 77
+byte 1 111
+byte 1 118
+byte 1 101
+byte 1 0
+align 1
+LABELV $141
+byte 1 103
+byte 1 95
+byte 1 105
+byte 1 110
+byte 1 97
+byte 1 99
+byte 1 116
+byte 1 105
+byte 1 118
+byte 1 105
+byte 1 116
+byte 1 121
+byte 1 0
+align 1
+LABELV $140
+byte 1 103
+byte 1 95
+byte 1 119
+byte 1 101
+byte 1 97
+byte 1 112
+byte 1 111
+byte 1 110
+byte 1 84
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 82
+byte 1 101
+byte 1 115
+byte 1 112
+byte 1 97
+byte 1 119
+byte 1 110
+byte 1 0
+align 1
+LABELV $139
+byte 1 53
+byte 1 0
+align 1
+LABELV $138
+byte 1 103
+byte 1 95
+byte 1 119
+byte 1 101
+byte 1 97
+byte 1 112
+byte 1 111
+byte 1 110
+byte 1 114
+byte 1 101
+byte 1 115
+byte 1 112
+byte 1 97
+byte 1 119
+byte 1 110
+byte 1 0
+align 1
+LABELV $137
+byte 1 51
+byte 1 0
+align 1
+LABELV $136
+byte 1 103
+byte 1 95
+byte 1 113
+byte 1 117
+byte 1 97
+byte 1 100
+byte 1 102
+byte 1 97
+byte 1 99
+byte 1 116
+byte 1 111
+byte 1 114
+byte 1 0
+align 1
+LABELV $135
+byte 1 49
+byte 1 48
+byte 1 48
+byte 1 48
+byte 1 0
+align 1
+LABELV $134
+byte 1 103
+byte 1 95
+byte 1 107
+byte 1 110
+byte 1 111
+byte 1 99
+byte 1 107
+byte 1 98
+byte 1 97
+byte 1 99
+byte 1 107
+byte 1 0
+align 1
+LABELV $133
+byte 1 56
+byte 1 48
+byte 1 48
+byte 1 0
+align 1
+LABELV $132
+byte 1 103
+byte 1 95
+byte 1 103
+byte 1 114
+byte 1 97
+byte 1 118
+byte 1 105
+byte 1 116
+byte 1 121
+byte 1 0
+align 1
+LABELV $131
+byte 1 51
+byte 1 50
+byte 1 48
+byte 1 0
+align 1
+LABELV $130
+byte 1 103
+byte 1 95
+byte 1 115
+byte 1 112
+byte 1 101
+byte 1 101
+byte 1 100
+byte 1 0
+align 1
+LABELV $129
+byte 1 100
+byte 1 101
+byte 1 100
+byte 1 105
+byte 1 99
+byte 1 97
+byte 1 116
+byte 1 101
+byte 1 100
+byte 1 0
+align 1
+LABELV $128
+byte 1 103
+byte 1 95
+byte 1 110
+byte 1 101
+byte 1 101
+byte 1 100
+byte 1 112
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 0
+align 1
+LABELV $127
+byte 1 103
+byte 1 95
+byte 1 102
+byte 1 105
+byte 1 108
+byte 1 116
+byte 1 101
+byte 1 114
+byte 1 66
+byte 1 97
+byte 1 110
+byte 1 0
+align 1
+LABELV $126
+byte 1 103
+byte 1 95
+byte 1 98
+byte 1 97
+byte 1 110
+byte 1 73
+byte 1 80
+byte 1 115
+byte 1 0
+align 1
+LABELV $125
+byte 1 103
+byte 1 95
+byte 1 112
+byte 1 97
+byte 1 115
+byte 1 115
+byte 1 119
+byte 1 111
+byte 1 114
+byte 1 100
+byte 1 0
+align 1
+LABELV $124
+byte 1 103
+byte 1 95
+byte 1 108
+byte 1 111
+byte 1 103
+byte 1 70
+byte 1 105
+byte 1 108
+byte 1 101
+byte 1 83
+byte 1 121
+byte 1 110
+byte 1 99
+byte 1 0
+align 1
+LABELV $123
+byte 1 103
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 115
+byte 1 46
+byte 1 108
+byte 1 111
+byte 1 103
+byte 1 0
+align 1
+LABELV $122
+byte 1 103
+byte 1 95
+byte 1 108
+byte 1 111
+byte 1 103
+byte 1 70
+byte 1 105
+byte 1 108
+byte 1 101
+byte 1 0
+align 1
+LABELV $121
+byte 1 103
+byte 1 95
+byte 1 100
+byte 1 111
+byte 1 87
+byte 1 97
+byte 1 114
+byte 1 109
+byte 1 117
+byte 1 112
+byte 1 0
+align 1
+LABELV $120
+byte 1 103
+byte 1 95
+byte 1 119
+byte 1 97
+byte 1 114
+byte 1 109
+byte 1 117
+byte 1 112
+byte 1 77
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 0
+align 1
+LABELV $119
+byte 1 49
+byte 1 48
+byte 1 0
+align 1
+LABELV $118
+byte 1 103
+byte 1 95
+byte 1 119
+byte 1 97
+byte 1 114
+byte 1 109
+byte 1 117
+byte 1 112
+byte 1 0
+align 1
+LABELV $117
+byte 1 103
+byte 1 95
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 70
+byte 1 111
+byte 1 114
+byte 1 99
+byte 1 101
+byte 1 66
+byte 1 97
+byte 1 108
+byte 1 97
+byte 1 110
+byte 1 99
+byte 1 101
+byte 1 0
+align 1
+LABELV $116
+byte 1 103
+byte 1 95
+byte 1 116
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 65
+byte 1 117
+byte 1 116
+byte 1 111
+byte 1 74
+byte 1 111
+byte 1 105
+byte 1 110
+byte 1 0
+align 1
+LABELV $115
+byte 1 103
+byte 1 95
+byte 1 100
+byte 1 101
+byte 1 118
+byte 1 109
+byte 1 97
+byte 1 112
+byte 1 78
+byte 1 111
+byte 1 83
+byte 1 116
+byte 1 114
+byte 1 117
+byte 1 99
+byte 1 116
+byte 1 68
+byte 1 109
+byte 1 103
+byte 1 0
+align 1
+LABELV $114
+byte 1 103
+byte 1 95
+byte 1 100
+byte 1 101
+byte 1 118
+byte 1 109
+byte 1 97
+byte 1 112
+byte 1 78
+byte 1 111
+byte 1 71
+byte 1 111
+byte 1 100
+byte 1 0
+align 1
+LABELV $113
+byte 1 49
+byte 1 0
+align 1
+LABELV $112
+byte 1 103
+byte 1 95
+byte 1 102
+byte 1 114
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 100
+byte 1 108
+byte 1 121
+byte 1 70
+byte 1 105
+byte 1 114
+byte 1 101
+byte 1 77
+byte 1 111
+byte 1 118
+byte 1 101
+byte 1 109
+byte 1 101
+byte 1 110
+byte 1 116
+byte 1 65
+byte 1 116
+byte 1 116
+byte 1 97
+byte 1 99
+byte 1 107
+byte 1 115
+byte 1 0
+align 1
+LABELV $111
+byte 1 103
+byte 1 95
+byte 1 102
+byte 1 114
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 100
+byte 1 108
+byte 1 121
+byte 1 66
+byte 1 117
+byte 1 105
+byte 1 108
+byte 1 100
+byte 1 97
+byte 1 98
+byte 1 108
+byte 1 101
+byte 1 70
+byte 1 105
+byte 1 114
+byte 1 101
+byte 1 0
+align 1
+LABELV $110
+byte 1 103
+byte 1 95
+byte 1 114
+byte 1 101
+byte 1 116
+byte 1 114
+byte 1 105
+byte 1 98
+byte 1 117
+byte 1 116
+byte 1 105
+byte 1 111
+byte 1 110
+byte 1 0
+align 1
+LABELV $109
+byte 1 103
+byte 1 95
+byte 1 102
+byte 1 114
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 100
+byte 1 108
+byte 1 121
+byte 1 70
+byte 1 105
+byte 1 114
+byte 1 101
+byte 1 72
+byte 1 117
+byte 1 109
+byte 1 97
+byte 1 110
+byte 1 115
+byte 1 0
+align 1
+LABELV $108
+byte 1 103
+byte 1 95
+byte 1 102
+byte 1 114
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 100
+byte 1 108
+byte 1 121
+byte 1 70
+byte 1 105
+byte 1 114
+byte 1 101
+byte 1 65
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 115
+byte 1 0
+align 1
+LABELV $107
+byte 1 103
+byte 1 95
+byte 1 102
+byte 1 114
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 100
+byte 1 108
+byte 1 121
+byte 1 70
+byte 1 105
+byte 1 114
+byte 1 101
+byte 1 0
+align 1
+LABELV $106
+byte 1 103
+byte 1 95
+byte 1 115
+byte 1 121
+byte 1 110
+byte 1 99
+byte 1 104
+byte 1 114
+byte 1 111
+byte 1 110
+byte 1 111
+byte 1 117
+byte 1 115
+byte 1 67
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 116
+byte 1 115
+byte 1 0
+align 1
+LABELV $105
+byte 1 103
+byte 1 95
+byte 1 115
+byte 1 117
+byte 1 100
+byte 1 100
+byte 1 101
+byte 1 110
+byte 1 68
+byte 1 101
+byte 1 97
+byte 1 116
+byte 1 104
+byte 1 0
+align 1
+LABELV $104
+byte 1 103
+byte 1 95
+byte 1 115
+byte 1 117
+byte 1 100
+byte 1 100
+byte 1 101
+byte 1 110
+byte 1 68
+byte 1 101
+byte 1 97
+byte 1 116
+byte 1 104
+byte 1 77
+byte 1 111
+byte 1 100
+byte 1 101
+byte 1 0
+align 1
+LABELV $103
+byte 1 51
+byte 1 48
+byte 1 0
+align 1
+LABELV $102
+byte 1 103
+byte 1 95
+byte 1 115
+byte 1 117
+byte 1 100
+byte 1 100
+byte 1 101
+byte 1 110
+byte 1 68
+byte 1 101
+byte 1 97
+byte 1 116
+byte 1 104
+byte 1 84
+byte 1 105
+byte 1 109
+byte 1 101
+byte 1 0
+align 1
+LABELV $101
+byte 1 52
+byte 1 53
+byte 1 0
+align 1
+LABELV $100
+byte 1 116
+byte 1 105
+byte 1 109
+byte 1 101
+byte 1 108
+byte 1 105
+byte 1 109
+byte 1 105
+byte 1 116
+byte 1 0
+align 1
+LABELV $99
+byte 1 103
+byte 1 95
+byte 1 109
+byte 1 97
+byte 1 120
+byte 1 71
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 67
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 116
+byte 1 115
+byte 1 0
+align 1
+LABELV $98
+byte 1 56
+byte 1 0
+align 1
+LABELV $97
+byte 1 115
+byte 1 118
+byte 1 95
+byte 1 109
+byte 1 97
+byte 1 120
+byte 1 99
+byte 1 108
+byte 1 105
+byte 1 101
+byte 1 110
+byte 1 116
+byte 1 115
+byte 1 0
+align 1
+LABELV $96
+byte 1 76
+byte 1 97
+byte 1 107
+byte 1 105
+byte 1 116
+byte 1 117
+byte 1 55
+byte 1 39
+byte 1 115
+byte 1 32
+byte 1 81
+byte 1 86
+byte 1 77
+byte 1 32
+byte 1 53
+byte 1 46
+byte 1 53
+byte 1 32
+byte 1 40
+byte 1 65
+byte 1 117
+byte 1 103
+byte 1 32
+byte 1 32
+byte 1 54
+byte 1 32
+byte 1 50
+byte 1 48
+byte 1 49
+byte 1 48
+byte 1 44
+byte 1 32
+byte 1 50
+byte 1 50
+byte 1 58
+byte 1 51
+byte 1 51
+byte 1 58
+byte 1 51
+byte 1 48
+byte 1 41
+byte 1 0
+align 1
+LABELV $95
+byte 1 113
+byte 1 118
+byte 1 109
+byte 1 95
+byte 1 118
+byte 1 101
+byte 1 114
+byte 1 115
+byte 1 105
+byte 1 111
+byte 1 110
+byte 1 0
+align 1
+LABELV $94
+byte 1 102
+byte 1 102
+byte 1 0
+align 1
+LABELV $93
+byte 1 80
+byte 1 0
+align 1
+LABELV $92
+byte 1 115
+byte 1 118
+byte 1 95
+byte 1 109
+byte 1 97
+byte 1 112
+byte 1 110
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 0
+align 1
+LABELV $91
+byte 1 103
+byte 1 95
+byte 1 108
+byte 1 111
+byte 1 99
+byte 1 107
+byte 1 84
+byte 1 101
+byte 1 97
+byte 1 109
+byte 1 115
+byte 1 65
+byte 1 116
+byte 1 83
+byte 1 116
+byte 1 97
+byte 1 114
+byte 1 116
+byte 1 0
+align 1
+LABELV $90
+byte 1 48
+byte 1 0
+align 1
+LABELV $89
+byte 1 103
+byte 1 95
+byte 1 114
+byte 1 101
+byte 1 115
+byte 1 116
+byte 1 97
+byte 1 114
+byte 1 116
+byte 1 101
+byte 1 100
+byte 1 0
+align 1
+LABELV $88
+byte 1 65
+byte 1 117
+byte 1 103
+byte 1 32
+byte 1 32
+byte 1 54
+byte 1 32
+byte 1 50
+byte 1 48
+byte 1 49
+byte 1 48
+byte 1 0
+align 1
+LABELV $87
+byte 1 103
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 100
+byte 1 97
+byte 1 116
+byte 1 101
+byte 1 0
+align 1
+LABELV $86
+byte 1 98
+byte 1 97
+byte 1 115
+byte 1 101
+byte 1 0
+align 1
+LABELV $85
+byte 1 103
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 110
+byte 1 97
+byte 1 109
+byte 1 101
+byte 1 0
+align 1
+LABELV $84
+byte 1 0
+align 1
+LABELV $83
+byte 1 115
+byte 1 118
+byte 1 95
+byte 1 99
+byte 1 104
+byte 1 101
+byte 1 97
+byte 1 116
+byte 1 115
+byte 1 0

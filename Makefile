@@ -1219,6 +1219,12 @@ GOBJ_ = \
   $(B)/base/game/g_weapon.o \
   $(B)/base/game/g_admin.o \
   $(B)/base/game/g_bot.o \
+  $(B)/base/game/acebot_ai.o \
+  $(B)/base/game/acebot_cmds.o \
+  $(B)/base/game/acebot_items.o \
+  $(B)/base/game/acebot_movement.o \
+  $(B)/base/game/acebot_nodes.o \
+  $(B)/base/game/acebot_spawn.o \
   \
   $(B)/base/qcommon/q_math.o \
   $(B)/base/qcommon/q_shared.o
