@@ -1,26 +1,25 @@
 /*
-===========================================================================
-Copyright (C) 1999-2005 Id Software, Inc.
-Copyright (C) 2000-2006 Tim Angus
+ ===========================================================================
+ Copyright (C) 1999-2005 Id Software, Inc.
+ Copyright (C) 2000-2006 Tim Angus
 
-This file is part of Tremulous.
+ This file is part of Tremulous.
 
-Tremulous is free software; you can redistribute it
-and/or modify it under the terms of the GNU General Public License as
-published by the Free Software Foundation; either version 2 of the License,
-or (at your option) any later version.
+ Tremulous is free software; you can redistribute it
+ and/or modify it under the terms of the GNU General Public License as
+ published by the Free Software Foundation; either version 2 of the License,
+ or (at your option) any later version.
 
-Tremulous is distributed in the hope that it will be
-useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+ Tremulous is distributed in the hope that it will be
+ useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License
-along with Tremulous; if not, write to the Free Software
-Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-===========================================================================
-*/
-
+ You should have received a copy of the GNU General Public License
+ along with Tremulous; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ ===========================================================================
+ */
 
 #define CMD_BACKUP      64
 #define CMD_MASK      (CMD_BACKUP - 1)
@@ -38,37 +37,34 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 // they may be dropped by the network.
 typedef struct
 {
-  int           snapFlags;                            // SNAPFLAG_RATE_DELAYED, etc
-  int           ping;
+  int snapFlags; // SNAPFLAG_RATE_DELAYED, etc
+  int ping;
 
-  int           serverTime;                           // server time the message is valid for (in msec)
+  int serverTime; // server time the message is valid for (in msec)
 
-  byte          areamask[ MAX_MAP_AREA_BYTES ];       // portalarea visibility bits
+  byte areamask[MAX_MAP_AREA_BYTES]; // portalarea visibility bits
 
-  playerState_t ps;                                   // complete information about the current player at this time
+  playerState_t ps; // complete information about the current player at this time
 
-  int           numEntities;                          // all of the entities that need to be presented
-  entityState_t entities[ MAX_ENTITIES_IN_SNAPSHOT ]; // at the time of this snapshot
+  int numEntities; // all of the entities that need to be presented
+  entityState_t entities[MAX_ENTITIES_IN_SNAPSHOT]; // at the time of this snapshot
 
-  int           numServerCommands;                    // text based server commands to execute when this
-  int           serverCommandSequence;                // snapshot becomes current
+  int numServerCommands; // text based server commands to execute when this
+  int serverCommandSequence; // snapshot becomes current
 } snapshot_t;
 
 enum
 {
-  CGAME_EVENT_NONE,
-  CGAME_EVENT_TEAMMENU,
-  CGAME_EVENT_SCOREBOARD,
-  CGAME_EVENT_EDITHUD
+  CGAME_EVENT_NONE, CGAME_EVENT_TEAMMENU, CGAME_EVENT_SCOREBOARD, CGAME_EVENT_EDITHUD
 };
 
 /*
-==================================================================
+ ==================================================================
 
-functions imported from the main executable
+ functions imported from the main executable
 
-==================================================================
-*/
+ ==================================================================
+ */
 
 #define CGAME_IMPORT_API_VERSION  4
 
@@ -138,11 +134,11 @@ typedef enum
   CG_KEY_GETCATCHER,
   CG_KEY_SETCATCHER,
   CG_KEY_GETKEY,
-  CG_PC_ADD_GLOBAL_DEFINE,
-  CG_PC_LOAD_SOURCE,
-  CG_PC_FREE_SOURCE,
-  CG_PC_READ_TOKEN,
-  CG_PC_SOURCE_FILE_AND_LINE,
+  CG_PARSE_ADD_GLOBAL_DEFINE,
+  CG_PARSE_LOAD_SOURCE,
+  CG_PARSE_FREE_SOURCE,
+  CG_PARSE_READ_TOKEN,
+  CG_PARSE_SOURCE_FILE_AND_LINE,
   CG_S_STOPBACKGROUNDTRACK,
   CG_REAL_TIME,
   CG_SNAPVECTOR,
@@ -189,17 +185,20 @@ typedef enum
 
   CG_TESTPRINTINT,
   CG_TESTPRINTFLOAT,
-  CG_ACOS
+  CG_ACOS,
+  CG_KEY_SETOVERSTRIKEMODE,
+  CG_KEY_GETOVERSTRIKEMODE,
+
+  CG_S_SOUNDDURATION,
 } cgameImport_t;
 
-
 /*
-==================================================================
+ ==================================================================
 
-functions exported to the main executable
+ functions exported to the main executable
 
-==================================================================
-*/
+ ==================================================================
+ */
 
 typedef enum
 {
@@ -243,9 +242,9 @@ typedef enum
   // void (*CG_EventHandling)(int type);
 
   CG_CONSOLE_TEXT
-  // void (*CG_ConsoleText)( void );
-  // pass text that has been printed to the console to cgame
-  // use Cmd_Argc() / Cmd_Argv() to read it
+// void (*CG_ConsoleText)( void );
+// pass text that has been printed to the console to cgame
+// use Cmd_Argc() / Cmd_Argv() to read it
 } cgameExport_t;
 
 //----------------------------------------------

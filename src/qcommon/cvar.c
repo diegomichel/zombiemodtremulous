@@ -350,7 +350,8 @@ cvar_t *Cvar_Get( const char *var_name, const char *var_value, int flags ) {
 			cvar_modifiedFlags |= flags;
 		}
 
-		var->flags |= flags;
+		// if a var is not being created don't let it pretend to be
+		var->flags |= flags & ~(CVAR_USER_CREATED|CVAR_SERVER_CREATED);
 		// only allow one non-empty reset string without a warning
 		if ( !var->resetString[0] ) {
 			// we don't have a reset string yet
@@ -432,6 +433,31 @@ void Cvar_Print( cvar_t *v ) {
 	}
 }
 
+
+//legacy mode cvar support hacks 
+typedef struct vidmode_s
+{
+    const char *description;
+    int         width, height;
+	float		pixelAspect;		// pixel width / height
+} vidmode_t;
+
+vidmode_t r_vidModes[] =
+{
+    { "Mode  0: 320x240",		320,	240,	1 },
+    { "Mode  1: 400x300",		400,	300,	1 },
+    { "Mode  2: 512x384",		512,	384,	1 },
+    { "Mode  3: 640x480",		640,	480,	1 },
+    { "Mode  4: 800x600",		800,	600,	1 },
+    { "Mode  5: 960x720",		960,	720,	1 },
+    { "Mode  6: 1024x768",		1024,	768,	1 },
+    { "Mode  7: 1152x864",		1152,	864,	1 },
+    { "Mode  8: 1280x1024",		1280,	1024,	1 },
+    { "Mode  9: 1600x1200",		1600,	1200,	1 },
+    { "Mode 10: 2048x1536",		2048,	1536,	1 },
+    { "Mode 11: 856x480 (wide)",856,	480,	1 }
+};
+
 /*
 ============
 Cvar_Set2
@@ -453,6 +479,31 @@ cvar_t *Cvar_Set2( const char *var_name, const char *value, qboolean force ) {
 		var_value = "BADVALUE";
 	}
 #endif
+
+
+	//legacy mode cvar support hacks 
+	if( !Q_stricmp(var_name, "r_customheight" ) )
+		var_name = "r_height";
+	if( !Q_stricmp(var_name, "r_customwidth" ) )
+		var_name = "r_width";
+
+	if( !Q_stricmp( var_name, "r_mode" ) )
+	{
+		int mode = atoi( value );
+		if( mode > 0 && mode < 12 )
+		{
+			char modevalue[10];
+			Com_sprintf( modevalue, sizeof(modevalue), "%d", r_vidModes[mode].width );
+			Cvar_Set2( "r_width", modevalue, qfalse );
+			Com_sprintf( modevalue, sizeof(modevalue), "%d", r_vidModes[mode].height );
+			Cvar_Set2( "r_height", modevalue, qfalse );
+		}
+		else
+		{
+			value = "-1";
+		}
+	}
+    
 
 	var = Cvar_FindVar (var_name);
 	if (!var) {
@@ -560,6 +611,28 @@ void Cvar_Set( const char *var_name, const char *value) {
 
 /*
 ============
+Cvar_SetSafe
+============
+*/
+void Cvar_SetSafe( const char *var_name, const char *value )
+{
+	int flags = Cvar_Flags( var_name );
+
+	if( flags != CVAR_NONEXISTENT && flags & CVAR_PROTECTED )
+	{
+		if( value )
+			Com_Error( ERR_DROP, "Untrusted source tried to set "
+				"\"%s\" to \"%s\"\n", var_name, value );
+		else
+			Com_Error( ERR_DROP, "Untrusted source tried to "
+				"modify \"%s\"\n", var_name );
+		return;
+	}
+	Cvar_Set( var_name, value );
+}
+
+/*
+============
 Cvar_SetLatched
 ============
 */
@@ -583,6 +656,21 @@ void Cvar_SetValue( const char *var_name, float value) {
 	Cvar_Set (var_name, val);
 }
 
+/*
+============
+Cvar_SetValueSafe
+============
+*/
+void Cvar_SetValueSafe( const char *var_name, float value )
+{
+	char val[32];
+
+	if( Q_isintegral( value ) )
+		Com_sprintf( val, sizeof(val), "%i", (int)value );
+	else
+		Com_sprintf( val, sizeof(val), "%f", value );
+	Cvar_SetSafe( var_name, val );
+}
 
 /*
 ============
@@ -640,8 +728,15 @@ Handles variable inspection and changing from the console
 qboolean Cvar_Command( void ) {
 	cvar_t	*v;
 
+    char* cvarname = Cmd_Argv(0);
+
+    if(!Q_stricmp(cvarname, "r_customheight"))
+        cvarname = "r_height";
+    if(!Q_stricmp(cvarname, "r_customwidth"))
+        cvarname = "r_width";
+
 	// check variables
-	v = Cvar_FindVar (Cmd_Argv(0));
+	v = Cvar_FindVar (cvarname);
 	if (!v) {
 		return qfalse;
 	}
@@ -653,7 +748,7 @@ qboolean Cvar_Command( void ) {
 	}
 
 	// set the value if forcing isn't required
-	Cvar_Set2 (v->name, Cmd_Argv(1), qfalse);
+	Cvar_Set2 (v->name, Cmd_Args(), qfalse);
 	return qtrue;
 }
 
@@ -691,21 +786,44 @@ void Cvar_Print_f(void)
 ============
 Cvar_Toggle_f
 
-Toggles a cvar for easy single key binding
+Toggles a cvar for easy single key binding, optionally through a list of
+given values
 ============
 */
 void Cvar_Toggle_f( void ) {
-	int		v;
+	int		i, c = Cmd_Argc();
+	char		*curval;
 
-	if ( Cmd_Argc() != 2 ) {
-		Com_Printf ("usage: toggle <variable>\n");
+	if(c < 2) {
+		Com_Printf("usage: toggle <variable> [value1, value2, ...]\n");
 		return;
 	}
 
-	v = Cvar_VariableValue( Cmd_Argv( 1 ) );
-	v = !v;
+	if(c == 2) {
+		Cvar_Set2(Cmd_Argv(1), va("%d", 
+			!Cvar_VariableValue(Cmd_Argv(1))), 
+			qfalse);
+		return;
+	}
 
-	Cvar_Set2 (Cmd_Argv(1), va("%i", v), qfalse);
+	if(c == 3) {
+		Com_Printf("toggle: nothing to toggle to\n");
+		return;
+	}
+
+	curval = Cvar_VariableString(Cmd_Argv(1));
+
+	// don't bother checking the last arg for a match since the desired
+	// behaviour is the same as no match (set to the first argument)
+	for(i = 2; i + 1 < c; i++) {
+		if(strcmp(curval, Cmd_Argv(i)) == 0) {
+			Cvar_Set2(Cmd_Argv(1), Cmd_Argv(i + 1), qfalse);
+			return;
+		}
+	}
+
+	// fallback
+	Cvar_Set2(Cmd_Argv(1), Cmd_Argv(2), qfalse);
 }
 
 /*
@@ -717,12 +835,12 @@ weren't declared in C code.
 ============
 */
 void Cvar_Set_f( void ) {
-	int		i, c, l, len;
-	char	cmd[5], combined[MAX_STRING_TOKENS];
+	int		c, flag;
+	char	*cmd;
 	cvar_t *v;
 
 	c = Cmd_Argc();
-	Q_strncpyz( cmd, Cmd_Argv(0), sizeof( cmd ) );
+	cmd = Cmd_Argv(0);
 
 	if ( c < 2 ) {
 		Com_Printf ("usage: %s <variable> <value>\n", cmd);
@@ -733,37 +851,30 @@ void Cvar_Set_f( void ) {
 		return;
 	}
 
-	combined[0] = 0;
-	l = 0;
-	for ( i = 2 ; i < c ; i++ ) {
-		len = strlen ( Cmd_Argv( i ) + 1 );
-		if ( l + len >= MAX_STRING_TOKENS - 2 ) {
-			break;
-		}
-		strcat( combined, Cmd_Argv( i ) );
-		if ( i != c-1 ) {
-			strcat( combined, " " );
-		}
-		l += len;
-	}
-	v = Cvar_Set2 (Cmd_Argv(1), combined, qfalse);
+	v = Cvar_Set2 (Cmd_Argv(1), Cmd_ArgsFrom(2), qfalse);
 	if( !v ) {
 		return;
 	}
+
+	//don't make these old vars archive even if the client's old autogen told us to
+	if( !Q_stricmp( Cmd_Argv(1), "r_mode" ) || !Q_stricmp( Cmd_Argv(1), "r_customheight" ) || !Q_stricmp( Cmd_Argv(1), "r_customwidth" ) ) 
+		return;
+
 	switch( cmd[3] ) {
 		default:
-		case '\0':
-			break;
+			return;
 		case 'u':
-			v->flags |= CVAR_USERINFO;
+			flag = CVAR_USERINFO;
 			break;
 		case 's':
-			v->flags |= CVAR_SERVERINFO;
+			flag = CVAR_SERVERINFO;
 			break;
 		case 'a':
-			v->flags |= CVAR_ARCHIVE;
+			flag = CVAR_ARCHIVE;
 			break;
 	}
+	v->flags |= flag;
+	cvar_modifiedFlags |= flag;
 }
 
 /*
