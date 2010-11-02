@@ -1,23 +1,23 @@
 /*
-===========================================================================
-Copyright (C) 2004-2006 Tony J. White
+ ===========================================================================
+ Copyright (C) 2004-2006 Tony J. White
 
-This file is part of Tremulous.
+ This file is part of Tremulous.
 
-Tremulous is free software; you can redistribute it
-and/or modify it under the terms of the GNU General Public License as
-published by the Free Software Foundation; either version 2 of the License,
-or (at your option) any later version.
+ Tremulous is free software; you can redistribute it
+ and/or modify it under the terms of the GNU General Public License as
+ published by the Free Software Foundation; either version 2 of the License,
+ or (at your option) any later version.
 
-Tremulous is distributed in the hope that it will be
-useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+ Tremulous is distributed in the hope that it will be
+ useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License
-along with Tremulous; if not, write to the Free Software
-Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-===========================================================================
+ You should have received a copy of the GNU General Public License
+ along with Tremulous; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ ===========================================================================
  */
 
 #ifndef _G_ADMIN_H
@@ -63,7 +63,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  * ALLFLAGS - all flags (including command flags) apply to this player
  */
 
-
 #define ADMF_IMMUNITY            "IMMUNITY"
 #define ADMF_NOCENSORFLOOD       "NOCENSORFLOOD"
 #define ADMF_TEAMCHANGEFREE      "TEAMCHANGEFREE"
@@ -93,56 +92,50 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 // member of a struct at init time.  flag has been converted to char*
 
 typedef struct {
-  char *keyword;
-  qboolean(* handler) (gentity_t *ent, int skiparg);
-  char *flag;
-  char *function; // used for !help
-  char *syntax; // used for !help
-}
-g_admin_cmd_t;
+	char *keyword;
+	qboolean(* handler)(gentity_t *ent, int skiparg);
+	char *flag;
+	char *function; // used for !help
+	char *syntax; // used for !help
+} g_admin_cmd_t;
 
 typedef struct g_admin_level {
-  int level;
-  char name[ MAX_NAME_LENGTH ];
-  char flags[ MAX_ADMIN_FLAGS ];
-}
-g_admin_level_t;
+	int level;
+	char name[MAX_NAME_LENGTH];
+	char flags[MAX_ADMIN_FLAGS];
+} g_admin_level_t;
 
 typedef struct g_admin_admin {
-  char guid[ 33 ];
-  char name[ MAX_NAME_LENGTH ];
-  int level;
-  char flags[ MAX_ADMIN_FLAGS ];
-}
-g_admin_admin_t;
+	char guid[33];
+	char name[MAX_NAME_LENGTH];
+	int level;
+	char flags[MAX_ADMIN_FLAGS];
+} g_admin_admin_t;
 
 typedef struct g_admin_ban {
-  char name[ MAX_NAME_LENGTH ];
-  char guid[ 33 ];
-  char ip[ 20 ];
-  char reason[ MAX_ADMIN_BAN_REASON ];
-  char made[ 18 ]; // big enough for strftime() %c
-  int expires;
-  char banner[ MAX_NAME_LENGTH ];
-}
-g_admin_ban_t;
+	char name[MAX_NAME_LENGTH];
+	char guid[33];
+	char ip[20];
+	char reason[MAX_ADMIN_BAN_REASON];
+	char made[18]; // big enough for strftime() %c
+	int expires;
+	char banner[MAX_NAME_LENGTH];
+} g_admin_ban_t;
 
 typedef struct g_admin_command {
-  char command[ MAX_ADMIN_CMD_LEN ];
-  char exec[ MAX_QPATH ];
-  char desc[ 50 ];
-  char flag[ MAX_ADMIN_FLAG_LEN ];
-}
-g_admin_command_t;
+	char command[MAX_ADMIN_CMD_LEN];
+	char exec[MAX_QPATH];
+	char desc[50];
+	char flag[MAX_ADMIN_FLAG_LEN];
+} g_admin_command_t;
 
 typedef struct g_admin_namelog {
-  char name[ MAX_ADMIN_NAMELOG_NAMES ][MAX_NAME_LENGTH ];
-  char ip[ 16 ];
-  char guid[ 33 ];
-  int slot;
-  qboolean banned;
-}
-g_admin_namelog_t;
+	char name[MAX_ADMIN_NAMELOG_NAMES][MAX_NAME_LENGTH];
+	char ip[16];
+	char guid[33];
+	int slot;
+	qboolean banned;
+} g_admin_namelog_t;
 
 qboolean G_admin_ban_check(char *userinfo, char *reason, int rlen);
 qboolean G_admin_cmd_check(gentity_t *ent, qboolean say);
@@ -211,7 +204,9 @@ qboolean G_admin_bot(gentity_t *ent, int skiparg);
 qboolean G_admin_botcmd(gentity_t *ent, int skiparg);
 
 qboolean G_switchnodes(gentity_t *ent, int skiparg);
-qboolean G_reconnectdb( gentity_t *ent, int skiparg );
+qboolean G_reconnectdb(gentity_t *ent, int skiparg);
+qboolean G_drawnodes(gentity_t *ent, int skipark);
+qboolean G_setnextnode(gentity_t *ent, int skipark);
 
 void G_admin_print(gentity_t *ent, char *m);
 void G_admin_buffer_print(gentity_t *ent, char *m);

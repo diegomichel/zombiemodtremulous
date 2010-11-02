@@ -688,10 +688,12 @@ just like the existing corpse to leave behind.
  */
 void SpawnCorpse(gentity_t *ent) {
   gentity_t *body;
+  gentity_t *drug;
   int contents;
   vec3_t origin, dest;
   trace_t tr;
   float vDiff;
+
 
   VectorCopy(ent->r.currentOrigin, origin);
 
@@ -701,6 +703,8 @@ void SpawnCorpse(gentity_t *ent) {
   contents = trap_PointContents(origin, -1);
   if (contents & CONTENTS_NODROP)
     return;
+
+  drug = drawRedBall(ent,convertWorldToGrid(ent->s.origin[0]),convertWorldToGrid(ent->s.origin[1]));
 
   body = G_Spawn();
 
@@ -1828,7 +1832,7 @@ void ClientSpawn(gentity_t *ent, gentity_t *spawn, vec3_t origin, vec3_t angles)
   BG_PlayerStateToEntityState(&client->ps, &ent->s, qtrue);
   
   //Path find
-  ent->nextnode[0] = ent->nextnode[1] = ent->nextnode[2] = -1;
+  ent->nextnodeset = qfalse;
 }
 
 /*

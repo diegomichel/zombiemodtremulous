@@ -529,10 +529,7 @@ void ClientTimerActions(gentity_t *ent, int msec) {
   while (client->time100 >= 100) {
     client->time100 -= 100;
     
-    //Grid fill
-    /*if(client->ps.stats[STAT_PTEAM] == PTE_HUMANS)
-    {*/ 
-      fillGrid(ent);
+    fillGrid(ent);
       
     //if not trying to run then not trying to sprint
     if (aForward <= 64)
