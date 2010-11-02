@@ -3678,8 +3678,12 @@ G_admin_findpath(gentity_t *ent, int skiparg)
       continue;
     if (!(bot->r.svFlags & SVF_BOT))
       continue;
-    bot->pathTarget = ent;
+
+    ACESP_SetupBotState(bot);
     bot->botCommand = BOT_FOLLOW_PATH;
+    bot->botEnemy = ent;
+    bot->bs.goalEntity = ent;
+    bot->bs.moveTarget = ent;
   }
   return qtrue;
 }

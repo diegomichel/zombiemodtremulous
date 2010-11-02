@@ -1560,3 +1560,115 @@ int Q_isnan( float x )
 
 	return (int)( (unsigned int)t.i >> 31 );
 }
+
+void VectorToAngles(const vec3_t value1, vec3_t angles)
+{
+        float           forward;
+        float           yaw, pitch;
+
+        if(value1[1] == 0 && value1[0] == 0)
+        {
+                yaw = 0;
+                if(value1[2] > 0)
+                {
+                        pitch = 90;
+                }
+                else
+                {
+                        pitch = 270;
+                }
+        }
+        else
+        {
+                if(value1[0])
+                {
+                        yaw = (atan2(value1[1], value1[0]) * 180 / M_PI);
+                }
+                else if(value1[1] > 0)
+                {
+                        yaw = 90;
+                }
+                else
+                {
+                        yaw = 270;
+                }
+                if(yaw < 0)
+                {
+                        yaw += 360;
+                }
+
+                forward = sqrt(value1[0] * value1[0] + value1[1] * value1[1]);
+                pitch = (atan2(value1[2], forward) * 180 / M_PI);
+                if(pitch < 0)
+                {
+                        pitch += 360;
+                }
+        }
+
+        angles[PITCH] = -pitch;
+        angles[YAW] = yaw;
+        angles[ROLL] = 0;
+}
+
+/*
+=====================
+Q_acos
+
+the msvc acos doesn't always return a value between -PI and PI:
+
+int i;
+i = 1065353246;
+acos(*(float*) &i) == -1.#IND0
+=====================
+*/
+float Q_acos(float c)
+{
+        float           angle;
+
+        angle = acos(c);
+
+        if(angle > M_PI)
+        {
+                return (float)M_PI;
+        }
+        else if(angle < -M_PI)
+        {
+                return (float)M_PI;
+        }
+        return angle;
+}
+
+
+/*
+=================
+AngleBetweenVectors
+
+returns the angle between two vectors normalized to the range [0 <= angle <= 180]
+=================
+*/
+float AngleBetweenVectors(const vec3_t a, const vec3_t b)
+{
+        vec_t           alen, blen;
+
+        alen = VectorLength(a);
+        blen = VectorLength(b);
+
+        if(!alen || !blen)
+                return 0;
+
+        // complete dot product of two vectors a, b is |a| * |b| * cos(angle)
+        // this results in:
+        //
+        // angle = acos( (a * b) / (|a| * |b|) )
+        return RAD2DEG(Q_acos(DotProduct(a, b) / (alen * blen)));
+}
+qboolean BoundsIntersectPoint(const vec3_t mins, const vec3_t maxs, const vec3_t origin)
+{
+        if(origin[0] > maxs[0] ||
+           origin[0] < mins[0] || origin[1] > maxs[1] || origin[1] < mins[1] || origin[2] > maxs[2] || origin[2] < mins[2])
+        {
+                return qfalse;
+        }
+
+        return qtrue;
+}

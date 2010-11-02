@@ -1599,7 +1599,7 @@ void FireWeapon(gentity_t *ent) {
 
     case WP_BOMB:
       //trap_SendServerCommand( -1, "print \"^1SOB\n\"" );
-      meleeAttack(ent, LEVEL0_BITE_RANGE / 3, LEVEL1_CLAW_WIDTH, LEVEL1_CLAW_DMG, MOD_LEVEL1_CLAW);
+      meleeAttack(ent, LEVEL0_BITE_RANGE / 2, LEVEL1_CLAW_WIDTH, LEVEL1_CLAW_DMG/2, MOD_LEVEL1_CLAW);
       break;
 
     case WP_LOCKBLOB_LAUNCHER:

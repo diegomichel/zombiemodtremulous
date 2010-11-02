@@ -22,6 +22,7 @@
  */
 
 #include "g_local.h"
+#include "acebot.h"
 
 damageRegion_t g_damageRegions[PCL_NUM_CLASSES][MAX_LOCDAMAGE_REGIONS];
 int g_numDamageRegions[PCL_NUM_CLASSES];
@@ -138,6 +139,11 @@ player_die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
   {
     if (self && self->client)
     {
+      if (self->r.svFlags & SVF_BOT)
+      {
+        self->botCommand = BOT_REGULAR;
+        self->botEnemy = NULL;
+      }
       self->client->pers.lastdeadtime = level.time - level.startTime;
     }
   }
@@ -1102,6 +1108,36 @@ G_Damage(gentity_t *targ, gentity_t *inflictor, gentity_t *attacker, vec3_t dir,
     if (targ->botEnemy == NULL)
     {
       targ->botEnemy = attacker;
+    }
+    else if (targ->botCommand == BOT_FOLLOW_PATH)
+    {
+      switch(targ->botMetaMode)
+      {
+        case ATTACK_RAMBO:
+          if (targ->health < 85)
+          {
+            targ->botEnemy = attacker;
+            targ->botCommand = BOT_REGULAR;
+            memset(&targ->client->pers.cmd, 0, sizeof(targ->client->pers.cmd));
+          }
+          break;
+        case ATTACK_CAMPER:
+          if (targ->health < 95)
+          {
+            targ->botEnemy = attacker;
+            targ->botCommand = BOT_REGULAR;
+            memset(&targ->client->pers.cmd, 0, sizeof(targ->client->pers.cmd));
+          }
+          break;
+        case ATTACK_ALL:
+          if (targ->health < 100)
+          {
+            targ->botEnemy = attacker;
+            targ->botCommand = BOT_REGULAR;
+            memset(&targ->client->pers.cmd, 0, sizeof(targ->client->pers.cmd));
+          }
+          break;
+      }
     }
   }
 

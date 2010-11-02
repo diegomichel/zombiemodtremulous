@@ -616,6 +616,7 @@ void MakeNormalVectors( const vec3_t forward, vec3_t right, vec3_t up );
 void MatrixMultiply(float in1[3][3], float in2[3][3], float out[3][3]);
 void VectorMatrixMultiply( const vec3_t p, vec3_t m[ 3 ], vec3_t out );
 void AngleVectors( const vec3_t angles, vec3_t forward, vec3_t right, vec3_t up);
+void            VectorToAngles(const vec3_t value1, vec3_t angles);
 void PerpendicularVector( vec3_t dst, const vec3_t src );
 int Q_isnan( float x );
 
@@ -637,6 +638,8 @@ vec_t DistanceBetweenLineSegments(
     const vec3_t sP0, const vec3_t sP1,
     const vec3_t tP0, const vec3_t tP1,
     float *s, float *t );
+
+qboolean        BoundsIntersectPoint(const vec3_t mins, const vec3_t maxs, const vec3_t origin);
 
 #ifndef MAX
 #define MAX(x,y) ((x)>(y)?(x):(y))

@@ -22,6 +22,7 @@
  */
 
 #include "g_local.h"
+#include "acebot.h"
 
 // g_client.c -- client functions that don't happen every frame
 
@@ -373,8 +374,8 @@ G_SelectAlienSpawnPoint(vec3_t preference, gentity_t * ent)
 
     if (G_CheckSpawnPoint(spot->s.number, spot->s.origin, spot->s.origin2, BA_H_SPAWN, NULL) != NULL)
       continue;
-    if (g_survival.integer && spot->survivalStage != level.survivalStage && level.numAlienSpawns > 2)
-      continue;
+    /*if (g_survival.integer && spot->survivalStage != level.survivalStage && level.numAlienSpawns > 2)
+      continue;*/
 
     spots[count] = spot;
     count++;
@@ -386,7 +387,7 @@ G_SelectAlienSpawnPoint(vec3_t preference, gentity_t * ent)
   //srand(seed);
   //random_integer = rand() % (count);
 
-  if (!g_survival.integer) // Was making zombies spawn in non sense areas.
+  /*if (!g_survival.integer) // Was making zombies spawn in non sense areas.
   {
     for(i = 0;i < level.numConnectedClients;i++)
     {
@@ -406,9 +407,9 @@ G_SelectAlienSpawnPoint(vec3_t preference, gentity_t * ent)
         break;
       }
     }
-  }
+  }*/
 
-  if (g_survival.integer && level.botsfollowpath && !ent->botlostpath) //if bot have meet our sob make it spawn somewhere else
+  /*if (g_survival.integer && level.botsfollowpath && !ent->botlostpath) //if bot have meet our sob make it spawn somewhere else
   {
     if (level.selectednode != NULL)
     {
@@ -417,38 +418,10 @@ G_SelectAlienSpawnPoint(vec3_t preference, gentity_t * ent)
       return level.selectednode;
     }
     G_LogPrintf("No nodes.\n");
-    /*for (i = MAX_CLIENTS; i < level.num_entities; i++) {
-     node = &level.gentities[ i ];
-     if (node->health <= 0)
-     continue;
-     if (node->s.eType != ET_BUILDABLE)
-     continue;
-     if (node->biteam != BIT_ALIENS)
-     continue;
-     if (node->s.modelindex != BA_H_SPAWN)
-     continue;
-
-     if (node->clientSpawnTime > 0)
-     {
-     return NULL;
-     }
-
-
-     break;
-     }*/
-    /*if(!node)
-     {
-     G_LogPrintf("No nodes.\n");
-     }
-     else
-     {
-     G_LogPrintf(va("Bot shuld spwn in right node. %d %d\n", node->s.origin[0], node->s.origin[1]));
-     return node;
-     }*/
-  }
+  }*/
   
   //return spots[random_integer]; //This shuld work fine :s
-  if (!sob)
+  /*if (!sob)
   {
     if (g_survival.integer)
     {
@@ -484,9 +457,9 @@ G_SelectAlienSpawnPoint(vec3_t preference, gentity_t * ent)
     }
   }
   else
-  {
-    return G_ClosestEnt(sob->s.origin, spots, count);
-  }
+  {*/
+    return G_ClosestEnt(preference, spots, count);
+  /*}*/
 }
 
 /*
@@ -736,13 +709,13 @@ BodySink(gentity_t *ent)
           randomitem = BA_I_CHAINGUN;
           break;
         case 2:
-          randomitem = BA_I_FLAMER;
+          randomitem = BA_I_CHAINGUN;
           break;
         case 3:
           randomitem = BA_I_LASGUN;
           break;
         case 4:
-          randomitem = BA_I_LCANNON;
+          randomitem = BA_I_LASGUN;
           break;
         case 5:
           randomitem = BA_I_MACHINEGUN;
@@ -751,7 +724,7 @@ BodySink(gentity_t *ent)
           randomitem = BA_I_MDRIVER;
           break;
         case 7:
-          randomitem = BA_I_PSAW;
+          randomitem = BA_I_MACHINEGUN;
           break;
         case 8:
           randomitem = BA_I_PULSERIFLE;
@@ -950,10 +923,11 @@ G_SetClientViewAngle(gentity_t *ent, vec3_t angle)
 void
 respawn(gentity_t *ent)
 {
-  if (!((ent->r.svFlags & SVF_BOT) && !ent->botEnemy))
-  {
+  //WTF is doing thise code here WTF lol
+  /*if (!((ent->r.svFlags & SVF_BOT) && !ent->botEnemy))
+  {*/
     SpawnCorpse(ent);
-  }
+  /*}*/
 
   //TA: Clients can't respawn - they must go thru the class cmd
   ent->client->pers.classSelection = PCL_NONE;
@@ -1735,6 +1709,8 @@ ClientSpawn(gentity_t *ent, gentity_t *spawn, vec3_t origin, vec3_t angles)
   client = ent->client;
 
   teamLocal = client->pers.teamSelection;
+
+  ent->bs.lastNode = INVALID;
 
   //TA: only start client if chosen a class and joined a team
   if (client->pers.classSelection == PCL_NONE && teamLocal == PTE_NONE)

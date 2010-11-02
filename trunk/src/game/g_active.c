@@ -571,8 +571,6 @@ ClientTimerActions(gentity_t *ent, int msec)
   {
     client->time100 -= 100;
     
-    fillGrid(ent);
-
     //if not trying to run then not trying to sprint
     if (aForward <= 64)
       client->ps.stats[STAT_STATE] &= ~SS_SPEEDBOOST;
@@ -772,20 +770,40 @@ ClientTimerActions(gentity_t *ent, int msec)
   {
     client->time1000 -= 1000;
 
+    if (ent->botCommand == BOT_REGULAR)
+    {
+      if (ent->botEnemy)
+      {
+        ent->botEnemy = NULL;
+        //VectorSet(ent->client->ps.delta_angles, 0, 0, 0);
+      }
+    }
+    //FIXME: Uncomment for production
+    /*if(ent->botCommand == BOT_FOLLOW_PATH
+     && (ent->botEnemy->health <= 0
+     || ent->botEnemy->client->sess.sessionTeam == TEAM_SPECTATOR
+     || ent->botEnemy->client->ps.stats[STAT_HEALTH] <= 0 ))
+     {
+     ent->botEnemy = NULL;
+     ent->botCommand = BOT_REGULAR;
+     memset(&ent->client->pers.cmd, 0, sizeof(ent->client->pers.cmd));
+     VectorSet(ent->client->ps.delta_angles, 0, 0, 0);
+     }*/
+
     if (g_survival.integer && (ent->client->ps.stats[STAT_PTEAM] == PTE_HUMANS))
     {
 
-      if (ent->client->ps.stats[STAT_HEALTH] > 0)
-      {
-        if (ent->client->ps.stats[STAT_HEALTH] < 2)
-        {
-          G_Damage(ent, NULL, NULL, NULL, NULL, 1, 0, MOD_SUICIDE);
-        }
-        else
-        {
-          ent->health = ent->client->ps.stats[STAT_HEALTH] -= 1;
-        }
-      }
+      /*if (ent->client->ps.stats[STAT_HEALTH] > 0)
+       {
+       if (ent->client->ps.stats[STAT_HEALTH] < 2)
+       {
+       G_Damage(ent, NULL, NULL, NULL, NULL, 1, 0, MOD_SUICIDE);
+       }
+       else
+       {
+       ent->health = ent->client->ps.stats[STAT_HEALTH] -= 1;
+       }
+       }*/
 
       if (level.slowdownTime > level.time)
       {
@@ -820,7 +838,10 @@ ClientTimerActions(gentity_t *ent, int msec)
     //Forget the sob
     if (ent->r.svFlags & SVF_BOT)
     {
-      ent->botEnemy = NULL;
+      /*if (!g_survival.integer) //FIXME: Uncomment in production?
+       {
+       ent->botEnemy = NULL;
+       }*/
     }
 
     //client is poison clouded
@@ -933,33 +954,6 @@ ClientTimerActions(gentity_t *ent, int msec)
   while(client->time10000 >= 10000)
   {
     client->time10000 -= 10000;
-
-    if (ent->lastTimeSeen < level.time && g_survival.integer && (ent->client->ps.stats[STAT_PTEAM] == PTE_HUMANS) && ent->health > 0
-        && ent->client->ps.stats[STAT_HEALTH] > 0 && ent->client->sess.sessionTeam != TEAM_SPECTATOR && level.slowdownTime < level.time)
-    {
-      if (ent->lastTimeSeen == 0)
-      {
-        ent->lastTimeSeen = level.time + 5500; //30 seconds to camp on start
-      }
-      else //if (ent->health > 0 && level.slowdownTime < level.time && level.lastpathfindtime < level.time)
-      {
-        //This works needs some fixs
-        /*if (ent->health > 0 && ent->client->pers.classSelection != PCL_NONE)
-         {
-         level.lastpathfindtime = level.time + 40000; // 10 Seconds to another pathfind.
-         find_path(ent);
-         if (level.botsfollowpath)
-         {
-         kill_aliens_withoutenemy();
-         trap_SendServerCommand(-1, "print \"^1:>\n\"");
-         }*/
-
-        //trap_SendServerCommand(ent - g_entities,
-        // "cp \"^1Stop Camping\n\"");
-        //G_Damage(ent, NULL, NULL, NULL, NULL, 33, 0, MOD_SUICIDE);
-        //G_Damage(ent, NULL, NULL, NULL, NULL, 5, DAMAGE_NO_ARMOR, MOD_SUICIDE);
-      }
-    }
 
     if (client->ps.weapon == WP_ALEVEL3_UPG)
     {
@@ -1723,6 +1717,10 @@ ClientThink_real(gentity_t *ent)
 
   // touch other objects
   ClientImpacts(ent, &pm);
+
+#if defined(ACEBOT)
+  ACEND_PathMap(ent);
+#endif
 
   // execute client events
   ClientEvents(ent, oldEventSequence);

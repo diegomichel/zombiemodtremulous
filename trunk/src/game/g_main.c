@@ -232,6 +232,19 @@ int mega_wave = 1;
 
 vmCvar_t g_antispawncamp;
 
+#if defined(ACEBOT)
+vmCvar_t ace_debug;
+vmCvar_t ace_showNodes;
+vmCvar_t ace_showLinks;
+vmCvar_t ace_showPath;
+vmCvar_t ace_pickLongRangeGoal;
+vmCvar_t ace_pickShortRangeGoal;
+vmCvar_t ace_attackEnemies;
+vmCvar_t ace_spSkill;
+vmCvar_t ace_botsFile;
+#endif
+vmCvar_t director_debug;
+
 static cvarTable_t gameCvarTable[] =
 {
 // don't override the cheat state set by the system
@@ -404,7 +417,22 @@ static cvarTable_t gameCvarTable[] =
 
     { &g_ctnbuildlimit, "g_ctnbuildlimit", "5", CVAR_ARCHIVE, 0, qfalse },
     { &g_antispawncamp, "g_antispawncamp", "5000", CVAR_ARCHIVE, 0, qfalse },
-    { &g_ctncapturetime, "g_ctncapturetime", "10000", CVAR_ARCHIVE, 0, qfalse } };
+    { &g_ctncapturetime, "g_ctncapturetime", "10000", CVAR_ARCHIVE, 0, qfalse },
+
+#if defined(ACEBOT)
+    { &ace_debug, "ace_debug", "0", 0, 0, qfalse },
+    { &ace_showNodes, "ace_showNodes", "0", 0, 0, qfalse },
+    { &ace_showLinks, "ace_showLinks", "0", 0, 0, qfalse },
+    { &ace_showPath, "ace_showPath", "0", 0, 0, qfalse },
+    { &ace_pickLongRangeGoal, "ace_pickLongRangeGoal", "1", 0, 0, qfalse },
+    { &ace_pickShortRangeGoal, "ace_pickShortRangeGoal", "1", 0, 0, qfalse },
+    { &ace_attackEnemies, "ace_attackEnemies", "1", 0, 0, qfalse },
+    { &ace_spSkill, "g_spSkill", "3", 0, 0, qfalse }, // FIXME rename
+    { &ace_botsFile, "g_botsFile", "3", 0, 0, qfalse }, // FIXME rename
+#endif
+    { &director_debug, "director_debug", "0", 0, 0, qfalse },
+
+};
 
 static int gameCvarTableSize = sizeof(gameCvarTable) / sizeof(gameCvarTable[0]);
 
@@ -872,6 +900,11 @@ G_InitGame(int levelTime, int randomSeed, int restart)
     level.humanTeamLocked = qtrue;
     trap_Cvar_Set("g_lockTeamsAtStart", "0");
   }
+
+  ACEND_InitNodes();
+  //ACEND_LoadNodes(); Ma function to load from file dont owrkz..
+  //ACESP_InitBots(restart); that dont work either.
+
 }
 
 /*
@@ -1261,9 +1294,195 @@ G_SpawnClients(pTeam_t team)
 }
 
 void
+botAttack(gentity_t *enemy, int metaMode)
+{
+  gentity_t *ent;
+  int i;
+  int maxbots;
+  int controledbots = 0;
+
+  if (!enemy)
+    return;
+
+  if(enemy->client->ps.stats[STAT_HEALTH] <= 0 || enemy->health <=0)
+    return;
+
+
+  switch(metaMode)
+  {
+    case ATTACK_RAMBO:
+      maxbots = 10;
+      break;
+    case ATTACK_CAMPER:
+      maxbots = 10;
+      break;
+    case ATTACK_ALL:
+      maxbots = level.botslots;
+      break;
+  }
+  for(i = 0;i < level.botslots;i++)
+  {
+    ent = &g_entities[i];
+
+    if (!ent)
+      continue;
+    if (!ent->client)
+      continue;
+    if (ent->client->sess.sessionTeam == TEAM_SPECTATOR)
+      continue;
+    if (ent->client->ps.stats[STAT_PTEAM] == PTE_HUMANS)
+      continue;
+    if (ent->client->ps.stats[STAT_HEALTH] <= 0 || ent->health <= 0)
+      continue;
+    if (ent->botEnemy)
+      continue;
+
+    ACESP_SetupBotState(ent);
+    ent->botCommand = BOT_FOLLOW_PATH;
+    ent->botEnemy = enemy;
+    ent->bs.goalEntity = enemy;
+    ent->bs.moveTarget = enemy;
+    ent->botMetaMode = metaMode;
+    controledbots++;
+    if (controledbots >= (maxbots))
+      break;
+  }
+}
+
+//The IA master mind
+void
+G_Director()
+{
+
+  //In order the worse first
+  gentity_t *ent;
+  gentity_t *ent2;
+  gentity_t *rambo; //Like to leave the team alone
+  gentity_t *camper; //Like to hides and dont fight
+
+
+  int i, j;
+
+  if (level.time % 1000 % 15 != 0) // every 5 seconds lolz.
+  {
+    return;
+  }
+
+  rambo = camper = NULL;
+
+  if(!g_survival.integer) return;
+
+  //To detect the rambo, what is a rambo
+  //a rambo is the player go and run away from
+  //it mates, so to detect him we just need to check around
+  //if there are not teammaters around we have a rambo, and it must die.
+  for(i = level.botslots;i < level.botslots + level.numConnectedClients;i++)
+  {
+    ent = &g_entities[i];
+    if (!ent)
+      continue;
+    if (!ent->client)
+      continue;
+    if (ent->client->sess.sessionTeam == TEAM_SPECTATOR)
+      continue;
+    if (ent->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
+      continue;
+    if (ent->client->ps.stats[STAT_HEALTH] <= 0 || ent->health <=0 )
+      continue;
+
+    rambo = ent;
+
+    for(j = level.botslots;j < level.botslots + level.numConnectedClients;j++)
+    {
+      ent2 = &g_entities[j];
+      if (!ent2)
+        continue;
+      if (!ent2->client)
+        continue;
+      if (i == j)
+        continue;
+      if (ent2->client->sess.sessionTeam == TEAM_SPECTATOR)
+        continue;
+      if (ent2->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
+        continue;
+      if (ent2->client->ps.stats[STAT_HEALTH] <= 0 || ent2->health <=0)
+        continue;
+
+      //G_Printf("Checking visibility from %s to %s\n", ent->client->pers.netname, ent2->client->pers.netname);
+      if (G_Visible(ent, ent2))
+      {
+        rambo = NULL;
+        break;
+      }
+    }
+    if (rambo)
+      break;
+  }
+  if (rambo)
+  {
+    botAttack(rambo, ATTACK_RAMBO);
+  }
+
+  for(i = level.botslots;i < level.botslots + level.numConnectedClients;i++)
+  {
+    ent = &g_entities[i];
+    if (!ent)
+      continue;
+    if (!ent->client)
+      continue;
+    if (ent->client->sess.sessionTeam == TEAM_SPECTATOR)
+      continue;
+    if (ent->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
+      continue;
+    if (ent->client->ps.stats[STAT_HEALTH] <= 0 || ent->health <=0)
+      continue;
+
+    if (ent->lastTimeSeen == 0)
+    {
+      ent->lastTimeSeen = level.time + 20000; //Give the player some time
+      continue;
+    }
+
+    if ((ent->lastTimeSeen + 15000) < level.time) //Time to camp.
+
+    {
+      ent->lastTimeSeen = level.time;
+      camper = ent;
+      break;
+    }
+  }
+  if (camper)
+  {
+    botAttack(rambo, ATTACK_CAMPER);
+  }
+  //Every Minut Send Some bots to a random player.
+  if (level.time % 1000 % 120 == 0)
+  {
+    for(i = level.botslots;i < level.botslots + level.numConnectedClients;i++)
+    {
+      ent = &g_entities[i];
+
+      if (!ent)
+        continue;
+      if (!ent->client)
+        continue;
+      if (ent->client->sess.sessionTeam == TEAM_SPECTATOR)
+        continue;
+      if (ent->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
+        continue;
+      if (ent->client->ps.stats[STAT_HEALTH] <= 0 || ent->health <= 0)
+        continue;
+
+      ent2 = ent;
+      break;
+    }
+    botAttack(ent2, ATTACK_ALL);
+  }
+}
+
+void
 G_addBot()
 {
-  
   if (level.numAlienSpawns < 1)
     return;
 
@@ -1301,17 +1520,19 @@ G_addBot()
   {
     level.lastBotTime = level.time + 30000;
     if ((level.time - level.startTime) / 1000 / 60 > 4) //4 Minutes
+
     {
       level.lastBotTime = level.time + 10000;
     }
     if ((level.time - level.startTime) / 1000 / 60 > 6) //6 Minutes
+
     {
       level.lastBotTime = level.time + 5000;
     }
   }
   else
   {
-    level.lastBotTime = level.time + 5000;
+    level.lastBotTime = level.time + 2000;
   }
   level.botsLevel++;
   //FIX ME:PRODUCTION
@@ -1354,53 +1575,6 @@ G_CalculateSurvivalRecords(void)
 void
 G_UpdateCamper(void)
 {
-  int i;
-  gentity_t *ent;
-  gentity_t *player;
-  int count;
-
-  if (level.updateCamperTime > level.time)
-  {
-    return;
-  }
-  level.updateCamperTime = level.time + 5000;
-  //trap_SendServerCommand(-1, "print \"pew\n\"");
-  for(i = 0;i < g_maxclients.integer;i++)
-  {
-    ent = g_entities + level.sortedClients[i];
-    //ent = &level.gentities[ i ];
-
-    if (!ent->client)
-      continue;
-    if (ent->health <= 0)
-      continue;
-    if (ent->s.eType == ET_BUILDABLE)
-      continue;
-    if (ent->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
-      continue;
-    if (ent->client->ps.stats[STAT_HEALTH] <= 0 || ent->client->sess.sessionTeam == TEAM_SPECTATOR)
-      continue;
-    player = ent;
-    count++;
-  }
-  //FIX ME: PRODUCTION
-  /*if(count == 1 && level.lastpathfindtime < level.time)
-   {
-   //Last player left
-   level.theCamper = player;
-   level.lastpathfindtime = level.time + 40000; // 10 Seconds to another pathfind.
-   find_path(player);
-   trap_SendServerCommand(-1, va("print \"path for %s\n\"", player->client->pers.netname));
-   if(level.botsfollowpath)
-   {
-   kill_aliens_withoutenemy();
-   trap_SendServerCommand(-1,
-   "print \"^1.\n\"");
-   }
-
-   }*/
-  //trap_SendServerCommand(-1, va("print \"%d\n\"",count));
-  return;
 }
 
 /*
@@ -1479,7 +1653,7 @@ G_CalculateBuildPoints(void)
   gentity_t *ent;
   int localHTP = g_humanBuildPoints.integer, localATP = g_alienBuildPoints.integer;
 
-  // g_suddenDeath sets what state we want it to be.  
+  // g_suddenDeath sets what state we want it to be.
   // level.suddenDeath says whether we've calculated BPs at the 'start' of SD or not
 
   // reset if SD was on, but now it's off
@@ -1497,6 +1671,7 @@ G_CalculateBuildPoints(void)
   if (!level.suddenDeath)
   {
     if (g_suddenDeath.integer || G_TimeTilSuddenDeath() <= 0) //Conditions to enter SD
+
     {
       //begin sudden death
       if (level.suddenDeathWarning < TW_PASSED)
@@ -1617,6 +1792,7 @@ G_CalculateBuildPoints(void)
   trap_SetConfigstring(CS_BUILDPOINTS, va("%d %d %d %d %d", level.alienBuildPoints, localATP, level.humanBuildPoints, localHTP, level.humanBuildPointsPowered));
 
   //may as well pump the stages here too
+
   {
     float alienPlayerCountMod = level.averageNumAlienClients / PLAYER_COUNT_MOD;
     float humanPlayerCountMod = level.averageNumHumanClients / PLAYER_COUNT_MOD;
@@ -3010,7 +3186,7 @@ G_RunFrame(int levelTime)
       ClientEndFrame(ent);
   }
 
-  // save position information for all active clients 
+  // save position information for all active clients
   G_UnlaggedStore();
 
   end = trap_Milliseconds();
@@ -3037,9 +3213,11 @@ G_RunFrame(int levelTime)
   CheckTeamVote(PTE_HUMANS);
   CheckTeamVote(PTE_ALIENS);
 
-  G_UpdateCamper();
+  //G_UpdateCamper();
   G_CalculateSurvivalRecords();
-  G_addBot();
+  //FIXME: uncomment production.
+  //G_addBot();
+  //G_Director();
 
   // for tracking changes
   CheckCvars();

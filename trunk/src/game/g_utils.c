@@ -178,6 +178,14 @@ G_TeamCommand(pTeam_t team, char *cmd)
   }
 }
 
+void G_ProjectSource(vec3_t point, vec3_t distance, vec3_t forward, vec3_t right, vec3_t result)
+{
+        result[0] = point[0] + forward[0] * distance[0] + right[0] * distance[1];
+        result[1] = point[1] + forward[1] * distance[0] + right[1] * distance[1];
+        result[2] = point[2] + forward[2] * distance[0] + right[2] * distance[1] + distance[2];
+}
+
+
 /*
  =============
  G_Find
@@ -760,8 +768,8 @@ G_SetOrigin(gentity_t *ent, vec3_t origin)
 // (NOBODY): Code helper function
 //
 
-gentity_t *
-G_FindRadius(gentity_t *from, vec3_t org, float rad)
+gentity_t
+*G_FindRadius(gentity_t * from, const vec3_t org, float rad)
 {
   vec3_t eorg;
   int j;
@@ -1119,172 +1127,6 @@ kill_aliens_withoutenemy()
 void
 find_path(gentity_t * ent)
 {
-  gentity_t *node;
-  gentity_t *spot;
-  int count;
-  gentity_t * spots[MAX_SPAWN_POINTS];
-  int x, y;
-  int xnode, ynode;
-  int i;
-  int pathpos = 0;
-  qboolean way = qfalse;
-
-  x = ((BLOCKSIZE / 2) + (ent->s.origin[0] / BLOCKSIZE));
-  y = ((BLOCKSIZE / 2) + (ent->s.origin[1] / BLOCKSIZE));
-  //Prevent buffer overflow.
-  if (x >= GRIDSIZE || y >= GRIDSIZE || x < 0 || y < 0)
-  {
-    G_LogPrintf("Out of the path map.\n");
-    return;
-  }
-
-  //Selecting closest node posible.
-  count = 0;
-  spot = NULL;
-  while((spot = G_Find(spot, FOFS(classname), BG_FindEntityNameForBuildable(BA_H_SPAWN))) != NULL)
-  {
-    if (!spot->spawned)
-      continue;
-
-    if (spot->health <= 0)
-      continue;
-
-    if (!spot->s.groundEntityNum)
-      continue;
-
-    if (spot->biteam != BIT_ALIENS)
-      continue;
-
-    if (spot->clientSpawnTime > 0)
-      continue;
-
-    if (G_CheckSpawnPoint(spot->s.number, spot->s.origin, spot->s.origin2, BA_H_SPAWN, NULL) != NULL)
-      continue;
-
-    spots[count] = spot;
-    count++;
-  }
-  node = G_ClosestEnt(ent->s.origin, spots, count);
-
-  /*for (i = MAX_CLIENTS; i < level.num_entities; i++) {
-   node = &level.gentities[ i ];
-   if (node->health <= 0)
-   continue;
-   if (node->s.eType != ET_BUILDABLE)
-   continue;
-   if (node->biteam != BIT_ALIENS)
-   continue;
-   if (node->s.modelindex != BA_H_SPAWN)
-   continue;
-
-   break;
-   }*/
-  if (!node)
-  {
-    G_LogPrintf("No nodes.\n");
-  }
-  xnode = ((BLOCKSIZE / 2) + (node->s.origin[0] / BLOCKSIZE));
-  ynode = ((BLOCKSIZE / 2) + (node->s.origin[1] / BLOCKSIZE));
-  //Prevent buffer overflow.
-  if (xnode >= GRIDSIZE || ynode >= GRIDSIZE || xnode < 0 || ynode < 0)
-  {
-    G_LogPrintf("Node out of the path map.\n");
-    return;
-  }
-
-  cleanpath();
-
-  while(findway(0, xnode, ynode, x, y)) //Reversed from alien spawn to human
-  {
-    level.path[xnode][ynode] = 1;
-    level.botsfollowpath = qtrue;
-    way = 1;
-    //G_LogPrintf(va("PATHPOS %d\n",pathpos));
-    level.pathx[pathpos] = xnode;
-    level.pathy[pathpos] = ynode;
-    cleanvis();
-    if (level.LEFT == min(min(min(level.LEFT, level.RIGHT), min(level.DOWNRIGHT, level.DOWNLEFT)), min(min(level.UP, level.DOWN), min(level.UPRIGHT,
-        level.UPLEFT))))
-    {
-      // G_LogPrintf(va("A la izquierda %d %d %d %d \n",level.LEFT, level.maxpasos, x, y));
-      xnode = xnode - 1;
-      pathpos++;
-      //break;
-    }
-    else if (level.RIGHT == min(min(min(level.LEFT, level.RIGHT), min(level.DOWNRIGHT, level.DOWNLEFT)), min(min(level.UP, level.DOWN), min(level.UPRIGHT,
-        level.UPLEFT))))
-    {
-      // G_LogPrintf(va("A la Derecha %d %d %d %d \n",level.RIGHT, level.maxpasos, x, y));
-      xnode = xnode + 1;
-      pathpos++;
-      //break;
-    }
-    else if (level.UP == min(min(min(level.LEFT, level.RIGHT), min(level.DOWNRIGHT, level.DOWNLEFT)), min(min(level.UP, level.DOWN), min(level.UPRIGHT,
-        level.UPLEFT))))
-    {
-      //G_LogPrintf(va("Go Up %d %d %d %d \n",level.RIGHT, level.maxpasos, x, y));
-      ynode = ynode - 1;
-      pathpos++;
-    }
-    else if (level.DOWN == min(min(min(level.LEFT, level.RIGHT), min(level.DOWNRIGHT, level.DOWNLEFT)), min(min(level.UP, level.DOWN), min(level.UPRIGHT,
-        level.UPLEFT))))
-    {
-      //G_LogPrintf(va("Go Down %d %d %d %d \n",level.RIGHT, level.maxpasos, x, y));
-      ynode = ynode + 1;
-      pathpos++;
-    }//////////////////////////////////////////////////////////////////////////Better pathfinding.
-    else if (level.DOWNRIGHT == min(min(min(level.LEFT, level.RIGHT), min(level.DOWNRIGHT, level.DOWNLEFT)), min(min(level.UP, level.DOWN), min(level.UPRIGHT,
-        level.UPLEFT))))
-    {
-      //G_LogPrintf(va("Go Down %d %d %d %d \n",level.RIGHT, level.maxpasos, x, y));
-      ynode = ynode + 1;
-      xnode = xnode + 1;
-      pathpos++;
-    }
-    else if (level.DOWNLEFT == min(min(min(level.LEFT, level.RIGHT), min(level.DOWNRIGHT, level.DOWNLEFT)), min(min(level.UP, level.DOWN), min(level.UPRIGHT,
-        level.UPLEFT))))
-    {
-      //G_LogPrintf(va("Go Down %d %d %d %d \n",level.RIGHT, level.maxpasos, x, y));
-      ynode = ynode + 1;
-      xnode = xnode - 1;
-      pathpos++;
-    }
-    else if (level.UPRIGHT == min(min(min(level.LEFT, level.RIGHT), min(level.DOWNRIGHT, level.DOWNLEFT)), min(min(level.UP, level.DOWN), min(level.UPRIGHT,
-        level.UPLEFT))))
-    {
-      //G_LogPrintf(va("Go Down %d %d %d %d \n",level.RIGHT, level.maxpasos, x, y));
-      xnode = xnode + 1;
-      ynode = ynode - 1;
-      pathpos++;
-    }
-    else if (level.UPLEFT == min(min(min(level.LEFT, level.RIGHT), min(level.DOWNRIGHT, level.DOWNLEFT)), min(min(level.UP, level.DOWN), min(level.UPRIGHT,
-        level.UPLEFT))))
-    {
-      //G_LogPrintf(va("Go Down %d %d %d %d \n",level.RIGHT, level.maxpasos, x, y));
-      xnode = xnode - 1;
-      ynode = ynode - 1;
-      pathpos++;
-    }
-  }
-  level.pathx[pathpos] = x;
-  level.pathy[pathpos] = y;
-
-  if (way == qfalse)
-  {
-    level.theCamper = ent;
-    level.botsfollowpath = qfalse;
-    G_LogPrintf("Cant find a path\n");
-    trap_SendServerCommand(-1, "print \"^1cant find path\n\"");
-    level.selectednode = NULL;
-  }
-  else
-  {
-    level.selectednode = node;
-    //So they can respawn as bots following path :?
-    trap_SendServerCommand(-1, "print \"^5aliens died.\n\"");
-    G_LogPrintf("Kill the alienos here\n");
-    kill_aliens_withoutenemy();
-  }
 }
 
 qboolean
