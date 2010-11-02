@@ -648,3 +648,5 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 #define GRIDSIZE                    120
 #define BLOCKSIZE                   100
+
+#define ZOMBIE_RANGE                128.0f

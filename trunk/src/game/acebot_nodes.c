@@ -92,7 +92,9 @@ ACEND_FindCloseReachableNode(gentity_t * self, float range, int type)
       if (dist < range) // square range instead of sqrt
       {
         // make sure it is visible
-        trap_Trace(&tr, self->client->ps.origin, self->r.mins, self->r.maxs, nodes[i].origin, self->s.number, MASK_PLAYERSOLID);
+        trap_Trace(
+          &tr, self->client->ps.origin, self->r.mins, self->r.maxs, nodes[i].origin,
+          self->s.number, MASK_PLAYERSOLID);
 
         if (tr.fraction == 1.0)
           return i;
@@ -136,12 +138,10 @@ ACEND_FindClosestReachableNode(gentity_t * self, float range, int type)
   //  rng = (float)(range * range);   // square range for distance comparison (eliminate sqrt)
   for(i = 0;i < numNodes;i++)
   {
-
     if (ACEND_nodeInUse(self->bs.currentNode))
     {
       continue;
     }
-
     if (type == NODE_ALL || type == nodes[i].type) // check node type
     {
       VectorSubtract(nodes[i].origin, self->client->ps.origin, v); // subtract first
@@ -152,9 +152,12 @@ ACEND_FindClosestReachableNode(gentity_t * self, float range, int type)
       {
         // make sure it is visible
         if (range == NODE_DENSITY)
-          trap_Trace(&tr, self->client->ps.origin, mins, maxs, nodes[i].origin, self->s.number, MASK_SOLID);
+          trap_Trace(
+            &tr, self->client->ps.origin, mins, maxs, nodes[i].origin, self->s.number, MASK_SOLID);
         else
-          trap_Trace(&tr, self->client->ps.origin, mins, maxs, nodes[i].origin, self->s.number, MASK_PLAYERSOLID);
+          trap_Trace(
+            &tr, self->client->ps.origin, mins, maxs, nodes[i].origin, self->s.number,
+            MASK_PLAYERSOLID);
 
         if (tr.fraction == 1.0)
         {
@@ -168,13 +171,13 @@ ACEND_FindClosestReachableNode(gentity_t * self, float range, int type)
 }
 
 void
-ACEND_SetGoal(gentity_t * self, int goalNode)
+ACEND_SetGoal(gentity_t * self, int goalNode, int type)
 {
   int node;
 
   self->bs.goalNode = goalNode;
 
-  node = ACEND_FindClosestReachableNode(self, NODE_DENSITY * 3, NODE_ALL);
+  node = ACEND_FindClosestReachableNode(self, NODE_DENSITY * 3, type);
 
   if (node == INVALID)
     return;
@@ -202,10 +205,17 @@ ACEND_FollowPath(gentity_t * self)
   // try again?
   if (self->bs.node_timeout++ > 20)
   {
+    //    self->client->pers.cmd.forwardmove = 0;
+    //    self->client->pers.cmd.upmove = 0;
+    //    self->client->pers.cmd.buttons = 0;
+    //    self->client->pers.cmd.rightmove = 0;
+    //    self->client->pers.cmd.rightmove = 0;
+    //    VectorSet(self->client->ps.velocity,0,0,0);
+    //self->client->ps.velocity[2] = 0;
     if (self->bs.tries++ > 3)
       return qfalse;
     else
-      ACEND_SetGoal(self, self->bs.goalNode);
+      ACEND_SetGoal(self, self->bs.goalNode, NODE_MOVE);
   }
 
   // are we there yet?
@@ -221,20 +231,39 @@ ACEND_FollowPath(gentity_t * self)
       if (ace_debug.integer)
         G_Printf("print \"%s: reached goal node!\n\"", self->client->pers.netname);
 
+//      G_Printf("Is %s visible?", self->botEnemy->client->pers.netname);
+      if(Distance(nodes[self->bs.goalNode].origin, self->botEnemy->s.origin) < 200)
+      {
+        self->botCommand = BOT_CHOMP;
+      }
       ACEAI_PickLongRangeGoal(self); // pick a new goal
     }
     else
     {
+      ////////////////////////////////////////////////////////////////////////////
+      // Special Slow Land Jump
+      ////////////////////////////////////////////////////////////////////////////
+      if (nodes[self->bs.nextNode].type == NODE_JUMP && nodes[self->bs.lastNode].type == NODE_JUMP
+          && nodes[self->bs.currentNode].type == NODE_JUMP)
+      {
+        self->botPause = level.time + 300;
+       // VectorSet(self->client->ps.velocity,0,0,0);
+       // G_Printf("Stop a bit.\n");
+      }
+      else if(nodes[self->bs.lastNode].type == NODE_MOVE && nodes[self->bs.nextNode].type == NODE_JUMP)
+      {
+        self->botPause = level.time + 300;
+      }
+
+      /*else if(self->botPause+300 > level.time && nodes[self->bs.lastNode].type == NODE_JUMP)
+      {
+        G_Printf("\n\n\nHAAA\n");
+      }*/
+
       ACEND_selectNextNode(self);
       //self->bs.currentNode = self->bs.nextNode;
       //self->bs.nextNode = path_table[self->bs.currentNode][self->bs.goalNode];
     }
-  }
-  else if(nodes[self->bs.nextNode].type == NODE_JUMP
-      && nodes[self->bs.lastNode].type == NODE_JUMP
-          && nodes[self->bs.currentNode].type == NODE_JUMP)
-  {
-    G_Printf("BEEEEEEPTTTTT \n");
   }
 
   if (self->bs.currentNode == INVALID || self->bs.nextNode == INVALID)
@@ -257,11 +286,13 @@ ACEND_CheckForDucking(gentity_t *self)
     return qfalse;
   }
 
-  VectorSet(crouchingMaxs, 16, 16, 32);
+  VectorSet(crouchingMaxs, 15, 15, 32);
   if ((self->client->ps.pm_flags & PMF_DUCKED))
   {
     // try to stand up
-    trap_Trace(&trace, self->s.origin, self->r.mins, crouchingMaxs, self->s.origin, self->s.clientNum, MASK_SOLID);
+    trap_Trace(
+      &trace, self->s.origin, self->r.mins, crouchingMaxs, self->s.origin, self->s.clientNum,
+      MASK_SOLID);
     if (!trace.allsolid)
     {
       return qtrue;
@@ -283,16 +314,7 @@ ACEND_CheckForDucking(gentity_t *self)
       else if (closestNode == INVALID)
       {
         closestNode = ACEND_AddNode(self, NODE_DUCK);
-        G_Printf("NODE DUCK ADDED BY %s\n",self->client->pers.netname);
-        if(self->r.svFlags & SVF_BOT)
-        {
-          G_Printf("WTFFFFF BOT ADDING NODES\n\n\n");
-        }
-        if(self->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
-        {
-          G_Printf("WTFFFFF ALIEENNNN ADDING NODES\n\n\n");
-        }
-        // now add link
+
         if (self->bs.lastNode != INVALID)
         {
           ACEND_UpdateNodeEdge(self->bs.lastNode, closestNode, self);
@@ -325,7 +347,9 @@ ACEND_CheckForLadder(gentity_t *self)
 
     VectorMA(self->client->ps.origin, 1.0f, forward, end);
 
-    trap_Trace(&trace, self->client->ps.origin, self->r.mins, self->r.maxs, end, self->client->ps.clientNum, MASK_PLAYERSOLID);
+    trap_Trace(
+      &trace, self->client->ps.origin, self->r.mins, self->r.maxs, end, self->client->ps.clientNum,
+      MASK_PLAYERSOLID);
 
     if ((trace.fraction < 1.0f) && (trace.surfaceFlags & SURF_LADDER))
     {
@@ -377,8 +401,8 @@ ACEND_PathMap(gentity_t * self)
   currentNodeType = nodes[self->bs.currentNode].type;
   nextNodeType = nodes[self->bs.nextNode].type;
 
-  /*if (!g_survival.integer)
-    return;*/
+  //  if (!g_survival.integer)
+  //    return;
 
   if ((self->r.svFlags & SVF_BOT))
   {
@@ -407,19 +431,10 @@ ACEND_PathMap(gentity_t * self)
   ////////////////////////////////////////////////////////
   // JUMPING
   ///////////////////////////////////////////////////////
-  //New better function.
-
-  if(self->s.groundEntityNum == ENTITYNUM_NONE)
-  {
-    trap_SendServerCommand(self - g_entities, va("print \"TrDelta: %f __ Velocity: %f\n\"",
-        self->s.pos.trDelta[2],
-        VectorLength(self->client->ps.velocity)));
-  }
-
   if (self->bs.isJumping && self->s.groundEntityNum != ENTITYNUM_NONE)
   {
     self->bs.isJumping = qfalse;
-    closestNode = ACEND_FindClosestReachableNode(self, 32, NODE_JUMP);
+    closestNode = ACEND_FindClosestReachableNode(self, 30, NODE_JUMP);
     if (closestNode != INVALID)
     {
       if (closestNode != self->bs.lastNode && self->bs.lastNode != INVALID)
@@ -447,8 +462,7 @@ ACEND_PathMap(gentity_t * self)
     return;
   }
 
-  if ((self->client->ps.pm_flags & PMF_JUMP_HELD)
-      && self->s.groundEntityNum == ENTITYNUM_NONE
+  if ((self->client->ps.pm_flags & PMF_JUMP_HELD) && self->s.groundEntityNum == ENTITYNUM_NONE
       && !self->bs.isJumping)
   {
     closestNode = ACEND_FindClosestReachableNode(self, NODE_DENSITY, NODE_JUMP);
@@ -670,11 +684,6 @@ ACEND_AddNode(gentity_t * self, int type)
   if (numNodes >= MAX_NODES)
     return INVALID;
 
-  if(type != NODE_MOVE)
-  {
-    G_Printf("NON WALK NODE ADDED BY %s\n", self->client->pers.netname);
-  }
-
   entityName = self->classname;
 
   ////////////////////////////////////////////////////////////////////////////
@@ -709,8 +718,10 @@ ACEND_AddNode(gentity_t * self, int type)
 
   if (ace_debug.integer)
   {
-    G_Printf("node %d added for entity %s type: %s pos: %f %f %f\n", numNodes, entityName, ACEND_NodeTypeToString(nodes[numNodes].type),
-        nodes[numNodes].origin[0], nodes[numNodes].origin[1], nodes[numNodes].origin[2]);
+    G_Printf(
+      "node %d added for entity %s type: %s pos: %f %f %f\n", numNodes, entityName,
+      ACEND_NodeTypeToString(nodes[numNodes].type), nodes[numNodes].origin[0],
+      nodes[numNodes].origin[1], nodes[numNodes].origin[2]);
 
     if (level.num_entities > 800)
     {
@@ -789,8 +800,8 @@ ACEND_UpdateNodeEdge(int from, int to, gentity_t *self)
   if (from == -1 || to == -1 || from == to)
     return; // safety
 
-  if ((self->r.svFlags & SVF_BOT)
-      && (nodes[from].type == NODE_JUMP || nodes[from].type == NODE_JUMP || nodes[from].type == NODE_DUCK))
+  if ((self->r.svFlags & SVF_BOT) && (nodes[from].type == NODE_JUMP || nodes[from].type
+      == NODE_JUMP || nodes[from].type == NODE_DUCK))
   {
     return;
   }
@@ -895,7 +906,8 @@ ACEND_nodeInUse(int node)
   }
   if (bot)
   {
-    if ((bot->r.svFlags & SVF_BOT) && bot->health > 0 && bot->client && bot->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
+    if ((bot->r.svFlags & SVF_BOT) && bot->health > 0 && bot->client
+        && bot->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
     {
       return qtrue;
     }

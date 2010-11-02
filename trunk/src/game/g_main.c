@@ -2723,7 +2723,7 @@ CheckExitRules(void)
     }
     else
     {
-      trap_SendServerCommand(-1, "print \"Wtf the noobs have just ruined it!\n\"");
+      trap_SendServerCommand(-1, "print \"Tip: Teamwork.\n\"");
     }
     trap_SetConfigstring(CS_WINNER, "Aliens Win");
     LogExit("Aliens win.");
@@ -3224,7 +3224,7 @@ G_RunFrame(int levelTime)
   G_CalculateSurvivalRecords();
 
   //FIXME: PRODUCTION
-  //G_addBot();
+  G_addBot();
   G_Director();
 
   // for tracking changes

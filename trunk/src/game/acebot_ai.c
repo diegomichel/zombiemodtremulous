@@ -33,20 +33,7 @@
 void
 ACEAI_CheckServerCommands(gentity_t * self)
 {
-  /*char            buf[1024];
 
-   while(trap_BotGetServerCommand(self->client - level.clients, buf, sizeof(buf)))
-   {
-   #if 0
-   //have buf point to the command and args to the command arguments
-   if(ace_debug.integer)
-   {
-   G_Printf("ACEAI_CheckServerCommands for %s: '%s'\n", self->client->pers.netname, buf);
-   }
-
-   // TODO check for orders by team mates
-   #endif
-   }*/
 }
 
 void
@@ -83,19 +70,6 @@ ACEAI_Think(gentity_t * self)
 
   clientNum = self->client - level.clients;
   trap_GetUserinfo(clientNum, userinfo, sizeof(userinfo));
-
-  // is the bot part of a team when gameplay has changed?
-  //Remove this stuff on trem code.
-  if (self->client->sess.sessionTeam == TEAM_SPECTATOR)
-  {
-    if (ace_debug.integer)
-      trap_SendServerCommand(-1, va(
-        "print \"%s: I am a spectator, choosing a team...\n\"", self->client->pers.netname));
-
-    // this sets the team status and updates the userinfo as well
-    //trap_BotClientCommand(self - g_entities, va("team %s", team));
-    return;
-  }
 
   // set up client movement
   VectorCopy(self->client->ps.viewangles, self->bs.viewAngles);
@@ -145,12 +119,6 @@ ACEAI_Think(gentity_t * self)
   {
     self->client->pers.cmd.angles[i] = ANGLE2SHORT(self->bs.viewAngles[i]);
   }
-
-  // send command through id's code, and update server information about this client
-  //trap_BotUserCommand(self - g_entities, &self->client->pers.cmd);
-
-  //ClientThink_real(self);
-  //self->nextthink = level.time + FRAMETIME;
 }
 
 /*
@@ -315,7 +283,7 @@ ACEAI_PickLongRangeGoal(gentity_t * self)
       "print \"%s: selected a %s at node %d for LR goal\n\"", self->client->pers.netname,
       goalEnt->classname, goalNode);
 
-  ACEND_SetGoal(self, goalNode);
+  ACEND_SetGoal(self, goalNode, NODE_ALL);
 }
 
 // Pick best goal based on importance and range. This function

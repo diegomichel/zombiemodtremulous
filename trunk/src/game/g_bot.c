@@ -45,10 +45,11 @@ G_BotAdd(char *name, int team, int skill, gentity_t * ent)
   {
     return;
   }
-  if (level.time - level.startTime < 12000)
+  if (level.time - level.startTime < 10000)
   {
     return;
   }
+
   //reservedSlots = trap_Cvar_VariableIntegerValue ("sv_privateclients"); // Found a way to have this var in level.
 
   // find what clientNum to use for bot
@@ -116,9 +117,12 @@ G_BotAdd(char *name, int team, int skill, gentity_t * ent)
   G_ChangeTeam(bot, team);
 
   //Setting initial client information.
-  Com_sprintf(buffer, MAX_QPATH, "%s/%s", BG_FindModelNameForClass(PCL_HUMAN), BG_FindSkinNameForClass(PCL_HUMAN));
+  Com_sprintf(
+    buffer, MAX_QPATH, "%s/%s", BG_FindModelNameForClass(PCL_HUMAN), BG_FindSkinNameForClass(
+      PCL_HUMAN));
   Q_strncpyz(model, buffer, sizeof(model));
-  Com_sprintf(userinfo, sizeof(userinfo), "t\\%i\\model\\%s\\hmodel\\%s\\", PTE_ALIENS, model, model);
+  Com_sprintf(
+    userinfo, sizeof(userinfo), "t\\%i\\model\\%s\\hmodel\\%s\\", PTE_ALIENS, model, model);
   trap_SetConfigstring(CS_PLAYERS + clientNum, userinfo);
   bot->client->ps.persistant[PERS_STATE] &= ~PS_NONSEGMODEL;
   bot->client->ps.persistant[PERS_STATE] &= ~PS_WALLCLIMBINGFOLLOW;
@@ -258,7 +262,8 @@ Bot_Stuck(gentity_t * self, int zone)
   if (self->turntime < level.time)
   {
     self->turntime = level.time + 800;
-    if (abs(self->posX - self->client->ps.origin[0]) < zone && abs(self->posY - self->client->ps.origin[1]) < zone)
+    if (abs(self->posX - self->client->ps.origin[0]) < zone && abs(self->posY
+        - self->client->ps.origin[1]) < zone)
     {
       self->posX = self->client->ps.origin[0];
       self->posY = self->client->ps.origin[1];
@@ -429,16 +434,17 @@ G_BotThink(gentity_t * self)
   int clicksToStopChase = 30; //5 seconds
   int forwardMove = 127; // max speed
   int tempEntityIndex = -1;
+  float chompDistance = 0.0f;
 
   self->client->pers.cmd.buttons = 0;
   botWalk(self, 0);
-  self->client->pers.cmd.upmove = 0;
   self->client->pers.cmd.rightmove = 0;
 
   switch(self->botCommand)
   {
     case BOT_FOLLOW_PATH:
-      if (self->botEnemy->health <= 0 || self->botEnemy->client->ps.stats[STAT_HEALTH] <= 0 || self->botEnemy->client->pers.connected == CON_DISCONNECTED)
+      if (self->botEnemy->health <= 0 || self->botEnemy->client->ps.stats[STAT_HEALTH] <= 0
+          || self->botEnemy->client->pers.connected == CON_DISCONNECTED)
       {
         self->botCommand = BOT_REGULAR;
         self->botEnemy = NULL;
@@ -450,10 +456,9 @@ G_BotThink(gentity_t * self)
         case ATTACK_RAMBO:
         case ATTACK_CAMPER:
         case ATTACK_ALL:
-          if (nodes[self->bs.currentNode].type == NODE_DUCK
-              && nodes[self->bs.nextNode].type == NODE_JUMP)
+          if (nodes[self->bs.currentNode].type == NODE_DUCK && nodes[self->bs.nextNode].type
+              == NODE_JUMP)
           {
-            G_Printf("Current Node is node duck ill keep moving\n");
             ACEAI_Think(self);
             return;
           }
@@ -481,6 +486,25 @@ G_BotThink(gentity_t * self)
       }
       break;
 
+    case BOT_CHOMP:
+      //self->botCommand = BOT_REGULAR;
+      //      self->client->ps.viewangles[PITCH] = AngleNormalize360(0.0f);
+      //      self->bs.viewAngles[PITCH] = self->client->ps.viewangles[PITCH];
+      //      G_SetClientViewAngle(self, self->client->ps.viewangles);
+
+      botAimAtTarget(self, self->botEnemy);
+      botShootIfTargetInRange(self, self->botEnemy);
+      //      VectorNormalize(self->client->ps.velocity);
+      chompDistance = Distance(self->s.origin, self->botEnemy->s.origin);
+      if (chompDistance > 180)
+      {
+        self->botCommand = BOT_REGULAR;
+      }
+      botWalk(self, chompDistance);
+      botJump(self, chompDistance);
+      botShootIfTargetInRange(self, self->botEnemy);
+      //VectorScale(self->client->ps.velocity, chompDistance, self->client->ps.velocity);
+      break;
     case BOT_REGULAR:
       if (self->botEnemy)
       {
@@ -490,6 +514,7 @@ G_BotThink(gentity_t * self)
           {
             self->botEnemy = NULL;
             self->botEnemyLastSeen = 0;
+            G_Printf("Forgotten Enemy\n");
           }
           else
           {
@@ -512,7 +537,8 @@ G_BotThink(gentity_t * self)
       }
       if (!self->botEnemy)
       {
-        if (level.time % 5000 && (self->client->ps.viewangles[PITCH] != 0.0f && self->client->ps.viewangles[PITCH] != 360.0f))
+        if (level.time % 5000 && (self->client->ps.viewangles[PITCH] != 0.0f
+            && self->client->ps.viewangles[PITCH] != 360.0f))
         {
           self->client->ps.viewangles[PITCH] = AngleNormalize360(0.0f);
           self->bs.viewAngles[PITCH] = self->client->ps.viewangles[PITCH];
@@ -537,7 +563,6 @@ G_BotThink(gentity_t * self)
           self->client->pers.hyperspeed = 0;
         // enemy!
         distance = botGetDistanceBetweenPlayer(self, self->botEnemy);
-
         //VectorCopy(self->s.origin, self->s.pos.trBase);
         botAimAtTarget(self, self->botEnemy);
         if (distance > 50)
@@ -545,6 +570,10 @@ G_BotThink(gentity_t * self)
           if (g_survival.integer && (level.time - level.startTime) < 340000)
           {
             botWalk(self, 100);
+          }
+          else
+          {
+            botWalk(self, forwardMove);
           }
           if (g_survival.integer && (level.time - level.startTime) < 240000)
           {
@@ -558,26 +587,29 @@ G_BotThink(gentity_t * self)
           {
             botWalk(self, 50);
           }
+
           if (distance < 200)
           {
             self->client->pers.cmd.buttons |= BUTTON_GESTURE;
           }
-          else
+
+          if (!g_survival.integer)
           {
             botWalk(self, forwardMove);
           }
           //botShootIfTargetInRange(self, self->botEnemy);
+          botAimAtTarget(self, self->botEnemy);
         }
         if (distance < 45)
         {
-          forwardMove = (forwardMove + (self->botSkillLevel * 5));
+          //forwardMove = (forwardMove + (self->botSkillLevel * 5));
+          botAimAtTarget(self, self->botEnemy);
           botWalk(self, forwardMove);
           botShootIfTargetInRange(self, self->botEnemy);
         }
         if (Bot_Stuck(self, 60) && Distance(self->s.pos.trBase, self->botEnemy->s.pos.trBase) > 80)
         {
-          //Jump really high :>
-          self->client->pers.cmd.upmove = 30;
+          botJump(self, 127);
           self->client->ps.stats[STAT_STAMINA] = MAX_STAMINA;
         }
       }
@@ -619,7 +651,8 @@ G_BotSpectatorThink(gentity_t * self)
       //ROTAX
       if (g_ambush.integer == 1)
       {
-        if (ROTACAK_ambush_rebuild_time_temp < level.time && ((level.time - level.startTime) > (g_ambush_sec_to_start.integer * 1000)))
+        if (ROTACAK_ambush_rebuild_time_temp < level.time && ((level.time - level.startTime)
+            > (g_ambush_sec_to_start.integer * 1000)))
         {
           srand(trap_Milliseconds());
 
@@ -700,19 +733,67 @@ G_BotSpectatorThink(gentity_t * self)
 qboolean
 botAimAtTarget(gentity_t * self, gentity_t * target)
 {
-  vec3_t dirToTarget, angleToTarget;
-  vec3_t top =
-  { 0, 0, 0 };
-  int vh = 0;
-  BG_FindViewheightForClass(self->client->ps.stats[STAT_PCLASS], &vh, NULL);
-  top[2] = vh;
-  VectorAdd(self->s.pos.trBase, top, top);
-  VectorSubtract(target->s.pos.trBase, top, dirToTarget);
-  VectorNormalize(dirToTarget);
-  vectoangles(dirToTarget, angleToTarget);
-  self->client->ps.delta_angles[0] = ANGLE2SHORT(angleToTarget[0]);
-  self->client->ps.delta_angles[1] = ANGLE2SHORT(angleToTarget[1]);
-  self->client->ps.delta_angles[2] = ANGLE2SHORT(angleToTarget[2]);
+  vec3_t ideal_angles;
+  vec3_t direction;
+  vec3_t ideal_view;
+  float ideal_yaw;
+  float ideal_pitch;
+  float current_yaw;
+  float current_pitch;
+  int i;
+  qboolean viewchanged = qfalse;
+  //TODO: Detect Ducking?
+
+  VectorSubtract(target->client->ps.origin, self->client->ps.origin, direction);
+
+  //ADD this if u dont want the zombie head flip
+  /*if (Distance(target->client->ps.origin, self->client->ps.origin) < 50)
+   {
+   G_Printf("Distance to short \n");
+   return qfalse;
+   }*/
+
+  VectorNormalize(direction);
+
+  current_yaw = AngleNormalize360(self->client->ps.viewangles[YAW]);
+  current_pitch = AngleNormalize360(self->client->ps.viewangles[PITCH]);
+
+  VectorToAngles(direction, ideal_angles);
+
+  ideal_yaw = AngleNormalize360(ideal_angles[YAW]);
+  ideal_pitch = AngleNormalize360(ideal_angles[PITCH]);
+
+  // yaw
+  if (current_yaw != ideal_yaw)
+  {
+    ideal_view[YAW] = AngleNormalize360(ideal_yaw);
+    viewchanged = qtrue;
+  }
+
+  // pitch
+  if (current_pitch != ideal_pitch)
+  {
+    ideal_view[PITCH] = AngleNormalize360(ideal_pitch);
+    viewchanged = qtrue;
+  }
+
+  if (viewchanged)
+  {
+    for(i = 0;i < 3;i++)
+    {
+      self->client->pers.cmd.angles[i] = ANGLE2SHORT(ideal_view[i]);
+    }
+    for(i = 0;i < 3;i++)
+    {
+      int cmdAngle;
+
+      cmdAngle = ANGLE2SHORT(ideal_view[ i ]);
+      self->client->ps.delta_angles[i] = cmdAngle - self->client->pers.cmd.angles[i];
+    }
+
+    VectorCopy(ideal_view, self->s.angles);
+    VectorCopy(self->s.angles, self->client->ps.viewangles);
+  }
   return qtrue;
 }
 
@@ -725,8 +806,6 @@ botTargetInRange2(gentity_t * self, gentity_t * target)
 qboolean
 botTargetInRange(gentity_t * self, gentity_t * target)
 {
-  //Dont do shit
-  //This shit evidently dont work.
   trace_t trace;
   gentity_t *traceEnt;
   vec3_t forward, right, up;
@@ -772,14 +851,16 @@ botTargetInRange(gentity_t * self, gentity_t * target)
   //Are we on the same level?
   if (!g_survival.integer)
   {
-    if (self->client->ps.origin[2] - target->client->ps.origin[2] < -30 && (self->client->ps.stats[STAT_PTEAM] == PTE_ALIENS))
+    if (self->client->ps.origin[2] - target->client->ps.origin[2] < -30
+        && (self->client->ps.stats[STAT_PTEAM] == PTE_ALIENS))
     {
       self->client->pers.cmd.upmove = 30;
       self->client->ps.stats[STAT_STAMINA] = MAX_STAMINA;
       return qfalse;
     }
 
-    if (self->client->ps.origin[2] - target->client->ps.origin[2] < -100 && (self->client->ps.stats[STAT_PTEAM] == PTE_ALIENS))
+    if (self->client->ps.origin[2] - target->client->ps.origin[2] < -100
+        && (self->client->ps.stats[STAT_PTEAM] == PTE_ALIENS))
     {
       self->client->pers.cmd.upmove = 30;
       self->client->ps.stats[STAT_STAMINA] = MAX_STAMINA;
@@ -945,7 +1026,8 @@ botFindClosestEnemy(gentity_t * self, qboolean includeTeam)
     {
       target = &g_entities[entityList[i]];
 
-      if (target->client && self != target && target->client->ps.stats[STAT_PTEAM] == self->client->ps.stats[STAT_PTEAM])
+      if (target->client && self != target && target->client->ps.stats[STAT_PTEAM]
+          == self->client->ps.stats[STAT_PTEAM])
       {
         if (botTargetInRange(self, target))
         {
@@ -971,8 +1053,7 @@ botShootIfTargetInRange(gentity_t * self, gentity_t * target)
 {
   int nahoda = 0;
   botAimAtTarget(self, self->botEnemy);
-  srand(trap_Milliseconds());
-  nahoda = (int) (((double) rand() / ((double) (RAND_MAX) + (double) (1))) * 20);
+
   self->client->pers.cmd.buttons = 0;
   if (self->client->ps.stats[STAT_PTEAM] == PTE_HUMANS) //Human target buildable
   {
@@ -992,7 +1073,10 @@ botShootIfTargetInRange(gentity_t * self, gentity_t * target)
   }
   else
   {
-    self->client->pers.cmd.buttons |= BUTTON_ATTACK;
+    if (Distance(self->s.origin, self->botEnemy->s.origin) <= ZOMBIE_RANGE)
+    {
+      self->client->pers.cmd.buttons |= BUTTON_ATTACK;
+    }
   }
   return qtrue;
 }
@@ -1017,10 +1101,17 @@ botWalk(gentity_t *self, int speed)
 void
 botCrouch(gentity_t *self)
 {
+  G_Printf("Crouch -1\n");
   self->client->pers.cmd.upmove = -1;
 }
 void
 botJump(gentity_t *self, int speed)
 {
+  if (self->jumpedTime + 1000 > level.time)
+  {
+    return;
+  }
+
   self->client->pers.cmd.upmove = speed;
+  self->jumpedTime = level.time;
 }

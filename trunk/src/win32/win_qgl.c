@@ -3195,7 +3195,6 @@ static qboolean GlideIsValid( void )
 
     if ( ( hGlide = LoadLibrary("Glide3X") ) != 0 ) 
 	{
-		// FIXME: 3Dfx needs to fix this shit
 		return qtrue;
 
 #if 0

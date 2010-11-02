@@ -126,7 +126,7 @@ ACEMV_SpecialMove(gentity_t * self)
       {
         botWalk(self, 127);
       }
-      self->client->pers.cmd.upmove = -127;
+      botJump(self, 127);
       return qtrue;
     }
 
@@ -399,9 +399,11 @@ ACEMV_Move(gentity_t * self)
     self->bs.state = STATE_WANDER;
     self->bs.wander_timeout = level.time + 1000;
 
-    // center view
-    //self->bs.viewAngles[PITCH] = 0;   //-self->client->ps.delta_angles[PITCH];
     return;
+  }
+  else
+  {
+    ACEMV_ChangeBotAngle(self);
   }
 
   currentNodeType = nodes[self->bs.currentNode].type;
@@ -413,15 +415,44 @@ ACEMV_Move(gentity_t * self)
   {
     ACEMV_MoveToGoal(self);
   }
+
+  if (self->botPause > level.time)
+  {
+    G_Printf("Bot movement paused\n");
+    return;
+  }
+
+  ////////////////////////////////////////////////////////////////////////////
+  // SPECIAL CROUCH JUMPING
+  // This happend when player jump to fast that dont leave a crouch node
+  // On for example a window, so the bot will try 3 times till make it.
+  ////////////////////////////////////////////////////////////////////////////
+  if (self->bs.tries == 1 && nodes[self->bs.currentNode].type == NODE_JUMP
+      && nodes[self->bs.nextNode].type == NODE_JUMP)
+  {
+    ACEMV_ChangeBotAngle(self);
+    botWalk(self, 127);
+    botJump(self, 127);
+    if (self->s.pos.trDelta[2] < -50)
+    {
+      botWalk(self, 127);
+      botCrouch(self);
+      if (self->s.origin[2] <= nodes[self->bs.nextNode].origin[2])
+      {
+        self->client->ps.velocity[2] += 120;
+      }
+      self->client->ps.velocity[2] += 70;
+    }
+    return;
+  }
   ////////////////////////////////////////////////////////////////////////////
   // CROUCH JUMPING
   ////////////////////////////////////////////////////////////////////////////
   if (nextNodeType == NODE_DUCK && currentNodeType == NODE_JUMP && self->s.groundEntityNum
       != ENTITYNUM_NONE)
   {
-    botWalk(self, 127);
     botJump(self, 127);
-    G_Printf("Jump Walk\n");
+    botWalk(self, 127);
     ACEMV_ChangeBotAngle(self);
     return;
   }
@@ -429,16 +460,13 @@ ACEMV_Move(gentity_t * self)
   if (nextNodeType == NODE_DUCK && currentNodeType == NODE_JUMP && self->s.groundEntityNum
       == ENTITYNUM_NONE)
   {
-    if(self->s.pos.trDelta[2] < -50)
+    if (self->s.pos.trDelta[2] < -50)
     {
       botWalk(self, 127);
       botCrouch(self);
-      G_Printf("Jumped and going down now cruch.\n");
-      if(self->s.origin[2] <= nodes[self->bs.nextNode].origin[2])
+      if (self->s.origin[2] <= nodes[self->bs.nextNode].origin[2])
       {
-        G_Printf("We lost it, magic jump LOLZ");
         self->client->ps.velocity[2] += 120;
-
       }
       self->client->ps.velocity[2] += 70;
       ACEMV_ChangeBotAngle(self);
@@ -457,32 +485,26 @@ ACEMV_Move(gentity_t * self)
       ACEMV_ChangeBotAngle(self);
     }
   }
+
+  ////////////////////////////////////////////////////////////////////////////
+  // Special Jump
+  ////////////////////////////////////////////////////////////////////////////
+  if (lastNodeType == NODE_MOVE
+      && currentNodeType == NODE_JUMP
+      && nextNodeType == NODE_MOVE && !self->bs.isJumping)
+  {
+    G_Printf("JUMP HUERFANO DETECTED\n");
+    botWalk(self, 127);
+    botJump(self, 127);
+    self->client->ps.velocity[2] = 211;
+    ACEMV_ChangeBotAngle(self);
+    self->bs.isJumping = qtrue;
+    return;
+  }
+
   ////////////////////////////////////////////////////////
   // Jumpto Nodes
   ///////////////////////////////////////////////////////
-  /*if (nextNodeType == NODE_JUMP && currentNodeType != NODE_JUMP
-      && nodes[self->bs.nextNode].origin[2] > self->s.origin[2])
-  {
-    botWalk(self, 127);
-    botJump(self, 127);
-    //Trying to keep momentum, so dont fall to fast.
-    self->client->ps.velocity[2] += 10;
-    ACEMV_ChangeBotAngle(self);
-  }*/
-  //  if (lastNodeType == NODE_JUMP && currentNodeType != NODE_JUMP)
-  //  {
-  //    self->client->ps.stats[STAT_STATE] &= ~SS_BOOSTED;
-  //  }
-  //  if (currentNodeType == NODE_JUMP && lastNodeType == NODE_JUMP && self->s.groundEntityNum != ENTITYNUM_NONE)
-  //  {
-  //    botWalk(self, 127);
-  //    self->client->ps.stats[STAT_STATE] |= SS_BOOSTED;
-  //    botJump(self, 127);
-  //    self->client->ps.velocity[2] += 10;
-  //    G_Printf("\n\n\nIT enters here\n");
-  //    ACEMV_ChangeBotAngle(self);
-  //    return;
-  //  }
   if (!self->bs.isJumping && (lastNodeType == NODE_JUMP || (currentNodeType == NODE_JUMP
       && nodes[self->bs.nextNode].origin[2] > self->s.origin[2]) || nextNodeType == NODE_JUMP))
   {
@@ -495,75 +517,26 @@ ACEMV_Move(gentity_t * self)
       self->client->ps.velocity[2] = 211;
       ACEMV_ChangeBotAngle(self);
       self->bs.isJumping = qtrue;
-      if(Distance2d(nodes[self->bs.nextNode].origin,nodes[self->bs.currentNode].origin) >= 288)
+      if (Distance2d(nodes[self->bs.nextNode].origin, nodes[self->bs.currentNode].origin) >= 288
+          || ((self->botPause + 200) > level.time))
       {
-        G_Printf("\n\nLong jumping\n");
-
+        G_Printf("Long Jump.");
         VectorNormalize(self->client->ps.velocity);
-        //self->client->ps.velocity[2] = 50;
-        //Is that or...
         VectorScale(self->client->ps.velocity, 320, self->client->ps.velocity);
         self->client->ps.velocity[2] += 75;
-        if(self->s.origin[2]+40 <= nodes[self->bs.nextNode].origin[2])
+        if (self->s.origin[2] + 40 <= nodes[self->bs.nextNode].origin[2])
         {
-          //We losing it
-          G_Printf("WE LOSING IT\n");
           self->client->ps.velocity[2] += 30;
         }
-        //self->client->ps.velocity[2] = 560.0f;
         self->bs.isLongJumping = qtrue;
       }
       return;
     }
-    //    self->client->pers.cmd.upmove = 35;
-    //    self->client->ps.stats[STAT_JUMPSPEED] = 256;
-    //
-    //    if (currentNodeType == NODE_JUMP && !ACEND_nodesVisible(nodes[self->bs.currentNode].origin, nodes[self->bs.nextNode].origin))
-    //    {
-    //      botWalk(self, 0);
-    //      self->client->pers.cmd.upmove = 30;
-    //      self->client->ps.stats[STAT_JUMPSPEED] += 200;
-    //      ACEMV_ChangeBotAngle(self);
-    //      VectorCopy(self->bs.moveVector,distance);
-    //      VectorScale(distance,440,self->client->ps.velocity);
-    //      return;
-    //    }
-    //
-    //    if (lastNodeType == NODE_JUMP && currentNodeType == NODE_JUMP || (currentNodeType == NODE_JUMP && nextNodeType == NODE_JUMP))
-    //    {
-    //      //G_Printf("Salta mucho .\n");
-    //      self->client->ps.stats[STAT_JUMPSPEED] += 100;
-    //    }
-    //    ACEMV_ChangeBotAngle(self);
-    //
-    //    VectorCopy(self->bs.moveVector,distance);
-    //    VectorScale(distance,440,self->client->ps.velocity);
-    //
-    //    if (Distance(self->s.origin, nodes[self->bs.currentNode].origin) <= 20)
-    //    {
-    //      //Slow down a bit
-    //      botWalk(self, 80);
-    //      self->client->pers.cmd.upmove = 35;
-    //      self->client->ps.stats[STAT_JUMPSPEED] = 256;
-    //
-    //      ACEMV_ChangeBotAngle(self);
-    //
-    //      VectorCopy(self->bs.moveVector,distance);
-    //      VectorScale(distance,10,self->client->ps.velocity);
-    //      self->client->ps.velocity[2] += 100;
-    //    }
-    //    return;
   }
-  /*if (lastNodeType == NODE_JUMP || currentNodeType == NODE_JUMP)
-   {
-   //Trying to keep momentum, so dont fall to fast.
-   self->client->ps.velocity[2] += 20;
-   }*/
   if (self->bs.isJumping)
   {
     if (lastNodeType == NODE_JUMP)
     {
-      G_Printf("Stop jumping.\n");
       self->bs.isJumping = qfalse;
       self->bs.isLongJumping = qfalse;
     }
@@ -573,14 +546,19 @@ ACEMV_Move(gentity_t * self)
       botJump(self, 127);
       //Trying to keep momentum, so dont fall to fast.
 
-      if(self->bs.isLongJumping)
+      if (self->bs.isLongJumping)
       {
-        G_Printf("LONG JUMPSSSSZZZZ -> %d", Distance2d(nodes[self->bs.nextNode].origin,nodes[self->bs.currentNode].origin));
-        self->client->ps.velocity[2] += 30;
+        if (self->client->ps.velocity[2] != 0)
+        {
+          self->client->ps.velocity[2] += 30;
+        }
       }
-      else{
-        self->client->ps.velocity[2] += 20;
-        G_Printf("SHORT JUMPSSSSZZZZ -> %d", Distance2d(nodes[self->bs.nextNode].origin,nodes[self->bs.currentNode].origin));
+      else
+      {
+        if (self->client->ps.velocity[2] != 0)
+        {
+          self->client->ps.velocity[2] += 20;
+        }
       }
       ACEMV_ChangeBotAngle(self);
     }
@@ -647,10 +625,10 @@ ACEMV_Move(gentity_t * self)
   if (VectorLength(self->client->ps.velocity) < 37)
   {
     // keep a random factor just in case....
-    if (random() > 0.1 && ACEMV_SpecialMove(self))
-      return;
-
-    self->bs.viewAngles[YAW] += random() * 180 - 90;
+    //    if (random() > 0.1 && ACEMV_SpecialMove(self))
+    //      return;
+    //
+    //    self->bs.viewAngles[YAW] += random() * 180 - 90;
 
     if (ACEMV_CanMove(self, MOVE_FORWARD))
     {

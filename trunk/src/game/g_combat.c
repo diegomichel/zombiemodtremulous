@@ -45,10 +45,7 @@ AddScore(gentity_t *ent, int score)
   if (ent->r.svFlags & SVF_BOT)
     return;
 
-  /*if(g_survival.integer)
-  {*/
-    ent->client->ps.persistant[PERS_SCORE] += score;
-  /*}*/
+  ent->client->ps.persistant[PERS_SCORE] += score;
   CalculateRanks();
 }
 
@@ -77,12 +74,14 @@ LookAtKiller(gentity_t *self, gentity_t *inflictor, gentity_t *attacker)
 
 // these are just for logging, the client prints its own messages
 char *modNames[] =
-{ "MOD_UNKNOWN", "MOD_SHOTGUN", "MOD_BLASTER", "MOD_PAINSAW", "MOD_MACHINEGUN", "MOD_CHAINGUN", "MOD_PRIFLE", "MOD_MDRIVER", "MOD_LASGUN", "MOD_LCANNON",
-    "MOD_LCANNON_SPLASH", "MOD_FLAMER", "MOD_FLAMER_SPLASH", "MOD_GRENADE", "MOD_WATER", "MOD_SLIME", "MOD_LAVA", "MOD_CRUSH", "MOD_TELEFRAG", "MOD_FALLING",
-    "MOD_SUICIDE", "MOD_TARGET_LASER", "MOD_TRIGGER_HURT",
+{ "MOD_UNKNOWN", "MOD_SHOTGUN", "MOD_BLASTER", "MOD_PAINSAW", "MOD_MACHINEGUN", "MOD_CHAINGUN",
+    "MOD_PRIFLE", "MOD_MDRIVER", "MOD_LASGUN", "MOD_LCANNON", "MOD_LCANNON_SPLASH", "MOD_FLAMER",
+    "MOD_FLAMER_SPLASH", "MOD_GRENADE", "MOD_WATER", "MOD_SLIME", "MOD_LAVA", "MOD_CRUSH",
+    "MOD_TELEFRAG", "MOD_FALLING", "MOD_SUICIDE", "MOD_TARGET_LASER", "MOD_TRIGGER_HURT",
 
-    "MOD_ABUILDER_CLAW", "MOD_LEVEL0_BITE", "MOD_LEVEL1_CLAW", "MOD_LEVEL1_PCLOUD", "MOD_LEVEL3_CLAW", "MOD_LEVEL3_POUNCE", "MOD_LEVEL3_BOUNCEBALL",
-    "MOD_LEVEL2_CLAW", "MOD_LEVEL2_ZAP", "MOD_LEVEL4_CLAW", "MOD_LEVEL4_CHARGE",
+    "MOD_ABUILDER_CLAW", "MOD_LEVEL0_BITE", "MOD_LEVEL1_CLAW", "MOD_LEVEL1_PCLOUD",
+    "MOD_LEVEL3_CLAW", "MOD_LEVEL3_POUNCE", "MOD_LEVEL3_BOUNCEBALL", "MOD_LEVEL2_CLAW",
+    "MOD_LEVEL2_ZAP", "MOD_LEVEL4_CLAW", "MOD_LEVEL4_CHARGE",
 
     "MOD_SLOWBLOB", "MOD_POISON", "MOD_SWARM",
 
@@ -162,9 +161,11 @@ player_die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
     if (attacker->client)
     {
       killerName = attacker->client->pers.netname;
-      tk = (attacker != self && attacker->client->ps.stats[STAT_PTEAM] == self->client->ps.stats[STAT_PTEAM]);
+      tk = (attacker != self && attacker->client->ps.stats[STAT_PTEAM]
+          == self->client->ps.stats[STAT_PTEAM]);
 
-      if (attacker != self && attacker->client->ps.stats[STAT_PTEAM] == self->client->ps.stats[STAT_PTEAM])
+      if (attacker != self && attacker->client->ps.stats[STAT_PTEAM]
+          == self->client->ps.stats[STAT_PTEAM])
       {
         attacker->client->pers.statscounters.teamkills++;
         if (attacker->client->pers.teamSelection == PTE_ALIENS)
@@ -198,7 +199,9 @@ player_die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
   else
     obit = modNames[meansOfDeath];
 
-  G_LogPrintf("Kill: %i %i %i: %s^7 killed %s^7 by %s\n", killer, self->s.number, meansOfDeath, killerName, self->client->pers.netname, obit);
+  G_LogPrintf(
+    "Kill: %i %i %i: %s^7 killed %s^7 by %s\n", killer, self->s.number, meansOfDeath, killerName,
+    self->client->pers.netname, obit);
 
   //TA: close any menus the client has open
   G_CloseMenus(self->client->ps.clientNum);
@@ -231,11 +234,16 @@ player_die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
     //      this works as a temporary fix.
     if (attacker->client->ps.stats[STAT_PTEAM] == self->client->ps.stats[STAT_PTEAM])
     {
-      trap_SendServerCommand(-1, va("print \"%s^7 was killed by ^1TEAMMATE^7 %s^7 (Did %d damage to %d max)\n\"", self->client->pers.netname,
-          attacker->client->pers.netname, self->client->tkcredits[attacker->s.number], self->client->ps.stats[STAT_MAX_HEALTH]));
-      trap_SendServerCommand(attacker - g_entities, va("cp \"You killed ^1TEAMMATE^7 %s\"", self->client->pers.netname));
-      G_LogOnlyPrintf("%s^7 was killed by ^1TEAMMATE^7 %s^7 (Did %d damage to %d max)\n", self->client->pers.netname, attacker->client->pers.netname,
-          self->client->tkcredits[attacker->s.number], self->client->ps.stats[STAT_MAX_HEALTH]);
+      trap_SendServerCommand(-1, va(
+        "print \"%s^7 was killed by ^1TEAMMATE^7 %s^7 (Did %d damage to %d max)\n\"",
+        self->client->pers.netname, attacker->client->pers.netname,
+        self->client->tkcredits[attacker->s.number], self->client->ps.stats[STAT_MAX_HEALTH]));
+      trap_SendServerCommand(attacker - g_entities, va(
+        "cp \"You killed ^1TEAMMATE^7 %s\"", self->client->pers.netname));
+      G_LogOnlyPrintf(
+        "%s^7 was killed by ^1TEAMMATE^7 %s^7 (Did %d damage to %d max)\n",
+        self->client->pers.netname, attacker->client->pers.netname,
+        self->client->tkcredits[attacker->s.number], self->client->ps.stats[STAT_MAX_HEALTH]);
     }
   }
   self->enemy = attacker;
@@ -257,7 +265,8 @@ player_die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
 
     if (g_devmapKillerHP.integer && g_cheats.integer)
     {
-      trap_SendServerCommand(self - g_entities, va("print \"Your killer, %s, had %3i HP.\n\"", killerName, attacker->health));
+      trap_SendServerCommand(self - g_entities, va(
+        "print \"Your killer, %s, had %3i HP.\n\"", killerName, attacker->health));
     }
 
     if (attacker == self || OnSameTeam(self, attacker))
@@ -274,7 +283,8 @@ player_die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
 
           if (attacker->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
           {
-            tk_value = BG_ClassCanEvolveFromTo(PCL_ALIEN_LEVEL0, self->client->ps.stats[STAT_PCLASS], ALIEN_MAX_KILLS, 0);
+            tk_value = BG_ClassCanEvolveFromTo(
+              PCL_ALIEN_LEVEL0, self->client->ps.stats[STAT_PCLASS], ALIEN_MAX_KILLS, 0);
           }
           else
           {
@@ -297,10 +307,12 @@ player_die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
             G_AddCreditToClient(self->client, tk_value, qtrue);
             G_AddCreditToClient(attacker->client, -tk_value, qtrue);
 
-            trap_SendServerCommand(self->client->ps.clientNum, va("print \"Received ^3%d %s ^7from %s ^7in retribution.\n\"", tk_value, type,
-                attacker->client->pers.netname));
-            trap_SendServerCommand(attacker->client->ps.clientNum, va("print \"Transfered ^3%d %s ^7to %s ^7in retribution.\n\"", tk_value, type,
-                self->client->pers.netname));
+            trap_SendServerCommand(self->client->ps.clientNum, va(
+              "print \"Received ^3%d %s ^7from %s ^7in retribution.\n\"", tk_value, type,
+              attacker->client->pers.netname));
+            trap_SendServerCommand(attacker->client->ps.clientNum, va(
+              "print \"Transfered ^3%d %s ^7to %s ^7in retribution.\n\"", tk_value, type,
+              self->client->pers.netname));
           }
         }
       }
@@ -355,13 +367,13 @@ player_die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
     G_AddCreditToClient(attacker->builder->client, 250, qtrue);
   }
 
-
   //total up all the damage done by every client
   for(i = 0;i < MAX_CLIENTS;i++)
     totalDamage += (float) self->credits[i];
 
   // if players did more than DAMAGE_FRACTION_FOR_KILL increment the stage counters
-  if (!OnSameTeam(self, attacker) && totalDamage >= (self->client->ps.stats[STAT_MAX_HEALTH] * DAMAGE_FRACTION_FOR_KILL))
+  if (!OnSameTeam(self, attacker) && totalDamage >= (self->client->ps.stats[STAT_MAX_HEALTH]
+      * DAMAGE_FRACTION_FOR_KILL))
   {
     if (self->client->ps.stats[STAT_PTEAM] == PTE_HUMANS)
     {
@@ -416,7 +428,8 @@ player_die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
      (int)( classValue * percentDamage ), qtrue );
      }
      }
-     else*/if (self->client->ps.stats[STAT_PTEAM] == PTE_HUMANS || self->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
+     else*/if (self->client->ps.stats[STAT_PTEAM] == PTE_HUMANS || self->client->ps.stats[STAT_PTEAM]
+        == PTE_ALIENS)
     {
       //horribly complex nasty alien land
       float humanValue = 120.0f; //BG_GetValueOfHuman( &self->client->ps );
@@ -504,7 +517,7 @@ player_die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
     }
   }
 
-  if(!(self->r.svFlags & SVF_BOT))
+  if (!(self->r.svFlags & SVF_BOT))
   {
     ScoreboardMessage(self); // show scores
   }
@@ -552,8 +565,6 @@ player_die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
   // remove powerups
   memset(self->client->ps.powerups, 0, sizeof(self->client->ps.powerups));
 
-
-
   {
     // normal death
     static int i;
@@ -590,11 +601,13 @@ player_die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
           break;
       }
     }
-    self->client->ps.legsAnim = ((self->client->ps.legsAnim & ANIM_TOGGLEBIT) ^ ANIM_TOGGLEBIT) | anim;
+    self->client->ps.legsAnim = ((self->client->ps.legsAnim & ANIM_TOGGLEBIT) ^ ANIM_TOGGLEBIT)
+        | anim;
 
     if (!(self->client->ps.persistant[PERS_STATE] & PS_NONSEGMODEL))
     {
-      self->client->ps.torsoAnim = ((self->client->ps.torsoAnim & ANIM_TOGGLEBIT) ^ ANIM_TOGGLEBIT) | anim;
+      self->client->ps.torsoAnim = ((self->client->ps.torsoAnim & ANIM_TOGGLEBIT) ^ ANIM_TOGGLEBIT)
+          | anim;
     }
 
     // use own entityid if killed by non-client to prevent uint8_t overflow
@@ -942,12 +955,15 @@ else    VectorCopy(targ->r.currentOrigin, targOrigin);
         attacker->client->pers.statscounters.headshots++;
         level.alienStatsCounters.headshots++;
       }
-      if (attacker && attacker->client && modifier != 2 && targ->client->ps.stats[ STAT_PTEAM ] == PTE_ALIENS && attacker->client->ps.weapon != WP_PULSE_RIFLE)
+      if (attacker && attacker->client
+          && modifier != 2
+          && targ->client->ps.stats[ STAT_PTEAM ] == PTE_ALIENS
+          && attacker->client->ps.weapon != WP_PULSE_RIFLE)
       {
-        if (!g_survival.integer)
-        {
-          return 0.0f;
-        }
+        /*if (!g_survival.integer)
+         {
+         return 0.0f;
+         }*/
       }
 
       for (i = UP_NONE + 1; i < UP_NUM_UPGRADES; i++)
@@ -1014,7 +1030,9 @@ G_InitDamageLocations(void)
 
     if (len >= MAX_LOCDAMAGE_TEXT)
     {
-      G_Printf(va(S_COLOR_RED "file too large: %s is %i, max allowed is %i", filename, len, MAX_LOCDAMAGE_TEXT));
+      G_Printf(va(
+        S_COLOR_RED "file too large: %s is %i, max allowed is %i", filename, len,
+        MAX_LOCDAMAGE_TEXT));
       trap_FS_FCloseFile(fileHandle);
       continue;
     }
@@ -1039,7 +1057,9 @@ G_InitDamageLocations(void)
 
     if (len >= MAX_LOCDAMAGE_TEXT)
     {
-      G_Printf(va(S_COLOR_RED "file too large: %s is %i, max allowed is %i", filename, len, MAX_LOCDAMAGE_TEXT));
+      G_Printf(va(
+        S_COLOR_RED "file too large: %s is %i, max allowed is %i", filename, len,
+        MAX_LOCDAMAGE_TEXT));
       trap_FS_FCloseFile(fileHandle);
       continue;
     }
@@ -1082,14 +1102,16 @@ G_InitDamageLocations(void)
 //TA: team is the team that is immune to this damage
 
 void
-G_SelectiveDamage(gentity_t *targ, gentity_t *inflictor, gentity_t *attacker, vec3_t dir, vec3_t point, int damage, int dflags, int mod, int team)
+G_SelectiveDamage(gentity_t *targ, gentity_t *inflictor, gentity_t *attacker, vec3_t dir,
+  vec3_t point, int damage, int dflags, int mod, int team)
 {
   if (targ->client && (team != targ->client->ps.stats[STAT_PTEAM]))
     G_Damage(targ, inflictor, attacker, dir, point, damage, dflags, mod);
 }
 
 void
-G_Damage(gentity_t *targ, gentity_t *inflictor, gentity_t *attacker, vec3_t dir, vec3_t point, int damage, int dflags, int mod)
+G_Damage(gentity_t *targ, gentity_t *inflictor, gentity_t *attacker, vec3_t dir, vec3_t point,
+  int damage, int dflags, int mod)
 {
   gclient_t *client;
   int take;
@@ -1110,7 +1132,8 @@ G_Damage(gentity_t *targ, gentity_t *inflictor, gentity_t *attacker, vec3_t dir,
   if (targ->health <= 0)
     return;
 
-  if (g_survival.integer && attacker && attacker->client && targ && targ->client && targ->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
+  if (g_survival.integer && attacker && attacker->client && targ && targ->client
+      && targ->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
   {
     if (targ->botEnemy == NULL)
     {
@@ -1148,15 +1171,14 @@ G_Damage(gentity_t *targ, gentity_t *inflictor, gentity_t *attacker, vec3_t dir,
     }
   }
 
-  if(targ->client)
+  if (targ->client)
   {
-  if ((targ->r.svFlags & SVF_BOT) && targ->client->ps.pm_flags & PMF_QUEUED)
-    return;
+    if ((targ->r.svFlags & SVF_BOT) && targ->client->ps.pm_flags & PMF_QUEUED)
+      return;
 
-
-  if (targ->client->sess.sessionTeam == TEAM_SPECTATOR
-      && targ->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
-    return;
+    if (targ->client->sess.sessionTeam == TEAM_SPECTATOR && targ->client->ps.stats[STAT_PTEAM]
+        == PTE_ALIENS)
+      return;
   }
 
   // the intermission has allready been qualified for, so don't
@@ -1183,7 +1205,8 @@ G_Damage(gentity_t *targ, gentity_t *inflictor, gentity_t *attacker, vec3_t dir,
 
   if (client)
   {
-    if (targ && targ->client && targ->client->ps.stats[STAT_PTEAM] == PTE_HUMANS && level.time - targ->antispawncamp < g_antispawncamp.integer)
+    if (targ && targ->client && targ->client->ps.stats[STAT_PTEAM] == PTE_HUMANS && level.time
+        - targ->antispawncamp < g_antispawncamp.integer)
       return;
     if (client->noclip && !g_devmapNoGod.integer)
       return;
@@ -1208,7 +1231,8 @@ G_Damage(gentity_t *targ, gentity_t *inflictor, gentity_t *attacker, vec3_t dir,
 
   if (targ->client)
   {
-    knockback = (int) ((float) knockback * BG_FindKnockbackScaleForClass(targ->client->ps.stats[STAT_PCLASS]));
+    knockback = (int) ((float) knockback * BG_FindKnockbackScaleForClass(
+      targ->client->ps.stats[STAT_PCLASS]));
   }
 
   if (knockback > 200)
@@ -1222,7 +1246,7 @@ G_Damage(gentity_t *targ, gentity_t *inflictor, gentity_t *attacker, vec3_t dir,
 
   // figure momentum add, even if the damage won't be taken
   // Humans will not feel knockback to prevent ppl pushing each other.
-  if (knockback && targ->client && targ->client->ps.stats[ STAT_PTEAM ] != PTE_HUMANS)
+  if (knockback && targ->client && targ->client->ps.stats[STAT_PTEAM] != PTE_HUMANS)
   {
     vec3_t kvel;
     float mass;
@@ -1271,7 +1295,8 @@ G_Damage(gentity_t *targ, gentity_t *inflictor, gentity_t *attacker, vec3_t dir,
       }
       else if (mod == MOD_LEVEL4_CHARGE || mod == MOD_LEVEL3_POUNCE)
       { // don't do friendly fire on movement attacks
-        if (g_friendlyFireMovementAttacks.value <= 0 || (g_friendlyFire.value <= 0 && g_friendlyFireAliens.value <= 0))
+        if (g_friendlyFireMovementAttacks.value <= 0 || (g_friendlyFire.value <= 0
+            && g_friendlyFireAliens.value <= 0))
           return;
         else if (g_friendlyFireMovementAttacks.value > 0 && g_friendlyFireMovementAttacks.value < 1)
           damage = (int) (0.5 + g_friendlyFireMovementAttacks.value * (float) damage);
@@ -1300,7 +1325,8 @@ G_Damage(gentity_t *targ, gentity_t *inflictor, gentity_t *attacker, vec3_t dir,
     }
 
     // If target is buildable on the same team as the attacking client
-    if (targ->s.eType == ET_BUILDABLE && attacker->client && targ->biteam == attacker->client->pers.teamSelection)
+    if (targ->s.eType == ET_BUILDABLE && attacker->client && targ->biteam
+        == attacker->client->pers.teamSelection)
     {
       if (mod == MOD_LEVEL4_CHARGE || mod == MOD_LEVEL3_POUNCE)
       {
@@ -1328,7 +1354,8 @@ G_Damage(gentity_t *targ, gentity_t *inflictor, gentity_t *attacker, vec3_t dir,
   }
 
   // add to the attacker's hit counter
-  if (attacker->client && targ != attacker && targ->health > 0 && targ->s.eType != ET_MISSILE && targ->s.eType != ET_GENERAL)
+  if (attacker->client && targ != attacker && targ->health > 0 && targ->s.eType != ET_MISSILE
+      && targ->s.eType != ET_GENERAL)
   {
     if (OnSameTeam(targ, attacker))
       attacker->client->ps.persistant[PERS_HITS]--;
@@ -1368,14 +1395,15 @@ G_Damage(gentity_t *targ, gentity_t *inflictor, gentity_t *attacker, vec3_t dir,
     targ->client->lasthurt_client = attacker->s.number;
     targ->client->lasthurt_mod = mod;
 
-    damagemodifier = G_CalcDamageModifier(point, targ, attacker, client->ps.stats[STAT_PCLASS], dflags);
+    damagemodifier = G_CalcDamageModifier(
+      point, targ, attacker, client->ps.stats[STAT_PCLASS], dflags);
     take = (int) ((float) take * damagemodifier);
 
     //if boosted poison every attack
     if (attacker->client && attacker->client->ps.stats[STAT_STATE] & SS_BOOSTED)
     {
-      if (targ->client->ps.stats[STAT_PTEAM] == PTE_HUMANS && !(targ->client->ps.stats[STAT_STATE] & SS_POISONED) && mod != MOD_LEVEL2_ZAP
-          && targ->client->poisonImmunityTime < level.time)
+      if (targ->client->ps.stats[STAT_PTEAM] == PTE_HUMANS && !(targ->client->ps.stats[STAT_STATE]
+          & SS_POISONED) && mod != MOD_LEVEL2_ZAP && targ->client->poisonImmunityTime < level.time)
       {
         targ->client->ps.stats[STAT_STATE] |= SS_POISONED;
         targ->client->lastPoisonTime = level.time;
@@ -1384,7 +1412,8 @@ G_Damage(gentity_t *targ, gentity_t *inflictor, gentity_t *attacker, vec3_t dir,
         level.alienStatsCounters.repairspoisons++;
       }
     }
-    if (attacker->client && attacker->client->ps.stats[STAT_PTEAM] == PTE_ALIENS && targ->client->ps.stats[STAT_PTEAM] == PTE_HUMANS && mod == MOD_LEVEL1_CLAW
+    if (attacker->client && attacker->client->ps.stats[STAT_PTEAM] == PTE_ALIENS
+        && targ->client->ps.stats[STAT_PTEAM] == PTE_HUMANS && mod == MOD_LEVEL1_CLAW
         && !g_survival.integer)
     {
       /* targ->client->ps.stats[ STAT_STATE ] |= SS_POISONCLOUDED;
@@ -1399,7 +1428,9 @@ G_Damage(gentity_t *targ, gentity_t *inflictor, gentity_t *attacker, vec3_t dir,
 
   if (g_debugDamage.integer)
   {
-    G_Printf("%i: client:%i health:%i damage:%i armor:%i\n", level.time, targ->s.number, targ->health, take, asave);
+    G_Printf(
+      "%i: client:%i health:%i damage:%i armor:%i\n", level.time, targ->s.number, targ->health,
+      take, asave);
   }
 
   takeNoOverkill = take;
@@ -1569,7 +1600,8 @@ CanDamage(gentity_t *targ, vec3_t origin)
  ============
  */
 qboolean
-G_SelectiveRadiusDamage(vec3_t origin, gentity_t *attacker, float damage, float radius, gentity_t *ignore, int mod, int team)
+G_SelectiveRadiusDamage(vec3_t origin, gentity_t *attacker, float damage, float radius,
+  gentity_t *ignore, int mod, int team)
 {
   float points, dist;
   gentity_t *ent;
@@ -1625,7 +1657,8 @@ G_SelectiveRadiusDamage(vec3_t origin, gentity_t *attacker, float damage, float 
       // push the center of mass higher than the origin so players
       // get knocked into the air more
       dir[2] += 24;
-      G_SelectiveDamage(ent, NULL, attacker, dir, origin, (int) points, DAMAGE_RADIUS | DAMAGE_NO_LOCDAMAGE, mod, team);
+      G_SelectiveDamage(ent, NULL, attacker, dir, origin, (int) points, DAMAGE_RADIUS
+          | DAMAGE_NO_LOCDAMAGE, mod, team);
     }
   }
 
@@ -1638,7 +1671,8 @@ G_SelectiveRadiusDamage(vec3_t origin, gentity_t *attacker, float damage, float 
  ============
  */
 qboolean
-G_RadiusDamage(vec3_t origin, gentity_t *attacker, float damage, float radius, gentity_t *ignore, int mod)
+G_RadiusDamage(vec3_t origin, gentity_t *attacker, float damage, float radius, gentity_t *ignore,
+  int mod)
 {
   float points, dist;
   gentity_t *ent;
@@ -1694,7 +1728,8 @@ G_RadiusDamage(vec3_t origin, gentity_t *attacker, float damage, float radius, g
       // push the center of mass higher than the origin so players
       // get knocked into the air more
       dir[2] += 24;
-      G_Damage(ent, NULL, attacker, dir, origin, (int) points, DAMAGE_RADIUS | DAMAGE_NO_LOCDAMAGE, mod);
+      G_Damage(
+        ent, NULL, attacker, dir, origin, (int) points, DAMAGE_RADIUS | DAMAGE_NO_LOCDAMAGE, mod);
     }
   }
 

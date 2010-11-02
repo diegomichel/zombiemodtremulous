@@ -435,6 +435,78 @@ massDriverFire(gentity_t *ent)
   }
 }
 
+#define MDRIVER_IMPACTS 10
+void massDriverFire2( gentity_t *ent )
+{
+  trace_t   tr;
+  vec3_t    start;
+  vec3_t    end;
+  gentity_t *tent;
+  gentity_t *traceEnt;
+  gentity_t *hits[MDRIVER_IMPACTS];
+  int hits_contents[MDRIVER_IMPACTS];
+  int count = 0;
+  int i;
+  qboolean impact = qfalse;
+
+  VectorMA( muzzle, 8192 * 16, forward, end );
+
+  //VectorCopy(muzzle,start); too sloww
+  start[0] = muzzle[0];
+  start[1] = muzzle[1];
+  start[2] = muzzle[2];
+
+  while(count < MDRIVER_IMPACTS)
+  {
+    trap_Trace( &tr, start, NULL, NULL, end, ent->s.number, MASK_SHOT );
+    if( tr.surfaceFlags & SURF_NOIMPACT )
+      impact = qfalse;
+      break;
+    traceEnt = &g_entities[ tr.entityNum ];
+
+    /* reduce lag
+    if( traceEnt->takedamage && traceEnt->client )
+    {
+      tent = G_TempEntity( tr.endpos, EV_MISSILE_HIT );
+      tent->s.otherEntityNum = traceEnt->s.number;
+      tent->s.eventParm = DirToByte( tr.plane.normal );
+      tent->s.weapon = ent->s.weapon;
+      tent->s.generic1 = ent->s.generic1;
+    }*/
+
+    G_Printf("Wahhh");
+
+    if( traceEnt->takedamage )
+    {
+      G_Damage( traceEnt, ent, ent, forward, tr.endpos,
+        MDRIVER_DMG, 0, MOD_MDRIVER );
+    }
+    hits[count] = traceEnt;
+    //VectorCopy(tr.endpos,start); tooo sloww
+    start[0] = tr.endpos[0];
+    start[1] = tr.endpos[1];
+    start[2] = tr.endpos[2];
+    hits_contents[count] = traceEnt->r.contents;
+    traceEnt->r.contents = 0;
+    count++;
+    impact = qtrue;
+  }
+  for(i = 0;i < count;i++)
+  {
+    hits[i]->r.contents = hits_contents[i];
+  }
+  if(impact)//add miss event to last entity / wall hit
+  {
+    // snap the endpos to integers, but nudged towards the line
+    SnapVectorTowards( tr.endpos, muzzle );
+    tent = G_TempEntity( tr.endpos, EV_MISSILE_MISS );
+    tent->s.eventParm = DirToByte( tr.plane.normal );
+    tent->s.weapon = ent->s.weapon;
+    tent->s.generic1 = ent->s.generic1; //weaponMode
+  }
+}
+
+
 /*
  ======================================================================
 
@@ -865,6 +937,7 @@ cancelBuildFire(gentity_t *ent)
         traceEnt->health = traceEnt->client->ps.stats[STAT_HEALTH] = traceEnt->client->ps.stats[STAT_MAX_HEALTH];
         G_AddEvent(traceEnt, EV_MEDKIT_USED, 0);
         ent->client->ps.persistant[PERS_UNUSED] -= 1;
+        ent->client->ps.persistant[PERS_SCORE] += 10;
       }
 
       ent->client->pers.statscounters.repairspoisons++;
@@ -1759,7 +1832,7 @@ FireWeapon(gentity_t *ent)
       pulseRifleFire(ent);
       break;
     case WP_MASS_DRIVER:
-      massDriverFire(ent);
+      massDriverFire2(ent);
       break;
     case WP_LUCIFER_CANNON:
       LCChargeFire(ent, qfalse);
@@ -1777,7 +1850,7 @@ FireWeapon(gentity_t *ent)
       plantMine(ent);
       break;
     case WP_BOMB:
-      meleeAttack(ent, LEVEL0_BITE_RANGE / 2, LEVEL1_CLAW_WIDTH, LEVEL1_CLAW_DMG / 2, MOD_LEVEL1_CLAW);
+      meleeAttack(ent, ZOMBIE_RANGE, LEVEL1_CLAW_WIDTH, LEVEL1_CLAW_DMG / 2, MOD_LEVEL1_CLAW);
       break;
     case WP_LOCKBLOB_LAUNCHER:
       lockBlobLauncherFire(ent);

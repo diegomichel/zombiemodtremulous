@@ -366,10 +366,11 @@ G_SelectAlienSpawnPoint(vec3_t preference, gentity_t * ent)
     if (spot->clientSpawnTime > 0)
       continue;
 
-    if (G_CheckSpawnPoint(spot->s.number, spot->s.origin, spot->s.origin2, BA_H_SPAWN, NULL) != NULL)
+    if (G_CheckSpawnPoint(spot->s.number, spot->s.origin, spot->s.origin2, BA_H_SPAWN, NULL)
+        != NULL)
       continue;
     /*if (g_survival.integer && spot->survivalStage != level.survivalStage && level.numAlienSpawns > 2)
-      continue;*/
+     continue;*/
 
     spots[count] = spot;
     count++;
@@ -382,77 +383,77 @@ G_SelectAlienSpawnPoint(vec3_t preference, gentity_t * ent)
   //random_integer = rand() % (count);
 
   /*if (!g_survival.integer) // Was making zombies spawn in non sense areas.
-  {
-    for(i = 0;i < level.numConnectedClients;i++)
-    {
-      pew = &g_entities[level.sortedClients[i]];
-      if (pew->health <= 0)
-        continue;
-      if (pew->s.eType == ET_BUILDABLE)
-        continue;
-      if (!pew->client)
-        continue;
-      if (pew->client->ps.stats[STAT_HEALTH] <= 0 || pew->client->sess.sessionTeam == TEAM_SPECTATOR)
-        continue;
+   {
+   for(i = 0;i < level.numConnectedClients;i++)
+   {
+   pew = &g_entities[level.sortedClients[i]];
+   if (pew->health <= 0)
+   continue;
+   if (pew->s.eType == ET_BUILDABLE)
+   continue;
+   if (!pew->client)
+   continue;
+   if (pew->client->ps.stats[STAT_HEALTH] <= 0 || pew->client->sess.sessionTeam == TEAM_SPECTATOR)
+   continue;
 
-      if (pew->client->ps.stats[STAT_PTEAM] == PTE_HUMANS)
-      {
-        sob = pew;
-        break;
-      }
-    }
-  }*/
+   if (pew->client->ps.stats[STAT_PTEAM] == PTE_HUMANS)
+   {
+   sob = pew;
+   break;
+   }
+   }
+   }*/
 
   /*if (g_survival.integer && level.botsfollowpath && !ent->botlostpath) //if bot have meet our sob make it spawn somewhere else
-  {
-    if (level.selectednode != NULL)
-    {
-      level.selectednode->clientSpawnTime = 0;
-      //G_LogPrintf(va("Bot shuld spwn in right node. %d %d\n", node->s.origin[0], node->s.origin[1]));
-      return level.selectednode;
-    }
-    G_LogPrintf("No nodes.\n");
-  }*/
-  
+   {
+   if (level.selectednode != NULL)
+   {
+   level.selectednode->clientSpawnTime = 0;
+   //G_LogPrintf(va("Bot shuld spwn in right node. %d %d\n", node->s.origin[0], node->s.origin[1]));
+   return level.selectednode;
+   }
+   G_LogPrintf("No nodes.\n");
+   }*/
+
   //return spots[random_integer]; //This shuld work fine :s
   /*if (!sob)
-  {
-    if (g_survival.integer)
-    {
-      for(i = 1, enemyNode = g_entities + i;i < level.num_entities;i++, enemyNode++)
-      {
-        if (enemyNode->health <= 0)
-          continue;
-        if (enemyNode->s.eType != ET_BUILDABLE)
-          continue;
-        if (enemyNode->biteam != BIT_HUMANS)
-          continue;
-        if (enemyNode->s.modelindex != BA_H_SPAWN)
-          continue;
+   {
+   if (g_survival.integer)
+   {
+   for(i = 1, enemyNode = g_entities + i;i < level.num_entities;i++, enemyNode++)
+   {
+   if (enemyNode->health <= 0)
+   continue;
+   if (enemyNode->s.eType != ET_BUILDABLE)
+   continue;
+   if (enemyNode->biteam != BIT_HUMANS)
+   continue;
+   if (enemyNode->s.modelindex != BA_H_SPAWN)
+   continue;
 
-        if (enemyNode->survivalStage == level.survivalStage)
-        {
-          sob = enemyNode;
-          break;
-        }
-      }
-      if (!sob)
-      {
-        return G_ClosestEnt(preference, spots, count);
-      }
-      else
-      {
-        return G_ClosestEnt(sob->s.origin, spots, count);
-      }
-    }
-    else
-    {
-      return G_ClosestEnt(preference, spots, count);
-    }
-  }
-  else
-  {*/
-    return G_ClosestEnt(preference, spots, count);
+   if (enemyNode->survivalStage == level.survivalStage)
+   {
+   sob = enemyNode;
+   break;
+   }
+   }
+   if (!sob)
+   {
+   return G_ClosestEnt(preference, spots, count);
+   }
+   else
+   {
+   return G_ClosestEnt(sob->s.origin, spots, count);
+   }
+   }
+   else
+   {
+   return G_ClosestEnt(preference, spots, count);
+   }
+   }
+   else
+   {*/
+  return G_ClosestEnt(preference, spots, count);
   /*}*/
 }
 
@@ -493,7 +494,8 @@ G_SelectHumanSpawnPoint(vec3_t preference)
     if (spot->clientSpawnTime > 0)
       continue;
 
-    if (G_CheckSpawnPoint(spot->s.number, spot->s.origin, spot->s.origin2, BA_H_SPAWN, NULL) != NULL)
+    if (G_CheckSpawnPoint(spot->s.number, spot->s.origin, spot->s.origin2, BA_H_SPAWN, NULL)
+        != NULL)
       continue;
 
     spots[count] = spot;
@@ -527,7 +529,8 @@ G_SelectSpawnPoint(vec3_t avoidPoint, vec3_t origin, vec3_t angles)
  ============
  */
 gentity_t *
-G_SelectTremulousSpawnPoint(pTeam_t team, vec3_t preference, vec3_t origin, vec3_t angles, gentity_t * ent)
+G_SelectTremulousSpawnPoint(pTeam_t team, vec3_t preference, vec3_t origin, vec3_t angles,
+  gentity_t * ent)
 {
   gentity_t *spot = NULL;
   gentity_t *valid = NULL;
@@ -690,7 +693,7 @@ BodySink(gentity_t *ent)
     ent->timestamp = level.time;
   }
 
-  if (level.time - ent->timestamp > 6500)
+  if (level.time - ent->timestamp > 1000)
   {
     //Survival.
     if (g_survival.integer)
@@ -737,10 +740,10 @@ BodySink(gentity_t *ent)
       {
         item = spawnItem(ent, randomitem);
       }
-      G_FreeEntity(ent);
       level.spawnedCorpes--;
-      return;
     }
+    G_FreeEntity(ent);
+    return;
   }
 
   ent->nextthink = level.time + 100;
@@ -761,7 +764,7 @@ BodyFree(gentity_t *ent)
 
   //if not claimed in the next minute destroy
   ent->think = BodySink;
-  ent->nextthink = level.time + 60000;
+  ent->nextthink = level.time + 3000;
 }
 
 /*
@@ -781,14 +784,14 @@ SpawnCorpse(gentity_t *ent)
   trace_t tr;
   float vDiff;
 
-  if(level.spawnedCorpes > 40)
-  {
-    return;
-  }
-
   VectorCopy(ent->r.currentOrigin, origin);
 
   trap_UnlinkEntity(ent);
+
+  if (level.spawnedCorpes > 40)
+  {
+    return;
+  }
 
   // if client is in a nodrop area, don't leave the body
   contents = trap_PointContents(origin, -1);
@@ -864,7 +867,8 @@ SpawnCorpse(gentity_t *ent)
   ent->health = 0;
 
   //change body dimensions
-  BG_FindBBoxForClass(ent->client->ps.stats[STAT_PCLASS], NULL, NULL, NULL, body->r.mins, body->r.maxs);
+  BG_FindBBoxForClass(
+    ent->client->ps.stats[STAT_PCLASS], NULL, NULL, NULL, body->r.mins, body->r.maxs);
   vDiff = body->r.mins[2] - ent->r.mins[2];
 
   //drop down to match the *model* origins of ent and body
@@ -919,8 +923,8 @@ respawn(gentity_t *ent)
 {
   //WTF is doing thise code here WTF lol
   /*if (!((ent->r.svFlags & SVF_BOT) && !ent->botEnemy))
-  {*/
-    SpawnCorpse(ent);
+   {*/
+  SpawnCorpse(ent);
   /*}*/
 
   //TA: Clients can't respawn - they must go thru the class cmd
@@ -1225,17 +1229,23 @@ ClientUserinfoChanged(int clientNum)
 
     if (client->pers.muted)
     {
-      trap_SendServerCommand(ent - g_entities, "print \"You cannot change your name while you are muted\n\"");
+      trap_SendServerCommand(
+        ent - g_entities, "print \"You cannot change your name while you are muted\n\"");
       revertName = qtrue;
     }
-    else if (client->pers.nameChangeTime && (level.time - client->pers.nameChangeTime) <= (g_minNameChangePeriod.value * 1000))
+    else if (client->pers.nameChangeTime && (level.time - client->pers.nameChangeTime)
+        <= (g_minNameChangePeriod.value * 1000))
     {
-      trap_SendServerCommand(ent - g_entities, va("print \"Name change spam protection (g_minNameChangePeriod = %d)\n\"", g_minNameChangePeriod.integer));
+      trap_SendServerCommand(ent - g_entities, va(
+        "print \"Name change spam protection (g_minNameChangePeriod = %d)\n\"",
+        g_minNameChangePeriod.integer));
       revertName = qtrue;
     }
     else if (g_maxNameChanges.integer > 0 && client->pers.nameChanges >= g_maxNameChanges.integer)
     {
-      trap_SendServerCommand(ent - g_entities, va("print \"Maximum name changes reached (g_maxNameChanges = %d)\n\"", g_maxNameChanges.integer));
+      trap_SendServerCommand(ent - g_entities, va(
+        "print \"Maximum name changes reached (g_maxNameChanges = %d)\n\"",
+        g_maxNameChanges.integer));
       revertName = qtrue;
     }
     else if (!G_admin_name_check(ent, newname, err, sizeof(err)))
@@ -1280,21 +1290,27 @@ ClientUserinfoChanged(int clientNum)
         char decoloured[MAX_STRING_CHARS] = "";
         if (g_decolourLogfiles.integer == 1)
         {
-          Com_sprintf(decoloured, sizeof(decoloured), " (\"%s^7\" -> \"%s^7\")", oldname, client->pers.netname);
+          Com_sprintf(
+            decoloured, sizeof(decoloured), " (\"%s^7\" -> \"%s^7\")", oldname,
+            client->pers.netname);
           G_DecolorString(decoloured, decoloured);
-          G_LogPrintfColoured("ClientRename: %i [%s] (%s) \"%s^7\" -> \"%s^7\"%s\n", clientNum, client->pers.ip, client->pers.guid, oldname,
-              client->pers.netname, decoloured);
+          G_LogPrintfColoured(
+            "ClientRename: %i [%s] (%s) \"%s^7\" -> \"%s^7\"%s\n", clientNum, client->pers.ip,
+            client->pers.guid, oldname, client->pers.netname, decoloured);
         }
         else
         {
-          G_LogPrintf("ClientRename: %i [%s] (%s) \"%s^7\" -> \"%s^7\"%s\n", clientNum, client->pers.ip, client->pers.guid, oldname, client->pers.netname,
-              decoloured);
+          G_LogPrintf(
+            "ClientRename: %i [%s] (%s) \"%s^7\" -> \"%s^7\"%s\n", clientNum, client->pers.ip,
+            client->pers.guid, oldname, client->pers.netname, decoloured);
         }
 
       }
       else
       {
-        G_LogPrintf("ClientRename: %i [%s] (%s) \"%s^7\" -> \"%s^7\"\n", clientNum, client->pers.ip, client->pers.guid, oldname, client->pers.netname);
+        G_LogPrintf(
+          "ClientRename: %i [%s] (%s) \"%s^7\" -> \"%s^7\"\n", clientNum, client->pers.ip,
+          client->pers.guid, oldname, client->pers.netname);
       }
       G_admin_namelog_update(client, qfalse);
     }
@@ -1313,20 +1329,25 @@ ClientUserinfoChanged(int clientNum)
 
   // set model
   /*if (client->ps.stats[STAT_PCLASS] == PCL_HUMAN && BG_InventoryContainsUpgrade(UP_BATTLESUIT, client->ps.stats))
-  {
-    Com_sprintf(buffer, MAX_QPATH, "%s/%s", BG_FindModelNameForClass(PCL_HUMAN_BSUIT), BG_FindSkinNameForClass(PCL_HUMAN_BSUIT));
-  }
-  else */if (client->pers.classSelection == PCL_NONE)
+   {
+   Com_sprintf(buffer, MAX_QPATH, "%s/%s", BG_FindModelNameForClass(PCL_HUMAN_BSUIT), BG_FindSkinNameForClass(PCL_HUMAN_BSUIT));
+   }
+   else */
+  if (client->pers.classSelection == PCL_NONE)
   {
     //This looks hacky and frankly it is. The clientInfo string needs to hold different
     //model details to that of the spawning class or the info change will not be
     //registered and an axis appears instead of the player model. There is zero chance
     //the player can spawn with the battlesuit, hence this choice.
-    Com_sprintf(buffer, MAX_QPATH, "%s/%s", BG_FindModelNameForClass(PCL_HUMAN_BSUIT), BG_FindSkinNameForClass(PCL_HUMAN_BSUIT));
+    Com_sprintf(
+      buffer, MAX_QPATH, "%s/%s", BG_FindModelNameForClass(PCL_HUMAN_BSUIT),
+      BG_FindSkinNameForClass(PCL_HUMAN_BSUIT));
   }
   else
   {
-    Com_sprintf(buffer, MAX_QPATH, "%s/%s", BG_FindModelNameForClass(client->pers.classSelection), BG_FindSkinNameForClass(client->pers.classSelection));
+    Com_sprintf(
+      buffer, MAX_QPATH, "%s/%s", BG_FindModelNameForClass(client->pers.classSelection),
+      BG_FindSkinNameForClass(client->pers.classSelection));
   }
   Q_strncpyz(model, buffer, sizeof(model));
 
@@ -1334,7 +1355,9 @@ ClientUserinfoChanged(int clientNum)
   if (client->pers.classSelection != PCL_NONE)
   {
     //model segmentation
-    Com_sprintf(filename, sizeof(filename), "models/players/%s/animation.cfg", BG_FindModelNameForClass(client->pers.classSelection));
+    Com_sprintf(
+      filename, sizeof(filename), "models/players/%s/animation.cfg", BG_FindModelNameForClass(
+        client->pers.classSelection));
 
     if (G_NonSegModel(filename))
       client->ps.persistant[PERS_STATE] |= PS_NONSEGMODEL;
@@ -1386,10 +1409,12 @@ ClientUserinfoChanged(int clientNum)
   // send over a subset of the userinfo keys so other clients can
   // print scoreboards, display models, and play custom sounds
 
-  Com_sprintf(userinfo, sizeof(userinfo), "n\\%s\\t\\%i\\model\\%s\\hmodel\\%s\\c1\\%s\\c2\\%s\\"
-    "hc\\%i\\w\\%i\\l\\%i\\tt\\%d\\"
-    "tl\\%d\\ig\\%16s", client->pers.netname, team, model, model, c1, c2, client->pers.maxHealth, client->sess.wins, client->sess.losses, teamTask, teamLeader,
-      BG_ClientListString(&client->sess.ignoreList));
+  Com_sprintf(
+    userinfo, sizeof(userinfo), "n\\%s\\t\\%i\\model\\%s\\hmodel\\%s\\c1\\%s\\c2\\%s\\"
+      "hc\\%i\\w\\%i\\l\\%i\\tt\\%d\\"
+      "tl\\%d\\ig\\%16s", client->pers.netname, team, model, model, c1, c2, client->pers.maxHealth,
+    client->sess.wins, client->sess.losses, teamTask, teamLeader, BG_ClientListString(
+      &client->sess.ignoreList));
 
   trap_SetConfigstring(CS_PLAYERS + clientNum, userinfo);
 
@@ -1467,12 +1492,14 @@ ClientConnect(int clientNum, qboolean firstTime)
   // check for a password
   value = Info_ValueForKey(userinfo, "password");
 
-  if (g_password.string[0] && Q_stricmp(g_password.string, "none") && strcmp(g_password.string, value) != 0)
+  if (g_password.string[0] && Q_stricmp(g_password.string, "none") && strcmp(
+    g_password.string, value) != 0)
     return "Invalid password";
 
   for(i = 0;guid2[i] != '\0';i++)
   {
-    if (guid2[i] == '/' || guid2[i] == '\'' || guid2[i] == '*' || guid2[i] == ';' || guid2[i] == '=')
+    if (guid2[i] == '/' || guid2[i] == '\'' || guid2[i] == '*' || guid2[i] == ';' || guid2[i]
+        == '=')
     {
       G_LogPrintf(va("Hacked client tried to connect guid: %s ip: %s\n", guid2, ip));
       return "FAIL";
@@ -1501,7 +1528,7 @@ ClientConnect(int clientNum, qboolean firstTime)
   client->pers.connected = CON_CONNECTING;
 
   // read or initialize the session data
-  if(!(ent->r.svFlags & SVF_BOT))
+  if (!(ent->r.svFlags & SVF_BOT))
   {
     //FIXME: There is a shitty OverFlow on one of this functions.
     if (firstTime || level.newSession)
@@ -1516,7 +1543,7 @@ ClientConnect(int clientNum, qboolean firstTime)
     client->pers.firstConnect = qfalse;
 
   // get and distribute relevent paramters
-  if(!(ent->r.svFlags & SVF_BOT))
+  if (!(ent->r.svFlags & SVF_BOT))
   {
     ClientUserinfoChanged(clientNum);
   }
@@ -1530,21 +1557,29 @@ ClientConnect(int clientNum, qboolean firstTime)
     {
       Com_sprintf(decoloured, sizeof(decoloured), " (\"%s^7\")", client->pers.netname);
       G_DecolorString(decoloured, decoloured);
-      G_LogPrintfColoured("ClientConnect: %i [%s] (%s) \"%s^7\"%s\n", clientNum, client->pers.ip, client->pers.guid, client->pers.netname, decoloured);
+      G_LogPrintfColoured(
+        "ClientConnect: %i [%s] (%s) \"%s^7\"%s\n", clientNum, client->pers.ip, client->pers.guid,
+        client->pers.netname, decoloured);
     }
     else
     {
-      G_LogPrintf("ClientConnect: %i [%s] (%s) \"%s^7\"%s\n", clientNum, client->pers.ip, client->pers.guid, client->pers.netname, decoloured);
+      G_LogPrintf(
+        "ClientConnect: %i [%s] (%s) \"%s^7\"%s\n", clientNum, client->pers.ip, client->pers.guid,
+        client->pers.netname, decoloured);
     }
   }
   else
   {
-    G_LogPrintf("ClientConnect: %i [%s] (%s) \"%s^7\"\n", clientNum, client->pers.ip, client->pers.guid, client->pers.netname);
+    G_LogPrintf(
+      "ClientConnect: %i [%s] (%s) \"%s^7\"\n", clientNum, client->pers.ip, client->pers.guid,
+      client->pers.netname);
   }
 
   if (client->pers.mysqlid != -1 && g_survival.integer)
   {
-    if (trap_mysql_runquery(va("SELECT HIGH_PRIORITY id FROM players WHERE qkey = \"%s\" LIMIT 1", client->pers.guid)) == qtrue)
+    if (trap_mysql_runquery(va(
+      "SELECT HIGH_PRIORITY id FROM players WHERE qkey = \"%s\" LIMIT 1", client->pers.guid))
+        == qtrue)
     {
       if (trap_mysql_fetchrow() == qtrue)
       {
@@ -1554,11 +1589,13 @@ ClientConnect(int clientNum, qboolean firstTime)
       else
       {
         trap_mysql_finishquery();
-        if (trap_mysql_runquery(va("INSERT HIGH_PRIORITY INTO players (qkey,name,ip) VALUES (\"%s\",\"%s\",\"%s\")", client->pers.guid, client->pers.netname,
-            client->pers.ip)) == qtrue)
+        if (trap_mysql_runquery(va(
+          "INSERT HIGH_PRIORITY INTO players (qkey,name,ip) VALUES (\"%s\",\"%s\",\"%s\")",
+          client->pers.guid, client->pers.netname, client->pers.ip)) == qtrue)
         {
           trap_mysql_finishquery();
-          if (trap_mysql_runquery(va("SELECT HIGH_PRIORITY id FROM players WHERE qkey = \"%s\" LIMIT 1", client->pers.guid)))
+          if (trap_mysql_runquery(va(
+            "SELECT HIGH_PRIORITY id FROM players WHERE qkey = \"%s\" LIMIT 1", client->pers.guid)))
           {
             if (trap_mysql_fetchrow() == qtrue)
             {
@@ -1581,13 +1618,17 @@ ClientConnect(int clientNum, qboolean firstTime)
 
   if (client->pers.adminLevel)
   {
-    G_LogPrintf("ClientAuth: %i [%s] \"%s^7\" authenticated to admin level %i using GUID %s (^7%s)\n", clientNum, client->pers.ip, client->pers.netname,
-        client->pers.adminLevel, client->pers.guid, client->pers.adminName);
+    G_LogPrintf(
+      "ClientAuth: %i [%s] \"%s^7\" authenticated to admin level %i using GUID %s (^7%s)\n",
+      clientNum, client->pers.ip, client->pers.netname, client->pers.adminLevel, client->pers.guid,
+      client->pers.adminName);
   }
 
   // don't do the "xxx connected" messages if they were caried over from previous level
-  if (firstTime && (!(ent->r.svFlags & SVF_BOT) && g_survival.integer) && (level.time - level.startTime) > 20000)
-    trap_SendServerCommand(-1, va("print \"%s" S_COLOR_WHITE " connected\n\"", client->pers.netname));
+  if (firstTime && (!(ent->r.svFlags & SVF_BOT) && g_survival.integer) && (level.time
+      - level.startTime) > 20000)
+    trap_SendServerCommand(
+      -1, va("print \"%s" S_COLOR_WHITE " connected\n\"", client->pers.netname));
 
   // count current clients and rank for scoreboard
   CalculateRanks();
@@ -1651,8 +1692,9 @@ ClientBegin(int clientNum)
 
   ClientSpawn(ent, NULL, NULL, NULL);
   
-  if((!(ent->r.svFlags & SVF_BOT) && g_survival.integer) && (level.time - level.startTime > 20000))
-    trap_SendServerCommand(-1, va("print \"%s" S_COLOR_WHITE " entered the game\n\"", client->pers.netname));
+  if ((!(ent->r.svFlags & SVF_BOT) && g_survival.integer) && (level.time - level.startTime > 20000))
+    trap_SendServerCommand(-1, va(
+      "print \"%s" S_COLOR_WHITE " entered the game\n\"", client->pers.netname));
 
   // name can change between ClientConnect() and ClientBegin()
   G_admin_namelog_update(client, qfalse);
@@ -1666,7 +1708,9 @@ ClientBegin(int clientNum)
   {
     if (!Q_stricmp(ent->client->pers.guid, "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"))
     {
-      trap_SendServerCommand(client->ps.clientNum, va(
+      trap_SendServerCommand(
+        client->ps.clientNum,
+        va(
           "print \"^1Your client is out of date. Your records will be not saved until you update. Please replace your client executable with the one "
             "at ^2http://blogwtf.com/backport/^1 and reconnect. \n\""));
     }
@@ -1709,7 +1753,6 @@ ClientSpawn(gentity_t *ent, gentity_t *spawn, vec3_t origin, vec3_t angles)
 
   teamLocal = client->pers.teamSelection;
 
-
   //Reset Everything For path Finding
   ent->bs.currentNode = INVALID;
   ent->bs.goalNode = INVALID;
@@ -1719,7 +1762,6 @@ ClientSpawn(gentity_t *ent, gentity_t *spawn, vec3_t origin, vec3_t angles)
   ent->bs.isJumping = qfalse;
   ent->bs.isLongJumping = qfalse;
   ent->bs.isUsingLadder = qfalse;
-
 
   //TA: only start client if chosen a class and joined a team
   if (client->pers.classSelection == PCL_NONE && teamLocal == PTE_NONE)
@@ -1798,6 +1840,13 @@ ClientSpawn(gentity_t *ent, gentity_t *spawn, vec3_t origin, vec3_t angles)
   eventSequence = client->ps.eventSequence;
   memset(client, 0, sizeof(*client));
 
+  if(ent->r.svFlags & SVF_BOT)
+  {
+    botWalk(ent, 0);
+    botJump(ent, 0);
+    ent->botCommand = BOT_REGULAR;
+  }
+
   client->pers = saved;
   client->sess = savedSess;
   client->ps.ping = savedPing;
@@ -1852,10 +1901,17 @@ ClientSpawn(gentity_t *ent, gentity_t *spawn, vec3_t origin, vec3_t angles)
   BG_FindBBoxForClass(ent->client->pers.classSelection, ent->r.mins, ent->r.maxs, NULL, NULL, NULL);
 
   if (client->sess.sessionTeam != TEAM_SPECTATOR)
-    client->pers.maxHealth = client->ps.stats[STAT_MAX_HEALTH] = BG_FindHealthForClass(ent->client->pers.classSelection);
+    client->pers.maxHealth = client->ps.stats[STAT_MAX_HEALTH] = BG_FindHealthForClass(
+      ent->client->pers.classSelection);
   else
     client->pers.maxHealth = client->ps.stats[STAT_MAX_HEALTH] = 100;
 
+  if(ent->r.svFlags & SVF_BOT)
+  {
+    //Sex request incrase hp depending on numClients.
+    client->pers.maxHealth += (20 * (level.numConnectedClients - level.bots));
+//    G_Printf("New %s HP is %d\n", client->pers.netname, client->pers.maxHealth);
+  }
   // clear entity values
   if (ent->client->pers.classSelection == PCL_HUMAN)
   {
@@ -1929,7 +1985,8 @@ ClientSpawn(gentity_t *ent, gentity_t *spawn, vec3_t origin, vec3_t angles)
      //G_AddPredictableEvent( ent, EV_PLAYER_RESPAWN, 0 );
      }*/
   }
-  else if (client->sess.sessionTeam != TEAM_SPECTATOR && (client->ps.stats[STAT_PTEAM] == PTE_HUMANS || client->ps.stats[STAT_PTEAM] == PTE_ALIENS))
+  else if (client->sess.sessionTeam != TEAM_SPECTATOR && (client->ps.stats[STAT_PTEAM]
+      == PTE_HUMANS || client->ps.stats[STAT_PTEAM] == PTE_ALIENS))
   {
     spawn_angles[YAW] += 180.0f;
     AngleNormalize360(spawn_angles[YAW]);
@@ -2057,7 +2114,8 @@ ClientDisconnect(int clientNum)
   }
 
   // send effect if they were completely connected
-  if (ent->client->pers.connected == CON_CONNECTED && ent->client->sess.sessionTeam != TEAM_SPECTATOR)
+  if (ent->client->pers.connected == CON_CONNECTED && ent->client->sess.sessionTeam
+      != TEAM_SPECTATOR)
   {
     tent = G_TempEntity(ent->client->ps.origin, EV_PLAYER_TELEPORT_OUT);
     tent->s.clientNum = ent->s.clientNum;
@@ -2069,7 +2127,9 @@ ClientDisconnect(int clientNum)
   if (ent->client->pers.connection)
     ent->client->pers.connection->clientNum = -1;
 
-  G_LogPrintf("ClientDisconnect: %i [%s] (%s) \"%s\"\n", clientNum, ent->client->pers.ip, ent->client->pers.guid, ent->client->pers.netname);
+  G_LogPrintf(
+    "ClientDisconnect: %i [%s] (%s) \"%s\"\n", clientNum, ent->client->pers.ip,
+    ent->client->pers.guid, ent->client->pers.netname);
 
   trap_UnlinkEntity(ent);
   ent->s.modelindex = 0;

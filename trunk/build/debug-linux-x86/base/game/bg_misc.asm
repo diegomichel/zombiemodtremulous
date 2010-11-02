@@ -525,7 +525,7 @@ byte 4 0
 byte 4 5
 byte 4 0
 byte 4 8
-byte 4 6
+byte 4 7
 byte 4 760
 byte 4 0
 byte 4 50
@@ -651,7 +651,7 @@ byte 4 0
 byte 4 5
 byte 4 0
 byte 4 0
-byte 4 6
+byte 4 7
 byte 4 1000
 byte 4 0
 byte 4 50

@@ -130,7 +130,7 @@ void ACEMV_Wander(gentity_t * self);
 int ACEND_FindCost(int from, int to);
 int ACEND_FindCloseReachableNode(gentity_t * self, float range, int type);
 int ACEND_FindClosestReachableNode(gentity_t * self, float range, int type);
-void ACEND_SetGoal(gentity_t * self, int goal_node);
+void ACEND_SetGoal(gentity_t * self, int goal_node, int type);
 qboolean ACEND_FollowPath(gentity_t * self);
 void ACEND_GrapFired(gentity_t * self);
 qboolean ACEND_CheckForLadder(gentity_t * self);

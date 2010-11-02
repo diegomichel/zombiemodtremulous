@@ -59,7 +59,6 @@ G_BounceMissile(gentity_t *ent, trace_t *trace)
     // check for stop
     if (trace->plane.normal[2] > 0.2 && VectorLength(ent->s.pos.trDelta) < 40)
     {
-      G_Printf("MINE LANDED REMOVING SOUND\n");
       ent->s.eFlags |= EF_NO_BOUNCE_SOUND;
       G_SetOrigin(ent, trace->endpos);
       return;
@@ -203,7 +202,7 @@ void
 G_MissileImpact(gentity_t *ent, trace_t *trace)
 {
   gentity_t *other, *attacker;
-  //  qboolean returnAfterDamage = qfalse;
+  qboolean returnAfterDamage = qfalse;
   vec3_t dir;
 
   other = &g_entities[trace->entityNum];

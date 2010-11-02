@@ -241,7 +241,7 @@ ADDRGP4 g_entities
 CVPU4 4
 SUBU4
 CVUI4 4
-CNSTI4 2432
+CNSTI4 2440
 DIVI4
 ARGI4
 ADDRLP4 8
@@ -1204,7 +1204,7 @@ ASGNI4
 ADDRFP4 0
 ADDRFP4 0
 INDIRP4
-CNSTI4 2432
+CNSTI4 2440
 ADDP4
 ASGNP4
 LABELV $173
@@ -1279,7 +1279,7 @@ ADDRLP4 4
 CNSTI4 0
 ASGNI4
 ADDRLP4 0
-CNSTI4 2432
+CNSTI4 2440
 ADDRLP4 4
 INDIRI4
 MULI4
@@ -1421,7 +1421,7 @@ ASGNI4
 ADDRLP4 0
 ADDRLP4 0
 INDIRP4
-CNSTI4 2432
+CNSTI4 2440
 ADDP4
 ASGNP4
 LABELV $190
@@ -2058,6 +2058,7 @@ import trigger_teleporter_touch
 import manualTriggerSpectator
 import Touch_DoorTrigger
 import G_RunMover
+import massDriverFire2
 import plant_mine
 import launch_grenade_primary
 import launch_grenade_secondary

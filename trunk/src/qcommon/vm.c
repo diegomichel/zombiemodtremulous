@@ -385,6 +385,7 @@ vmHeader_t *VM_LoadQVM( vm_t *vm, qboolean alloc ) {
 			((int *)header)[i] = LittleLong( ((int *)header)[i] );
 		}
 
+
 		// validate
 		if ( header->jtrgLength < 0
 			|| header->bssLength < 0
