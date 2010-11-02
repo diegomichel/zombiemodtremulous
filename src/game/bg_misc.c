@@ -776,41 +776,6 @@ buildableAttributes_t bg_buildableList[] =
         qfalse, //qboolean  reactorTest;
         qtrue, //qboolean  replacable;
     },
-    { BA_I_PULSERIFLE, //int       buildNum;
-        "prifle", //char      *buildName; //This must the same as in the wp_ struct to make the mode works.
-        "Prifle", //char      *humanName;
-        "team_human_prifle", //char      *entityName;
-        { "models/weapons/prifle/prifle.md3", 0, 0, 0 }, 1.0f, //float     modelScale;
-        { -15, -15, -15 }, //vec3_t    mins;
-        { 15, 15, 25 }, //vec3_t    maxs;
-        0.0f, //float     zOffset;
-        TR_GRAVITY, //trType_t  traj;
-        0.0, //float     bounce;
-        REPEATER_BP, //int       buildPoints;
-        4, //int  stages
-        REPEATER_HEALTH, //int       health;
-        0, //int       regenRate;
-        REPEATER_SPLASHDAMAGE, //int       splashDamage;
-        REPEATER_SPLASHRADIUS, //int       splashRadius;
-        MOD_HSPAWN, //int       meansOfDeath;
-        BIT_HUMANS, //int       team;
-        WP_NONE, //weapon_t  buildWeapon;
-        BANIM_IDLE1, //int       idleAnim;
-        100, //int       nextthink;
-        REPEATER_BT, //int       buildTime;
-        qtrue, //qboolean  usable;
-        0, //int       turretRange;
-        0, //int       turretFireSpeed;
-        WP_NONE, //weapon_t  turretProjType;
-        0.95f, //float     minNormal;
-        qfalse, //qboolean  invertNormal;
-        qfalse, //qboolean  creepTest;
-        0, //int       creepSize;
-        qfalse, //qboolean  dccTest;
-        qfalse, //qboolean  transparentTest;
-        qfalse, //qboolean  reactorTest;
-        qtrue, //qboolean  replacable;
-    },
     { BA_I_LCANNON, //int       buildNum;
         "lcannon", //char      *buildName; //This must the same as in the wp_ struct to make the mode works.
         "Lcannon", //char      *humanName;
@@ -3630,30 +3595,6 @@ weaponAttributes_t bg_weapons[] =
         0, //int       buildDelay;
         WUT_HUMANS //WUTeam_t  team;
     },
-    { WP_PULSE_RIFLE, //int       weaponNum;
-        PRIFLE_PRICE, //int       price;
-        (1 << S1) | (1 << S2) | (1 << S3), //int  stages
-        SLOT_WEAPON, //int       slots;
-        "prifle", //char      *weaponName;
-        "M4 Carbine", //char      *weaponHumanName;
-        PRIFLE_CLIPS, //int       maxAmmo;
-        PRIFLE_MAXCLIPS, //int       maxClips;
-        qfalse, //int       infiniteAmmo;
-        qtrue, //int       usesEnergy;
-        PRIFLE_REPEAT, //int       repeatRate1;
-        0, //int       repeatRate2;
-        0, //int       repeatRate3;
-        PRIFLE_RELOAD, //int       reloadTime;
-        PRIFLE_K_SCALE, //float     knockbackScale;
-        qfalse, //qboolean  hasAltMode;
-        qfalse, //qboolean  hasThirdMode;
-        qtrue, //qboolean  canZoom;
-        20.0f, //float     zoomFov;
-        qtrue, //qboolean  purchasable;
-        qtrue, //qboolean  longRanged;
-        0, //int       buildDelay;
-        WUT_HUMANS //WUTeam_t  team;
-    },
     { WP_LUCIFER_CANNON, //int       weaponNum;
         LCANNON_PRICE, //int       price;
         (1 << S1) | (1 << S2) | (1 << S3), //int  stages
@@ -3750,12 +3691,12 @@ weaponAttributes_t bg_weapons[] =
         0, //int       buildDelay;
         WUT_HUMANS //WUTeam_t  team;
     },
-    { WP_BOMB, //int       weaponNum;
+    { WP_ZOMBIE_BITE, //int       weaponNum;
         GRENADE_PRICE, //int       price;
         (1 << S1) | (1 << S2) | (1 << S3), //int  stages
         SLOT_NONE, //int       slots;
-        "bomb", //char      *weaponName;
-        "Bomb", //char      *weaponHumanName;
+        "zombie_bite", //char      *weaponName;
+        "Zombie_bite", //char      *weaponHumanName;
         1, //int       maxAmmo;
         0, //int       maxClips;
         qtrue, //int       infiniteAmmo;

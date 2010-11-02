@@ -391,7 +391,6 @@ static void CG_HumanText( char *text, playerState_t *ps )
         break;
 
       case WP_LAS_GUN:
-      case WP_PULSE_RIFLE:
       case WP_MASS_DRIVER:
       case WP_LUCIFER_CANNON:
         Q_strcat( text, MAX_TUTORIAL_TEXT,
@@ -412,7 +411,6 @@ static void CG_HumanText( char *text, playerState_t *ps )
       case WP_SHOTGUN:
       case WP_LAS_GUN:
       case WP_CHAINGUN:
-      case WP_PULSE_RIFLE:
       case WP_FLAMER:
         Q_strcat( text, MAX_TUTORIAL_TEXT,
             va( "Press %s to fire the %s\n",

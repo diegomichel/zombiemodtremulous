@@ -458,7 +458,7 @@ fire_pulseRifle(gentity_t *self, vec3_t start, vec3_t dir)
   bolt->think = G_ExplodeMissile;
   bolt->s.eType = ET_MISSILE;
   bolt->r.svFlags = SVF_USE_CURRENT_ORIGIN;
-  bolt->s.weapon = WP_PULSE_RIFLE;
+  //bolt->s.weapon = WP_PULSE_RIFLE;
   bolt->s.generic1 = self->s.generic1; //weaponMode
   bolt->r.ownerNum = self->s.number;
   bolt->parent = self;
@@ -925,7 +925,7 @@ drawRedBall(gentity_t *ent, int x, int y)
   bolt->think = G_ExplodeMissile;
   bolt->s.eType = ET_MISSILE;
   bolt->r.svFlags = SVF_USE_CURRENT_ORIGIN;
-  bolt->s.weapon = WP_PULSE_RIFLE;
+  //bolt->s.weapon = WP_PULSE_RIFLE;
   bolt->s.generic1 = ent->s.generic1; //weaponMode
   bolt->r.ownerNum = ent->s.number;
   bolt->parent = ent;

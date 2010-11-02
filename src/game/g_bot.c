@@ -792,7 +792,7 @@ G_BotSpectatorThink(gentity_t * self)
         {
           self->client->pers.classSelection = PCL_HUMAN;
           self->client->ps.stats[STAT_PCLASS] = PCL_HUMAN;
-          self->client->pers.humanItemSelection = WP_BOMB;
+          self->client->pers.humanItemSelection = WP_ZOMBIE_BITE;
           G_PushSpawnQueue(&level.alienSpawnQueue, clientNum);
         }
         else

@@ -724,7 +724,7 @@ BodySink(gentity_t *ent)
           randomitem = BA_I_MINE;
           break;
         case 8:
-          randomitem = BA_I_PULSERIFLE;
+          randomitem = BA_I_MINE;
           break;
         case 9:
           randomitem = BA_I_SHOTGUN;
@@ -1921,6 +1921,7 @@ ClientSpawn(gentity_t *ent, gentity_t *spawn, vec3_t origin, vec3_t angles)
   // clear entity values
   if (ent->client->pers.classSelection == PCL_HUMAN)
   {
+    G_ForceWeaponChange(ent, WP_MACHINEGUN);
     BG_AddWeaponToInventory(WP_PISTOL, client->ps.stats);
     BG_AddUpgradeToInventory(UP_MEDKIT, client->ps.stats);
     weapon = client->pers.humanItemSelection;
