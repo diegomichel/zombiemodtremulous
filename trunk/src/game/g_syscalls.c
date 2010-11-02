@@ -245,7 +245,10 @@ void trap_mysql_fetchfieldbyID( int id, char *buffer ) {
   syscall( G_SQL_FETCHFIELDBYID, id, buffer );
 }
 
+void trap_mysql_fetchfieldbyName(const char *name, char *buffer, int len){
+  syscall( G_SQL_FETCHFIELDBYNAME, name, buffer, len );
+}
+
 void trap_mysql_reconnect( void ) {
   syscall( G_SQL_RECONNECT );
-
-
+}

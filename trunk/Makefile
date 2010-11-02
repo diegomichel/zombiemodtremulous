@@ -26,6 +26,7 @@ BUILD_CLIENT_SMP = 0
 BUILD_SERVER     = 0
 BUILD_GAME_SO    = 0
 BUILD_GAME_QVM   = 1
+BUILD_PROFILING  = 0
 
 #############################################################################
 #
@@ -186,6 +187,10 @@ ifeq ($(PLATFORM),linux)
 
   BASE_CFLAGS = -Wall -fno-strict-aliasing -Wimplicit -Wstrict-prototypes -pipe
 
+  ifeq ($(BUILD_PROFILING),1)
+    BASE_CFLAGS += -pg
+  endif
+
   ifeq ($(USE_OPENAL),1)
     BASE_CFLAGS += -DUSE_OPENAL=1
     ifeq ($(USE_OPENAL_DLOPEN),1)
@@ -210,20 +215,31 @@ ifeq ($(PLATFORM),linux)
     BASE_CFLAGS += -I/usr/X11R6/include
   endif
 
-  OPTIMIZE = -O3 -funroll-loops -fomit-frame-pointer
+  OPTIMIZE = -O3 -funroll-loops
+  
+  ifeq ($(BUILD_PROFILING),0)
+    OPTIMIZE += -fomit-frame-pointer
+  endif
 
   ifeq ($(ARCH),x86_64)
-    OPTIMIZE = -O3 -fomit-frame-pointer -funroll-loops \
+    OPTIMIZE = -O3 -funroll-loops \
       -falign-loops=2 -falign-jumps=2 -falign-functions=2 \
       -fstrength-reduce
+      
+    ifeq ($(BUILD_PROFILING),0)
+     OPTIMIZE += -fomit-frame-pointer
+    endif
     # experimental x86_64 jit compiler! you need GNU as
     HAVE_VM_COMPILED = true
   else
   ifeq ($(ARCH),x86)
-    OPTIMIZE = -O3 -march=i586 -fomit-frame-pointer \
+    OPTIMIZE = -O3 -march=i586 \
       -funroll-loops -falign-loops=2 -falign-jumps=2 \
       -falign-functions=2 -fstrength-reduce
     HAVE_VM_COMPILED=true
+    ifeq ($(BUILD_PROFILING),0)
+     OPTIMIZE += -fomit-frame-pointer
+    endif
   else
   ifeq ($(ARCH),ppc)
     BASE_CFLAGS += -maltivec
@@ -246,6 +262,9 @@ ifeq ($(PLATFORM),linux)
 
   THREAD_LDFLAGS=-lpthread
   LDFLAGS=-ldl -lm
+  ifeq ($(BUILD_PROFILING),1)
+     LDFLAGS += -pg
+    endif
 
   ifeq ($(USE_SDL),1)
     CLIENT_LDFLAGS=$(shell sdl-config --libs)

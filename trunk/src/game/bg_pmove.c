@@ -199,7 +199,7 @@ PM_ForceLegsAnim(int anim)
 void
 PM_ClipVelocity(vec3_t in, vec3_t normal, vec3_t out, float overbounce)
 {
-  float backoff;
+  float backoff = -1.0f;
   float change;
   int i;
 
@@ -2553,8 +2553,12 @@ PM_Footsteps(void)
     if (pm->waterlevel == 0)
     {
       // on ground will only play sounds if running
-      if (footstep && !pm->noFootsteps)
-        PM_AddEvent(PM_FootstepForSurface());
+
+
+//FIXME: I have removed footstep because i believe it can cause some lag
+//Uncomment if sum1 ask for it. :p
+//      if (footstep && !pm->noFootsteps)
+//        PM_AddEvent(PM_FootstepForSurface());
     }
     else if (pm->waterlevel == 1)
     {

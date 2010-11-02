@@ -1,24 +1,24 @@
 /*
-===========================================================================
-Copyright (C) 1999-2005 Id Software, Inc.
-Copyright (C) 2000-2006 Tim Angus
+ ===========================================================================
+ Copyright (C) 1999-2005 Id Software, Inc.
+ Copyright (C) 2000-2006 Tim Angus
 
-This file is part of Tremulous.
+ This file is part of Tremulous.
 
-Tremulous is free software; you can redistribute it
-and/or modify it under the terms of the GNU General Public License as
-published by the Free Software Foundation; either version 2 of the License,
-or (at your option) any later version.
+ Tremulous is free software; you can redistribute it
+ and/or modify it under the terms of the GNU General Public License as
+ published by the Free Software Foundation; either version 2 of the License,
+ or (at your option) any later version.
 
-Tremulous is distributed in the hope that it will be
-useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+ Tremulous is distributed in the hope that it will be
+ useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License
-along with Tremulous; if not, write to the Free Software
-Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-===========================================================================
+ You should have received a copy of the GNU General Public License
+ along with Tremulous; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ ===========================================================================
  */
 
 // g_public.h -- game module information visible to server
@@ -30,13 +30,11 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 // in entityStates (level eType), so the game must explicitly flag
 // special server behaviors
 #define SVF_NOCLIENT            0x00000001  // don't send entity to clients, even if it has effects
-
 // TTimo
 // https://zerowing.idsoftware.com/bugzilla/show_bug.cgi?id=551
 #define SVF_CLIENTMASK 0x00000002
 
 #define SVF_BOT                    0x00000008  // set if the entity is a bot
-
 #define SVF_BROADCAST           0x00000020  // send to all connected clients
 #define SVF_PORTAL              0x00000040  // merge a second pvs at origin2 into snapshots
 #define SVF_USE_CURRENT_ORIGIN  0x00000080  // entity->r.currentOrigin instead of entity->s.origin
@@ -51,7 +49,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 //===============================================================
 
-typedef struct {
+typedef struct
+{
   entityState_t s; // communicated by server to clients
 
   qboolean linked; // qfalse if not in any good cluster
@@ -83,16 +82,13 @@ typedef struct {
   int ownerNum;
 } entityShared_t;
 
-
-
 // the server looks at a sharedEntity, which is the start of the game's gentity_t structure
 
-typedef struct {
+typedef struct
+{
   entityState_t s; // communicated by server to clients
   entityShared_t r; // shared by both the server system and game
 } sharedEntity_t;
-
-
 
 //===============================================================
 
@@ -100,7 +96,8 @@ typedef struct {
 // system traps provided by the main engine
 //
 
-typedef enum {
+typedef enum
+{
   //============== general Quake services ==================
 
   G_PRINT, // ( const char *string );
@@ -225,15 +222,25 @@ typedef enum {
   G_PARSE_READ_TOKEN,
   G_PARSE_SOURCE_FILE_AND_LINE,
 
-  G_SEND_GAMESTAT
-} gameImport_t;
+  G_SEND_GAMESTAT,
+  G_DEMO_COMMAND,
+  G_SQL_RUNQUERY,
+  G_SQL_FINISHQUERY,
+  G_SQL_FETCHROW,
+  G_SQL_FETCHFIELDBYID,
+  G_SQL_FETCHFIELDBYNAME,
+  G_SQL_RECONNECT,
 
+  G_XGLOBAL_LOAD_C,
+  G_XGLOBAL_FLAGS,
+} gameImport_t;
 
 //
 // functions exported by the game subsystem
 //
 
-typedef enum {
+typedef enum
+{
   GAME_INIT, // ( int levelTime, int randomSeed, int restart );
   // init and shutdown will be called every single level
   // The game should call G_GET_ENTITY_TOKEN to parse through all the
@@ -257,10 +264,11 @@ typedef enum {
 
   GAME_RUN_FRAME, // ( int levelTime );
 
-  GAME_CONSOLE_COMMAND // ( void );
-  // ConsoleCommand will be called when a command has been issued
-  // that is not recognized as a builtin function.
-  // The game can issue trap_argc() / trap_argv() commands to get the command
-  // and parameters.  Return qfalse if the game doesn't recognize it as a command.
+  GAME_CONSOLE_COMMAND
+// ( void );
+// ConsoleCommand will be called when a command has been issued
+// that is not recognized as a builtin function.
+// The game can issue trap_argc() / trap_argv() commands to get the command
+// and parameters.  Return qfalse if the game doesn't recognize it as a command.
 } gameExport_t;
 

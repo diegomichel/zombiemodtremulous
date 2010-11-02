@@ -1287,7 +1287,10 @@ G_SpawnClients(pTeam_t team)
       ent = &g_entities[clientNum];
 
       ent->client->sess.sessionTeam = TEAM_FREE;
-      ClientUserinfoChanged(clientNum);
+      if(!(ent->r.svFlags & SVF_BOT))
+      {
+        ClientUserinfoChanged(clientNum);
+      }
       ClientSpawn(ent, spawn, spawn_origin, spawn_angles);
     }
   }
@@ -1300,21 +1303,20 @@ botAttack(gentity_t *enemy, int metaMode)
   int i;
   int maxbots;
   int controledbots = 0;
-
   if (!enemy)
     return;
-
-  if(enemy->client->ps.stats[STAT_HEALTH] <= 0 || enemy->health <=0)
+  if (!enemy->client)
     return;
-
+  if (enemy->client->ps.stats[STAT_HEALTH] <= 0 || enemy->health <= 0)
+    return;
 
   switch(metaMode)
   {
     case ATTACK_RAMBO:
-      maxbots = 10;
+      maxbots = 20;
       break;
     case ATTACK_CAMPER:
-      maxbots = 10;
+      maxbots = 20;
       break;
     case ATTACK_ALL:
       maxbots = level.botslots;
@@ -1330,7 +1332,7 @@ botAttack(gentity_t *enemy, int metaMode)
       continue;
     if (ent->client->sess.sessionTeam == TEAM_SPECTATOR)
       continue;
-    if (ent->client->ps.stats[STAT_PTEAM] == PTE_HUMANS)
+    if (ent->client->ps.stats[STAT_PTEAM] != PTE_ALIENS)
       continue;
     if (ent->client->ps.stats[STAT_HEALTH] <= 0 || ent->health <= 0)
       continue;
@@ -1357,6 +1359,7 @@ G_Director()
   //In order the worse first
   gentity_t *ent;
   gentity_t *ent2;
+  gentity_t *randomPlayer = NULL;
   gentity_t *rambo; //Like to leave the team alone
   gentity_t *camper; //Like to hides and dont fight
 
@@ -1368,9 +1371,10 @@ G_Director()
     return;
   }
 
-  rambo = camper = NULL;
+  ent = ent2 = randomPlayer =rambo = camper = NULL;
 
-  if(!g_survival.integer) return;
+  if (!g_survival.integer)
+    return;
 
   //To detect the rambo, what is a rambo
   //a rambo is the player go and run away from
@@ -1385,9 +1389,9 @@ G_Director()
       continue;
     if (ent->client->sess.sessionTeam == TEAM_SPECTATOR)
       continue;
-    if (ent->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
+    if (ent->client->ps.stats[STAT_PTEAM] != PTE_HUMANS)
       continue;
-    if (ent->client->ps.stats[STAT_HEALTH] <= 0 || ent->health <=0 )
+    if (ent->client->ps.stats[STAT_HEALTH] <= 0 || ent->health <= 0)
       continue;
 
     rambo = ent;
@@ -1403,9 +1407,9 @@ G_Director()
         continue;
       if (ent2->client->sess.sessionTeam == TEAM_SPECTATOR)
         continue;
-      if (ent2->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
+      if (ent2->client->ps.stats[STAT_PTEAM] != PTE_HUMANS)
         continue;
-      if (ent2->client->ps.stats[STAT_HEALTH] <= 0 || ent2->health <=0)
+      if (ent2->client->ps.stats[STAT_HEALTH] <= 0 || ent2->health <= 0)
         continue;
 
       //G_Printf("Checking visibility from %s to %s\n", ent->client->pers.netname, ent2->client->pers.netname);
@@ -1422,7 +1426,6 @@ G_Director()
   {
     botAttack(rambo, ATTACK_RAMBO);
   }
-
   for(i = level.botslots;i < level.botslots + level.numConnectedClients;i++)
   {
     ent = &g_entities[i];
@@ -1432,9 +1435,9 @@ G_Director()
       continue;
     if (ent->client->sess.sessionTeam == TEAM_SPECTATOR)
       continue;
-    if (ent->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
+    if (ent->client->ps.stats[STAT_PTEAM] != PTE_HUMANS)
       continue;
-    if (ent->client->ps.stats[STAT_HEALTH] <= 0 || ent->health <=0)
+    if (ent->client->ps.stats[STAT_HEALTH] <= 0 || ent->health <= 0)
       continue;
 
     if (ent->lastTimeSeen == 0)
@@ -1453,7 +1456,7 @@ G_Director()
   }
   if (camper)
   {
-    botAttack(rambo, ATTACK_CAMPER);
+    botAttack(camper, ATTACK_CAMPER);
   }
   //Every Minut Send Some bots to a random player.
   if (level.time % 1000 % 120 == 0)
@@ -1468,15 +1471,17 @@ G_Director()
         continue;
       if (ent->client->sess.sessionTeam == TEAM_SPECTATOR)
         continue;
-      if (ent->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
+      if (ent->client->ps.stats[STAT_PTEAM] != PTE_HUMANS)
         continue;
       if (ent->client->ps.stats[STAT_HEALTH] <= 0 || ent->health <= 0)
         continue;
 
-      ent2 = ent;
+      randomPlayer = ent;
       break;
     }
-    botAttack(ent2, ATTACK_ALL);
+    if (!randomPlayer)
+      return;
+    botAttack(randomPlayer, ATTACK_ALL);
   }
 }
 
@@ -1486,7 +1491,8 @@ G_addBot()
   if (level.numAlienSpawns < 1)
     return;
 
-  if ((level.time - level.startTime) < 92000 && (level.time - level.startTime) > 90000)
+  if ((level.time - level.startTime) < 94000
+      && (level.time - level.startTime) > 90000)
   {
     if (g_survival.integer)
     {
@@ -1518,24 +1524,23 @@ G_addBot()
   //if (!g_survival.integer) return;
   if (g_survival.integer)
   {
-    level.lastBotTime = level.time + 30000;
+    level.lastBotTime = level.time + 10000;
     if ((level.time - level.startTime) / 1000 / 60 > 4) //4 Minutes
 
     {
-      level.lastBotTime = level.time + 10000;
+      level.lastBotTime = level.time + 8000;
     }
     if ((level.time - level.startTime) / 1000 / 60 > 6) //6 Minutes
 
     {
-      level.lastBotTime = level.time + 5000;
+      level.lastBotTime = level.time + 6000;
     }
   }
   else
   {
-    level.lastBotTime = level.time + 2000;
+    level.lastBotTime = level.time + 1000;
   }
   level.botsLevel++;
-  //FIX ME:PRODUCTION
   if (level.bots < 40)
   {
     G_BotAdd("^1Zombie", PTE_ALIENS, level.botsLevel, NULL);
@@ -2049,7 +2054,7 @@ SendScoreboardMessageToAllClients(void)
 {
   int i;
 
-  for(i = 0;i < level.maxclients;i++)
+  for(i = level.botslots;i < level.botslots + level.numConnectedClients;i++)
   {
     if (level.clients[i].pers.connected == CON_CONNECTED)
       ScoreboardMessage(g_entities + i);
@@ -3215,7 +3220,8 @@ G_RunFrame(int levelTime)
 
   //G_UpdateCamper();
   G_CalculateSurvivalRecords();
-  //FIXME: uncomment production.
+
+  //FIXME: PRODUCTION
   //G_addBot();
   //G_Director();
 

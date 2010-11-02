@@ -45,6 +45,7 @@ extern gentity_t *podium3;
 
 static int ACESP_ParseInfos(char *buf, int max, char *infos[])
 {
+  return -1;
 /*	char           *token;
 	int             count;
 	char            key[MAX_TOKEN_CHARS];

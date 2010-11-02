@@ -221,10 +221,22 @@ void ScoreboardMessage(gentity_t *ent) {
 
   numSorted = level.numConnectedClients;
 
+  if((ent->r.svFlags & SVF_BOT))
+  {
+    return;
+  }
+
   for (i = 0; i < numSorted; i++) {
     int ping;
 
     cl = &level.clients[ level.sortedClients[ i ] ];
+
+    //FIXME: This shuld check against ent->r.svFlags
+    //but this works for now.
+    if(cl->pers.teamSelection == PTE_ALIENS)
+    {
+      continue;
+    }
 
     if (cl->pers.connected == CON_CONNECTING)
       ping = -1;

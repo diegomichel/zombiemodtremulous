@@ -3681,6 +3681,7 @@ G_admin_findpath(gentity_t *ent, int skiparg)
 
     ACESP_SetupBotState(bot);
     bot->botCommand = BOT_FOLLOW_PATH;
+    bot->botMetaMode = ATTACK_ALL;
     bot->botEnemy = ent;
     bot->bs.goalEntity = ent;
     bot->bs.moveTarget = ent;

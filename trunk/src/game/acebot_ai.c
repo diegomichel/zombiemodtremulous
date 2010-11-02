@@ -178,16 +178,16 @@ ACEAI_Think(gentity_t * self)
     }
   }
 
-#if 0
-  if(ace_debug.integer)
-  trap_SendServerCommand(-1, va("print \"%s: state %dl!\n\"", self->client->pers.netname, self->bs.state));
-#endif
+//#if 0
+//  if(ace_debug.integer)
+//  trap_SendServerCommand(-1, va("print \"%s: state %dl!\n\"", self->client->pers.netname, self->bs.state));
+//#endif
 
   // set approximate ping
-  if (!g_synchronousClients.integer)
-    self->client->pers.cmd.serverTime = level.time - (10 + floor(random() * 25) + 1);
-  else
-    self->client->ps.commandTime = level.time;
+//  if (!g_synchronousClients.integer)
+//    self->client->pers.cmd.serverTime = level.time - (10 + floor(random() * 25) + 1);
+//  else
+//    self->client->ps.commandTime = level.time;
 
   // show random ping values in scoreboard
   //self->client->ping = ucmd.msec;
@@ -344,7 +344,7 @@ ACEAI_PickLongRangeGoal(gentity_t * self)
     self->bs.wander_timeout = level.time + 1000;
 
     if (ace_debug.integer)
-      trap_SendServerCommand(-1, va("print \"%s: did not find a LR goal, wandering..\n\"", self->client->pers.netname));
+      G_Printf("print \"%s: wandering..\n\"", self->client->pers.netname);
     return; // no path?
   }
 
@@ -353,7 +353,7 @@ ACEAI_PickLongRangeGoal(gentity_t * self)
   self->bs.tries = 0; // reset the count of how many times we tried this goal
 
   if (goalEnt != NULL && ace_debug.integer)
-    trap_SendServerCommand(-1, va("print \"%s: selected a %s at node %d for LR goal\n\"", self->client->pers.netname, goalEnt->classname, goalNode));
+    G_Printf("print \"%s: selected a %s at node %d for LR goal\n\"", self->client->pers.netname, goalEnt->classname, goalNode);
 
   ACEND_SetGoal(self, goalNode);
 }
@@ -426,7 +426,7 @@ ACEAI_PickShortRangeGoal(gentity_t * self)
     self->bs.moveTarget = best;
 
     if (ace_debug.integer && self->bs.goalEntity != self->bs.moveTarget)
-      trap_SendServerCommand(-1, va("print \"%s: selected a %s for SR goal\n\"", self->client->pers.netname, self->bs.moveTarget->classname));
+      G_Printf("print \"%s: selected a %s for SR goal\n\"", self->client->pers.netname, self->bs.moveTarget->classname);
 
     self->bs.goalEntity = best;
   }

@@ -471,43 +471,14 @@ ACEMV_Move(gentity_t * self)
     return; // No move, riding elevator
   }
 
-  // jumpto nodes
-
-  /*if(self->bs.isJumping)
-   {
-   self->bs.isJumping = qfalse;
-   self->client->pers.cmd.forwardmove = 0;
-   return;
-   }*/
-
-  //  if ((nextNodeType == NODE_JUMP && currentNodeType == NODE_JUMP))
-  //  {
-  //    self->client->ps.stats[STAT_STATE] &= ~SS_SPEEDBOOST;
-  //    jumpDistance = abs(Distance(self->s.origin, self->bs.moveTarget->s.origin) - 2000);
-  //
-  //    self->client->ps.stats[STAT_JUMPSPEED] = jumpDistance / 2.5;
-  //
-  //    if (jumpDistance > 127)
-  //      jumpDistance = 127;
-  //
-  //    newSpeed = (74 + jumpDistance);
-  //
-  //    if (newSpeed > 127)
-  //      newSpeed = 127;
-  //
-  //    self->client->pers.cmd.forwardmove = newSpeed;//127;
-  //    self->client->ps.stats[STAT_STATE] |= SS_SPEEDBOOST;
-  //    self->client->pers.cmd.upmove = 35;
-  //    self->bs.isJumping = qtrue;
-  //
-  //    ACEMV_ChangeBotAngle(self);
-  //    return;
-  //  }
-
   ////////////////////////////////////////////////////////
   // Jumpto Nodes
   ///////////////////////////////////////////////////////
-  if (nextNodeType == NODE_JUMP || (currentNodeType == NODE_JUMP && nextNodeType != NODE_ITEM && nodes[self->bs.nextNode].origin[2] > self->s.origin[2]))
+  /*if(lastNodeType == NODE_JUMP)
+   {
+
+   }*/
+  if (lastNodeType == NODE_JUMP || (currentNodeType == NODE_JUMP && nodes[self->bs.nextNode].origin[2] > self->s.origin[2]) || nextNodeType == NODE_JUMP)
   {
     // Set up a jump move
 
@@ -515,6 +486,23 @@ ACEMV_Move(gentity_t * self)
     self->client->pers.cmd.upmove = 35;
     self->client->ps.stats[STAT_JUMPSPEED] = 256;
 
+    if (currentNodeType == NODE_JUMP && !ACEND_nodesVisible(nodes[self->bs.currentNode].origin, nodes[self->bs.nextNode].origin))
+    {
+      G_Printf("OH SHIT\n");
+      self->client->pers.cmd.forwardmove = 0;
+      self->client->pers.cmd.upmove = 30;
+      self->client->ps.stats[STAT_JUMPSPEED] += 200;
+      ACEMV_ChangeBotAngle(self);
+      VectorCopy(self->bs.moveVector,distance);
+      VectorScale(distance,440,self->client->ps.velocity);
+      return;
+    }
+
+    if (lastNodeType == NODE_JUMP && currentNodeType == NODE_JUMP || (currentNodeType == NODE_JUMP && nextNodeType == NODE_JUMP))
+    {
+      //G_Printf("Salta mucho .\n");
+      self->client->ps.stats[STAT_JUMPSPEED] += 100;
+    }
     ACEMV_ChangeBotAngle(self);
 
     VectorCopy(self->bs.moveVector,distance);
@@ -533,10 +521,6 @@ ACEMV_Move(gentity_t * self)
       VectorScale(distance,10,self->client->ps.velocity);
       self->client->ps.velocity[2] += 100;
     }
-
-    trap_SendServerCommand(-1, va("print \"%s: ^1Jump %f\n\"", self->client->pers.netname, Distance(self->s.origin, nodes[self->bs.currentNode].origin)));
-
-    //Distance(self->s.origin, nodes[self->bs.nextNode].origin)+100;
     return;
   }
 
@@ -555,7 +539,6 @@ ACEMV_Move(gentity_t * self)
   // If getting off the ladder
   if (currentNodeType == NODE_LADDER && nextNodeType != NODE_LADDER && nodes[self->bs.nextNode].origin[2] > self->s.origin[2])
   {
-    trap_SendServerCommand(-1, va("print \"%s: ^1MOVING OUT OF LADDER\"", self->client->pers.netname));
     self->client->pers.cmd.forwardmove = 127;
     self->client->pers.cmd.upmove = 127;
     self->client->ps.velocity[2] = 200;

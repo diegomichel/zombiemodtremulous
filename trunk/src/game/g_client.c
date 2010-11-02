@@ -1518,7 +1518,10 @@ ClientConnect(int clientNum, qboolean firstTime)
     client->pers.firstConnect = qfalse;
 
   // get and distribute relevent paramters
-  ClientUserinfoChanged(clientNum);
+  if(!(ent->r.svFlags & SVF_BOT))
+  {
+    ClientUserinfoChanged(clientNum);
+  }
 
   G_admin_set_adminname(ent);
 
@@ -2000,9 +2003,6 @@ ClientSpawn(gentity_t *ent, gentity_t *spawn, vec3_t origin, vec3_t angles)
 
   // clear entity state values
   BG_PlayerStateToEntityState(&client->ps, &ent->s, qtrue);
-  
-  //Path find
-  ent->nextnodeset = qfalse;
 }
 
 /*

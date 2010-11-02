@@ -112,7 +112,7 @@ LABELV $90
 endproc ACEIT_IsVisible 68 28
 export ACEIT_ChangeWeapon
 proc ACEIT_ChangeWeapon 0 0
-CNSTI4 0
+CNSTI4 1
 RETI4
 LABELV $94
 endproc ACEIT_ChangeWeapon 0 0

@@ -902,7 +902,7 @@ G_KillStructuresSurvival()
     if(ent->biteam == BIT_ALIENS)
       continue;
 
-    if (level.numAlienSpawns <= 8 && ent->s.modelindex == BA_H_SPAWN && ent->biteam == BIT_ALIENS)
+    if (ent->s.modelindex == BA_H_SPAWN && ent->biteam == BIT_ALIENS)
       continue;
 
     G_Damage(ent, NULL, NULL, NULL, NULL, 10000, 0, MOD_SUICIDE);

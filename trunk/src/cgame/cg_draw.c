@@ -1659,34 +1659,35 @@ CG_DrawStageReport(rectDef_t *rect, float text_x, float text_y, vec4_t color, fl
   if (cg.snap->ps.persistant[PERS_TEAM] == TEAM_SPECTATOR && !cg.intermissionStarted)
     return;
 
-  if (cg.intermissionStarted)
-  {
-    Com_sprintf(s, MAX_TOKEN_CHARS, "Stage %d" //PH34R MY MAD-LEET CODING SKILLZ
-          "                                                       "
-          "Stage %d", cgs.alienStage + 1, cgs.humanStage + 1);
-  }
-  else if (cg.snap->ps.stats[STAT_PTEAM] == PTE_ALIENS)
-  {
-    kills = cgs.alienNextStageThreshold - cgs.alienKills;
-
-    if (cgs.alienNextStageThreshold < 0)
-      Com_sprintf(s, MAX_TOKEN_CHARS, "Stage %d", cgs.alienStage + 1);
-    else if (kills == 1)
-      Com_sprintf(s, MAX_TOKEN_CHARS, "Stage %d, %d kill for next stage", cgs.alienStage + 1, kills);
-    else
-      Com_sprintf(s, MAX_TOKEN_CHARS, "Stage %d, %d kills for next stage", cgs.alienStage + 1, kills);
-  }
-  else if (cg.snap->ps.stats[STAT_PTEAM] == PTE_HUMANS)
-  {
-    kills = cgs.humanNextStageThreshold - cgs.humanKills;
-
-    if (cgs.humanNextStageThreshold < 0)
-      Com_sprintf(s, MAX_TOKEN_CHARS, "Stage %d", cgs.humanStage + 1);
-    else if (kills == 1)
-      Com_sprintf(s, MAX_TOKEN_CHARS, "Stage %d, %d kill for next stage", cgs.humanStage + 1, kills);
-    else
-      Com_sprintf(s, MAX_TOKEN_CHARS, "Stage %d, %d kills for next stage", cgs.humanStage + 1, kills);
-  }
+//  if (cg.intermissionStarted)
+//  {
+//    Com_sprintf(s, MAX_TOKEN_CHARS, "Stage %d" //PH34R MY MAD-LEET CODING SKILLZ
+//          "                                                       "
+//          "Stage %d", cgs.alienStage + 1, cgs.humanStage + 1);
+//  }
+//  else if (cg.snap->ps.stats[STAT_PTEAM] == PTE_ALIENS)
+//  {
+//    kills = cgs.alienNextStageThreshold - cgs.alienKills;
+//
+//    if (cgs.alienNextStageThreshold < 0)
+//      Com_sprintf(s, MAX_TOKEN_CHARS, "Stage %d", cgs.alienStage + 1);
+//    else if (kills == 1)
+//      Com_sprintf(s, MAX_TOKEN_CHARS, "Stage %d, %d kill for next stage", cgs.alienStage + 1, kills);
+//    else
+//      Com_sprintf(s, MAX_TOKEN_CHARS, "Stage %d, %d kills for next stage", cgs.alienStage + 1, kills);
+//  }
+//  else
+//  if (cg.snap->ps.stats[STAT_PTEAM] == PTE_HUMANS)
+//  {
+//    kills = cgs.humanNextStageThreshold - cgs.humanKills;
+//
+//    if (cgs.humanNextStageThreshold < 0)
+      Com_sprintf(s, MAX_TOKEN_CHARS, "Survivors");
+//    else if (kills == 1)
+//      Com_sprintf(s, MAX_TOKEN_CHARS, "Stage %d, %d kill for next stage", cgs.humanStage + 1, kills);
+//    else
+//      Com_sprintf(s, MAX_TOKEN_CHARS, "Stage %d, %d kills for next stage", cgs.humanStage + 1, kills);
+//  }
 
   w = CG_Text_Width(s, scale, 0);
 
