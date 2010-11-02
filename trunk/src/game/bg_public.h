@@ -377,6 +377,9 @@ typedef enum {
   WP_HBUILD,
   //ok?
 
+  //New Weapons
+  WP_AXE,
+
   WP_NUM_WEAPONS
 } weapon_t;
 
