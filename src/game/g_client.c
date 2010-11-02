@@ -332,6 +332,11 @@ gentity_t *G_SelectAlienSpawnPoint( vec3_t preference )
   gentity_t *spot;
   int       count;
   gentity_t *spots[ MAX_SPAWN_POINTS ];
+  int       i;
+  gentity_t *pew;
+  gentity_t *sob = NULL;
+  gentity_t *enemyNode;
+  int seed, random_integer;
 
   if( level.numAlienSpawns <= 0 )
     return NULL;
@@ -368,7 +373,72 @@ gentity_t *G_SelectAlienSpawnPoint( vec3_t preference )
   if( !count )
     return NULL;
 
-  return G_ClosestEnt( preference, spots, count );
+  //srand(seed);
+	//random_integer = rand() % (count);
+  
+    if(!g_survival.integer) // Was making zombies spawn in non sense areas.
+    {
+      for( i = 0; i < level.numConnectedClients; i++ )
+      {
+        pew = &g_entities[ level.sortedClients[ i ] ];
+        if( pew->health <= 0 )
+          continue;
+        if( pew->s.eType == ET_BUILDABLE )
+          continue;
+        if(!pew->client)
+          continue;
+        if( pew->client->ps.stats[ STAT_HEALTH ] <= 0 ||
+            pew->client->sess.sessionTeam == TEAM_SPECTATOR )
+          continue;
+        
+        if(pew->client->ps.stats[ STAT_PTEAM ] == PTE_HUMANS)
+        {
+          sob = pew;
+          break;
+        }
+      }
+    }
+  
+  //return spots[random_integer]; //This shuld work fine :s
+  if(!sob)
+  {
+    if(g_survival.integer)
+    {
+      for ( i = 1, enemyNode = g_entities + i; i < level.num_entities; i++, enemyNode++ )
+      {
+        if(enemyNode->health <= 0)
+          continue;
+        if(enemyNode->s.eType != ET_BUILDABLE)
+          continue;
+        if(enemyNode->biteam != BIT_HUMANS)
+          continue;
+        if(enemyNode->s.modelindex != BA_H_SPAWN)
+          continue;
+          
+        if( enemyNode->survivalStage == level.survivalStage)
+        {
+          sob = enemyNode;
+          break;
+        }
+      }
+      if(!sob)
+      {
+        return G_ClosestEnt( preference, spots, count );
+      }
+      else
+      {
+        return G_ClosestEnt( sob->s.origin, spots, count );
+      }
+    }
+    else
+    {
+      return G_ClosestEnt( preference, spots, count );
+    }
+  }
+  else
+  {
+    return G_ClosestEnt( sob->s.origin, spots, count );
+  }
 }
 
 

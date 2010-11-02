@@ -188,6 +188,48 @@ vmCvar_t  g_ctn;
 vmCvar_t  g_ctnbuildlimit;
 vmCvar_t  g_ctncapturetime;
 
+//Survival
+vmCvar_t  g_survival;
+
+//ROTAX
+vmCvar_t  g_ambush;
+vmCvar_t  g_ambush_granger_s1;
+vmCvar_t  g_ambush_dretch_s2;
+vmCvar_t  g_ambush_basilisk_s3;
+vmCvar_t  g_ambush_basilisk2_s4;
+vmCvar_t  g_ambush_marauder_s5;
+vmCvar_t  g_ambush_marauder2_s6;
+vmCvar_t  g_ambush_dragon_s7;
+vmCvar_t  g_ambush_dragon2_s8;
+vmCvar_t  g_ambush_tyrants_to_win;
+vmCvar_t  g_ambush_dodge;
+vmCvar_t  g_ambush_dodge_random;
+vmCvar_t  g_ambush_rebuild_time;
+vmCvar_t  g_ambush_sec_to_start;
+vmCvar_t  g_ambush_stage_suicide;
+vmCvar_t  g_ambush_no_egg_ffoff;
+vmCvar_t  g_ambush_kill_spawns;
+vmCvar_t  g_ambush_att_buildables;
+vmCvar_t  g_ambush_range;
+vmCvar_t  g_ambush_turnangle;
+
+vmCvar_t  g_bot;
+
+vmCvar_t  g_bot_mgun;
+vmCvar_t  g_bot_shotgun;
+vmCvar_t  g_bot_psaw;
+vmCvar_t  g_bot_lasgun;
+vmCvar_t  g_bot_mdriver;
+vmCvar_t  g_bot_chaingun;
+vmCvar_t  g_bot_prifle;
+vmCvar_t  g_bot_flamer;
+vmCvar_t  g_bot_lcannon;
+
+int  ROTACAK_ambush_rebuild_time_temp = 0;
+int  ROTACAK_ambush_stage = 1;
+int  ROTACAK_ambush_kills = 0;
+int  mega_wave = 1;
+
 vmCvar_t  g_antispawncamp;
 
 static cvarTable_t   gameCvarTable[ ] =
@@ -357,6 +399,9 @@ static cvarTable_t   gameCvarTable[ ] =
   { &g_allowShare, "g_allowShare", "0", CVAR_ARCHIVE | CVAR_SERVERINFO, 0, qfalse},
   { &g_banNotice, "g_banNotice", "", CVAR_ARCHIVE, 0, qfalse  },
   { &g_ctn, "g_ctn", "1", CVAR_ARCHIVE, 0, qfalse },
+  
+  { &g_survival, "g_survival", "0", CVAR_ARCHIVE, 0, qfalse },
+  
   { &g_ctnbuildlimit, "g_ctnbuildlimit", "5", CVAR_ARCHIVE, 0, qfalse },
   { &g_antispawncamp, "g_antispawncamp", "5000", CVAR_ARCHIVE, 0, qfalse },
   { &g_ctncapturetime, "g_ctncapturetime", "10000", CVAR_ARCHIVE, 0, qfalse }
@@ -372,6 +417,9 @@ void CheckExitRules( void );
 
 void G_CountSpawns( void );
 void G_CalculateBuildPoints( void );
+
+void G_UpdateCamper( void );
+void G_addBot( void );
 
 /*
 ================
@@ -754,6 +802,19 @@ void G_InitGame( int levelTime, int randomSeed, int restart )
   trap_Cvar_Set( "g_humanKills", 0 );
   trap_Cvar_Set( "g_suddenDeath", 0 );
   level.suddenDeathBeginTime = g_suddenDeathTime.integer * 60000;
+
+	//ROTAX
+  trap_Cvar_Set( "g_ambush", "0" );
+  trap_Cvar_Set( "g_friendlyFire", "1" );
+  trap_Cvar_Set( "g_friendlyFireAliens", "1" );
+
+  ROTACAK_ambush_rebuild_time_temp = 0;
+  ROTACAK_ambush_stage = 1;
+  ROTACAK_ambush_kills = 0;
+
+
+	level.bots = 0;
+  level.botslots = trap_Cvar_VariableIntegerValue ("sv_privateclients");
 
   G_Printf( "-----------------------------------\n" );
 
@@ -1145,6 +1206,63 @@ void G_SpawnClients( pTeam_t team )
   }
 }
 
+void G_addBot()
+{
+  if(level.lastBotTime > level.time)
+  {
+    return;
+  }
+  if(!g_survival.integer) return;
+  level.lastBotTime =  level.time + 30000;
+  level.botsLevel++;
+  //trap_SendServerCommand( -1, "cp \"The game has been unpaused!\"" );
+  
+   
+   G_BotAdd("^1Zombie", PTE_ALIENS, level.botsLevel, NULL);
+}
+
+void G_UpdateCamper( void )
+{
+  int       i;
+  gentity_t *ent;
+  int       count;
+  
+  if(level.updateCamperTime > level.time)
+  {
+    return;
+  }
+  level.updateCamperTime =  level.time + 5000;
+  //trap_SendServerCommand(-1, "print \"pew\n\"");
+  for( i = 0; i < g_maxclients.integer; i++ )
+  {
+    ent = g_entities + level.sortedClients[ i ];
+    //ent = &level.gentities[ i ];
+    
+    if(!ent->client)
+      continue;
+    if( ent->health <= 0 )
+      continue;
+    if( ent->s.eType == ET_BUILDABLE )
+      continue;
+    if( ent->client->ps.stats[ STAT_PTEAM ] != PTE_HUMANS )
+      continue;
+    if( ent->client->ps.stats[ STAT_HEALTH ] <= 0 ||
+        ent->client->sess.sessionTeam == TEAM_SPECTATOR )
+          continue;
+      
+    //count++;
+    if( (level.time - level.startTime) - ent->client->lastdietime > 60000 && level.numHumanSpawns < 1)
+    {
+      //trap_SendServerCommand(-1, "print \"Camper found..\n\"");
+      level.theCamper = ent;
+      return;
+    }
+  }
+  //trap_SendServerCommand(-1, va("print \"%d\n\"",count));
+  level.theCamper = NULL;
+  return;
+}
+
 /*
 ============
 G_CountSpawns
@@ -1170,12 +1288,17 @@ void G_CountSpawns( void )
   {
     if( !ent->inuse )
       continue;
+      
     if( (ent->s.modelindex == BA_H_SPAWN && ent->health > 0 && ent->biteam == BIT_ALIENS) || ((ent->s.modelindex == BA_A_SPAWN) && ent->health > 0) )
     {
       level.numAlienSpawns++;
     }
     if( ent->s.modelindex == BA_H_SPAWN && ent->health > 0 && ent->biteam == BIT_HUMANS)
-    { 
+    { 	
+		/*if(level.time < 10000)
+		{
+			trap_SendServerCommand( -1, "print \"Human Spawn found!\n\"");
+		}*/
       level.numHumanSpawns++;
     }
   }
@@ -1308,6 +1431,11 @@ void G_CalculateBuildPoints( void )
 
     if( ent->s.eType != ET_BUILDABLE )
       continue;
+      
+    /*if( g_survival.integer && ent->spawned && ent->biteam == BIT_HUMANS && !ent->powered && ent->health > 0 && ent->s.modelindex != BA_H_REACTOR)
+    {
+      G_Damage( ent, NULL, NULL, NULL, NULL, 10000, 0, MOD_SUICIDE );
+    }*/
 
     buildable = ent->s.modelindex;
 
@@ -2776,6 +2904,9 @@ void G_RunFrame( int levelTime )
   CheckTeamVote( PTE_HUMANS );
   CheckTeamVote( PTE_ALIENS );
 
+  G_UpdateCamper( );
+  G_addBot();
+  
   // for tracking changes
   CheckCvars( );
 

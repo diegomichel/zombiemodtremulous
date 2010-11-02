@@ -207,6 +207,14 @@ qboolean G_admin_designate( gentity_t *ent, int skiparg );
 qboolean G_admin_cp( gentity_t *ent, int skiparg );
 qboolean G_admin_switch( gentity_t *ent, int skiparg );
 
+qboolean G_set_survival_stage( gentity_t *ent, int skiparg );
+
+qboolean G_admin_bot( gentity_t *ent, int skiparg );
+qboolean G_admin_botcmd( gentity_t *ent, int skiparg );
+
+qboolean G_switchnodes( gentity_t *ent, int skiparg );
+
+
 void G_admin_print( gentity_t *ent, char *m );
 void G_admin_buffer_print( gentity_t *ent, char *m );
 void G_admin_buffer_begin( void );

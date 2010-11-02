@@ -3392,9 +3392,9 @@ weaponAttributes_t bg_weapons[ ] =
     "Bomb",            //char      *weaponHumanName;
     1,                    //int       maxAmmo;
     0,                    //int       maxClips;
-    qfalse,               //int       infiniteAmmo;
+    qtrue,               //int       infiniteAmmo;
     qfalse,               //int       usesEnergy;
-    GRENADE_REPEAT,       //int       repeatRate1;
+    1000,       //int       repeatRate1;
     0,                    //int       repeatRate2;
     0,                    //int       repeatRate3;
     0,                    //int       reloadTime;

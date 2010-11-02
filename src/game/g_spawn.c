@@ -337,7 +337,7 @@ qboolean G_CallSpawn( gentity_t *ent )
       AngleNormalize360( ent->s.angles[ YAW ] );
     }
 
-    G_SpawnBuildable( ent, buildable, ent->biteam );
+    G_SpawnBuildable( ent, buildable, ent->biteam, level.survivalStage );
     return qtrue;
   }
 

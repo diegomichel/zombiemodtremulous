@@ -1406,6 +1406,8 @@ void SP_func_door( gentity_t *ent )
   vec3_t  size;
   float   lip;
   char    *s;
+  
+  ent->door = 1;
 
   G_SpawnString( "sound2to1", "sound/movers/doors/dr1_strt.wav", &s );
   ent->sound2to1 = G_SoundIndex( s );

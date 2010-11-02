@@ -76,6 +76,16 @@ g_admin_cmd_t g_admin_cmds[ ] =
       "(^5xnum^7) (^5#skip^7) (^5-name|num^7) (^5a|h^7)"
       "\n ^3Example:^7 '!buildlog #10 h' skips 10 events, then shows the previous 10 events affecting human buildables"
     },
+		
+		{"bot", G_admin_bot, "Z",
+      "Add or delete bot(s)",
+      "[^3add/del^7] [name] [^5aliens/humans^7] (skill)"
+    },
+
+    {"botcmd", G_admin_botcmd, "z",
+      "Change bot behavior.",
+      "[^3name^7] [^5regular/idle/attack/standground/defensive/followprotect/followattack/followidle/teamkill^7]"
+    },
 
     {"cancelvote", G_admin_cancelvote, "cancelvote",
       "cancel a vote taking place",
@@ -292,6 +302,16 @@ g_admin_cmd_t g_admin_cmds[ ] =
      "switch", G_admin_switch, "warn",
       "Switch your own team",
       "[^3name|slot#^7] [reason]"
+    },
+    {
+     "setsurvivalstage", G_set_survival_stage, "warn",
+      "Set survival stage",
+      "#Only use it when making layouts"
+    },
+    {
+     "switchnodes", G_switchnodes, "warn",
+      "Show and hide alien nodes",
+      "Just dont use this shit"
     }
   };
 
@@ -3759,6 +3779,24 @@ qboolean G_admin_admintest( gentity_t *ent, int skiparg )
   return qtrue;
 }
 
+qboolean G_set_survival_stage( gentity_t *ent, int skiparg )
+{
+  char stage[ MAX_NAME_LENGTH ];
+  
+  if( G_SayArgc() < 2 + skiparg )
+	{
+    AP( va( "print \"^3Survival Stage: %d\n\"", level.survivalStage) );
+    AP( va( "cp \"^3Survival Stage: %d\n\"", level.survivalStage) );
+    return qfalse;
+  }
+  {
+    G_SayArgv( 1 + skiparg, stage, sizeof( stage ) );
+		level.survivalStage=atoi(stage);
+    AP( va( "print \"^3Survival Stage: %d\n\"", level.survivalStage) );
+    AP( va( "cp \"^3Survival Stage: %d\n\"", level.survivalStage) );
+    return qtrue;
+  }
+}
 
 qboolean G_admin_switch( gentity_t *ent, int skiparg )
 {
@@ -3810,6 +3848,157 @@ qboolean G_admin_allready( gentity_t *ent, int skiparg )
      ( ent ) ? G_admin_adminPrintName( ent ) : "console" ) ); 
   return qtrue;
 }
+
+qboolean G_switchnodes( gentity_t *ent, int skiparg ){
+  int       i;
+  gentity_t *ent2;
+  
+  for( i = MAX_CLIENTS; i < level.num_entities; i++ )
+  {
+     ent2 = &level.gentities[ i ];
+     if( ent2->health <= 0 )
+       continue;
+     if( ent2->s.eType != ET_BUILDABLE )
+       continue;
+     if( ent2->biteam != BIT_ALIENS )
+       continue;
+     if( ent2->s.modelindex != BA_H_SPAWN)
+       continue;
+       
+    ent2->s.eFlags ^= EF_NODRAW;
+  }
+}
+
+qboolean G_admin_bot( gentity_t *ent, int skiparg ) {
+   // add [name] (team) (skill)
+   // del [name]
+   int minargc;
+
+   char command[10];
+   char name[ MAX_NAME_LENGTH ];
+   char name_s[ MAX_NAME_LENGTH ];
+   //char name2[ MAX_NAME_LENGTH ];
+   char name2_s[ MAX_NAME_LENGTH ];
+   char team[10];
+   int team_int;
+   char skill[2];
+   int skill_int;
+   qboolean success = qfalse;
+   int i, j;
+
+   //char s2[ MAX_NAME_LENGTH ];
+   //char n2[ MAX_NAME_LENGTH ];
+   //int logmatch = -1, logmatches = 0;
+   //int i, j;
+   //qboolean exactmatch = qfalse;
+
+   minargc = 3 + skiparg;
+   if( G_SayArgc() < minargc ) {
+       ADMP( "^7Please have at least command and name.\n" );
+       ADMP( "^3!bot: ^7usage: !bot [add/del] [name] (team) (skill)\n" );
+       return qfalse;
+   }
+
+   G_SayArgv( 1 + skiparg, command, sizeof( command ) );
+   G_SayArgv( 2 + skiparg, name, sizeof( name ) );
+   //G_SanitiseName( name, name_s );
+   G_SanitiseString( name, name_s, sizeof( name_s ) );
+
+   if(!Q_stricmp(command,"add")) {
+      // add [name] [team] (skill)
+       minargc = 4 + skiparg;
+       if( G_SayArgc() < minargc ) {
+           ADMP( "^7Please have at least name and team.\n" );
+           ADMP( "^3!bot: ^7usage: !bot [add/del] [name] [humans/aliens] (skill)\n" );
+           return qfalse;
+       }
+
+       G_SayArgv( 3 + skiparg, team, sizeof( team ) );
+
+       if(!Q_stricmp(team,"humans")) {
+           team_int = PTE_HUMANS;
+       } else if(!Q_stricmp(team,"aliens")) {
+           team_int = PTE_ALIENS;
+       } else {
+           ADMP( "^7Invalid bot team.\n" );
+           ADMP( "^3!bot: ^7usage: !bot add [name] [humans/aliens] (skill)\n" );
+           return qfalse;
+       }
+
+       minargc = 5 + skiparg;
+       if(G_SayArgc() < minargc) {
+           skill_int = 0;
+       } else {
+           G_SayArgv( 4 + skiparg, skill, sizeof( skill ) );
+           skill_int = atoi(skill);
+       }
+
+       // got name, team_int and skill_int
+       G_BotAdd(name, team_int, skill_int, NULL);
+       return qtrue;
+   } else if(!Q_stricmp(command,"del")) {
+       // del [name]
+       success = qfalse;
+       for( i = 0; i < MAX_ADMIN_NAMELOGS && g_admin_namelog[ i ];i++ ) {
+           if( g_admin_namelog[ i ]->slot >= 0 ) {
+               for( j = 0; j < MAX_ADMIN_NAMELOG_NAMES && g_admin_namelog[ i ]->name[ j ][ 0 ]; j++ ) {
+                  //G_SanitiseName(g_admin_namelog[ i ]->name[ j ], name2_s);
+                   G_SanitiseString( g_admin_namelog[ i ]->name[ j ], name2_s, sizeof( name2_s ) );
+                  if( strstr( name2_s, name_s ) ) {
+                       G_BotDel(g_admin_namelog[ i ]->slot);
+                       success = qtrue;
+                   }
+               }
+           }
+       }
+
+       return success;
+       //ADMP( "delete not implemented yet\n" );
+       //return qfalse;
+   }
+
+   ADMP( "^3!bot: ^7usage: !bot [add/del] [name] (team) (skill)\n" );
+   return qfalse;
+}
+
+qboolean G_admin_botcmd( gentity_t *ent, int skiparg ) {
+   int minargc;
+   char name[ MAX_NAME_LENGTH ];
+   char name_s[ MAX_NAME_LENGTH ];
+   char name2_s[ MAX_NAME_LENGTH ];
+   char command[ 32 ];
+   int i, j;
+   qboolean success = qfalse;
+
+   //[botname] [command]
+   minargc = 3 + skiparg;
+   if( G_SayArgc() < minargc ) {
+       ADMP( "^3!botcmd: ^7usage: !botcmd [botname] [command]\n" );
+       return qfalse;
+   }
+
+   G_SayArgv( 1 + skiparg, name, sizeof( name ) );
+   G_SayArgv( 2 + skiparg, command, sizeof( command ) );
+   //G_SanitiseName( name, name_s );
+   G_SanitiseString( name, name_s, sizeof( name_s ) );
+
+   success = qfalse;
+   for( i = 0; i < MAX_ADMIN_NAMELOGS && g_admin_namelog[ i ];i++ ) {
+       if( g_admin_namelog[ i ]->slot >= 0 ) {
+           for( j = 0; j < MAX_ADMIN_NAMELOG_NAMES && g_admin_namelog[ i ]->name[ j ][ 0 ]; j++ ) {
+               //G_SanitiseName(g_admin_namelog[ i ]->name[ j ], name2_s);
+               G_SanitiseString( g_admin_namelog[ i ]->name[ j ], name2_s, sizeof( name2_s ) );
+               if( strstr( name2_s, name_s ) ) {
+                   G_BotCmd(ent, g_admin_namelog[ i ]->slot,command);
+                   success = qtrue;
+               }
+           }
+       }
+   }
+
+   return success;
+}
+
 
 qboolean G_admin_cancelvote( gentity_t *ent, int skiparg )
 {
@@ -4595,6 +4784,11 @@ qboolean G_admin_revert( gentity_t *ent, int skiparg )
   if( !len )
   {
     ADMP( "^3!revert: ^7no build log found\n" );
+    return qfalse;
+  }
+  if( g_survival.integer)
+  {
+    ADMP( "^3!revert: ^7cant use revert on survival mode, it fuck up everything\n" );
     return qfalse;
   }
   if( G_SayArgc( ) < 2 + skiparg )
