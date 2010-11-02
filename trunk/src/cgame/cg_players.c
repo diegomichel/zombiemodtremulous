@@ -25,21 +25,30 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 
 #include "cg_local.h"
-
+//FIX ME, seems to try load this sounds per each model gah.
 char *cg_customSoundNames[ MAX_CUSTOM_SOUNDS ] =
 {
   "*death1.wav",
   "*death2.wav",
   "*death3.wav",
+  "*death1zombie.wav",
+  "*death2zombie.wav",
+  "*death3zombie.wav",
   "*jump1.wav",
   "*pain25_1.wav",
   "*pain50_1.wav",
   "*pain75_1.wav",
   "*pain100_1.wav",
+  "*pain25_1zombie.wav",
+  "*pain50_1zombie.wav",
+  "*pain75_1zombie.wav",
+  "*pain100_1zombie.wav",
   "*falling1.wav",
   "*gasp.wav",
   "*drown.wav",
   "*fall1.wav",
+  "*fall1zombie.wav",
+  "*tauntzombie.wav",
   "*taunt.wav"
 };
 
@@ -390,16 +399,28 @@ static qboolean CG_RegisterClientSkin( clientInfo_t *ci, const char *modelName, 
   {
     Com_sprintf( filename, sizeof( filename ), "models/players/%s/lower_%s.skin", modelName, skinName );
     ci->legsSkin = trap_R_RegisterSkin( filename );
+    //zombie
+    Com_sprintf( filename, sizeof( filename ), "models/players/%s/lower_%s.skin", "human_base", "zombie" );
+    ci->zombielegsSkin = trap_R_RegisterSkin( filename );
+    //Endzombie
     if( !ci->legsSkin )
       Com_Printf( "Leg skin load failure: %s\n", filename );
 
     Com_sprintf( filename, sizeof( filename ), "models/players/%s/upper_%s.skin", modelName, skinName );
     ci->torsoSkin = trap_R_RegisterSkin( filename );
+    //Zombie
+    Com_sprintf( filename, sizeof( filename ), "models/players/%s/upper_%s.skin", "human_base", "zombie" );
+    ci->zombietorsoSkin = trap_R_RegisterSkin( filename );
+    //EndZombie
     if( !ci->torsoSkin )
       Com_Printf( "Torso skin load failure: %s\n", filename );
 
     Com_sprintf( filename, sizeof( filename ), "models/players/%s/head_%s.skin", modelName, skinName );
     ci->headSkin = trap_R_RegisterSkin( filename );
+    //Zombie
+    Com_sprintf( filename, sizeof( filename ), "models/players/%s/head_%s.skin", "human_base", "zombie" );
+    ci->zombieheadSkin = trap_R_RegisterSkin( filename );
+    //endZombie
     if( !ci->headSkin )
       Com_Printf( "Head skin load failure: %s\n", filename );
 
@@ -429,7 +450,7 @@ static qboolean CG_RegisterClientModelname( clientInfo_t *ci, const char *modelN
 {
   char filename[ MAX_QPATH * 2 ];
 
-  // do this first so the nonsegmented property is set
+  //TA: do this first so the nonsegmented property is set
   // load the animations
   Com_sprintf( filename, sizeof( filename ), "models/players/%s/animation.cfg", modelName );
   if( !CG_ParseAnimationFile( filename, ci ) )
@@ -557,6 +578,10 @@ static void CG_LoadClientInfo( clientInfo_t *ci )
   for( i = 0; i < MAX_CUSTOM_SOUNDS; i++ )
   {
     s = cg_customSoundNames[ i ];
+    
+    //FIX ME: REMOVE THIS AND FIX SOUNDS WHEN  ADDING MORE MODELS
+    if(Q_stricmp(dir,"human_base") != 0)
+      continue;
 
     if( !s )
       break;
@@ -628,10 +653,13 @@ static void CG_CopyClientInfoModel( clientInfo_t *from, clientInfo_t *to )
 
   to->legsModel = from->legsModel;
   to->legsSkin = from->legsSkin;
+  to->zombielegsSkin = from->zombielegsSkin;
   to->torsoModel = from->torsoModel;
   to->torsoSkin = from->torsoSkin;
+  to->zombietorsoSkin = from->zombietorsoSkin;
   to->headModel = from->headModel;
   to->headSkin = from->headSkin;
+  to->zombieheadSkin = from->zombieheadSkin;
   to->nonSegModel = from->nonSegModel;
   to->nonSegSkin = from->nonSegSkin;
   to->nonsegmented = from->nonsegmented;
@@ -706,7 +734,7 @@ static qboolean CG_ScanForExistingClientInfo( clientInfo_t *ci )
     }
   }
 
-  // shouldn't happen
+  //TA: shouldn't happen
   return qfalse;
 }
 
@@ -744,7 +772,7 @@ void CG_PrecacheClientInfo( pClass_t class, char *model, char *skin )
 
   newInfo.infoValid = qtrue;
 
-  // actually register the models
+  //TA: actually register the models
   *ci = newInfo;
   CG_LoadClientInfo( ci );
 }
@@ -813,6 +841,12 @@ void CG_NewClientInfo( int clientNum )
   // team leader
   v = Info_ValueForKey( configstring, "tl" );
   newInfo.teamLeader = atoi( v );
+
+  v = Info_ValueForKey( configstring, "g_redteam" );
+  Q_strncpyz( newInfo.redTeam, v, MAX_TEAMNAME );
+
+  v = Info_ValueForKey( configstring, "g_blueteam" );
+  Q_strncpyz( newInfo.blueTeam, v, MAX_TEAMNAME );
 
   // model
   v = Info_ValueForKey( configstring, "model" );
@@ -1232,7 +1266,7 @@ static void CG_PlayerAngles( centity_t *cent, vec3_t srcAngles,
   }
   else
   {
-    // did use angles2.. now uses time2.. looks a bit funny but time2 isn't used othwise
+    //TA: did use angles2.. now uses time2.. looks a bit funny but time2 isn't used othwise
     dir = cent->currentState.time2;
     if( dir < 0 || dir > 7 )
       CG_Error( "Bad player movement angle" );
@@ -1479,7 +1513,7 @@ static void CG_PlayerNonSegAngles( centity_t *cent, vec3_t srcAngles, vec3_t non
   }
   else
   {
-    // did use angles2.. now uses time2.. looks a bit funny but time2 isn't used othwise
+    //TA: did use angles2.. now uses time2.. looks a bit funny but time2 isn't used othwise
     dir = cent->currentState.time2;
     if( dir < 0 || dir > 7 )
       CG_Error( "Bad player movement angle" );
@@ -1681,9 +1715,15 @@ static void CG_PlayerUpgrades( centity_t *cent, refEntity_t *torso )
 
     size = 32.0f;
 
-    if( size > 0.0f )
-      CG_ImpactMark( cgs.media.creepShader, origin, up,
-                     0.0f, 1.0f, 1.0f, 1.0f, 1.0f, qfalse, size, qtrue );
+    if(cgs.clientinfo[ cent->currentState.number ].team == PTE_ALIENS)
+    {
+      if( size > 0.0f )
+        CG_ImpactMark( cgs.media.aliencreepShader, origin, up, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, qfalse, size, qtrue );
+    }
+    if(cgs.clientinfo[ cent->currentState.number ].team == PTE_HUMANS)
+    {
+        CG_ImpactMark( cgs.media.humancreepShader, origin, up, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, qfalse, size, qtrue );
+    }
   }
 }
 
@@ -1695,7 +1735,7 @@ CG_PlayerFloatSprite
 Float a sprite over the player's head
 ===============
 */
-static void CG_PlayerFloatSprite( centity_t *cent, qhandle_t shader )
+static void CG_PlayerFloatSprite( centity_t *cent, qhandle_t shader, vec4_t color )
 {
   int           rf;
   refEntity_t   ent;
@@ -1707,15 +1747,25 @@ static void CG_PlayerFloatSprite( centity_t *cent, qhandle_t shader )
 
   memset( &ent, 0, sizeof( ent ) );
   VectorCopy( cent->lerpOrigin, ent.origin );
-  ent.origin[ 2 ] += 48;
+ 
+ 
   ent.reType = RT_SPRITE;
   ent.customShader = shader;
   ent.radius = 10;
   ent.renderfx = rf;
-  ent.shaderRGBA[ 0 ] = 255;
-  ent.shaderRGBA[ 1 ] = 255;
-  ent.shaderRGBA[ 2 ] = 255;
-  ent.shaderRGBA[ 3 ] = 255;
+  ent.shaderRGBA[ 0 ] = color[0]*255;
+  ent.shaderRGBA[ 1 ] = color[1]*255;
+  ent.shaderRGBA[ 2 ] = color[2]*255;
+  ent.shaderRGBA[ 3 ] = color[3]*255;
+
+  // Find the proper height to float the sprite
+  ent.origin[ 2 ] += BG_FindSpriteHeightForClass(
+    ( cent->currentState.powerups >> 8 ) & 0xFF );
+
+  // Bsuit offset hack
+  // TODO: chat balloons for suits are inside their heads
+
+
   trap_R_AddRefEntityToScene( &ent );
 }
 
@@ -1732,15 +1782,23 @@ static void CG_PlayerSprites( centity_t *cent )
 {
   if( cent->currentState.eFlags & EF_CONNECTION )
   {
-    CG_PlayerFloatSprite( cent, cgs.media.connectionShader );
+    vec4_t white = { 1.f, 1.f, 1.f, 1.f };
+    CG_PlayerFloatSprite( cent, cgs.media.connectionShader, white );
     return;
   }
 
   if( cent->currentState.eFlags & EF_TALK )
   {
-    // the masses have decreed this to be wrong
-/*    CG_PlayerFloatSprite( cent, cgs.media.balloonShader );
-    return;*/
+    //TA: the masses have decreed this to be wrong
+
+    // ... because you coded it wrong. --Risujin
+    vec4_t color_human = { 0.04f, 0.71f, 0.88f, 1.0f };
+    vec4_t color_alien = { 0.75f, 0.00f, 0.00f, 1.0f };
+    if(cgs.clientinfo[ cent->currentState.number ].team==PTE_ALIENS)
+      CG_PlayerFloatSprite( cent, cgs.media.balloonShader, color_alien );
+    else if(cgs.clientinfo[ cent->currentState.number ].team==PTE_HUMANS)
+      CG_PlayerFloatSprite( cent, cgs.media.balloonShader, color_human );
+
   }
 }
 
@@ -1789,7 +1847,7 @@ static qboolean CG_PlayerShadow( centity_t *cent, float *shadowPlane, pClass_t c
   if( trace.fraction == 1.0 || trace.startsolid || trace.allsolid )
     return qfalse;
 
-  // FIXME: stencil shadows will be broken for walls.
+  //TA: FIXME: stencil shadows will be broken for walls.
   //           Unfortunately there isn't much that can be
   //           done since Q3 references only the Z coord
   //           of the shadowPlane
@@ -2002,8 +2060,8 @@ void CG_Player( centity_t *cent )
 {
   clientInfo_t  *ci;
 
-  // NOTE: legs is used for nonsegmented models
-  //       this helps reduce code to be changed
+  //TA: NOTE: legs is used for nonsegmented models
+  //          this helps reduce code to be changed
   refEntity_t   legs;
   refEntity_t   torso;
   refEntity_t   head;
@@ -2125,6 +2183,11 @@ void CG_Player( centity_t *cent )
       legs.customSkin = cgs.media.larmourLegsSkin;
     else
       legs.customSkin = ci->legsSkin;
+      
+    if(cgs.clientinfo[ cent->currentState.number ].team==PTE_ALIENS)
+    {
+      legs.customSkin = ci->zombielegsSkin;
+    }
   }
   else
   {
@@ -2199,6 +2262,11 @@ void CG_Player( centity_t *cent )
       torso.customSkin = cgs.media.larmourTorsoSkin;
     else
       torso.customSkin = ci->torsoSkin;
+      
+    if(cgs.clientinfo[ cent->currentState.number ].team==PTE_ALIENS)
+    {
+      torso.customSkin = ci->zombietorsoSkin;
+    }
 
     if( !torso.hModel )
       return;
@@ -2206,12 +2274,28 @@ void CG_Player( centity_t *cent )
     VectorCopy( cent->lerpOrigin, torso.lightingOrigin );
 
     CG_PositionRotatedEntityOnTag( &torso, &legs, ci->legsModel, "tag_torso" );
-
-		torso.shaderRGBA[0] = ci->color1[0]*255;//add
-		torso.shaderRGBA[1] = ci->color1[1]*255;//add
-		torso.shaderRGBA[2] = ci->color1[2]*255;//add
-		torso.shaderRGBA[3] = 255;//add
-
+    /*
+    torso.shaderRGBA[0] = ci->color1[0]*255;//add 
+    torso.shaderRGBA[1] = ci->color1[1]*255;//add 
+    torso.shaderRGBA[2] = ci->color1[2]*255;//add 
+    torso.shaderRGBA[3] = 255;  
+    */
+    
+    if(cgs.clientinfo[ cent->currentState.number ].team==PTE_ALIENS)
+    {
+      torso.shaderRGBA[0] = 1*255;//add 
+      torso.shaderRGBA[1] = 0*255;//add 
+      torso.shaderRGBA[2] = 0*255;//add 
+    }
+    if(cgs.clientinfo[ cent->currentState.number ].team==PTE_HUMANS)
+    {
+      torso.shaderRGBA[0] = 0*255;//add 
+      torso.shaderRGBA[1] = 1*255;//add 
+      torso.shaderRGBA[2] = 1*255;//add 
+    }
+  
+    torso.shaderRGBA[3] = 255;  
+    
     torso.shadowPlane = shadowPlane;
     torso.renderfx = renderfx;
 
@@ -2226,6 +2310,11 @@ void CG_Player( centity_t *cent )
       head.customSkin = cgs.media.larmourHeadSkin;
     else
       head.customSkin = ci->headSkin;
+      
+    if(cgs.clientinfo[ cent->currentState.number ].team==PTE_ALIENS)
+    {
+      head.customSkin = ci->zombieheadSkin;
+    }
 
     if( !head.hModel )
       return;
@@ -2234,6 +2323,21 @@ void CG_Player( centity_t *cent )
 
     CG_PositionRotatedEntityOnTag( &head, &torso, ci->torsoModel, "tag_head" );
 
+    if(cgs.clientinfo[ cent->currentState.number ].team==PTE_ALIENS)
+    {
+      head.shaderRGBA[0] = 1*255;//add 
+      head.shaderRGBA[1] = 0*255;//add 
+      head.shaderRGBA[2] = 0*255;//add 
+    }
+    if(cgs.clientinfo[ cent->currentState.number ].team==PTE_HUMANS)
+    {
+      head.shaderRGBA[0] = 0*255;//add 
+      head.shaderRGBA[1] = 0*255;//add 
+      head.shaderRGBA[2] = 1*255;//add 
+    }
+  
+    head.shaderRGBA[3] = 255;  
+    
     head.shadowPlane = shadowPlane;
     head.renderfx = renderfx;
 

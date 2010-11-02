@@ -2102,18 +2102,6 @@ static void CG_EvaluateParticlePhysics( particle_t *p )
   VectorMA( p->origin, deltaTime, p->velocity, newOrigin );
   p->lastEvalTime = cg.time;
 
-  // we're not doing particle physics, but at least cull them in solids
-  if( !cg_bounceParticles.integer )
-  {
-    int contents = trap_CM_PointContents( newOrigin, 0 ); 
-
-    if( ( contents & CONTENTS_SOLID ) || ( contents & CONTENTS_NODROP ) )
-      CG_DestroyParticle( p, NULL );
-    else 
-      VectorCopy( newOrigin, p->origin );
-    return;
-  }
-
   CG_Trace( &trace, p->origin, mins, maxs, newOrigin,
       CG_AttachmentCentNum( &ps->attachment ), CONTENTS_SOLID );
 
@@ -2231,7 +2219,7 @@ static void CG_CompactAndSortParticles( void )
     if( sortedParticles[ i ]->valid )
     {
       //find the first hole
-      while( j < MAX_PARTICLES && sortedParticles[ j ]->valid )
+      while( sortedParticles[ j ]->valid )
         j++;
 
       //no more holes

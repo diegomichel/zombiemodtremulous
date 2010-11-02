@@ -8,21 +8,21 @@
 
 {
   name alienteam
-  text "The Alien Team\n\n"
-  text "The Aliens' strengths are in movement "
-  text "and the ability to quickly construct new bases quickly. They possess a "
-  text "range of abilities including basic melee attacks, movement-"
-  text "crippling poisons and more."
+  text "The Rebels Team\n\n"
+  text "The war as end humans have been won "
+  text "Now some assholes have been maked the federation, and want to control everything "
+  text "the rebels are here to stop that fucking shit"
+  text "no fucking change for em, the federation must be get down."
   align left
 }
 
 {
   name humanteam
-  text "The Human Team\n\n"
-  text "The humans are the masters of technology. Although their bases take "
-  text "long to construct, their automated defense ensures they stay built. "
-  text "A wide range of upgrades and weapons are available to the humans, each "
-  text "contributing to eradicate the alien threat."
+  text "The Federation\n\n"
+  text "We are here to put some control on this chaos "
+  text "the wars as ended, now we need a goverment, we can do it. "
+  text "To make this world more peace full we must fight "
+  text "lets take down that assholes who are in the way."
   align left
 }
 

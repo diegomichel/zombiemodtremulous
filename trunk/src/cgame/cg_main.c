@@ -120,7 +120,6 @@ vmCvar_t  cg_swingSpeed;
 vmCvar_t  cg_shadows;
 vmCvar_t  cg_gibs;
 vmCvar_t  cg_drawTimer;
-vmCvar_t  cg_drawClock;
 vmCvar_t  cg_drawFPS;
 vmCvar_t  cg_drawDemoState;
 vmCvar_t  cg_drawSnapshot;
@@ -161,12 +160,16 @@ vmCvar_t  cg_simpleItems;
 vmCvar_t  cg_fov;
 vmCvar_t  cg_zoomFov;
 vmCvar_t  cg_thirdPerson;
+vmCvar_t  cg_thirdPersonhax;
 vmCvar_t  cg_thirdPersonRange;
+vmCvar_t  cg_thirdPersonRangehax;
 vmCvar_t  cg_thirdPersonAngle;
 vmCvar_t  cg_stereoSeparation;
 vmCvar_t  cg_lagometer;
 vmCvar_t  cg_drawAttacker;
 vmCvar_t  cg_synchronousClients;
+vmCvar_t  cg_teamChatTime;
+vmCvar_t  cg_teamChatHeight;
 vmCvar_t  cg_stats;
 vmCvar_t  cg_buildScript;
 vmCvar_t  cg_forceModel;
@@ -209,7 +212,6 @@ vmCvar_t  cg_wwSmoothTime;
 vmCvar_t  cg_wwFollow;
 vmCvar_t  cg_wwToggle;
 vmCvar_t  cg_depthSortParticles;
-vmCvar_t  cg_bounceParticles;
 vmCvar_t  cg_consoleLatency;
 vmCvar_t  cg_lightFlare;
 vmCvar_t  cg_debugParticles;
@@ -237,10 +239,6 @@ vmCvar_t  ui_humanTeamVoteActive;
 
 vmCvar_t  cg_debugRandom;
 
-vmCvar_t  cg_optimizePrediction;
-vmCvar_t  cg_projectileNudge;
-vmCvar_t  cg_unlagged;
-
 
 typedef struct
 {
@@ -264,7 +262,6 @@ static cvarTable_t cvarTable[ ] =
   { &cg_draw2D, "cg_draw2D", "1", CVAR_ARCHIVE  },
   { &cg_drawStatus, "cg_drawStatus", "1", CVAR_ARCHIVE  },
   { &cg_drawTimer, "cg_drawTimer", "1", CVAR_ARCHIVE  },
-  { &cg_drawClock, "cg_drawClock", "0", CVAR_ARCHIVE  },
   { &cg_drawFPS, "cg_drawFPS", "1", CVAR_ARCHIVE  },
   { &cg_drawDemoState, "cg_drawDemoState", "1", CVAR_ARCHIVE  },
   { &cg_drawSnapshot, "cg_drawSnapshot", "0", CVAR_ARCHIVE  },
@@ -272,7 +269,7 @@ static cvarTable_t cvarTable[ ] =
   { &cg_drawIcons, "cg_drawIcons", "1", CVAR_ARCHIVE  },
   { &cg_drawAmmoWarning, "cg_drawAmmoWarning", "1", CVAR_ARCHIVE  },
   { &cg_drawAttacker, "cg_drawAttacker", "1", CVAR_ARCHIVE  },
-  { &cg_drawCrosshair, "cg_drawCrosshair", "1", CVAR_ARCHIVE },
+  { &cg_drawCrosshair, "cg_drawCrosshair", "4", CVAR_ARCHIVE },
   { &cg_drawCrosshairNames, "cg_drawCrosshairNames", "1", CVAR_ARCHIVE },
   { &cg_drawRewards, "cg_drawRewards", "1", CVAR_ARCHIVE },
   { &cg_crosshairX, "cg_crosshairX", "0", CVAR_ARCHIVE },
@@ -307,8 +304,12 @@ static cvarTable_t cvarTable[ ] =
   { &cg_tracerWidth, "cg_tracerwidth", "1", CVAR_CHEAT },
   { &cg_tracerLength, "cg_tracerlength", "100", CVAR_CHEAT },
   { &cg_thirdPersonRange, "cg_thirdPersonRange", "120", CVAR_ARCHIVE },
-  { &cg_thirdPersonAngle, "cg_thirdPersonAngle", "0", CVAR_ARCHIVE},
-  { &cg_thirdPerson, "cg_thirdPerson", "0", CVAR_ARCHIVE },
+  { &cg_thirdPersonRangehax, "cg_thirdPersonRangehax", "120", 0 },
+  { &cg_thirdPersonAngle, "cg_thirdPersonAngle", "0", CVAR_ARCHIVE },
+  { &cg_thirdPerson, "cg_thirdPerson", "1", CVAR_ARCHIVE },
+  { &cg_thirdPersonhax, "cg_thirdPersonhax", "0", 0 },
+  { &cg_teamChatTime, "cg_teamChatTime", "3000", CVAR_ARCHIVE  },
+  { &cg_teamChatHeight, "cg_teamChatHeight", "0", CVAR_ARCHIVE  },
   { &cg_forceModel, "cg_forceModel", "0", CVAR_ARCHIVE  },
   { &cg_predictItems, "cg_predictItems", "1", CVAR_ARCHIVE },
   { &cg_deferPlayers, "cg_deferPlayers", "1", CVAR_ARCHIVE },
@@ -326,9 +327,7 @@ static cvarTable_t cvarTable[ ] =
   { &cg_wwSmoothTime, "cg_wwSmoothTime", "300", CVAR_ARCHIVE },
   { &cg_wwFollow, "cg_wwFollow", "1", CVAR_ARCHIVE|CVAR_USERINFO },
   { &cg_wwToggle, "cg_wwToggle", "1", CVAR_ARCHIVE|CVAR_USERINFO },
-  { &cg_unlagged, "cg_unlagged", "1", CVAR_ARCHIVE|CVAR_USERINFO },
   { &cg_depthSortParticles, "cg_depthSortParticles", "1", CVAR_ARCHIVE },
-  { &cg_bounceParticles, "cg_bounceParticles", "0", CVAR_ARCHIVE },
   { &cg_consoleLatency, "cg_consoleLatency", "3000", CVAR_ARCHIVE },
   { &cg_lightFlare, "cg_lightFlare", "3", CVAR_ARCHIVE },
   { &cg_debugParticles, "cg_debugParticles", "0", CVAR_CHEAT },
@@ -355,9 +354,6 @@ static cvarTable_t cvarTable[ ] =
   { &ui_alienTeamVoteActive, "ui_alienTeamVoteActive", "0", 0 },
 
   { &cg_debugRandom, "cg_debugRandom", "0", 0 },
-  
-  { &cg_optimizePrediction, "cg_optimizePrediction", "1", CVAR_ARCHIVE },
-  { &cg_projectileNudge, "cg_projectileNudge", "1", CVAR_ARCHIVE },
 
   // the following variables are created in other parts of the system,
   // but we also reference them here
@@ -543,11 +539,55 @@ void QDECL CG_Printf( const char *msg, ... )
 {
   va_list argptr;
   char    text[ 1024 ];
+  char    out[ 1024 ];
+  int i=0,j=0;
+  
+  
+  /*for(i = 0;i < MAX_SAY_TEXT && j < MAX_SAY_TEXT;i++)
+      {
+        if(msg[i] == 0)
+        {
+          out[j] = 0;
+          break;
+        }
+        if((i % 32) == 0)
+        {
+          out[j] = '\n';
+          j++;
+        }
+        out[j] = msg[i];
+        j++;
+      }
+      j--;
+      out[ j ] = '\0';
+  //CG_Printf( "%s\n", out );
+  
+  va_start( argptr, out );
+  vsprintf( text, out, argptr );
+  va_end( argptr );
+
+  trap_Print( text );*/
 
   va_start( argptr, msg );
   vsprintf( text, msg, argptr );
   va_end( argptr );
-
+  
+  /*for(i = 0;i < MAX_SAY_TEXT && j < MAX_SAY_TEXT;i++)
+      {
+        if(text[i] == '\0')
+        {
+          out[j] = 0;
+          break;
+        }
+        if((i % 47) == 0 && i != 0)
+        {
+          out[j] = '\n';
+          j++;
+        }
+        out[j] = text[i];
+        j++;
+      }
+trap_Print( out );*/
   trap_Print( text );
 }
 
@@ -779,6 +819,9 @@ static void CG_RegisterGraphics( void )
 
   cgs.media.creepShader               = trap_R_RegisterShader( "creep" );
 
+  cgs.media.humancreepShader          = trap_R_RegisterShader( "humancreep" );
+  cgs.media.aliencreepShader          = trap_R_RegisterShader( "aliencreep" );
+
   cgs.media.scannerBlipShader         = trap_R_RegisterShader( "gfx/2d/blip" );
   cgs.media.scannerLineShader         = trap_R_RegisterShader( "gfx/2d/stalk" );
 
@@ -790,6 +833,7 @@ static void CG_RegisterGraphics( void )
   //TA: building shaders
   cgs.media.greenBuildShader          = trap_R_RegisterShader("gfx/misc/greenbuild" );
   cgs.media.redBuildShader            = trap_R_RegisterShader("gfx/misc/redbuild" );
+  cgs.media.noPowerShader             = trap_R_RegisterShader("gfx/misc/nopower" );
   cgs.media.humanSpawningShader       = trap_R_RegisterShader("models/buildables/telenode/rep_cyl" );
 
   for( i = 0; i < 8; i++ )
@@ -825,9 +869,6 @@ static void CG_RegisterGraphics( void )
   cgs.media.alienBleedPS              = CG_RegisterParticleSystem( "alienBleedPS" );
   cgs.media.humanBleedPS              = CG_RegisterParticleSystem( "humanBleedPS" );
 
-  CG_BuildableStatusParse( "ui/assets/human/buildstat.cfg", &cgs.humanBuildStat );
-  CG_BuildableStatusParse( "ui/assets/alien/buildstat.cfg", &cgs.alienBuildStat );
- 
   // register the inline models
   cgs.numInlineModels = trap_CM_NumInlineModels( );
 
@@ -1064,7 +1105,7 @@ qboolean CG_Asset_Parse( int handle )
   pc_token_t token;
   const char *tempStr;
 
-  if( !trap_Parse_ReadToken( handle, &token ) )
+  if( !trap_PC_ReadToken( handle, &token ) )
     return qfalse;
 
   if( Q_stricmp( token.string, "{" ) != 0 )
@@ -1072,7 +1113,7 @@ qboolean CG_Asset_Parse( int handle )
 
   while( 1 )
   {
-    if( !trap_Parse_ReadToken( handle, &token ) )
+    if( !trap_PC_ReadToken( handle, &token ) )
       return qfalse;
 
     if( Q_stricmp( token.string, "}" ) == 0 )
@@ -1231,17 +1272,17 @@ void CG_ParseMenu( const char *menuFile )
   pc_token_t  token;
   int         handle;
 
-  handle = trap_Parse_LoadSource( menuFile );
+  handle = trap_PC_LoadSource( menuFile );
 
   if( !handle )
-    handle = trap_Parse_LoadSource( "ui/testhud.menu" );
+    handle = trap_PC_LoadSource( "ui/testhud.menu" );
 
   if( !handle )
     return;
 
   while( 1 )
   {
-    if( !trap_Parse_ReadToken( handle, &token ) )
+    if( !trap_PC_ReadToken( handle, &token ) )
       break;
 
     //if ( Q_stricmp( token, "{" ) ) {
@@ -1273,7 +1314,7 @@ void CG_ParseMenu( const char *menuFile )
     }
   }
 
-  trap_Parse_FreeSource( handle );
+  trap_PC_FreeSource( handle );
 }
 
 qboolean CG_Load_Menu( char **p )
@@ -1320,7 +1361,7 @@ void CG_LoadMenus( const char *menuFile )
     len = trap_FS_FOpenFile( "ui/hud.txt", &f, FS_READ );
 
     if( !f )
-      trap_Error( va( S_COLOR_RED "default menu file not found: ui/hud.txt, unable to continue!\n" ) );
+      trap_Error( va( S_COLOR_RED "default menu file not found: ui/hud.txt, unable to continue!\n", menuFile ) );
   }
 
   if( len >= MAX_MENUDEFFILE )
@@ -1723,7 +1764,6 @@ void CG_Init( int serverMessageNum, int serverCommandSequence, int clientNum )
   // clear everything
   memset( &cgs, 0, sizeof( cgs ) );
   memset( &cg, 0, sizeof( cg ) );
-  memset( &cg.pmext, 0, sizeof( cg.pmext ) );
   memset( cg_entities, 0, sizeof( cg_entities ) );
 
   cg.clientNum = clientNum;

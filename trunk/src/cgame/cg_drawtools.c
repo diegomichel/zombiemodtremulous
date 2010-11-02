@@ -285,6 +285,8 @@ void CG_TileClear( void )
   CG_TileClearBox( right, top, w - right, bottom - top + 1, cgs.media.backTileShader );
 }
 
+
+
 /*
 ================
 CG_FadeColor
@@ -312,67 +314,4 @@ float *CG_FadeColor( int startMsec, int totalMsec )
   color[ 0 ] = color[ 1 ] = color[ 2 ] = 1;
 
   return color;
-}
-
-/*
-================
-CG_WorldToScreen
-================
-*/
-qboolean CG_WorldToScreen( vec3_t point, float *x, float *y )
-{
-	vec3_t  trans;
-	float   xc, yc;
-	float   px, py;
-	float   z;
-
-	px = tan( cg.refdef.fov_x * M_PI / 360.0 );
-	py = tan( cg.refdef.fov_y * M_PI / 360.0 );
-
-	VectorSubtract( point, cg.refdef.vieworg, trans );
-
-	xc = 640.0f / 2.0f;
-	yc = 480.0f / 2.0f;
-
-	z = DotProduct( trans, cg.refdef.viewaxis[ 0 ] );
-	if( z <= 0.001f )
-		return qfalse;
-
-  if( x )
-	  *x = xc - DotProduct( trans, cg.refdef.viewaxis[ 1 ] ) * xc / ( z * px );
-
-  if( y )
-	  *y = yc - DotProduct( trans, cg.refdef.viewaxis[ 2 ] ) * yc / ( z * py );
-
-	return qtrue;
-}
-
-/*
-================
-CG_KeyBinding
-================
-*/
-char *CG_KeyBinding( const char *bind )
-{
-  static char key[ 32 ];
-  char bindbuff[ MAX_CVAR_VALUE_STRING ];
-  int i;
-
-  key[ 0 ] = '\0';
-  // NOTE: change K_LAST_KEY to MAX_KEYS for full key support (eventually)
-  for( i = 0; i < K_LAST_KEY; i++ )
-  {
-    trap_Key_GetBindingBuf( i, bindbuff, sizeof( bindbuff ) );
-    if( !Q_stricmp( bindbuff, bind ) )
-    {
-      trap_Key_KeynumToStringBuf( i, key, sizeof( key ) );
-      break;
-    } 
-  }
-  if( !key[ 0 ] )
-  {
-    Q_strncpyz( key, "\\", sizeof( key ) );
-    Q_strcat( key, sizeof( key ), bind );
-  }
-  return key;
 }

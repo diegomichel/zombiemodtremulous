@@ -70,6 +70,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define CHAR_HEIGHT         48
 #define TEXT_ICON_SPACE     4
 
+#define TEAMCHAT_WIDTH      80
+#define TEAMCHAT_HEIGHT     8
+
 // very large characters
 #define GIANT_WIDTH         32
 #define GIANT_HEIGHT        48
@@ -82,6 +85,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define DEFAULT_MODEL       "sarge"
 #define DEFAULT_TEAM_MODEL  "sarge"
 #define DEFAULT_TEAM_HEAD   "sarge"
+
+#define DEFAULT_REDTEAM_NAME    "Stroggs"
+#define DEFAULT_BLUETEAM_NAME   "Pagans"
 
 typedef enum
 {
@@ -588,12 +594,6 @@ typedef struct lightFlareStatus_s
   qboolean  status;        //flare is visble?
 } lightFlareStatus_t;
 
-typedef struct buildableStatus_s
-{
-  int       lastTime;      // Last time status was visible
-  qboolean  visible;       // Status is visble?
-} buildableStatus_t;
-
 //=================================================
 
 // centity_t have a direct corespondence with gentity_t in the game, but
@@ -638,17 +638,12 @@ typedef struct centity_s
   buildableAnimNumber_t buildableAnim;    //persistant anim number
   buildableAnimNumber_t oldBuildableAnim; //to detect when new anims are set
   particleSystem_t      *buildablePS;
-  buildableStatus_t     buildableStatus;
   float                 lastBuildableHealthScale;
   int                   lastBuildableDamageSoundTime;
 
   lightFlareStatus_t    lfs;
 
   qboolean              doorState;
-
-  qboolean              animInit;
-  qboolean              animPlaying;
-  qboolean              animLastState;
 
   particleSystem_t      *muzzlePS;
   qboolean              muzzlePsTrigger;
@@ -741,6 +736,8 @@ typedef struct
   char        skinName[ MAX_QPATH ];
   char        headModelName[ MAX_QPATH ];
   char        headSkinName[ MAX_QPATH ];
+  char        redTeam[ MAX_TEAMNAME ];
+  char        blueTeam[ MAX_TEAMNAME ];
 
   qboolean    newAnims;                   // true if using the new mission pack animations
   qboolean    fixedlegs;                  // true if legs yaw is always the same as torso yaw
@@ -753,12 +750,15 @@ typedef struct
 
   qhandle_t   legsModel;
   qhandle_t   legsSkin;
+  qhandle_t   zombielegsSkin;
 
   qhandle_t   torsoModel;
   qhandle_t   torsoSkin;
+  qhandle_t   zombietorsoSkin;
 
   qhandle_t   headModel;
   qhandle_t   headSkin;
+  qhandle_t   zombieheadSkin;
 
   qhandle_t   nonSegModel;                //non-segmented model system
   qhandle_t   nonSegSkin;                 //non-segmented model system
@@ -904,8 +904,6 @@ typedef struct
 
 #define MAX_PREDICTED_EVENTS  16
 
-#define NUM_SAVED_STATES ( CMD_BACKUP + 2 )
-
 typedef struct
 {
   int           clientFrame;                        // incremented each frame
@@ -950,7 +948,6 @@ typedef struct
   // prediction state
   qboolean      hyperspace;                         // true if prediction has hit a trigger_teleport
   playerState_t predictedPlayerState;
-  pmoveExt_t    pmext;
   centity_t     predictedPlayerEntity;
   qboolean      validPPS;                           // clear until the first call to CG_PredictPlayerState
   int           predictedErrorTime;
@@ -1014,6 +1011,9 @@ typedef struct
   int           centerPrintY;
   char          centerPrint[ 1024 ];
   int           centerPrintLines;
+  
+  // zombie
+  int           fadeTimer;
 
   // low ammo warning state
   int           lowAmmoWarning;   // 1 = low, 2 = empty
@@ -1133,12 +1133,6 @@ typedef struct
   float         painBlendValue;
   float         painBlendTarget;
   int           lastHealth;
-
-  int           lastPredictedCommand;
-  int           lastServerTime;
-  playerState_t savedPmoveStates[ NUM_SAVED_STATES ];
-  int           stateHead, stateTail;
-  int           ping;
 } cg_t;
 
 
@@ -1163,6 +1157,8 @@ typedef struct
   qhandle_t   backTileShader;
 
   qhandle_t   creepShader;
+  qhandle_t   humancreepShader;
+  qhandle_t   aliencreepShader;
 
   qhandle_t   scannerShader;
   qhandle_t   scannerBlipShader;
@@ -1177,6 +1173,7 @@ typedef struct
   // buildable shaders
   qhandle_t   greenBuildShader;
   qhandle_t   redBuildShader;
+  qhandle_t   noPowerShader;
   qhandle_t   humanSpawningShader;
 
   // disconnect
@@ -1272,32 +1269,10 @@ typedef struct
   qhandle_t   upgradeClassIconShader;
 } cgMedia_t;
 
-typedef struct
-{
-  qhandle_t     frameShader;
-  qhandle_t     overlayShader;
-  qhandle_t     noPowerShader;
-  qhandle_t     markedShader;
-  vec4_t        healthSevereColor;
-  vec4_t        healthHighColor;
-  vec4_t        healthElevatedColor;
-  vec4_t        healthGuardedColor;
-  vec4_t        healthLowColor;
-  int           frameHeight;
-  int           frameWidth;
-  int           healthPadding;
-  int           overlayHeight;
-  int           overlayWidth;
-  float         verticalMargin;
-  float         horizontalMargin;
-  vec4_t        foreColor;
-  vec4_t        backColor;
-  qboolean      loaded;
-} buildStat_t;
-
 
 // The client game static (cgs) structure hold everything
-// loaded or calculated from the gamestate.  It will NOT
+// loaded or calculated from the gamestate.  It will NOT(not true anymore?)
+// Confirmed its get updates YAY :D
 // be cleared when a tournement restart is done, allowing
 // all clients to begin playing instantly
 typedef struct
@@ -1314,10 +1289,11 @@ typedef struct
   qboolean      localServer;            // detected on startup by checking sv_running
 
   // parsed from serverinfo
+  int           dmflags;
+  int           teamflags;
   int           timelimit;
   int           maxclients;
   char          mapname[ MAX_QPATH ];
-  qboolean      markDeconstruct;        // Whether or not buildables are marked
 
   int           voteTime;
   int           voteYes;
@@ -1332,6 +1308,7 @@ typedef struct
   char          teamVoteString[ 2 ][ MAX_STRING_TOKENS ];
 
   int           levelStartTime;
+  int           survivalRecords[3];
 
   int           scores1, scores2;   // from configstrings
 
@@ -1370,6 +1347,12 @@ typedef struct
   //TA: corpse info
   clientInfo_t  corpseinfo[ MAX_CLIENTS ];
 
+  // teamchat width is *3 because of embedded color codes
+  char          teamChatMsgs[ TEAMCHAT_HEIGHT ][ TEAMCHAT_WIDTH * 3 + 1 ];
+  int           teamChatMsgTimes[ TEAMCHAT_HEIGHT ];
+  int           teamChatPos;
+  int           teamLastChatPos;
+
   int           cursorX;
   int           cursorY;
   qboolean      eventHandling;
@@ -1377,9 +1360,6 @@ typedef struct
   qboolean      sizingHud;
   void          *capturedItem;
   qhandle_t     activeCursor;
-
-  buildStat_t   alienBuildStat;
-  buildStat_t   humanBuildStat;
 
   // media
   cgMedia_t           media;
@@ -1412,7 +1392,6 @@ extern  vmCvar_t    cg_swingSpeed;
 extern  vmCvar_t    cg_shadows;
 extern  vmCvar_t    cg_gibs;
 extern  vmCvar_t    cg_drawTimer;
-extern  vmCvar_t    cg_drawClock;
 extern  vmCvar_t    cg_drawFPS;
 extern  vmCvar_t    cg_drawDemoState;
 extern  vmCvar_t    cg_drawSnapshot;
@@ -1457,12 +1436,16 @@ extern  vmCvar_t    cg_simpleItems;
 extern  vmCvar_t    cg_fov;
 extern  vmCvar_t    cg_zoomFov;
 extern  vmCvar_t    cg_thirdPersonRange;
+extern  vmCvar_t    cg_thirdPersonRangehax;
 extern  vmCvar_t    cg_thirdPersonAngle;
 extern  vmCvar_t    cg_thirdPerson;
+extern  vmCvar_t    cg_thirdPersonhax;
 extern  vmCvar_t    cg_stereoSeparation;
 extern  vmCvar_t    cg_lagometer;
 extern  vmCvar_t    cg_drawAttacker;
 extern  vmCvar_t    cg_synchronousClients;
+extern  vmCvar_t    cg_teamChatTime;
+extern  vmCvar_t    cg_teamChatHeight;
 extern  vmCvar_t    cg_stats;
 extern  vmCvar_t    cg_forceModel;
 extern  vmCvar_t    cg_buildScript;
@@ -1501,7 +1484,6 @@ extern  vmCvar_t    cg_wwSmoothTime;
 extern  vmCvar_t    cg_wwFollow;
 extern  vmCvar_t    cg_wwToggle;
 extern  vmCvar_t    cg_depthSortParticles;
-extern  vmCvar_t    cg_bounceParticles;
 extern  vmCvar_t    cg_consoleLatency;
 extern  vmCvar_t    cg_lightFlare;
 extern  vmCvar_t    cg_debugParticles;
@@ -1528,10 +1510,6 @@ extern  vmCvar_t    ui_alienTeamVoteActive;
 extern  vmCvar_t    ui_humanTeamVoteActive;
 
 extern  vmCvar_t    cg_debugRandom;
-
-extern  vmCvar_t    cg_optimizePrediction;
-extern  vmCvar_t    cg_projectileNudge;
-extern  vmCvar_t    cg_unlagged;
 
 //
 // cg_main.c
@@ -1595,8 +1573,6 @@ void        CG_GetColorForHealth( int health, int armor, vec4_t hcolor );
 void        CG_DrawRect( float x, float y, float width, float height, float size, const float *color );
 void        CG_DrawSides(float x, float y, float w, float h, float size);
 void        CG_DrawTopBottom(float x, float y, float w, float h, float size);
-qboolean    CG_WorldToScreen( vec3_t point, float *x, float *y );
-char        *CG_KeyBinding( const char *bind );
 
 
 //
@@ -1604,6 +1580,9 @@ char        *CG_KeyBinding( const char *bind );
 //
 extern  int sortedTeamPlayers[ TEAM_MAXOVERLAY ];
 extern  int numSortedTeamPlayers;
+extern  char systemChat[ 256 ];
+extern  char teamChat1[ 256 ];
+extern  char teamChat2[ 256 ];
 
 void        CG_AddLagometerFrameInfo( void );
 void        CG_AddLagometerSnapshotInfo( snapshot_t *snap );
@@ -1618,6 +1597,7 @@ int         CG_Text_Height( const char *text, float scale, int limit );
 float       CG_GetValue(int ownerDraw);
 void        CG_RunMenuScript(char **args);
 void        CG_SetPrintString( int type, const char *p );
+void        CG_InitTeamChat( void );
 void        CG_GetTeamColor( vec4_t *color );
 const char  *CG_GetKillerText( void );
 void        CG_Text_PaintChar( float x, float y, float width, float height, float scale,
@@ -1625,7 +1605,6 @@ void        CG_Text_PaintChar( float x, float y, float width, float height, floa
 void        CG_DrawLoadingScreen( void );
 void        CG_UpdateMediaFraction( float newFract );
 void        CG_ResetPainBlend( void );
-void        CG_DrawField( float x, float y, int width, float cw, float ch, int value );
 
 //
 // cg_players.c
@@ -1646,8 +1625,6 @@ qboolean    CG_AtHighestClass( void );
 //
 void        CG_GhostBuildable( buildable_t buildable );
 void        CG_Buildable( centity_t *cent );
-void        CG_BuildableStatusParse( const char *filename, buildStat_t *bs );
-void        CG_DrawBuildableStatus( void );
 void        CG_InitBuildables( void );
 void        CG_HumanBuildableExplosion( vec3_t origin, vec3_t dir );
 void        CG_AlienBuildableExplosion( vec3_t origin, vec3_t dir );
@@ -2046,6 +2023,14 @@ void          trap_Key_KeynumToStringBuf( int keynum, char *buf, int buflen );
 void          trap_Key_GetBindingBuf( int keynum, char *buf, int buflen );
 void          trap_Key_SetBinding( int keynum, const char *binding );
 
+typedef enum
+{
+  SYSTEM_PRINT,
+  CHAT_PRINT,
+  TEAMCHAT_PRINT
+} q3print_t;
+
+
 int           trap_CIN_PlayCinematic( const char *arg0, int xpos, int ypos, int width, int height, int bits );
 e_status      trap_CIN_StopCinematic( int handle );
 e_status      trap_CIN_RunCinematic( int handle );
@@ -2053,7 +2038,6 @@ void          trap_CIN_DrawCinematic( int handle );
 void          trap_CIN_SetExtents( int handle, int x, int y, int w, int h );
 
 void          trap_SnapVector( float *v );
-int           trap_RealTime( qtime_t *tm );
 
 qboolean      trap_loadCamera( const char *name );
 void          trap_startCamera( int time );
@@ -2064,9 +2048,3 @@ qboolean      trap_GetEntityToken( char *buffer, int bufferSize );
 int           trap_GetDemoState( void );
 int           trap_GetDemoPos( void );
 void          trap_GetDemoName( char *buffer, int size );
-
-// cg_drawCrosshair settings
-#define CROSSHAIR_ALWAYSOFF       0
-#define CROSSHAIR_RANGEDONLY      1
-#define CROSSHAIR_ALWAYSON        2
-

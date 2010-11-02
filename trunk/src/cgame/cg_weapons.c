@@ -59,6 +59,11 @@ void CG_RegisterUpgrade( int upgradeNum )
     upgradeInfo->upgradeIcon = cg_weapons[ WP_GRENADE ].weaponIcon;
   else if( ( icon = BG_FindIconForUpgrade( upgradeNum ) ) )
     upgradeInfo->upgradeIcon = trap_R_RegisterShader( icon );
+		
+		/*if( upgradeNum == UP_BOMB )
+    upgradeInfo->upgradeIcon = cg_weapons[ WP_BOMB ].weaponIcon;
+  else if( ( icon = BG_FindIconForUpgrade( upgradeNum ) ) )
+    upgradeInfo->upgradeIcon = trap_R_RegisterShader( icon );*/
 }
 
 /*
@@ -503,17 +508,17 @@ static qboolean CG_ParseWeaponFile( const char *filename, weaponInfo_t *wi )
         CG_Printf( S_COLOR_RED "ERROR: weapon model not found %s\n", token );
 
       strcpy( path, token );
-      COM_StripExtension( path, path, MAX_QPATH );
+      COM_StripExtension( path, path, sizeof(path) );
       strcat( path, "_flash.md3" );
       wi->flashModel = trap_R_RegisterModel( path );
 
       strcpy( path, token );
-      COM_StripExtension( path, path, MAX_QPATH );
+      COM_StripExtension( path, path, sizeof(path) );
       strcat( path, "_barrel.md3" );
       wi->barrelModel = trap_R_RegisterModel( path );
 
       strcpy( path, token );
-      COM_StripExtension( path, path, MAX_QPATH );
+      COM_StripExtension( path, path, sizeof(path) );
       strcat( path, "_hand.md3" );
       wi->handsModel = trap_R_RegisterModel( path );
 
@@ -705,7 +710,7 @@ static void CG_CalculateWeaponPosition( vec3_t origin, vec3_t angles )
     scale = cg.xyspeed;
 
   // gun angles from bobbing
-  // bob amount is class dependant
+  //TA: bob amount is class dependant
   bob = BG_FindBobForClass( cg.predictedPlayerState.stats[ STAT_PCLASS ] );
 
   if( bob != 0 )
@@ -993,14 +998,14 @@ void CG_AddViewWeapon( playerState_t *ps )
       ( ps->stats[ STAT_STATE ] & SS_HOVELING ) )
     return;
 
-  // no weapon carried - can't draw it
+  //TA: no weapon carried - can't draw it
   if( weapon == WP_NONE )
     return;
 
   if( ps->pm_type == PM_INTERMISSION )
     return;
 
-  // draw a prospective buildable infront of the player
+  //TA: draw a prospective buildable infront of the player
   if( ( ps->stats[ STAT_BUILDABLE ] & ~SB_VALID_TOGGLEBIT ) > BA_NONE )
     CG_GhostBuildable( ps->stats[ STAT_BUILDABLE ] & ~SB_VALID_TOGGLEBIT );
 
@@ -1047,6 +1052,8 @@ void CG_AddViewWeapon( playerState_t *ps )
     return;
 
   // drop gun lower at higher fov
+  //if ( cg_fov.integer > 90 ) {
+  //TA: the client side variable isn't used ( shouldn't iD have done this anyway? )
   if( cg.refdef.fov_y > 90 )
     fovOffset = -0.4 * ( cg.refdef.fov_y - 90 );
   else
@@ -1113,7 +1120,7 @@ static qboolean CG_WeaponSelectable( weapon_t weapon )
   //
   //BG_UnpackAmmoArray( i, cg.snap->ps.ammo, cg.snap->ps.powerups, &ammo, &clips );
   //
-  // this is a pain in the ass
+  //TA: this is a pain in the ass
   //if( !ammo && !clips && !BG_FindInfinteAmmoForWeapon( i ) )
   //  return qfalse;
 
@@ -1134,7 +1141,7 @@ static qboolean CG_UpgradeSelectable( upgrade_t upgrade )
   if( !BG_InventoryContainsUpgrade( upgrade, cg.snap->ps.stats ) )
     return qfalse;
 
-  return BG_FindUsableForUpgrade( upgrade );
+  return qtrue;
 }
 
 
@@ -1160,8 +1167,6 @@ void CG_DrawItemSelect( rectDef_t *rect, vec4_t color )
   qboolean      vertical;
   centity_t     *cent;
   playerState_t *ps;
-  
-  int		colinfo[ 64 ];
 
   cent = &cg_entities[ cg.snap->ps.clientNum ];
   ps = &cg.snap->ps;
@@ -1175,7 +1180,7 @@ void CG_DrawItemSelect( rectDef_t *rect, vec4_t color )
     // first make sure that whatever it selected is actually selectable
     if( cg.weaponSelect <= 32 && !CG_WeaponSelectable( cg.weaponSelect ) )
       CG_NextWeapon_f( );
-    else if( cg.weaponSelect > 32 && !CG_UpgradeSelectable( cg.weaponSelect - 32 ) )
+    else if( cg.weaponSelect > 32 && !CG_UpgradeSelectable( cg.weaponSelect ) )
       CG_NextWeapon_f( );
   }
 
@@ -1201,18 +1206,6 @@ void CG_DrawItemSelect( rectDef_t *rect, vec4_t color )
   {
     if( !BG_InventoryContainsWeapon( i, cg.snap->ps.stats ) )
       continue;
-      
-    {
-      int ammo, clips;
-  
-      BG_UnpackAmmoArray( i, cg.snap->ps.ammo, cg.snap->ps.powerups, &ammo, &clips );
-  
-      if( !ammo && !clips && !BG_FindInfinteAmmoForWeapon( i ) )
-        colinfo[ numItems ] = 1;
-      else
-        colinfo[ numItems ] = 0;
-    	
-    }
 
     if( i == cg.weaponSelect )
       selectedItem = numItems;
@@ -1226,10 +1219,6 @@ void CG_DrawItemSelect( rectDef_t *rect, vec4_t color )
   {
     if( !BG_InventoryContainsUpgrade( i, cg.snap->ps.stats ) )
       continue;
-    colinfo[ numItems ] = 0;
-    if( !BG_FindUsableForUpgrade ( i ) )
-      colinfo[ numItems ] = 2;
-    
 
     if( i == cg.weaponSelect - 32 )
       selectedItem = numItems;
@@ -1246,20 +1235,6 @@ void CG_DrawItemSelect( rectDef_t *rect, vec4_t color )
 
     if( ( item >= 0 ) && ( item < numItems ) )
     {
-      switch( colinfo[ item ] )
-      {
-        case 0:
-          color = colorCyan;
-          break;
-        case 1:
-          color = colorRed;
-          break;
-        case 2:
-          color = colorMdGrey;
-          break;
-      }
-      color[3] = 0.5;
-
       trap_R_SetColor( color );
 
       if( items[ item ] <= 32 )

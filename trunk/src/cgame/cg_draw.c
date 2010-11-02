@@ -36,6 +36,9 @@ int drawTeamOverlayModificationCount = -1;
 
 int   sortedTeamPlayers[ TEAM_MAXOVERLAY ];
 int   numSortedTeamPlayers;
+char  systemChat[ 256 ];
+char  teamChat1[ 256 ];
+char  teamChat2[ 256 ];
 
 //TA UI
 int CG_Text_Width( const char *text, float scale, int limit )
@@ -376,12 +379,12 @@ CG_DrawField
 Draws large numbers for status bar and powerups
 ==============
 */
-void CG_DrawField( float x, float y, int width, float cw, float ch, int value )
+static void CG_DrawField( int x, int y, int width, int cw, int ch, int value )
 {
   char  num[ 16 ], *ptr;
   int   l;
   int   frame;
-  float charWidth, charHeight;
+  int   charWidth, charHeight;
 
   if( !( charWidth = cw ) )
     charWidth = CHAR_WIDTH;
@@ -519,6 +522,26 @@ static void CG_DrawProgressBar( rectDef_t *rect, vec4_t color, float scale,
 }
 
 //=============== TA: was cg_newdraw.c
+
+void CG_InitTeamChat( void )
+{
+  memset( teamChat1,  0, sizeof( teamChat1 ) );
+  memset( teamChat2,  0, sizeof( teamChat2 ) );
+  memset( systemChat, 0, sizeof( systemChat ) );
+}
+
+void CG_SetPrintString( int type, const char *p )
+{
+  if( type == SYSTEM_PRINT )
+  {
+    strcpy( systemChat, p );
+  }
+  else
+  {
+    strcpy( teamChat2, teamChat1 );
+    strcpy( teamChat1, p );
+  }
+}
 
 #define NO_CREDITS_TIME 2000
 
@@ -936,7 +959,14 @@ static void CG_DrawPlayerAmmoValue( rectDef_t *rect, vec4_t color )
       case WP_HBUILD:
       case WP_HBUILD2:
         //percentage of BP remaining
-        value = cgs.humanBuildPoints;
+        if(cg.snap->ps.stats[ STAT_PTEAM ] == PTE_HUMANS)
+        {
+          value = cgs.humanBuildPoints;
+        }
+        else
+        {
+          value = cgs.alienBuildPoints;
+        }
         break;
 
       default:
@@ -976,8 +1006,8 @@ CG_DrawHumanScanner
 */
 static void CG_DrawHumanScanner( rectDef_t *rect, qhandle_t shader, vec4_t color )
 {
-  if( BG_InventoryContainsUpgrade( UP_HELMET, cg.snap->ps.stats ) )
-    CG_Scanner( rect, shader, color );
+  //if( BG_InventoryContainsUpgrade( UP_HELMET, cg.snap->ps.stats ) )
+    //CG_Scanner( rect, shader, color );
 }
 
 
@@ -1454,6 +1484,21 @@ float CG_GetValue( int ownerDraw )
   return -1;
 }
 
+static void CG_DrawAreaSystemChat( rectDef_t *rect, float scale, vec4_t color, qhandle_t shader )
+{
+  CG_Text_Paint( rect->x, rect->y + rect->h, scale, color, systemChat, 0, 0, 0 );
+}
+
+static void CG_DrawAreaTeamChat( rectDef_t *rect, float scale, vec4_t color, qhandle_t shader )
+{
+  CG_Text_Paint( rect->x, rect->y + rect->h, scale, color,teamChat1, 0, 0, 0 );
+}
+
+static void CG_DrawAreaChat(rectDef_t *rect, float scale, vec4_t color, qhandle_t shader)
+{
+  CG_Text_Paint(rect->x, rect->y + rect->h, scale, color, teamChat2, 0, 0, 0);
+}
+
 const char *CG_GetKillerText( )
 {
   const char *s = "";
@@ -1643,7 +1688,7 @@ static void CG_DrawStageReport( rectDef_t *rect, float text_x, float text_y,
   char  s[ MAX_TOKEN_CHARS ];
   int   tx, w, kills;
 
-  if( cg.snap->ps.stats[ STAT_PTEAM ] == PTE_NONE && !cg.intermissionStarted )
+  if( cg.snap->ps.persistant[ PERS_TEAM ] == TEAM_SPECTATOR && !cg.intermissionStarted )
     return;
 
   if( cg.intermissionStarted )
@@ -1846,7 +1891,278 @@ static void CG_DrawTimerSecs( rectDef_t *rect, vec4_t color )
   CG_DrawFieldPadded( rect->x, rect->y, 2, rect->w / 2, rect->h, seconds );
   trap_R_SetColor( NULL );
 }
+static void CG_DrawZombieTimerBackground( rectDef_t *rect, vec4_t color, qhandle_t shader )
+{
+}
 
+static void CG_DrawZombieRecordBackground( rectDef_t *rect, vec4_t color, qhandle_t shader )
+{
+}
+static void CG_DrawMedal( rectDef_t *rect, vec4_t color, qhandle_t shader, int medal)
+{
+  int currentRecord = -1;
+  int offset = 0;
+  
+  if(cgs.survivalRecords[0] < 1)
+  {
+    return;
+  }
+  
+  if(cg.time - cgs.levelStartTime < cgs.survivalRecords[0]) //A simple operand can change everything.
+  {
+    currentRecord = -1; //Havent Win any medal.
+  }
+  else if(cg.time - cgs.levelStartTime < cgs.survivalRecords[1])
+  {
+    currentRecord = 0; //Bronze
+  }
+  else if(cg.time - cgs.levelStartTime < cgs.survivalRecords[2])
+  {
+    currentRecord = 1; //Silver
+  }
+  else
+  {
+    currentRecord = 2; //gold
+  }
+  
+    
+  /*if(currentRecord == -1)
+    return;*/
+    
+  if(currentRecord < medal)
+    return;
+  
+  
+  if(medal == 0 && currentRecord == 0)
+  {
+    offset = 78;
+  }
+  if(currentRecord == 1 )
+  {
+    offset = 30;
+  }
+  if(currentRecord == 2)
+  {
+    offset = 30;
+  }
+  
+  CG_DrawPic( rect->x-offset, rect->y, rect->w, rect->h, shader );
+  trap_R_SetColor( NULL );
+}
+
+static void CG_DrawZombieTimer( rectDef_t *rect, float text_x, float text_y,
+                          float scale, vec4_t color, int align, int textStyle, qhandle_t shader )
+{
+  char    *s;
+  int     i, tx, w, totalWidth, strLength;
+  int     mins, seconds, tens, ms, ums, dms;
+  int     msec;
+  int     currentRecord;
+  
+  vec4_t  textColor,adjustedColor;
+
+  vec4_t  white = { 1.0f, 1.0f, 1.0f, 1.0f };
+
+
+
+  if(cgs.survivalRecords[0] < 1)
+  {
+    return;
+  }
+
+  msec = cg.time - cgs.levelStartTime;
+
+  ms = msec;
+  seconds = msec / 1000;
+  mins = seconds / 60;
+  seconds -= mins * 60;
+  tens = seconds / 10;
+  seconds -= tens * 10;
+  
+  ms = msec - (mins * 60 * 1000) - (seconds * 1000) - (tens * 10 * 1000);
+  
+  dms = (ms/(999/99))/10;
+  ums = (ms/(999/99))%10;
+
+  s = va( "%d%d:%d%d:%d%d", mins/10, mins%10 , tens, seconds, dms, ums );
+  
+  w = CG_Text_Width( "0", scale, 0 );
+  strLength = CG_DrawStrlen( s );
+  totalWidth = w * strLength;
+
+  switch( align )
+  {
+    case ITEM_ALIGN_LEFT:
+      tx = rect->x;
+      break;
+
+    case ITEM_ALIGN_RIGHT:
+      tx = rect->x + rect->w - totalWidth;
+      break;
+
+    case ITEM_ALIGN_CENTER:
+      tx = rect->x + ( rect->w / 2.0f ) - ( totalWidth / 2.0f );
+      break;
+
+    default:
+      tx = 0.0f;
+  }
+  
+  Vector4Copy( textColor, adjustedColor );
+  adjustedColor[ 3 ] = 1.0f;
+
+ // trap_R_SetColor( adjustedColor );
+  CG_DrawPic( rect->x, rect->y, rect->w, rect->h, shader );
+  trap_R_SetColor( NULL );
+  
+  if(cg.time - cgs.levelStartTime < cgs.survivalRecords[0]) //A simple operand can change everything.
+  {
+    currentRecord = 0;
+  }
+  else if(cg.time - cgs.levelStartTime < cgs.survivalRecords[1])
+  {
+    currentRecord = 1;
+  }
+  else if(cg.time - cgs.levelStartTime < cgs.survivalRecords[2])
+  {
+    currentRecord = 2;
+  }
+  else
+  {
+    currentRecord = -1;
+  }
+    
+  if( currentRecord > -1)
+  {
+    if(cgs.survivalRecords[currentRecord] - (cg.time - cgs.levelStartTime) < 10000)
+    {
+      if(dms == 0)
+      {
+        cg.fadeTimer = cg.time+1000;
+      }
+  
+      if(cg.time < cg.fadeTimer)
+      {
+        color[3] = ((cg.fadeTimer) - cg.time)/(1000.0f);
+      }
+      if(color[3] == 0)
+      {
+        color[3] = 1;
+      }
+    }
+  }
+  
+  
+  /*color = CG_FadeColor( fadeTimer, 1000 * cg_centertime.value );
+  if( !color )
+    return;*/
+  
+  
+  for( i = 0; i < strLength; i++ )
+  {
+    char c[ 2 ];
+
+    c[ 0 ] = s[ i ];
+    c[ 1 ] = '\0';
+    
+    CG_Text_Paint( text_x + tx + i * w, rect->y + text_y, scale, color, c, 0, 0, textStyle );
+  }
+}
+static CG_DrawZombieRecord( rectDef_t *rect, float text_x, float text_y,
+                          float scale, vec4_t color, int align, int textStyle, qhandle_t shader )
+{
+  char    *s;
+  int     i, tx, w, totalWidth, strLength;
+  int     mins, seconds, tens, ms, ums, dms;
+  int     msec;
+  int     currentRecord;
+  
+  vec4_t  textColor,adjustedColor;
+
+  vec4_t  white = { 1.0f, 1.0f, 1.0f, 1.0f };
+  
+  //Some how this fucking piece of crap dont work... WHY? i dont know.
+  
+  if(cgs.survivalRecords[0] < 1)
+  {
+    return;
+  }
+
+  msec = cg.time - cgs.levelStartTime;
+  
+  if(msec < cgs.survivalRecords[0]) //A simple operand can change everything.
+  {
+    currentRecord = 0;
+  }
+  else if(msec < cgs.survivalRecords[1])
+  {
+    currentRecord = 1;
+  }
+  else if(msec < cgs.survivalRecords[2])
+  {
+    currentRecord = 2;
+  }
+  else
+  {
+    return;
+  }
+  
+  //msec = currentRecord;
+  
+  
+  ms = cgs.survivalRecords[currentRecord];
+  seconds = cgs.survivalRecords[currentRecord] / 1000;
+  mins = seconds / 60;
+  seconds -= mins * 60;
+  tens = seconds / 10;
+  seconds -= tens * 10;
+  
+  ms = cgs.survivalRecords[currentRecord] - (mins * 60 * 1000) - (seconds * 1000) - (tens * 10 * 1000);
+  
+  dms = (ms/(999/99))/10;
+  ums = (ms/(999/99))%10;
+
+  s = va( "%d%d:%d%d:%d%d", mins/10, mins%10, tens, seconds, dms, ums);
+  
+  w = CG_Text_Width( "0", scale, 0 );
+  strLength = CG_DrawStrlen( s );
+  totalWidth = w * strLength;
+
+  switch( align )
+  {
+    case ITEM_ALIGN_LEFT:
+      tx = rect->x;
+      break;
+
+    case ITEM_ALIGN_RIGHT:
+      tx = rect->x + rect->w - totalWidth;
+      break;
+
+    case ITEM_ALIGN_CENTER:
+      tx = rect->x + ( rect->w / 2.0f ) - ( totalWidth / 2.0f );
+      break;
+
+    default:
+      tx = 0.0f;
+  }
+  
+  Vector4Copy( textColor, adjustedColor );
+  adjustedColor[ 3 ] = 1.0f;
+
+  //trap_R_SetColor( adjustedColor );
+  CG_DrawPic( rect->x, rect->y, rect->w, rect->h, shader );
+  trap_R_SetColor( NULL );
+
+  for( i = 0; i < strLength; i++ )
+  {
+    char c[ 2 ];
+
+    c[ 0 ] = s[ i ];
+    c[ 1 ] = '\0';
+
+    CG_Text_Paint( text_x + tx + i * w, rect->y + text_y, scale, color, c, 0, 0, textStyle );
+  }
+}
 
 /*
 =================
@@ -1873,79 +2189,6 @@ static void CG_DrawTimer( rectDef_t *rect, float text_x, float text_y,
   seconds -= tens * 10;
 
   s = va( "%d:%d%d", mins, tens, seconds );
-  w = CG_Text_Width( "0", scale, 0 );
-  strLength = CG_DrawStrlen( s );
-  totalWidth = w * strLength;
-
-  switch( align )
-  {
-    case ITEM_ALIGN_LEFT:
-      tx = rect->x;
-      break;
-
-    case ITEM_ALIGN_RIGHT:
-      tx = rect->x + rect->w - totalWidth;
-      break;
-
-    case ITEM_ALIGN_CENTER:
-      tx = rect->x + ( rect->w / 2.0f ) - ( totalWidth / 2.0f );
-      break;
-
-    default:
-      tx = 0.0f;
-  }
-
-  for( i = 0; i < strLength; i++ )
-  {
-    char c[ 2 ];
-
-    c[ 0 ] = s[ i ];
-    c[ 1 ] = '\0';
-
-    CG_Text_Paint( text_x + tx + i * w, rect->y + text_y, scale, color, c, 0, 0, textStyle );
-  }
-}
-
-/*
-=================
-CG_DrawClock
-=================
-*/
-static void CG_DrawClock( rectDef_t *rect, float text_x, float text_y,
-                          float scale, vec4_t color, int align, int textStyle )
-{
-  char    *s;
-  int     i, tx, w, totalWidth, strLength;
-  qtime_t qt;
-  int     t;
-
-  if( !cg_drawClock.integer )
-    return;
-
-  t = trap_RealTime( &qt );
-
-  if( cg_drawClock.integer == 2 )
-  {
-    s = va( "%02d%s%02d", qt.tm_hour, ( qt.tm_sec % 2 ) ? ":" : " ",
-      qt.tm_min );
-  }
-  else
-  {
-    char *pm = "am";
-    int h = qt.tm_hour;
-
-    if( h == 0 )
-      h = 12;
-    else if( h == 12 )
-      pm = "pm";
-    else if( h > 12 )
-    {
-      h -= 12;
-      pm = "pm";
-    }
-
-    s = va( "%d%s%02d%s", h, ( qt.tm_sec % 2 ) ? ":" : " ", qt.tm_min, pm );
-  }
   w = CG_Text_Width( "0", scale, 0 );
   strLength = CG_DrawStrlen( s );
   totalWidth = w * strLength;
@@ -2065,13 +2308,8 @@ the number of snapshots that were dropped before it.
 Pass NULL for a dropped packet.
 ==============
 */
-#define PING_FRAMES 40
 void CG_AddLagometerSnapshotInfo( snapshot_t *snap )
 {
-  static int  previousPings[ PING_FRAMES ];
-  static int  index;
-  int         i;
-
   // dropped packet
   if( !snap )
   {
@@ -2084,20 +2322,6 @@ void CG_AddLagometerSnapshotInfo( snapshot_t *snap )
   lagometer.snapshotSamples[ lagometer.snapshotCount & ( LAG_SAMPLES - 1 ) ] = snap->ping;
   lagometer.snapshotFlags[ lagometer.snapshotCount & ( LAG_SAMPLES - 1 ) ] = snap->snapFlags;
   lagometer.snapshotCount++;
-
-  cg.ping = 0;
-  if( cg.snap )
-  {
-    previousPings[ index++ ] = cg.snap->ping;
-    index = index % PING_FRAMES;
-  
-    for( i = 0; i < PING_FRAMES; i++ )
-    {
-      cg.ping += previousPings[ i ];
-    }
-
-    cg.ping /= PING_FRAMES;
-  }
 }
 
 /*
@@ -2142,6 +2366,7 @@ static void CG_DrawDisconnect( void )
 #define MAX_LAGOMETER_PING  900
 #define MAX_LAGOMETER_RANGE 300
 
+#define PING_FRAMES 40
 
 /*
 ==============
@@ -2283,9 +2508,20 @@ static void CG_DrawLagometer( rectDef_t *rect, float text_x, float text_y,
     CG_Text_Paint( ax, ay, 0.5, white, "snc", 0, 0, ITEM_TEXTSTYLE_NORMAL );
   else
   {
+    static int  previousPings[ PING_FRAMES ];
+    static int  index;
+    int         i, ping = 0;
     char        *s;
 
-    s = va( "%d", cg.ping );
+    previousPings[ index++ ] = cg.snap->ping;
+    index = index % PING_FRAMES;
+
+    for( i = 0; i < PING_FRAMES; i++ )
+      ping += previousPings[ i ];
+
+    ping /= PING_FRAMES;
+
+    s = va( "%d", ping );
     ax = rect->x + ( rect->w / 2.0f ) - ( CG_Text_Width( s, scale, 0 ) / 2.0f ) + text_x;
     ay = rect->y + ( rect->h / 2.0f ) + ( CG_Text_Height( s, scale, 0 ) / 2.0f ) + text_y;
 
@@ -2309,6 +2545,14 @@ static void CG_DrawTextBlock( rectDef_t *rect, float text_x, float text_y, vec4_
   float     x, y, w, h;
 
   //offset the text
+  
+  //Survival text must be shorter 290
+  if(cgs.survivalRecords[0] > 0)
+  {
+    rect->w = 290;
+  }
+  
+  
   x = rect->x;
   y = rect->y;
   w = rect->w - ( 16 + ( 2 * text_x ) ); //16 to ensure text within frame
@@ -2464,23 +2708,17 @@ static void CG_DrawCrosshair( void )
   float         x, y;
   weaponInfo_t  *wi;
 
-  if( cg_drawCrosshair.integer == CROSSHAIR_ALWAYSOFF )
+  if( !cg_drawCrosshair.integer )
     return;
-
-  if( cg_drawCrosshair.integer == CROSSHAIR_RANGEDONLY &&
-      !BG_FindLongRangedForWeapon( cg.snap->ps.weapon ) )
-  {
-    return;
-  } 
 
   if( ( cg.snap->ps.persistant[ PERS_TEAM ] == TEAM_SPECTATOR ) ||
       ( cg.snap->ps.stats[ STAT_STATE ] & SS_INFESTING ) ||
       ( cg.snap->ps.stats[ STAT_STATE ] & SS_HOVELING ) )
     return;
 
-  if( cg.renderingThirdPerson )
+  /*if( cg.renderingThirdPerson )
     return;
-
+  */
   wi = &cg_weapons[ cg.snap->ps.weapon ];
 
   w = h = wi->crossHairSize;
@@ -2553,11 +2791,14 @@ static void CG_DrawCrosshairNames( rectDef_t *rect, float scale, int textStyle )
   char    *name;
   float   w, x;
 
+  if( !cg_drawCrosshair.integer )
+    return;
+
   if( !cg_drawCrosshairNames.integer )
     return;
 
-  if( cg.renderingThirdPerson )
-    return;
+  /*if( cg.renderingThirdPerson )
+    return;*/
 
   // scan the known entities to see if the crosshair is sighted on one
   CG_ScanForCrosshairEntity( );
@@ -2677,6 +2918,15 @@ void CG_OwnerDraw( float x, float y, float w, float h, float text_x,
     case CG_PLAYER_USABLE_BUILDABLE:
       CG_DrawUsableBuildable( &rect, shader, color );
       break;
+    case CG_AREA_SYSTEMCHAT:
+      CG_DrawAreaSystemChat( &rect, scale, color, shader );
+      break;
+    case CG_AREA_TEAMCHAT:
+      CG_DrawAreaTeamChat( &rect, scale, color, shader );
+      break;
+    case CG_AREA_CHAT:
+      CG_DrawAreaChat( &rect, scale, color, shader );
+      break;
     case CG_KILLER:
       CG_DrawKiller( &rect, scale, color, shader, textStyle );
       break;
@@ -2743,9 +2993,6 @@ void CG_OwnerDraw( float x, float y, float w, float h, float text_x,
     case CG_TIMER:
       CG_DrawTimer( &rect, text_x, text_y, scale, color, align, textStyle );
       break;
-    case CG_CLOCK:
-      CG_DrawClock( &rect, text_x, text_y, scale, color, align, textStyle );
-      break;
     case CG_TIMER_MINS:
       CG_DrawTimerMins( &rect, color );
       break;
@@ -2757,6 +3004,34 @@ void CG_OwnerDraw( float x, float y, float w, float h, float text_x,
       break;
     case CG_LAGOMETER:
       CG_DrawLagometer( &rect, text_x, text_y, scale, color );
+      break;
+      
+    //zombieSurvival
+    case CG_ZOMBIETIMER:
+      CG_DrawZombieTimer( &rect, text_x, text_y, scale, color, align, textStyle, shader );
+      break;
+    case CG_ZOMBIERECORD:
+      CG_DrawZombieRecord( &rect, text_x, text_y, scale, color, align, textStyle, shader );
+      break;
+      
+    case CG_ZOMBIETIMERBACKGROUND:
+      CG_DrawZombieTimerBackground( &rect, color, shader );
+      break;  
+      
+    case CG_ZOMBIERECORDBACKGROUND:
+      CG_DrawZombieRecordBackground( &rect, color, shader );
+      break;
+    //Survival Medals
+    case CG_GOLDMEDAL:
+      CG_DrawMedal( &rect, color, shader, 2);
+      break;
+    
+    case CG_SILVERMEDAL:
+      CG_DrawMedal( &rect, color, shader, 1);
+      break;
+      
+    case CG_BRONZEMEDAL:
+      CG_DrawMedal( &rect, color, shader, 0);
       break;
 
     case CG_DEMO_PLAYBACK:
@@ -3051,7 +3326,6 @@ static void CG_DrawVote( void )
   char    *s;
   int     sec;
   vec4_t  white = { 1.0f, 1.0f, 1.0f, 1.0f };
-  char    yeskey[ 32 ], nokey[ 32 ];
 
   if( !cgs.voteTime )
     return;
@@ -3067,10 +3341,8 @@ static void CG_DrawVote( void )
 
   if( sec < 0 )
     sec = 0;
-  Q_strncpyz( yeskey, CG_KeyBinding( "vote yes" ), sizeof( yeskey ) ); 
-  Q_strncpyz( nokey, CG_KeyBinding( "vote no" ), sizeof( nokey ) ); 
-  s = va( "VOTE(%i): \"%s\"  [%s]Yes:%i [%s]No:%i", sec, cgs.voteString,
-    yeskey, cgs.voteYes, nokey, cgs.voteNo );
+
+  s = va( "VOTE(%i): \"%s\"  Yes:%i No:%i", sec, cgs.voteString, cgs.voteYes, cgs.voteNo );
   CG_Text_Paint( 8, 340, 0.3f, white, s, 0, 0, ITEM_TEXTSTYLE_NORMAL );
 }
 
@@ -3084,7 +3356,6 @@ static void CG_DrawTeamVote( void )
   char    *s;
   int     sec, cs_offset;
   vec4_t  white = { 1.0f, 1.0f, 1.0f, 1.0f };
-  char    yeskey[ 32 ], nokey[ 32 ];
 
   if( cg.predictedPlayerState.stats[ STAT_PTEAM ] == PTE_HUMANS )
     cs_offset = 0;
@@ -3108,12 +3379,8 @@ static void CG_DrawTeamVote( void )
   if( sec < 0 )
     sec = 0;
 
-  Q_strncpyz( yeskey, CG_KeyBinding( "teamvote yes" ), sizeof( yeskey ) ); 
-  Q_strncpyz( nokey, CG_KeyBinding( "teamvote no" ), sizeof( nokey ) ); 
-  s = va( "TEAMVOTE(%i): \"%s\"  [%s]Yes:%i   [%s]No:%i", sec,
-          cgs.teamVoteString[ cs_offset ],
-          yeskey, cgs.teamVoteYes[cs_offset],
-          nokey, cgs.teamVoteNo[ cs_offset ] );
+  s = va( "TEAMVOTE(%i): \"%s\"  Yes:%i No:%i", sec, cgs.teamVoteString[ cs_offset ],
+              cgs.teamVoteYes[cs_offset], cgs.teamVoteNo[ cs_offset ] );
 
   CG_Text_Paint( 8, 360, 0.3f, white, s, 0, 0, ITEM_TEXTSTYLE_NORMAL );
 }
@@ -3299,13 +3566,14 @@ static void CG_Draw2D( void )
     CG_Text_Paint( 320 - w / 2, 440, 0.7f, color, SPECTATOR_STRING, 0, 0, ITEM_TEXTSTYLE_SHADOWED );
   }
   else
+  {
     menu = Menus_FindByName( BG_FindHudNameForClass( cg.predictedPlayerState.stats[ STAT_PCLASS ] ) );
+  }
 
   if( !( cg.snap->ps.stats[ STAT_STATE ] & SS_INFESTING ) &&
       !( cg.snap->ps.stats[ STAT_STATE ] & SS_HOVELING ) && menu &&
       ( cg.snap->ps.stats[ STAT_HEALTH ] > 0 ) )
   {
-    CG_DrawBuildableStatus( );
     if( cg_drawStatus.integer )
       Menu_Paint( menu, qtrue );
 
@@ -3365,7 +3633,7 @@ static void CG_PainBlend( void )
   float       x, y, w, h;
   float       s1, t1, s2, t2;
 
-  if( cg.snap->ps.persistant[ PERS_TEAM ] == TEAM_SPECTATOR || cg.intermissionStarted )
+  if( cg.snap->ps.persistant[ PERS_TEAM ] == TEAM_SPECTATOR )
     return;
 
   damage = cg.lastHealth - cg.snap->ps.stats[ STAT_HEALTH ];
@@ -3513,12 +3781,11 @@ void CG_DrawActive( stereoFrame_t stereoView )
     VectorCopy( baseOrg, cg.refdef.vieworg );
 
   // first person blend blobs, done after AnglesToAxis
-  if( !cg.renderingThirdPerson )
+  /*if( !cg.renderingThirdPerson )*/
     CG_PainBlend( );
 
   // draw status bar and other floating elements
   CG_Draw2D( );
 }
-
 
 

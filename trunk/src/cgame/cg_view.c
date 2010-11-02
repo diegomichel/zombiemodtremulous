@@ -273,7 +273,7 @@ static void CG_OffsetThirdPersonView( void )
   trace_t       trace;
   static vec3_t mins = { -8, -8, -8 };
   static vec3_t maxs = { 8, 8, 8 };
-  vec3_t        focusPoint;
+  vec3_t        focusPoint, fail;
   float         focusDist;
   float         forwardScale, sideScale;
   vec3_t        surfNormal;
@@ -287,7 +287,7 @@ static void CG_OffsetThirdPersonView( void )
   }
   else
     VectorSet( surfNormal, 0.0f, 0.0f, 1.0f );
-
+//HAX cg_gun
   VectorMA( cg.refdef.vieworg, cg.predictedPlayerState.viewheight, surfNormal, cg.refdef.vieworg );
 
   VectorCopy( cg.refdefViewAngles, focusAngles );
@@ -302,6 +302,7 @@ static void CG_OffsetThirdPersonView( void )
   //if ( focusAngles[PITCH] > 45 ) {
   //  focusAngles[PITCH] = 45;    // don't go too far overhead
   //}
+
   AngleVectors( focusAngles, forward, NULL, NULL );
 
   VectorMA( cg.refdef.vieworg, FOCUS_DISTANCE, forward, focusPoint );
@@ -310,14 +311,14 @@ static void CG_OffsetThirdPersonView( void )
 
   VectorMA( view, 12, surfNormal, view );
 
-  //cg.refdefViewAngles[PITCH] *= 0.5;
+	//cg.refdefViewAngles[PITCH] *= 0.5;
 
   AngleVectors( cg.refdefViewAngles, forward, right, up );
 
   forwardScale = cos( cg_thirdPersonAngle.value / 180 * M_PI );
   sideScale = sin( cg_thirdPersonAngle.value / 180 * M_PI );
-  VectorMA( view, -cg_thirdPersonRange.value * forwardScale, forward, view );
-  VectorMA( view, -cg_thirdPersonRange.value * sideScale, right, view );
+  VectorMA( view, -cg_thirdPersonRangehax.value * forwardScale, forward, view );
+  VectorMA( view, -cg_thirdPersonRangehax.value * sideScale , right, view );
 
   // trace a ray from the origin to the viewpoint to make sure the view isn't
   // in a solid block.  Use an 8 by 8 block to prevent the view from near clipping anything
@@ -346,7 +347,7 @@ static void CG_OffsetThirdPersonView( void )
   if ( focusDist < 1 ) {
     focusDist = 1;  // should never happen
   }
-  cg.refdefViewAngles[ PITCH ] = -180 / M_PI * atan2( focusPoint[ 2 ], focusDist );
+  cg.refdefViewAngles[ PITCH ] = -180 / M_PI * atan2( focusPoint[ 2 ] , focusDist );
   cg.refdefViewAngles[ YAW ] -= cg_thirdPersonAngle.value;
 }
 
@@ -483,7 +484,7 @@ static void CG_OffsetFirstPersonView( void )
   angles[ ROLL ] -= delta * cg_runroll.value;
 
   // add angles based on bob
-  // bob amount is class dependant
+  //TA: bob amount is class dependant
 
   if( cg.snap->ps.persistant[ PERS_TEAM ] == TEAM_SPECTATOR )
     bob2 = 0.0f;
@@ -620,12 +621,12 @@ static void CG_OffsetFirstPersonView( void )
     angles[ PITCH ] += pitchFraction * PCLOUD_ROLL_AMPLITUDE / 2.0f;
   }
 
-  // this *feels* more realisitic for humans
+  //TA: this *feels* more realisitic for humans
   if( cg.predictedPlayerState.stats[ STAT_PTEAM ] == PTE_HUMANS )
   {
     angles[PITCH] += cg.bobfracsin * bob2 * 0.5;
 
-    // heavy breathing effects //FIXME: sound
+    //TA: heavy breathing effects //FIXME: sound
     if( cg.predictedPlayerState.stats[ STAT_STAMINA ] < 0 )
     {
       float deltaBreath = (float)(
@@ -643,7 +644,7 @@ static void CG_OffsetFirstPersonView( void )
 //===================================
 
   // add view height
-  // when wall climbing the viewheight is not straight up
+  //TA: when wall climbing the viewheight is not straight up
   if( cg.predictedPlayerState.stats[ STAT_STATE ] & SS_WALLCLIMBING )
     VectorMA( origin, ps->viewheight, normal, origin );
   else
@@ -663,7 +664,7 @@ static void CG_OffsetFirstPersonView( void )
   if( bob > 6 )
     bob = 6;
 
-  // likewise for bob
+  //TA: likewise for bob
   if( cg.predictedPlayerState.stats[ STAT_STATE ] & SS_WALLCLIMBING )
     VectorMA( origin, bob, normal, origin );
   else
@@ -694,7 +695,6 @@ static void CG_OffsetFirstPersonView( void )
 }
 
 //======================================================================
-
 /*
 ====================
 CG_CalcFov
@@ -709,20 +709,22 @@ Fixed fov at intermissions, otherwise account for fov variable and zooms.
 
 static int CG_CalcFov( void )
 {
-  float     x;
-  float     phase;
-  float     v;
-  int       contents;
-  float     fov_x, fov_y;
-  float     zoomFov;
-  float     f;
-  int       inwater;
-  int       attribFov;
+  float x;
+  float phase;
+  float v;
+  int   contents;
+  float fov_x, fov_y;
+  float zoomFov;
+  float f;
+  int   inwater;
+  int   attribFov;
   usercmd_t cmd;
   int       cmdNum;
-
-  cmdNum = trap_GetCurrentCmdNumber( );
+	playerState_t *ps = &cg.predictedPlayerState;
+  
+	cmdNum = trap_GetCurrentCmdNumber( );
   trap_GetUserCmd( cmdNum, &cmd );
+
 
   if( cg.predictedPlayerState.pm_type == PM_INTERMISSION ||
       ( cg.snap->ps.persistant[ PERS_TEAM ] == TEAM_SPECTATOR ) )
@@ -732,7 +734,7 @@ static int CG_CalcFov( void )
   }
   else
   {
-    // don't lock the fov globally - we need to be able to change it
+    //TA: don't lock the fov globally - we need to be able to change it
     attribFov = BG_FindFovForClass( cg.predictedPlayerState.stats[ STAT_PCLASS ] );
     fov_x = attribFov;
 
@@ -761,8 +763,7 @@ static int CG_CalcFov( void )
     else if ( zoomFov > attribFov )
       zoomFov = attribFov;
 
-    // only do all the zoom stuff if the client CAN zoom
-    // FIXME: zoom control is currently hard coded to BUTTON_ATTACK2
+    //TA: only do all the zoom stuff if the client CAN zoom
     if( BG_WeaponCanZoom( cg.predictedPlayerState.weapon ) )
     {
       if ( cg.zoomed )
@@ -773,13 +774,16 @@ static int CG_CalcFov( void )
           fov_x = zoomFov;
         else
           fov_x = fov_x + f * ( zoomFov - fov_x );
-
-        // BUTTON_ATTACK2 isn't held so unzoom next time
-        if( !( cmd.buttons & BUTTON_ATTACK2 ) )
-        {
-          cg.zoomed   = qfalse;
-          cg.zoomTime = cg.time;
-        }
+					  // BUTTON_ATTACK2 isn't held so unzoom next time
+ 	  	         if( !( cmd.buttons & BUTTON_ATTACK2 ) )
+ 	  	         {
+ 	  	           cg.zoomed   = qfalse;
+ 	  	           cg.zoomTime = cg.time;
+								 /*if(ps->weapon == WP_MASS_DRIVER)
+									{
+										cg_thirdPersonhax.integer = 1;
+									}*/
+ 	  	         }
       }
       else
       {
@@ -789,13 +793,16 @@ static int CG_CalcFov( void )
           fov_x = fov_x;
         else
           fov_x = zoomFov + f * ( fov_x - zoomFov );
-
-        // BUTTON_ATTACK2 is held so zoom next time
-        if( cmd.buttons & BUTTON_ATTACK2 )
-        {
-          cg.zoomed   = qtrue;
-          cg.zoomTime = cg.time;
-        }
+					  // BUTTON_ATTACK2 is held so zoom next time
+ 	  	         if( cmd.buttons & BUTTON_ATTACK2 )
+ 	  	         {
+ 	  	           cg.zoomed   = qtrue;
+ 	  	           cg.zoomTime = cg.time;
+								 if(ps->weapon == WP_MASS_DRIVER)
+								 {
+										cg_thirdPersonhax.integer = 0;
+								 }
+ 	  	         }
       }
     }
   }
@@ -1262,7 +1269,12 @@ void CG_DrawActiveFrame( int serverTime, stereoFrame_t stereoView, qboolean demo
   CG_PredictPlayerState( );
 
   // decide on third person view
-  cg.renderingThirdPerson = cg_thirdPerson.integer || ( cg.snap->ps.stats[ STAT_HEALTH ] <= 0 );
+  cg.renderingThirdPerson = cg_thirdPersonhax.integer || ( cg.snap->ps.stats[ STAT_HEALTH ] <= 0 );
+	
+	if(cg.predictedPlayerState.stats[ STAT_PTEAM ] == PTE_NONE)
+	{
+		cg.renderingThirdPerson = 0;
+	}
 
   // build cg.refdef
   inwater = CG_CalcViewValues( );

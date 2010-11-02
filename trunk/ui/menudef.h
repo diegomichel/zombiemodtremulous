@@ -207,6 +207,9 @@
 #define CG_FRAGGED_MSG 43               // painted with old system
 #define CG_PROXMINED_MSG 44             // painted with old system
 #define CG_AREA_FPSINFO 45              // painted with old system
+#define CG_AREA_SYSTEMCHAT 46           // painted with old system
+#define CG_AREA_TEAMCHAT 47             // painted with old system
+#define CG_AREA_CHAT 48                 // painted with old system
 #define CG_GAME_STATUS 49
 #define CG_KILLER 50
 #define CG_PLAYER_ARMOR_ICON2D 51              
@@ -254,9 +257,17 @@
 #define CG_DEMO_PLAYBACK          117
 #define CG_DEMO_RECORDING         118
 
+#define CG_ZOMBIETIMER  268
+#define CG_ZOMBIERECORD 269
+#define CG_ZOMBIETIMERBACKGROUND 270
+#define CG_ZOMBIERECORDBACKGROUND 271
+
+#define CG_GOLDMEDAL 272
+#define CG_SILVERMEDAL 273
+#define CG_BRONZEMEDAL 274
+
 #define CG_CONSOLE                91
 #define CG_TUTORIAL               119
-#define CG_CLOCK                  120
 
 
 

@@ -450,6 +450,7 @@ typedef enum {
 } buildableTeam_t;
 
 #define B_HEALTH_BITS       5
+#define B_HEALTH_SCALE      (float)((1<<B_HEALTH_BITS)-1)
 #define B_HEALTH_MASK       ((1<<B_HEALTH_BITS)-1)
 
 #define B_DCCED_TOGGLEBIT    0x00000000
