@@ -128,6 +128,7 @@ player_die
 void player_die( gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damage, int meansOfDeath )
 {
   gentity_t *ent;
+  gentity_t *tent;
   int       anim;
   int       killer;
   int       i, j;
@@ -136,6 +137,7 @@ void player_die( gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int
   float     percentDamage = 0.0f;
   gentity_t *player;
   qboolean  tk = qfalse;
+  vec3_t  dir;
 
 
   if( self->client->ps.pm_type == PM_DEAD )
@@ -144,7 +146,23 @@ void player_die( gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int
 
   if( level.intermissiontime )
     return;
-
+    
+  if(self->client->ps.stats[ STAT_PTEAM ] == PTE_ALIENS )
+  {
+     //trap_SendServerCommand( -1, "print \"shit\n\"");
+     VectorCopy( self->s.origin2, dir );
+     //G_AddEvent( self, EV_HUMAN_BUILDABLE_EXPLOSION, DirToByte( dir ) );
+     tent = G_TempEntity( self->s.origin, EV_ALIEN_BUILDABLE_EXPLOSION );
+     tent->s.eventParm = DirToByte( dir );
+     //G_SelectiveRadiusDamage( self->s.pos.trBase, self, (float)100, (float)500, self, MOD_SLOWBLOB, self->client->ps.stats[ STAT_PTEAM ] );
+     if(g_survival.integer)
+     {
+      //G_RadiusDamage( self->s.pos.trBase, self, (float)100, (float)50, self, MOD_SLOWBLOB);
+    }
+     else
+      G_RadiusDamage( self->s.pos.trBase, self, (float)100, (float)250, self, MOD_SLOWBLOB);
+  }
+  
   self->client->ps.pm_type = PM_DEAD;
   self->suicideTime = 0;
 
@@ -204,7 +222,7 @@ void player_die( gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int
     BG_DeactivateUpgrade( i, self->client->ps.stats );
 
   // broadcast the death event to everyone
-  if( !tk )
+  if( !tk || (self->client->ps.stats[ STAT_PTEAM ] == PTE_ALIENS && meansOfDeath == MOD_SUICIDE ) )
   {
     ent = G_TempEntity( self->r.currentOrigin, EV_OBITUARY );
     ent->s.eventParm = meansOfDeath;
@@ -224,7 +242,6 @@ void player_die( gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int
     G_LogOnlyPrintf("%s^7 was killed by ^1TEAMMATE^7 %s^7 (Did %d damage to %d max)\n",
       self->client->pers.netname, attacker->client->pers.netname, self->client->tkcredits[ attacker->s.number ], self->client->ps.stats[ STAT_MAX_HEALTH ] );
   }
-
   self->enemy = attacker;
 
   self->client->ps.persistant[ PERS_KILLED ]++;
@@ -304,6 +321,12 @@ void player_die( gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int
       AddScore( attacker, 1 );
 
       attacker->client->lastKillTime = level.time;
+      
+      if(self && self->client)
+      {
+        self->client->lastdietime = level.time;
+      }
+      
       attacker->client->pers.statscounters.kills++;
       if( attacker->client->pers.teamSelection == PTE_ALIENS ) 
       {
@@ -922,6 +945,13 @@ static float G_CalcDamageModifier( vec3_t point, gentity_t *targ, gentity_t *att
       attacker->client->pers.statscounters.headshots++;
       level.alienStatsCounters.headshots++;
     }
+    if(attacker && attacker->client && modifier != 2 &&  targ->client->ps.stats[ STAT_PTEAM ] == PTE_ALIENS)
+    {
+      if(!g_survival.integer)
+      {
+        return 0.0f;
+      }
+    }
 
     for( i = UP_NONE + 1; i < UP_NUM_UPGRADES; i++ )
     {
@@ -1073,6 +1103,17 @@ void G_Damage( gentity_t *targ, gentity_t *inflictor, gentity_t *attacker,
 
   if( !targ->takedamage )
     return;
+  if(g_survival.integer && attacker && attacker->client && targ->s.eType == ET_BUILDABLE)
+  {
+    return;
+  }
+  if(g_survival.integer && attacker && attacker->client && targ && targ->client && targ->client->ps.stats[ STAT_PTEAM ] == PTE_ALIENS)
+  {
+    if(targ->botEnemy == NULL)
+    {
+      targ->botEnemy = attacker;
+    }
+  }
 
   // the intermission has allready been qualified for, so don't
   // allow any extra scoring
@@ -1099,7 +1140,7 @@ void G_Damage( gentity_t *targ, gentity_t *inflictor, gentity_t *attacker,
 
   if( client )
   {
-    if( targ && level.time - targ->antispawncamp < g_antispawncamp.integer )
+    if( targ && targ->client && targ->client->ps.stats[ STAT_PTEAM ] == PTE_HUMANS && level.time - targ->antispawncamp < g_antispawncamp.integer )
       return;
     if( client->noclip && !g_devmapNoGod.integer)
       return;
@@ -1239,7 +1280,7 @@ void G_Damage( gentity_t *targ, gentity_t *inflictor, gentity_t *attacker,
     }
 
     // check for godmode
-    if ( targ->flags & FL_GODMODE && !g_devmapNoGod.integer)
+    if ( targ->flags & FL_GODMODE && !g_devmapNoGod.integer && !g_survival.integer)
       return;
     
     if(targ->s.eType == ET_BUILDABLE && g_cheats.integer && g_devmapNoStructDmg.integer)
@@ -1306,6 +1347,14 @@ void G_Damage( gentity_t *targ, gentity_t *inflictor, gentity_t *attacker,
         attacker->client->pers.statscounters.repairspoisons++;
         level.alienStatsCounters.repairspoisons++;
       }
+    }
+    if(attacker->client && attacker->client->ps.stats[ STAT_PTEAM ] == PTE_ALIENS 
+    && targ->client->ps.stats[ STAT_PTEAM ] == PTE_HUMANS && mod == MOD_LEVEL1_CLAW && !g_survival.integer )
+    {
+        targ->client->ps.stats[ STAT_STATE ] |= SS_POISONCLOUDED;
+        targ->client->lastPoisonCloudedTime = level.time;
+        targ->client->lastPoisonCloudedClient = attacker;
+        trap_SendServerCommand( targ->client->ps.clientNum, "poisoncloud" );
     }
   }
 

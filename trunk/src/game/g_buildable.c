@@ -161,6 +161,71 @@ static int G_NumberOfDependants( gentity_t *self )
 
 #define POWER_REFRESH_TIME  2000
 
+
+static void G_DestroyAlienSpawns(gentity_t *self, int range){
+  int       i;
+  gentity_t *ent;
+  int       distance;
+  
+  if(level.numNodes != 0)
+  {
+    if(level.numNodes <= 2)
+      return;
+    
+    level.numNodes = 0;
+  }
+    
+  for( i = MAX_CLIENTS; i < level.num_entities; i++ )
+  {
+     
+     ent = &level.gentities[ i ];
+     if( ent->health <= 0 )
+       continue;
+     if( ent->s.eType != ET_BUILDABLE )
+       continue;
+     if( ent->s.modelindex != BA_H_SPAWN)
+       continue;
+       
+     if( ent->biteam != BIT_ALIENS )
+     {
+        G_Damage( ent, NULL, NULL, NULL, NULL, 10000, 0, MOD_SUICIDE );
+        continue;
+     }
+     
+     level.numNodes++;
+     
+     if( ent->survivalStage != level.survivalStage)
+       continue;
+       
+     
+     
+    /*distance = Distance(self->s.pos.trBase, ent->s.pos.trBase);
+    if(distance < range)
+    {*/
+      
+      //trap_SendServerCommand(-1, va("print \"Killing alien spawn\n\""));
+      G_Damage( ent, NULL, NULL, NULL, NULL, 10000, 0, MOD_SUICIDE );
+      level.numNodes--;
+    /*}*/
+  }
+}
+
+static void kill_aliens()
+{
+  int       i;
+  gentity_t *ent;
+
+  for( i = 0; i < level.numConnectedClients; i++ )
+  {
+    ent = &g_entities[ level.sortedClients[ i ] ];
+    
+    if( ent->health > 0 && ent->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
+    {
+      G_Damage( ent, NULL, NULL, NULL, NULL, 10000, 0, MOD_SUICIDE );
+    }
+  }
+}
+
 /*
 ================
 G_FindPower
@@ -173,11 +238,16 @@ static qboolean G_FindPower( gentity_t *self )
   int       i;
   gentity_t *ent;
   gentity_t *closestPower = NULL;
+  gentity_t *pew;
+  
   int       distance = 0;
   int       minDistance = 10000;
   vec3_t    temp_v;
 	int biteam;
 	biteam = self->biteam;
+  
+  
+  
   if( g_ctn.integer > 0 )
   {
     return qtrue;
@@ -189,7 +259,17 @@ static qboolean G_FindPower( gentity_t *self )
 
   //if this already has power then stop now
   if( self->parentNode && self->parentNode->powered )
+  {
+    //trap_SendServerCommand(-1, va("print \"%d\n\"",level.survivalmoney));
+    if(g_survival.integer && self->used && level.survivalmoney >= 3000 && self->parentNode->s.modelindex == BA_H_REPEATER)
+    {
+      level.survivalmoney = 0;
+      //trap_SendServerCommand(-1, "print \"K WTF\n\"");
+      G_Damage( self->parentNode, NULL, NULL, NULL, NULL, 10000, 0, MOD_SUICIDE );
+      i=0;
+    }
     return qtrue;
+  }
 
   //reset parent
   self->parentNode = NULL;
@@ -225,7 +305,22 @@ static qboolean G_FindPower( gentity_t *self )
     return qtrue;
   }
   else
+  {
+    if(g_survival.integer && self->s.modelindex != BA_H_SPAWN)
+    {
+      //level.survivalmoney = 0;
+      //trap_SendServerCommand(-1, "print \"K WTF\n\"");
+      if(level.time-level.startTime > 3000)
+      {
+        trap_SendServerCommand(-1, "cp \"^1Find the next base.\n\"");
+        level.slowdownTime = level.time + 16000; //Will slow down aliens 10 second to allow players to move on.
+        G_Damage( self, NULL, NULL, NULL, NULL, 10000, 0, MOD_SUICIDE );
+        G_DestroyAlienSpawns(pew, 800);
+        kill_aliens();
+      }
+    }
     return qfalse;
+  }
 }
 
 /*
@@ -1713,6 +1808,7 @@ void HRepeater_Think( gentity_t *self )
 
   if( self->spawned )
   {
+    if(g_survival.integer) reactor = qtrue; //No need rc on survival modes.
     //iterate through entities
     for ( i = 1, ent = g_entities + i; i < level.num_entities; i++, ent++ )
     {
@@ -1723,8 +1819,13 @@ void HRepeater_Think( gentity_t *self )
         reactor = qtrue;
     }
   }
+  
+  if(g_survival.integer && self->biteam == PTE_ALIENS)
+  {
+    G_Damage( self, NULL, NULL, NULL, NULL, 10000, 0, MOD_SUICIDE );
+  }
 
-  if( G_NumberOfDependants( self ) == 0 )
+  if( G_NumberOfDependants( self ) == 0 && !g_survival.integer)
   {
     //if no dependants for x seconds then disappear
     if( self->count < 0 )
@@ -1776,7 +1877,7 @@ void HReactor_Think( gentity_t *self )
   vec3_t    mins, maxs;
   int       i, num, team;
   gentity_t *enemy, *tent;
-	
+  
 	if(self->biteam == BIT_ALIENS)
 	{
 		team = PTE_ALIENS;
@@ -1791,6 +1892,11 @@ void HReactor_Think( gentity_t *self )
 
   if( self->spawned && ( self->health > 0 ) )
   {
+    if(g_survival.integer)
+    {
+      G_Damage( self, NULL, NULL, NULL, NULL, 10000, 0, MOD_SUICIDE );
+      return;
+    }
     //do some damage
     num = trap_EntitiesInBox( mins, maxs, entityList, MAX_GENTITIES );
     for( i = 0; i < num; i++ )
@@ -1861,9 +1967,27 @@ void HArmoury_Activate( gentity_t *self, gentity_t *other, gentity_t *activator 
 
     //if this is powered then call the armoury menu
     if( self->powered )
-      G_TriggerMenu( activator->client->ps.clientNum, MN_H_ARMOURY );
+    {
+      if(g_survival.integer)
+      {
+        if(G_ArmoryRange( activator->client->ps.origin, 100, BA_H_ARMOURY, self->biteam ))
+        {
+          G_BuyAll(activator);
+        }
+        else
+        {
+          trap_SendServerCommand( activator - g_entities, "print \"This one dont work, find another\n\"");
+        }
+      }
+      else
+      {
+        G_TriggerMenu( activator->client->ps.clientNum, MN_H_ARMOURY );
+      }
+    }
     else
+    {
       G_TriggerMenu( activator->client->ps.clientNum, MN_H_NOTPOWERED );
+    }
   }
 }
 
@@ -2028,6 +2152,9 @@ void HMedistat_Think( gentity_t *self )
         self->enemy->client->ps.stats[ STAT_STATE ] &= ~SS_MEDKIT_ACTIVE;
 
       self->enemy->health++;
+      
+      if( self->enemy->client && self->enemy->client->ps.stats[ STAT_STATE ] & SS_POISONCLOUDED )
+        self->enemy->client->ps.stats[ STAT_STATE ] &= ~SS_POISONCLOUDED;
 
       //if they're completely healed, give them a medkit
       if( self->enemy->health >= self->enemy->client->ps.stats[ STAT_MAX_HEALTH ] &&
@@ -2846,6 +2973,30 @@ qboolean G_BuildableRange( vec3_t origin, float r, buildable_t buildable )
   return qfalse;
 }
 
+static qboolean spawnsSurvivalStage()
+{
+  int       i;
+  gentity_t *ent;
+    
+  for( i = MAX_CLIENTS; i < level.num_entities; i++ )
+  {
+     
+     ent = &level.gentities[ i ];
+     if( ent->health <= 0 )
+       continue;
+     if( ent->s.eType != ET_BUILDABLE )
+       continue;
+     if( ent->biteam != BIT_ALIENS )
+       continue;
+     if( ent->s.modelindex != BA_H_SPAWN)
+       continue;
+       
+     if( ent->survivalStage == level.survivalStage)
+       return qtrue;
+  }
+  return qfalse;
+}
+
 qboolean G_ArmoryRange( vec3_t origin, float r, buildable_t buildable, int biteam )
 {
    int       entityList[ MAX_GENTITIES ];
@@ -2870,7 +3021,24 @@ qboolean G_ArmoryRange( vec3_t origin, float r, buildable_t buildable, int bitea
       continue;
 
     if( ent->s.modelindex == buildable && ent->spawned && (ent->biteam == biteam))
+    {
+      if(g_survival.integer)
+      {
+        
+        if(ent->survivalStage != level.survivalStage && spawnsSurvivalStage())
+        {
+          //trap_SendServerCommand(-1, va("print \"^1This dont work, find another.\n\""));
+          return qfalse;
+        }
+        else
+        {
+          level.slowdownTime = 0;
+          ent->used = 1;
+          level.survivalStage = ent->survivalStage;
+        }
+      }
       return qtrue;
+    }
   }
 
   return qfalse;
@@ -3275,6 +3443,11 @@ itemBuildError_t G_CanBuild( gentity_t *ent, buildable_t buildable, int distance
   int               buildPoints;
   itemBuildError_t  tempReason;
 	int biteam;
+  
+  if(g_survival.integer)
+  {
+    return IBE_PERMISSION;
+  }
 	
   if(ent && ent->client && g_ctn.integer > 0)
   {
@@ -3332,77 +3505,6 @@ itemBuildError_t G_CanBuild( gentity_t *ent, buildable_t buildable, int distance
   contents = trap_PointContents( entity_origin, -1 );
   buildPoints = BG_FindBuildPointsForBuildable( buildable );
 
- /* if( ent->client->ps.stats[ STAT_PTEAM ] == PTE_ALIENS )
-  {
-    //alien criteria
-
-    if( buildable == BA_A_HOVEL )
-    {
-      vec3_t    builderMins, builderMaxs;
-
-      //this assumes the adv builder is the biggest thing that'll use the hovel
-      BG_FindBBoxForClass( PCL_ALIEN_BUILDER0_UPG, builderMins, builderMaxs, NULL, NULL, NULL );
-
-      if( APropHovel_Blocked( origin, angles, normal, ent ) )
-        reason = IBE_HOVELEXIT;
-    }
-
-    //check there is creep near by for building on
-    if( BG_FindCreepTestForBuildable( buildable ) )
-    {
-      if( !G_IsCreepHere( entity_origin ) )
-        reason = IBE_NOCREEP;
-    }
-
-    //check permission to build here
-    if( tr1.surfaceFlags & SURF_NOALIENBUILD || tr1.surfaceFlags & SURF_NOBUILD ||
-        contents & CONTENTS_NOALIENBUILD || contents & CONTENTS_NOBUILD )
-      reason = IBE_PERMISSION;
-
-    //look for an Overmind
-    for ( i = 1, tempent = g_entities + i; i < level.num_entities; i++, tempent++ )
-    {
-      if( tempent->s.eType != ET_BUILDABLE )
-        continue;
-      if( tempent->s.modelindex == BA_A_OVERMIND && tempent->spawned &&
-        tempent->health > 0 )
-        break;
-    }
-
-    //if none found...
-    if( i >= level.num_entities && buildable != BA_A_OVERMIND )
-      //reason = IBE_NOOVERMIND;
-
-    //can we only have one of these?
-    if( BG_FindUniqueTestForBuildable( buildable ) )
-    {
-      for ( i = 1, tempent = g_entities + i; i < level.num_entities; i++, tempent++ )
-      {
-        if( tempent->s.eType != ET_BUILDABLE )
-          continue;
-
-        if( tempent->s.modelindex == buildable && !tempent->deconstruct )
-        {
-          switch( buildable )
-          {
-            case BA_A_OVERMIND:
-              reason = IBE_OVERMIND;
-              break;
-
-            case BA_A_HOVEL:
-              reason = IBE_HOVEL;
-              break;
-
-            default:
-              Com_Error( ERR_FATAL, "No reason for denying build of %d\n", buildable );
-              break;
-          }
-
-          break;
-        }
-      }
-    }
-  }*/
   if( ent->client->ps.stats[ STAT_PTEAM ] == PTE_HUMANS || ent->client->ps.stats[ STAT_PTEAM ] == PTE_ALIENS )
   {
     //human criteria
@@ -3563,6 +3665,8 @@ static gentity_t *G_Build( gentity_t *builder, buildable_t buildable, vec3_t ori
   built->s.modelindex = buildable; //so we can tell what this is on the client side
 	
 	built->biteam = built->s.modelindex2 = BG_FindTeamForBuildable( buildable );
+  
+  built->survivalStage = level.survivalStage;
 	
 	if(builder->client->ps.stats[ STAT_PTEAM ] == PTE_HUMANS)
 	{
@@ -3961,6 +4065,8 @@ G_FinishSpawningBuildable
 Traces down to find where an item should rest, instead of letting them
 free fall from their spawn points
 ================
+* 
+* Seems to be only used on the load of map.
 */
 static void G_FinishSpawningBuildable( gentity_t *ent )
 {
@@ -3969,11 +4075,13 @@ static void G_FinishSpawningBuildable( gentity_t *ent )
   gentity_t   *built;
   buildable_t buildable = ent->s.modelindex;
 	int 				biteam = ent->biteam;
+  int 				survivalStage = ent->survivalStage;
 
   built = G_Build( ent, buildable, ent->s.pos.trBase, ent->s.angles );
   G_FreeEntity( ent );
 
   built->biteam = built->s.modelindex2 = biteam;
+  built->survivalStage = survivalStage;
   built->takedamage = qtrue;
   built->spawned = qtrue; //map entities are already spawned
   built->health = BG_FindHealthForBuildable( buildable );
@@ -4014,7 +4122,7 @@ Items can't be immediately dropped to floor, because they might
 be on an entity that hasn't spawned yet.
 ============
 */
-void G_SpawnBuildable( gentity_t *ent, buildable_t buildable, int biteam )
+void G_SpawnBuildable( gentity_t *ent, buildable_t buildable, int biteam, int survivalStage )
 {
 	//buildable->biteam = BIT_ALIENS;
 	//Lets convert
@@ -4022,35 +4130,40 @@ void G_SpawnBuildable( gentity_t *ent, buildable_t buildable, int biteam )
 	if(buildable == 2)
 	{
 		buildable = 15;
-		biteam = 1;
+		biteam = BIT_ALIENS;
 	}
 	//eggs to nodes
 	if(buildable == 1)
 	{
 		buildable = 9;
-		biteam = 1;
+		biteam = BIT_ALIENS;
 	}
 	//acids to rets
 	if(buildable == 4)
 	{
 		buildable = 10;
-		biteam = 1;
+		biteam = BIT_ALIENS;
 	}
 	//barricade to arm
 	if(buildable == 3)
 	{
 		buildable = 12;
-		biteam = 1;
+		biteam = BIT_ALIENS;
 	}
 	//Cuando carga la layout normal bitteam no tiene valor.
-	if(biteam < BIT_NONE || biteam > BIT_HUMANS)
+	if(biteam != BIT_ALIENS) //< BIT_NONE || biteam > BIT_HUMANS)
 	{
-		biteam = BIT_NONE;
+		/*if(level.time < 10000)
+		{
+			trap_SendServerCommand( -1, "print \"Setting human biteam for build.!\n\"");
+		}*/
+		biteam = BIT_HUMANS;
 	}
 	
-        ent->s.modelindex = buildable;
+  ent->s.modelindex = buildable;
 	ent->s.modelindex2 = biteam;
 	ent->biteam = biteam;
+  ent->survivalStage = survivalStage;
 	
 	//AP( va( "print \"^3Spawning Buildable %d\n\"", buildable) );
 	
@@ -4155,7 +4268,7 @@ void G_LayoutSave( char *name )
 		{
 			ent->biteam = 2;
 		}
-    s = va( "%i %f %f %f %f %f %f %f %f %f %f %f %f %d\n",
+    s = va( "%i %f %f %f %f %f %f %f %f %f %f %f %f %d %d\n",
       ent->s.modelindex,
       ent->s.pos.trBase[ 0 ],
       ent->s.pos.trBase[ 1 ],
@@ -4169,7 +4282,7 @@ void G_LayoutSave( char *name )
       ent->s.angles2[ 0 ],
       ent->s.angles2[ 1 ],
       ent->s.angles2[ 2 ],
-			ent->biteam );
+			ent->biteam, ent->survivalStage );
     trap_FS_Write( s, strlen( s ), f );
   }
   trap_FS_FCloseFile( f );
@@ -4300,7 +4413,7 @@ void G_LayoutSelect( void )
 }
 
 static void G_LayoutBuildItem( buildable_t buildable, vec3_t origin,
-  vec3_t angles, vec3_t origin2, vec3_t angles2, int biteam )
+  vec3_t angles, vec3_t origin2, vec3_t angles2, int biteam, int survivalStage )
 {
   gentity_t *builder;
   
@@ -4311,7 +4424,7 @@ static void G_LayoutBuildItem( buildable_t buildable, vec3_t origin,
   VectorCopy( origin2, builder->s.origin2 );
   VectorCopy( angles2, builder->s.angles2 );
 	//This is to load hacked layout.
-  G_SpawnBuildable( builder, buildable, biteam );
+  G_SpawnBuildable( builder, buildable, biteam, survivalStage );
 }
 
 /*
@@ -4565,7 +4678,7 @@ void G_LayoutLoad( void )
   vec3_t angles2 = { 0.0f, 0.0f, 0.0f };
   char line[ MAX_STRING_CHARS ];
   int i = 0;
-	int biteam;
+	int biteam, survivalStage;
 
   if( !level.layout[ 0 ] || !Q_stricmp( level.layout, "*BUILTIN*" ) )
     return;
@@ -4595,15 +4708,15 @@ void G_LayoutLoad( void )
     if( *layout == '\n' )
     {
       i = 0; 
-      sscanf( line, "%d %f %f %f %f %f %f %f %f %f %f %f %f %d\n",
+      sscanf( line, "%d %f %f %f %f %f %f %f %f %f %f %f %f %d %d\n",
         &buildable,
         &origin[ 0 ], &origin[ 1 ], &origin[ 2 ],
         &angles[ 0 ], &angles[ 1 ], &angles[ 2 ],
         &origin2[ 0 ], &origin2[ 1 ], &origin2[ 2 ],
-        &angles2[ 0 ], &angles2[ 1 ], &angles2[ 2 ], &biteam );
+        &angles2[ 0 ], &angles2[ 1 ], &angles2[ 2 ], &biteam, &survivalStage );
 
       if( buildable > BA_NONE && buildable < BA_NUM_BUILDABLES )
-        G_LayoutBuildItem( buildable, origin, angles, origin2, angles2, biteam );
+        G_LayoutBuildItem( buildable, origin, angles, origin2, angles2, biteam, survivalStage );
       else
         G_Printf( S_COLOR_YELLOW "WARNING: bad buildable number (%d) in "
           " layout.  skipping\n", buildable );

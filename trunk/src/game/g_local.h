@@ -74,6 +74,21 @@ typedef enum
 
 #define SP_PODIUM_MODEL   "models/mapobjects/podium/podium4.md3"
 
+//ROTAX
+typedef enum
+{
+  BOT_REGULAR = 1,
+  BOT_IDLE,
+  BOT_ATTACK,
+  BOT_STAND_GROUND,
+  BOT_DEFENSIVE,
+  BOT_FOLLOW_FRIEND_PROTECT,
+  BOT_FOLLOW_FRIEND_ATTACK,
+  BOT_FOLLOW_FRIEND_IDLE,
+  BOT_TEAM_KILLER,
+  BOT_COMMAND
+} botCommand_t;
+
 //============================================================================
 
 struct gentity_s
@@ -186,6 +201,17 @@ struct gentity_s
   int               waterlevel;
 
   int               noise_index;
+  
+  //ROTAX
+  //for targeting following
+  botCommand_t     botCommand;
+  gentity_t         *botEnemy;
+  gentity_t         *botFriend;
+  int              botFriendLastSeen;
+  int              botEnemyLastSeen;
+  int              botSkillLevel;
+  int              botTeam;
+  int                   buytime;
 
   // timing variables
   float             wait;
@@ -195,6 +221,7 @@ struct gentity_s
   stage_t           stageStage;
 
   int               biteam;             // buildable item team
+  int               survivalStage;       // buildable survivalStage
   gentity_t         *parentNode;        // for creep and defence/spawn dependencies
   qboolean          active;             // for power repeater, but could be useful elsewhere
   qboolean          powered;            // for human buildables
@@ -244,8 +271,36 @@ struct gentity_s
   
   int               bdnumb;     // buildlog entry ID
   
+  int               childnade;
+  int               level;
+  int               turntime;
+  int               stucktime;
+
+  float               posX;
+  float               posY;
+  float               posZ;
+  float               stuckposX;
+  float               stuckposY;
+  float               stuckposZ;
+  int                           havebot;
+  int                           botclientnum[ 60 ];
+  gentity_t             *myparticle;
+  int                           numparticles;
+  int                           particleid;
+  int                           circleangle;
+  int canspam;
+  int                           bullets;
+  int                           stopfire;
+  int                           redballs;
+  int                           botignorebuilds;
+
+  
   int               ctn_build_count;
   int               antispawncamp;
+  int               used;
+  int               door;
+  int               lastTimeSeen;
+  int               camperWarning;
 };
 
 typedef enum
@@ -408,7 +463,7 @@ typedef struct
 
   int                 lastFloodTime;         // level.time of last flood-limited command
   int                 floodDemerits;         // number of flood demerits accumulated
-
+	int                           hyperspeed;
   vec3_t              lastDeathLocation;
   char                guid[ 33 ];
   char                ip[ 16 ];
@@ -479,6 +534,7 @@ struct gclient_s
   int                 airOutTime;
 
   int                 lastKillTime;     // for multiple kill rewards
+  int                 lastdietime;
 
   qboolean            fireHeld;         // used for hook
   qboolean            fire2Held;        // used for alt fire
@@ -490,6 +546,7 @@ struct gclient_s
   // like health / armor countdowns and regeneration
   // two timers, one every 100 msecs, another every sec
   int                 time100;
+  int									time350;
   int                 time1000;
   int                 time10000;
 
@@ -639,6 +696,17 @@ typedef struct
   int               frameMsec;                    // trap_Milliseconds() at end frame
 
   int               startTime;                    // level.time the map was started
+  
+  int               survivedtime;                 //Time survived on survival time.
+  int               survivalmoney; //Repeator money wasted.
+ // int               grid[100][100]; // Each 50 gu is a square on the grid. example 1500 1500 on grid = [30][30]
+                                    // 0 x 0 = [50][50]
+                                    // -100x-100 = [50 - 100/50][50 - 100/50]
+                                    // 100x100 = [50 + 100/50 ][50 - 100/50 ]
+  
+  int               updateCamperTime;
+  int               survivalStage;
+  int               slowdownTime;
 
   int               teamScores[ TEAM_NUM_TEAMS ];
   int               lastTeamLocationTime;         // last time of client team location update
@@ -763,6 +831,17 @@ typedef struct
   int               lastTeamUnbalancedTime;
   int               numTeamWarnings;  
   int               lastMsgTime;
+  int               lastBotTime;
+  int               botsLevel;
+  
+  int lastspawntime;
+
+  int bots;
+  int botslots;
+  
+  int numNodes;
+  gentity_t         *theCamper;
+
   
   statsCounters_level alienStatsCounters;
   statsCounters_level humanStatsCounters;
@@ -794,6 +873,21 @@ qboolean  G_SpawnInt( const char *key, const char *defaultString, int *out );
 qboolean  G_SpawnVector( const char *key, const char *defaultString, float *out );
 void      G_SpawnEntitiesFromString( void );
 char      *G_NewString( const char *string );
+
+//ROTAX
+// g_bot.c
+//
+void G_BotAdd( char *name, int team, int skill, gentity_t *ent );
+void G_BotDel( int clientNum );
+void G_BotCmd( gentity_t *master, int clientNum, char *command );
+void G_BotThink( gentity_t *self );
+void G_BotSpectatorThink( gentity_t *self );
+// todo: are these suppose to be out here?!
+qboolean botAimAtTarget( gentity_t *self, gentity_t *target );
+int botFindClosestEnemy( gentity_t *self, qboolean includeTeam );
+qboolean botTargetInRange( gentity_t *self, gentity_t *target );
+int botGetDistanceBetweenPlayer( gentity_t *self, gentity_t *player );
+qboolean botShootIfTargetInRange( gentity_t *self, gentity_t *target );
 
 //
 // g_cmds.c
@@ -877,7 +971,7 @@ qboolean G_BuildingExists( int bclass ) ;
 qboolean          G_BuildIfValid( gentity_t *ent, buildable_t buildable );
 void              G_SetBuildableAnim( gentity_t *ent, buildableAnimNumber_t anim, qboolean force );
 void              G_SetIdleBuildableAnim( gentity_t *ent, buildableAnimNumber_t anim );
-void              G_SpawnBuildable(gentity_t *ent, buildable_t buildable, int biteam);
+void              G_SpawnBuildable(gentity_t *ent, buildable_t buildable, int biteam, int survivalStage);
 void              FinishSpawningBuildable( gentity_t *ent );
 void              G_CheckDBProtection( void );
 void              G_LayoutSave( char *name );
@@ -1372,7 +1466,54 @@ extern  vmCvar_t  g_ctn;
 extern  vmCvar_t  g_ctnbuildlimit;
 extern  vmCvar_t  g_ctncapturetime;
 
+
+//Survival Vars
+extern  vmCvar_t  g_survival;
+
+
+
+
 extern  vmCvar_t  g_buildLogMaxLength;
+
+//ROTAX
+extern  vmCvar_t  g_ambush_granger_s1;
+extern  vmCvar_t  g_ambush_dretch_s2;
+extern  vmCvar_t  g_ambush_basilisk_s3;
+extern  vmCvar_t  g_ambush_basilisk2_s4;
+extern  vmCvar_t  g_ambush_marauder_s5;
+extern  vmCvar_t  g_ambush_marauder2_s6;
+extern  vmCvar_t  g_ambush_dragon_s7;
+extern  vmCvar_t  g_ambush_dragon2_s8;
+extern  vmCvar_t  g_ambush_tyrants_to_win;
+extern  vmCvar_t  g_ambush_dodge;
+extern  vmCvar_t  g_ambush_dodge_random;
+extern  vmCvar_t  g_ambush_rebuild_time;
+extern  vmCvar_t  g_ambush_sec_to_start;
+extern  vmCvar_t  g_ambush_stage_suicide;
+extern  vmCvar_t  g_ambush_no_egg_ffoff;
+extern  vmCvar_t  g_ambush;
+extern  vmCvar_t  g_ambush_kill_spawns;
+extern  vmCvar_t  g_ambush_att_buildables;
+extern  vmCvar_t  g_ambush_range;
+extern  vmCvar_t  g_ambush_turnangle;
+
+extern  vmCvar_t  g_bot;
+
+extern  vmCvar_t  g_bot_mgun;
+extern  vmCvar_t  g_bot_shotgun;
+extern  vmCvar_t  g_bot_psaw;
+extern  vmCvar_t  g_bot_lasgun;
+extern  vmCvar_t  g_bot_mdriver;
+extern  vmCvar_t  g_bot_chaingun;
+extern  vmCvar_t  g_bot_prifle;
+extern  vmCvar_t  g_bot_flamer;
+extern  vmCvar_t  g_bot_lcannon;
+
+extern  int  ROTACAK_ambush_rebuild_time_temp;
+extern  int  ROTACAK_ambush_stage;
+extern  int  ROTACAK_ambush_kills;
+extern  int  mega_wave;
+
 
 extern  vmCvar_t  g_antispawncamp;
 

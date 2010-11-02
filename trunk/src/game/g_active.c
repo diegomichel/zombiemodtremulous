@@ -22,7 +22,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
 #include "g_local.h"
-
 /*
 ===============
 G_DamageFeedback
@@ -219,7 +218,7 @@ static void G_ClientShove( gentity_t *ent, gentity_t *victim )
   else
     return;
 
-  if( victim->client->pers.teamSelection == PTE_ALIENS )
+  if( victim->client->ps.stats[STAT_PTEAM] == PTE_ALIENS )
   {
     //vicMass = BG_FindHealthForClass( victim->client->pers.classSelection );
   }
@@ -387,6 +386,12 @@ void SpectatorThink( gentity_t *ent, usercmd_t *ucmd )
 
   client->oldbuttons = client->buttons;
   client->buttons = ucmd->buttons;
+  
+  if( ent->r.svFlags & SVF_BOT ) {
+       G_BotSpectatorThink( ent );
+       return;
+  }
+
 
    attack1 = ( ( client->buttons & BUTTON_ATTACK ) &&
                !( client->oldbuttons & BUTTON_ATTACK ) );
@@ -557,6 +562,8 @@ void ClientTimerActions( gentity_t *ent, int msec )
   gclient_t *client;
   usercmd_t *ucmd;
   int       aForward, aRight;
+  int x, y;
+  int secToSpawn;
 
   ucmd = &ent->client->pers.cmd;
 
@@ -567,6 +574,15 @@ void ClientTimerActions( gentity_t *ent, int msec )
   client->time100 += msec;
   client->time1000 += msec;
   client->time10000 += msec;
+  client->time350 += msec;
+  
+  while ( client->time350 >= 100 )
+  {   
+      client->time350 -= 100;
+      if( ent->r.svFlags & SVF_BOT ) {
+        G_BotThink( ent );
+    }
+  }
 
   while ( client->time100 >= 100 )
   {
@@ -779,6 +795,48 @@ void ClientTimerActions( gentity_t *ent, int msec )
   while( client->time1000 >= 1000 )
   {
     client->time1000 -= 1000;
+    
+    if(g_survival.integer && (ent->client->ps.stats[STAT_PTEAM] == PTE_HUMANS)){
+      if(level.slowdownTime > level.time){
+        secToSpawn = (level.slowdownTime-level.time)/1000;
+         if(secToSpawn == 0)
+         {
+           trap_SendServerCommand(ent-g_entities, "cp \"^10\n\"");
+         }
+         else
+         {
+           trap_SendServerCommand(ent-g_entities, va("cp \"^1Next wave in\n%d\n\"", secToSpawn));
+         }
+      }
+    }
+    
+    //Grid fill
+    /*if(client->ps.stats[STAT_PTEAM] == PTE_HUMANS)
+    {
+      //Will not to take care of decimals division is int.
+      x = ((100/2)+(ent->s.origin[0]/100));
+      y = ((100/2)+(ent->s.origin[1]/100));
+      //Prevent buffer overflow.
+      if(x >= 100 || y >= 100 || x < 0 || y < 0)
+        continue;
+        
+      if(!level.grid[x][y])
+      {
+        level.grid[x][y] = 1;
+      }
+      
+      //ent->s.origin 0 1 x and y.
+      //level.grid[1000][1000]; // Each 50 gu is a square on the grid. example 1500 1500 on grid = [30][30]
+      // 0 x 0 = [50][50]
+      // -100x-100 = [50 - 100/50][50 - 100/50]
+      // 100x100 = [50 + 100/50 ][50 - 100/50 ]
+    }*/
+    
+    //Forget the sob
+    if( ent->r.svFlags & SVF_BOT ) {
+        ent->botEnemy = NULL;
+    }
+
 
     //client is poison clouded
     if( client->ps.stats[ STAT_STATE ] & SS_POISONCLOUDED )
@@ -901,7 +959,36 @@ void ClientTimerActions( gentity_t *ent, int msec )
   while( client->time10000 >= 10000 )
   {
     client->time10000 -= 10000;
-
+    
+    if(ent->lastTimeSeen < level.time && g_survival.integer && (ent->client->ps.stats[STAT_PTEAM] == PTE_HUMANS)
+    && ent->health > 0 && ent->client->ps.stats[ STAT_HEALTH ] > 0 &&
+      ent->client->sess.sessionTeam != TEAM_SPECTATOR)
+    {
+      if(ent->lastTimeSeen == 0)
+      {
+        ent->lastTimeSeen = level.time + 30000; //30 seconds to camp on start
+      }
+      else
+      {
+        if(!ent->camperWarning)
+        {
+          trap_SendServerCommand( ent - g_entities,
+          "print \"^1Stop Camping\n\"" );
+          trap_SendServerCommand( ent - g_entities,
+          "cp \"^1Stop Camping\n\"" );
+          ent->camperWarning = 1;
+        }
+        else
+        {
+          trap_SendServerCommand( ent - g_entities,
+          "print \"^1Stop Camping\n\"" );
+          trap_SendServerCommand( ent - g_entities,
+          "cp \"^1Stop Camping\n\"" );
+          G_Damage( ent, NULL, NULL, NULL, NULL, 33, 0, MOD_SUICIDE );
+        }
+      }
+    }
+    
     if( client->ps.weapon == WP_ALEVEL3_UPG )
     {
       int ammo, maxAmmo;
@@ -992,7 +1079,10 @@ void ClientEvents( gentity_t *ent, int oldEventSequence )
         VectorAdd( client->ps.origin, mins, point );
 
         ent->pain_debounce_time = level.time + 200; // no normal pain sound
-        G_Damage( ent, NULL, NULL, dir, point, damage, DAMAGE_NO_LOCDAMAGE, MOD_FALLING );
+        if(ent->client->ps.stats[STAT_PTEAM] == PTE_HUMANS) //No fall for alienos.
+        {
+          G_Damage( ent, NULL, NULL, dir, point, damage, DAMAGE_NO_LOCDAMAGE, MOD_FALLING );
+        }
         break;
 
       case EV_FIRE_WEAPON:
@@ -1507,6 +1597,7 @@ void ClientThink_real( gentity_t *ent )
       BG_RemoveUpgradeFromInventory( UP_MEDKIT, client->ps.stats );
 
       client->ps.stats[ STAT_STATE ] &= ~SS_POISONED;
+      client->ps.stats[ STAT_STATE ] &= ~SS_POISONCLOUDED;
       client->poisonImmunityTime = level.time + MEDKIT_POISON_IMMUNITY_TIME;
 
       client->ps.stats[ STAT_STATE ] |= SS_MEDKIT_ACTIVE;
@@ -1553,6 +1644,11 @@ void ClientThink_real( gentity_t *ent )
 
   // set speed
   client->ps.speed = g_speed.value * BG_FindSpeedForClass( client->ps.stats[ STAT_PCLASS ] );
+
+  /*if(client->pers.hyperspeed == 1)
+  {
+    client->ps.speed = client->ps.speed * 5.5;
+  }*/
 
   if( client->lastCreepSlowTime + CREEP_TIMEOUT < level.time )
     client->ps.stats[ STAT_STATE ] &= ~SS_CREEPSLOWED;
@@ -1827,14 +1923,14 @@ void ClientThink( int clientNum )
   // phone jack if they don't get any for a while
   ent->client->lastCmdTime = level.time;
 
-  if( !g_synchronousClients.integer )
+  if(!( ent->r.svFlags & SVF_BOT ) && !g_synchronousClients.integer )
     ClientThink_real( ent );
 }
 
 
 void G_RunClient( gentity_t *ent )
 {
-  if( !g_synchronousClients.integer )
+  if(!( ent->r.svFlags & SVF_BOT ) && !g_synchronousClients.integer )
     return;
 
   ent->client->pers.cmd.serverTime = level.time;

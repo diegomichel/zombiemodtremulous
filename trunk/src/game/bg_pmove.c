@@ -359,6 +359,12 @@ static float PM_CmdScale( usercmd_t *cmd )
       modifier *= HUMAN_SPRINT_MODIFIER;
     else
       modifier *= HUMAN_JOG_MODIFIER;
+      
+    /*if(pm->ps->stats[ STAT_PTEAM ] == PTE_ALIENS)
+    {
+      //modifier *= HUMAN_JOG_MODIFIER;
+      pm->ps->stats[ STAT_STATE ] |= SS_CREEPSLOWED;
+    }*/
 
     if( cmd->forwardmove < 0 )
     {
@@ -732,6 +738,12 @@ static qboolean PM_CheckJump( void )
   else
     pm->ps->velocity[ 2 ] = BG_FindJumpMagnitudeForClass( pm->ps->stats[ STAT_PCLASS ] );
 
+  if(pm->ps->stats[ STAT_PTEAM ] == PTE_ALIENS && pm->cmd.upmove == 30)
+  {
+    pm->ps->velocity[ 2 ] += 400; 
+    pml.groundPlane = qfalse;   // jumping away
+    pml.walking = qfalse;
+  }
   PM_AddEvent( EV_JUMP );
 
   if( pm->cmd.forwardmove >= 0 )

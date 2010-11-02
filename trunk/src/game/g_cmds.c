@@ -1406,6 +1406,12 @@ void Cmd_CallVote_f( gentity_t *ent )
 
   arg1plus = G_SayConcatArgs( 1 );
   arg2plus = G_SayConcatArgs( 2 );
+  
+  if(!Q_stricmp( arg1, "kick" ))
+  {
+	  trap_SendServerCommand( ent-g_entities, "print \"Make a report in blogwtf.com/forum\n\"" );
+    return;
+  }
 
   if( !g_allowVote.integer )
   {
@@ -1581,6 +1587,10 @@ void Cmd_CallVote_f( gentity_t *ent )
  
   if( !Q_stricmp( arg1, "kick" ) )
   {
+      trap_SendServerCommand( ent-g_entities,
+        "print \"callvote: Make a report on blogwtf.com/forum \n\"" );
+        return;
+
     if( G_admin_permission( &g_entities[ clientNum ], ADMF_IMMUNITY ) )
     {
       trap_SendServerCommand( ent-g_entities,
@@ -2674,6 +2684,13 @@ void Cmd_Destroy_f( gentity_t *ent )
   char        cmd[ 12 ];
   qboolean    deconstruct = qtrue;
 
+
+  if(g_survival.integer)
+  {
+    trap_SendServerCommand( ent-g_entities,
+      "print \"Cannot decon on survival mode\n\"" );
+    return;
+  }
   if( ent->client->pers.denyBuild )
   {
     trap_SendServerCommand( ent-g_entities,
@@ -3072,9 +3089,19 @@ void Cmd_Buy_f( gentity_t *ent )
 
     //subtract from funds
     G_AddCreditToClient( ent->client, -(short)BG_FindPriceForWeapon( weapon ), qfalse );
+    if(g_survival.integer)
+      level.survivalmoney += BG_FindPriceForWeapon( weapon );
   }
   else if( upgrade != UP_NONE )
   {
+    
+    //ROTAX  
+   if(upgrade == UP_JETPACK)
+   {
+      trap_SendServerCommand( ent-g_entities, va( "print \"You can't buy jetpack in Zombie mod\n\"" ) );
+      return;
+   }
+
     //already got this?
     if( BG_InventoryContainsUpgrade( upgrade, ent->client->ps.stats ) )
     {
@@ -3125,7 +3152,19 @@ void Cmd_Buy_f( gentity_t *ent )
     }
 
     if( upgrade == UP_AMMO )
+    {
       G_GiveClientMaxAmmo( ent, buyingEnergyAmmo );
+      
+      if(g_survival.integer)
+      {
+        G_GiveClientMaxAmmo( ent, qtrue );
+        G_GiveClientMaxAmmo( ent, qfalse );
+        trap_SendServerCommand( ent-g_entities,
+        va( "print \"^1-%d\n\"",MGCLIP_PRICE ) );
+        G_AddCreditToClient( ent->client, -(short)MGCLIP_PRICE, qfalse );
+        level.survivalmoney += MGCLIP_PRICE;
+      }
+    } 
     else
     {
       //add to inventory
@@ -3133,7 +3172,9 @@ void Cmd_Buy_f( gentity_t *ent )
     }
 
     if( upgrade == UP_BATTPACK )
+    {
       G_GiveClientMaxAmmo( ent, qtrue );
+    }
 
     //subtract from funds
     G_AddCreditToClient( ent->client, -(short)BG_FindPriceForUpgrade( upgrade ), qfalse );
@@ -4921,10 +4962,10 @@ void G_PrivateMessage( gentity_t *ent )
    {
      if( G_admin_permission( ent, "buildlog" ) ) {
       trap_SendServerCommand( ent-g_entities, va(
-        "print \"^5/builder:^7 ^3Building:^7 %s ^3Built By:^7 %s^7 ^3Buildlog Number:^7 %s^7\n\"",
+        "print \"^5/builder:^7 ^3Building:^7 %s ^3Built By:^7 %s^7 ^3Buildlog Number:^7 %s^7 ^3SurvivalStage:^7 %d\n\"",
         BG_FindHumanNameForBuildable( traceEnt->s.modelindex ),
         (traceEnt->bdnumb != -1) ? G_FindBuildLogName( traceEnt->bdnumb ) : "<world>",
-        (traceEnt->bdnumb != -1) ? bdnumbchr : "none" ) );
+        (traceEnt->bdnumb != -1) ? bdnumbchr : "none", traceEnt->survivalStage) );
      }
      else
      {

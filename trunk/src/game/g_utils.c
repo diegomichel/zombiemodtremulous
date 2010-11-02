@@ -852,3 +852,61 @@ void G_CloseMenus( int clientNum )
   Com_sprintf( buffer, 32, "serverclosemenus" );
   trap_SendServerCommand( clientNum, buffer );
 }
+
+
+void G_BuyAll(gentity_t *ent)
+{
+  int maxAmmo, maxClips;
+  
+    BG_AddUpgradeToInventory( UP_LIGHTARMOUR, ent->client->ps.stats );
+    BG_AddUpgradeToInventory( UP_HELMET, ent->client->ps.stats );
+    BG_AddUpgradeToInventory( UP_MEDKIT, ent->client->ps.stats );
+    
+    BG_AddWeaponToInventory( WP_MACHINEGUN, ent->client->ps.stats );
+    BG_FindAmmoForWeapon( WP_MACHINEGUN, &maxAmmo, &maxClips );
+    
+    if(500 > ent->client->pers.credit){
+       trap_SendServerCommand( ent - g_entities, "print \"You need 500c to upgrade your inventory\n\"");
+       return;
+    }
+    BG_AddWeaponToInventory( WP_SHOTGUN, ent->client->ps.stats );
+    BG_FindAmmoForWeapon( WP_SHOTGUN, &maxAmmo, &maxClips );
+    BG_PackAmmoArray( WP_SHOTGUN, ent->client->ps.ammo, ent->client->ps.powerups, maxAmmo, maxClips );
+                      
+    BG_AddWeaponToInventory( WP_LAS_GUN, ent->client->ps.stats );
+    BG_FindAmmoForWeapon( WP_LAS_GUN, &maxAmmo, &maxClips );
+    BG_PackAmmoArray( WP_LAS_GUN, ent->client->ps.ammo, ent->client->ps.powerups, maxAmmo, maxClips );
+                      
+    BG_AddWeaponToInventory( WP_MASS_DRIVER, ent->client->ps.stats );
+    BG_FindAmmoForWeapon( WP_MASS_DRIVER, &maxAmmo, &maxClips );
+    BG_PackAmmoArray( WP_MASS_DRIVER, ent->client->ps.ammo, ent->client->ps.powerups, maxAmmo, maxClips );
+    
+    if(1000 > ent->client->pers.credit){
+       trap_SendServerCommand( ent - g_entities, "print \"You need 1000c to upgrade your inventory\n\"");
+       return;
+    }
+    
+    BG_AddWeaponToInventory( WP_CHAINGUN, ent->client->ps.stats );
+    BG_FindAmmoForWeapon( WP_CHAINGUN, &maxAmmo, &maxClips );
+    BG_PackAmmoArray( WP_CHAINGUN, ent->client->ps.ammo, ent->client->ps.powerups, maxAmmo, maxClips );
+    
+    BG_AddWeaponToInventory( WP_PULSE_RIFLE, ent->client->ps.stats );
+    BG_FindAmmoForWeapon( WP_PULSE_RIFLE, &maxAmmo, &maxClips );
+    BG_PackAmmoArray( WP_PULSE_RIFLE, ent->client->ps.ammo, ent->client->ps.powerups, maxAmmo, maxClips );
+    
+    BG_AddWeaponToInventory( WP_FLAMER, ent->client->ps.stats );
+    BG_FindAmmoForWeapon( WP_FLAMER, &maxAmmo, &maxClips );
+    BG_PackAmmoArray( WP_FLAMER, ent->client->ps.ammo, ent->client->ps.powerups, maxAmmo, maxClips );
+    
+    if(2000 > ent->client->pers.credit){
+       trap_SendServerCommand( ent - g_entities, "print \"You need 2000c to upgrade your inventory\n\"");
+       return;
+    }
+    BG_AddWeaponToInventory( WP_LUCIFER_CANNON, ent->client->ps.stats );
+    BG_FindAmmoForWeapon( WP_LUCIFER_CANNON, &maxAmmo, &maxClips );
+    BG_PackAmmoArray( WP_LUCIFER_CANNON, ent->client->ps.ammo, ent->client->ps.powerups, maxAmmo, maxClips );
+    
+    
+    //G_GiveClientMaxAmmo( ent, qtrue );
+    G_ForceWeaponChange( ent, WP_SHOTGUN );
+}

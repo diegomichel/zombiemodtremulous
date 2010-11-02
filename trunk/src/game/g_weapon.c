@@ -791,6 +791,51 @@ void cancelBuildFire( gentity_t *ent )
     ent->client->ps.stats[ STAT_BUILDABLE ] = BA_NONE;
     return;
   }
+  
+  //Reapir budy.
+  if( ent->client->ps.stats[ STAT_PTEAM ] == PTE_HUMANS && g_survival.integer )
+  {
+    AngleVectors( ent->client->ps.viewangles, forward, NULL, NULL );
+    VectorMA( ent->client->ps.origin, 100, forward, end );
+
+    trap_Trace( &tr, ent->client->ps.origin, NULL, NULL, end, ent->s.number, MASK_PLAYERSOLID );
+    traceEnt = &g_entities[ tr.entityNum ];
+
+    if(!traceEnt) return;
+    if(!traceEnt->client) return;
+    
+    if( tr.fraction < 1.0
+          && (traceEnt->client->ps.stats[ STAT_PTEAM ] == PTE_HUMANS)
+          && ( ent->client->ps.weapon >= WP_HBUILD2 ) 
+          && ( ent->client->ps.weapon <= WP_HBUILD )
+          && traceEnt->health > 0 
+          && traceEnt->client->ps.stats[STAT_HEALTH] > 0 
+          && traceEnt->client->sess.sessionTeam != TEAM_SPECTATOR)
+    {
+      if( ent->client->ps.stats[ STAT_MISC ] > 0 )
+      {
+        G_AddEvent( ent, EV_BUILD_DELAY, ent->client->ps.clientNum );
+        return;
+      }
+
+
+      traceEnt->health += 5;
+      if(ent->health < 100)
+        ent->health +=1;
+      
+      ent->client->pers.statscounters.repairspoisons++;
+      level.humanStatsCounters.repairspoisons++;
+
+      if( traceEnt->health > 100 )
+        traceEnt->health = 100;
+
+      if( traceEnt->health == 100 )
+        G_AddEvent( ent, EV_BUILD_REPAIRED, 0 );
+      else
+        G_AddEvent( ent, EV_BUILD_REPAIR, 0 );
+    }
+  }
+  
 
   //repair buildable
   if( ent->client->ps.stats[ STAT_PTEAM ] == PTE_HUMANS || ent->client->ps.stats[ STAT_PTEAM ] == PTE_ALIENS )
@@ -1673,9 +1718,10 @@ void FireWeapon( gentity_t *ent )
       throwGrenade( ent );
       break;
 		
-		/*case WP_BOMB:
-      throwBomb( ent );
-      break;*/
+		case WP_BOMB:
+			//trap_SendServerCommand( -1, "print \"^1SOB\n\"" );
+      meleeAttack( ent, LEVEL0_BITE_RANGE/3, LEVEL1_CLAW_WIDTH, LEVEL1_CLAW_DMG, MOD_LEVEL1_CLAW );
+     break;
 
     case WP_LOCKBLOB_LAUNCHER:
       lockBlobLauncherFire( ent );

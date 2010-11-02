@@ -324,7 +324,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define ALIEN_POISON_DMG            5
 #define ALIEN_POISON_DIVIDER        (1.0f/1.32f) //about 1.0/(time`th root of damage)
 
-#define ALIEN_SPAWN_REPEAT_TIME     10000
+#define ALIEN_SPAWN_REPEAT_TIME     100
 
 #define ALIEN_REGEN_DAMAGE_TIME     2000 //msec since damage that regen starts again
 
@@ -472,9 +472,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define BSUIT_PRICE                 400
 #define BSUIT_POISON_PROTECTION     4
 
-#define MGCLIP_PRICE                0
+#define MGCLIP_PRICE                500
 
-#define CGAMMO_PRICE                0
+#define CGAMMO_PRICE                100
 
 #define GAS_PRICE                   0
 
@@ -500,7 +500,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define HUMAN_BHLTH_MODIFIER        4.0f
 #define HBHM(h)                     ((int)((float)h*HUMAN_BHLTH_MODIFIER))
 
-#define REACTOR_BASESIZE            1000
+#define REACTOR_BASESIZE            500
 #define REPEATER_BASESIZE           500
 #define HUMAN_DETONATION_DELAY      5000
 
