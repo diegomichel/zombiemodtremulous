@@ -1849,10 +1849,10 @@ ARGP4
 ADDRGP4 trap_Cvar_Set
 CALLV
 pop
-ADDRGP4 g_entities+2485504
+ADDRGP4 g_entities+2493680
 CNSTI4 1022
 ASGNI4
-ADDRGP4 g_entities+2485504+524
+ADDRGP4 g_entities+2493680+524
 ADDRGP4 $302
 ASGNP4
 ADDRGP4 g_restarted+12
@@ -2307,6 +2307,7 @@ import trigger_teleporter_touch
 import manualTriggerSpectator
 import Touch_DoorTrigger
 import G_RunMover
+import massDriverFire2
 import plant_mine
 import launch_grenade_primary
 import launch_grenade_secondary

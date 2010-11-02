@@ -3273,6 +3273,7 @@ import trigger_teleporter_touch
 import manualTriggerSpectator
 import Touch_DoorTrigger
 import G_RunMover
+import massDriverFire2
 import plant_mine
 import launch_grenade_primary
 import launch_grenade_secondary

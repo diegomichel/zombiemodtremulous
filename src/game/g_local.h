@@ -85,7 +85,8 @@ typedef enum
   BOT_FOLLOW_FRIEND_IDLE,
   BOT_TEAM_KILLER,
   BOT_COMMAND,
-  BOT_FOLLOW_PATH
+  BOT_FOLLOW_PATH,
+  BOT_CHOMP
 } botCommand_t;
 
 typedef enum
@@ -378,7 +379,9 @@ struct gentity_s
   float weight;
 
 #endif
-
+  //To control bot jumps, like to only jump each 500ms.
+  int jumpedTime;
+  int botPause;
 };
 
 typedef enum
@@ -1337,6 +1340,9 @@ gentity_t *
 launch_grenade_primary(gentity_t *self, vec3_t start, vec3_t dir);
 gentity_t *
 plant_mine(gentity_t *self, vec3_t start, vec3_t dir);
+
+void massDriverFire2( gentity_t *ent );
+
 
 //
 // g_mover.c

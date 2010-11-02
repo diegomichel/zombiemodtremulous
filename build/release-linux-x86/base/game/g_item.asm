@@ -741,7 +741,7 @@ ADDRGP4 g_entities
 CVPU4 4
 SUBU4
 CVUI4 4
-CNSTI4 2432
+CNSTI4 2440
 DIVI4
 ASGNI4
 ADDRLP4 0
@@ -1277,6 +1277,7 @@ import trigger_teleporter_touch
 import manualTriggerSpectator
 import Touch_DoorTrigger
 import G_RunMover
+import massDriverFire2
 import plant_mine
 import launch_grenade_primary
 import launch_grenade_secondary

@@ -800,14 +800,13 @@ ClientTimerActions(gentity_t *ent, int msec)
     }
 
     //Forget the sob
-    //FIXME: Uncomment Release.
-    /*if (ent->r.svFlags & SVF_BOT)
-     {
-     if (!g_survival.integer)
-     {
-     ent->botEnemy = NULL;
-     }
-     }*/
+    if (ent->r.svFlags & SVF_BOT)
+    {
+      if (!g_survival.integer)
+      {
+        ent->botEnemy = NULL;
+      }
+    }
 
     //client is poison clouded
     if (client->ps.stats[STAT_STATE] & SS_POISONCLOUDED)
@@ -1697,7 +1696,10 @@ ClientThink_real(gentity_t *ent)
   // touch other objects
   ClientImpacts(ent, &pm);
 
-  ACEND_PathMap(ent);
+  if(!(ent->r.svFlags & SVF_BOT))
+  {
+    ACEND_PathMap(ent);
+  }
 
   // execute client events
   ClientEvents(ent, oldEventSequence);

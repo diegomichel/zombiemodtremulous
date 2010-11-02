@@ -58,12 +58,6 @@ CNSTP4 0
 ASGNP4
 ADDRFP4 0
 INDIRP4
-CNSTI4 2360
-ADDP4
-CNSTF4 1108082688
-ASGNF4
-ADDRFP4 0
-INDIRP4
 CNSTI4 2376
 ADDP4
 CNSTP4 0
@@ -534,6 +528,7 @@ import trigger_teleporter_touch
 import manualTriggerSpectator
 import Touch_DoorTrigger
 import G_RunMover
+import massDriverFire2
 import plant_mine
 import launch_grenade_primary
 import launch_grenade_secondary

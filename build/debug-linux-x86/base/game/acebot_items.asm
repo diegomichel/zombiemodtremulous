@@ -622,7 +622,7 @@ ASGNI4
 ADDRLP4 16
 ADDRLP4 16
 INDIRP4
-CNSTI4 2432
+CNSTI4 2440
 ADDP4
 ASGNP4
 LABELV $100
@@ -1015,6 +1015,7 @@ import trigger_teleporter_touch
 import manualTriggerSpectator
 import Touch_DoorTrigger
 import G_RunMover
+import massDriverFire2
 import plant_mine
 import launch_grenade_primary
 import launch_grenade_secondary
