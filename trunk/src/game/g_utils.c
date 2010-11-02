@@ -950,10 +950,6 @@ G_BuyAll(gentity_t *ent)
   BG_FindAmmoForWeapon(WP_CHAINGUN, &maxAmmo, &maxClips);
   BG_PackAmmoArray(WP_CHAINGUN, &ent->client->ps.ammo, ent->client->ps.powerups, maxAmmo, maxClips);
 
-  BG_AddWeaponToInventory(WP_PULSE_RIFLE, ent->client->ps.stats);
-  BG_FindAmmoForWeapon(WP_PULSE_RIFLE, &maxAmmo, &maxClips);
-  BG_PackAmmoArray(WP_PULSE_RIFLE, &ent->client->ps.ammo, ent->client->ps.powerups, maxAmmo, maxClips);
-
   BG_AddWeaponToInventory(WP_FLAMER, ent->client->ps.stats);
   BG_FindAmmoForWeapon(WP_FLAMER, &maxAmmo, &maxClips);
   BG_PackAmmoArray(WP_FLAMER, &ent->client->ps.ammo, ent->client->ps.powerups, maxAmmo, maxClips);

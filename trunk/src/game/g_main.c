@@ -1568,7 +1568,7 @@ botSpawn(gentity_t *ent)
     client->ps.weaponstate = WEAPON_READY;
   }
 
-  BG_AddWeaponToInventory(WP_BOMB, client->ps.stats);
+  BG_AddWeaponToInventory(WP_ZOMBIE_BITE, client->ps.stats);
 
   // don't allow full run speed for a bit
   client->ps.pm_flags |= PMF_TIME_KNOCKBACK;
@@ -1621,7 +1621,7 @@ botSpawn(gentity_t *ent)
 
   ent->client->pers.classSelection = PCL_HUMAN;
   ent->client->ps.stats[STAT_PCLASS] = PCL_HUMAN;
-  ent->client->pers.humanItemSelection = WP_BOMB;
+  ent->client->pers.humanItemSelection = WP_ZOMBIE_BITE;
 
   // clear entity state values
   BG_PlayerStateToEntityState(&client->ps, &ent->s, qtrue);

@@ -3014,19 +3014,6 @@ PM_Weapon(void)
       }
       break;
 
-    case WP_PULSE_RIFLE:
-      attack2 = attack3 = qfalse;
-      attack1 = pm->cmd.buttons & BUTTON_ATTACK;
-      // attack2 is handled on the client for zooming (cg_view.c)
-
-      if (!attack1)
-      {
-        pm->ps->weaponTime = 0;
-        pm->ps->weaponstate = WEAPON_READY;
-        return;
-      }
-      break;
-
     case WP_CHAINGUN:
       attack2 = attack3 = qfalse;
       attack1 = pm->cmd.buttons & BUTTON_ATTACK;

@@ -957,8 +957,7 @@ else    VectorCopy(targ->r.currentOrigin, targOrigin);
       }
       if (attacker && attacker->client
           && modifier != 2
-          && targ->client->ps.stats[ STAT_PTEAM ] == PTE_ALIENS
-          && attacker->client->ps.weapon != WP_PULSE_RIFLE)
+          && targ->client->ps.stats[ STAT_PTEAM ] == PTE_ALIENS)
       {
         /*if (!g_survival.integer)
          {

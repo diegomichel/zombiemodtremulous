@@ -1840,9 +1840,6 @@ FireWeapon(gentity_t *ent)
     case WP_FLAMER:
       flamerFire(ent);
       break;
-    case WP_PULSE_RIFLE:
-      bulletFire(ent, 0, RIFLE_DMG, MOD_PRIFLE);
-      break;
     case WP_MASS_DRIVER:
       massDriverFire2(ent);
       break;
@@ -1858,7 +1855,7 @@ FireWeapon(gentity_t *ent)
     case WP_MINE:
       plantMine(ent);
       break;
-    case WP_BOMB:
+    case WP_ZOMBIE_BITE:
       meleeAttack(ent, ZOMBIE_RANGE*2, LEVEL1_CLAW_WIDTH, LEVEL1_CLAW_DMG/3, MOD_LEVEL1_CLAW);
       break;
     case WP_LOCKBLOB_LAUNCHER:
