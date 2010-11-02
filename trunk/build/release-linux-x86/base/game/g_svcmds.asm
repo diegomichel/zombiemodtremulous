@@ -1160,7 +1160,7 @@ ASGNI4
 ADDRLP4 0
 ADDRLP4 0
 INDIRP4
-CNSTI4 2196
+CNSTI4 2212
 ADDP4
 ASGNP4
 LABELV $211
@@ -1230,7 +1230,7 @@ ADDRGP4 $251
 JUMPV
 LABELV $254
 ADDRLP4 0
-CNSTI4 1872
+CNSTI4 1880
 ADDRLP4 8
 INDIRI4
 MULI4
@@ -1271,7 +1271,7 @@ ADDRGP4 $265
 JUMPV
 LABELV $262
 ADDRLP4 0
-CNSTI4 1872
+CNSTI4 1880
 ADDRLP4 4
 INDIRI4
 MULI4
@@ -1574,7 +1574,7 @@ ARGP4
 ADDRGP4 trap_SendConsoleCommand
 CALLV
 pop
-ADDRGP4 level+80
+ADDRGP4 level+120940
 CNSTI4 1
 ASGNI4
 LABELV $295
@@ -1625,7 +1625,7 @@ CVII4 1
 CNSTI4 97
 NEI4 $303
 LABELV $305
-ADDRGP4 level+16112
+ADDRGP4 level+136972
 CNSTI4 1
 ASGNI4
 CNSTI4 1
@@ -1660,7 +1660,7 @@ CVII4 1
 CNSTI4 104
 NEI4 $309
 LABELV $311
-ADDRGP4 level+16112
+ADDRGP4 level+136972
 CNSTI4 2
 ASGNI4
 CNSTI4 2
@@ -1934,7 +1934,7 @@ ADDRLP4 1068
 CNSTI4 1
 ASGNI4
 ADDRLP4 1064
-CNSTI4 2196
+CNSTI4 2212
 ADDRLP4 1068
 INDIRI4
 MULI4
@@ -1992,7 +1992,7 @@ ASGNI4
 ADDRLP4 1064
 ADDRLP4 1064
 INDIRP4
-CNSTI4 2196
+CNSTI4 2212
 ADDP4
 ASGNP4
 LABELV $354
@@ -2022,7 +2022,7 @@ ADDRLP4 1072
 CNSTI4 1
 ASGNI4
 ADDRLP4 1068
-CNSTI4 2196
+CNSTI4 2212
 ADDRLP4 1072
 INDIRI4
 MULI4
@@ -2080,7 +2080,7 @@ ASGNI4
 ADDRLP4 1068
 ADDRLP4 1068
 INDIRP4
-CNSTI4 2196
+CNSTI4 2212
 ADDP4
 ASGNP4
 LABELV $364
@@ -2173,7 +2173,7 @@ ARGP4
 ADDRGP4 trap_SendServerCommand
 CALLV
 pop
-ADDRGP4 level+15408
+ADDRGP4 level+136268
 CNSTI4 0
 ASGNI4
 CNSTI4 27
@@ -2434,13 +2434,10 @@ skip 4
 align 4
 LABELV ipFilters
 skip 8192
-import trap_mysql_fieldcount
+import trap_mysql_reconnect
 import trap_mysql_fetchfieldbyName
 import trap_mysql_fetchfieldbyID
-import trap_mysql_affectedrows
-import trap_mysql_rowcount
 import trap_mysql_fetchrow
-import trap_mysql_cleanstring
 import trap_mysql_finishquery
 import trap_mysql_runquery
 import trap_SendGameStat
@@ -2732,6 +2729,7 @@ import G_GiveClientMaxAmmo
 import G_ForceWeaponChange
 import ShineTorch
 import TeleportPlayer
+import TeleportZombie
 import G_Checktrigger_stages
 import trigger_teleporter_touch
 import manualTriggerSpectator
@@ -2873,10 +2871,14 @@ import G_admin_buffer_end
 import G_admin_buffer_begin
 import G_admin_buffer_print
 import G_admin_print
+import G_reconnectdb
 import G_switchnodes
 import G_admin_botcmd
 import G_admin_bot
 import G_set_survival_stage
+import G_admin_findpath
+import G_admin_printpath
+import G_admin_printgrid
 import G_admin_switch
 import G_admin_cp
 import G_admin_designate

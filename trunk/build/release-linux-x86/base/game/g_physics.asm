@@ -625,7 +625,7 @@ CALLV
 pop
 ADDRFP4 0
 INDIRP4
-CNSTI4 988
+CNSTI4 1004
 ADDP4
 INDIRI4
 ADDRGP4 level+28
@@ -721,7 +721,7 @@ ASGNI4
 LABELV $118
 ADDRFP4 0
 INDIRP4
-CNSTI4 988
+CNSTI4 1004
 ADDP4
 ADDRGP4 level+28
 INDIRI4
@@ -848,13 +848,10 @@ CALLV
 pop
 LABELV $96
 endproc G_Physics 96 28
-import trap_mysql_fieldcount
+import trap_mysql_reconnect
 import trap_mysql_fetchfieldbyName
 import trap_mysql_fetchfieldbyID
-import trap_mysql_affectedrows
-import trap_mysql_rowcount
 import trap_mysql_fetchrow
-import trap_mysql_cleanstring
 import trap_mysql_finishquery
 import trap_mysql_runquery
 import trap_SendGameStat
@@ -1149,6 +1146,7 @@ import G_GiveClientMaxAmmo
 import G_ForceWeaponChange
 import ShineTorch
 import TeleportPlayer
+import TeleportZombie
 import G_Checktrigger_stages
 import trigger_teleporter_touch
 import manualTriggerSpectator
@@ -1289,10 +1287,14 @@ import G_admin_buffer_end
 import G_admin_buffer_begin
 import G_admin_buffer_print
 import G_admin_print
+import G_reconnectdb
 import G_switchnodes
 import G_admin_botcmd
 import G_admin_bot
 import G_set_survival_stage
+import G_admin_findpath
+import G_admin_printpath
+import G_admin_printgrid
 import G_admin_switch
 import G_admin_cp
 import G_admin_designate

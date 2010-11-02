@@ -212,6 +212,74 @@ Bot_Stuck(gentity_t * self, int zone) {
   }
   return qfalse;
 }
+void
+G_BotFollowPath(gentity_t * self) {
+  vec3_t dirToTarget, angleToTarget;
+  vec3_t top = {0, 0, 0};
+  vec3_t nextnode;
+  int vh = 0;
+  
+  int x,y;
+  
+  self->client->pers.cmd.buttons = 0;
+  self->client->pers.cmd.forwardmove = 0;
+  self->client->pers.cmd.upmove = 0;
+  self->client->pers.cmd.rightmove = 0;
+
+  
+  if(self->botlostpath == qtrue)
+  {
+    self->botnextpath = 0;
+    G_LogPrintf(va("Bot not thinking"));
+    return;
+  }
+  
+  
+  x = ((100/2)+(self->s.origin[0]/100));
+  y = ((100/2)+(self->s.origin[1]/100));
+  
+  BG_FindViewheightForClass(self->client->ps.stats[STAT_PCLASS], &vh, NULL);
+  top[2] = vh;
+  
+  //((100/2)+(5000/100)) = 100;
+  //G_LogPrintf(va("%d %d %d %d\n",level.pathx[0], level.pathy[0], level.pathx[1], level.pathy[1]));
+  
+  if(self->botnextpath < 1) self->timedropnodepath = level.time + 1000;
+  
+  G_LogPrintf(va("%d %d %d %d\n",self->botnextpath, level.pathx[self->botnextpath], x, level.pathy[self->botnextpath]));
+  //Bot aim to next node
+  if( self->botnextpath+1 < 100 
+    && level.pathx[self->botnextpath+1] > -1 && level.pathx[self->botnextpath+1] > -1 )
+  {
+    if(level.pathx[self->botnextpath] == x && level.pathy[self->botnextpath] == y || self->timedropnodepath < level.time)
+    { 
+      nextnode[0] = ((-(100/2) + level.pathx[self->botnextpath+1]) * 100);
+      nextnode[1] = ((-(100/2) + level.pathy[self->botnextpath+1]) * 100);
+      nextnode[2] = self->s.pos.trBase[2];
+      VectorAdd(self->s.pos.trBase, top, top);
+      VectorSubtract(nextnode, top, dirToTarget);
+      VectorNormalize(dirToTarget);
+      vectoangles(dirToTarget, angleToTarget);
+      self->client->ps.delta_angles[0] = ANGLE2SHORT(angleToTarget[0]);
+      self->client->ps.delta_angles[1] = ANGLE2SHORT(angleToTarget[1]);
+      self->client->ps.delta_angles[2] = ANGLE2SHORT(angleToTarget[2]);
+      self->botnextpath++;
+      self->timedropnodepath = level.time + 1000;
+    }
+  }
+  else
+  {
+    self->botlostpath = qtrue;
+    return;
+  }
+  //Bot Walking
+  /*if(Bot_Stuck(self,100))
+  {
+    self->client->pers.cmd.rightmove = 60;
+  }*/
+  self->client->pers.cmd.forwardmove = 60;
+  self->client->pers.cmd.buttons |= BUTTON_WALKING;
+}
 
 void
 G_BotThink(gentity_t * self) {
@@ -605,7 +673,7 @@ qboolean botTargetInRange( gentity_t *self, gentity_t *target ) {
         //{return qfalse;}
         // check that we hit a human and not an object
         //if( !traceEnt->client )
-        //	return qfalse;
+        //  return qfalse;
 
         //check our target is in LOS
         if(!(traceEnt == target))

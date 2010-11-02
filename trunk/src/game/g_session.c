@@ -19,7 +19,7 @@ You should have received a copy of the GNU General Public License
 along with Tremulous; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 ===========================================================================
-*/
+ */
 
 #include "g_local.h"
 
@@ -32,7 +32,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 Session data is the only data that stays persistant across level loads
 and tournament restarts.
 =======================================================================
-*/
+ */
 
 /*
 ================
@@ -40,27 +40,26 @@ G_WriteClientSessionData
 
 Called on game shutdown
 ================
-*/
-void G_WriteClientSessionData( gclient_t *client )
-{
-  const char  *s;
-  const char  *var;
+ */
+void G_WriteClientSessionData(gclient_t *client) {
+  const char *s;
+  const char *var;
 
-  s = va( "%i %i %i %i %i %i %i %i %s",
-    client->sess.sessionTeam,
-    client->sess.restartTeam,
-    client->sess.spectatorTime,
-    client->sess.spectatorState,
-    client->sess.spectatorClient,
-    client->sess.wins,
-    client->sess.losses,
-    client->sess.teamLeader,
-    BG_ClientListString( &client->sess.ignoreList )
-    );
+  s = va("%i %i %i %i %i %i %i %i %s",
+          client->sess.sessionTeam,
+          client->sess.restartTeam,
+          client->sess.spectatorTime,
+          client->sess.spectatorState,
+          client->sess.spectatorClient,
+          client->sess.wins,
+          client->sess.losses,
+          client->sess.teamLeader,
+          BG_ClientListString(&client->sess.ignoreList)
+          );
 
-  var = va( "session%i", client - level.clients );
+  var = va("session%i", client - level.clients);
 
-  trap_Cvar_Set( var, s );
+  trap_Cvar_Set(var, s);
 }
 
 /*
@@ -69,11 +68,10 @@ G_ReadSessionData
 
 Called on a reconnect
 ================
-*/
-void G_ReadSessionData( gclient_t *client )
-{
-  char  s[ MAX_STRING_CHARS ];
-  const char  *var;
+ */
+void G_ReadSessionData(gclient_t *client) {
+  char s[ MAX_STRING_CHARS ];
+  const char *var;
 
   // bk001205 - format
   int teamLeader;
@@ -81,30 +79,29 @@ void G_ReadSessionData( gclient_t *client )
   int sessionTeam;
   int restartTeam;
 
-  var = va( "session%i", client - level.clients );
-  trap_Cvar_VariableStringBuffer( var, s, sizeof(s) );
+  var = va("session%i", client - level.clients);
+  trap_Cvar_VariableStringBuffer(var, s, sizeof (s));
 
   // FIXME: should be using BG_ClientListParse() for ignoreList, but
   //        bg_lib.c's sscanf() currently lacks %s
-  sscanf( s, "%i %i %i %i %i %i %i %i %x%x",
-    &sessionTeam,
-    &restartTeam,
-    &client->sess.spectatorTime,
-    &spectatorState,
-    &client->sess.spectatorClient,
-    &client->sess.wins,
-    &client->sess.losses,
-    &teamLeader,
-    &client->sess.ignoreList.hi,
-    &client->sess.ignoreList.lo
-    );
+  sscanf(s, "%i %i %i %i %i %i %i %i %x%x",
+          &sessionTeam,
+          &restartTeam,
+          &client->sess.spectatorTime,
+          &spectatorState,
+          &client->sess.spectatorClient,
+          &client->sess.wins,
+          &client->sess.losses,
+          &teamLeader,
+          &client->sess.ignoreList.hi,
+          &client->sess.ignoreList.lo
+          );
   // bk001205 - format issues
-  client->sess.sessionTeam = (team_t)sessionTeam;
-  client->sess.restartTeam = (pTeam_t)restartTeam;
-  client->sess.spectatorState = (spectatorState_t)spectatorState;
-  client->sess.teamLeader = (qboolean)teamLeader;
+  client->sess.sessionTeam = (team_t) sessionTeam;
+  client->sess.restartTeam = (pTeam_t) restartTeam;
+  client->sess.spectatorState = (spectatorState_t) spectatorState;
+  client->sess.teamLeader = (qboolean) teamLeader;
 }
-
 
 /*
 ================
@@ -112,25 +109,21 @@ G_InitSessionData
 
 Called on a first-time connect
 ================
-*/
-void G_InitSessionData( gclient_t *client, char *userinfo )
-{
-  clientSession_t  *sess;
-  const char      *value;
+ */
+void G_InitSessionData(gclient_t *client, char *userinfo) {
+  clientSession_t *sess;
+  const char *value;
 
   sess = &client->sess;
 
   // initial team determination
-  value = Info_ValueForKey( userinfo, "team" );
-  if( value[ 0 ] == 's' )
-  {
+  value = Info_ValueForKey(userinfo, "team");
+  if (value[ 0 ] == 's') {
     // a willing spectator, not a waiting-in-line
     sess->sessionTeam = TEAM_SPECTATOR;
-  }
-  else
-  {
-    if( g_maxGameClients.integer > 0 &&
-      level.numNonSpectatorClients >= g_maxGameClients.integer )
+  } else {
+    if (g_maxGameClients.integer > 0 &&
+            level.numNonSpectatorClients >= g_maxGameClients.integer)
       sess->sessionTeam = TEAM_SPECTATOR;
     else
       sess->sessionTeam = TEAM_FREE;
@@ -140,28 +133,70 @@ void G_InitSessionData( gclient_t *client, char *userinfo )
   sess->spectatorState = SPECTATOR_FREE;
   sess->spectatorTime = level.time;
   sess->spectatorClient = -1;
-  memset( &sess->ignoreList, 0, sizeof( sess->ignoreList ) );
+  memset(&sess->ignoreList, 0, sizeof ( sess->ignoreList));
 
-  G_WriteClientSessionData( client );
+  G_WriteClientSessionData(client);
 }
-
 
 /*
 ==================
 G_WriteSessionData
 
 ==================
-*/
-void G_WriteSessionData( void )
-{
-  int    i;
+ */
+void G_WriteSessionData(void) {
+  char map[ MAX_STRING_CHARS ];
+  int i;
+  //int record = 0;
+  int gameid = 0;
+  
+  char data[ 255 ];
 
+  trap_Cvar_VariableStringBuffer("mapname", map, sizeof ( map));
   //TA: ?
-  trap_Cvar_Set( "session", va( "%i", 0 ) );
-
-  for( i = 0 ; i < level.maxclients ; i++ )
+  trap_Cvar_Set("session", va("%i", 0));
+  
+  
+  if(g_survival.integer && level.survivalRecordsBroke[0] > 0 && level.survivalRecordTime > 0 && !level.mysqlupdated)
   {
-    if( level.clients[ i ].pers.connected == CON_CONNECTED )
-      G_WriteClientSessionData( &level.clients[ i ] );
+    if(trap_mysql_runquery(va("INSERT HIGH_PRIORITY INTO games (map,time) VALUES (\"%s\",\"%d\")",
+      map, level.survivalRecordTime)) == qtrue)
+      {
+        trap_mysql_finishquery();
+        if(trap_mysql_runquery("SELECT id FROM games ORDER BY id desc LIMIT 1") == qtrue)
+        {
+          if(trap_mysql_fetchrow() == qtrue)
+          {
+            trap_mysql_fetchfieldbyName("id", data, sizeof(data));
+            gameid = atoi(data);
+          }
+        }
+      }
+      trap_mysql_finishquery();
   }
+
+  for (i = 0; i < level.maxclients; i++) {
+    if (level.clients[ i ].pers.connected == CON_CONNECTED)
+      G_WriteClientSessionData(&level.clients[ i ]);
+      if(g_survival.integer) continue;
+      if(level.clients[i].pers.mysqlid > 0 && gameid > 0 && !level.mysqlupdated)
+      {
+        if(trap_mysql_runquery(va("UPDATE players set lasttime=NOW() WHERE id = \"%d\" LIMIT 1",
+          level.clients[i].pers.mysqlid)) == qtrue)
+        {
+          trap_mysql_finishquery();
+        }
+        if(trap_mysql_runquery(va("INSERT HIGH_PRIORITY INTO players_game (idgame,idplayer,timealive) VALUES (%d,%d,%d)",
+        gameid, level.clients[i].pers.mysqlid, level.clients[i].pers.lastdeadtime)) == qtrue)
+        {
+          trap_mysql_finishquery();
+        }
+      }
+  }
+  
+  if(g_survival.integer && level.survivalRecordTime > 0 && !level.mysqlupdated)
+  {
+    trap_SendServerCommand( -1, "print \"^5Records stored on the server.\n\"" );
+  }
+  level.mysqlupdated = 1;
 }

@@ -2409,7 +2409,7 @@ EQI4 $361
 ADDRGP4 $349
 JUMPV
 LABELV $356
-ADDRGP4 level+84
+ADDRGP4 level+120944
 INDIRI4
 ADDRFP4 0
 INDIRP4
@@ -2433,7 +2433,7 @@ RETI4
 ADDRGP4 $347
 JUMPV
 LABELV $361
-ADDRGP4 level+84
+ADDRGP4 level+120944
 INDIRI4
 ADDRFP4 0
 INDIRP4
@@ -2457,7 +2457,7 @@ RETI4
 ADDRGP4 $347
 JUMPV
 LABELV $366
-ADDRGP4 level+84
+ADDRGP4 level+120944
 INDIRI4
 ADDRFP4 0
 INDIRP4
@@ -2481,7 +2481,7 @@ RETI4
 ADDRGP4 $347
 JUMPV
 LABELV $371
-ADDRGP4 level+15408
+ADDRGP4 level+136268
 INDIRI4
 ADDRFP4 0
 INDIRP4
@@ -2951,13 +2951,10 @@ export mapRotations
 align 4
 LABELV mapRotations
 skip 17458308
-import trap_mysql_fieldcount
+import trap_mysql_reconnect
 import trap_mysql_fetchfieldbyName
 import trap_mysql_fetchfieldbyID
-import trap_mysql_affectedrows
-import trap_mysql_rowcount
 import trap_mysql_fetchrow
-import trap_mysql_cleanstring
 import trap_mysql_finishquery
 import trap_mysql_runquery
 import trap_SendGameStat
@@ -3244,6 +3241,7 @@ import G_GiveClientMaxAmmo
 import G_ForceWeaponChange
 import ShineTorch
 import TeleportPlayer
+import TeleportZombie
 import G_Checktrigger_stages
 import trigger_teleporter_touch
 import manualTriggerSpectator
@@ -3385,10 +3383,14 @@ import G_admin_buffer_end
 import G_admin_buffer_begin
 import G_admin_buffer_print
 import G_admin_print
+import G_reconnectdb
 import G_switchnodes
 import G_admin_botcmd
 import G_admin_bot
 import G_set_survival_stage
+import G_admin_findpath
+import G_admin_printpath
+import G_admin_printgrid
 import G_admin_switch
 import G_admin_cp
 import G_admin_designate
