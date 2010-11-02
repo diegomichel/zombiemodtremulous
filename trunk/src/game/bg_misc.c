@@ -393,7 +393,9 @@ buildableAttributes_t bg_buildableList[] =
         "mgturret", //char      *buildName;
         "Machinegun Turret", //char      *humanName;
         "team_human_mgturret", //char      *entityName;
-        { "models/buildables/mgturret/turret_base.md3", "models/buildables/mgturret/turret_barrel.md3", "models/buildables/mgturret/turret_top.md3", 0 }, 1.0f, //float     modelScale;
+        { "models/buildables/mgturret/turret_base.md3",
+            "models/buildables/mgturret/turret_barrel.md3",
+            "models/buildables/mgturret/turret_top.md3", 0 }, 1.0f, //float     modelScale;
         { -25, -25, -20 }, //vec3_t    mins;
         { 25, 25, 20 }, //vec3_t    maxs;
         0.0f, //float     zOffset;
@@ -1820,7 +1822,8 @@ BG_ParseBuildableFile(const char *filename, buildableAttributeOverrides_t *bao)
   if (len == 0 || len >= sizeof(text) - 1)
   {
     trap_FS_FCloseFile(f);
-    Com_Printf(S_COLOR_RED "ERROR: Buildable file %s is %s\n", filename, len == 0 ? "empty" : "too long");
+    Com_Printf(S_COLOR_RED "ERROR: Buildable file %s is %s\n", filename, len == 0 ? "empty"
+        : "too long");
     return qfalse;
   }
 
@@ -3231,7 +3234,8 @@ BG_ClassCanEvolveFromTo(int fclass, int tclass, int credits, int num)
         int sub;
 
         cost = BG_FindCostOfClass(bg_classList[i].children[j]);
-        sub = BG_ClassCanEvolveFromTo(bg_classList[i].children[j], tclass, credits - cost, num + cost);
+        sub = BG_ClassCanEvolveFromTo(bg_classList[i].children[j], tclass, credits - cost, num
+            + cost);
         if (sub >= 0)
           return sub;
       }
@@ -3324,7 +3328,8 @@ BG_ParseClassFile(const char *filename, classAttributeOverrides_t *cao)
   if (len == 0 || len >= sizeof(text) - 1)
   {
     trap_FS_FCloseFile(f);
-    Com_Printf(S_COLOR_RED "ERROR: Class file %s is %s\n", filename, len == 0 ? "empty" : "too long");
+    Com_Printf(S_COLOR_RED "ERROR: Class file %s is %s\n", filename, len == 0 ? "empty"
+        : "too long");
     return qfalse;
   }
 
@@ -3540,7 +3545,7 @@ BG_InitClassOverrides(void)
 
 weaponAttributes_t bg_weapons[] =
 {
-{ WP_BLASTER, //int       weaponNum;
+    { WP_BLASTER, //int       weaponNum;
     0, //int       price;
     (1 << S1) | (1 << S2) | (1 << S3), //int  stages
     0, //int       slots;
@@ -3568,8 +3573,8 @@ weaponAttributes_t bg_weapons[] =
         RIFLE_PRICE, //int       price;
         (1 << S1) | (1 << S2) | (1 << S3), //int  stages
         SLOT_WEAPON, //int       slots;
-        "rifle", //char      *weaponName;
-        "UMP .40", //char      *weaponHumanName;
+        "machinegun", //char      *weaponName;
+        "Tommy", //char      *weaponHumanName;
         RIFLE_CLIPSIZE, //int       maxAmmo;
         RIFLE_MAXCLIPS, //int       maxClips;
         qfalse, //int       infiniteAmmo;
@@ -3592,8 +3597,8 @@ weaponAttributes_t bg_weapons[] =
         SHOTGUN_PRICE, //int       price;
         (1 << S1) | (1 << S2) | (1 << S3), //int  stages
         SLOT_WEAPON, //int       slots;
-        "shotgun", //char      *weaponName;
-        "Winchester 97", //char      *weaponHumanName;
+        "shotty", //char      *weaponName;
+        "Shotty", //char      *weaponHumanName;
         SHOTGUN_SHELLS, //int       maxAmmo;
         SHOTGUN_MAXCLIPS, //int       maxClips;
         qfalse, //int       infiniteAmmo;
@@ -3736,7 +3741,7 @@ weaponAttributes_t bg_weapons[] =
         LASGUN_PRICE, //int       price;
         (1 << S1) | (1 << S2) | (1 << S3), //int  stages
         SLOT_WEAPON, //int       slots;
-        "lgun", //char      *weaponName;
+        "lasergun", //char      *weaponName;
         "Las Gun", //char      *weaponHumanName;
         LASGUN_AMMO, //int       maxAmmo;
         0, //int       maxClips;
@@ -3849,30 +3854,6 @@ weaponAttributes_t bg_weapons[] =
         90.0f, //float     zoomFov;
         qfalse, //qboolean  purchasable;
         qfalse, //qboolean  longRanged;
-        0, //int       buildDelay;
-        WUT_HUMANS //WUTeam_t  team;
-    },
-    { WP_LAUNCHER, //int       weaponNum;
-        LAUNCHER_PRICE, //int       price;
-        (1 << S1) | (1 << S2) | (1 << S3), //int  stages
-        SLOT_WEAPON, //int       slots;
-        "launcher", //char      *weaponName;
-        "Grenade Launcher", //char      *weaponHumanName;
-        LAUNCHER_AMMO, //int       maxAmmo;
-        LAUNCHER_MAXAMMO, //int       maxClips;
-        qfalse, //int       infiniteAmmo;
-        qfalse, //int       usesEnergy;
-        LAUNCHER_REPEAT, //int       repeatRate1;
-        LAUNCHER_REPEAT, //int       repeatRate2;
-        0, //int       repeatRate3;
-        LAUNCHER_RELOAD, //int       reloadTime;
-        LAUNCHER_K_SCALE, //float     knockbackScale;
-        qtrue, //qboolean  hasAltMode;
-        qfalse, //qboolean  hasThirdMode;
-        qfalse, //qboolean  canZoom;
-        90.0f, //float     zoomFov;
-        qtrue, //qboolean  purchasable;
-        qtrue, //qboolean  longRanged;
         0, //int       buildDelay;
         WUT_HUMANS //WUTeam_t  team;
     },
@@ -4260,8 +4241,105 @@ weaponAttributes_t bg_weapons[] =
         0, //int       buildDelay;
         WUT_HUMANS //WUTeam_t  team;
     },
-    //NEW WEAPONS
-
+    {
+        WP_AXE, //int       weaponNum;
+        AXE_PRICE, //int       price;
+        (1 << S1) | (1 << S2) | (1 << S3), //int  stages
+        SLOT_WEAPON, //int       slots;
+        "axe", //char      *weaponName;
+        "Axe", //char      *weaponHumanName;
+        0, //int       maxAmmo;
+        0, //int       maxClips;
+        qtrue, //int       infiniteAmmo;
+        qfalse, //int       usesEnergy;
+        AXE_REPEAT, //int       repeatRate1;
+        AXE_REPEAT, //int       repeatRate2;
+        0, //int       repeatRate3;
+        0, //int       reloadTime;
+        AXE_K_SCALE, //float     knockbackScale;
+        qtrue, //qboolean  hasAltMode;
+        qfalse, //qboolean  hasThirdMode;
+        qfalse, //qboolean  canZoom;
+        20.0f, //float     zoomFov;
+        qtrue, //qboolean  purchasable;
+        qtrue, //qboolean  longRanged;
+        0, //int       buildDelay;
+        WUT_HUMANS //WUTeam_t  team;
+    },
+    {
+        WP_PISTOL, //int       weaponNum;
+        PISTOL_PRICE, //int       price;
+        (1 << S1) | (1 << S2) | (1 << S3), //int  stages
+        SLOT_WEAPON, //int       slots;
+        "pistol", //char      *weaponName;
+        "Pistol", //char      *weaponHumanName;
+        0, //int       maxAmmo;
+        0, //int       maxClips;
+        qtrue, //int       infiniteAmmo;
+        qfalse, //int       usesEnergy;
+        PISTOL_REPEAT, //int       repeatRate1;
+        0, //int       repeatRate2;
+        0, //int       repeatRate3;
+        0, //int       reloadTime;
+        PISTOL_K_SCALE, //float     knockbackScale;
+        qfalse, //qboolean  hasAltMode;
+        qfalse, //qboolean  hasThirdMode;
+        qtrue, //qboolean  canZoom;
+        20.0f, //float     zoomFov;
+        qtrue, //qboolean  purchasable;
+        qfalse, //qboolean  longRanged;
+        0, //int       buildDelay;
+        WUT_HUMANS //WUTeam_t  team;
+    },
+    {
+        WP_ROCKET_LAUNCHER, //int       weaponNum;
+        ROCKET_LAUNCHER_PRICE, //int       price;
+        (1 << S1) | (1 << S2) | (1 << S3), //int  stages
+        SLOT_WEAPON, //int       slots;
+        "rocket_launcher", //char      *weaponName;
+        "Rocket Launcher", //char      *weaponHumanName;
+        ROCKET_LAUNCHER_AMMO, //int       maxAmmo;
+        0, //int       maxClips;
+        qfalse, //int       infiniteAmmo;
+        qfalse, //int       usesEnergy;
+        ROCKET_LAUNCHER_REPEAT, //int       repeatRate1;
+        0, //int       repeatRate2;
+        0, //int       repeatRate3;
+        0, //int       reloadTime;
+        ROCKET_LAUNCHER_K_SCALE, //float     knockbackScale;
+        qfalse, //qboolean  hasAltMode;
+        qfalse, //qboolean  hasThirdMode;
+        qtrue, //qboolean  canZoom;
+        20.0f, //float     zoomFov;
+        qtrue, //qboolean  purchasable;
+        qtrue, //qboolean  longRanged;
+        0, //int       buildDelay;
+        WUT_HUMANS //WUTeam_t  team;
+    },
+    { WP_LAUNCHER, //int       weaponNum;
+            LAUNCHER_PRICE, //int       price;
+            (1 << S1) | (1 << S2) | (1 << S3), //int  stages
+            SLOT_WEAPON, //int       slots;
+            "grenade_launcher", //char      *weaponName;
+            "Grenade Launcher", //char      *weaponHumanName;
+            LAUNCHER_AMMO, //int       maxAmmo;
+            LAUNCHER_MAXAMMO, //int       maxClips;
+            qfalse, //int       infiniteAmmo;
+            qfalse, //int       usesEnergy;
+            LAUNCHER_REPEAT, //int       repeatRate1;
+            LAUNCHER_REPEAT, //int       repeatRate2;
+            0, //int       repeatRate3;
+            LAUNCHER_RELOAD, //int       reloadTime;
+            LAUNCHER_K_SCALE, //float     knockbackScale;
+            qtrue, //qboolean  hasAltMode;
+            qfalse, //qboolean  hasThirdMode;
+            qfalse, //qboolean  canZoom;
+            90.0f, //float     zoomFov;
+            qtrue, //qboolean  purchasable;
+            qtrue, //qboolean  longRanged;
+            0, //int       buildDelay;
+            WUT_HUMANS //WUTeam_t  team;
+        }
 };
 
 int bg_numWeapons = sizeof(bg_weapons) / sizeof(bg_weapons[0]);
@@ -5163,15 +5241,16 @@ BG_EvaluateTrajectoryDelta(const trajectory_t *tr, int atTime, vec3_t result)
 char *eventnames[] =
 { "EV_NONE",
 
-"EV_FOOTSTEP", "EV_FOOTSTEP_METAL", "EV_FOOTSTEP_SQUELCH", "EV_FOOTSPLASH", "EV_FOOTWADE", "EV_SWIM",
+"EV_FOOTSTEP", "EV_FOOTSTEP_METAL", "EV_FOOTSTEP_SQUELCH", "EV_FOOTSPLASH", "EV_FOOTWADE",
+    "EV_SWIM",
 
-"EV_STEP_4", "EV_STEP_8", "EV_STEP_12", "EV_STEP_16",
+    "EV_STEP_4", "EV_STEP_8", "EV_STEP_12", "EV_STEP_16",
 
-"EV_STEPDN_4", "EV_STEPDN_8", "EV_STEPDN_12", "EV_STEPDN_16",
+    "EV_STEPDN_4", "EV_STEPDN_8", "EV_STEPDN_12", "EV_STEPDN_16",
 
-"EV_FALL_SHORT", "EV_FALL_MEDIUM", "EV_FALL_FAR", "EV_FALLING",
+    "EV_FALL_SHORT", "EV_FALL_MEDIUM", "EV_FALL_FAR", "EV_FALLING",
 
-"EV_JUMP", "EV_WATER_TOUCH", // foot touches
+    "EV_JUMP", "EV_WATER_TOUCH", // foot touches
     "EV_WATER_LEAVE", // foot leaves
     "EV_WATER_UNDER", // head touches
     "EV_WATER_CLEAR", // head leaves
@@ -5699,7 +5778,8 @@ BG_UpgradeIsActive(int item, int stats[])
  ===============
  */
 qboolean
-BG_RotateAxis(vec3_t surfNormal, vec3_t inAxis[3], vec3_t outAxis[3], qboolean inverse, qboolean ceiling)
+BG_RotateAxis(vec3_t surfNormal, vec3_t inAxis[3], vec3_t outAxis[3], qboolean inverse,
+  qboolean ceiling)
 {
   vec3_t refNormal =
   { 0.0f, 0.0f, 1.0f };
@@ -5751,8 +5831,10 @@ BG_RotateAxis(vec3_t surfNormal, vec3_t inAxis[3], vec3_t outAxis[3], qboolean i
  ===============
  */
 void
-BG_PositionBuildableRelativeToPlayer(const playerState_t *ps, const vec3_t mins, const vec3_t maxs, void
-(*trace)(trace_t *, const vec3_t, const vec3_t, const vec3_t, const vec3_t, int, int), vec3_t outOrigin, vec3_t outAngles, trace_t *tr)
+BG_PositionBuildableRelativeToPlayer(const playerState_t *ps, const vec3_t mins, const vec3_t maxs,
+  void
+  (*trace)(trace_t *, const vec3_t, const vec3_t, const vec3_t, const vec3_t, int, int),
+  vec3_t outOrigin, vec3_t outAngles, trace_t *tr)
 {
   vec3_t forward, entityOrigin, targetOrigin;
   vec3_t angles, playerOrigin, playerNormal;
@@ -5884,7 +5966,8 @@ atoi_neg(char *token, qboolean allowNegative)
  ===============
  */
 void
-BG_ParseCSVEquipmentList(const char *string, weapon_t *weapons, int weaponsSize, upgrade_t *upgrades, int upgradesSize)
+BG_ParseCSVEquipmentList(const char *string, weapon_t *weapons, int weaponsSize,
+  upgrade_t *upgrades, int upgradesSize)
 {
   char buffer[MAX_STRING_CHARS];
   int i = 0, j = 0;
@@ -6061,8 +6144,8 @@ BG_UpgradeClassAvailable(playerState_t *ps)
 
   for(i = PCL_NONE + 1;i < PCL_NUM_CLASSES;i++)
   {
-    if (BG_ClassCanEvolveFromTo(ps->stats[STAT_PCLASS], i, ps->persistant[PERS_CREDIT], 0) >= 0 && BG_FindStagesForClass(i, currentStage) && BG_ClassIsAllowed(
-        i))
+    if (BG_ClassCanEvolveFromTo(ps->stats[STAT_PCLASS], i, ps->persistant[PERS_CREDIT], 0) >= 0
+        && BG_FindStagesForClass(i, currentStage) && BG_ClassIsAllowed(i))
     {
       return qtrue;
     }
@@ -6093,7 +6176,9 @@ BG_InitAllowedGameElements(void)
 
   trap_Cvar_VariableStringBuffer("g_disabledEquipment", cvar, MAX_CVAR_VALUE_STRING);
 
-  BG_ParseCSVEquipmentList(cvar, bg_disabledGameElements.weapons, WP_NUM_WEAPONS, bg_disabledGameElements.upgrades, UP_NUM_UPGRADES);
+  BG_ParseCSVEquipmentList(
+    cvar, bg_disabledGameElements.weapons, WP_NUM_WEAPONS, bg_disabledGameElements.upgrades,
+    UP_NUM_UPGRADES);
 
   trap_Cvar_VariableStringBuffer("g_disabledClasses", cvar, MAX_CVAR_VALUE_STRING);
 

@@ -615,6 +615,7 @@ qboolean PlaneFromPoints( vec4_t plane, const vec3_t a, const vec3_t b, const ve
 void ProjectPointOnPlane( vec3_t dst, const vec3_t p, const vec3_t normal );
 void RotatePointAroundVector( vec3_t dst, const vec3_t dir, const vec3_t point, float degrees );
 void RotateAroundDirection( vec3_t axis[3], vec_t angle );
+void RotateAroundAxe( vec3_t axis[3], vec_t angle );
 void MakeNormalVectors( const vec3_t forward, vec3_t right, vec3_t up );
 // perpendicular vector could be replaced by this
 

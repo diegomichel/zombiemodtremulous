@@ -363,6 +363,56 @@ void RotateAroundDirection( vec3_t axis[3], vec_t angle ) {
 	CrossProduct( axis[ 0 ], axis[ 1 ], axis[ 2 ] );
 }
 
+void
+RotateAroundAxe(vec3_t axis[3], vec_t angle)
+{
+     // create an arbitrary axis[1]
+  vec3_t fagVector;
+
+     PerpendicularVector( axis[1], axis[0] );
+
+     // rotate it around axis[0] by yaw
+     if ( angle ) {
+       vec3_t  temp;
+
+       //VectorCopy( axis[1], temp );
+
+       VectorCopy( axis[1], temp);
+
+       RotatePointAroundVector( axis[1], axis[0], temp, angle );
+     }
+
+     // cross to get axis[2]
+     CrossProduct( axis[0], axis[1], axis[2] );
+
+
+//  vec_t scale;
+//
+//  angle = DEG2RAD( angle );
+//
+//
+//  //Sooooo 1 and 2 are all based on on 0...
+//  VectorClear(axis[1]);
+//  VectorClear(axis[2]);
+//
+//
+//  // create an arbitrary axis[1]
+//  PerpendicularVector( axis[ 1 ], axis[ 0 ] );
+//
+//  // cross to get axis[2]
+//  CrossProduct( axis[ 0 ], axis[ 1 ], axis[ 2 ] );
+//
+//  // rotate
+//  scale = cos( angle );
+//  VectorScale( axis[ 1 ], scale, axis[ 1 ] );
+//
+//  scale = sin( angle );
+//  VectorMA( axis[ 1 ], scale, axis[ 2 ], axis[ 1 ] );
+//
+//  // recalculate axis[2]
+//  CrossProduct( axis[ 0 ], axis[ 1 ], axis[ 2 ] );
+}
+
 
 
 void vectoangles( const vec3_t value1, vec3_t angles ) {

@@ -869,6 +869,8 @@ static void CG_RegisterGraphics( void )
   cgs.media.alienBleedPS              = CG_RegisterParticleSystem( "alienBleedPS" );
   cgs.media.humanBleedPS              = CG_RegisterParticleSystem( "humanBleedPS" );
 
+  cgs.media.laser          = trap_R_RegisterShader( "gfx/laser/laser" );
+
   // register the inline models
   cgs.numInlineModels = trap_CM_NumInlineModels( );
 
@@ -1866,6 +1868,8 @@ void CG_Init( int serverMessageNum, int serverCommandSequence, int clientNum )
   trap_S_ClearLoopingSounds( qtrue );
 
   trap_Cvar_Set( "ui_loading", "0" );
+
+  CG_Printf("^1Loading Zombie CGAME QVM\n");
 }
 
 /*

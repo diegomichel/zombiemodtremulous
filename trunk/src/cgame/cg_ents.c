@@ -487,6 +487,42 @@ CG_AI_Link(centity_t * cent)
 
 /*
  ===============
+ CG_AI_Link
+ ===============
+ */
+static void
+CG_Laser(centity_t * cent)
+{
+  refEntity_t beam;
+  entityState_t *s1;
+  vec3_t  origin, forward, up;
+
+
+  s1 = &cent->currentState;
+
+  memset(&beam, 0, sizeof(beam));
+
+  cent->trailTime = cg.time;
+
+  BG_EvaluateTrajectory( &s1->pos, cg.time, origin );
+
+  VectorCopy ( cg_entities[ cent->currentState.otherEntityNum ].lerpOrigin, beam.origin );
+  beam.origin[2] += 26;
+  AngleVectors( cg_entities[ cent->currentState.otherEntityNum ].lerpAngles, forward, NULL, up );
+  VectorMA( beam.origin, -6, up, beam.origin );
+  VectorCopy( origin, beam.oldorigin );
+
+
+  VectorCopy(s1->pos.trBase, beam.origin);
+  VectorCopy(s1->origin2, beam.oldorigin);
+
+  beam.reType = RT_LIGHTNING;
+  beam.customShader = cgs.media.laser; //If dont draw try others..
+  trap_R_AddRefEntityToScene(&beam);
+}
+
+/*
+ ===============
  CG_LaunchMissile
  ===============
  */
@@ -546,6 +582,7 @@ CG_Missile(centity_t *cent)
   weapon_t weapon;
   weaponMode_t weaponMode;
   const weaponInfoMode_t *wim;
+  vec3_t tempAngles;
 
   es = &cent->currentState;
 
@@ -607,10 +644,18 @@ CG_Missile(centity_t *cent)
     {
       AnglesToAxis(cent->lerpAngles, ent.axis);
     }
+    else if(weapon == WP_AXE)
+    {
+      RotateAroundDirection(ent.axis, -90);
+      //VectorClear(tempAngles);
+      //AnglesToAxis(tempAngles, ent.axis);
+      //RotateAroundAxe(ent.axis, cg.time / 4);
+    }
     else if (es->pos.trType != TR_STATIONARY)
       RotateAroundDirection(ent.axis, cg.time / 4);
     else
       RotateAroundDirection(ent.axis, es->time);
+
 
     if (wim->missileAnimates)
     {
@@ -1262,6 +1307,9 @@ CG_AddCEntity(centity_t *cent)
     case ET_AI_LINK:
       CG_AI_Link(cent);
       break;
+    case ET_LASER:
+     // CG_Laser(cent);
+    break;
   }
 }
 

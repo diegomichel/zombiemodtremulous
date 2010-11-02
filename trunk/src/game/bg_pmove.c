@@ -1235,13 +1235,13 @@ PM_WalkMove(void)
 
   //No friction to aliens if they are crouching prevent several problems like hard zones to get.
 
-//  if (pm->ps->stats[STAT_PTEAM] == PTE_ALIENS && (pm->ps->pm_flags & PMF_DUCKED))
-//  {
-//  }
-//  else
-//  {
-    PM_Friction();
-//  }
+  //  if (pm->ps->stats[STAT_PTEAM] == PTE_ALIENS && (pm->ps->pm_flags & PMF_DUCKED))
+  //  {
+  //  }
+  //  else
+  //  {
+  PM_Friction();
+  //  }
 
   fmove = pm->cmd.forwardmove;
   smove = pm->cmd.rightmove;
@@ -2713,7 +2713,9 @@ PM_TorsoAnimation(void)
 
   if (pm->ps->weaponstate == WEAPON_READY)
   {
-    if (pm->ps->weapon == WP_BLASTER || pm->ps->weapon == WP_PAIN_SAW)
+    if (pm->ps->weapon == WP_PAIN_SAW
+        || pm->ps->weapon == WP_AXE
+        || pm->ps->weapon == WP_PISTOL)
       PM_ContinueTorsoAnim(TORSO_STAND2);
     else
       PM_ContinueTorsoAnim(TORSO_STAND);
@@ -2824,7 +2826,8 @@ PM_Weapon(void)
 
     if (!(pm->ps->persistant[PERS_STATE] & PS_NONSEGMODEL))
     {
-      if (pm->ps->weapon == WP_BLASTER || pm->ps->weapon == WP_PAIN_SAW)
+      if (pm->ps->weapon == WP_PAIN_SAW || pm->ps->weapon == WP_AXE
+          || pm->ps->weapon == WP_PISTOL)
         PM_ContinueTorsoAnim(TORSO_STAND2);
       else
         PM_ContinueTorsoAnim(TORSO_STAND);
@@ -2973,19 +2976,6 @@ PM_Weapon(void)
       }
       break;
 
-    case WP_BLASTER:
-      attack2 = attack3 = qfalse;
-      attack1 = pm->cmd.buttons & BUTTON_ATTACK;
-      // attack2 is handled on the client for zooming (cg_view.c)
-
-      if (!attack1)
-      {
-        pm->ps->weaponTime = 0;
-        pm->ps->weaponstate = WEAPON_READY;
-        return;
-      }
-      break;
-
     case WP_LAS_GUN:
       attack2 = attack3 = qfalse;
       attack1 = pm->cmd.buttons & BUTTON_ATTACK;
@@ -3062,6 +3052,19 @@ PM_Weapon(void)
       }
       break;
 
+    case WP_ROCKET_LAUNCHER:
+      attack2 = attack3 = qfalse;
+      attack1 = pm->cmd.buttons & BUTTON_ATTACK;
+      // attack2 is handled on the client for zooming (cg_view.c)
+
+      if (!attack1)
+      {
+        pm->ps->weaponTime = 0;
+        pm->ps->weaponstate = WEAPON_READY;
+        return;
+      }
+      break;
+
       /*case WP_ALEVEL0:
        attack2 = attack3 = qfalse;
        attack1 = pm->cmd.buttons & BUTTON_ATTACK;
@@ -3074,6 +3077,33 @@ PM_Weapon(void)
        return;
        }
        break;*/
+
+      //NEW WEAPONS
+    case WP_PISTOL:
+      attack2 = attack3 = qfalse;
+      attack1 = pm->cmd.buttons & BUTTON_ATTACK;
+      // attack2 is handled on the client for zooming (cg_view.c)
+
+      if (!attack1)
+      {
+        pm->ps->weaponTime = 0;
+        pm->ps->weaponstate = WEAPON_READY;
+        return;
+      }
+      break;
+
+    case WP_AXE:
+      attack1 = pm->cmd.buttons & BUTTON_ATTACK;
+      attack2 = pm->cmd.buttons & BUTTON_ATTACK2;
+      // attack2 is handled on the client for zooming (cg_view.c)
+
+      if (!attack1 && !attack2)
+      {
+        pm->ps->weaponTime = 0;
+        pm->ps->weaponstate = WEAPON_READY;
+        return;
+      }
+      break;
 
     default:
       //by default primary and secondary attacks are allowed
@@ -3179,13 +3209,17 @@ PM_Weapon(void)
         }
         break;
 
-      case WP_BLASTER:
+      case WP_PISTOL:
         PM_StartTorsoAnim(TORSO_ATTACK2);
         break;
 
       case WP_PAIN_SAW:
         PM_StartTorsoAnim(TORSO_ATTACK2);
-      break;
+        break;
+
+      case WP_AXE:
+        PM_StartTorsoAnim(TORSO_RAISE);
+        break;
 
       default:
         PM_StartTorsoAnim(TORSO_ATTACK);

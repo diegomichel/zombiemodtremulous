@@ -24,8 +24,8 @@
 #include "g_local.h"
 #include "acebot.h"
 
-#define QVM_NAME       "Lakitu7's QVM"
-#define QVM_VERSIONNUM      "5.5"
+#define QVM_NAME       "Zombie QVM"
+#define QVM_VERSIONNUM      "1.0"
 
 level_locals_t level;
 

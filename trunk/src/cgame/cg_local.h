@@ -1267,6 +1267,8 @@ typedef struct
 
   qhandle_t   buildWeaponTimerPie[ 8 ];
   qhandle_t   upgradeClassIconShader;
+
+  qhandle_t   laser;
 } cgMedia_t;
 
 

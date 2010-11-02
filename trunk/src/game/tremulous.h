@@ -380,13 +380,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define SHOTGUN_SPREAD              200
 #define SHOTGUN_DMG                 HDM(7)
 
-#define LASGUN_PRICE                250
-#define LASGUN_AMMO                 200
-#define LASGUN_REPEAT               200
-#define LASGUN_K_SCALE              2.0f
-#define LASGUN_RELOAD               2000
-#define LASGUN_DAMAGE               HDM(9)
-
 #define MDRIVER_PRICE               350
 #define MDRIVER_CLIPSIZE            5
 #define MDRIVER_MAXCLIPS            4
@@ -650,3 +643,36 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define BLOCKSIZE                   100
 
 #define ZOMBIE_RANGE                256.0f
+
+//New Weapons
+#define AXE_PRICE               100
+#define AXE_REPEAT              600
+#define AXE_K_SCALE             5.0f
+#define AXE_DAMAGE              HDM(100)
+#define AXE_RANGE               40.0f
+#define AXE_WIDTH               16.0f
+#define AXE_SPEED               400
+
+#define PISTOL_PRICE               100
+#define PISTOL_REPEAT              600
+#define PISTOL_K_SCALE             5.0f
+#define PISTOL_DAMAGE              HDM(100)
+#define PISTOL_RANGE               40.0f
+#define PISTOL_WIDTH               16.0f
+
+#define LASGUN_PRICE                250
+#define LASGUN_AMMO                 999
+#define LASGUN_REPEAT               10
+#define LASGUN_K_SCALE              2.0f
+#define LASGUN_RELOAD               2000
+#define LASGUN_DAMAGE               HDM(9)
+#define LASGUN_RANGE                 768
+
+#define ROCKET_LAUNCHER_PRICE               100
+#define ROCKET_LAUNCHER_REPEAT              600
+#define ROCKET_LAUNCHER_AMMO                         50
+#define ROCKET_LAUNCHER_K_SCALE             5.0f
+#define ROCKET_LAUNCHER_DAMAGE              HDM(100)
+#define ROCKET_LAUNCHER_RANGE               40.0f
+#define ROCKET_LAUNCHER_WIDTH               16.0f
+#define ROCKET_LAUNCHER_SPEED               400

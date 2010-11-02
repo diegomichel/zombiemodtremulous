@@ -1350,7 +1350,11 @@ launch_grenade_primary(gentity_t *self, vec3_t start, vec3_t dir);
 gentity_t *
 plant_mine(gentity_t *self, vec3_t start, vec3_t dir);
 
+gentity_t * fire_axe(gentity_t *self, vec3_t start, vec3_t dir);
+
 void massDriverFire2( gentity_t *ent );
+
+gentity_t      *fire_rocket(gentity_t * self, vec3_t start, vec3_t dir);
 
 
 //

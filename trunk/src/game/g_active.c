@@ -728,7 +728,7 @@ ClientTimerActions(gentity_t *ent, int msec)
             client->ps.stats[STAT_BUILDABLE] &= ~SB_VALID_TOGGLEBIT;
         }
 
-      case WP_BLASTER:
+      case WP_PISTOL:
         //update build timer
         if (client->ps.stats[STAT_MISC] > 0)
           client->ps.stats[STAT_MISC] -= 100;
