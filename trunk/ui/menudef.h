@@ -266,6 +266,8 @@
 #define CG_SILVERMEDAL 273
 #define CG_BRONZEMEDAL 274
 
+#define CG_EXTRAMEDIKIT 275
+
 #define CG_CONSOLE                91
 #define CG_TUTORIAL               119
 

@@ -377,7 +377,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define SHOTGUN_REPEAT              1000
 #define SHOTGUN_K_SCALE             1.0f
 #define SHOTGUN_RELOAD              2000
-#define SHOTGUN_SPREAD              900
+#define SHOTGUN_SPREAD              200
 #define SHOTGUN_DMG                 HDM(7)
 
 #define LASGUN_PRICE                250
@@ -399,7 +399,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define CHAINGUN_BULLETS            300
 #define CHAINGUN_REPEAT             80
 #define CHAINGUN_K_SCALE            1.0f
-#define CHAINGUN_SPREAD             1000
+#define CHAINGUN_SPREAD             200
 #define CHAINGUN_DMG                HDM(6)
 
 #define PRIFLE_PRICE                400
@@ -437,12 +437,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define LCANNON_MIN_CHARGE          50
 
 #define HBUILD_PRICE                0
-#define HBUILD_REPEAT               300
+#define HBUILD_REPEAT               2000
 #define HBUILD_DELAY                5500
-#define HBUILD_HEALRATE             18
+#define HBUILD_HEALRATE             38
 
 #define HBUILD2_PRICE               0
-#define HBUILD2_REPEAT              300
+#define HBUILD2_REPEAT              1000
 #define HBUILD2_DELAY               4500
 
 

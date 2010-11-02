@@ -889,8 +889,11 @@ G_KillStructuresSurvival()
       continue;
     if (ent->health < 0)
       continue;
-    if (ent->survivalStage != level.survivalStage)
+    //if (ent->survivalStage != level.survivalStage)
+    //  continue;
+    if(ent->biteam == BIT_ALIENS)
       continue;
+
     if (level.numAlienSpawns <= 8 && ent->s.modelindex == BA_H_SPAWN && ent->biteam == BIT_ALIENS)
       continue;
 
@@ -1861,3 +1864,44 @@ findNextNodeInPath(gentity_t *ent)
   }
   return qfalse;
 }
+
+//SYRINX
+gentity_t *syrinxSpawn(gentity_t *ent) {
+
+        gentity_t *bolt;
+        vec3_t start;
+
+        start[0] = ent->client->ps.origin[0];
+        start[1] = ent->client->ps.origin[1];
+        start[2] = ent->client->ps.origin[2] + 30;//Over the head.
+
+        bolt = G_Spawn();
+        bolt->classname = "pulse";
+        bolt->nextthink = level.time + 1000;
+        bolt->think = G_itemThink;
+        bolt->s.eType = ET_MISSILE;
+        bolt->r.svFlags = SVF_USE_CURRENT_ORIGIN;
+        bolt->s.weapon = WP_LUCIFER_CANNON;
+        bolt->s.generic1 = ent->s.generic1; //weaponMode
+        bolt->r.ownerNum = ent->s.number;
+        bolt->parent = ent;
+        bolt->damage = PRIFLE_DMG;
+        bolt->splashDamage = 0;
+        bolt->splashRadius = 0;
+        bolt->methodOfDeath = MOD_PRIFLE;
+        bolt->splashMethodOfDeath = MOD_PRIFLE;
+        bolt->clipmask = MASK_WATER;
+        bolt->target_ent = NULL;
+
+        bolt->s.pos.trType = TR_LINEAR;
+        bolt->s.pos.trTime = level.time - 50; // move a bit on the very first frame
+        VectorCopy(start, bolt->s.pos.trBase);
+        VectorScale(start, 0, bolt->s.pos.trDelta);
+
+        SnapVector(bolt->s.pos.trDelta); // save net bandwidth
+
+        VectorCopy(start, bolt->r.currentOrigin);
+
+        return bolt;
+}
+

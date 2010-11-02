@@ -268,7 +268,8 @@ typedef enum {
   PERS_CREDIT, // human credit
   PERS_BANK, // human credit in the bank
   PERS_QUEUEPOS, // position in the spawn queue
-  PERS_NEWWEAPON // weapon to switch to
+  PERS_NEWWEAPON, // weapon to switch to
+  PERS_HEALTH //Player Health
 } persEnum_t;
 
 #define PS_WALLCLIMBINGFOLLOW   0x00000001
@@ -382,8 +383,8 @@ typedef enum {
   UP_HELMET,
   UP_MEDKIT,
   UP_BATTPACK,
-  UP_JETPACK,
-  UP_BATTLESUIT,
+  /*UP_JETPACK,
+  UP_BATTLESUIT,*/
   UP_GRENADE,
   //UP_BOMB,
 
@@ -436,6 +437,19 @@ typedef enum {
 
   BA_H_REACTOR,
   BA_H_REPEATER,
+
+
+  BA_I_SYRINX,
+  BA_I_MACHINEGUN,
+  BA_I_SHOTGUN,
+  BA_I_LASGUN,
+  BA_I_MDRIVER,
+  BA_I_PULSERIFLE,
+  BA_I_CHAINGUN,
+  BA_I_FLAMER,
+  BA_I_LCANNON,
+  BA_I_PSAW,
+
 
   BA_NUM_BUILDABLES
 } buildable_t;

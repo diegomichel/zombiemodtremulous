@@ -2503,6 +2503,11 @@ G_admin_layoutsave(gentity_t *ent, int skiparg)
 {
   char layout[MAX_QPATH];
 
+  if(g_survival.integer)
+  {
+    ADMP("^3!layoutsave: Cannot Save Layout in Survival Mode.\n");
+        return qfalse;
+  }
   if (G_SayArgc() < 2 + skiparg)
   {
     ADMP("^3!layoutsave: ^7usage: !layoutsave [layout]\n");

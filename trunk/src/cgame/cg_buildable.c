@@ -147,8 +147,8 @@ static void CG_Creep( centity_t *cent )
   {
     if( cent->currentState.modelindex2 == BIT_HUMANS )
         {
-          if( size > 0.0f && tr.fraction < 1.0f )
-                  CG_ImpactMark( cgs.media.humancreepShader, origin, cent->currentState.origin2, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, qfalse, size, qtrue );
+//          if( size > 0.0f && tr.fraction < 1.0f )
+//                  CG_ImpactMark( cgs.media.humancreepShader, origin, cent->currentState.origin2, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, qfalse, size, qtrue );
         }
         if( cent->currentState.modelindex2 == BIT_ALIENS)
         {

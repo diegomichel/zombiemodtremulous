@@ -133,6 +133,19 @@
       background "ui/assets/human/bronzemedal.tga"
     }
     
+    //Draw Extramedikits
+    itemDef
+    {
+      name "extramedikits"
+      rect 596 153 25 24
+      style WINDOW_STYLE_EMPTY
+      visible 1
+      decoration
+      forecolor 1 1 1 0.5
+      ownerdraw CG_EXTRAMEDIKIT
+      background "ui/assets/human/extramedkit.tga"
+    }   
+    
     
     //itemDef
     //{

@@ -710,6 +710,8 @@ typedef struct {
   int frameMsec; // trap_Milliseconds() at end frame
 
   int startTime; // level.time the map was started
+  int spawnedItems;
+  int spawnedCorpes;
   
   int survivalRecords[3];
   
@@ -1657,3 +1659,10 @@ qboolean pointBehindWall(gentity_t *ent, vec3_t point);
 gentity_t *drawRedBall(gentity_t *ent, int x, int y );
 //g_bot.c
 void	selectBetterWay(gentity_t * self);
+//Syrinx
+gentity_t *syrinxSpawn(gentity_t *ent);
+
+//g_item.c
+void G_itemThink(gentity_t *ent);
+void G_itemUse(gentity_t *self, gentity_t *other, gentity_t *activator);
+gentity_t *spawnItem(gentity_t *ent, buildable_t itemtype);
