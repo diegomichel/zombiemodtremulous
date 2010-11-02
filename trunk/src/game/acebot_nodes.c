@@ -111,6 +111,7 @@ ACEND_FindClosestReachableNode(gentity_t * self, float range, int type)
   float closest = 99999;
   float dist;
   int node = INVALID;
+  int nextTempNode;
   vec3_t v;
   trace_t tr;
   //float           rng;
@@ -126,6 +127,11 @@ ACEND_FindClosestReachableNode(gentity_t * self, float range, int type)
   maxs[1] = 10;
   maxs[2] = 27;
 
+  if (self->client->ps.pm_flags & PMF_DUCKED)
+  {
+    maxs[2] = 15;
+  }
+
   mins[2] += STEPSIZE;
 
   //  rng = (float)(range * range);   // square range for distance comparison (eliminate sqrt)
@@ -133,7 +139,9 @@ ACEND_FindClosestReachableNode(gentity_t * self, float range, int type)
   {
 
     if (ACEND_nodeInUse(self->bs.currentNode))
+    {
       continue;
+    }
 
     if (type == NODE_ALL || type == nodes[i].type) // check node type
     {
@@ -223,6 +231,12 @@ ACEND_FollowPath(gentity_t * self)
       //self->bs.nextNode = path_table[self->bs.currentNode][self->bs.goalNode];
     }
   }
+  else if(nodes[self->bs.nextNode].type == NODE_JUMP
+      && nodes[self->bs.lastNode].type == NODE_JUMP
+          && nodes[self->bs.currentNode].type == NODE_JUMP)
+  {
+    G_Printf("BEEEEEEPTTTTT \n");
+  }
 
   if (self->bs.currentNode == INVALID || self->bs.nextNode == INVALID)
     return qfalse;
@@ -231,6 +245,62 @@ ACEND_FollowPath(gentity_t * self)
   VectorSubtract(nodes[self->bs.nextNode].origin, self->client->ps.origin, self->bs.moveVector);
 
   return qtrue;
+}
+qboolean
+ACEND_CheckForDucking(gentity_t *self)
+{
+  vec3_t crouchingMaxs;
+  trace_t trace;
+  int closestNode;
+
+  if (self->s.groundEntityNum == ENTITYNUM_NONE)
+  {
+    return qfalse;
+  }
+
+  VectorSet(crouchingMaxs, 16, 16, 32);
+  if ((self->client->ps.pm_flags & PMF_DUCKED))
+  {
+    // try to stand up
+    trap_Trace(&trace, self->s.origin, self->r.mins, crouchingMaxs, self->s.origin, self->s.clientNum, MASK_SOLID);
+    if (!trace.allsolid)
+    {
+      return qtrue;
+    }
+    else
+    {
+      closestNode = ACEND_FindClosestReachableNode(self, NODE_DENSITY, NODE_DUCK);
+      if (closestNode != INVALID)
+      {
+        if (closestNode != self->bs.lastNode && self->bs.lastNode != INVALID)
+        {
+          ACEND_UpdateNodeEdge(self->bs.lastNode, closestNode, self);
+          if (ace_showLinks.integer)
+            ACEND_DrawPath(self->bs.lastNode, closestNode);
+        }
+
+        self->bs.lastNode = closestNode; // set visited to last
+      }
+      else if (closestNode == INVALID)
+      {
+        closestNode = ACEND_AddNode(self, NODE_DUCK);
+        // now add link
+        if (self->bs.lastNode != INVALID)
+        {
+          ACEND_UpdateNodeEdge(self->bs.lastNode, closestNode, self);
+
+          if (ace_showLinks.integer)
+            ACEND_DrawPath(self->bs.lastNode, closestNode);
+        }
+        self->bs.lastNode = closestNode; // set visited to last
+      }
+      return qtrue;
+    }
+  }
+  else
+  {
+    return qfalse;
+  }
 }
 
 qboolean
@@ -299,8 +369,8 @@ ACEND_PathMap(gentity_t * self)
   currentNodeType = nodes[self->bs.currentNode].type;
   nextNodeType = nodes[self->bs.nextNode].type;
 
-  if (!g_survival.integer)
-    return;
+  /*if (!g_survival.integer)
+    return;*/
 
   if ((self->r.svFlags & SVF_BOT))
   {
@@ -318,34 +388,45 @@ ACEND_PathMap(gentity_t * self)
   {
     return;
   }
+  ////////////////////////////////////////////////////////////////////////////
+  // DUCKING
+  ////////////////////////////////////////////////////////////////////////////
+  if (ACEND_CheckForDucking(self))
+  {
+    return;
+  }
 
   ////////////////////////////////////////////////////////
   // JUMPING
   ///////////////////////////////////////////////////////
-  if (self->s.groundEntityNum == ENTITYNUM_NONE
-  //&& (self->client->ps.pm_flags & PMF_JUMP_HELD)
-      && (self->client->pers.cmd.upmove >= 1) && !self->waterlevel && !(self->r.svFlags & SVF_BOT))
-  {
-    // See if there is a closeby jump landing node (prevent adding too many)
-    closestNode = ACEND_FindClosestReachableNode(self, 64, NODE_JUMP);
+  //New better function.
 
+  if(self->s.groundEntityNum == ENTITYNUM_NONE)
+  {
+    trap_SendServerCommand(self - g_entities, va("print \"TrDelta: %f __ Velocity: %f\n\"",
+        self->s.pos.trDelta[2],
+        VectorLength(self->client->ps.velocity)));
+  }
+
+  if (self->bs.isJumping && self->s.groundEntityNum != ENTITYNUM_NONE)
+  {
+    self->bs.isJumping = qfalse;
+    closestNode = ACEND_FindClosestReachableNode(self, 32, NODE_JUMP);
     if (closestNode != INVALID)
     {
-      // add automatically some links between nodes
       if (closestNode != self->bs.lastNode && self->bs.lastNode != INVALID)
       {
         ACEND_UpdateNodeEdge(self->bs.lastNode, closestNode, self);
         if (ace_showLinks.integer)
+        {
           ACEND_DrawPath(self->bs.lastNode, closestNode);
+        }
       }
-
-      self->bs.lastNode = closestNode; // set visited to last
+      self->bs.lastNode = closestNode;
     }
     else if (closestNode == INVALID)
     {
       closestNode = ACEND_AddNode(self, NODE_JUMP);
-
-      // now add link
       if (self->bs.lastNode != INVALID)
       {
         ACEND_UpdateNodeEdge(self->bs.lastNode, closestNode, self);
@@ -353,11 +434,81 @@ ACEND_PathMap(gentity_t * self)
         if (ace_showLinks.integer)
           ACEND_DrawPath(self->bs.lastNode, closestNode);
       }
-
       self->bs.lastNode = closestNode; // set visited to last
     }
     return;
   }
+
+  if ((self->client->ps.pm_flags & PMF_JUMP_HELD)
+      && self->s.groundEntityNum == ENTITYNUM_NONE
+      && !self->bs.isJumping)
+  {
+    closestNode = ACEND_FindClosestReachableNode(self, NODE_DENSITY, NODE_JUMP);
+
+    self->bs.isJumping = qtrue;
+
+    if (closestNode != INVALID)
+    {
+      if (closestNode != self->bs.lastNode && self->bs.lastNode != INVALID)
+      {
+        ACEND_UpdateNodeEdge(self->bs.lastNode, closestNode, self);
+        if (ace_showLinks.integer)
+        {
+          ACEND_DrawPath(self->bs.lastNode, closestNode);
+        }
+      }
+      self->bs.lastNode = closestNode;
+    }
+    else if (closestNode == INVALID)
+    {
+      closestNode = ACEND_AddNode(self, NODE_JUMP);
+      if (self->bs.lastNode != INVALID)
+      {
+        ACEND_UpdateNodeEdge(self->bs.lastNode, closestNode, self);
+
+        if (ace_showLinks.integer)
+          ACEND_DrawPath(self->bs.lastNode, closestNode);
+      }
+      self->bs.lastNode = closestNode; // set visited to last
+    }
+    return;
+  }
+  //  if (self->s.groundEntityNum == ENTITYNUM_NONE
+  //  //&& (self->client->ps.pm_flags & PMF_JUMP_HELD)
+  //      && (self->client->pers.cmd.upmove >= 1) && !self->waterlevel && !(self->r.svFlags & SVF_BOT))
+  //  {
+  //    // See if there is a closeby jump landing node (prevent adding too many)
+  //    closestNode = ACEND_FindClosestReachableNode(self, 64, NODE_JUMP);
+  //
+  //    if (closestNode != INVALID)
+  //    {
+  //      // add automatically some links between nodes
+  //      if (closestNode != self->bs.lastNode && self->bs.lastNode != INVALID)
+  //      {
+  //        ACEND_UpdateNodeEdge(self->bs.lastNode, closestNode, self);
+  //        if (ace_showLinks.integer)
+  //          ACEND_DrawPath(self->bs.lastNode, closestNode);
+  //      }
+  //
+  //      self->bs.lastNode = closestNode; // set visited to last
+  //    }
+  //    else if (closestNode == INVALID)
+  //    {
+  //      closestNode = ACEND_AddNode(self, NODE_JUMP);
+  //
+  //      // now add link
+  //      if (self->bs.lastNode != INVALID)
+  //      {
+  //        ACEND_UpdateNodeEdge(self->bs.lastNode, closestNode, self);
+  //
+  //        if (ace_showLinks.integer)
+  //          ACEND_DrawPath(self->bs.lastNode, closestNode);
+  //      }
+  //
+  //      self->bs.lastNode = closestNode; // set visited to last
+  //    }
+  //    return;
+  //  }
 
   ////////////////////////////////////////////////////////
   // FLYING
@@ -649,7 +800,7 @@ ACEND_UpdateNodeEdge(int from, int to, gentity_t *self)
     }
   }
   if ((self->r.svFlags & SVF_BOT)
-      && (nodes[from].type == NODE_JUMP || nodes[from].type == NODE_JUMP))
+      && (nodes[from].type == NODE_JUMP || nodes[from].type == NODE_JUMP || nodes[from].type == NODE_DUCK))
   {
     return;
   }
@@ -836,10 +987,7 @@ ACEND_nodeInUse(int node)
   }
   if (bot)
   {
-    if ((bot->r.svFlags & SVF_BOT)
-        && bot->health > 0
-        && bot->client
-        && bot->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
+    if ((bot->r.svFlags & SVF_BOT) && bot->health > 0 && bot->client && bot->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
     {
       return qtrue;
     }

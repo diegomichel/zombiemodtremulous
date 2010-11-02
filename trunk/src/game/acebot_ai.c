@@ -107,11 +107,6 @@ ACEAI_Think(gentity_t * self)
   self->enemy = NULL;
   self->bs.moveTarget = NULL;
 
-  // do this to avoid a time out
-  //ACEAI_CheckServerCommands(self);
-
-  //ACEAI_CheckSnapshotEntities(self);
-
   // force respawn
   if (self->health <= 0)
   {
@@ -125,62 +120,22 @@ ACEAI_Think(gentity_t * self)
     ACEAI_PickLongRangeGoal(self);
   }
 
-#if 0
-  // kill the bot if completely stuck somewhere
-  if(VectorLength(self->client->ps.velocity) > 37) //
-  self->bs.suicide_timeout = level.time + 10000;
-
-  if(self->bs.suicide_timeout < level.time)
+  if (self->bs.state == STATE_WANDER)
   {
-    self->client->ps.stats[STAT_HEALTH] = self->health = -999;
-    player_die(self, self, self, 100000, MOD_SUICIDE);
+    if (director_debug.integer)
+    {
+      G_Printf("Wandering\n");
+    }
+    ACEMV_Wander(self);
   }
-#endif
-
-  //find any short range goal.
-  //Redone this later to chase enemys that are to close.
-  //ACEAI_PickShortRangeGoal(self);
-
-  // look for enemies
-//  if (ACEAI_FindEnemy(self))
-//  {
-//    G_Printf("Found enemy\n");
-//    ACEAI_ChooseWeapon(self);
-//    ACEMV_Attack(self);
-//  }
-//  else
-//  {
-    // execute the move, or wander
-    if (self->bs.state == STATE_WANDER)
+  else if (self->bs.state == STATE_MOVE)
+  {
+    if (director_debug.integer)
     {
-      ACEMV_Wander(self);
+      G_Printf("ACEMV_Move\n");
     }
-    else if (self->bs.state == STATE_MOVE)
-    {
-      ACEMV_Move(self);
-    }
-//  }
-
-  //#if 0
-  //  if(ace_debug.integer)
-  //  trap_SendServerCommand(-1, va("print \"%s: state %dl!\n\"", self->client->pers.netname, self->bs.state));
-  //#endif
-
-  // set approximate ping
-  //  if (!g_synchronousClients.integer)
-  //    self->client->pers.cmd.serverTime = level.time - (10 + floor(random() * 25) + 1);
-  //  else
-  //    self->client->ps.commandTime = level.time;
-
-  // show random ping values in scoreboard
-  //self->client->ping = ucmd.msec;
-
-  // copy the state that the cgame is currently sending
-  //cmd->weapon = cl.cgameUserCmdValue;
-
-  // send the current server time so the amount of movement
-  // can be determined without allowing cheating
-  //cmd->serverTime = cl.serverTime;
+    ACEMV_Move(self);
+  }
 
   for(i = 0;i < 3;i++)
   {

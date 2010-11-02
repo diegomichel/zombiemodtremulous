@@ -97,6 +97,8 @@ typedef enum
 typedef struct
 {
   qboolean isJumping;
+  qboolean isLongJumping;
+  qboolean isCrouchJumping;
   qboolean isUsingLadder;
 
   // for movement
@@ -1025,6 +1027,11 @@ qboolean
 botShootIfTargetInRange(gentity_t *self, gentity_t *target);
 void
 botWalk(gentity_t *self, int speed);
+void
+botCrouch(gentity_t *self);
+void
+botJump(gentity_t *self, int speed);
+
 //
 // g_cmds.c
 //
