@@ -1,6 +1,6 @@
 code
 proc ACESP_ParseInfos 0 0
-CNSTI4 0
+CNSTI4 -1
 RETI4
 LABELV $85
 endproc ACESP_ParseInfos 0 0

@@ -96,8 +96,6 @@ spawnItem(gentity_t *ent, buildable_t itemtype)
   vec3_t normal;
   vec3_t origin;
 
-  G_LogPrintf("Spwning an item\n");
-
   VectorCopy(ent->s.origin, origin);
 
   origin[2] += 40;

@@ -778,17 +778,15 @@ ClientTimerActions(gentity_t *ent, int msec)
         //VectorSet(ent->client->ps.delta_angles, 0, 0, 0);
       }
     }
-    //FIXME: Uncomment for production
-    /*if(ent->botCommand == BOT_FOLLOW_PATH
-     && (ent->botEnemy->health <= 0
-     || ent->botEnemy->client->sess.sessionTeam == TEAM_SPECTATOR
-     || ent->botEnemy->client->ps.stats[STAT_HEALTH] <= 0 ))
-     {
-     ent->botEnemy = NULL;
-     ent->botCommand = BOT_REGULAR;
-     memset(&ent->client->pers.cmd, 0, sizeof(ent->client->pers.cmd));
-     VectorSet(ent->client->ps.delta_angles, 0, 0, 0);
-     }*/
+
+    if (ent->botCommand == BOT_FOLLOW_PATH && (ent->botEnemy->health <= 0 || ent->botEnemy->client->sess.sessionTeam == TEAM_SPECTATOR
+        || ent->botEnemy->client->ps.stats[STAT_HEALTH] <= 0))
+    {
+      ent->botEnemy = NULL;
+      ent->botCommand = BOT_REGULAR;
+      memset(&ent->client->pers.cmd, 0, sizeof(ent->client->pers.cmd));
+      VectorSet(ent->client->ps.delta_angles, 0, 0, 0);
+    }
 
     if (g_survival.integer && (ent->client->ps.stats[STAT_PTEAM] == PTE_HUMANS))
     {
@@ -804,44 +802,15 @@ ClientTimerActions(gentity_t *ent, int msec)
        ent->health = ent->client->ps.stats[STAT_HEALTH] -= 1;
        }
        }*/
-
-      if (level.slowdownTime > level.time)
-      {
-        secToSpawn = (level.slowdownTime - level.time) / 1000;
-        if (secToSpawn == 0)
-        {
-          for(i = 1, ent2 = g_entities + i;i < level.num_entities;i++, ent2++)
-          {
-            if (ent2->s.eType != ET_BUILDABLE)
-              continue;
-            if (ent2->health < 0)
-              continue;
-            if (ent2->biteam != BIT_HUMANS)
-              continue;
-
-            level.survivalStage = ent2->survivalStage;
-            level.slowdownTime = level.time;
-            break;
-          }
-          trap_SendServerCommand(ent - g_entities, "cp \"^1Cover\n\"");
-        }
-        else
-        {
-          if (secToSpawn < 13) //Give some time to the other message to show up.
-          {
-            trap_SendServerCommand(ent - g_entities, va("cp \"^1Next wave in\n%d\n\"", secToSpawn));
-          }
-        }
-      }
     }
 
     //Forget the sob
     if (ent->r.svFlags & SVF_BOT)
     {
-      /*if (!g_survival.integer) //FIXME: Uncomment in production?
-       {
-       ent->botEnemy = NULL;
-       }*/
+      if (!g_survival.integer)
+      {
+        ent->botEnemy = NULL;
+      }
     }
 
     //client is poison clouded
@@ -1719,7 +1688,8 @@ ClientThink_real(gentity_t *ent)
   ClientImpacts(ent, &pm);
 
 #if defined(ACEBOT)
-  ACEND_PathMap(ent);
+  //FIXME: PRODUCTION
+  //ACEND_PathMap(ent);
 #endif
 
   // execute client events

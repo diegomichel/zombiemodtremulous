@@ -589,6 +589,7 @@ gentity_t *launch_grenade(gentity_t *self, vec3_t start, vec3_t dir) {
 }
 
 gentity_t *launch_bomb(gentity_t *self, vec3_t start, vec3_t dir) {
+  return NULL;
   /* gentity_t *bolt;
 
    VectorNormalize( dir );

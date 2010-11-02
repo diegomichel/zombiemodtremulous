@@ -140,7 +140,7 @@ void            ACEND_GrapFired(gentity_t * self);
 qboolean        ACEND_CheckForLadder(gentity_t * self);
 void            ACEND_PathMap(gentity_t * self);
 void            ACEND_InitNodes(void);
-void            ACEND_ShowNode(int node);
+void            ACEND_ShowNode(int node, int type);
 void            ACEND_DrawPath(int currentNode, int goalNode);
 void            ACEND_ShowPath(gentity_t * self, int goalNode);
 int             ACEND_AddNode(gentity_t * self, int type);

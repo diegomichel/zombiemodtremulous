@@ -458,11 +458,6 @@ ADDRFP4 4
 ADDRFP4 4
 INDIRI4
 ASGNI4
-ADDRGP4 $117
-ARGP4
-ADDRGP4 G_LogPrintf
-CALLV
-pop
 ADDRLP4 16
 ADDRFP4 0
 INDIRP4
@@ -1663,23 +1658,3 @@ import strlen
 import rand
 import srand
 import qsort
-lit
-align 1
-LABELV $117
-byte 1 83
-byte 1 112
-byte 1 119
-byte 1 110
-byte 1 105
-byte 1 110
-byte 1 103
-byte 1 32
-byte 1 97
-byte 1 110
-byte 1 32
-byte 1 105
-byte 1 116
-byte 1 101
-byte 1 109
-byte 1 10
-byte 1 0

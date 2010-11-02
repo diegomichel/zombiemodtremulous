@@ -145,15 +145,14 @@ void TeamplayInfoMessage(gentity_t *ent) {
   int i, j;
   gentity_t *player;
   int cnt;
-  int h, a = 0;
+  int h;
   int clients[ TEAM_MAXOVERLAY ];
 
   if (!ent->client->pers.teamInfo)
     return;
+  if(ent->r.svFlags & SVF_BOT)
+    return;
 
-  // figure out what client should be on the display
-  // we are limited to 8, but we want to use the top eight players
-  // but in client order (so they don't keep changing position on the overlay)
   for (i = 0, cnt = 0; i < g_maxclients.integer && cnt < TEAM_MAXOVERLAY; i++) {
     player = g_entities + level.sortedClients[ i ];
 
@@ -180,9 +179,9 @@ void TeamplayInfoMessage(gentity_t *ent) {
         h = 0;
 
       Com_sprintf(entry, sizeof ( entry),
-              " %i %i %i %i %i %i",
-              //        level.sortedClients[i], player->client->pers.teamState.location, h, a,
-              i, player->client->pers.teamState.location, h, a,
+              " %i %i %i %i",
+              //        level.sortedClients[i], h, a,
+              i, h,
               player->client->ps.weapon, player->s.powerups);
 
       j = strlen(entry);

@@ -171,7 +171,7 @@ ACEND_SetGoal(gentity_t * self, int goalNode)
     return;
 
   if (ace_debug.integer)
-    trap_SendServerCommand(-1, va("print \"%s: new start node selected %d\n\"", self->client->pers.netname, node));
+    G_Printf("print \"%s: new start node selected %d\n\"", self->client->pers.netname, node);
 
   self->bs.currentNode = node;
   self->bs.nextNode = self->bs.currentNode; // make sure we get to the nearest node first
@@ -190,7 +190,7 @@ qboolean
 ACEND_FollowPath(gentity_t * self)
 {
   // try again?
-  if (self->bs.node_timeout++ > 30)
+  if (self->bs.node_timeout++ > 20)
   {
     if (self->bs.tries++ > 3)
       return qfalse;
@@ -209,7 +209,7 @@ ACEND_FollowPath(gentity_t * self)
     if (self->bs.nextNode == self->bs.goalNode)
     {
       if (ace_debug.integer)
-        trap_SendServerCommand(-1, va("print \"%s: reached goal node!\n\"", self->client->pers.netname));
+        G_Printf("print \"%s: reached goal node!\n\"", self->client->pers.netname);
 
       ACEAI_PickLongRangeGoal(self); // pick a new goal
     }
@@ -306,8 +306,6 @@ ACEND_CheckForLadder(gentity_t *self)
       else if (closestNode == INVALID)
       {
         closestNode = ACEND_AddNode(self, NODE_LADDER);
-        G_Printf("\n\n\nADDED A LADDER NODE\n.");
-
         // now add link
         if (self->bs.lastNode != INVALID)
         {
@@ -343,21 +341,37 @@ ACEND_PathMap(gentity_t * self)
   currentNodeType = nodes[self->bs.currentNode].type;
   nextNodeType = nodes[self->bs.nextNode].type;
 
-  //if (!g_survival.integer) //FIXME: uncomment production
-  //  return;
 
-  if ((self->r.svFlags & SVF_BOT) && (level.time - level.startTime) > 120000)
+  if (!g_survival.integer)
     return;
+
+  /*if ((self->r.svFlags & SVF_BOT))
+  {
+    return;
+  }*/
+
+  /*if ((self->r.svFlags & SVF_BOT) && (level.time - level.startTime) > 120000)
+    return;*/
 
   // don't add links when you went into a trap
   if (self->health <= 0)
     return;
 
   ////////////////////////////////////////////////////////
+  // LADDER
+  ///////////////////////////////////////////////////////
+  if (ACEND_CheckForLadder(self))
+  {
+    //trap_SendServerCommand(-1, va("print \"%s: Added a ladder node.\n\"", self->client->pers.netname));
+    return;
+  }
+
+  ////////////////////////////////////////////////////////
   // JUMPING
   ///////////////////////////////////////////////////////
-  if (self->s.groundEntityNum == ENTITYNUM_NONE && (self->client->ps.pm_flags & PMF_JUMP_HELD) && (self->client->pers.cmd.upmove >= 10) && !self->waterlevel
-      && !(self->r.svFlags & SVF_BOT))
+  if (self->s.groundEntityNum == ENTITYNUM_NONE
+  //&& (self->client->ps.pm_flags & PMF_JUMP_HELD)
+      && (self->client->pers.cmd.upmove >= 1) && !self->waterlevel && !(self->r.svFlags & SVF_BOT))
   {
     // See if there is a closeby jump landing node (prevent adding too many)
     closestNode = ACEND_FindClosestReachableNode(self, 64, NODE_JUMP);
@@ -377,7 +391,6 @@ ACEND_PathMap(gentity_t * self)
     else if (closestNode == INVALID)
     {
       closestNode = ACEND_AddNode(self, NODE_JUMP);
-      G_Printf("\n\n\nADDED A JUMP NODE\n.");
 
       // now add link
       if (self->bs.lastNode != INVALID)
@@ -391,14 +404,6 @@ ACEND_PathMap(gentity_t * self)
       self->bs.lastNode = closestNode; // set visited to last
     }
     return;
-  }
-
-  ////////////////////////////////////////////////////////
-  // LADDER
-  ///////////////////////////////////////////////////////
-  if (ACEND_CheckForLadder(self))
-  {
-    trap_SendServerCommand(-1, va("print \"%s: Added a ladder node.\n\"", self->client->pers.netname));
   }
 
   ////////////////////////////////////////////////////////
@@ -462,7 +467,7 @@ ACEND_InitNodes(void)
 
 // show the node for debugging (utility function)
 void
-ACEND_ShowNode(int node)
+ACEND_ShowNode(int node, int type)
 {
   gentity_t *ent;
 
@@ -481,6 +486,7 @@ ACEND_ShowNode(int node)
 
   // otherEntityNum is transmitted with GENTITYNUM_BITS so enough for 1000 nodes
   ent->s.otherEntityNum = node;
+  ent->s.constantLight = type;
 
   //ent->nextthink = level.time + 200000;
   //ent->think = G_FreeEntity;
@@ -651,7 +657,7 @@ else    VectorCopy(self->s.origin, nodes[numNodes].origin);
       }
       else
       {
-        ACEND_ShowNode(numNodes);
+        ACEND_ShowNode(numNodes, nodes[numNodes].type);
       }
     }
 
@@ -721,13 +727,40 @@ void
 ACEND_UpdateNodeEdge(int from, int to, gentity_t *self)
 {
   int i;
+  int failcounter;
 
   if (from == -1 || to == -1 || from == to)
     return; // safety
 
-  if ((nodes[from].type != NODE_LADDER && nodes[to].type != NODE_LADDER) && !ACEND_nodesVisible(nodes[from].origin, nodes[to].origin))
+  if ((nodes[from].type == NODE_JUMP || nodes[to].type == NODE_JUMP))
   {
-    return;
+    while(!ACEND_nodesVisible(nodes[from].origin, nodes[to].origin))
+    {
+      if(failcounter % 2 == 0)
+      {
+        nodes[from].origin[2] += 5;
+      }
+      failcounter++;
+      if (failcounter >= 40)
+      {
+        if(ace_debug.integer)
+        {
+          G_Printf("Cant create a link between those nodes, they are not visible.\n");
+        }
+        return;
+      }
+    }
+    if (failcounter > 0)
+    {
+      if(ace_debug.integer)
+      {
+        G_Printf("Moved the node a bit upper.\n");
+      }
+      if ( level.num_entities < 800 && ace_debug.integer)
+      {
+        ACEND_ShowNode(from, nodes[from].type);
+      }
+    }
   }
   if ((self->r.svFlags & SVF_BOT) && (nodes[from].type == NODE_JUMP || nodes[from].type == NODE_JUMP))
   {
@@ -751,7 +784,7 @@ ACEND_UpdateNodeEdge(int from, int to, gentity_t *self)
   }
 
   if (ace_showLinks.integer)
-    trap_SendServerCommand(-1, va("print \"Link %d -> %d\n\"", from, to));
+    G_Printf("print \"Link %d -> %d\n\"", from, to);
 }
 
 // remove a node edge
@@ -761,7 +794,7 @@ ACEND_RemoveNodeEdge(gentity_t * self, int from, int to)
   int i;
 
   if (ace_showLinks.integer)
-    trap_SendServerCommand(-1, va("print \"%s: removing link %d -> %d\n\"", self->client->pers.netname, from, to));
+    G_Printf("print \"%s: removing link %d -> %d\n\"", self->client->pers.netname, from, to);
 
   path_table[from][to] = INVALID; // set to invalid
 
@@ -781,7 +814,7 @@ ACEND_ResolveAllPaths()
   int i, from, to;
   int num = 0;
 
-  G_Printf("Resolving all paths...");
+  G_Printf("Resolving all paths...\n");
 
   for(from = 0;from < numNodes;from++)
   {
@@ -895,7 +928,7 @@ ACEND_LoadNodes(void)
     if (ace_showNodes.integer)
     {
       for(i = 0;i < numNodes;i++)
-        ACEND_ShowNode(i);
+        ACEND_ShowNode(i, 0);
     }
   }
   else

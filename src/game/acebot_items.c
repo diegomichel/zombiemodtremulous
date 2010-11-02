@@ -82,6 +82,7 @@ qboolean ACEIT_ChangeWeapon(gentity_t * self, weapon_t weapon)
 	self->client->pers.cmd.weapon = weapon;
 
 	return qtrue;*/
+  return qtrue;
 }
 
 

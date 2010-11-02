@@ -333,121 +333,157 @@ CG_Speaker(centity_t *cent)
 
 
 /*
-==================
-CG_AI_Node
-==================
-*/
-static void CG_AI_Node(centity_t * cent)
+ ==================
+ CG_AI_Node
+ ==================
+ */
+static void
+CG_AI_Node(centity_t * cent)
 {
-        refEntity_t     ent;
-        vec3_t          origin, delta, dir, vec, up = { 0, 0, 1 };
-        float           len;
-        int             i, node, digits[10], numdigits, negative;
-        int             numberSize = 8;
+  refEntity_t ent;
+  vec3_t origin, delta, dir, vec, up =
+  { 0, 0, 1 };
+  float len;
+  int i, node, digits[10], numdigits, negative;
+  int numberSize = 8;
 
-        entityState_t  *s1;
+  enum
+  {
+    NODE_MOVE, NODE_PLATFORM, NODE_TRIGGER_TELEPORT,
+    //  NODE_TARGET_TELEPORT,
+    NODE_ITEM,
+    NODE_WATER,
+    NODE_GRAPPLE,
+    NODE_JUMP,
+    NODE_DUCKJUMP,
+    NODE_JUMPPAD,
+    NODE_LADDER,
+    NODE_ALL = 99,
+  // For selecting all nodes
+  };
 
-        s1 = &cent->currentState;
+  entityState_t *s1;
 
-        memset(&ent, 0, sizeof(ent));
+  s1 = &cent->currentState;
+
+  memset(&ent, 0, sizeof(ent));
 
 #if 0
 
-        // set frame
-        VectorCopy(cent->lerpOrigin, ent.origin);
-        VectorCopy(cent->lerpOrigin, ent.oldorigin);
+  // set frame
+  VectorCopy(cent->lerpOrigin, ent.origin);
+  VectorCopy(cent->lerpOrigin, ent.oldorigin);
 
-        // convert angles to axis
-        AnglesToAxis(cent->lerpAngles, ent.axis);
+  // convert angles to axis
+  AnglesToAxis(cent->lerpAngles, ent.axis);
 
-        // add to refresh list
-        trap_R_AddRefEntityToScene(&ent);
+  // add to refresh list
+  trap_R_AddRefEntityToScene(&ent);
 
 #else
-        // draw node number as sprite
-        // code based on CG_AddScorePlum
+  // draw node number as sprite
+  // code based on CG_AddScorePlum
 
-        ent.reType = RT_SPRITE;
-        ent.radius = 5;
+  ent.reType = RT_SPRITE;
+  ent.radius = 5;
 
-        ent.shaderRGBA[0] = 0xff;
-        ent.shaderRGBA[1] = 0xff;
-        ent.shaderRGBA[2] = 0xff;
-        ent.shaderRGBA[3] = 0xff;
+  ent.shaderRGBA[0] = 0xff;//0xff;
+  ent.shaderRGBA[1] = 0xff;
+  ent.shaderRGBA[2] = 0xff;
+  ent.shaderRGBA[3] = 0xff;
 
-        VectorCopy(cent->lerpOrigin, origin);
-        origin[2] += 5;
+  switch(s1->constantLight)
+  {
+    case NODE_MOVE:
+      ent.shaderRGBA[0] = 0;
+      break;
+    case NODE_JUMP:
+      ent.shaderRGBA[1] = 0;
+      break;
+    case NODE_LADDER:
+      ent.shaderRGBA[2] = 0;
+      break;
+    default:
 
-        VectorSubtract(cg.refdef.vieworg, origin, dir);
-        CrossProduct(dir, up, vec);
-        VectorNormalize(vec);
-        //VectorMA(origin, -10 + 20 * sin(c * 2 * M_PI), vec, origin);
+      break;
+  }
 
-        // if the view would be "inside" the sprite, kill the sprite
-        // so it doesn't add too much overdraw
-        VectorSubtract(origin, cg.refdef.vieworg, delta);
-        len = VectorLength(delta);
-        if(len < 20)
-        {
-                return;
-        }
+//  ent.shaderRGBA[0] = s1->constantLight;//0xff;
+//  ent.shaderRGBA[1] = 0xff;
+//  ent.shaderRGBA[2] = 0xff;
+//  ent.shaderRGBA[3] = 0xff;
 
-        node = s1->otherEntityNum;
+  VectorCopy(cent->lerpOrigin, origin);
+  origin[2] += 5;
 
-        negative = qfalse;
-        if(node < 0)
-        {
-                negative = qtrue;
-                node = -node;
-        }
+  VectorSubtract(cg.refdef.vieworg, origin, dir);
+  CrossProduct(dir, up, vec);
+  VectorNormalize(vec);
+  //VectorMA(origin, -10 + 20 * sin(c * 2 * M_PI), vec, origin);
 
-        for(numdigits = 0; !(numdigits && !node); numdigits++)
-        {
-                digits[numdigits] = node % 10;
-                node = node / 10;
-        }
+  // if the view would be "inside" the sprite, kill the sprite
+  // so it doesn't add too much overdraw
+  VectorSubtract(origin, cg.refdef.vieworg, delta);
+  len = VectorLength(delta);
+  if (len < 20)
+  {
+    return;
+  }
 
-        if(negative)
-        {
-                digits[numdigits] = 10;
-                numdigits++;
-        }
+  node = s1->otherEntityNum;
 
-        for(i = 0; i < numdigits; i++)
-        {
-                VectorMA(origin, (float)(((float)numdigits / 2) - i) * numberSize, vec, ent.origin);
-                ent.customShader = cgs.media.numberShaders[digits[numdigits - 1 - i]];
-                trap_R_AddRefEntityToScene(&ent);
-        }
+  negative = qfalse;
+  if (node < 0)
+  {
+    negative = qtrue;
+    node = -node;
+  }
+
+  for(numdigits = 0;!(numdigits && !node);numdigits++)
+  {
+    digits[numdigits] = node % 10;
+    node = node / 10;
+  }
+
+  if (negative)
+  {
+    digits[numdigits] = 10;
+    numdigits++;
+  }
+
+  for(i = 0;i < numdigits;i++)
+  {
+    VectorMA(origin, (float)(((float)numdigits / 2) - i) * numberSize, vec, ent.origin);
+    ent.customShader = cgs.media.numberShaders[digits[numdigits - 1 - i]];
+    trap_R_AddRefEntityToScene(&ent);
+  }
 #endif
 }
 
 /*
-===============
-CG_AI_Link
-===============
-*/
-static void CG_AI_Link(centity_t * cent)
+ ===============
+ CG_AI_Link
+ ===============
+ */
+static void
+CG_AI_Link(centity_t * cent)
 {
-        refEntity_t     beam;
-        entityState_t  *s1;
+  refEntity_t beam;
+  entityState_t *s1;
 
-        s1 = &cent->currentState;
+  s1 = &cent->currentState;
 
-        memset(&beam, 0, sizeof(beam));
+  memset(&beam, 0, sizeof(beam));
 
-        VectorCopy(s1->pos.trBase, beam.origin);
-        VectorCopy(s1->origin2, beam.oldorigin);
+  VectorCopy(s1->pos.trBase, beam.origin);
+  VectorCopy(s1->origin2, beam.oldorigin);
 
-        //beam.reType = RT_BEAM;
-        //This may not work.
-        beam.reType = RT_LIGHTNING;
-        beam.customShader = cgs.media.balloonShader; //If dont draw try others..
-        trap_R_AddRefEntityToScene(&beam);
+  //beam.reType = RT_BEAM;
+  //This may not work.
+  beam.reType = RT_LIGHTNING;
+  beam.customShader = cgs.media.balloonShader; //If dont draw try others..
+  trap_R_AddRefEntityToScene(&beam);
 }
-
-
-
 
 /*
  ===============

@@ -37,7 +37,8 @@ G_BotAdd(char *name, int team, int skill, gentity_t * ent)
   int i;
   int clientNum;
   char userinfo[MAX_INFO_STRING];
-  int reservedSlots = 0;
+  char model[MAX_QPATH];
+  char buffer[MAX_QPATH];
   gentity_t *bot;
 
   //reservedSlots = trap_Cvar_VariableIntegerValue ("sv_privateclients"); // Found a way to have this var in level.
@@ -99,9 +100,24 @@ G_BotAdd(char *name, int team, int skill, gentity_t * ent)
     // won't let us join
     return;
   }
+
   level.bots++;
+  //Since i dont update UserInfo for bots i need to set the netname here.
+  Q_strncpyz(bot->client->pers.netname,name,sizeof(bot->client->pers.netname));
   ClientBegin(clientNum);
   G_ChangeTeam(bot, team);
+
+
+  //Setting initial client information.
+  Com_sprintf(buffer, MAX_QPATH, "%s/%s", BG_FindModelNameForClass(PCL_HUMAN), BG_FindSkinNameForClass(PCL_HUMAN));
+  Q_strncpyz(model, buffer, sizeof(model));
+  Com_sprintf(userinfo, sizeof(userinfo), "t\\%i\\model\\%s\\hmodel\\%s\\", PTE_ALIENS, model, model);
+  trap_SetConfigstring(CS_PLAYERS + clientNum, userinfo);
+  bot->client->ps.persistant[PERS_STATE] &= ~PS_NONSEGMODEL;
+  bot->client->ps.persistant[PERS_STATE] &= ~PS_WALLCLIMBINGFOLLOW;
+  bot->client->pers.useUnlagged = qfalse;
+  bot->client->pers.predictItemPickup = qfalse;
+  bot->client->pers.localClient = qtrue;
 }
 
 void
@@ -425,38 +441,27 @@ G_BotThink(gentity_t * self)
   self->client->pers.cmd.upmove = 0;
   self->client->pers.cmd.rightmove = 0;
 
-  // reset botEnemy if enemy is dead
-  /*if (self->botEnemy->health <= 0)
-   {
-   self->botEnemy = NULL;
-   self->client->pers.cmd.buttons |= BUTTON_WALKING;
-   //&= ~BUTTON_WALKING;
-   }*/
   if (ace_debug.integer)
   {
     /*switch(self->botCommand) //Uncomment for debugging.
-    {
-      case BOT_FOLLOW_PATH:
-        trap_SendServerCommand(-1, va("print \"%s: BOT_FOLLOW_PATH\n\"", self->client->pers.netname));
-        break;
-      case BOT_REGULAR:
-        trap_SendServerCommand(-1, va("print \"%s: BOT_REGULAR\n\"", self->client->pers.netname));
-        break;
-      case BOT_IDLE:
-        trap_SendServerCommand(-1, va("print \"%s: BOT_IDLE\n\"", self->client->pers.netname));
-        break;
-    }*/
+     {
+     case BOT_FOLLOW_PATH:
+     trap_SendServerCommand(-1, va("print \"%s: BOT_FOLLOW_PATH\n\"", self->client->pers.netname));
+     break;
+     case BOT_REGULAR:
+     trap_SendServerCommand(-1, va("print \"%s: BOT_REGULAR\n\"", self->client->pers.netname));
+     break;
+     case BOT_IDLE:
+     trap_SendServerCommand(-1, va("print \"%s: BOT_IDLE\n\"", self->client->pers.netname));
+     break;
+     }*/
   }
 
   switch(self->botCommand)
   {
     case BOT_FOLLOW_PATH:
-      if (self->botEnemy->health <= 0 || self->botEnemy->client->ps.stats[STAT_HEALTH] <= 0)
+      if (self->botEnemy->health <= 0 || self->botEnemy->client->ps.stats[STAT_HEALTH] <= 0 || self->botEnemy->client->pers.connected == CON_DISCONNECTED)
       {
-        trap_SendServerCommand(-1,
-            va("print \"%s: Enemy %s dead changin from FOLLOW_PATH TO REGULAR\n\"",
-                self->client->pers.netname, self->botEnemy->client->pers.netname));
-
         self->botCommand = BOT_REGULAR;
         self->botEnemy = NULL;
         memset(&self->client->pers.cmd, 0, sizeof(self->client->pers.cmd));
@@ -500,7 +505,7 @@ G_BotThink(gentity_t * self)
           }
           break;
         default:
-            ACEAI_Think(self);
+          ACEAI_Think(self);
           break;
       }
       break;
@@ -774,7 +779,7 @@ botTargetInRange(gentity_t * self, gentity_t * target)
   if (target->client->ps.stats[STAT_HEALTH] <= 0)
     return qfalse;
   if (target->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
-    return;
+    return qfalse;
 
   //To prevent stop following path when isnt need.
   /*if (target->client->ps.origin[2] - self->client->ps.origin[2] >= 50 && self->botCommand == BOT_FOLLOW_PATH)
@@ -788,125 +793,24 @@ botTargetInRange(gentity_t * self, gentity_t * target)
     return qfalse;
 
   //Are we on the same level?
-
-  if (self->client->ps.origin[2] - target->client->ps.origin[2] < -30 && (self->client->ps.stats[STAT_PTEAM] == PTE_ALIENS))
+  if (!g_survival.integer)
   {
-    //trap_SendServerCommand( target-g_entities, va( "print \"^7[A] %s^7: ^2Come down noob\n\"", self->client->pers.netname ) );
-    self->client->pers.cmd.upmove = 30;
-    self->client->ps.stats[STAT_STAMINA] = MAX_STAMINA;
-    return qfalse;
-  }
+    if (self->client->ps.origin[2] - target->client->ps.origin[2] < -30 && (self->client->ps.stats[STAT_PTEAM] == PTE_ALIENS))
+    {
+      self->client->pers.cmd.upmove = 30;
+      self->client->ps.stats[STAT_STAMINA] = MAX_STAMINA;
+      return qfalse;
+    }
 
-  if (self->client->ps.origin[2] - target->client->ps.origin[2] < -100 && (self->client->ps.stats[STAT_PTEAM] == PTE_ALIENS))
-  {
-    //trap_SendServerCommand( target-g_entities, va( "print \"^7[A] %s^7: ^2Come down noob\n\"", self->client->pers.netname ) );
-    self->client->pers.cmd.upmove = 30;
-    self->client->ps.stats[STAT_STAMINA] = MAX_STAMINA;
-    return qfalse;
+    if (self->client->ps.origin[2] - target->client->ps.origin[2] < -100 && (self->client->ps.stats[STAT_PTEAM] == PTE_ALIENS))
+    {
+      self->client->pers.cmd.upmove = 30;
+      self->client->ps.stats[STAT_STAMINA] = MAX_STAMINA;
+      return qfalse;
+    }
   }
   return qtrue;
 }
-
-/*
- qboolean botTargetInRange( gentity_t *self, gentity_t *target ) {
- trace_t   trace;
- gentity_t *traceEnt;
- vec3_t  forward, right, up;
- vec3_t  muzzle;
- AngleVectors( self->client->ps.viewangles, forward, right, up );
- CalcMuzzlePoint( self, forward, right, up, muzzle );
-
- if( !self || !target )
- return qfalse;
-
- //ROTAX - niceni budov
- if( !self->client || (!target->client && g_ambush_att_buildables.integer == 0) )
- return qfalse;
-
- if( target->client->ps.stats[ STAT_STATE ] & SS_HOVELING )
- return qfalse;
-
- if( target->health <= 0 )
- return qfalse;
-
- if( self->client->ps.stats[ STAT_PTEAM ] == PTE_ALIENS &&
- self->client->ps.stats[ STAT_PCLASS ] != PCL_ALIEN_LEVEL3_UPG &&
- self->client->ps.stats[ STAT_PCLASS ] != PCL_ALIEN_LEVEL3 &&
- target->s.pos.trBase[2] - self->s.pos.trBase[2] > 150)
- return qfalse;
- if(self->client->ps.weapon == WP_PAIN_SAW &&
- target->s.pos.trBase[2] - self->s.pos.trBase[2] > 150)
- {
- return qfalse;
- }
- else if(self->client->ps.weapon == WP_FLAMER &&
- target->s.pos.trBase[2] - self->s.pos.trBase[2] > 200)
- {
- return qfalse;
- }
- if(self->client->ps.stats[ STAT_PTEAM ] == PTE_ALIENS)
- {
- if(self->client->ps.stats[ STAT_PCLASS ] == PCL_ALIEN_LEVEL4 &&
- Distance( self->s.pos.trBase, target->s.pos.trBase ) > g_level4_range.integer)
- {return qfalse;}
- else if(self->client->ps.stats[ STAT_PCLASS ] == PCL_ALIEN_LEVEL3_UPG &&
- Distance( self->s.pos.trBase, target->s.pos.trBase ) > g_level3UPG_range.integer)
- {return qfalse;}
- else if(self->client->ps.stats[ STAT_PCLASS ] == PCL_ALIEN_LEVEL3 &&
- Distance( self->s.pos.trBase, target->s.pos.trBase ) > g_level3_range.integer)
- {return qfalse;}
- else if(self->client->ps.stats[ STAT_PCLASS ] == PCL_ALIEN_LEVEL2_UPG &&
- Distance( self->s.pos.trBase, target->s.pos.trBase ) > g_level2UPG_range.integer)
- {return qfalse;}
- else if(self->client->ps.stats[ STAT_PCLASS ] == PCL_ALIEN_LEVEL2 &&
- Distance( self->s.pos.trBase, target->s.pos.trBase ) > g_level2_range.integer)
- {return qfalse;}
- else if(self->client->ps.stats[ STAT_PCLASS ] == PCL_ALIEN_LEVEL1_UPG &&
- Distance( self->s.pos.trBase, target->s.pos.trBase ) > g_level1UPG_range.integer)
- {return qfalse;}
- else if(self->client->ps.stats[ STAT_PCLASS ] == PCL_ALIEN_LEVEL1 &&
- Distance( self->s.pos.trBase, target->s.pos.trBase ) > g_level1_range.integer)
- {return qfalse;}
- else if(self->client->ps.stats[ STAT_PCLASS ] == PCL_ALIEN_LEVEL0 &&
- Distance( self->s.pos.trBase, target->s.pos.trBase ) > g_level0_range.integer)
- {return qfalse;}
- else if(self->client->ps.stats[ STAT_PCLASS ] == PCL_ALIEN_BUILDER0 &&
- Distance( self->s.pos.trBase, target->s.pos.trBase ) > 100)
- {return qfalse;}
- else if(self->client->ps.stats[ STAT_PCLASS ] == PCL_ALIEN_BUILDER0_UPG &&
- Distance( self->s.pos.trBase, target->s.pos.trBase ) > 200)
- {return qfalse;}
- }
- else if((self->client->ps.stats[ STAT_PCLASS ] == PCL_HUMAN ||
- self->client->ps.stats[ STAT_PCLASS ] == PCL_HUMAN_BSUIT ) &&
- Distance( self->s.pos.trBase, target->s.pos.trBase ) > g_human_range.integer)
- {return qfalse;}
- else
- {
- if(Distance( self->s.pos.trBase, target->s.pos.trBase ) > 3000)
- {return qfalse;}
- }
- //BG_FindViewheightForClass(  self->client->ps.stats[ STAT_PCLASS ], &vh, NULL );
- //top[2]=vh;
- //VectorAdd( self->s.pos.trBase, top, top);
- //draw line between us and the target and see what we hit
- //trap_Trace( &trace, self->s.pos.trBase, NULL, NULL, target->s.pos.trBase, self->s.number, MASK_SHOT );
-
- trap_Trace( &trace, muzzle, NULL, NULL, target->s.pos.trBase, self->s.number, MASK_SHOT );
- traceEnt = &g_entities[ trace.entityNum ];
- //if( trace.fraction < 1.0 )
- //{return qfalse;}
- // check that we hit a human and not an object
- //if( !traceEnt->client )
- //  return qfalse;
-
- //check our target is in LOS
- if(!(traceEnt == target))
- return qfalse;
-
- return qtrue;
- }
- * */
 
 qboolean
 WallInFront(gentity_t * self)
@@ -1015,10 +919,24 @@ botFindClosestEnemy(gentity_t * self, qboolean includeTeam)
   vec3_t mins, maxs;
   gentity_t *target;
 
+  int currentNodeType = -1;
+  int nextNodeType = -1;
+  int lastNodeType = -1;
+
   if (level.numHumanSpawns < 1)
   {
     //Gonna try to chase enemys in long distances.
     vectorRange = MGTURRET_RANGE * 10;
+  }
+  if (self->botCommand == BOT_FOLLOW_PATH)
+  {
+    currentNodeType = nodes[self->bs.currentNode].type;
+    nextNodeType = nodes[self->bs.nextNode].type;
+    lastNodeType = nodes[self->bs.lastNode].type;
+
+    vectorRange = MGTURRET_RANGE * 1.3;
+    if (currentNodeType == NODE_JUMP || nextNodeType == NODE_JUMP || lastNodeType == NODE_JUMP)
+      vectorRange = MGTURRET_RANGE / 3;
   }
 
   VectorSet(range, vectorRange, vectorRange, vectorRange);

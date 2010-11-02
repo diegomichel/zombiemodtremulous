@@ -22,7 +22,7 @@
  */
 
 #include "g_local.h"
-#include "acebot.h"
+//#include "acebot.h"
 
 damageRegion_t g_damageRegions[PCL_NUM_CLASSES][MAX_LOCDAMAGE_REGIONS];
 int g_numDamageRegions[PCL_NUM_CLASSES];
@@ -42,8 +42,13 @@ AddScore(gentity_t *ent, int score)
 {
   if (!ent->client)
     return;
+  if (ent->r.svFlags & SVF_BOT)
+    return;
 
-  ent->client->ps.persistant[PERS_SCORE] += score;
+  /*if(g_survival.integer)
+  {*/
+    ent->client->ps.persistant[PERS_SCORE] += score;
+  /*}*/
   CalculateRanks();
 }
 
@@ -114,7 +119,6 @@ player_die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
     return;
 
   //Some how this loop... Fixed on g_damage( Remove this comment if tests go well.
-  //trap_SendServerCommand( -1, va("print \"^7Pu %s\"", self->client->pers.netname) );
 
   if (self->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
   {
@@ -208,7 +212,6 @@ player_die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
     aliensuicide = self->client->ps.stats[STAT_PTEAM] == PTE_ALIENS && meansOfDeath == MOD_SUICIDE;
     survivalkill = self->client->ps.stats[STAT_PTEAM] == PTE_ALIENS && g_survival.integer;
   }
-
   // broadcast the death event to everyone
   if (aliensuicide || survivalkill)
   {
@@ -331,7 +334,6 @@ player_die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
         level.humanStatsCounters.kills++;
       }
     }
-
     if (attacker == self)
     {
       attacker->client->pers.statscounters.suicides++;
@@ -345,12 +347,14 @@ player_die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
       }
     }
   }
+
   else if (attacker->s.eType != ET_BUILDABLE)
     AddScore(self, -1);
   else if (attacker->s.eType == ET_BUILDABLE && attacker->builder && attacker->builder->client)
   {
     G_AddCreditToClient(attacker->builder->client, 250, qtrue);
   }
+
 
   //total up all the damage done by every client
   for(i = 0;i < MAX_CLIENTS;i++)
@@ -380,7 +384,6 @@ player_die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
       }
     }
   }
-
   if (totalDamage > 0.0f)
   {
     /* if( self->client->ps.stats[ STAT_PTEAM ] == PTE_ALIENS )
@@ -501,11 +504,13 @@ player_die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
     }
   }
 
-  ScoreboardMessage(self); // show scores
-
+  if(!(self->r.svFlags & SVF_BOT))
+  {
+    ScoreboardMessage(self); // show scores
+  }
   // send updated scores to any clients that are following this one,
   // or they would get stale scoreboards
-  for(i = 0;i < level.maxclients;i++)
+  for(i = level.botslots;i < level.botslots + level.numConnectedClients;i++)
   {
     gclient_t *client;
 
@@ -530,7 +535,9 @@ player_die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
   self->s.angles[PITCH] = 0;
   self->s.angles[ROLL] = 0;
   self->s.angles[YAW] = self->s.apos.trBase[YAW];
-  LookAtKiller(self, inflictor, attacker);
+
+  //FIXME: THIS OVERFLOW SCORES
+  //LookAtKiller(self, inflictor, attacker);
 
   VectorCopy(self->s.angles, self->client->ps.viewangles);
 
@@ -544,6 +551,8 @@ player_die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
 
   // remove powerups
   memset(self->client->ps.powerups, 0, sizeof(self->client->ps.powerups));
+
+
 
   {
     // normal death
@@ -581,7 +590,6 @@ player_die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
           break;
       }
     }
-
     self->client->ps.legsAnim = ((self->client->ps.legsAnim & ANIM_TOGGLEBIT) ^ ANIM_TOGGLEBIT) | anim;
 
     if (!(self->client->ps.persistant[PERS_STATE] & PS_NONSEGMODEL))
@@ -595,7 +603,6 @@ player_die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
     // globally cycle through the different death animations
     i = (i + 1) % 3;
   }
-
   trap_LinkEntity(self);
 }
 
@@ -1141,11 +1148,16 @@ G_Damage(gentity_t *targ, gentity_t *inflictor, gentity_t *attacker, vec3_t dir,
     }
   }
 
+  if(targ->client)
+  {
   if ((targ->r.svFlags & SVF_BOT) && targ->client->ps.pm_flags & PMF_QUEUED)
     return;
 
-  if (targ->client->sess.sessionTeam == TEAM_SPECTATOR && targ->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
+
+  if (targ->client->sess.sessionTeam == TEAM_SPECTATOR
+      && targ->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
     return;
+  }
 
   // the intermission has allready been qualified for, so don't
   // allow any extra scoring

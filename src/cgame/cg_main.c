@@ -1416,7 +1416,7 @@ static int CG_FeederCount( float feederID )
 {
   int i, count = 0;
 
-  if( feederID == FEEDER_ALIENTEAM_LIST )
+  /*if( feederID == FEEDER_ALIENTEAM_LIST )
   {
     for( i = 0; i < cg.numScores; i++ )
     {
@@ -1424,7 +1424,7 @@ static int CG_FeederCount( float feederID )
         count++;
     }
   }
-  else if( feederID == FEEDER_HUMANTEAM_LIST )
+  else*/ if( feederID == FEEDER_HUMANTEAM_LIST )
   {
     for( i = 0; i < cg.numScores; i++ )
     {

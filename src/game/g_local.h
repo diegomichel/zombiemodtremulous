@@ -1949,7 +1949,7 @@ trap_mysql_finishquery(void);
 qboolean
 trap_mysql_fetchrow(void);
 void
-trap_mysql_fetchfieldbyID(int id, char *buffer, int len);
+trap_mysql_fetchfieldbyID(int id, char *buffer);
 void
 trap_mysql_fetchfieldbyName(const char *name, char *buffer, int len);
 void
