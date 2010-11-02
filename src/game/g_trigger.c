@@ -990,7 +990,7 @@ void trigger_ammo_touch(gentity_t *self, gentity_t *other, trace_t *trace) {
     self->timestamp = level.time + FRAMETIME;
 
   BG_FindAmmoForWeapon(other->client->ps.weapon, &maxAmmo, &maxClips);
-  BG_UnpackAmmoArray(other->client->ps.weapon, other->client->ps.ammo, other->client->ps.powerups,
+  BG_UnpackAmmoArray(other->client->ps.weapon, &other->client->ps.ammo, other->client->ps.powerups,
           &ammo, &clips);
 
   if ((ammo + self->damage) > maxAmmo) {
@@ -1002,7 +1002,7 @@ void trigger_ammo_touch(gentity_t *self, gentity_t *other, trace_t *trace) {
   } else
     ammo += self->damage;
 
-  BG_PackAmmoArray(other->client->ps.weapon, other->client->ps.ammo, other->client->ps.powerups,
+  BG_PackAmmoArray(other->client->ps.weapon, &other->client->ps.ammo, other->client->ps.powerups,
           ammo, clips);
 }
 

@@ -27,15 +27,15 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 // q_shared.h -- included first by ALL program modules.
 // A user mod should never modify this file
 
-#define VERSION_NUMBER        "1.1.0"
-#define Q3_VERSION            "tremulous " VERSION_NUMBER
-#ifndef SVN_VERSION
-#define SVN_VERSION           Q3_VERSION
+#define PRODUCT_NAME            "tremulous"
+
+#ifdef _MSC_VER
+# define PRODUCT_VERSION          "1.1.0"
 #endif
-#define CLIENT_WINDOW_TITLE   "Tremulous " VERSION_NUMBER
-#define CLIENT_WINDOW_ICON    "Tremulous"
-#define CONSOLE_WINDOW_TITLE  "Tremulous " VERSION_NUMBER " console"
-#define CONSOLE_WINDOW_ICON   "Tremulous console"
+
+#define CLIENT_WINDOW_TITLE       "Tremulous " PRODUCT_VERSION
+#define CLIENT_WINDOW_MIN_TITLE   "Tremulous"
+#define Q3_VERSION                 PRODUCT_NAME " " //PRODUCT_VERSION
 
 #define MAX_TEAMNAME 32
 
@@ -92,6 +92,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 #include "../game/bg_lib.h"
 
+typedef int intptr_t;
+
 #else
 
 #include <assert.h>
@@ -104,35 +106,41 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #include <ctype.h>
 #include <limits.h>
 
+// vsnprintf is ISO/IEC 9899:1999
+// abstracting this to make it portable
+#ifdef _WIN32
+  #define Q_vsnprintf _vsnprintf
+  #define Q_snprintf _snprintf
+#else
+  #define Q_vsnprintf vsnprintf
+  #define Q_snprintf snprintf
 #endif
+
+#ifdef _MSC_VER
+  #include <io.h>
+
+  typedef __int64 int64_t;
+  typedef __int32 int32_t;
+  typedef __int16 int16_t;
+  typedef __int8 int8_t;
+  typedef unsigned __int64 uint64_t;
+  typedef unsigned __int32 uint32_t;
+  typedef unsigned __int16 uint16_t;
+  typedef unsigned __int8 uint8_t;
+#else
+  #include <stdint.h>
+#endif
+
+#endif
+
 
 #include "q_platform.h"
 
 //=============================================================
 
-#ifdef Q3_VM
-   typedef int intptr_t;
-#else
-  #ifndef _MSC_VER
-    #include <stdint.h>
-  #else
-    #include <io.h>
-    typedef __int64 int64_t;
-    typedef __int32 int32_t;
-    typedef __int16 int16_t;
-    typedef __int8 int8_t;
-    typedef unsigned __int64 uint64_t;
-    typedef unsigned __int32 uint32_t;
-    typedef unsigned __int16 uint16_t;
-    typedef unsigned __int8 uint8_t;
-  #endif
-#endif
-
 typedef unsigned char 		byte;
 
 typedef enum {qfalse, qtrue}	qboolean;
-//typedef enum {false,true}	boolean;//Why dont did it from start? FUCK boolean defined else where out of qvm
-//compiling client gives error.
 
 typedef int		qhandle_t;
 typedef int		sfxHandle_t;
@@ -264,14 +272,6 @@ void *Hunk_AllocDebug( int size, ha_pref preference, char *label, char *file, in
 void *Hunk_Alloc( int size, ha_pref preference );
 #endif
 
-#if defined(__GNUC__) && !defined(__MINGW32__) && !defined(MACOS_X)
-// https://zerowing.idsoftware.com/bugzilla/show_bug.cgi?id=371
-// custom Snd_Memset implementation for glibc memset bug workaround
-void Snd_Memset (void* dest, const int val, const size_t count);
-#else
-#define Snd_Memset Com_Memset
-#endif
-
 #define Com_Memset memset
 #define Com_Memcpy memcpy
 
@@ -345,7 +345,7 @@ extern	vec4_t		colorMdGrey;
 extern	vec4_t		colorDkGrey;
 
 #define Q_COLOR_ESCAPE	'^'
-#define Q_IsColorString(p)	( p && *(p) == Q_COLOR_ESCAPE && *((p)+1) && *((p)+1) != Q_COLOR_ESCAPE )
+#define Q_IsColorString(p)	( p && *(p) == Q_COLOR_ESCAPE && *((p)+1) && isalnum(*((p)+1)) ) // ^[0-9a-zA-Z]
 
 #define COLOR_BLACK		'0'
 #define COLOR_RED		'1'
@@ -561,7 +561,7 @@ vec_t VectorLengthSquared( const vec3_t v );
 vec_t Distance( const vec3_t p1, const vec3_t p2 );
 
 vec_t DistanceSquared( const vec3_t p1, const vec3_t p2 );
- 
+
 void VectorNormalizeFast( vec3_t v );
 
 void VectorInverse( vec3_t v );
@@ -595,6 +595,13 @@ void AxisCopy( vec3_t in[3], vec3_t out[3] );
 void SetPlaneSignbits( struct cplane_s *out );
 int BoxOnPlaneSide (vec3_t emins, vec3_t emaxs, struct cplane_s *plane);
 
+qboolean BoundsIntersect(const vec3_t mins, const vec3_t maxs,
+		const vec3_t mins2, const vec3_t maxs2);
+qboolean BoundsIntersectSphere(const vec3_t mins, const vec3_t maxs,
+		const vec3_t origin, vec_t radius);
+qboolean BoundsIntersectPoint(const vec3_t mins, const vec3_t maxs,
+		const vec3_t origin);
+
 float	AngleMod(float a);
 float	LerpAngle (float from, float to, float frac);
 float	AngleSubtract( float a1, float a2 );
@@ -616,7 +623,6 @@ void MakeNormalVectors( const vec3_t forward, vec3_t right, vec3_t up );
 void MatrixMultiply(float in1[3][3], float in2[3][3], float out[3][3]);
 void VectorMatrixMultiply( const vec3_t p, vec3_t m[ 3 ], vec3_t out );
 void AngleVectors( const vec3_t angles, vec3_t forward, vec3_t right, vec3_t up);
-void            VectorToAngles(const vec3_t value1, vec3_t angles);
 void PerpendicularVector( vec3_t dst, const vec3_t src );
 int Q_isnan( float x );
 
@@ -639,8 +645,6 @@ vec_t DistanceBetweenLineSegments(
     const vec3_t tP0, const vec3_t tP1,
     float *s, float *t );
 
-qboolean        BoundsIntersectPoint(const vec3_t mins, const vec3_t maxs, const vec3_t origin);
-
 #ifndef MAX
 #define MAX(x,y) ((x)>(y)?(x):(y))
 #endif
@@ -654,6 +658,7 @@ qboolean        BoundsIntersectPoint(const vec3_t mins, const vec3_t maxs, const
 float Com_Clamp( float min, float max, float value );
 
 char	*COM_SkipPath( char *pathname );
+const char	*COM_GetExtension( const char *name );
 void	COM_StripExtension(const char *in, char *out, int destsize);
 void	COM_DefaultExtension( char *path, int maxSize, const char *extension );
 
@@ -726,6 +731,9 @@ int Q_isupper( int c );
 int Q_isalpha( int c );
 int Q_isdigit( int c );
 
+qboolean Q_isanumber( const char *s );
+qboolean Q_isintegral( float f );
+
 // portable case insensitive compare
 int		Q_stricmp (const char *s1, const char *s2);
 int		Q_strncmp (const char *s1, const char *s2, int n);
@@ -733,6 +741,7 @@ int		Q_stricmpn (const char *s1, const char *s2, int n);
 char	*Q_strlwr( char *s1 );
 char	*Q_strupr( char *s1 );
 char	*Q_strrchr( const char* string, int c );
+const char	*Q_stristr( const char *s, const char *find);
 
 // buffer size safe library replacements
 void	Q_strncpyz( char *dest, const char *src, int destsize );
@@ -742,6 +751,8 @@ void	Q_strcat( char *dest, int size, const char *src );
 int Q_PrintStrlen( const char *string );
 // removes color sequences from string
 char *Q_CleanStr( char *string );
+// Count the number of char tocount encountered in string
+int Q_CountChar(const char *string, char tocount);
 
 //=============================================
 
@@ -830,15 +841,19 @@ default values.
 
 // nothing outside the Cvar_*() functions should modify these fields!
 typedef struct cvar_s {
-	char		*name;
-	char		*string;
-	char		*resetString;		// cvar_restart will reset to this value
-	char		*latchedString;		// for CVAR_LATCH vars
-	int			flags;
+	char			*name;
+	char			*string;
+	char			*resetString;		// cvar_restart will reset to this value
+	char			*latchedString;		// for CVAR_LATCH vars
+	int				flags;
 	qboolean	modified;			// set each time the cvar is changed
-	int			modificationCount;	// incremented each time the cvar is changed
-	float		value;				// atof( string )
-	int			integer;			// atoi( string )
+	int				modificationCount;	// incremented each time the cvar is changed
+	float			value;				// atof( string )
+	int				integer;			// atoi( string )
+	qboolean	validate;
+	qboolean	integral;
+	float			min;
+	float			max;
 	struct cvar_s *next;
 	struct cvar_s *hashNext;
 } cvar_t;
@@ -940,7 +955,6 @@ typedef struct {
 // if none of the catchers are active, bound key strings will be executed
 #define KEYCATCH_CONSOLE		0x0001
 #define	KEYCATCH_UI					0x0002
-#define	KEYCATCH_MESSAGE		0x0004
 #define	KEYCATCH_CGAME			0x0008
 
 
@@ -1018,7 +1032,7 @@ typedef struct {
 // bit field limits
 #define	MAX_STATS				16
 #define	MAX_PERSISTANT			16
-#define	MAX_POWERUPS			16
+#define	MAX_MISC    			16
 #define	MAX_WEAPONS				16		
 
 #define	MAX_PS_EVENTS			2
@@ -1090,8 +1104,10 @@ typedef struct playerState_s {
 
 	int			stats[MAX_STATS];
 	int			persistant[MAX_PERSISTANT];	// stats that aren't cleared on death
-	int			powerups[MAX_POWERUPS];	// level.time that the powerup runs out
-	int			ammo[MAX_WEAPONS];
+	int			powerups[MAX_MISC];	// misc data
+	int			ammo;//ammo;			// ammo held
+	int			clips;			// clips held
+	int			padding[14];
 
 	int			generic1;
 	int			loopSound;
@@ -1155,7 +1171,7 @@ typedef enum {
 	TR_LINEAR_STOP,
 	TR_SINE,					// value = base + sin( time / duration ) * delta
 	TR_GRAVITY,
-	TR_BUOYANCY //TA: what the hell is this doing in here anyway?
+	TR_BUOYANCY
 } trType_t;
 
 typedef struct {
@@ -1172,7 +1188,6 @@ typedef struct {
 // Different eTypes may use the information in different ways
 // The messages are delta compressed, so it doesn't really matter if
 // the structure size is fairly large
-// To modify this structure you need recompile the tremded seems to be.
 
 typedef struct entityState_s {
 	int		number;			// entity index
@@ -1210,7 +1225,7 @@ typedef struct entityState_s {
 	int		eventParm;
 
 	// for players
-	int		powerups;		// bit flags
+	int		powerups;			// bit flags
 	int		weapon;			// determines weapon and flash model, etc
 	int		legsAnim;		// mask off ANIM_TOGGLEBIT
 	int		torsoAnim;		// mask off ANIM_TOGGLEBIT
@@ -1280,7 +1295,7 @@ typedef struct qtime_s {
 
 
 // server browser sources
-// TTimo: AS_MPLAYER is no longer used
+// AS_MPLAYER is no longer used
 #define AS_GLOBAL			0
 #define AS_MPLAYER		1
 #define AS_LOCAL			2
@@ -1327,5 +1342,8 @@ typedef enum {
 #define SAY_ACTION      3
 #define SAY_ACTION_T    4
 #define SAY_ADMINS    5
+
+#define MAX_EMOTICON_NAME_LEN 16
+#define MAX_EMOTICONS 64
 
 #endif	// __Q_SHARED_H

@@ -56,6 +56,28 @@ char *COM_SkipPath (char *pathname)
 
 /*
 ============
+COM_GetExtension
+============
+*/
+const char *COM_GetExtension( const char *name ) {
+	int length, i;
+
+	length = strlen(name)-1;
+	i = length;
+
+	while (name[i] != '.')
+	{
+		i--;
+		if (name[i] == '/' || i == 0)
+			return ""; // no extension
+	}
+
+	return &name[i+1];
+}
+
+
+/*
+============
 COM_StripExtension
 ============
 */
@@ -274,7 +296,7 @@ void COM_ParseError( char *format, ... )
 	static char string[4096];
 
 	va_start (argptr, format);
-	vsprintf (string, format, argptr);
+	Q_vsnprintf (string, sizeof(string), format, argptr);
 	va_end (argptr);
 
 	Com_Printf("ERROR: %s, line %d: %s\n", com_parsename, com_lines, string);
@@ -286,7 +308,7 @@ void COM_ParseWarning( char *format, ... )
 	static char string[4096];
 
 	va_start (argptr, format);
-	vsprintf (string, format, argptr);
+	Q_vsnprintf (string, sizeof(string), format, argptr);
 	va_end (argptr);
 
 	Com_Printf("WARNING: %s, line %d: %s\n", com_parsename, com_lines, string);
@@ -684,14 +706,12 @@ int Q_isalpha( int c )
 		return ( 1 );
 	return ( 0 );
 }
-
 int Q_isdigit( int c )
 {
-	if ((c >= '0' && c <= '9'))
-		return ( 1 );
-	return ( 0 );
+        if ((c >= '0' && c <= '9'))
+                return ( 1 );
+        return ( 0 );
 }
-
 char* Q_strrchr( const char* string, int c )
 {
 	char cc = c;
@@ -712,6 +732,28 @@ char* Q_strrchr( const char* string, int c )
 	return sp;
 }
 
+qboolean Q_isanumber( const char *s )
+{
+#ifdef Q3_VM
+	//FIXME: implement
+	return qfalse;
+#else
+	char *p;
+
+	if( *s == '\0' )
+		return qfalse;
+
+	strtod( s, &p );
+
+	return *p == '\0';
+#endif
+}
+
+qboolean Q_isintegral( float f )
+{
+	return (int)f == f;
+}
+
 /*
 =============
 Q_strncpyz
@@ -720,7 +762,6 @@ Safe strncpy that ensures a trailing zero
 =============
 */
 void Q_strncpyz( char *dest, const char *src, int destsize ) {
-  // bk001129 - also NULL dest
   if ( !dest ) {
     Com_Error( ERR_FATAL, "Q_strncpyz: NULL dest" );
   }
@@ -738,7 +779,6 @@ void Q_strncpyz( char *dest, const char *src, int destsize ) {
 int Q_stricmpn (const char *s1, const char *s2, int n) {
 	int		c1, c2;
 
-	// bk001129 - moved in 1.17 fix not in id codebase
         if ( s1 == NULL ) {
            if ( s2 == NULL )
              return 0;
@@ -832,6 +872,38 @@ void Q_strcat( char *dest, int size, const char *src ) {
 	Q_strncpyz( dest + l1, src, size - l1 );
 }
 
+/*
+* Find the first occurrence of find in s.
+*/
+const char *Q_stristr( const char *s, const char *find)
+{
+  char c, sc;
+  size_t len;
+
+  if ((c = *find++) != 0)
+  {
+    if (c >= 'a' && c <= 'z')
+    {
+      c -= ('a' - 'A');
+    }
+    len = strlen(find);
+    do
+    {
+      do
+      {
+        if ((sc = *s++) == 0)
+          return NULL;
+        if (sc >= 'a' && sc <= 'z')
+        {
+          sc -= ('a' - 'A');
+        }
+      } while (sc != c);
+    } while (Q_stricmpn(s, find, len) != 0);
+    s--;
+  }
+  return s;
+}
+
 
 int Q_PrintStrlen( const char *string ) {
 	int			len;
@@ -877,6 +949,18 @@ char *Q_CleanStr( char *string ) {
 	return string;
 }
 
+int Q_CountChar(const char *string, char tocount)
+{
+	int count;
+	
+	for(count = 0; *string; string++)
+	{
+		if(*string == tocount)
+			count++;
+	}
+	
+	return count;
+}
 
 void QDECL Com_sprintf( char *dest, int size, const char *fmt, ...) {
 	int		len;
@@ -884,7 +968,7 @@ void QDECL Com_sprintf( char *dest, int size, const char *fmt, ...) {
 	char	bigbuffer[32000];	// big, but small enough to fit in PPC stack
 
 	va_start (argptr,fmt);
-	len = vsprintf (bigbuffer,fmt,argptr);
+	len = Q_vsnprintf (bigbuffer, sizeof(bigbuffer), fmt,argptr);
 	va_end (argptr);
 	if ( len >= sizeof( bigbuffer ) ) {
 		Com_Error( ERR_FATAL, "Com_sprintf: overflowed bigbuffer" );
@@ -907,20 +991,19 @@ va
 
 does a varargs printf into a temp buffer, so I don't need to have
 varargs versions of all text functions.
-FIXME: make this buffer size safe someday
 ============
 */
 char	* QDECL va( char *format, ... ) {
 	va_list		argptr;
-	static char		string[2][32000];	// in case va is called by nested functions
-	static int		index = 0;
-	char	*buf;
+	static char string[2][32000]; // in case va is called by nested functions
+	static int	index = 0;
+	char		*buf;
 
 	buf = string[index & 1];
 	index++;
 
 	va_start (argptr, format);
-	vsprintf (buf, format,argptr);
+	Q_vsnprintf (buf, sizeof(*string), format, argptr);
 	va_end (argptr);
 
 	return buf;
@@ -1100,7 +1183,8 @@ void Info_RemoveKey( char *s, const char *key ) {
 
 		if (!strcmp (key, pkey) )
 		{
-			strcpy (start, s);	// remove this part
+			memmove(start, s, strlen(s) + 1); // remove this part
+			
 			return;
 		}
 
@@ -1177,22 +1261,12 @@ can mess up the server's parsing
 ==================
 */
 qboolean Info_Validate( const char *s ) {
-	const char* ch = s;
-
-	while ( *ch != '\0' )
-	{
-		if( !Q_isprint( *ch ) )
-			return qfalse;
-
-		if( *ch == '\"' )
-			return qfalse;
-
-		if( *ch == ';' )
-			return qfalse;
-
-		++ch;
+	if ( strchr( s, '\"' ) ) {
+		return qfalse;
 	}
-
+	if ( strchr( s, ';' ) ) {
+		return qfalse;
+	}
 	return qtrue;
 }
 

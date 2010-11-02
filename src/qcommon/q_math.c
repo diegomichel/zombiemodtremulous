@@ -1609,6 +1609,16 @@ void VectorToAngles(const vec3_t value1, vec3_t angles)
         angles[YAW] = yaw;
         angles[ROLL] = 0;
 }
+qboolean BoundsIntersectPoint(const vec3_t mins, const vec3_t maxs, const vec3_t origin)
+{
+        if(origin[0] > maxs[0] ||
+           origin[0] < mins[0] || origin[1] > maxs[1] || origin[1] < mins[1] || origin[2] > maxs[2] || origin[2] < mins[2])
+        {
+                return qfalse;
+        }
+
+        return qtrue;
+}
 
 /*
 =====================
@@ -1619,31 +1629,21 @@ the msvc acos doesn't always return a value between -PI and PI:
 int i;
 i = 1065353246;
 acos(*(float*) &i) == -1.#IND0
+
+        This should go in q_math but it is too late to add new traps
+        to game and ui
 =====================
 */
-float Q_acos(float c)
-{
-        float           angle;
+float Q_acos(float c) {
+        float angle;
 
         angle = acos(c);
 
-        if(angle > M_PI)
-        {
+        if (angle > M_PI) {
                 return (float)M_PI;
         }
-        else if(angle < -M_PI)
-        {
+        if (angle < -M_PI) {
                 return (float)M_PI;
         }
         return angle;
-}
-qboolean BoundsIntersectPoint(const vec3_t mins, const vec3_t maxs, const vec3_t origin)
-{
-        if(origin[0] > maxs[0] ||
-           origin[0] < mins[0] || origin[1] > maxs[1] || origin[1] < mins[1] || origin[2] > maxs[2] || origin[2] < mins[2])
-        {
-                return qfalse;
-        }
-
-        return qtrue;
 }

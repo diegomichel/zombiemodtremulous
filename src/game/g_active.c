@@ -685,7 +685,7 @@ ClientTimerActions(gentity_t *ent, int msec)
     {
       int ammo;
 
-      BG_UnpackAmmoArray(WP_LUCIFER_CANNON, client->ps.ammo, client->ps.powerups, &ammo, NULL);
+      BG_UnpackAmmoArray(WP_LUCIFER_CANNON, &client->ps.ammo, client->ps.powerups, &ammo, NULL);
 
       if (client->ps.stats[STAT_MISC] < LCANNON_TOTAL_CHARGE && ucmd->buttons & BUTTON_ATTACK)
         client->ps.stats[STAT_MISC] += (100.0f / LCANNON_CHARGE_TIME) * LCANNON_TOTAL_CHARGE;
@@ -925,12 +925,12 @@ ClientTimerActions(gentity_t *ent, int msec)
       int ammo, maxAmmo;
 
       BG_FindAmmoForWeapon(WP_ALEVEL3_UPG, &maxAmmo, NULL);
-      BG_UnpackAmmoArray(WP_ALEVEL3_UPG, client->ps.ammo, client->ps.powerups, &ammo, NULL);
+      BG_UnpackAmmoArray(WP_ALEVEL3_UPG, &client->ps.ammo, client->ps.powerups, &ammo, NULL);
 
       if (ammo < maxAmmo)
       {
         ammo++;
-        BG_PackAmmoArray(WP_ALEVEL3_UPG, client->ps.ammo, client->ps.powerups, ammo, 0);
+        BG_PackAmmoArray(WP_ALEVEL3_UPG, &client->ps.ammo, client->ps.powerups, ammo, 0);
       }
     }
   }

@@ -91,7 +91,7 @@ char	*MSG_ReadBigString (msg_t *sb);
 char	*MSG_ReadStringLine (msg_t *sb);
 float	MSG_ReadAngle16 (msg_t *sb);
 void	MSG_ReadData (msg_t *sb, void *buffer, int size);
-
+int		MSG_LookaheadByte (msg_t *msg);
 
 void MSG_WriteDeltaUsercmd( msg_t *msg, struct usercmd_s *from, struct usercmd_s *to );
 void MSG_ReadDeltaUsercmd( msg_t *msg, struct usercmd_s *from, struct usercmd_s *to );
@@ -135,8 +135,9 @@ typedef enum {
 	NA_LOOPBACK,
 	NA_BROADCAST,
 	NA_IP,
-	NA_IPX,
-	NA_BROADCAST_IPX
+	NA_IP6,
+	NA_MULTICAST6,
+	NA_UNSPEC
 } netadrtype_t;
 
 typedef enum {
@@ -144,11 +145,12 @@ typedef enum {
 	NS_SERVER
 } netsrc_t;
 
+#define NET_ADDRSTRMAXLEN 48	// maximum length of an IPv6 address string including trailing '\0'
 typedef struct {
 	netadrtype_t	type;
 
 	byte	ip[4];
-	byte	ipx[10];
+	byte	ip6[16];
 
 	unsigned short	port;
 } netadr_t;
@@ -166,8 +168,11 @@ qboolean	NET_CompareAdr (netadr_t a, netadr_t b);
 qboolean	NET_CompareBaseAdr (netadr_t a, netadr_t b);
 qboolean	NET_IsLocalAddress (netadr_t adr);
 const char	*NET_AdrToString (netadr_t a);
-qboolean	NET_StringToAdr ( const char *s, netadr_t *a);
+const char      *NET_AdrToStringwPort (netadr_t a);
+int		NET_StringToAdr ( const char *s, netadr_t *a, netadrtype_t family);
 qboolean	NET_GetLoopPacket (netsrc_t sock, netadr_t *net_from, msg_t *net_message);
+void		NET_JoinMulticast6(void);
+void		NET_LeaveMulticast6(void);
 void		NET_Sleep(int msec);
 
 
@@ -255,7 +260,12 @@ enum svc_ops_e {
 	svc_serverCommand,			// [string] to be executed by client game module
 	svc_download,				// [short] size [size bytes]
 	svc_snapshot,
-	svc_EOF
+	svc_EOF,
+
+	// svc_extension follows a svc_EOF, followed by another svc_* ...
+	//  this keeps legacy clients compatible.
+	svc_extension,
+	svc_voip,     // not wrapped in USE_VOIP, so this value is reserved.
 };
 
 
@@ -268,7 +278,12 @@ enum clc_ops_e {
 	clc_move,				// [[usercmd_t]
 	clc_moveNoDelta,		// [[usercmd_t]
 	clc_clientCommand,		// [string] message
-	clc_EOF
+	clc_EOF,
+
+	// clc_extension follows a clc_EOF, followed by another clc_* ...
+	//  this keeps legacy servers compatible.
+	clc_extension,
+	clc_voip,   // not wrapped in USE_VOIP, so this value is reserved.
 };
 
 /*
@@ -312,6 +327,8 @@ vm_t	*VM_Create( const char *module, intptr_t (*systemCalls)(intptr_t *),
 
 void	VM_Free( vm_t *vm );
 void	VM_Clear(void);
+void	VM_Forced_Unload_Start(void);
+void	VM_Forced_Unload_Done(void);
 vm_t	*VM_Restart( vm_t *vm );
 
 intptr_t		QDECL VM_Call( vm_t *vm, int callNum, ... );
@@ -500,6 +517,7 @@ char	*Cvar_InfoString_Big( int bit );
 // returns an info string containing all the cvars that have the given bit set
 // in their flags ( CVAR_USERINFO, CVAR_SERVERINFO, CVAR_SYSTEMINFO, etc )
 void	Cvar_InfoStringBuffer( int bit, char *buff, int buffsize );
+void Cvar_CheckRange( cvar_t *cv, float minVal, float maxVal, qboolean shouldBeIntegral );
 
 void	Cvar_Restart_f( void );
 
@@ -533,6 +551,12 @@ issues.
 
 #define BASEGAME "base"
 
+#ifdef DEDICATED
+#	define Q3CONFIG_CFG "autogen_server.cfg"
+#else
+#	define Q3CONFIG_CFG "autogen.cfg"
+#endif
+
 qboolean FS_Initialized( void );
 
 void	FS_InitFilesystem ( void );
@@ -541,6 +565,8 @@ void	FS_Shutdown( qboolean closemfp );
 qboolean	FS_ConditionalRestart( int checksumFeed );
 void	FS_Restart( int checksumFeed );
 // shutdown and restart the filesystem so changes to fs_gamedir can take effect
+
+void FS_AddGameDirectory( const char *path, const char *dir );
 
 char	**FS_ListFiles( const char *directory, const char *extension, int *numfiles );
 // directory should not have either a leading or trailing /
@@ -559,9 +585,9 @@ int		FS_GetFileList(  const char *path, const char *extension, char *listbuf, in
 int		FS_GetModList(  char *listbuf, int bufsize );
 
 fileHandle_t	FS_FOpenFileWrite( const char *qpath );
+fileHandle_t	FS_FOpenFileAppend( const char *filename );
 // will properly create any needed paths and deal with seperater character issues
 
-int		FS_filelength( fileHandle_t f );
 fileHandle_t FS_SV_FOpenFileWrite( const char *filename );
 int		FS_SV_FOpenFileRead( const char *filename, fileHandle_t *fp );
 void	FS_SV_Rename( const char *from, const char *to );
@@ -657,6 +683,7 @@ void FS_HomeRemove( const char *homePath );
 
 void	FS_FilenameCompletion( const char *dir, const char *ext,
 		qboolean stripExt, void(*callback)(const char *s) );
+
 /*
 ==============================================================
 
@@ -684,31 +711,45 @@ MISC
 ==============================================================
 */
 
-// TTimo
-// vsnprintf is ISO/IEC 9899:1999
-// abstracting this to make it portable
-#ifdef WIN32
-#define Q_vsnprintf _vsnprintf
-#else
-// TODO: do we need Mac define?
-#define Q_vsnprintf vsnprintf
-#endif
+// returned by Sys_GetProcessorFeatures
+typedef enum
+{
+  CF_RDTSC      = 1 << 0,
+  CF_MMX        = 1 << 1,
+  CF_MMX_EXT    = 1 << 2,
+  CF_3DNOW      = 1 << 3,
+  CF_3DNOW_EXT  = 1 << 4,
+  CF_SSE        = 1 << 5,
+  CF_SSE2       = 1 << 6,
+  CF_ALTIVEC    = 1 << 7
+} cpuFeatures_t;
 
-// returnbed by Sys_GetProcessorId
-#define CPUID_GENERIC			0			// any unrecognized processor
-
-#define CPUID_AXP				0x10
-
-#define CPUID_INTEL_UNSUPPORTED	0x20			// Intel 386/486
-#define CPUID_INTEL_PENTIUM		0x21			// Intel Pentium or PPro
-#define CPUID_INTEL_MMX			0x22			// Intel Pentium/MMX or P2/MMX
-#define CPUID_INTEL_KATMAI		0x23			// Intel Katmai
-
-#define CPUID_AMD_3DNOW			0x30			// AMD K6 3DNOW!
-
-// TTimo
 // centralized and cleaned, that's the max string you can send to a Com_Printf / Com_DPrintf (above gets truncated)
 #define	MAXPRINTMSG	4096
+
+
+typedef enum {
+	// SE_NONE must be zero
+	SE_NONE = 0,	// evTime is still valid
+	SE_KEY,		// evValue is a key code, evValue2 is the down flag
+	SE_CHAR,	// evValue is an ascii char
+	SE_MOUSE,	// evValue and evValue2 are reletive signed x / y moves
+	SE_JOYSTICK_AXIS,	// evValue is an axis number and evValue2 is the current state (-127 to 127)
+	SE_CONSOLE,	// evPtr is a char*
+	SE_PACKET	// evPtr is a netadr_t followed by data bytes to evPtrLength
+} sysEventType_t;
+
+typedef struct {
+	int				evTime;
+	sysEventType_t	evType;
+	int				evValue, evValue2;
+	int				evPtrLength;	// bytes of data pointed to by evPtr, for journaling
+	void			*evPtr;			// this must be manually freed if not NULL
+} sysEvent_t;
+
+void		Com_QueueEvent( int time, sysEventType_t type, int value, int value2, int ptrLength, void *ptr );
+int			Com_EventLoop( void );
+sysEvent_t	Com_GetSystemEvent( void );
 
 char		*CopyString( const char *in );
 void		Info_Print( const char *s );
@@ -719,7 +760,7 @@ void 		QDECL Com_Printf( const char *fmt, ... ) __attribute__ ((format (printf, 
 void 		QDECL Com_DPrintf( const char *fmt, ... ) __attribute__ ((format (printf, 1, 2)));
 void 		QDECL Com_Error( int code, const char *fmt, ... ) __attribute__ ((format (printf, 2, 3)));
 void 		Com_Quit_f( void );
-int			Com_EventLoop( void );
+
 int			Com_Milliseconds( void );	// will be journaled properly
 unsigned	Com_BlockChecksum( const void *buffer, int length );
 char		*Com_MD5File(const char *filename, int length, const char *prefix, int prefix_len);
@@ -741,12 +782,16 @@ extern	cvar_t	*com_speeds;
 extern	cvar_t	*com_timescale;
 extern	cvar_t	*com_sv_running;
 extern	cvar_t	*com_cl_running;
-extern	cvar_t	*com_viewlog;			// 0 = hidden, 1 = visible, 2 = minimized
 extern	cvar_t	*com_version;
 extern	cvar_t	*com_blood;
 extern	cvar_t	*com_buildScript;		// for building release pak files
 extern	cvar_t	*com_journal;
 extern	cvar_t	*com_cameraMode;
+extern	cvar_t	*com_ansiColor;
+extern	cvar_t	*com_unfocused;
+extern	cvar_t	*com_maxfpsUnfocused;
+extern	cvar_t	*com_minimized;
+extern	cvar_t	*com_maxfpsMinimized;
 extern	cvar_t	*com_altivec;
 
 // both client and server must agree to pause
@@ -890,8 +935,11 @@ void CL_ShutdownAll( void );
 void CL_FlushMemory( void );
 // dump all memory on an error
 
-void CL_StartHunkUsers( void );
+void CL_StartHunkUsers( qboolean rendererOnly );
 // start all the client stuff using the hunk
+
+void Key_KeynameCompletion( void(*callback)(const char *s) );
+// for keyname autocompletion
 
 void Key_WriteBindings( fileHandle_t f );
 // for writing the config files
@@ -934,31 +982,9 @@ typedef enum {
 	MAX_JOYSTICK_AXIS
 } joystickAxis_t;
 
-typedef enum {
-  // bk001129 - make sure SE_NONE is zero
-	SE_NONE = 0,	// evTime is still valid
-	SE_KEY,		// evValue is a key code, evValue2 is the down flag
-	SE_CHAR,	// evValue is an ascii char
-	SE_MOUSE,	// evValue and evValue2 are reletive signed x / y moves
-	SE_JOYSTICK_AXIS,	// evValue is an axis number and evValue2 is the current state (-127 to 127)
-	SE_CONSOLE,	// evPtr is a char*
-	SE_PACKET	// evPtr is a netadr_t followed by data bytes to evPtrLength
-} sysEventType_t;
-
-typedef struct {
-	int				evTime;
-	sysEventType_t	evType;
-	int				evValue, evValue2;
-	int				evPtrLength;	// bytes of data pointed to by evPtr, for journaling
-	void			*evPtr;			// this must be manually freed if not NULL
-} sysEvent_t;
-
-sysEvent_t	Sys_GetEvent( void );
-
 void	Sys_Init (void);
 
 // general development dll loading for virtual machine testing
-// fqpath param added 7/20/02 by T.Ray - Sys_LoadDll is only called in vm.c at this time
 void	* QDECL Sys_LoadDll( const char *name, char *fqpath , intptr_t (QDECL **entryPoint)(int, ...),
 				  intptr_t (QDECL *systemcalls)(intptr_t, ...) );
 void	Sys_UnloadDll( void *dllHandle );
@@ -995,47 +1021,39 @@ qboolean Sys_RandomBytes( byte *string, int len );
 // the system console is shown when a dedicated server is running
 void	Sys_DisplaySystemConsole( qboolean show );
 
-int		Sys_GetProcessorId( void );
+cpuFeatures_t Sys_GetProcessorFeatures( void );
 
-void	Sys_BeginStreamedFile( fileHandle_t f, int readahead );
-void	Sys_EndStreamedFile( fileHandle_t f );
-int		Sys_StreamedRead( void *buffer, int size, int count, fileHandle_t f );
-void	Sys_StreamSeek( fileHandle_t f, int offset, int origin );
-
-void	Sys_ShowConsole( int level, qboolean quitOnClose );
 void	Sys_SetErrorText( const char *text );
 
 void	Sys_SendPacket( int length, const void *data, netadr_t to );
+qboolean Sys_GetPacket( netadr_t *net_from, msg_t *net_message );
 
-qboolean	Sys_StringToAdr( const char *s, netadr_t *a );
+qboolean	Sys_StringToAdr( const char *s, netadr_t *a, netadrtype_t family );
 //Does NOT parse port numbers, only base addresses.
 
 qboolean	Sys_IsLANAddress (netadr_t adr);
 void		Sys_ShowIP(void);
 
-qboolean	Sys_CheckCD( void );
-
 void	Sys_Mkdir( const char *path );
 char	*Sys_Cwd( void );
-void	Sys_SetDefaultCDPath(const char *path);
-char	*Sys_DefaultCDPath(void);
 void	Sys_SetDefaultInstallPath(const char *path);
 char	*Sys_DefaultInstallPath(void);
+
+#ifdef MACOS_X
+char    *Sys_DefaultAppPath(void);
+#endif
+
 void  Sys_SetDefaultHomePath(const char *path);
 char	*Sys_DefaultHomePath(void);
+const char *Sys_Dirname( char *path );
+const char *Sys_Basename( char *path );
+char *Sys_ConsoleInput(void);
 
 char **Sys_ListFiles( const char *directory, const char *extension, char *filter, int *numfiles, qboolean wantsubs );
 void	Sys_FreeFileList( char **list );
-
-void	Sys_BeginProfiling( void );
-void	Sys_EndProfiling( void );
+void	Sys_Sleep(int msec);
 
 qboolean Sys_LowPhysicalMemory( void );
-unsigned int Sys_ProcessorCount( void );
-
-int Sys_MonkeyShouldBeSpanked( void );
-
-qboolean Sys_DetectAltivec( void );
 
 /* This is based on the Adaptive Huffman algorithm described in Sayood's Data
  * Compression book.  The ranks are not actually stored, but implicitly defined
@@ -1084,13 +1102,17 @@ void	Huff_offsetTransmit (huff_t *huff, int ch, byte *fout, int *offset);
 void	Huff_putBit( int bit, byte *fout, int *offset);
 int		Huff_getBit( byte *fout, int *offset);
 
+// don't use if you don't know what you're doing.
+int		Huff_getBloc(void);
+void	Huff_setBloc(int _bloc);
+
+extern huffman_t clientHuffTables;
+
 int		Parse_AddGlobalDefine(char *string);
 int		Parse_LoadSourceHandle(const char *filename);
 int		Parse_FreeSourceHandle(int handle);
 int		Parse_ReadTokenHandle(int handle, pc_token_t *pc_token);
 int		Parse_SourceFileAndLine(int handle, char *filename, int *line);
-
-extern huffman_t clientHuffTables;
 
 #define	SV_ENCODE_START		4
 #define SV_DECODE_START		12

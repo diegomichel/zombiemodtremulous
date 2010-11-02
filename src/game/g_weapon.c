@@ -96,7 +96,7 @@ G_GiveClientMaxAmmo(gentity_t *ent, qboolean buyingEnergyAmmo)
       weaponType = !BG_FindUsesEnergyForWeapon(i);
 
     if (BG_InventoryContainsWeapon(i, ent->client->ps.stats) && weaponType && !BG_FindInfinteAmmoForWeapon(i) && !BG_WeaponIsFull(i, ent->client->ps.stats,
-        ent->client->ps.ammo, ent->client->ps.powerups))
+        &ent->client->ps.ammo, ent->client->ps.powerups))
     {
       BG_FindAmmoForWeapon(i, &maxAmmo, &maxClips);
 
@@ -108,7 +108,7 @@ G_GiveClientMaxAmmo(gentity_t *ent, qboolean buyingEnergyAmmo)
           maxAmmo = (int) ((float) maxAmmo * BATTPACK_MODIFIER);
       }
 
-      BG_PackAmmoArray(i, ent->client->ps.ammo, ent->client->ps.powerups, maxAmmo, maxClips);
+      BG_PackAmmoArray(i, &ent->client->ps.ammo, ent->client->ps.powerups, maxAmmo, maxClips);
 
       restoredAmmo = qtrue;
     }

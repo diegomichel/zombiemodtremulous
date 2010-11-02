@@ -419,7 +419,7 @@ void Cmd_Give_f(gentity_t *ent) {
             BG_InventoryContainsUpgrade(UP_BATTPACK, client->ps.stats))
       maxAmmo = (int) ((float) maxAmmo * BATTPACK_MODIFIER);
 
-    BG_PackAmmoArray(client->ps.weapon, client->ps.ammo, client->ps.powerups, maxAmmo, maxClips);
+    BG_PackAmmoArray(client->ps.weapon, &client->ps.ammo, client->ps.powerups, maxAmmo, maxClips);
   }
 }
 
@@ -2708,7 +2708,7 @@ void Cmd_Buy_f(gentity_t *ent) {
             BG_InventoryContainsUpgrade(UP_BATTPACK, ent->client->ps.stats))
       maxAmmo = (int) ((float) maxAmmo * BATTPACK_MODIFIER);
 
-    BG_PackAmmoArray(weapon, ent->client->ps.ammo, ent->client->ps.powerups,
+    BG_PackAmmoArray(weapon, &ent->client->ps.ammo, ent->client->ps.powerups,
             maxAmmo, maxClips);
 
     G_ForceWeaponChange(ent, weapon);
@@ -2913,7 +2913,7 @@ void Cmd_Sell_f(gentity_t *ent) {
             if (BG_InventoryContainsWeapon(j, ent->client->ps.stats) &&
                     BG_FindUsesEnergyForWeapon(j) &&
                     !BG_FindInfinteAmmoForWeapon(j)) {
-              BG_PackAmmoArray(j, ent->client->ps.ammo, ent->client->ps.powerups, 0, 0);
+              BG_PackAmmoArray(j, &ent->client->ps.ammo, ent->client->ps.powerups, 0, 0);
             }
           }
         }
