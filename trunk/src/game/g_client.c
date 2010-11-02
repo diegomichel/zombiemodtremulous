@@ -1870,7 +1870,7 @@ ClientSpawn(gentity_t *ent, gentity_t *spawn, vec3_t origin, vec3_t angles)
 
   BG_FindAmmoForWeapon(weapon, &maxAmmo, &maxClips);
   BG_AddWeaponToInventory(weapon, client->ps.stats);
-  BG_PackAmmoArray(weapon, client->ps.ammo, client->ps.powerups, maxAmmo, maxClips);
+  BG_PackAmmoArray(weapon, &client->ps.ammo, client->ps.powerups, maxAmmo, maxClips);
 
   ent->client->ps.stats[STAT_PCLASS] = ent->client->pers.classSelection;
   ent->client->ps.stats[STAT_PTEAM] = ent->client->pers.teamSelection;

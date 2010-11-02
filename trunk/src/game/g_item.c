@@ -36,7 +36,7 @@ G_switchWeapon(gentity_t *player, weapon_t weapon)
   BG_AddWeaponToInventory(weapon, player->client->ps.stats);
   BG_FindAmmoForWeapon(weapon, &maxAmmo, &maxClips);
   G_ForceWeaponChange(player, weapon);
-  BG_PackAmmoArray(weapon, player->client->ps.ammo, player->client->ps.powerups, maxAmmo, maxClips);
+  BG_PackAmmoArray(weapon, &player->client->ps.ammo, player->client->ps.powerups, maxAmmo, maxClips);
 }
 void
 G_giveHealth(gentity_t *player)

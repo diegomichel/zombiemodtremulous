@@ -23,10 +23,11 @@ endif
 
 BUILD_CLIENT     = 0
 BUILD_CLIENT_SMP = 0
-BUILD_SERVER     = 0
+BUILD_SERVER     = 1
 BUILD_GAME_SO    = 1
 BUILD_GAME_QVM   = 1
 BUILD_PROFILING  = 1
+USE_CURL	= 1
 
 #############################################################################
 #
@@ -128,8 +129,11 @@ CDIR=$(MOUNT_DIR)/client
 SDIR=$(MOUNT_DIR)/server
 RDIR=$(MOUNT_DIR)/renderer
 CMDIR=$(MOUNT_DIR)/qcommon
-UDIR=$(MOUNT_DIR)/unix
-W32DIR=$(MOUNT_DIR)/win32
+SDLDIR=$(MOUNT_DIR)/sdl
+ASMDIR=$(MOUNT_DIR)/asm
+SYSDIR=$(MOUNT_DIR)/sys
+#UDIR=$(MOUNT_DIR)/unix #FIXME: This should be SYSDIR but for Lazyness will left as is.
+#W32DIR=$(MOUNT_DIR)/win32
 GDIR=$(MOUNT_DIR)/game
 CGDIR=$(MOUNT_DIR)/cgame
 NDIR=$(MOUNT_DIR)/null
@@ -139,6 +143,19 @@ TOOLSDIR=$(MOUNT_DIR)/tools
 SDLHDIR=$(MOUNT_DIR)/SDL12
 LIBSDIR=$(MOUNT_DIR)/libs
 MASTERDIR=$(MOUNT_DIR)/master
+
+# set PKG_CONFIG_PATH to influence this, e.g.
+# PKG_CONFIG_PATH=/opt/cross/i386-mingw32msvc/lib/pkgconfig
+ifeq ($(shell which pkg-config > /dev/null; echo $$?),0)
+  CURL_CFLAGS=$(shell pkg-config --cflags libcurl)
+  CURL_LIBS=$(shell pkg-config --libs libcurl)
+  OPENAL_CFLAGS=$(shell pkg-config --cflags openal)
+  OPENAL_LIBS=$(shell pkg-config --libs openal)
+# FIXME: introduce CLIENT_CFLAGS
+  SDL_CFLAGS=$(shell pkg-config --cflags sdl|sed 's/-Dmain=SDL_main//')
+  SDL_LIBS=$(shell pkg-config --libs sdl)
+endif
+
 
 # extract version info
 VERSION=$(shell grep "\#define VERSION_NUMBER" $(CMDIR)/q_shared.h | \
@@ -224,13 +241,15 @@ ifeq ($(PLATFORM),linux)
   ifeq ($(ARCH),x86_64)
     OPTIMIZE = -O3 -funroll-loops \
       -falign-loops=2 -falign-jumps=2 -falign-functions=2 \
-      -fstrength-reduce
-      
+      -fstrength-reduce      
     ifeq ($(BUILD_PROFILING),0)
      OPTIMIZE += -fomit-frame-pointer
     endif
     # experimental x86_64 jit compiler! you need GNU as
     HAVE_VM_COMPILED = true
+    ifeq ($(BUILD_PROFILING),0)
+     OPTIMIZE += -fomit-frame-pointer
+    endif
   else
   ifeq ($(ARCH),x86)
     OPTIMIZE = -O3 -march=i586 \
@@ -261,7 +280,7 @@ ifeq ($(PLATFORM),linux)
   SHLIBLDFLAGS=-shared $(LDFLAGS)
 
   THREAD_LDFLAGS=-lpthread
-  LDFLAGS=-ldl -lm
+  LDFLAGS=-ldl -lm  $(shell mysql_config --libs) #mysql added
   ifeq ($(BUILD_PROFILING),1)
      LDFLAGS += -pg
     endif
@@ -1040,7 +1059,6 @@ ifeq ($(PLATFORM),mingw32)
 else
   Q3OBJ += \
     $(B)/client/unix_main.o \
-    $(B)/client/unix_net.o \
     $(B)/client/unix_shared.o \
     $(B)/client/linux_signals.o \
     $(B)/client/linux_qgl.o \
@@ -1089,7 +1107,6 @@ endif
 #############################################################################
 # DEDICATED SERVER
 #############################################################################
-
 Q3DOBJ = \
   $(B)/ded/sv_client.o \
   $(B)/ded/sv_ccmds.o \
@@ -1099,6 +1116,8 @@ Q3DOBJ = \
   $(B)/ded/sv_net_chan.o \
   $(B)/ded/sv_snapshot.o \
   $(B)/ded/sv_world.o \
+  $(B)/ded/sv_mysql.o \
+  $(B)/ded/globalv2loader.o \
   \
   $(B)/ded/cm_load.o \
   $(B)/ded/cm_patch.o \
@@ -1112,6 +1131,7 @@ Q3DOBJ = \
   $(B)/ded/md4.o \
   $(B)/ded/msg.o \
   $(B)/ded/net_chan.o \
+  $(B)/ded/net_ip.o \
   $(B)/ded/huffman.o \
   $(B)/ded/parse.o \
   \
@@ -1122,14 +1142,12 @@ Q3DOBJ = \
   $(B)/ded/vm.o \
   $(B)/ded/vm_interpreted.o \
   \
-  $(B)/ded/linux_signals.o \
-  $(B)/ded/unix_main.o \
-  $(B)/ded/unix_net.o \
-  $(B)/ded/unix_shared.o \
-  \
   $(B)/ded/null_client.o \
   $(B)/ded/null_input.o \
-  $(B)/ded/null_snddma.o
+  $(B)/ded/null_snddma.o \
+  \
+  $(B)/ded/con_log.o \
+  $(B)/ded/sys_main.o
 
 ifeq ($(ARCH),x86)
   Q3DOBJ += \
@@ -1149,6 +1167,22 @@ ifeq ($(HAVE_VM_COMPILED),true)
     Q3DOBJ += $(B)/ded/vm_ppc.o
   endif
 endif
+
+#ifeq ($(PLATFORM),mingw32)
+#  Q3DOBJ += \
+    $(B)/ded/win_resource.o \
+    $(B)/ded/sys_win32.o \
+    $(B)/ded/con_win32.o
+#else
+  Q3DOBJ += \
+    $(B)/ded/sys_unix.o \
+    $(B)/ded/con_tty.o
+#endif
+
+ifeq ($(BUILD_PROFILING),1)
+     LDFLAGS += -pg
+    endif
+
 
 $(B)/tremded.$(ARCH)$(BINEXT): $(Q3DOBJ)
 	@echo "LD $@"
@@ -1274,7 +1308,7 @@ UIOBJ_ = \
   \
   $(B)/base/game/bg_misc.o \
   $(B)/base/qcommon/q_math.o \
-  $(B)/base/qcommon/q_shared.o
+  $(B)/base/qcommon/q_shared.o \
 
 UIOBJ = $(UIOBJ_) $(B)/base/ui/ui_syscalls.o
 UIVMOBJ = $(UIOBJ_:%.o=%.asm) $(B)/base/game/bg_lib.asm
@@ -1296,6 +1330,9 @@ $(B)/base/vm/ui.qvm: $(UIVMOBJ) $(UIDIR)/ui_syscalls.asm
 $(B)/client/%.o: $(UDIR)/%.s
 	$(DO_AS)
 
+$(B)/client/%.o: $(ASMDIR)/%.s
+	$(DO_AS)
+
 $(B)/client/%.o: $(CDIR)/%.c
 	$(DO_CC)
 
@@ -1312,23 +1349,38 @@ $(B)/client/%.o: $(JPDIR)/%.c
 	$(DO_CC)
 
 $(B)/client/%.o: $(RDIR)/%.c
+	$(DO_CC
+
+$(B)/client/%.o: $(SDLDIR)/%.c
 	$(DO_CC)
 
-$(B)/client/%.o: $(UDIR)/%.c
-	$(DO_CC)
-
-$(B)/clientsmp/%.o: $(UDIR)/%.c
+$(B)/clientsmp/%.o: $(SDLDIR)/%.c
 	$(DO_SMP_CC)
 
-$(B)/client/%.o: $(W32DIR)/%.c
+$(B)/client/%.o: $(SYSDIR)/%.c
 	$(DO_CC)
 
-$(B)/client/%.o: $(W32DIR)/%.rc
+$(B)/client/%.o: $(SYSDIR)/%.rc
 	$(DO_WINDRES)
 
-
-$(B)/ded/%.o: $(UDIR)/%.s
+$(B)/ded/%.o: $(ASMDIR)/%.s
 	$(DO_AS)
+
+#$(B)/client/%.o: $(UDIR)/%.c
+#	$(DO_CC)
+
+#$(B)/clientsmp/%.o: $(UDIR)/%.c
+#	$(DO_SMP_CC)
+
+#$(B)/client/%.o: $(W32DIR)/%.c
+#	$(DO_CC)
+
+#$(B)/client/%.o: $(W32DIR)/%.rc
+#	$(DO_WINDRES)
+
+
+#$(B)/ded/%.o: $(UDIR)/%.s
+#	$(DO_AS)
 
 $(B)/ded/%.o: $(SDIR)/%.c
 	$(DO_DED_CC)
@@ -1336,11 +1388,17 @@ $(B)/ded/%.o: $(SDIR)/%.c
 $(B)/ded/%.o: $(CMDIR)/%.c
 	$(DO_DED_CC)
 
+$(B)/ded/%.o: $(SYSDIR)/%.c
+	$(DO_DED_CC)
+
+$(B)/ded/%.o: $(SYSDIR)/%.rc
+	$(DO_WINDRES)
+
 $(B)/ded/%.o: $(BLIBDIR)/%.c
 	$(DO_BOT_CC)
 
-$(B)/ded/%.o: $(UDIR)/%.c
-	$(DO_DED_CC)
+#$(B)/ded/%.o: $(UDIR)/%.c
+#	$(DO_DED_CC)
 
 $(B)/ded/%.o: $(NDIR)/%.c
 	$(DO_DED_CC)
