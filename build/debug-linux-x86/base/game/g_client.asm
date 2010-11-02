@@ -7746,6 +7746,9 @@ CALLV
 pop
 LABELV $709
 endproc ClientDisconnect 28 20
+import ACEND_nodeInUse
+import ACEND_setCurrentNode
+import ACEND_pointVisibleFromEntity
 import ACEND_selectNextNode
 import ACESP_SetupBotState
 import ACESP_BotConnect

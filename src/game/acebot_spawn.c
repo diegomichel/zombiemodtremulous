@@ -595,7 +595,7 @@ void ACESP_SetupBotState(gentity_t * self)
 	self->bs.state = STATE_MOVE;
 
 	// set the current node
-	self->bs.currentNode = ACEND_FindClosestReachableNode(self, NODE_DENSITY, NODE_ALL);
+	ACEND_setCurrentNode(self, ACEND_FindClosestReachableNode(self, NODE_DENSITY, NODE_ALL));
 	self->bs.goalNode = self->bs.currentNode;
 	self->bs.nextNode = self->bs.currentNode;
 	self->bs.lastNode = INVALID;

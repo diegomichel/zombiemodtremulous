@@ -129,9 +129,12 @@ ACEND_FindClosestReachableNode(gentity_t * self, float range, int type)
   mins[2] += STEPSIZE;
 
   //  rng = (float)(range * range);   // square range for distance comparison (eliminate sqrt)
-
   for(i = 0;i < numNodes;i++)
   {
+
+    if (ACEND_nodeInUse(self->bs.currentNode))
+      continue;
+
     if (type == NODE_ALL || type == nodes[i].type) // check node type
     {
       VectorSubtract(nodes[i].origin, self->client->ps.origin, v); // subtract first
@@ -154,7 +157,6 @@ ACEND_FindClosestReachableNode(gentity_t * self, float range, int type)
       }
     }
   }
-
   return node;
 }
 
@@ -173,7 +175,7 @@ ACEND_SetGoal(gentity_t * self, int goalNode)
   if (ace_debug.integer)
     G_Printf("print \"%s: new start node selected %d\n\"", self->client->pers.netname, node);
 
-  self->bs.currentNode = node;
+  ACEND_setCurrentNode(self, node);
   self->bs.nextNode = self->bs.currentNode; // make sure we get to the nearest node first
   self->bs.node_timeout = 0;
 
@@ -341,17 +343,17 @@ ACEND_PathMap(gentity_t * self)
   currentNodeType = nodes[self->bs.currentNode].type;
   nextNodeType = nodes[self->bs.nextNode].type;
 
+  //FIXME: REMOVE PRODUCTION
+  /*if (!g_survival.integer)
+   return;*/
 
-  if (!g_survival.integer)
-    return;
-
-  /*if ((self->r.svFlags & SVF_BOT))
+  if ((self->r.svFlags & SVF_BOT))
   {
     return;
-  }*/
+  }
 
   /*if ((self->r.svFlags & SVF_BOT) && (level.time - level.startTime) > 120000)
-    return;*/
+   return;*/
 
   // don't add links when you went into a trap
   if (self->health <= 0)
@@ -573,6 +575,7 @@ else    VectorCopy(self->s.origin, nodes[numNodes].origin);
 
     // set type
     nodes[numNodes].type = type;
+    nodes[numNodes].inuse = qfalse;
 
     // move the z location up just a bit for items
     if(type == NODE_ITEM)
@@ -736,14 +739,14 @@ ACEND_UpdateNodeEdge(int from, int to, gentity_t *self)
   {
     while(!ACEND_nodesVisible(nodes[from].origin, nodes[to].origin))
     {
-      if(failcounter % 2 == 0)
+      if (failcounter % 2 == 0)
       {
         nodes[from].origin[2] += 5;
       }
       failcounter++;
       if (failcounter >= 40)
       {
-        if(ace_debug.integer)
+        if (ace_debug.integer)
         {
           G_Printf("Cant create a link between those nodes, they are not visible.\n");
         }
@@ -752,11 +755,11 @@ ACEND_UpdateNodeEdge(int from, int to, gentity_t *self)
     }
     if (failcounter > 0)
     {
-      if(ace_debug.integer)
+      if (ace_debug.integer)
       {
         G_Printf("Moved the node a bit upper.\n");
       }
-      if ( level.num_entities < 800 && ace_debug.integer)
+      if (level.num_entities < 800 && ace_debug.integer)
       {
         ACEND_ShowNode(from, nodes[from].type);
       }
@@ -950,8 +953,60 @@ void
 ACEND_selectNextNode(gentity_t *self)
 {
   self->bs.lastNode = self->bs.currentNode;
-  self->bs.currentNode = self->bs.nextNode;
+  ACEND_setCurrentNode(self, self->bs.nextNode);
   self->bs.nextNode = path_table[self->bs.currentNode][self->bs.goalNode];
 }
 
+qboolean
+ACEND_pointVisibleFromEntity(vec3_t point, gentity_t *self)
+{
+  trace_t trace;
+
+  trap_Trace(&trace, self->s.origin, NULL, NULL, point, self->s.number, MASK_SHOT);
+
+  if (trace.fraction < 1.0)
+  {
+    return qfalse;
+  }
+
+  return qtrue;
+}
+void
+ACEND_setCurrentNode(gentity_t *self, int node)
+{
+  if (self->bs.currentNode != INVALID)
+  {
+    nodes[self->bs.currentNode].inuse = qfalse;
+  }
+  self->bs.currentNode = node;
+  if (self->bs.currentNode != INVALID)
+  {
+    nodes[self->bs.currentNode].inuse = qtrue;
+  }
+}
+qboolean
+ACEND_nodeInUse(int node)
+{
+  gentity_t *bot = nodes[node].follower;
+  if(node == INVALID) return qfalse;
+
+  if(nodes[node].inuse == qfalse)
+  {
+    return qfalse;
+  }
+  if(bot)
+  {
+    if((bot->r.svFlags & SVF_BOT)
+        && bot->health > 0
+        && bot->client->ps.stats[ STAT_PTEAM ] == PTE_ALIENS)
+    {
+      return qtrue;
+    }
+    else
+    {
+      return qfalse;
+    }
+  }
+  return qfalse;
+}
 #endif

@@ -492,12 +492,13 @@ G_BotThink(gentity_t * self)
           {
             if (director_debug.integer)
             {
-              G_Printf("Was following path and i found a enemy around so im gonna attack him.\n\n");
+              G_Printf("Was following path and i found a enemy around so im gonna attack him.\n");
             }
             self->botEnemy = &g_entities[tempEntityIndex];
             self->botEnemy->lastTimeSeen = level.time;
             memset(&self->client->pers.cmd, 0, sizeof(self->client->pers.cmd));
             self->botCommand = BOT_REGULAR;
+            ACEND_setCurrentNode(self, INVALID);
           }
           else
           {

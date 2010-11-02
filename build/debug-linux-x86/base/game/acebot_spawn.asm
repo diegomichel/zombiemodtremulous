@@ -840,7 +840,7 @@ RETI4
 LABELV $176
 endproc ACESP_BotConnect 1024 12
 export ACESP_SetupBotState
-proc ACESP_SetupBotState 1044 12
+proc ACESP_SetupBotState 1040 12
 ADDRFP4 0
 ADDRFP4 0
 INDIRP4
@@ -901,17 +901,19 @@ CNSTF4 1124073472
 ARGF4
 CNSTI4 99
 ARGI4
-ADDRLP4 1032
+ADDRLP4 1028
 ADDRGP4 ACEND_FindClosestReachableNode
 CALLI4
 ASGNI4
 ADDRFP4 0
 INDIRP4
-CNSTI4 2364
-ADDP4
-ADDRLP4 1032
+ARGP4
+ADDRLP4 1028
 INDIRI4
-ASGNI4
+ARGI4
+ADDRGP4 ACEND_setCurrentNode
+CALLV
+pop
 ADDRFP4 0
 INDIRP4
 CNSTI4 2368
@@ -957,7 +959,7 @@ ADDI4
 CVIF4 4
 ASGNF4
 LABELV $177
-endproc ACESP_SetupBotState 1044 12
+endproc ACESP_SetupBotState 1040 12
 import podium3
 import podium2
 import podium1
@@ -975,6 +977,9 @@ skip 4096
 align 4
 LABELV g_numBots
 skip 4
+import ACEND_nodeInUse
+import ACEND_setCurrentNode
+import ACEND_pointVisibleFromEntity
 import ACEND_selectNextNode
 import ACESP_ReAddBots
 import ACESP_SetName
