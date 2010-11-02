@@ -324,7 +324,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define ALIEN_POISON_DMG            5
 #define ALIEN_POISON_DIVIDER        (1.0f/1.32f) //about 1.0/(time`th root of damage)
 
-#define ALIEN_SPAWN_REPEAT_TIME     1000
+#define ALIEN_SPAWN_REPEAT_TIME     10
 
 #define ALIEN_REGEN_DAMAGE_TIME     2000 //msec since damage that regen starts again
 
@@ -588,7 +588,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define STAMINA_SPRINT_TAKE         8
 #define STAMINA_LARMOUR_TAKE        4
 
-#define HUMAN_SPAWN_REPEAT_TIME     1000
+#define HUMAN_SPAWN_REPEAT_TIME     100
 
 /*
  * Misc
@@ -623,3 +623,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define SDMODE_BP                   0 
 #define SDMODE_NO_BUILD             1
 #define SDMODE_SELECTIVE            2
+
+#define GRIDSIZE                    120
+#define BLOCKSIZE                   100

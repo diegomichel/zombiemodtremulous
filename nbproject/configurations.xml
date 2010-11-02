@@ -466,6 +466,7 @@
         <in>infopanes.def.h</in>
         <in>menudef.h</in>
       </df>
+      <in>dijskastra.c</in>
     </df>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

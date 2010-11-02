@@ -672,7 +672,8 @@ void G_InitGame(int levelTime, int randomSeed, int restart) {
           level.humanStage2Time = level.humanStage3Time = level.startTime;
           
   //PathFinding
-  level.maxpasos = 1000;
+  level.maxpasos = 100;
+  level.selectednode = NULL;
 
   level.snd_fry = G_SoundIndex("sound/misc/fry.wav"); // FIXME standing in lava / slime
 
@@ -1166,7 +1167,7 @@ void G_SpawnClients(pTeam_t team) {
 
     if ((spawn = G_SelectTremulousSpawnPoint(team,
             ent->client->pers.lastDeathLocation,
-            spawn_origin, spawn_angles))) {
+            spawn_origin, spawn_angles, ent))) {
       clientNum = G_PopSpawnQueue(sq);
 
       if (clientNum < 0)
@@ -1222,7 +1223,8 @@ void G_addBot() {
     level.lastBotTime = level.time + 5000;
   }
   level.botsLevel++;
-  if(level.bots < 40)
+  //FIX ME:PRODUCTION
+  if(level.bots < 1)
   {
     G_BotAdd("^1Zombie", PTE_ALIENS, level.botsLevel, NULL);
   }
@@ -1259,6 +1261,7 @@ void G_CalculateSurvivalRecords(void){
 void G_UpdateCamper(void) {
   int i;
   gentity_t *ent;
+  gentity_t *player;
   int count;
 
   if (level.updateCamperTime > level.time) {
@@ -1276,21 +1279,31 @@ void G_UpdateCamper(void) {
       continue;
     if (ent->s.eType == ET_BUILDABLE)
       continue;
-    if (ent->client->ps.stats[ STAT_PTEAM ] != PTE_HUMANS)
+    if (ent->client->ps.stats[ STAT_PTEAM ] == PTE_ALIENS)
       continue;
     if (ent->client->ps.stats[ STAT_HEALTH ] <= 0 ||
             ent->client->sess.sessionTeam == TEAM_SPECTATOR)
       continue;
-
-    //count++;
-    if ((level.time - level.startTime) - ent->client->lastdietime > 60000 && level.numHumanSpawns < 1) {
-      //trap_SendServerCommand(-1, "print \"Camper found..\n\"");
-      level.theCamper = ent;
-      return;
-    }
+    player = ent;
+    count++;
   }
+  //FIX ME: PRODUCTION
+  /*if(count == 1 && level.lastpathfindtime < level.time)
+  {
+    //Last player left
+    level.theCamper = player;
+    level.lastpathfindtime = level.time + 40000; // 10 Seconds to another pathfind.
+    find_path(player);
+    trap_SendServerCommand(-1, va("print \"path for %s\n\"", player->client->pers.netname));
+    if(level.botsfollowpath)
+    {
+        kill_aliens_withoutenemy();
+        trap_SendServerCommand(-1,
+        "print \"^1.\n\"");
+    }
+    
+  }*/
   //trap_SendServerCommand(-1, va("print \"%d\n\"",count));
-  level.theCamper = NULL;
   return;
 }
 

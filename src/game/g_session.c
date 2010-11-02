@@ -174,21 +174,25 @@ void G_WriteSessionData(void) {
       }
       trap_mysql_finishquery();
   }
+  
+  //trap_SendServerCommand( -1, va("print \"^5Game id: %d\n\"",gameid) );
 
   for (i = 0; i < level.maxclients; i++) {
     if (level.clients[ i ].pers.connected == CON_CONNECTED)
       G_WriteClientSessionData(&level.clients[ i ]);
-      if(g_survival.integer) continue;
+      if(!g_survival.integer) continue;
       if(level.clients[i].pers.mysqlid > 0 && gameid > 0 && !level.mysqlupdated)
       {
         if(trap_mysql_runquery(va("UPDATE players set lasttime=NOW() WHERE id = \"%d\" LIMIT 1",
           level.clients[i].pers.mysqlid)) == qtrue)
         {
+         // trap_SendServerCommand( -1, va("print \"^5Update player date %d\n\"",gameid) );
           trap_mysql_finishquery();
         }
         if(trap_mysql_runquery(va("INSERT HIGH_PRIORITY INTO players_game (idgame,idplayer,timealive) VALUES (%d,%d,%d)",
         gameid, level.clients[i].pers.mysqlid, level.clients[i].pers.lastdeadtime)) == qtrue)
         {
+          //trap_SendServerCommand( -1, va("print \"^5Insert players_game relation %d\n\"",gameid) );
           trap_mysql_finishquery();
         }
       }

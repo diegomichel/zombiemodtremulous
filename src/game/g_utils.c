@@ -33,6 +33,7 @@ typedef struct {
 
 #define MAX_SHADER_REMAPS 128
 #define MAX_VALUE 1000
+#define MAX_SPAWN_POINTS  128
 
 int remapCount = 0;
 shaderRemap_t remappedShaders[ MAX_SHADER_REMAPS ];
@@ -795,7 +796,7 @@ void G_KillStructuresSurvival()
       continue;
     if (ent->survivalStage != level.survivalStage)
       continue;
-    if(level.numAlienSpawns <=2 && ent->s.modelindex == BA_H_SPAWN && ent->biteam == BIT_ALIENS)
+    if(level.numAlienSpawns <=8 && ent->s.modelindex == BA_H_SPAWN && ent->biteam == BIT_ALIENS)
       continue;
     
     G_Damage(ent, NULL, NULL, NULL, NULL, 10000, 0, MOD_SUICIDE);
@@ -862,6 +863,17 @@ void G_BuyAll(gentity_t *ent) {
   G_ForceWeaponChange(ent, WP_SHOTGUN);
   trap_SendServerCommand(ent - g_entities, "print \"^1Inventory: Everything\n\"");
 }
+
+int convertGridToWorld(int gridpos)
+{
+  return ((-(BLOCKSIZE/2) + gridpos) * BLOCKSIZE);
+}
+
+int convertWorldToGrid(float worldpos)
+{
+  return ((BLOCKSIZE/2)+(worldpos/BLOCKSIZE));
+}
+
 int min(int value1, int value2)
 {
   if(value1>value2) return value2;
@@ -892,10 +904,9 @@ int findway(int pasos, int x, int y, int fx, int fy)
 {
   int bestPath;
 
-  if(x > 100 || y > 100 || x < 0 || y < 0) return MAX_VALUE;
+  if(x > GRIDSIZE || y > GRIDSIZE || x < 0 || y < 0) return MAX_VALUE;
   if((x == fx && y == fy) || pasos > level.maxpasos)
   {
-    //G_LogPrintf("MMM WTF LOL");
     return pasos;
   }
   
@@ -913,6 +924,12 @@ int findway(int pasos, int x, int y, int fx, int fy)
     bestPath = min(bestPath, findway(pasos+1, x, y-1 ,fx, fy));
     bestPath = min(bestPath, findway(pasos+1, x, y+1 ,fx, fy));
     
+    //4 Esquinas
+    bestPath = min(bestPath, findway(pasos+1, x-1, y-1 ,fx, fy));
+    bestPath = min(bestPath, findway(pasos+1, x+1, y-1 ,fx, fy));
+    
+    bestPath = min(bestPath, findway(pasos+1, x+1, y+1 ,fx, fy));
+    bestPath = min(bestPath, findway(pasos+1, x-1, y+1 ,fx, fy));
     //G_LogPrintf(va("bestpath: %d", bestPath));
 
     return bestPath;
@@ -928,10 +945,448 @@ int findway(int pasos, int x, int y, int fx, int fy)
     cleanvis();
     level.DOWN = findway(pasos+1, x, y+1, fx, fy);
     cleanvis();
+    
+    level.UPRIGHT = findway(pasos+1, x+1, y-1, fx, fy);
+    cleanvis();
+    level.DOWNRIGHT = findway(pasos+1, x+1, y+1, fx, fy);
+    cleanvis();
+    
+    level.UPLEFT = findway(pasos+1, x-1, y-1, fx, fy);
+    cleanvis();
+    level.DOWNLEFT = findway(pasos+1, x-1, y+1, fx, fy);
+    cleanvis();
   }
-  if(level.LEFT<MAX_VALUE || level.RIGHT<MAX_VALUE || level.UP<MAX_VALUE|| level.DOWN<MAX_VALUE) return qtrue;
+  if(level.LEFT<MAX_VALUE || level.RIGHT<MAX_VALUE || level.UP<MAX_VALUE|| level.DOWN<MAX_VALUE
+  || level.UPRIGHT < MAX_VALUE|| level.DOWNRIGHT <MAX_VALUE || level.UPLEFT<MAX_VALUE|| level.DOWNLEFT<MAX_VALUE
+     ) return qtrue;
   
   //G_LogPrintf("fuck lolz");
   return qfalse;
     
+}
+
+int Distance2d(vec3_t from, vec3_t to)
+{
+  from[2] = to[2] = 0;
+  return Distance(from,to);
+}
+
+void kill_aliens_withoutenemy() {
+  int i;
+  gentity_t *ent;
+  int counter;
+
+  for (i = 0; i < level.numConnectedClients; i++) {
+    
+    //FIX ME:PRODUCTION
+    //if(counter > 15 && !level.theCamper) return;
+    
+    ent = &g_entities[ level.sortedClients[ i ] ];
+    
+    if (ent->health > 0 && ent->client->ps.stats[STAT_PTEAM] == PTE_ALIENS) {
+      if(1)//!ent->botEnemy)
+      {
+        counter++;
+        //ent->health = 0;
+        G_Damage(ent, NULL, NULL, NULL, NULL, 10000, 0, MOD_SUICIDE);
+        ent->botpathmode = qtrue;
+        ent->botlostpath = qfalse;
+      }
+    }
+  }
+}
+
+
+
+void find_path(gentity_t * ent)
+{
+  gentity_t *node;
+  gentity_t *spot;
+  int count;
+  gentity_t * spots[ MAX_SPAWN_POINTS ];
+  int x,y;
+  int xnode,ynode;
+  int i;
+  int pathpos = 0;
+  qboolean way = qfalse;
+  
+  
+  x = ((BLOCKSIZE/2)+(ent->s.origin[0]/BLOCKSIZE));
+  y = ((BLOCKSIZE/2)+(ent->s.origin[1]/BLOCKSIZE));
+  //Prevent buffer overflow.
+  if(x >= GRIDSIZE || y >= GRIDSIZE || x < 0 || y < 0)
+  {
+        G_LogPrintf("Out of the path map.\n");
+        return;
+  }
+  
+  //Selecting closest node posible.
+  count = 0;
+  spot = NULL;
+  while ((spot = G_Find(spot, FOFS(classname),
+          BG_FindEntityNameForBuildable(BA_H_SPAWN))) != NULL) {
+    if (!spot->spawned)
+      continue;
+
+    if (spot->health <= 0)
+      continue;
+
+    if (!spot->s.groundEntityNum)
+      continue;
+
+    if (spot->biteam != BIT_ALIENS)
+      continue;
+
+    if (spot->clientSpawnTime > 0)
+      continue;
+
+    if (G_CheckSpawnPoint(spot->s.number, spot->s.origin,
+            spot->s.origin2, BA_H_SPAWN, NULL) != NULL)
+      continue;
+
+    spots[ count ] = spot;
+    count++;
+  }
+  node = G_ClosestEnt(ent->s.origin, spots, count);
+  
+  /*for (i = MAX_CLIENTS; i < level.num_entities; i++) {
+    node = &level.gentities[ i ];
+    if (node->health <= 0)
+      continue;
+    if (node->s.eType != ET_BUILDABLE)
+      continue;
+    if (node->biteam != BIT_ALIENS)
+      continue;
+    if (node->s.modelindex != BA_H_SPAWN)
+      continue;
+      
+    break;
+  }*/
+  if(!node)
+  {
+     G_LogPrintf("No nodes.\n");
+  }
+  xnode = ((BLOCKSIZE/2)+(node->s.origin[0]/BLOCKSIZE));
+  ynode = ((BLOCKSIZE/2)+(node->s.origin[1]/BLOCKSIZE));
+  //Prevent buffer overflow.
+  if(xnode >= GRIDSIZE || ynode >= GRIDSIZE || xnode < 0 || ynode < 0)
+  {
+        G_LogPrintf("Node out of the path map.\n");
+        return;
+  }
+  
+  cleanpath();
+  
+  while(findway(0, xnode, ynode, x, y)) //Reversed from alien spawn to human
+  {
+    level.path[xnode][ynode] = 1;
+    level.botsfollowpath = qtrue;
+    way = 1;
+    //G_LogPrintf(va("PATHPOS %d\n",pathpos));
+    level.pathx[pathpos]= xnode;
+    level.pathy[pathpos]= ynode;
+    cleanvis();
+    if(level.LEFT == min(
+    min(min(level.LEFT,level.RIGHT),min(level.DOWNRIGHT,level.DOWNLEFT)), min(min(level.UP,level.DOWN),min(level.UPRIGHT,level.UPLEFT))
+    ))
+    {
+     // G_LogPrintf(va("A la izquierda %d %d %d %d \n",level.LEFT, level.maxpasos, x, y));
+      xnode = xnode-1;
+      pathpos++;
+      //break;
+    }
+    else if(level.RIGHT == min(
+    min(min(level.LEFT,level.RIGHT),min(level.DOWNRIGHT,level.DOWNLEFT)), min(min(level.UP,level.DOWN),min(level.UPRIGHT,level.UPLEFT))
+    ))
+    {
+    // G_LogPrintf(va("A la Derecha %d %d %d %d \n",level.RIGHT, level.maxpasos, x, y));
+      xnode = xnode+1;
+      pathpos++;
+      //break;
+    }
+    else if(level.UP == min(
+    min(min(level.LEFT,level.RIGHT),min(level.DOWNRIGHT,level.DOWNLEFT)), min(min(level.UP,level.DOWN),min(level.UPRIGHT,level.UPLEFT))
+    ))
+    {
+      //G_LogPrintf(va("Go Up %d %d %d %d \n",level.RIGHT, level.maxpasos, x, y));
+      ynode = ynode-1;
+      pathpos++;
+    }
+    else if(level.DOWN == min(
+    min(min(level.LEFT,level.RIGHT),min(level.DOWNRIGHT,level.DOWNLEFT)), min(min(level.UP,level.DOWN),min(level.UPRIGHT,level.UPLEFT))
+    ))
+    {
+      //G_LogPrintf(va("Go Down %d %d %d %d \n",level.RIGHT, level.maxpasos, x, y));
+      ynode = ynode+1;
+      pathpos++;
+    }//////////////////////////////////////////////////////////////////////////Better pathfinding.
+    else if (level.DOWNRIGHT == min(
+            min(min(level.LEFT, level.RIGHT), min(level.DOWNRIGHT, level.DOWNLEFT)), min(min(level.UP, level.DOWN), min(level.UPRIGHT, level.UPLEFT))
+            )) {
+      //G_LogPrintf(va("Go Down %d %d %d %d \n",level.RIGHT, level.maxpasos, x, y));
+      ynode = ynode + 1;
+      xnode = xnode + 1;
+      pathpos++;
+    } else if (level.DOWNLEFT == min(
+            min(min(level.LEFT, level.RIGHT), min(level.DOWNRIGHT, level.DOWNLEFT)), min(min(level.UP, level.DOWN), min(level.UPRIGHT, level.UPLEFT))
+            )) {
+      //G_LogPrintf(va("Go Down %d %d %d %d \n",level.RIGHT, level.maxpasos, x, y));
+      ynode = ynode + 1;
+      xnode = xnode - 1;
+      pathpos++;
+    } else if (level.UPRIGHT == min(
+            min(min(level.LEFT, level.RIGHT), min(level.DOWNRIGHT, level.DOWNLEFT)), min(min(level.UP, level.DOWN), min(level.UPRIGHT, level.UPLEFT))
+            )) {
+      //G_LogPrintf(va("Go Down %d %d %d %d \n",level.RIGHT, level.maxpasos, x, y));
+      xnode = xnode + 1;
+      ynode = ynode - 1;
+      pathpos++;
+    } else if (level.UPLEFT == min(
+            min(min(level.LEFT, level.RIGHT), min(level.DOWNRIGHT, level.DOWNLEFT)), min(min(level.UP, level.DOWN), min(level.UPRIGHT, level.UPLEFT))
+            )) {
+      //G_LogPrintf(va("Go Down %d %d %d %d \n",level.RIGHT, level.maxpasos, x, y));
+      xnode = xnode - 1;
+      ynode = ynode - 1;
+      pathpos++;
+    }
+  }
+  level.pathx[pathpos] = x;
+  level.pathy[pathpos] = y;
+
+  if (way == qfalse) {
+    level.theCamper = ent;
+    level.botsfollowpath = qfalse;
+    G_LogPrintf("Cant find a path\n");
+    trap_SendServerCommand(-1,
+            "print \"^1cant find path\n\"");
+    level.selectednode = NULL;
+  } else {
+    level.selectednode = node;
+    //So they can respawn as bots following path :?
+    trap_SendServerCommand(-1,
+            "print \"^5aliens died.\n\"");
+    G_LogPrintf("Kill the alienos here\n");
+    kill_aliens_withoutenemy();
+  }
+}
+
+qboolean canSeeNextNode(vec3_t playerpos, vec3_t nodepos) {
+  vec3_t dirToTarget, angleToTarget, forward, right, up, muzzle, end;
+  int vh = 0;
+  trace_t tr;
+  
+  vec3_t playerMins = {-15, -15, -24};
+  vec3_t playerMaxs = {15, 15, 32};
+
+  trap_Trace(&tr, playerpos, playerMins, playerMaxs, nodepos, -1, MASK_SHOT);
+
+
+  if (tr.fraction < 1.0)
+    return qfalse;
+
+  if (tr.contents & CONTENTS_SOLID) {
+    return qfalse;
+  }
+
+  return qtrue;
+
+}
+
+qboolean findNodeCanSee(gentity_t * self) {
+  vec3_t nextnode;
+  int i = GRIDSIZE - 1;
+  for (i = GRIDSIZE - 1; i >= 0; i--) {
+    if (level.pathx[i] == -1 || level.pathy[i] == -1) continue;
+    else {
+      nextnode[0] = ((-(BLOCKSIZE / 2) + level.pathx[i]) * BLOCKSIZE);
+      nextnode[1] = ((-(BLOCKSIZE / 2) + level.pathy[i]) * BLOCKSIZE);
+      nextnode[2] = self->s.pos.trBase[2];
+      if (canSeeNextNode(self->s.pos.trBase, nextnode)) {
+        VectorCopy(nextnode, self->nextnode);
+        self->botnextpath = i + 1;
+        return qtrue;
+      }
+    }
+  }
+  return qfalse;
+}
+
+qboolean nodeOutOfRange(vec3_t node) {
+  int x, y;
+  x = ((BLOCKSIZE / 2)+(node[0] / BLOCKSIZE));
+  y = ((BLOCKSIZE / 2)+(node[1] / BLOCKSIZE));
+
+  if (x <= 0 || x >= GRIDSIZE || y <= 0 || y >= GRIDSIZE) {
+    return qtrue;
+  }
+  return qfalse;
+}
+
+qboolean nextNode(gentity_t *self) {
+  vec3_t dirToTarget, angleToTarget, nextnode, goodnode;
+  vec3_t top = {0, 0, 0};
+  int vh = 0;
+  int x, y;
+  int moved = 0;
+
+  x = ((BLOCKSIZE / 2)+(self->s.origin[0] / BLOCKSIZE));
+  y = ((BLOCKSIZE / 2)+(self->s.origin[1] / BLOCKSIZE));
+
+
+  self->timedropnodepath = level.time;
+  if (self->botnextpath + 1 >= GRIDSIZE) return qfalse;
+
+  if (level.pathx[self->botnextpath + 1] <= -1 || level.pathx[self->botnextpath + 1] <= -1) return qfalse;
+
+  while ((canSeeNextNode(self->s.pos.trBase, self->nextnode) || self->botnextpath == 0)
+          && self->botnextpath < GRIDSIZE) //uf botnextpath = 0 then we are on the start.
+  {
+    nextnode[0] = convertGridToWorld(level.pathx[self->botnextpath + 1]);
+    nextnode[1] = convertGridToWorld(level.pathx[self->botnextpath + 1]);
+    nextnode[2] = self->s.pos.trBase[2];
+    VectorCopy(self->nextnode, goodnode);
+    VectorCopy(nextnode, self->nextnode);
+
+    self->botnextpath++;
+    trap_SendServerCommand(-1,
+            va("print \"Incrasing botnextpath: %d\n\"", Distance2d(self->s.origin, self->nextnode)));
+
+    moved++;
+    self->timedropnodepath += 1000;
+  }
+  if (moved > 0) {
+    if (nodeOutOfRange(self->nextnode)) {
+      VectorCopy(goodnode, self->nextnode);
+    }
+    return qtrue;
+  }
+
+  return qfalse;
+}
+
+qboolean aimNode(gentity_t *self) {
+  vec3_t dirToTarget, angleToTarget;
+  vec3_t top = {0, 0, 0};
+  self->nextnode[2] = self->s.pos.trBase[2];
+  VectorAdd(self->s.pos.trBase, top, top); //Add a to b result in C
+  VectorSubtract(self->nextnode, top, dirToTarget); //Substract b from a result in
+  VectorNormalize(dirToTarget);
+  vectoangles(dirToTarget, angleToTarget);
+  self->client->ps.delta_angles[0] = ANGLE2SHORT(angleToTarget[0]);
+  self->client->ps.delta_angles[1] = ANGLE2SHORT(angleToTarget[1]);
+  self->client->ps.delta_angles[2] = ANGLE2SHORT(angleToTarget[2]);
+  return qtrue;
+}
+
+void botWalk(gentity_t *self) {
+  self->client->pers.cmd.forwardmove = 120;
+  self->client->pers.cmd.buttons |= BUTTON_WALKING;
+}
+
+qboolean visitedLastNode(gentity_t *self) {
+  if (self->botnextpath == 0) return qtrue;
+
+  if (Distance2d(self->nextnode, self->s.origin) < (BLOCKSIZE)) {
+    self->botnextpath++;
+    return qtrue;
+  }
+  return qfalse;
+}
+
+void botStopWalk(gentity_t *self) {
+  self->client->pers.cmd.forwardmove = 0;
+}
+
+qboolean botReachedDestination(gentity_t *self) {
+  if (level.pathx[self->botnextpath + 1] == -1
+          && level.pathy[self->botnextpath + 1] == -1
+          && Distance2d(self->nextnode, self->s.origin) < (BLOCKSIZE / 5)
+          ) {
+    trap_SendServerCommand(-1,
+            va("print \"Distance to node: %d\n\"", Distance2d(self->s.origin, self->nextnode)));
+    return qtrue;
+  }
+  return qfalse;
+}
+
+qboolean botLost(gentity_t *self) {
+  if (self->botnextpath == 0) return qfalse;
+  return !canSeeNextNode(self->s.origin, self->nextnode);
+}
+
+qboolean canMakeWay(gentity_t *self) {
+  int cuadrado = 0;
+  int scale = 1;
+  VectorCopy(self->nextnode, self->lostnode);
+  do {
+    VectorCopy(self->lostnode, self->nextnode);
+    cuadrado++;
+    switch (cuadrado) {
+      case 1:
+        self->nextnode[1] += (BLOCKSIZE * scale);
+        self->nextnode[0] -= (BLOCKSIZE * scale);
+        break;
+      case 2:
+        self->nextnode[1] -= (BLOCKSIZE * scale);
+        self->nextnode[0] += (BLOCKSIZE * scale);
+        break;
+      case 3:
+        self->nextnode[1] += (BLOCKSIZE * scale);
+        self->nextnode[0] += (BLOCKSIZE * scale);
+        break;
+      case 4:
+        self->nextnode[1] -= (BLOCKSIZE * scale);
+        self->nextnode[0] -= (BLOCKSIZE * scale);
+        scale++;
+        break;
+
+      default:
+        break;
+    }
+  } while (botLost(self) && cuadrado <= 16);
+
+  if (!botLost(self)) {
+    return qtrue;
+  }
+
+  return qfalse;
+}
+
+qboolean pointIsSolid(vec3_t point)
+{
+  trace_t tr;
+  //trap_Trace(&tr, playerpos, NULL, NULL, nodepos, -1, MASK_SHOT);
+  trap_Trace(&tr, point, NULL, NULL, point, -1, MASK_SHOT);
+
+  /*if (tr.fraction < 1.0)
+    return qfalse;
+
+  if (tr.contents & CONTENTS_SOLID) {
+    return qfalse;
+  }*/
+
+  if(tr.fraction < 1.0)
+  {
+    trap_SendServerCommand(-1,
+            va("print \"This point is inside of a wall: %d\n\""));
+    return qtrue;
+  }
+}
+
+void fillGrid(gentity_t *ent) {
+  int x,y;
+  vec3_t point;
+
+  x = convertWorldToGrid(ent->s.origin[0]);
+  y = convertWorldToGrid(ent->s.origin[1]);
+
+  point[0] = convertGridToWorld(x);
+  point[1] = convertGridToWorld(y);
+  //point[2] = ent->s.pos[2];
+
+  if (level.grid[x][y]) return;
+  if (x >= GRIDSIZE || y >= GRIDSIZE || x < 0 || y < 0) return;
+  if(pointIsSolid(point)) return;
+
+  level.grid[x][y] = 1;
 }
