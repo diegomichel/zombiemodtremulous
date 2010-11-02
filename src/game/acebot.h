@@ -36,7 +36,7 @@
 #define	PRINT_HIGH			2	// critical messages
 #define	PRINT_CHAT			3	// chat messages
 // maximum nodes
-#define MAX_NODES 1000
+#define MAX_NODES 10000
 
 // link types
 #define INVALID -1
@@ -54,6 +54,7 @@ enum
   NODE_DUCKJUMP,
   NODE_JUMPPAD,
   NODE_LADDER,
+  NODE_DUCK,
   NODE_ALL = 99, // For selecting all nodes
 };
 
@@ -146,6 +147,7 @@ void ACEND_RemoveNodeEdge(gentity_t * self, int from, int to);
 void ACEND_ResolveAllPaths();
 void ACEND_SaveNodes();
 void ACEND_LoadNodes();
+qboolean ACEND_CheckForDucking(gentity_t *self);
 
 // acebot_spawn.c protos
 void ACESP_InitBots(qboolean restart);

@@ -67,7 +67,8 @@ ACEMV_CanMove(gentity_t * self, int direction)
   trap_Trace(&tr, start, NULL, NULL, end, self->s.number, MASK_PLAYERSOLID);
 
   //  if((tr.fraction > 0.3 && tr.fraction != 1) || (tr.contents & (CONTENTS_LAVA | CONTENTS_SLIME)))
-  if ((tr.fraction == 1.0) || (tr.contents & (CONTENTS_LAVA | CONTENTS_SLIME | CONTENTS_DONOTENTER)))
+  if ((tr.fraction == 1.0)
+      || (tr.contents & (CONTENTS_LAVA | CONTENTS_SLIME | CONTENTS_DONOTENTER)))
   {
     if (ace_debug.integer)
       G_Printf("%s:" S_COLOR_WHITE " move blocked\n", self->client->pers.netname);
@@ -348,13 +349,15 @@ ACEMV_MoveToGoal(gentity_t * self)
 {
   // if a rocket or grenade is around deal with it
   // simple, but effective (could be rewritten to be more accurate)
-  if ((strcmp(self->bs.moveTarget->classname, "rocket") == 0 || strcmp(self->bs.moveTarget->classname, "grenade") == 0))
+  if ((strcmp(self->bs.moveTarget->classname, "rocket") == 0 || strcmp(
+    self->bs.moveTarget->classname, "grenade") == 0))
   {
     VectorSubtract(self->bs.moveTarget->s.origin, self->client->ps.origin, self->bs.moveVector);
     ACEMV_ChangeBotAngle(self);
 
     if (ace_debug.integer)
-      trap_SendServerCommand(-1, va("print \"%s: Oh crap a rocket!\n\"", self->client->pers.netname));
+      trap_SendServerCommand(
+        -1, va("print \"%s: Oh crap a rocket!\n\"", self->client->pers.netname));
 
     //trap_SendServerCommand(-1, va("%s \"%s%c%c%s\"", mode == SAY_TEAM ? "tchat" : "chat", name, Q_COLOR_ESCAPE, color, message));
 
@@ -421,84 +424,157 @@ ACEMV_Move(gentity_t * self)
   {
     ACEMV_MoveToGoal(self);
   }
-
-  // grapple
-  /*
-   if(nextNodeType == NODE_GRAPPLE)
-   {
-   ACEMV_ChangeBotAngle(self);
-   ACEIT_ChangeWeapon(self, FindItem("grapple"));
-   self->client->pers.cmd.buttons = BUTTON_ATTACK;
-   return;
-   }
-   // Reset the grapple if hangin on a graple node
-   if(currentNodeType == NODE_GRAPPLE)
-   {
-   CTFPlayerResetGrapple(self);
-   return;
-   }
-   */
-
-#if 0
-  // check for platforms
-  if(currentNodeType != NODE_PLATFORM && nextNodeType == NODE_PLATFORM)
+  ////////////////////////////////////////////////////////////////////////////
+  // CROUCH JUMPING
+  ////////////////////////////////////////////////////////////////////////////
+  if (nextNodeType == NODE_DUCK && currentNodeType == NODE_JUMP && self->s.groundEntityNum
+      != ENTITYNUM_NONE)
   {
-    // check to see if lift is down?
-    for(i = 0; i < num_items; i++)
-    if(item_table[i].node == self->bs.nextNode)
-    if(item_table[i].ent->moverState != MOVER_POS1)
-    return; // Wait for elevator
+    botWalk(self, 127);
+    botJump(self, 127);
+    G_Printf("Jump Walk\n");
+    return;
   }
-#endif
+  if (nextNodeType == NODE_DUCK && currentNodeType == NODE_JUMP && self->s.groundEntityNum
+      == ENTITYNUM_NONE)
+  {
+    botWalk(self, 127);
+    botCrouch(self);
+    G_Printf("Jumped now cruch.\n");
+    return;
+  }
+  ////////////////////////////////////////////////////////////////////////////
+  // CROUCH is not exclusive
+  ////////////////////////////////////////////////////////////////////////////
+  if (nextNodeType == NODE_DUCK || currentNodeType == NODE_DUCK)
+  {
+    botCrouch(self);
+    botWalk(self, 127);
+    if (nextNodeType != NODE_DUCK)
+    {
+      ACEMV_ChangeBotAngle(self);
+    }
+  }
   ////////////////////////////////////////////////////////
   // Jumpto Nodes
   ///////////////////////////////////////////////////////
-  /*if(lastNodeType == NODE_JUMP)
-   {
-
-   }*/
-  if (lastNodeType == NODE_JUMP || (currentNodeType == NODE_JUMP && nodes[self->bs.nextNode].origin[2] > self->s.origin[2]) || nextNodeType == NODE_JUMP)
+  /*if (nextNodeType == NODE_JUMP && currentNodeType != NODE_JUMP
+      && nodes[self->bs.nextNode].origin[2] > self->s.origin[2])
+  {
+    botWalk(self, 127);
+    botJump(self, 127);
+    //Trying to keep momentum, so dont fall to fast.
+    self->client->ps.velocity[2] += 10;
+    ACEMV_ChangeBotAngle(self);
+  }*/
+  //  if (lastNodeType == NODE_JUMP && currentNodeType != NODE_JUMP)
+  //  {
+  //    self->client->ps.stats[STAT_STATE] &= ~SS_BOOSTED;
+  //  }
+  //  if (currentNodeType == NODE_JUMP && lastNodeType == NODE_JUMP && self->s.groundEntityNum != ENTITYNUM_NONE)
+  //  {
+  //    botWalk(self, 127);
+  //    self->client->ps.stats[STAT_STATE] |= SS_BOOSTED;
+  //    botJump(self, 127);
+  //    self->client->ps.velocity[2] += 10;
+  //    G_Printf("\n\n\nIT enters here\n");
+  //    ACEMV_ChangeBotAngle(self);
+  //    return;
+  //  }
+  if (!self->bs.isJumping && (lastNodeType == NODE_JUMP || (currentNodeType == NODE_JUMP
+      && nodes[self->bs.nextNode].origin[2] > self->s.origin[2]) || nextNodeType == NODE_JUMP))
   {
     // Set up a jump move
-    botWalk(self, 127);
-    self->client->pers.cmd.upmove = 35;
-    self->client->ps.stats[STAT_JUMPSPEED] = 256;
-
-    if (currentNodeType == NODE_JUMP && !ACEND_nodesVisible(nodes[self->bs.currentNode].origin, nodes[self->bs.nextNode].origin))
+    if (currentNodeType == NODE_JUMP && nextNodeType == NODE_JUMP && self->s.groundEntityNum
+        != ENTITYNUM_NONE)
     {
-      botWalk(self, 0);
-      self->client->pers.cmd.upmove = 30;
-      self->client->ps.stats[STAT_JUMPSPEED] += 200;
+      botWalk(self, 127);
+      botJump(self, 127);
+      self->client->ps.velocity[2] = 211;
       ACEMV_ChangeBotAngle(self);
-      VectorCopy(self->bs.moveVector,distance);
-      VectorScale(distance,440,self->client->ps.velocity);
+      self->bs.isJumping = qtrue;
+      if(Distance2d(nodes[self->bs.nextNode].origin,nodes[self->bs.currentNode].origin) > 290)
+      {
+        G_Printf("\n\nLong jumping\n");
+        VectorNormalize(self->client->ps.velocity);
+        //self->client->ps.velocity[2] = 50;
+        //Is that or...
+        VectorScale(self->client->ps.velocity, 320, self->client->ps.velocity);
+        self->client->ps.velocity[2] += 70;
+        //self->client->ps.velocity[2] = 560.0f;
+        self->bs.isLongJumping = qtrue;
+      }
       return;
     }
-
-    if (lastNodeType == NODE_JUMP && currentNodeType == NODE_JUMP || (currentNodeType == NODE_JUMP && nextNodeType == NODE_JUMP))
+    //    self->client->pers.cmd.upmove = 35;
+    //    self->client->ps.stats[STAT_JUMPSPEED] = 256;
+    //
+    //    if (currentNodeType == NODE_JUMP && !ACEND_nodesVisible(nodes[self->bs.currentNode].origin, nodes[self->bs.nextNode].origin))
+    //    {
+    //      botWalk(self, 0);
+    //      self->client->pers.cmd.upmove = 30;
+    //      self->client->ps.stats[STAT_JUMPSPEED] += 200;
+    //      ACEMV_ChangeBotAngle(self);
+    //      VectorCopy(self->bs.moveVector,distance);
+    //      VectorScale(distance,440,self->client->ps.velocity);
+    //      return;
+    //    }
+    //
+    //    if (lastNodeType == NODE_JUMP && currentNodeType == NODE_JUMP || (currentNodeType == NODE_JUMP && nextNodeType == NODE_JUMP))
+    //    {
+    //      //G_Printf("Salta mucho .\n");
+    //      self->client->ps.stats[STAT_JUMPSPEED] += 100;
+    //    }
+    //    ACEMV_ChangeBotAngle(self);
+    //
+    //    VectorCopy(self->bs.moveVector,distance);
+    //    VectorScale(distance,440,self->client->ps.velocity);
+    //
+    //    if (Distance(self->s.origin, nodes[self->bs.currentNode].origin) <= 20)
+    //    {
+    //      //Slow down a bit
+    //      botWalk(self, 80);
+    //      self->client->pers.cmd.upmove = 35;
+    //      self->client->ps.stats[STAT_JUMPSPEED] = 256;
+    //
+    //      ACEMV_ChangeBotAngle(self);
+    //
+    //      VectorCopy(self->bs.moveVector,distance);
+    //      VectorScale(distance,10,self->client->ps.velocity);
+    //      self->client->ps.velocity[2] += 100;
+    //    }
+    //    return;
+  }
+  /*if (lastNodeType == NODE_JUMP || currentNodeType == NODE_JUMP)
+   {
+   //Trying to keep momentum, so dont fall to fast.
+   self->client->ps.velocity[2] += 20;
+   }*/
+  if (self->bs.isJumping)
+  {
+    if (lastNodeType == NODE_JUMP)
     {
-      //G_Printf("Salta mucho .\n");
-      self->client->ps.stats[STAT_JUMPSPEED] += 100;
+      G_Printf("Stop jumping.\n");
+      self->bs.isJumping = qfalse;
+      self->bs.isLongJumping = qfalse;
     }
-    ACEMV_ChangeBotAngle(self);
-
-    VectorCopy(self->bs.moveVector,distance);
-    VectorScale(distance,440,self->client->ps.velocity);
-
-    if (Distance(self->s.origin, nodes[self->bs.currentNode].origin) <= 20)
+    else
     {
-      //Slow down a bit
-      botWalk(self, 80);
-      self->client->pers.cmd.upmove = 35;
-      self->client->ps.stats[STAT_JUMPSPEED] = 256;
+      botWalk(self, 127);
+      botJump(self, 127);
+      //Trying to keep momentum, so dont fall to fast.
 
+      if(self->bs.isLongJumping)
+      {
+        G_Printf("LONG JUMPSSSSZZZZ -> %d", Distance2d(nodes[self->bs.nextNode].origin,nodes[self->bs.currentNode].origin));
+        self->client->ps.velocity[2] += 30;
+      }
+      else{
+        self->client->ps.velocity[2] += 20;
+        G_Printf("SHORT JUMPSSSSZZZZ -> %d", Distance2d(nodes[self->bs.nextNode].origin,nodes[self->bs.currentNode].origin));
+      }
       ACEMV_ChangeBotAngle(self);
-
-      VectorCopy(self->bs.moveVector,distance);
-      VectorScale(distance,10,self->client->ps.velocity);
-      self->client->ps.velocity[2] += 100;
     }
-    return;
   }
 
   ////////////////////////////////////////////////////////
@@ -514,7 +590,8 @@ ACEMV_Move(gentity_t * self)
 
   }
   // If getting off the ladder
-  if (currentNodeType == NODE_LADDER && nextNodeType != NODE_LADDER && nodes[self->bs.nextNode].origin[2] > self->s.origin[2])
+  if (currentNodeType == NODE_LADDER && nextNodeType != NODE_LADDER
+      && nodes[self->bs.nextNode].origin[2] > self->s.origin[2])
   {
     botWalk(self, 127);
     self->client->pers.cmd.upmove = 127;
@@ -532,7 +609,8 @@ ACEMV_Move(gentity_t * self)
     ACEMV_ChangeBotAngle(self);
 
     // ff the next node is not in the water, then move up to get out.
-    if (nextNodeType != NODE_WATER && !(trap_PointContents(nodes[self->bs.nextNode].origin, self->s.number) & MASK_WATER))
+    if (nextNodeType != NODE_WATER && !(trap_PointContents(
+      nodes[self->bs.nextNode].origin, self->s.number) & MASK_WATER))
     {
       // exit water
       self->client->pers.cmd.upmove = 127;
@@ -594,49 +672,11 @@ ACEMV_Wander(gentity_t * self)
   if (self->bs.next_move_time > level.time)
     return;
 
-  // Special check for elevators, stand still until the ride comes to a complete stop.
-  /*
-   * FIXME
-   if(self->groundentity != NULL && self->groundentity->use == Use_Plat)
-   if(self->groundentity->moveinfo.state == STATE_UP || self->groundentity->moveinfo.state == STATE_DOWN) // only move when platform not
-   {
-   self->velocity[0] = 0;
-   self->velocity[1] = 0;
-   self->velocity[2] = 0;
-   self->next_move_time = level.time + 500;
-   return;
-   }
-
-   */
-
-  // touched jumppad last Frame?
-  if (self->s.groundEntityNum == ENTITYNUM_NONE)
-  {
-    if (VectorLength(self->client->ps.velocity) > 120)
-    {
-      VectorNormalize2(self->client->ps.velocity, tmp);
-
-      if (AngleBetweenVectors(self->bs.moveVector, tmp) >= 120)
-      {
-        // we might have been knocked back by someone or something ..
-        if (!self->bs.moveTarget)
-        {
-          VectorCopy(tmp, self->bs.moveVector);
-          ACEMV_ChangeBotAngle(self);
-        }
-      }
-    }
-
-    //ACEMV_ChangeBotAngle(self);
-    //self->client->ps.velocity[0] = self->bs.moveVector[0] * 360;
-    //self->client->ps.velocity[1] = self->bs.moveVector[1] * 360;
-    //return;
-  }
-
   // is there a target to move to
   if (self->bs.moveTarget)
   {
     ACEMV_MoveToGoal(self);
+    return;
   }
 
   // swimming?
@@ -694,7 +734,16 @@ ACEMV_Wander(gentity_t * self)
     return;
 
   if (ACEMV_CanMove(self, MOVE_FORWARD))
+  {
+    if (level.time % 5000 && self->bs.state == STATE_WANDER && (self->client->ps.viewangles[PITCH]
+        != 360.0f && self->client->ps.viewangles[PITCH] != 0.0f))
+    {
+      self->client->ps.viewangles[PITCH] = AngleNormalize360(0.0f);
+      self->bs.viewAngles[PITCH] = self->client->ps.viewangles[PITCH];
+      G_SetClientViewAngle(self, self->client->ps.viewangles);
+    }
     botWalk(self, 127);
+  }
 }
 
 qboolean

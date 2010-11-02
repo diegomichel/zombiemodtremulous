@@ -41,11 +41,11 @@ G_BotAdd(char *name, int team, int skill, gentity_t * ent)
   char buffer[MAX_QPATH];
   gentity_t *bot;
 
-  if(level.intermissiontime)
+  if (level.intermissiontime)
   {
     return;
   }
-  if(level.time-level.startTime < 12000)
+  if (level.time - level.startTime < 12000)
   {
     return;
   }
@@ -111,10 +111,9 @@ G_BotAdd(char *name, int team, int skill, gentity_t * ent)
 
   level.bots++;
   //Since i dont update UserInfo for bots i need to set the netname here.
-  Q_strncpyz(bot->client->pers.netname,name,sizeof(bot->client->pers.netname));
+  Q_strncpyz(bot->client->pers.netname, name, sizeof(bot->client->pers.netname));
   ClientBegin(clientNum);
   G_ChangeTeam(bot, team);
-
 
   //Setting initial client information.
   Com_sprintf(buffer, MAX_QPATH, "%s/%s", BG_FindModelNameForClass(PCL_HUMAN), BG_FindSkinNameForClass(PCL_HUMAN));
@@ -445,7 +444,7 @@ G_BotThink(gentity_t * self)
   self->s.angles[PITCH] = 0;
 
   self->client->pers.cmd.buttons = 0;
-  botWalk(self,0);
+  botWalk(self, 0);
   self->client->pers.cmd.upmove = 0;
   self->client->pers.cmd.rightmove = 0;
 
@@ -464,6 +463,12 @@ G_BotThink(gentity_t * self)
         case ATTACK_RAMBO:
         case ATTACK_CAMPER:
         case ATTACK_ALL:
+          if (nodes[self->bs.currentNode].type == NODE_DUCK || nodes[self->bs.currentNode].type == NODE_JUMP)
+          {
+            G_Printf("Current Node is node duck ill keep moving\n");
+            ACEAI_Think(self);
+            return;
+          }
           tempEntityIndex = botFindClosestEnemy(self, qfalse);
           if (tempEntityIndex >= 0)
           {
@@ -519,7 +524,12 @@ G_BotThink(gentity_t * self)
       }
       if (!self->botEnemy)
       {
-
+        if (level.time % 5000 && (self->client->ps.viewangles[PITCH] != 0.0f && self->client->ps.viewangles[PITCH] != 360.0f))
+        {
+          self->client->ps.viewangles[PITCH] = AngleNormalize360(0.0f);
+          self->bs.viewAngles[PITCH] = self->client->ps.viewangles[PITCH];
+          G_SetClientViewAngle(self, self->client->ps.viewangles);
+        }
         if (Bot_Stuck(self, 30))
         {
           self->client->ps.delta_angles[1] = ANGLE2SHORT(self->client->ps.delta_angles[1] - 45);
@@ -734,6 +744,10 @@ botTargetInRange(gentity_t * self, gentity_t * target)
   gentity_t *traceEnt;
   vec3_t forward, right, up;
   vec3_t muzzle;
+  vec3_t maxs;
+
+  VectorSet(maxs, 10, 10, 15);
+
   AngleVectors(self->client->ps.viewangles, forward, right, up);
   CalcMuzzlePoint(self, forward, right, up, muzzle);
   //int myGunRange;
@@ -761,7 +775,7 @@ botTargetInRange(gentity_t * self, gentity_t * target)
   /*if (target->client->ps.origin[2] - self->client->ps.origin[2] >= 50 && self->botCommand == BOT_FOLLOW_PATH)
    return qfalse;*/
 
-  trap_Trace(&trace, muzzle, NULL, NULL, target->s.pos.trBase, self->s.number, MASK_SHOT);
+  trap_Trace(&trace, muzzle, self->r.mins, maxs, target->s.pos.trBase, self->s.number, MASK_SHOT);
   traceEnt = &g_entities[trace.entityNum];
 
   //check our target is in LOS
@@ -998,14 +1012,15 @@ botShootIfTargetInRange(gentity_t * self, gentity_t * target)
   }
   return qtrue;
 }
-void botWalk(gentity_t *self, int speed)
+void
+botWalk(gentity_t *self, int speed)
 {
   char validSpeed;
 
   validSpeed = ClampChar(speed);
 
   self->client->pers.cmd.forwardmove = validSpeed;
-  if(speed <= 64)
+  if (speed <= 64)
   {
 
     self->client->pers.cmd.buttons |= BUTTON_WALKING;
@@ -1014,4 +1029,14 @@ void botWalk(gentity_t *self, int speed)
   {
     self->client->pers.cmd.buttons &= ~BUTTON_WALKING;
   }
+}
+void
+botCrouch(gentity_t *self)
+{
+  self->client->pers.cmd.upmove = -1;
+}
+void
+botJump(gentity_t *self, int speed)
+{
+  self->client->pers.cmd.upmove = speed;
 }

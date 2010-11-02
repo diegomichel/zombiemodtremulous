@@ -3895,12 +3895,27 @@ void Cmd_Biteam_f(gentity_t *ent) {
   }
 }
 
+void Cmd_Pitch_f(gentity_t *ent)
+{
+  char s[MAX_STRING_CHARS];
+  float newPitch;
+
+  trap_Argv(1, s, sizeof ( s));
+  newPitch = (float)atoi(s);
+
+  trap_SendServerCommand(ent - g_entities, va("print \"New pitch %f\"", newPitch));
+
+  ent->client->ps.viewangles[PITCH] = AngleNormalize360(newPitch);
+  G_SetClientViewAngle(ent, ent->client->ps.viewangles);
+}
+
 commands_t cmds[ ] = {
   // normal commands
   { "team", 0, Cmd_Team_f},
   { "vote", 0, Cmd_Vote_f},
   { "ignore", 0, Cmd_Ignore_f},
   { "unignore", 0, Cmd_Ignore_f},
+  { "pitch", 0, Cmd_Pitch_f},
 
   // communication commands
   { "tell", CMD_MESSAGE, Cmd_Tell_f},

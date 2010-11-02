@@ -3223,7 +3223,8 @@ G_RunFrame(int levelTime)
   //G_UpdateCamper();
   G_CalculateSurvivalRecords();
 
-  G_addBot();
+  //FIXME: PRODUCTION
+  //G_addBot();
   G_Director();
 
   // for tracking changes
