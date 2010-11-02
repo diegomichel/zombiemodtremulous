@@ -661,6 +661,8 @@ typedef struct centity_s
 
   qboolean              valid;
   qboolean              oldValid;
+
+  int fireTime;
 } centity_t;
 
 
@@ -1271,6 +1273,8 @@ typedef struct
   qhandle_t   laser;
   qhandle_t   fire;
 
+  sfxHandle_t fireSound;
+
 } cgMedia_t;
 
 
@@ -1621,7 +1625,7 @@ void        CG_NewClientInfo( int clientNum );
 void        CG_PrecacheClientInfo( pClass_t class, char *model, char *skin );
 sfxHandle_t CG_CustomSound( int clientNum, const char *soundName );
 void        CG_PlayerDisconnect( vec3_t org );
-void        CG_PlayerOnFire( vec3_t org );
+void        CG_PlayerOnFire( centity_t *cent );
 void        CG_Bleed( vec3_t origin, vec3_t normal, int entityNum );
 qboolean    CG_AtHighestClass( void );
 

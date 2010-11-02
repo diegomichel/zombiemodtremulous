@@ -799,10 +799,10 @@ ClientTimerActions(gentity_t *ent, int msec)
 //    }
 
     //client is poison clouded
-    if (client->ps.stats[STAT_STATE] & SS_POISONCLOUDED)
-      G_Damage(
-        ent, client->lastPoisonCloudedClient, client->lastPoisonCloudedClient, NULL, NULL,
-        LEVEL1_PCLOUD_DMG, 0, MOD_LEVEL1_PCLOUD);
+//    if (client->ps.stats[STAT_STATE] & SS_POISONCLOUDED)
+//      G_Damage(
+//        ent, client->lastPoisonCloudedClient, client->lastPoisonCloudedClient, NULL, NULL,
+//        LEVEL1_PCLOUD_DMG, 0, MOD_LEVEL1_PCLOUD);
 
     //client is poisoned
     if (client->ps.stats[STAT_STATE] & SS_POISONED)
@@ -829,7 +829,7 @@ ClientTimerActions(gentity_t *ent, int msec)
       ent->s.eFlags |= EF_ONFIRE;
 
       G_Damage(
-        ent, client->lastOnFireClient, client->lastOnFireClient, NULL, 0, damage, 0, MOD_FIRE);
+        ent, client->lastOnFireClient, client->lastOnFireClient, NULL, 0, damage, 0, MOD_GRENADE_LAUNCHER_INCENDIARY);
     }
     else
     {

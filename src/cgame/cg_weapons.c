@@ -235,10 +235,8 @@ CG_ParseWeaponModeSection(weaponInfoMode_t *wim, char **text_p)
       if (!token)
         break;
 
-      CG_Printf("Registrando impactparticlesystem for %s\n", token);
       wim->impactParticleSystem = CG_RegisterParticleSystem(token);
 
-      CG_Printf("ID: %d\n", wim->impactParticleSystem);
 
       if (!wim->impactParticleSystem)
         CG_Printf(S_COLOR_RED "ERROR: impact particle system not found %s\n", token);
@@ -1645,7 +1643,8 @@ CG_MissileHitWall(weapon_t weaponNum, weaponMode_t weaponMode, int clientNum, ve
   // impact mark
   //
   if (radius > 0.0f)
-    CG_ImpactMark(mark, origin, dir, random( ) * 360, 1, 1, 1, 1, qfalse, radius, qfalse);
+    if(weaponNum != WP_LAS_GUN)
+      CG_ImpactMark(mark, origin, dir, random( ) * 360, 1, 1, 1, 1, qfalse, radius, qfalse);
 }
 
 /*

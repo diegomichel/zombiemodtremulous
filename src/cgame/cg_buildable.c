@@ -350,6 +350,9 @@ void CG_InitBuildables( void )
   {
     buildableName = BG_FindNameForBuildable( i );
 
+//    if(i >= BA_I_SYRINX)
+//      continue;
+
     //animation.cfg
     Com_sprintf( filename, sizeof( filename ), "models/buildables/%s/animation.cfg", buildableName );
     if ( !CG_ParseBuildableAnimationFile( filename, i ) )

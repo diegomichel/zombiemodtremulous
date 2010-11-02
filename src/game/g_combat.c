@@ -121,14 +121,14 @@ player_die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
 
   if (self->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
   {
-    self->botnextpath = 0;
-    self->botlostpath = qtrue;
-    //trap_SendServerCommand( -1, "print \"shit\n\"");
-    VectorCopy(self->s.origin2, dir);
-    //G_AddEvent( self, EV_HUMAN_BUILDABLE_EXPLOSION, DirToByte( dir ) );
-    tent = G_TempEntity(self->s.origin, EV_ALIEN_BUILDABLE_EXPLOSION);
-    tent->s.eventParm = DirToByte(dir);
-    tent->s.otherEntityNum = self->s.number;
+//    self->botnextpath = 0;
+//    self->botlostpath = qtrue;
+//    //trap_SendServerCommand( -1, "print \"shit\n\"");
+//    VectorCopy(self->s.origin2, dir);
+//    //G_AddEvent( self, EV_HUMAN_BUILDABLE_EXPLOSION, DirToByte( dir ) );
+//    tent = G_TempEntity(self->s.origin, EV_ALIEN_BUILDABLE_EXPLOSION);
+//    tent->s.eventParm = DirToByte(dir);
+//    tent->s.otherEntityNum = self->s.number;
     
     //G_SelectiveRadiusDamage( self->s.pos.trBase, self, (float)100, (float)500, self, MOD_SLOWBLOB, self->client->ps.stats[ STAT_PTEAM ] );
     if (g_survival.integer)
@@ -216,17 +216,35 @@ player_die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damag
     survivalkill = self->client->ps.stats[STAT_PTEAM] == PTE_ALIENS && g_survival.integer;
   }
   // broadcast the death event to everyone
-  if (aliensuicide || survivalkill)
+  if (aliensuicide)// || survivalkill)
   {
     //Dont do shit.
   }
   else if (!tk)
   {
-    ent = G_TempEntity(self->r.currentOrigin, EV_OBITUARY);
-    ent->s.eventParm = meansOfDeath;
-    ent->s.otherEntityNum = self->s.number;
-    ent->s.otherEntityNum2 = killer;
-    ent->r.svFlags = SVF_BROADCAST; // send to everyone
+    if(self->client->ps.stats[STAT_PTEAM] == PTE_ALIENS)
+    {
+      if(attacker->comboKills > 0 && attacker->comboMod != meansOfDeath)
+      {
+        trap_SendServerCommand(-1, va("print \"[x^%d%d ^7%s] %s\n\"", attacker->comboKills%10, attacker->comboKills, modString(attacker->comboMod),
+          attacker->client->pers.netname));
+        attacker->comboKills = 1;
+        attacker->comboMod = meansOfDeath;
+      }
+      else
+      {
+        attacker->comboKills++;
+        attacker->comboMod = meansOfDeath;
+      }
+    }
+    else
+    {
+      ent = G_TempEntity(self->r.currentOrigin, EV_OBITUARY);
+      ent->s.eventParm = meansOfDeath;
+      ent->s.otherEntityNum = self->s.number;
+      ent->s.otherEntityNum2 = killer;
+      ent->r.svFlags = SVF_BROADCAST; // send to everyone
+    }
   }
   else if (attacker && attacker->client)
   {
@@ -1123,17 +1141,13 @@ G_Damage(gentity_t *targ, gentity_t *inflictor, gentity_t *attacker, vec3_t dir,
   if (!targ->takedamage)
     return;
 
-  //Flamer will not have self damage.
-  if(targ->client->ps.stats[STAT_PTEAM] != PTE_ALIENS && (mod == MOD_FLAMER || mod == MOD_FLAMER_SPLASH))
-  {
-    return;
-  }
   if(targ->client->ps.stats[STAT_PTEAM] == PTE_ALIENS
-      && (mod == MOD_INCENDIARY_GRENADE)
+      && (mod == MOD_GRENADE_LAUNCHER_INCENDIARY)
       && !(targ->client->ps.stats[STAT_STATE] & SS_ONFIRE))
   {
     targ->client->ps.stats[STAT_STATE] |= SS_ONFIRE;
     targ->client->lastOnFireTime = level.time;
+    targ->client->lastOnFireClient = attacker;
   }
 
   if (targ == attacker && g_survival.integer)
@@ -1333,14 +1347,6 @@ G_Damage(gentity_t *targ, gentity_t *inflictor, gentity_t *attacker, vec3_t dir,
         VectorAdd(targ->client->ps.velocity, push, targ->client->ps.velocity);
         return;
       }
-      else if (mod == MOD_LEVEL4_CHARGE || mod == MOD_LEVEL3_POUNCE)
-      { // don't do friendly fire on movement attacks
-        if (g_friendlyFireMovementAttacks.value <= 0 || (g_friendlyFire.value <= 0
-            && g_friendlyFireAliens.value <= 0))
-          return;
-        else if (g_friendlyFireMovementAttacks.value > 0 && g_friendlyFireMovementAttacks.value < 1)
-          damage = (int) (0.5 + g_friendlyFireMovementAttacks.value * (float) damage);
-      }
       else if (g_friendlyFire.value <= 0)
       {
         if (targ->client->ps.stats[STAT_PTEAM] == PTE_HUMANS)
@@ -1368,13 +1374,6 @@ G_Damage(gentity_t *targ, gentity_t *inflictor, gentity_t *attacker, vec3_t dir,
     if (targ->s.eType == ET_BUILDABLE && attacker->client && targ->biteam
         == attacker->client->pers.teamSelection)
     {
-      if (mod == MOD_LEVEL4_CHARGE || mod == MOD_LEVEL3_POUNCE)
-      {
-        if (g_friendlyFireMovementAttacks.value <= 0)
-          return;
-        else if (g_friendlyFireMovementAttacks.value > 0 && g_friendlyFireMovementAttacks.value < 1)
-          damage = (int) (0.5 + g_friendlyFireMovementAttacks.value * (float) damage);
-      }
       if (g_friendlyBuildableFire.value <= 0)
       {
         return;
@@ -1443,7 +1442,7 @@ G_Damage(gentity_t *targ, gentity_t *inflictor, gentity_t *attacker, vec3_t dir,
     if (attacker->client && attacker->client->ps.stats[STAT_STATE] & SS_BOOSTED)
     {
       if (targ->client->ps.stats[STAT_PTEAM] == PTE_HUMANS && !(targ->client->ps.stats[STAT_STATE]
-          & SS_POISONED) && mod != MOD_LEVEL2_ZAP && targ->client->poisonImmunityTime < level.time)
+          & SS_POISONED) && targ->client->poisonImmunityTime < level.time)
       {
         targ->client->ps.stats[STAT_STATE] |= SS_POISONED;
         targ->client->lastPoisonTime = level.time;
@@ -1451,15 +1450,6 @@ G_Damage(gentity_t *targ, gentity_t *inflictor, gentity_t *attacker, vec3_t dir,
         attacker->client->pers.statscounters.repairspoisons++;
         level.alienStatsCounters.repairspoisons++;
       }
-    }
-    if (attacker->client && attacker->client->ps.stats[STAT_PTEAM] == PTE_ALIENS
-        && targ->client->ps.stats[STAT_PTEAM] == PTE_HUMANS && mod == MOD_LEVEL1_CLAW
-        && !g_survival.integer)
-    {
-      /* targ->client->ps.stats[ STAT_STATE ] |= SS_POISONCLOUDED;
-       targ->client->lastPoisonCloudedTime = level.time;
-       targ->client->lastPoisonCloudedClient = attacker;
-       trap_SendServerCommand(targ->client->ps.clientNum, "poisoncloud");*/
     }
   }
 

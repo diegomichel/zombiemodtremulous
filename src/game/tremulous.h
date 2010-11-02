@@ -218,7 +218,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 #define CREEP_BASESIZE              700
 #define CREEP_TIMEOUT               1000
-#define CREEP_MODIFIER              0.5f
+#define CREEP_MODIFIER              0.3f
 #define CREEP_ARMOUR_MODIFIER       0.75f
 #define CREEP_SCALEDOWN_TIME        3000
 
@@ -348,15 +348,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define BLASTER_SPEED               1400
 #define BLASTER_DMG                 HDM(9)
 
-#define RIFLE_CLIPSIZE              30
-#define RIFLE_MAXCLIPS              6
-#define RIFLE_REPEAT                90
-#define RIFLE_K_SCALE               2.0f
-#define RIFLE_RELOAD                2000
-#define RIFLE_PRICE                 0
-#define RIFLE_SPREAD                200
-#define RIFLE_DMG                   HDM(5)
-
 #define PAINSAW_PRICE               100
 #define PAINSAW_REPEAT              500
 #define PAINSAW_K_SCALE             5.0f
@@ -383,9 +374,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define MDRIVER_PRICE               350
 #define MDRIVER_CLIPSIZE            5
 #define MDRIVER_MAXCLIPS            4
-#define MDRIVER_DMG                 HDM(38)
+#define MDRIVER_DMG                 HDM(45)
 #define MDRIVER_REPEAT              1000
-#define MDRIVER_K_SCALE             2.0f
+#define MDRIVER_K_SCALE             4.0f
 #define MDRIVER_RELOAD              2000
 
 #define CHAINGUN_PRICE              400
@@ -394,22 +385,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define CHAINGUN_K_SCALE            2.0f
 #define CHAINGUN_SPREAD             200
 #define CHAINGUN_DMG                HDM(6)
-
-#define LAUNCHER_PRICE               1000
-#define LAUNCHER_AMMO                4
-#define LAUNCHER_REPEAT              1000
-#define LAUNCHER_K_SCALE             0.1f
-#define LAUNCHER_CHARGEREPEAT        1000
-#define LAUNCHER_RELOAD              2000
-#define LAUNCHER_DAMAGE              HDM(175)
-#define LAUNCHER_RADIUS              120
-#define LAUNCHER_SECONDARY_DAMAGE    HDM(7)
-#define LAUNCHER_SECONDARY_RADIUS    75
-#define LAUNCHER_SPEED               1200
-#define LAUNCHER_CHARGE_TIME         2000
-#define LAUNCHER_TOTAL_CHARGE        255
-#define LAUNCHER_MIN_CHARGE          50
-#define LAUNCHER_MAXAMMO             2
 
 #define MINE_PRICE      300
 #define MINE_K_SCALE    1.0f
@@ -620,35 +595,58 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define AXE_SPEED               400
 
 #define PISTOL_PRICE               100
-#define PISTOL_REPEAT              600
+#define PISTOL_REPEAT              1500
 #define PISTOL_K_SCALE             5.0f
 #define PISTOL_DAMAGE              HDM(100)
 #define PISTOL_RANGE               40.0f
 #define PISTOL_WIDTH               16.0f
 
-#define LASGUN_PRICE                250
-#define LASGUN_AMMO                 999
-#define LASGUN_REPEAT               10
+#define RIFLE_CLIPSIZE              35
+#define RIFLE_MAXCLIPS              6
+#define RIFLE_REPEAT                90
+#define RIFLE_K_SCALE               2.0f
+#define RIFLE_RELOAD                3000
+#define RIFLE_PRICE                 0
+#define RIFLE_SPREAD                200
+#define RIFLE_DMG                   HDM(7)
+
+#define LASGUN_PRICE                2000
+#define LASGUN_AMMO                 500
+#define LASGUN_REPEAT               50
 #define LASGUN_K_SCALE              2.0f
 #define LASGUN_RELOAD               2000
-#define LASGUN_DAMAGE               HDM(9)
+#define LASGUN_DAMAGE               HDM(16)
 #define LASGUN_RANGE                 768
 
-#define ROCKET_LAUNCHER_PRICE               100
+#define LAUNCHER_PRICE               1000
+#define LAUNCHER_AMMO                4
+#define LAUNCHER_REPEAT              1000
+#define LAUNCHER_K_SCALE             0.1f
+#define LAUNCHER_CHARGEREPEAT        1000
+#define LAUNCHER_RELOAD              2000
+#define LAUNCHER_DAMAGE              HDM(175)
+#define LAUNCHER_RADIUS              120
+#define LAUNCHER_SECONDARY_DAMAGE    HDM(7)
+#define LAUNCHER_SECONDARY_RADIUS    75
+#define LAUNCHER_SPEED               1200
+#define LAUNCHER_CHARGE_TIME         2000
+#define LAUNCHER_TOTAL_CHARGE        255
+#define LAUNCHER_MIN_CHARGE          50
+#define LAUNCHER_MAXAMMO             2
+
+#define ROCKET_LAUNCHER_PRICE               1000
 #define ROCKET_LAUNCHER_REPEAT              600
-#define ROCKET_LAUNCHER_AMMO                         50
+#define ROCKET_LAUNCHER_AMMO                10
 #define ROCKET_LAUNCHER_K_SCALE             5.0f
-#define ROCKET_LAUNCHER_DAMAGE              HDM(100)
-#define ROCKET_LAUNCHER_RANGE               40.0f
-#define ROCKET_LAUNCHER_WIDTH               16.0f
-#define ROCKET_LAUNCHER_SPEED               400
+#define ROCKET_LAUNCHER_DAMAGE              HDM(175)
+#define ROCKET_LAUNCHER_RANGE               180.0f
+#define ROCKET_LAUNCHER_SPEED               900
 
 //INCENDIARY GRENADE
 #define ONFIRE_TIME           5000
-#define ONFIRE_DAMAGE         10
-#define ONFIRE_EXPLOSION_DAMAGE 1
+#define ONFIRE_DAMAGE         15
+#define ONFIRE_EXPLOSION_DAMAGE 1 //at least 1 or weapon will not activate fire.
 #define INCENDIARY_GRENADE_RANGE 500
-
 
 //REMOVED
 #define PRIFLE_PRICE                400
@@ -684,3 +682,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define FLAMER_LIFETIME             800.0f
 #define FLAMER_SPEED                200.0f
 #define FLAMER_LAG                  0.65f  //the amount of player velocity that is added to the fireball
+
+
+#define DOME_RANGE              89

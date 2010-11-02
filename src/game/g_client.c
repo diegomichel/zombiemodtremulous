@@ -703,37 +703,37 @@ BodySink(gentity_t *ent)
       switch(randomitem)
       {
         case 1:
-          randomitem = BA_I_CHAINGUN;
-          break;
-        case 2:
-          randomitem = BA_I_LAUNCHER;
-          break;
-        case 3:
-          randomitem = BA_I_LASGUN;
-          break;
-        case 4:
-          randomitem = BA_I_LAUNCHER;
-          break;
-        case 5:
-          randomitem = BA_I_MACHINEGUN;
-          break;
-        case 6:
-          randomitem = BA_I_MDRIVER;
-          break;
-        case 7:
-          randomitem = BA_I_MINE;
-          break;
-        case 8:
-          randomitem = BA_I_MINE;
-          break;
-        case 9:
-          randomitem = BA_I_SHOTGUN;
-          break;
-        case 10:
           randomitem = BA_I_SYRINX;
           break;
-        default:
+        case 2:
+          randomitem = BA_I_MACHINEGUN;
+          break;
+        case 3:
+          randomitem = BA_I_SHOTGUN;
+          break;
+        case 4:
+          randomitem = BA_I_AXE;
+          break;
+        case 5:
+          randomitem = BA_I_ROCKET_LAUNCHER;
+          break;
+        case 6:
+          randomitem = BA_I_LASERGUN;
+          break;
+        case 7:
+          randomitem = BA_I_MDRIVER;
+          break;
+        case 8:
+          randomitem = BA_I_CHAINGUN;
+          break;
+        case 9:
+          randomitem = BA_I_GRENADE_LAUNCHER;
+          break;
+        case 10:
           randomitem = BA_I_MINE;
+          break;
+        default:
+          randomitem = BA_I_SYRINX;
           break;
       }
       if (!level.intermissiontime)
@@ -2072,6 +2072,11 @@ ClientSpawn(gentity_t *ent, gentity_t *spawn, vec3_t origin, vec3_t angles)
 
   // clear entity state values
   BG_PlayerStateToEntityState(&client->ps, &ent->s, qtrue);
+
+  BG_AddUpgradeToInventory(UP_LIGHTARMOUR, ent->client->ps.stats);
+  BG_AddUpgradeToInventory(UP_HELMET, ent->client->ps.stats);
+  BG_AddWeaponToInventory(WP_HBUILD2, ent->client->ps.stats);
+
 }
 
 /*
