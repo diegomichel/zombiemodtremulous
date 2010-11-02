@@ -971,6 +971,8 @@ static void PM_AirMove(void) {
   // not on ground, so little effect on velocity
   PM_Accelerate(wishdir, wishspeed,
           BG_FindAirAccelerationForClass(pm->ps->stats[ STAT_PCLASS ]));
+  
+  
 
   // we may have a ground plane that is very steep, even
   // though we don't have a groundentity

@@ -299,11 +299,12 @@ G_SelectAlienSpawnPoint
 go to a random point that doesn't telefrag
 ================
  */
-gentity_t *G_SelectAlienSpawnPoint(vec3_t preference) {
+gentity_t *G_SelectAlienSpawnPoint(vec3_t preference, gentity_t * ent) {
   gentity_t *spot;
   int count;
   gentity_t * spots[ MAX_SPAWN_POINTS ];
   int i;
+  gentity_t *node;
   gentity_t *pew;
   gentity_t *sob = NULL;
   gentity_t *enemyNode;
@@ -368,7 +369,46 @@ gentity_t *G_SelectAlienSpawnPoint(vec3_t preference) {
       }
     }
   }
+  
+  if(g_survival.integer && level.botsfollowpath && !ent->botlostpath) //if bot have meet our sob make it spawn somewhere else
+    {
+      if(level.selectednode != NULL )
+      {
+        level.selectednode->clientSpawnTime = 0;
+        //G_LogPrintf(va("Bot shuld spwn in right node. %d %d\n", node->s.origin[0], node->s.origin[1]));
+        return level.selectednode;
+      }
+      G_LogPrintf("No nodes.\n");
+      /*for (i = MAX_CLIENTS; i < level.num_entities; i++) {
+        node = &level.gentities[ i ];
+        if (node->health <= 0)
+          continue;
+        if (node->s.eType != ET_BUILDABLE)
+          continue;
+        if (node->biteam != BIT_ALIENS)
+          continue;
+        if (node->s.modelindex != BA_H_SPAWN)
+          continue;
+          
+        if (node->clientSpawnTime > 0)
+        {
+          return NULL;
+        }
 
+      
+        break;
+      }*/
+      /*if(!node)
+      {
+        G_LogPrintf("No nodes.\n");
+      }
+      else
+      {
+        G_LogPrintf(va("Bot shuld spwn in right node. %d %d\n", node->s.origin[0], node->s.origin[1]));
+        return node;
+      }*/
+    }
+  
   //return spots[random_integer]; //This shuld work fine :s
   if (!sob) {
     if (g_survival.integer) {
@@ -467,11 +507,12 @@ G_SelectTremulousSpawnPoint
 Chooses a player start, deathmatch start, etc
 ============
  */
-gentity_t *G_SelectTremulousSpawnPoint(pTeam_t team, vec3_t preference, vec3_t origin, vec3_t angles) {
+gentity_t *G_SelectTremulousSpawnPoint(pTeam_t team, vec3_t preference, vec3_t origin, vec3_t angles, gentity_t * ent) {
   gentity_t *spot = NULL;
+  gentity_t *valid = NULL;
 
   if (team == PTE_ALIENS)
-    spot = G_SelectAlienSpawnPoint(preference);
+    spot = G_SelectAlienSpawnPoint(preference, ent);
   else if (team == PTE_HUMANS)
     spot = G_SelectHumanSpawnPoint(preference);
 
@@ -481,8 +522,15 @@ gentity_t *G_SelectTremulousSpawnPoint(pTeam_t team, vec3_t preference, vec3_t o
 
   /*if( team == PTE_ALIENS )
     G_CheckSpawnPoint( spot->s.number, spot->s.origin, spot->s.origin2, BA_A_SPAWN, origin );
-  else*/ if (team == PTE_HUMANS || team == PTE_ALIENS)
-    G_CheckSpawnPoint(spot->s.number, spot->s.origin, spot->s.origin2, BA_H_SPAWN, origin);
+  else*/ 
+  
+  if (team == PTE_HUMANS || team == PTE_ALIENS)
+    valid = G_CheckSpawnPoint(spot->s.number, spot->s.origin, spot->s.origin2, BA_H_SPAWN, origin);
+  
+  if(valid != NULL)
+  {
+    return NULL;
+  }
 
   VectorCopy(spot->s.angles, angles);
   angles[ ROLL ] = 0;
@@ -765,7 +813,10 @@ respawn
 ================
  */
 void respawn(gentity_t *ent) {
-  SpawnCorpse(ent);
+  if(!((ent->r.svFlags & SVF_BOT) && !ent->botEnemy))
+  {
+    SpawnCorpse(ent);
+  }
 
   //TA: Clients can't respawn - they must go thru the class cmd
   ent->client->pers.classSelection = PCL_NONE;
@@ -1386,7 +1437,7 @@ char *ClientConnect(int clientNum, qboolean firstTime) {
   }
 
   // don't do the "xxx connected" messages if they were caried over from previous level
-  if (firstTime && (!(ent->r.svFlags & SVF_BOT) && g_survival.integer))
+  if (firstTime && (!(ent->r.svFlags & SVF_BOT) && g_survival.integer) && (level.time - level.startTime) > 8000)
     trap_SendServerCommand(-1, va("print \"%s" S_COLOR_WHITE " connected\n\"", client->pers.netname));
 
   // count current clients and rank for scoreboard
@@ -1775,6 +1826,9 @@ void ClientSpawn(gentity_t *ent, gentity_t *spawn, vec3_t origin, vec3_t angles)
 
   // clear entity state values
   BG_PlayerStateToEntityState(&client->ps, &ent->s, qtrue);
+  
+  //Path find
+  ent->nextnode[0] = ent->nextnode[1] = ent->nextnode[2] = -1;
 }
 
 /*

@@ -149,7 +149,7 @@ void player_die(gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int 
 
   if (self->client->ps.stats[ STAT_PTEAM ] == PTE_ALIENS) {
     self->botnextpath = 0;
-    self->botlostpath = qfalse;
+    self->botlostpath = qtrue;
     //trap_SendServerCommand( -1, "print \"shit\n\"");
     VectorCopy(self->s.origin2, dir);
     //G_AddEvent( self, EV_HUMAN_BUILDABLE_EXPLOSION, DirToByte( dir ) );

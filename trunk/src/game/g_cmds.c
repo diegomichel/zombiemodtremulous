@@ -4357,7 +4357,12 @@ void Cmd_Builder_f(gentity_t *ent) {
               BG_FindHumanNameForBuildable(traceEnt->s.modelindex),
               (traceEnt->bdnumb != -1) ? G_FindBuildLogName(traceEnt->bdnumb) : "<world>"));
     }
-  } else {
+  }/*else if(traceEnt->client)
+    {
+          trap_SendServerCommand(ent - g_entities, 
+          va("print \"^5%d\n\"",traceEnt->client.pers.netname));
+    }*/
+   else {
     trap_SendServerCommand(ent - g_entities, "print \"^5/builder:^7 No structure found in your crosshair. Please face a structure and try again.\n\"");
   }
 }

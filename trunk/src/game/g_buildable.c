@@ -102,7 +102,8 @@ gentity_t *G_CheckSpawnPoint(int spawnNum, vec3_t origin, vec3_t normal,
     else
       return &g_entities[ tr.entityNum ];
   }
-  else*/ if (spawn == BA_H_SPAWN || spawn == BA_A_SPAWN) {
+  else*/
+  if (spawn == BA_H_SPAWN || spawn == BA_A_SPAWN) {
     BG_FindBBoxForClass(PCL_HUMAN, cmins, cmaxs, NULL, NULL, NULL);
 
     VectorCopy(origin, localOrigin);
@@ -111,19 +112,22 @@ gentity_t *G_CheckSpawnPoint(int spawnNum, vec3_t origin, vec3_t normal,
     trap_Trace(&tr, origin, NULL, NULL, localOrigin, spawnNum, MASK_SHOT);
 
     if (tr.entityNum != ENTITYNUM_NONE)
+    {
       return &g_entities[ tr.entityNum ];
-
+    }
     trap_Trace(&tr, localOrigin, cmins, cmaxs, localOrigin, -1, MASK_PLAYERSOLID);
 
     if (tr.entityNum == ENTITYNUM_NONE) {
       if (spawnOrigin != NULL)
         VectorCopy(localOrigin, spawnOrigin);
-
+      
       return NULL;
+      
     } else
+    {
       return &g_entities[ tr.entityNum ];
+    }
   }
-
   return NULL;
 }
 
@@ -247,13 +251,13 @@ static qboolean G_FindPower(gentity_t *self) {
     if (g_survival.integer && self->used && level.survivalmoney >= 500 && self->parentNode->s.modelindex == BA_H_REPEATER
     && self->biteam == PTE_HUMANS) {
       level.survivalmoney = 0;
-      G_Damage(self, NULL, NULL, NULL, NULL, 101, 0, MOD_SUICIDE);
+      G_Damage(self, NULL, NULL, NULL, NULL, 210, 0, MOD_SUICIDE);
       if(self->health < 1)
       {
         G_Damage(self->parentNode, NULL, NULL, NULL, NULL, 10000, 0, MOD_SUICIDE);
-        G_KillStructuresSurvival();
-        trap_SendServerCommand(-1, "cp \"^1Find another supplies\n\"");
-        level.slowdownTime = level.time + 16000; //Will slow down aliens 10 second to allow players to move on.
+        G_KillStructuresSurvival(); //Experiment
+        trap_SendServerCommand(-1, "cp \"^1Find the next supplies\n\"");
+        level.slowdownTime = level.time + 11000; //Will slow down aliens 10 second to allow players to move on.
         kill_aliens();
         return qfalse;
       }
@@ -3731,7 +3735,7 @@ static void G_FinishSpawningBuildable(gentity_t *ent) {
   if(g_survival.integer && biteam ==  BIT_ALIENS && built->s.modelindex == BA_H_SPAWN)
   {
     built->s.eFlags ^= EF_NODRAW;
-
+    built->r.contents = 0;
   }
 
   // drop towards normal surface

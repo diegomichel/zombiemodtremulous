@@ -31,6 +31,7 @@ typedef struct gentity_s gentity_t;
 typedef struct gclient_s gclient_t;
 
 #include "g_admin.h"
+#include "tremulous.h"
 
 //==================================================================
 
@@ -86,7 +87,8 @@ typedef enum {
   BOT_FOLLOW_FRIEND_ATTACK,
   BOT_FOLLOW_FRIEND_IDLE,
   BOT_TEAM_KILLER,
-  BOT_COMMAND
+  BOT_COMMAND,
+  BOT_FOLLOW_PATH
 } botCommand_t;
 
 //============================================================================
@@ -162,6 +164,10 @@ struct gentity_s {
   vec3_t acceleration;
   vec3_t oldAccel;
   vec3_t jerk;
+  vec3_t  nextnode;
+  vec3_t  lostnode;
+  
+  qboolean reachobjetivenode;
 
   int nextthink;
   void (*think)(gentity_t * self);
@@ -183,6 +189,8 @@ struct gentity_s {
   qboolean botlostpath;
   int      botnextpath;
   int      timedropnodepath;
+  
+  qboolean      botpathmode;
 
   qboolean takedamage;
 
@@ -279,7 +287,9 @@ struct gentity_s {
   int level;
   int turntime;
   int stucktime;
-
+  
+  int pathfindthink;
+  
   float posX;
   float posY;
   float posZ;
@@ -305,6 +315,9 @@ struct gentity_s {
   int door;
   int lastTimeSeen;
   int camperWarning;
+
+  //Path finding vars
+  gentity_t *pathTarget;
 };
 
 typedef enum {
@@ -701,23 +714,36 @@ typedef struct {
   
   int survivalRecordTime;
   int mysqlupdated;
+  
+  int debugBotPath;
 
   int survivedtime; //Time survived on survival time.
   int survivalmoney; //Repeator money wasted.
   
   //PathFind
-  int               grid[100][100]; // Each 50 gu is a square on the grid. example 1500 1500 on grid = [30][30]
-  int               vis[100][100];
-  int               path[100][100];
+  int               grid[GRIDSIZE][GRIDSIZE]; // Each 50 gu is a square on the grid. example 1500 1500 on grid = [30][30]
+  int               vis[GRIDSIZE][GRIDSIZE];
+  int               path[GRIDSIZE][GRIDSIZE];
   int               LEFT;
   int               RIGHT;
   int               UP;
   int               DOWN;
+  
+  int               UPRIGHT;
+  int               DOWNRIGHT;
+  int               UPLEFT;
+  int               DOWNLEFT;
+  
   int               maxpasos;
   int               foundpath;
-  int               pathx[100];
-  int               pathy[100];
+  int               pathx[GRIDSIZE];
+  int               pathy[GRIDSIZE];
+  
+  int               lastpathfindtime;
+  
   qboolean           botsfollowpath;
+  
+  gentity_t         *selectednode;
   // 0 x 0 = [50][50]
   // -100x-100 = [50 - 100/50][50 - 100/50]
   // 100x100 = [50 + 100/50 ][50 - 100/50 ]
@@ -1043,7 +1069,38 @@ const char *BuildShaderStateConfig(void);
 qboolean G_ClientIsLagging(gclient_t *client);
 
 void G_TriggerMenu(int clientNum, dynMenu_t menu);
+
+//g_utils
+
 void G_CloseMenus(int clientNum);
+
+/*
+void G_KillStructuresSurvival();
+void G_BuyAll(gentity_t *ent);
+int convertGridToWorld(int gridpos);
+int convertWorldToGrid(float worldpos);
+int min(int value1,int value2);
+void cleanvid();
+void cleanpath();
+int findway(int pasos, int x, int y, int fx, int fy);
+int Distance2d(vec3_t from, vec3_t to);
+void kill_aliens_withoutenemy();
+void find_path(gentity_t *ent);
+qboolean canSeeNextNode(vec3_t playerpos, vec3_t nodepos);
+qboolean findNodeCanSee(gentity_t *self);
+qboolean nodeOutOfRange(vec3_t node);
+qboolean nextNode(gentity_t *self);
+qboolean aimNode(gentity_t *self);
+void botWalk(gentity_t *self);
+qboolean visitedLastNode(gentity_t *self);
+void botStopWalk(gentity_t *self);
+qboolean botReachedDestination(gentity_t *self);
+qboolean botLost(gentity_t *self);
+qboolean canMakeWay(gentity_t *self);
+*/
+
+
+
 
 qboolean G_Visible(gentity_t *ent1, gentity_t *ent2);
 gentity_t *G_ClosestEnt(vec3_t origin, gentity_t **entities, int numEntities);
@@ -1146,7 +1203,7 @@ void G_UpdateZaps(int msec);
 void G_AddCreditToClient(gclient_t *client, short credit, qboolean cap);
 team_t TeamCount(int ignoreClientNum, int team);
 void G_SetClientViewAngle(gentity_t *ent, vec3_t angle);
-gentity_t *G_SelectTremulousSpawnPoint(pTeam_t team, vec3_t preference, vec3_t origin, vec3_t angles);
+gentity_t *G_SelectTremulousSpawnPoint(pTeam_t team, vec3_t preference, vec3_t origin, vec3_t angles, gentity_t *ent);
 gentity_t *G_SelectSpawnPoint(vec3_t avoidPoint, vec3_t origin, vec3_t angles);
 gentity_t *G_SelectAlienLockSpawnPoint(vec3_t origin, vec3_t angles);
 gentity_t *G_SelectHumanLockSpawnPoint(vec3_t origin, vec3_t angles);
@@ -1582,3 +1639,7 @@ qboolean  trap_mysql_fetchrow( void );
 void      trap_mysql_fetchfieldbyID( int id, char *buffer, int len );
 void      trap_mysql_fetchfieldbyName( const char *name, char *buffer, int len );
 void      trap_mysql_reconnect(void);
+
+//Grid pathfinding related
+//void  fillGrid(int x, int y);
+

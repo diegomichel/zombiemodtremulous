@@ -212,75 +212,155 @@ Bot_Stuck(gentity_t * self, int zone) {
   }
   return qfalse;
 }
+
+qboolean WallBlockingNode(gentity_t * self)
+{
+  vec3_t dirToTarget, angleToTarget, forward, right, up, muzzle, end;
+  vec3_t spawn_angles, nextnode;
+  vec3_t top = {0, 0, 0};
+  int vh = 0;
+  trace_t tr;
+  int i;
+  int distanceNode;
+  int distance;
+
+  BG_FindViewheightForClass(self->client->ps.stats[STAT_PCLASS], &vh, NULL);
+  top[2] = vh;
+  
+  AngleVectors(self->client->ps.viewangles, forward, right, up);
+  CalcMuzzlePoint(self, forward, right, up, muzzle);
+  VectorMA(muzzle, 10000, forward, end);
+
+  trap_Trace(&tr, muzzle, NULL, NULL, end, self->s.number, MASK_SOLID);
+
+
+  nextnode[0] = ((-(BLOCKSIZE/2) + level.pathx[self->botnextpath]) * BLOCKSIZE);
+  nextnode[1] = ((-(BLOCKSIZE/2) + level.pathy[self->botnextpath]) * BLOCKSIZE);
+  nextnode[2] = self->s.pos.trBase[2];
+
+  distanceNode = Distance(nextnode, self->s.pos.trBase);
+  
+  distance = Distance(self->s.pos.trBase, tr.endpos);
+  if (distance < distanceNode) {
+    return qtrue;
+  }
+  return qfalse;
+}
+/*
 void
 G_BotFollowPath(gentity_t * self) {
   vec3_t dirToTarget, angleToTarget;
   vec3_t top = {0, 0, 0};
-  vec3_t nextnode;
   int vh = 0;
+  int tempEntityIndex = -1;
+  int cuadrado;
   
   int x,y;
   
-  self->client->pers.cmd.buttons = 0;
-  self->client->pers.cmd.forwardmove = 0;
-  self->client->pers.cmd.upmove = 0;
-  self->client->pers.cmd.rightmove = 0;
-
+  if(self->pathfindthink > level.time ) return;
   
-  if(self->botlostpath == qtrue)
+  if(botReachedDestination(self))
   {
-    self->botnextpath = 0;
-    G_LogPrintf(va("Bot not thinking"));
+    botStopWalk(self);
+    trap_SendServerCommand(-1,
+           "print \"^1Objetive Reached\n\"");
     return;
   }
   
+  if(self->timedropnodepath > level.time)
+    return;
   
-  x = ((100/2)+(self->s.origin[0]/100));
-  y = ((100/2)+(self->s.origin[1]/100));
-  
-  BG_FindViewheightForClass(self->client->ps.stats[STAT_PCLASS], &vh, NULL);
-  top[2] = vh;
-  
-  //((100/2)+(5000/100)) = 100;
-  //G_LogPrintf(va("%d %d %d %d\n",level.pathx[0], level.pathy[0], level.pathx[1], level.pathy[1]));
-  
-  if(self->botnextpath < 1) self->timedropnodepath = level.time + 1000;
-  
-  G_LogPrintf(va("%d %d %d %d\n",self->botnextpath, level.pathx[self->botnextpath], x, level.pathy[self->botnextpath]));
-  //Bot aim to next node
-  if( self->botnextpath+1 < 100 
-    && level.pathx[self->botnextpath+1] > -1 && level.pathx[self->botnextpath+1] > -1 )
+  if(visitedLastNode(self))
   {
-    if(level.pathx[self->botnextpath] == x && level.pathy[self->botnextpath] == y || self->timedropnodepath < level.time)
-    { 
-      nextnode[0] = ((-(100/2) + level.pathx[self->botnextpath+1]) * 100);
-      nextnode[1] = ((-(100/2) + level.pathy[self->botnextpath+1]) * 100);
-      nextnode[2] = self->s.pos.trBase[2];
-      VectorAdd(self->s.pos.trBase, top, top);
-      VectorSubtract(nextnode, top, dirToTarget);
-      VectorNormalize(dirToTarget);
-      vectoangles(dirToTarget, angleToTarget);
-      self->client->ps.delta_angles[0] = ANGLE2SHORT(angleToTarget[0]);
-      self->client->ps.delta_angles[1] = ANGLE2SHORT(angleToTarget[1]);
-      self->client->ps.delta_angles[2] = ANGLE2SHORT(angleToTarget[2]);
-      self->botnextpath++;
-      self->timedropnodepath = level.time + 1000;
+    if(nextNode(self))
+    {
+      trap_SendServerCommand(-1,
+           "print \"Moving to next node  \"");
+      aimNode(self);
+      botWalk(self);
     }
+    
+    
+    trap_SendServerCommand(-1,
+           va("print \"Distance to node: %d, X:%f , Y:%f, POSx: %f, POSXy: %f, %d\n\"",
+            Distance2d(self->s.origin, self->nextnode),
+            ((BLOCKSIZE/2)+(self->s.origin[0]/BLOCKSIZE)),
+            ((BLOCKSIZE/2)+(self->s.origin[1]/BLOCKSIZE)),
+            self->s.origin[0],
+            self->s.origin[1],
+            self->botnextpath
+            ));
+           
+    //botStopWalk(self);
   }
   else
   {
-    self->botlostpath = qtrue;
-    return;
+    //Posibility of getting stuck here
+    //Bot have run out of place.
+    if(botLost(self))
+    {
+      trap_SendServerCommand(-1,
+        va("print \"^1BOTLOST: %f %f %f %f.\n\"", self->nextnode[0],self->nextnode[1],self->s.origin[0],self->s.origin[1]));
+      
+      if(canMakeWay(self))
+      {
+        trap_SendServerCommand(-1,
+           "print \"i make a way\n\"");
+        aimNode(self);
+        botWalk(self);
+        self->timedropnodepath = level.time +2000;
+      }
+      else
+      {
+        //The bot have complety lost him self
+        if(findNodeCanSee(self))
+        {
+          aimNode(self);
+          botWalk(self);
+        }
+        else
+        {
+          trap_SendServerCommand(-1,
+           "print \"Darn it.\n\"");
+        }
+      }
+    }
+    else
+    {
+      trap_SendServerCommand(-1,
+           "print \"Looking for next node\n\"");
+      if(Bot_Stuck(self,20))
+      {
+        trap_SendServerCommand(-1,
+           "print \"I stuck\n\"");
+        if(findNodeCanSee(self))
+        {
+          trap_SendServerCommand(-1,
+           "print \"Finding a node i can see\n\"");
+        }
+        else
+        {
+          if(canMakeWay(self))
+          {
+            aimNode(self);
+            botWalk(self);
+            self->client->ps.stats[ STAT_STATE ] |= SS_SPEEDBOOST;
+            self->pathfindthink = level.time + 3000;
+          }
+          else
+          {
+            trap_SendServerCommand(-1,
+              "print \"That just damn sucks.\n\"");
+          }
+        }
+      aimNode(self);
+      botWalk(self);
+      
+      }
+    }
   }
-  //Bot Walking
-  /*if(Bot_Stuck(self,100))
-  {
-    self->client->pers.cmd.rightmove = 60;
-  }*/
-  self->client->pers.cmd.forwardmove = 60;
-  self->client->pers.cmd.buttons |= BUTTON_WALKING;
 }
-
+*/
 void
 G_BotThink(gentity_t * self) {
   gentity_t *bot;
@@ -292,9 +372,13 @@ G_BotThink(gentity_t * self) {
   qboolean followFriend = qfalse;
   vec3_t dirToTarget, angleToTarget, forward, right, up, muzzle, end;
   vec3_t top = {0, 0, 0};
+  vec3_t spawn_angles;
   int vh = 0;
   trace_t tr;
   int i;
+  
+  
+  self->s.angles[ PITCH ] = 0;
 
 
   self->client->pers.cmd.buttons = 0;
@@ -326,16 +410,16 @@ G_BotThink(gentity_t * self) {
         tempEntityIndex = botFindClosestEnemy(self, qfalse);
         if (tempEntityIndex >= 0) {
           self->botEnemy = &g_entities[tempEntityIndex];
-          self->botEnemy->lastTimeSeen = level.time + 15000; //7 seconds to camp
+          self->botEnemy->lastTimeSeen = level.time + 7000; //7 seconds to camp
         }
       }
-      if (!self->botEnemy && level.theCamper && level.theCamper->client) {
+      /*if (!self->botEnemy && level.theCamper && level.theCamper->client) {
         if (self->client->lastKillTime > 10000) {
           self->botEnemy = level.theCamper;
         }
-      }
+      }*/
       if (!self->botEnemy) {
-
+                
         if (Bot_Stuck(self, 50)) {
           self->client->ps.delta_angles[1] =
                   ANGLE2SHORT(self->client->ps.delta_angles[1] - 45);
@@ -369,7 +453,7 @@ G_BotThink(gentity_t * self) {
           self->client->pers.cmd.buttons &= ~BUTTON_WALKING;
           botShootIfTargetInRange(self, self->botEnemy);
         }
-        if (Bot_Stuck(self, 60)) {
+        if (Bot_Stuck(self, 60) && Distance(self->s.pos.trBase, self->botEnemy->s.pos.trBase) > 80) {
           //Jump really high :>
           self->client->pers.cmd.upmove = 30;
           self->client->ps.stats[STAT_STAMINA] = MAX_STAMINA;

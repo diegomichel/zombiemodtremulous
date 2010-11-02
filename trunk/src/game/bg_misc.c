@@ -4819,8 +4819,8 @@ Give the player an upgrade
 void BG_AddUpgradeToInventory(int item, int stats[ ]) {
   stats[ STAT_ITEMS ] |= (1 << item);
 
-  if (stats[ STAT_SLOTS ] & BG_FindSlotsForUpgrade(item))
-    Com_Printf(S_COLOR_YELLOW "WARNING: Held items conflict with upgrade %d\n", item);
+  //if (stats[ STAT_SLOTS ] & BG_FindSlotsForUpgrade(item))
+  //  Com_Printf(S_COLOR_YELLOW "WARNING: Held items conflict with upgrade %d\n", item);
 
   stats[ STAT_SLOTS ] |= BG_FindSlotsForUpgrade(item);
 }

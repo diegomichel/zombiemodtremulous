@@ -22,7 +22,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
 #include "g_local.h"
-
+#include "tremulous.h"
 /*
 ===============
 G_DamageFeedback
@@ -522,14 +522,7 @@ void ClientTimerActions(gentity_t *ent, int msec) {
   while (client->time350 >= 100) {
     client->time350 -= 100;
     if (ent->r.svFlags & SVF_BOT) {
-      if(!level.botsfollowpath)
-      {
-        G_BotThink(ent);
-      }
-      else
-      {
-        G_BotFollowPath(ent);
-      }
+      G_BotThink(ent);
     }
   }
 
@@ -537,27 +530,10 @@ void ClientTimerActions(gentity_t *ent, int msec) {
     client->time100 -= 100;
     
     //Grid fill
-    if(client->ps.stats[STAT_PTEAM] == PTE_HUMANS)
-    {
-      //Will not to take care of decimals division is int.
-      x = ((100/2)+(ent->s.origin[0]/100));
-      y = ((100/2)+(ent->s.origin[1]/100));
-      //Prevent buffer overflow.
-      if(x >= 100 || y >= 100 || x < 0 || y < 0)
-        continue;
-        
-      if(!level.grid[x][y])
-      {
-        level.grid[x][y] = 1;
-      }
+    /*if(client->ps.stats[STAT_PTEAM] == PTE_HUMANS)
+    {*/ 
+      fillGrid(ent);
       
-      //ent->s.origin 0 1 x and y.
-      //level.grid[1000][1000]; // Each 50 gu is a square on the grid. example 1500 1500 on grid = [30][30]
-      // 0 x 0 = [50][50]
-      // -100x-100 = [50 - 100/50][50 - 100/50]
-      // 100x100 = [50 + 100/50 ][50 - 100/50 ]
-    }
-
     //if not trying to run then not trying to sprint
     if (aForward <= 64)
       client->ps.stats[ STAT_STATE ] &= ~SS_SPEEDBOOST;
@@ -755,7 +731,7 @@ void ClientTimerActions(gentity_t *ent, int msec) {
               level.slowdownTime = level.time;
               break;
             }
-          trap_SendServerCommand(ent - g_entities, "cp \"^10\n\"");
+          trap_SendServerCommand(ent - g_entities, "cp \"^1Cover\n\"");
         } else {
           if(secToSpawn < 13) //Give some time to the other message to show up.
           {
@@ -879,25 +855,24 @@ void ClientTimerActions(gentity_t *ent, int msec) {
             ent->client->sess.sessionTeam != TEAM_SPECTATOR) {
       if (ent->lastTimeSeen == 0) {
         ent->lastTimeSeen = level.time + 5500; //30 seconds to camp on start
-      } else if(ent->health > 0 && level.slowdownTime < level.time){
-          if (!ent->camperWarning) {
-            trap_SendServerCommand(ent - g_entities,
-                  "print \"^1Stop Camping\n\"");
-            trap_SendServerCommand(ent - g_entities,
-                  "cp \"^1Stop Camping\n\"");
-            ent->camperWarning = 1;
-          } else {
+      } else if(ent->health > 0 && level.slowdownTime < level.time && level.lastpathfindtime < level.time){
               if(ent->health > 0 && ent->client->pers.classSelection != PCL_NONE)
               {
-                trap_SendServerCommand(ent - g_entities,
-                  "print \"^1Stop Camping\n\"");
-                trap_SendServerCommand(ent - g_entities,
-                  "cp \"^1Stop Camping\n\"");
-                G_Damage(ent, NULL, NULL, NULL, NULL, 33, 0, MOD_SUICIDE);
+                level.lastpathfindtime = level.time + 40000; // 10 Seconds to another pathfind.
+                find_path(ent);
+                if(level.botsfollowpath)
+                {
+                  kill_aliens_withoutenemy();
+                  trap_SendServerCommand(-1,
+                  "print \"^1:>\n\"");
+                }
+                
+                /*trap_SendServerCommand(ent - g_entities,
+                  "cp \"^1Stop Camping\n\"");*/
+                //G_Damage(ent, NULL, NULL, NULL, NULL, 33, 0, MOD_SUICIDE);
               }
           
           }
-        }
     }
 
     if (client->ps.weapon == WP_ALEVEL3_UPG) {
